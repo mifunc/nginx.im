@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://nginx.im/nginx%E5%B8%B8%E7%94%A8%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F%E5%8F%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html</loc>
+    <lastmod>2018-03-05T04:32:07.592Z</lastmod>
+    <data>
+        <display>
+        <title></title>
+        <pubTime>2017-12-11T05:54:15.165Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/tomcat/tomcat%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B.html</loc>
+    <lastmod>2018-03-05T03:59:20.728Z</lastmod>
+    <data>
+        <display>
+        <title>tomcat启动流程</title>
+        <pubTime>2018-03-03T05:36:22.279Z</pubTime>
+        
+        <tag>tomcat</tag>
+         
+         
+           
+             
+              <breadCrumb title="tomcat" url="http://nginx.im/categories/tomcat/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/spring-boot/spring-boot-Access-Control-Allow-Origin.html</loc>
+    <lastmod>2018-01-31T06:18:08.787Z</lastmod>
+    <data>
+        <display>
+        <title>springboot-Access-Control-Allow-Origin</title>
+        <pubTime>2018-01-30T06:13:44.467Z</pubTime>
+        
+        <tag>springboot</tag>
+         
+         
+           
+             
+              <breadCrumb title="springboot" url="http://nginx.im/categories/springboot/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/spring-boot/spring-token.html</loc>
+    <lastmod>2018-01-31T06:18:08.786Z</lastmod>
+    <data>
+        <display>
+        <title>springboot过滤器验证token</title>
+        <pubTime>2018-01-30T06:36:05.246Z</pubTime>
+        
+        <tag>springboot</tag>
+         
+        <tag>token</tag>
+         
+         
+           
+             
+              <breadCrumb title="token" url="http://nginx.im/categories/token/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/json/fastjson.html</loc>
+    <lastmod>2018-01-31T06:18:08.786Z</lastmod>
+    <data>
+        <display>
+        <title>JSON字符串转换为Map</title>
+        <pubTime>2018-01-30T06:25:51.831Z</pubTime>
+        
+        <tag>fastjson</tag>
+         
+        <tag>json</tag>
+         
+         
+           
+             
+              <breadCrumb title="json" url="http://nginx.im/categories/json/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/java%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81.html</loc>
+    <lastmod>2018-01-30T06:24:54.327Z</lastmod>
+    <data>
+        <display>
+        <title>java常用的一些代码片段</title>
+        <pubTime>2017-12-05T09:36:35.964Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>java常用代码</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://nginx.im/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx_http_conf_get_module_loc_conf.html</loc>
+    <lastmod>2018-01-21T07:51:26.699Z</lastmod>
+    <data>
+        <display>
+        <title>ngx_http_conf_get_module_loc_conf 分析</title>
+        <pubTime>2018-01-05T02:13:34.883Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx" url="http://nginx.im/categories/nginx/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/%E5%9F%BA%E4%BA%8EThree.js%E5%B1%95%E7%A4%BA%E5%85%A8%E6%99%AF%E5%9B%BE.html</loc>
+    <lastmod>2018-01-21T07:51:26.698Z</lastmod>
+    <data>
+        <display>
+        <title>基于Three.js展示全景图</title>
+        <pubTime>2017-12-31T08:07:52.858Z</pubTime>
+        
+        <tag>Three.js</tag>
+         
+         
+           
+             
+              <breadCrumb title="Three.js" url="http://nginx.im/categories/Three-js/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/Nginx%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B.html</loc>
+    <lastmod>2018-01-21T07:51:26.697Z</lastmod>
+    <data>
+        <display>
+        <title>nginx启动流程</title>
+        <pubTime>2018-01-04T05:47:25.092Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx" url="http://nginx.im/categories/nginx/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/The-real-difference-between-$host-and-$http_host.html</loc>
+    <lastmod>2018-01-21T07:51:26.696Z</lastmod>
+    <data>
+        <display>
+        <title>The real difference between $host and $http_host</title>
+        <pubTime>2017-12-18T05:32:02.215Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+        <tag>host</tag>
+         
+        <tag>http_host</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx" url="http://nginx.im/categories/nginx/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/Failed%20to%20start%20component.html</loc>
+    <lastmod>2018-01-21T07:51:26.693Z</lastmod>
+    <data>
+        <display>
+        <title>Faile- to-star- component-Unable-to-register-MBean</title>
+        <pubTime>2018-01-21T06:56:08.558Z</pubTime>
+        
+        <tag>tomcat</tag>
+         
+        <tag>springboot</tag>
+         
+         
+           
+             
+              <breadCrumb title="springboot" url="http://nginx.im/categories/springboot/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/error-assignment-to-expression-with-array-type-error.html</loc>
+    <lastmod>2017-12-07T10:06:53.223Z</lastmod>
+    <data>
+        <display>
+        <title>error-assignment-to-expression-with-array-type-error</title>
+        <pubTime>2017-12-07T08:57:17.779Z</pubTime>
+        
+        <tag>struct</tag>
+         
+        <tag>c</tag>
+         
+        <tag>结构体</tag>
+         
+         
+           
+             
+              <breadCrumb title="c" url="http://nginx.im/categories/c/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/C%E8%AF%AD%E8%A8%80%E7%BB%93%E6%9E%84%E4%BD%93%E7%A0%94%E7%A9%B6.html</loc>
+    <lastmod>2017-12-07T10:06:53.221Z</lastmod>
+    <data>
+        <display>
+        <title>C语言结构体研究</title>
+        <pubTime>2017-12-07T09:20:02.660Z</pubTime>
+        
+        <tag>struct</tag>
+         
+        <tag>c</tag>
+         
+         
+           
+             
+              <breadCrumb title="c" url="http://nginx.im/categories/c/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/java%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88%E5%BA%94%E7%94%A8.html</loc>
+    <lastmod>2017-12-06T10:38:21.752Z</lastmod>
+    <data>
+        <display>
+        <title>java排列组合随机字符串应用</title>
+        <pubTime>2017-12-05T09:29:25.257Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>随机字符串</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://nginx.im/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/java-zip%E5%8E%8B%E7%BC%A9%E5%8D%95%E6%96%87%E4%BB%B6.html</loc>
+    <lastmod>2017-12-06T10:38:21.750Z</lastmod>
+    <data>
+        <display>
+        <title>java-zip压缩单文件</title>
+        <pubTime>2017-12-05T09:21:57.247Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>zip</tag>
+         
+        <tag>ZipInputStream</tag>
+         
+        <tag>ZipFile</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://nginx.im/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx-location%E5%A5%87%E6%B7%AB%E6%8A%80%E5%B7%A7.html</loc>
+    <lastmod>2017-12-05T11:11:44.558Z</lastmod>
+    <data>
+        <display>
+        <title>nginx-location正则表达式匹配规则及动静分离</title>
+        <pubTime>2017-11-20T08:12:08.630Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+        <tag>location</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx" url="http://nginx.im/categories/nginx/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx-args-query-string-uri%E8%AF%A6%E8%A7%A3.html</loc>
+    <lastmod>2017-12-05T11:11:44.557Z</lastmod>
+    <data>
+        <display>
+        <title>nginx-args-query-string-uri详解</title>
+        <pubTime>2017-11-23T07:14:02.055Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+        <tag>uri</tag>
+         
+        <tag>query_string</tag>
+         
+        <tag>request_uri</tag>
+         
+        <tag>document_uri</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx" url="http://nginx.im/categories/nginx/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx-if%E6%8C%87%E4%BB%A4%E4%B8%8E%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F.html</loc>
+    <lastmod>2017-12-02T09:54:56.385Z</lastmod>
+    <data>
+        <display>
+        <title>nginx-if指令与全局变量</title>
+        <pubTime>2017-12-02T05:11:21.657Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+        <tag>if</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx" url="http://nginx.im/categories/nginx/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/fastjson%E8%A7%A3%E6%9E%90json%E5%AD%97%E7%AC%A6%E4%B8%B2.html</loc>
+    <lastmod>2017-11-29T01:39:36.397Z</lastmod>
+    <data>
+        <display>
+        <title>fastjson解析json字符串</title>
+        <pubTime>2017-11-28T08:33:06.867Z</pubTime>
+        
+        <tag>fastjson</tag>
+         
+         
+           
+             
+              <breadCrumb title="json" url="http://nginx.im/categories/json/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/spring-boot%E8%87%AA%E4%B9%89%E5%AE%9A%E9%94%99%E8%AF%AF%E8%BF%94%E5%9B%9E%E9%A1%B5%E9%9D%A2%E5%92%8Cjson%E6%A0%BC%E5%BC%8F.html</loc>
+    <lastmod>2017-11-28T08:39:58.597Z</lastmod>
+    <data>
+        <display>
+        <title>spring-boot自义定错误返回页面和json格式</title>
+        <pubTime>2017-11-28T06:34:52.343Z</pubTime>
+        
+        <tag>springboot</tag>
+         
+        <tag>json</tag>
+         
+         
+           
+             
+              <breadCrumb title="springboot" url="http://nginx.im/categories/springboot/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/spring-boot-feign%E4%BC%AArpc%E9%9B%86%E6%88%90.html</loc>
+    <lastmod>2017-11-28T08:39:58.595Z</lastmod>
+    <data>
+        <display>
+        <title>spring-boot-feign伪rpc集成</title>
+        <pubTime>2017-11-27T05:48:06.536Z</pubTime>
+        
+        <tag>springboot</tag>
+         
+        <tag>feign</tag>
+         
+         
+           
+             
+              <breadCrumb title="feign" url="http://nginx.im/categories/feign/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/spring-boot-mybatis-druid%E6%95%B4%E5%90%88.html</loc>
+    <lastmod>2017-11-25T09:42:39.200Z</lastmod>
+    <data>
+        <display>
+        <title>spring-boot-mybatis-druid整合</title>
+        <pubTime>2017-11-25T08:14:09.523Z</pubTime>
+        
+        <tag>springboot</tag>
+         
+        <tag>mybatis</tag>
+         
+        <tag>druid</tag>
+         
+         
+           
+             
+              <breadCrumb title="springboot" url="http://nginx.im/categories/springboot/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/centos7-rc-local%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E4%BF%AE%E5%A4%8D.html</loc>
+    <lastmod>2017-11-23T07:51:46.827Z</lastmod>
+    <data>
+        <display>
+        <title>centos7-rc-local不起作用修复</title>
+        <pubTime>2017-11-23T05:07:32.611Z</pubTime>
+        
+        <tag>centos7</tag>
+         
+        <tag>rc.local</tag>
+         
+         
+           
+             
+              <breadCrumb title="centos7" url="http://nginx.im/categories/centos7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+</urlset>
