@@ -3,6 +3,98 @@
   
     
     <entry>
+      <title><![CDATA[ngx_http_image_filter_module应用]]></title>
+      <url>/nginx/ngx_http_image_filter_module%E5%BA%94%E7%94%A8.html</url>
+      <content type="html"><![CDATA[<p> ngx_http_image_filter_module 缩略图应用</p>
+ <a id="more"></a>
+<h1 id="安装yum-install-y-gd-devel"><a href="#安装yum-install-y-gd-devel" class="headerlink" title="安装yum install -y gd-devel"></a>安装yum install -y gd-devel</h1><h1 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf nginx.tar.gz</span><br><span class="line">./configure --prefix=/usr/local/nginx --with-hhtp_image_filter_module</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Syntax:	image_filter off;</span><br><span class="line">image_filter test;</span><br><span class="line">image_filter size;</span><br><span class="line">image_filter rotate 90 | 180 | 270;</span><br><span class="line">image_filter resize width height;</span><br><span class="line">image_filter crop width height;</span><br><span class="line">Default:	</span><br><span class="line">image_filter off;</span><br><span class="line">Context:	location</span><br></pre></td></tr></table></figure>
+<h1 id="配置nginx-conf"><a href="#配置nginx-conf" class="headerlink" title="配置nginx.conf"></a>配置nginx.conf</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">location ~* /img/(.+)_(\d+)x(\d+)\.(jpg|gif|png)$ &#123;            </span><br><span class="line">    set $h $2;</span><br><span class="line">    set $w $3;</span><br><span class="line">    if ($h = &quot;0&quot;) &#123;</span><br><span class="line">        rewrite /img/(.+)_(\d+)x(\d+)\.(jpg|gif|png)$ /img/$1.$4 last;</span><br><span class="line">    &#125;</span><br><span class="line">    if ($w = &quot;0&quot;) &#123;</span><br><span class="line">        rewrite /img/(.+)_(\d+)x(\d+)\.(jpg|gif|png)$ /img/$1.$4 last;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    #根据给定的长宽生成缩略图</span><br><span class="line">    image_filter resize $h $w;</span><br><span class="line">    #原图最大2M，要裁剪的图片超过2M返回415错误，需要调节参数image_filter_buffer </span><br><span class="line">    image_filter_buffer 2M;                          </span><br><span class="line">     </span><br><span class="line">    #error_page  415              /img/notfound.jpg;</span><br><span class="line">    try_files /img/$1.$4  /img/notfound.jpg;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">访问缩略图方式</span><br><span class="line"></span><br><span class="line">http://nginx.im/img/9GUMJR7200AJ0003_90x90.jpg</span><br><span class="line"></span><br><span class="line">访问原图方式</span><br><span class="line"></span><br><span class="line">http://nginx.im/img/9GUMJR7200AJ0003.jpg</span><br></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> nginx </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> nginx </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[ngx_http_addition_module应用]]></title>
+      <url>/nginx/ngx_http_addition_module%E5%BA%94%E7%94%A8.html</url>
+      <content type="html"><![CDATA[<p>ngx_http_addition_module在响应之前或者之后追加文本内容，比如js,html</p>
+<a id="more"></a>
+<h1 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf nginx.tar.gz</span><br><span class="line">cd nginx</span><br><span class="line">./configure --prefix=/usr/local/nginx --with-http_addition_module</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<h1 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h1><blockquote>
+<p>Syntax:    add_before_body uri;<br>Default:    —<br>Context:    http, server, location</p>
+<p>Syntax:    add_after_body uri;<br>Default:    —<br>Context:    http, server, location</p>
+</blockquote>
+<h1 id="nginx-conf-配置"><a href="#nginx-conf-配置" class="headerlink" title="nginx.conf 配置"></a>nginx.conf 配置</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">    add_before_body /head.html;</span><br><span class="line">    add_after_body  /foot.html;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim index.html</span><br><span class="line">&lt;h1&gt;hello nginx &lt;/h1&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim head.html</span><br><span class="line">&lt;div&gt;head&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim foot.html</span><br><span class="line"></span><br><span class="line">&lt;div&gt;foot&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>启用后</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;head&lt;/div&gt;</span><br><span class="line">&lt;h1&gt;hello nginx &lt;/h1&gt;</span><br><span class="line">&lt;div&gt;foot&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> nginx </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> nginx </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[springboot统一异常处理]]></title>
+      <url>/java/springboot%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86.html</url>
+      <content type="html"><![CDATA[<p>springboot 统一异常处理</p>
+<a id="more"></a>
+<h1 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">package nginx;</span><br><span class="line"></span><br><span class="line">import org.springframework.boot.SpringApplication;</span><br><span class="line">import org.springframework.boot.autoconfigure.EnableAutoConfiguration;</span><br><span class="line">import org.springframework.context.annotation.ComponentScan;</span><br><span class="line">import org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line">import org.springframework.web.bind.annotation.ResponseBody;</span><br><span class="line">import org.springframework.web.bind.annotation.RestController;</span><br><span class="line"></span><br><span class="line">@RestController</span><br><span class="line"></span><br><span class="line">@EnableAutoConfiguration  //1</span><br><span class="line">@ComponentScan         //2 </span><br><span class="line">public class test &#123;</span><br><span class="line"></span><br><span class="line">	@RequestMapping(&quot;/&quot;)</span><br><span class="line">	@ResponseBody</span><br><span class="line">	String home() &#123;</span><br><span class="line">		System.err.println(1 / 0);</span><br><span class="line">		return &quot;Hello World!&quot;;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws Exception &#123;</span><br><span class="line">		SpringApplication.run(test.class, args);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<blockquote>
+<p> 标注 1,2 可以换成@SpringBootApplication<br> @SpringBootApplication //等同于 @Configuration @EnableAutoConfiguration @ComponentScan</p>
+</blockquote>
+</blockquote>
+<h1 id="异常类"><a href="#异常类" class="headerlink" title="异常类"></a>异常类</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">package nginx;</span><br><span class="line"></span><br><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.Map;</span><br><span class="line"></span><br><span class="line">import org.springframework.web.bind.annotation.ControllerAdvice;</span><br><span class="line">import org.springframework.web.bind.annotation.ExceptionHandler;</span><br><span class="line">import org.springframework.web.bind.annotation.ResponseBody;</span><br><span class="line"></span><br><span class="line">@ControllerAdvice</span><br><span class="line">public class ex &#123;</span><br><span class="line">	@ExceptionHandler(RuntimeException.class)</span><br><span class="line">	@ResponseBody // 拦截返回是 json返回结果</span><br><span class="line">	public Map&lt;String, Object&gt; exceptionHandler() &#123;</span><br><span class="line">		Map&lt;String, Object&gt; result = new HashMap&lt;String, Object&gt;();</span><br><span class="line">		result.put(&quot;code&quot;, &quot;500&quot;);</span><br><span class="line">		result.put(&quot;msg&quot;, &quot;亲,系统错误,请稍后重试....&quot;);</span><br><span class="line">		return result;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="ControllerAdvice-注解，用于拦截全局的Controller的异常，注意：ControllerAdvice注解只拦截Controller不会拦截Interceptor的异常"><a href="#ControllerAdvice-注解，用于拦截全局的Controller的异常，注意：ControllerAdvice注解只拦截Controller不会拦截Interceptor的异常" class="headerlink" title="@ControllerAdvice 注解，用于拦截全局的Controller的异常，注意：ControllerAdvice注解只拦截Controller不会拦截Interceptor的异常"></a>@ControllerAdvice 注解，用于拦截全局的Controller的异常，注意：ControllerAdvice注解只拦截Controller不会拦截Interceptor的异常</h1> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package com.cmc.schedule.handler;</span><br><span class="line"></span><br><span class="line">import com.gionee.base.entity.JsonResult;</span><br><span class="line">import org.slf4j.Logger;</span><br><span class="line">import org.slf4j.LoggerFactory;</span><br><span class="line">import org.springframework.beans.ConversionNotSupportedException;</span><br><span class="line">import org.springframework.beans.TypeMismatchException;</span><br><span class="line">import org.springframework.http.converter.HttpMessageNotReadableException;</span><br><span class="line">import org.springframework.http.converter.HttpMessageNotWritableException;</span><br><span class="line">import org.springframework.web.HttpMediaTypeNotAcceptableException;</span><br><span class="line">import org.springframework.web.HttpRequestMethodNotSupportedException;</span><br><span class="line">import org.springframework.web.bind.MissingServletRequestParameterException;</span><br><span class="line">import org.springframework.web.bind.annotation.ControllerAdvice;</span><br><span class="line">import org.springframework.web.bind.annotation.ExceptionHandler;</span><br><span class="line">import org.springframework.web.bind.annotation.ResponseBody;</span><br><span class="line"></span><br><span class="line">import java.io.IOException;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 异常拦截处理器</span><br><span class="line"> *</span><br><span class="line"> * @author chenmc</span><br><span class="line"> */</span><br><span class="line">@ControllerAdvice</span><br><span class="line">@ResponseBody</span><br><span class="line">public class GlobalExceptionHandler &#123;</span><br><span class="line"></span><br><span class="line">    private static final String logExceptionFormat = &quot;Capture Exception By GlobalExceptionHandler: Code: %s Detail: %s&quot;;</span><br><span class="line">    private static Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);</span><br><span class="line"></span><br><span class="line">    //运行时异常  </span><br><span class="line">    @ExceptionHandler(RuntimeException.class)</span><br><span class="line">    public String runtimeExceptionHandler(RuntimeException ex) &#123;</span><br><span class="line">        return resultFormat(1, ex);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //空指针异常  </span><br><span class="line">    @ExceptionHandler(NullPointerException.class)</span><br><span class="line">    public String nullPointerExceptionHandler(NullPointerException ex) &#123;</span><br><span class="line">        return resultFormat(2, ex);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //类型转换异常  </span><br><span class="line">    @ExceptionHandler(ClassCastException.class)</span><br><span class="line">    public String classCastExceptionHandler(ClassCastException ex) &#123;</span><br><span class="line">        return resultFormat(3, ex);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //IO异常  </span><br><span class="line">    @ExceptionHandler(IOException.class)</span><br><span class="line">    public String iOExceptionHandler(IOException ex) &#123;</span><br><span class="line">        return resultFormat(4, ex);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //未知方法异常  </span><br><span class="line">    @ExceptionHandler(NoSuchMethodException.class)</span><br><span class="line">    public String noSuchMethodExceptionHandler(NoSuchMethodException ex) &#123;</span><br><span class="line">        return resultFormat(5, ex);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //数组越界异常  </span><br><span class="line">    @ExceptionHandler(IndexOutOfBoundsException.class)</span><br><span class="line">    public String indexOutOfBoundsExceptionHandler(IndexOutOfBoundsException ex) &#123;</span><br><span class="line">        return resultFormat(6, ex);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //400错误  </span><br><span class="line">    @ExceptionHandler(&#123;HttpMessageNotReadableException.class&#125;)</span><br><span class="line">    public String requestNotReadable(HttpMessageNotReadableException ex) &#123;</span><br><span class="line">        System.out.println(&quot;400..requestNotReadable&quot;);</span><br><span class="line">        return resultFormat(7, ex);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //400错误  </span><br><span class="line">    @ExceptionHandler(&#123;TypeMismatchException.class&#125;)</span><br><span class="line">    public String requestTypeMismatch(TypeMismatchException ex) &#123;</span><br><span class="line">        System.out.println(&quot;400..TypeMismatchException&quot;);</span><br><span class="line">        return resultFormat(8, ex);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //400错误  </span><br><span class="line">    @ExceptionHandler(&#123;MissingServletRequestParameterException.class&#125;)</span><br><span class="line">    public String requestMissingServletRequest(MissingServletRequestParameterException ex) &#123;</span><br><span class="line">        System.out.println(&quot;400..MissingServletRequest&quot;);</span><br><span class="line">        return resultFormat(9, ex);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //405错误  </span><br><span class="line">    @ExceptionHandler(&#123;HttpRequestMethodNotSupportedException.class&#125;)</span><br><span class="line">    public String request405(HttpRequestMethodNotSupportedException ex) &#123;</span><br><span class="line">        return resultFormat(10, ex);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //406错误  </span><br><span class="line">    @ExceptionHandler(&#123;HttpMediaTypeNotAcceptableException.class&#125;)</span><br><span class="line">    public String request406(HttpMediaTypeNotAcceptableException ex) &#123;</span><br><span class="line">        System.out.println(&quot;406...&quot;);</span><br><span class="line">        return resultFormat(11, ex);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //500错误  </span><br><span class="line">    @ExceptionHandler(&#123;ConversionNotSupportedException.class, HttpMessageNotWritableException.class&#125;)</span><br><span class="line">    public String server500(RuntimeException ex) &#123;</span><br><span class="line">        System.out.println(&quot;500...&quot;);</span><br><span class="line">        return resultFormat(12, ex);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //栈溢出</span><br><span class="line">    @ExceptionHandler(&#123;StackOverflowError.class&#125;)</span><br><span class="line">    public String requestStackOverflow(StackOverflowError ex) &#123;</span><br><span class="line">        return resultFormat(13, ex);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //其他错误</span><br><span class="line">    @ExceptionHandler(&#123;Exception.class&#125;)</span><br><span class="line">    public String exception(Exception ex) &#123;</span><br><span class="line">        return resultFormat(14, ex);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private &lt;T extends Throwable&gt; String resultFormat(Integer code, T ex) &#123;</span><br><span class="line">        ex.printStackTrace();</span><br><span class="line">        log.error(String.format(logExceptionFormat, code, ex.getMessage()));</span><br><span class="line">        return JsonResult.failed(code, ex.getMessage());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+        <categories>
+            
+            <category> java </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> springboot </tag>
+            
+            <tag> java </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[java动态代理实现连接池]]></title>
       <url>/java/java%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0%E8%BF%9E%E6%8E%A5%E6%B1%A0.html</url>
       <content type="html"><![CDATA[<p> java动态代理实现连接池</p>
@@ -478,6 +570,36 @@
     </entry>
     
     <entry>
+      <title><![CDATA[nginx-if指令与全局变量]]></title>
+      <url>/nginx-if%E6%8C%87%E4%BB%A4%E4%B8%8E%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F.html</url>
+      <content type="html"><![CDATA[<p>if判断指令<br>语法为if(condition){…}，对给定的条件condition进行判断。如果为真，大括号内的rewrite指令将被执行，if条件(conditon)可以是如下任何内容：</p>
+<blockquote>
+<p>当表达式只是一个变量时，如果值为空或任何以0开头的字符串都会当做false<br>直接比较变量和内容时，使用=或!=<br>~正则表达式匹配，~*不区分大小写的匹配，!~区分大小写的不匹配</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="if-常用判断"><a href="#if-常用判断" class="headerlink" title="if 常用判断"></a>if 常用判断</h1><p>-f和!-f用来判断是否存在文件<br>-d和!-d用来判断是否存在目录<br>-e和!-e用来判断是否存在文件或目录<br>-x和!-x用来判断文件是否可执行</p>
+<h2 id="if应用"><a href="#if应用" class="headerlink" title="if应用"></a>if应用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">if ($http_user_agent ~ MSIE) &#123;</span><br><span class="line">    rewrite ^(.*)$ /msie/$1 break;</span><br><span class="line">&#125; //如果UA包含&quot;MSIE&quot;，rewrite请求到/msid/目录下</span><br><span class="line">if ($http_cookie ~* &quot;id=([^;]+)(?:;|$)&quot;) &#123;</span><br><span class="line">    set $id $1;</span><br><span class="line"> &#125; //如果cookie匹配正则，设置变量$id等于正则引用部分</span><br><span class="line">if ($request_method = POST) &#123;</span><br><span class="line">    return 405;</span><br><span class="line">&#125; //如果提交方法为POST，则返回状态405（Method not allowed）。return不能返回301,302</span><br><span class="line">if ($slow) &#123;</span><br><span class="line">    limit_rate 10k;</span><br><span class="line">&#125; //限速，$slow可以通过 set 指令设置</span><br><span class="line">if (!-f $request_filename)&#123;</span><br><span class="line">    break;</span><br><span class="line">    proxy_pass  http://127.0.0.1;</span><br><span class="line">&#125; //如果请求的文件名不存在，则反向代理到localhost 。这里的break也是停止rewrite检查</span><br><span class="line">if ($args ~ post=140)&#123;</span><br><span class="line">    rewrite ^ http://example.com/ permanent;</span><br><span class="line">&#125; //如果query string中包含&quot;post=140&quot;，永久重定向到example.com</span><br><span class="line">location ~* \.(gif|jpg|png|swf|flv)$ &#123;</span><br><span class="line">    valid_referers none blocked www.jefflei.com www.leizhenfang.com;</span><br><span class="line">    if ($invalid_referer) &#123;</span><br><span class="line">        return 404;</span><br><span class="line">    &#125; //防盗链</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="nginx-常用全局变量"><a href="#nginx-常用全局变量" class="headerlink" title="nginx 常用全局变量"></a>nginx 常用全局变量</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">$args ： #这个变量等于请求行中的参数，同$query_string</span><br><span class="line">$is_args : 如果请求带有参数, 值为 ? 否则为空字符串</span><br><span class="line">$content_length ： 请求头中的Content-length字段。</span><br><span class="line">$content_type ： 请求头中的Content-Type字段。</span><br><span class="line">$document_root ： 当前请求在root指令中指定的值。</span><br><span class="line">$host ： 请求主机头字段，否则为服务器名称。</span><br><span class="line">$http_user_agent ： 客户端agent信息</span><br><span class="line">$http_cookie ： 客户端cookie信息</span><br><span class="line">$limit_rate ： 这个变量可以限制连接速率。</span><br><span class="line">$request_method ： 客户端请求的动作，通常为GET或POST。</span><br><span class="line">$remote_addr ： 客户端的IP地址。</span><br><span class="line">$remote_port ： 客户端的端口。</span><br><span class="line">$remote_user ： 已经经过Auth Basic Module验证的用户名。</span><br><span class="line">$request_filename ： 当前请求的文件路径，由root或alias指令与URI请求生成。</span><br><span class="line">$scheme ： HTTP方法（如http，https）。</span><br><span class="line">$server_protocol ： 请求使用的协议，通常是HTTP/1.0或HTTP/1.1。</span><br><span class="line">$server_addr ： 服务器地址，在完成一次系统调用后可以确定这个值。</span><br><span class="line">$server_name ： 服务器名称。</span><br><span class="line">$server_port ： 请求到达服务器的端口号。</span><br><span class="line">$request_uri ： 包含请求参数的原始URI，不包含主机名，如：”/foo/bar.php?arg=baz”。</span><br><span class="line">$uri ： 不带请求参数的当前URI，$uri不包含主机名，如”/foo/bar.html”。</span><br><span class="line">$document_uri ： 与$uri相同。</span><br><span class="line">$nginx_version： 当前nginx版本</span><br><span class="line">$request: 原始请求 GET /one/2222 HTTP/1.1</span><br><span class="line">$status:  响应状态码</span><br><span class="line">$http_referer: url跳转来源</span><br><span class="line">$request_body : 客户端请求主体</span><br></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> nginx </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> nginx </tag>
+            
+            <tag> if </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[nginx-args-query-string-uri详解]]></title>
       <url>/nginx-args-query-string-uri%E8%AF%A6%E8%A7%A3.html</url>
       <content type="html"><![CDATA[<p>Nginx 中常见和url操作相关的变量</p>
@@ -507,36 +629,6 @@
             <tag> request_uri </tag>
             
             <tag> document_uri </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[nginx-if指令与全局变量]]></title>
-      <url>/nginx-if%E6%8C%87%E4%BB%A4%E4%B8%8E%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F.html</url>
-      <content type="html"><![CDATA[<p>if判断指令<br>语法为if(condition){…}，对给定的条件condition进行判断。如果为真，大括号内的rewrite指令将被执行，if条件(conditon)可以是如下任何内容：</p>
-<blockquote>
-<p>当表达式只是一个变量时，如果值为空或任何以0开头的字符串都会当做false<br>直接比较变量和内容时，使用=或!=<br>~正则表达式匹配，~*不区分大小写的匹配，!~区分大小写的不匹配</p>
-</blockquote>
-<a id="more"></a>
-<h1 id="if-常用判断"><a href="#if-常用判断" class="headerlink" title="if 常用判断"></a>if 常用判断</h1><p>-f和!-f用来判断是否存在文件<br>-d和!-d用来判断是否存在目录<br>-e和!-e用来判断是否存在文件或目录<br>-x和!-x用来判断文件是否可执行</p>
-<h2 id="if应用"><a href="#if应用" class="headerlink" title="if应用"></a>if应用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">if ($http_user_agent ~ MSIE) &#123;</span><br><span class="line">    rewrite ^(.*)$ /msie/$1 break;</span><br><span class="line">&#125; //如果UA包含&quot;MSIE&quot;，rewrite请求到/msid/目录下</span><br><span class="line">if ($http_cookie ~* &quot;id=([^;]+)(?:;|$)&quot;) &#123;</span><br><span class="line">    set $id $1;</span><br><span class="line"> &#125; //如果cookie匹配正则，设置变量$id等于正则引用部分</span><br><span class="line">if ($request_method = POST) &#123;</span><br><span class="line">    return 405;</span><br><span class="line">&#125; //如果提交方法为POST，则返回状态405（Method not allowed）。return不能返回301,302</span><br><span class="line">if ($slow) &#123;</span><br><span class="line">    limit_rate 10k;</span><br><span class="line">&#125; //限速，$slow可以通过 set 指令设置</span><br><span class="line">if (!-f $request_filename)&#123;</span><br><span class="line">    break;</span><br><span class="line">    proxy_pass  http://127.0.0.1;</span><br><span class="line">&#125; //如果请求的文件名不存在，则反向代理到localhost 。这里的break也是停止rewrite检查</span><br><span class="line">if ($args ~ post=140)&#123;</span><br><span class="line">    rewrite ^ http://example.com/ permanent;</span><br><span class="line">&#125; //如果query string中包含&quot;post=140&quot;，永久重定向到example.com</span><br><span class="line">location ~* \.(gif|jpg|png|swf|flv)$ &#123;</span><br><span class="line">    valid_referers none blocked www.jefflei.com www.leizhenfang.com;</span><br><span class="line">    if ($invalid_referer) &#123;</span><br><span class="line">        return 404;</span><br><span class="line">    &#125; //防盗链</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="nginx-常用全局变量"><a href="#nginx-常用全局变量" class="headerlink" title="nginx 常用全局变量"></a>nginx 常用全局变量</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">$args ： #这个变量等于请求行中的参数，同$query_string</span><br><span class="line">$is_args : 如果请求带有参数, 值为 ? 否则为空字符串</span><br><span class="line">$content_length ： 请求头中的Content-length字段。</span><br><span class="line">$content_type ： 请求头中的Content-Type字段。</span><br><span class="line">$document_root ： 当前请求在root指令中指定的值。</span><br><span class="line">$host ： 请求主机头字段，否则为服务器名称。</span><br><span class="line">$http_user_agent ： 客户端agent信息</span><br><span class="line">$http_cookie ： 客户端cookie信息</span><br><span class="line">$limit_rate ： 这个变量可以限制连接速率。</span><br><span class="line">$request_method ： 客户端请求的动作，通常为GET或POST。</span><br><span class="line">$remote_addr ： 客户端的IP地址。</span><br><span class="line">$remote_port ： 客户端的端口。</span><br><span class="line">$remote_user ： 已经经过Auth Basic Module验证的用户名。</span><br><span class="line">$request_filename ： 当前请求的文件路径，由root或alias指令与URI请求生成。</span><br><span class="line">$scheme ： HTTP方法（如http，https）。</span><br><span class="line">$server_protocol ： 请求使用的协议，通常是HTTP/1.0或HTTP/1.1。</span><br><span class="line">$server_addr ： 服务器地址，在完成一次系统调用后可以确定这个值。</span><br><span class="line">$server_name ： 服务器名称。</span><br><span class="line">$server_port ： 请求到达服务器的端口号。</span><br><span class="line">$request_uri ： 包含请求参数的原始URI，不包含主机名，如：”/foo/bar.php?arg=baz”。</span><br><span class="line">$uri ： 不带请求参数的当前URI，$uri不包含主机名，如”/foo/bar.html”。</span><br><span class="line">$document_uri ： 与$uri相同。</span><br><span class="line">$nginx_version： 当前nginx版本</span><br><span class="line">$request: 原始请求 GET /one/2222 HTTP/1.1</span><br><span class="line">$status:  响应状态码</span><br><span class="line">$http_referer: url跳转来源</span><br><span class="line">$request_body : 客户端请求主体</span><br></pre></td></tr></table></figure>
-]]></content>
-      
-        <categories>
-            
-            <category> nginx </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> nginx </tag>
-            
-            <tag> if </tag>
             
         </tags>
         
@@ -598,6 +690,34 @@
     </entry>
     
     <entry>
+      <title><![CDATA[java排列组合随机字符串应用]]></title>
+      <url>/java%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88%E5%BA%94%E7%94%A8.html</url>
+      <content type="html"><![CDATA[<p>已知固定长度的字符串字典</p>
+<blockquote>
+<p>ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+</blockquote>
+<p>按字典序输出固定随机字符串</p>
+<a id="more"></a>
+<h1 id="直接上代码"><a href="#直接上代码" class="headerlink" title="直接上代码"></a>直接上代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">public static String randomChar(String dict, String pre, Integer len) &#123;</span><br><span class="line"></span><br><span class="line">		Integer dictLen = dict.length() - 1;</span><br><span class="line">		char[] preChar = pre.toCharArray();</span><br><span class="line">		char[] chArray = new char[len];</span><br><span class="line">		char achar = preChar[len - 1];</span><br><span class="line">		Integer preCharIndex = dict.indexOf(achar);</span><br><span class="line">		if ((preCharIndex + 1) &gt; dictLen) &#123;</span><br><span class="line">			chArray[len - 1] = dict.charAt(0);</span><br><span class="line">		&#125; else &#123;</span><br><span class="line">			chArray[len - 1] = dict.charAt(preCharIndex + 1);</span><br><span class="line">		&#125;</span><br><span class="line">		for (int i = len - 2; i &gt;= 0; i--) &#123;</span><br><span class="line">			Integer preCharIndex1 = dict.indexOf(preChar[i + 1]); // 25</span><br><span class="line">			Integer preCharIndex2 = dict.indexOf(chArray[i + 1]); // 0</span><br><span class="line">			Integer preCharIndex3 = dict.indexOf(preChar[i]); //</span><br><span class="line">			if (Math.abs(preCharIndex1 - preCharIndex2) &gt; 1) &#123;</span><br><span class="line">				if (preCharIndex3 + 1 &gt; dictLen) &#123;</span><br><span class="line">					chArray[i] = dict.charAt(0);</span><br><span class="line">					continue;</span><br><span class="line">				&#125;</span><br><span class="line">				chArray[i] = dict.charAt(preCharIndex3 + 1);</span><br><span class="line">			&#125; else &#123;</span><br><span class="line">				chArray[i] = preChar[i];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return new String(chArray);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+        <categories>
+            
+            <category> java </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> java </tag>
+            
+            <tag> 随机字符串 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[java-zip压缩单文件]]></title>
       <url>/java-zip%E5%8E%8B%E7%BC%A9%E5%8D%95%E6%96%87%E4%BB%B6.html</url>
       <content type="html"><![CDATA[<p>java开发中经常用到压缩文件,在JDK中自带zip 压缩相关的类</p>
@@ -626,34 +746,6 @@
             <tag> ZipInputStream </tag>
             
             <tag> ZipFile </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[java排列组合随机字符串应用]]></title>
-      <url>/java%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88%E5%BA%94%E7%94%A8.html</url>
-      <content type="html"><![CDATA[<p>已知固定长度的字符串字典</p>
-<blockquote>
-<p>ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
-</blockquote>
-<p>按字典序输出固定随机字符串</p>
-<a id="more"></a>
-<h1 id="直接上代码"><a href="#直接上代码" class="headerlink" title="直接上代码"></a>直接上代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">public static String randomChar(String dict, String pre, Integer len) &#123;</span><br><span class="line"></span><br><span class="line">		Integer dictLen = dict.length() - 1;</span><br><span class="line">		char[] preChar = pre.toCharArray();</span><br><span class="line">		char[] chArray = new char[len];</span><br><span class="line">		char achar = preChar[len - 1];</span><br><span class="line">		Integer preCharIndex = dict.indexOf(achar);</span><br><span class="line">		if ((preCharIndex + 1) &gt; dictLen) &#123;</span><br><span class="line">			chArray[len - 1] = dict.charAt(0);</span><br><span class="line">		&#125; else &#123;</span><br><span class="line">			chArray[len - 1] = dict.charAt(preCharIndex + 1);</span><br><span class="line">		&#125;</span><br><span class="line">		for (int i = len - 2; i &gt;= 0; i--) &#123;</span><br><span class="line">			Integer preCharIndex1 = dict.indexOf(preChar[i + 1]); // 25</span><br><span class="line">			Integer preCharIndex2 = dict.indexOf(chArray[i + 1]); // 0</span><br><span class="line">			Integer preCharIndex3 = dict.indexOf(preChar[i]); //</span><br><span class="line">			if (Math.abs(preCharIndex1 - preCharIndex2) &gt; 1) &#123;</span><br><span class="line">				if (preCharIndex3 + 1 &gt; dictLen) &#123;</span><br><span class="line">					chArray[i] = dict.charAt(0);</span><br><span class="line">					continue;</span><br><span class="line">				&#125;</span><br><span class="line">				chArray[i] = dict.charAt(preCharIndex3 + 1);</span><br><span class="line">			&#125; else &#123;</span><br><span class="line">				chArray[i] = preChar[i];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return new String(chArray);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-        <categories>
-            
-            <category> java </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> java </tag>
-            
-            <tag> 随机字符串 </tag>
             
         </tags>
         
@@ -720,6 +812,35 @@
     </entry>
     
     <entry>
+      <title><![CDATA[centos7-rc-local不起作用修复]]></title>
+      <url>/centos7-rc-local%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E4%BF%AE%E5%A4%8D.html</url>
+      <content type="html"><![CDATA[<p>在centos7版本以下的系统中, 尝尝用rc.local 自动启动一些软件. 但是在centos7 中 默认rc.local 是不起作用的, centos7 中把 SysV 替换成  system 。centos7保留了rc.local ,只需要简单的设置就可以开启.</p>
+<a id="more"></a>
+<h1 id="设置rc-local-权限"><a href="#设置rc-local-权限" class="headerlink" title="设置rc.local 权限"></a>设置rc.local 权限</h1><p>我们在一下目录可以看见rc.local<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/etc/rc.local</span><br><span class="line">/etc/rc.d/rc.local</span><br><span class="line">#/etc/rc.local 是 /etc/rc.d/rc.local的软连接</span><br></pre></td></tr></table></figure></p>
+<p>chmod +x /etc/rc.d/rc.local </p>
+<h1 id="设置开机启动"><a href="#设置开机启动" class="headerlink" title="设置开机启动"></a>设置开机启动</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable  rc-local.service</span><br></pre></td></tr></table></figure>
+<h1 id="启动rc-local-service"><a href="#启动rc-local-service" class="headerlink" title="启动rc-local.service"></a>启动rc-local.service</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start   rc-local.service</span><br></pre></td></tr></table></figure>
+<h1 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status rc-local.service</span><br></pre></td></tr></table></figure>
+<h1 id="在-etc-rc-local-编写启动软件指令"><a href="#在-etc-rc-local-编写启动软件指令" class="headerlink" title="在/etc/rc.local 编写启动软件指令"></a>在/etc/rc.local 编写启动软件指令</h1>]]></content>
+      
+        <categories>
+            
+            <category> centos7 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> centos7 </tag>
+            
+            <tag> rc.local </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[The real difference between $host and $http_host]]></title>
       <url>/The-real-difference-between-$host-and-$http_host.html</url>
       <content type="html"><![CDATA[<p>Nginx中$host与$http_host的区别<br><a id="more"></a></p>
@@ -762,35 +883,6 @@
         <tags>
             
             <tag> nginx </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[centos7-rc-local不起作用修复]]></title>
-      <url>/centos7-rc-local%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E4%BF%AE%E5%A4%8D.html</url>
-      <content type="html"><![CDATA[<p>在centos7版本以下的系统中, 尝尝用rc.local 自动启动一些软件. 但是在centos7 中 默认rc.local 是不起作用的, centos7 中把 SysV 替换成  system 。centos7保留了rc.local ,只需要简单的设置就可以开启.</p>
-<a id="more"></a>
-<h1 id="设置rc-local-权限"><a href="#设置rc-local-权限" class="headerlink" title="设置rc.local 权限"></a>设置rc.local 权限</h1><p>我们在一下目录可以看见rc.local<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/etc/rc.local</span><br><span class="line">/etc/rc.d/rc.local</span><br><span class="line">#/etc/rc.local 是 /etc/rc.d/rc.local的软连接</span><br></pre></td></tr></table></figure></p>
-<p>chmod +x /etc/rc.d/rc.local </p>
-<h1 id="设置开机启动"><a href="#设置开机启动" class="headerlink" title="设置开机启动"></a>设置开机启动</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable  rc-local.service</span><br></pre></td></tr></table></figure>
-<h1 id="启动rc-local-service"><a href="#启动rc-local-service" class="headerlink" title="启动rc-local.service"></a>启动rc-local.service</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start   rc-local.service</span><br></pre></td></tr></table></figure>
-<h1 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status rc-local.service</span><br></pre></td></tr></table></figure>
-<h1 id="在-etc-rc-local-编写启动软件指令"><a href="#在-etc-rc-local-编写启动软件指令" class="headerlink" title="在/etc/rc.local 编写启动软件指令"></a>在/etc/rc.local 编写启动软件指令</h1>]]></content>
-      
-        <categories>
-            
-            <category> centos7 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> centos7 </tag>
-            
-            <tag> rc.local </tag>
             
         </tags>
         
