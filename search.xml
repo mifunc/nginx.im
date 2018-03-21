@@ -3,6 +3,30 @@
   
     
     <entry>
+      <title><![CDATA[简单服务器开发]]></title>
+      <url>/c/%E7%AE%80%E5%8D%95%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%BC%80%E5%8F%91.html</url>
+      <content type="html"><![CDATA[<p> 简单服务器开发</p>
+ <a id="more"></a>
+<h1 id="server"><a href="#server" class="headerlink" title="server"></a>server</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"> #include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;sys/socket.h&gt;</span><br><span class="line">#include &lt;netinet/in.h&gt;</span><br><span class="line">#include &lt;sys/types.h&gt;</span><br><span class="line">#include &lt;arpa/inet.h&gt;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">	 struct  sockaddr_in  server,client;</span><br><span class="line">	 char buf[1000];</span><br><span class="line">	 int cfd;</span><br><span class="line">	 int sfd=socket(AF_INET,SOCK_STREAM,IPPROTO_TCP);</span><br><span class="line">     server.sin_family=AF_INET;</span><br><span class="line">	 server.sin_port=htons(7006);</span><br><span class="line">	 server.sin_addr.s_addr=inet_addr(&quot;127.0.0.1&quot;);</span><br><span class="line">	 int ret=bind(sfd,(struct sockaddr *)&amp;server,sizeof(server));</span><br><span class="line">	 if(ret==-1)&#123;</span><br><span class="line">	 	printf(&quot;%s&quot;,&quot;bind error\n&quot;);</span><br><span class="line">	 	return -1; </span><br><span class="line">	 &#125;</span><br><span class="line">	 int lret=listen(sfd,10);</span><br><span class="line">	 if(lret==-1)&#123;</span><br><span class="line">	 	printf(&quot;%s&quot;,&quot;listen error\n&quot;);</span><br><span class="line">	 	return -1;</span><br><span class="line">	 &#125;</span><br><span class="line">	 int len=sizeof(client);</span><br><span class="line">	 while(1)&#123;</span><br><span class="line">	 	cfd=accept(sfd,(struct sockaddr *)&amp;client,&amp;len);</span><br><span class="line">	 	char str[]=&quot;hello world\n&quot;;</span><br><span class="line">	 	write(cfd,str,sizeof(str));</span><br><span class="line">	 	while(1)&#123;</span><br><span class="line">	 		read(cfd,buf,1000);</span><br><span class="line">		    printf(&quot;%s\n&quot;,buf);</span><br><span class="line">	 		</span><br><span class="line">		&#125;</span><br><span class="line">	</span><br><span class="line">		</span><br><span class="line">	</span><br><span class="line">	 	</span><br><span class="line">	 	</span><br><span class="line">	 &#125;</span><br><span class="line">	 close(cfd);</span><br><span class="line">	 close(sfd);</span><br><span class="line">	 printf(&quot;over\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="client"><a href="#client" class="headerlink" title="client"></a>client</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;sys/socket.h&gt;</span><br><span class="line">#include &lt;netinet/in.h&gt;</span><br><span class="line">#include &lt;sys/types.h&gt;</span><br><span class="line">#include &lt;arpa/inet.h&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int  main()&#123;</span><br><span class="line">	 struct sockaddr_in server;</span><br><span class="line">	 char buf[1000];</span><br><span class="line">	 char buff[1000];</span><br><span class="line">	 int fd=socket(AF_INET,SOCK_STREAM,IPPROTO_TCP);</span><br><span class="line">	 server.sin_family=AF_INET;</span><br><span class="line">	 server.sin_port=htons(7006);</span><br><span class="line">	 server.sin_addr.s_addr=inet_addr(&quot;127.0.0.1&quot;);</span><br><span class="line">	 connect(fd,(struct sockaddr*)&amp;server,sizeof(server));</span><br><span class="line">	 read(fd,buf,1000);</span><br><span class="line">	 printf(&quot;%s\n&quot;,buf);</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">	 while(1)&#123;</span><br><span class="line">	 	 </span><br><span class="line">	     scanf(&quot;%s&quot;,buff);</span><br><span class="line">        </span><br><span class="line">	     write(fd,buff,sizeof(buff));</span><br><span class="line">	     </span><br><span class="line">	   	</span><br><span class="line">	 &#125; </span><br><span class="line">	</span><br><span class="line">	 close(fd);	  </span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> c </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> c </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[ngx_http_image_filter_module应用]]></title>
       <url>/nginx/ngx_http_image_filter_module%E5%BA%94%E7%94%A8.html</url>
       <content type="html"><![CDATA[<p> ngx_http_image_filter_module 缩略图应用</p>
@@ -232,42 +256,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[spring-boot自义定错误返回页面和json格式]]></title>
-      <url>/spring-boot%E8%87%AA%E4%B9%89%E5%AE%9A%E9%94%99%E8%AF%AF%E8%BF%94%E5%9B%9E%E9%A1%B5%E9%9D%A2%E5%92%8Cjson%E6%A0%BC%E5%BC%8F.html</url>
-      <content type="html"><![CDATA[<p>springboot发生错误时，在浏览器端访问和用测试接口的软件看到的返回页面是不一样的。</p>
-<blockquote>
-<p>浏览器端  返回 Whitelabel Error Page页面<br>测试接口的软件返回一个json 字符串<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;timestamp&quot;: 1492063521109,</span><br><span class="line">&quot;status&quot;: 404,</span><br><span class="line">&quot;error&quot;: &quot;Not Found&quot;,</span><br><span class="line">&quot;message&quot;: &quot;No message available&quot;,</span><br><span class="line">&quot;path&quot;: &quot;/test/auth&quot;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<a id="more"></a>
-<h1 id="spring根据请求的-produces返回不同值"><a href="#spring根据请求的-produces返回不同值" class="headerlink" title="spring根据请求的 produces返回不同值"></a>spring根据请求的 produces返回不同值</h1><blockquote>
-<p>BasicErrorController.java源码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(produces = &quot;text/html&quot;) #浏览器访问</span><br><span class="line">public ModelAndView errorHtml(HttpServletRequest request,</span><br><span class="line">			HttpServletResponse response) &#123;</span><br><span class="line">		HttpStatus status = getStatus(request);</span><br><span class="line">		Map&lt;String, Object&gt; model = Collections.unmodifiableMap(getErrorAttributes(</span><br><span class="line">				request, isIncludeStackTrace(request, MediaType.TEXT_HTML)));</span><br><span class="line">		response.setStatus(status.value());</span><br><span class="line">		ModelAndView modelAndView = resolveErrorView(request, response, status, model);</span><br><span class="line">		return (modelAndView == null ? new ModelAndView(&quot;error&quot;, model) : modelAndView);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">@RequestMapping  #接口测试软件  application/json 默认没写</span><br><span class="line">@ResponseBody</span><br><span class="line">public ResponseEntity&lt;Map&lt;String, Object&gt;&gt; error(HttpServletRequest request) &#123;</span><br><span class="line">		Map&lt;String, Object&gt; body = getErrorAttributes(request,</span><br><span class="line">				isIncludeStackTrace(request, MediaType.ALL));</span><br><span class="line">		HttpStatus status = getStatus(request);</span><br><span class="line">		return new ResponseEntity&lt;Map&lt;String, Object&gt;&gt;(body, status);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
-<p>@RequestMapping(value = “/produces”, produces = “application/json”)：表示将功能处理方法将生产json格式的数据，此时根据请求头中的Accept进行匹配，如请求头“Accept:application/json”时即可匹配;<br>@RequestMapping(value = “/produces”, produces = “application/xml”)：表示将功能处理方法将生产xml格式的数据，此时根据请求头中的Accept进行匹配，如请求头“Accept:application/xml”时即可匹配。</p>
-</blockquote>
-<h1 id="自定义浏览器端错误的返回页面"><a href="#自定义浏览器端错误的返回页面" class="headerlink" title="自定义浏览器端错误的返回页面"></a>自定义浏览器端错误的返回页面</h1><h2 id="重写BasicErrorController"><a href="#重写BasicErrorController" class="headerlink" title="重写BasicErrorController"></a>重写BasicErrorController</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@Controller</span><br><span class="line">public class MyErrorController extends BasicErrorController &#123;</span><br><span class="line"></span><br><span class="line">	public MyErrorController(ServerProperties serverProperties) &#123;</span><br><span class="line">		super(new DefaultErrorAttributes(), serverProperties.getError());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public ModelAndView errorHtml(HttpServletRequest request, HttpServletResponse response) &#123;</span><br><span class="line">		HttpStatus status = getStatus(request);</span><br><span class="line">		response.setStatus(getStatus(request).value());</span><br><span class="line">		Map&lt;String, Object&gt; model = getErrorAttributes(request, isIncludeStackTrace(request, MediaType.TEXT_HTML));</span><br><span class="line">		return new ModelAndView(&quot;error/404.html&quot;, model);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="创建-src-main-resources-public-error-404-html-页面"><a href="#创建-src-main-resources-public-error-404-html-页面" class="headerlink" title="创建 src/main/resources/public/error/404.html 页面"></a>创建 src/main/resources/public/error/404.html 页面</h2><h1 id="自定义测试软件返回json"><a href="#自定义测试软件返回json" class="headerlink" title="自定义测试软件返回json"></a>自定义测试软件返回json</h1><blockquote>
-<p>重写BasicErrorController</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">@Controller</span><br><span class="line">public class MyErrorController extends BasicErrorController &#123;</span><br><span class="line"></span><br><span class="line">	public MyErrorController(ServerProperties serverProperties) &#123;</span><br><span class="line">		super(new DefaultErrorAttributes(), serverProperties.getError());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public ResponseEntity&lt;Map&lt;String, Object&gt;&gt; error(HttpServletRequest request) &#123;</span><br><span class="line">		Map&lt;String, Object&gt; body = getErrorAttributes(request, isIncludeStackTrace(request, MediaType.ALL));</span><br><span class="line">		HttpStatus status = getStatus(request);</span><br><span class="line"></span><br><span class="line">		Map&lt;String, Object&gt; map = new HashMap&lt;String, Object&gt;();</span><br><span class="line">		map.put(&quot;msg&quot;, body.get(&quot;message&quot;));</span><br><span class="line">		map.put(&quot;code&quot;, body.get(&quot;status&quot;));</span><br><span class="line">		map.put(&quot;data&quot;, &quot;&quot;);</span><br><span class="line">		return new ResponseEntity&lt;Map&lt;String, Object&gt;&gt;(map, status);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      
-        <categories>
-            
-            <category> springboot </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> springboot </tag>
-            
-            <tag> json </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[tomcat启动流程]]></title>
       <url>/tomcat/tomcat%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B.html</url>
       <content type="html"><![CDATA[<p>tomcat 启动启动过程分析<br><a id="more"></a></p>
@@ -391,14 +379,27 @@
     </entry>
     
     <entry>
-      <title><![CDATA[springboot过滤器验证token]]></title>
-      <url>/spring-boot/spring-token.html</url>
-      <content type="html"><![CDATA[<p>springboot过滤器验证token<br><a id="more"></a></p>
-<h1 id="token-java"><a href="#token-java" class="headerlink" title="token.java"></a>token.java</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">public class TokenInterceptor extends HandlerInterceptorAdapter &#123;</span><br><span class="line">    @Autowired</span><br><span class="line">    private UserService userService;</span><br><span class="line">    @Autowired</span><br><span class="line">    private AdminService adminService;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception &#123;</span><br><span class="line">        String ip = request.getRemoteAddr();</span><br><span class="line">        String token = request.getHeader(&quot;token&quot;);</span><br><span class="line">        String user = request.getHeader(&quot;userId&quot;);</span><br><span class="line">        if (token == null || user == null) &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        Integer userId = Integer.valueOf(user);</span><br><span class="line">        //获取Service实例</span><br><span class="line">        if (userService == null) &#123;</span><br><span class="line">            BeanFactory factory = WebApplicationContextUtils.getRequiredWebApplicationContext(request.getServletContext());</span><br><span class="line">            userService = (UserService) factory.getBean(&quot;userService&quot;);</span><br><span class="line">            adminService = (AdminService) factory.getBean(&quot;adminService&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        //增加日活量</span><br><span class="line">        if (ip != null) &#123;</span><br><span class="line">            adminService.addAccessCount(ip);</span><br><span class="line">        &#125;</span><br><span class="line">        String checkToken = userService.selectToken(userId);</span><br><span class="line">        //检查头部请求</span><br><span class="line">        if (!checkToken.equals(token)) &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <title><![CDATA[spring-boot自义定错误返回页面和json格式]]></title>
+      <url>/spring-boot%E8%87%AA%E4%B9%89%E5%AE%9A%E9%94%99%E8%AF%AF%E8%BF%94%E5%9B%9E%E9%A1%B5%E9%9D%A2%E5%92%8Cjson%E6%A0%BC%E5%BC%8F.html</url>
+      <content type="html"><![CDATA[<p>springboot发生错误时，在浏览器端访问和用测试接口的软件看到的返回页面是不一样的。</p>
+<blockquote>
+<p>浏览器端  返回 Whitelabel Error Page页面<br>测试接口的软件返回一个json 字符串<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;timestamp&quot;: 1492063521109,</span><br><span class="line">&quot;status&quot;: 404,</span><br><span class="line">&quot;error&quot;: &quot;Not Found&quot;,</span><br><span class="line">&quot;message&quot;: &quot;No message available&quot;,</span><br><span class="line">&quot;path&quot;: &quot;/test/auth&quot;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<a id="more"></a>
+<h1 id="spring根据请求的-produces返回不同值"><a href="#spring根据请求的-produces返回不同值" class="headerlink" title="spring根据请求的 produces返回不同值"></a>spring根据请求的 produces返回不同值</h1><blockquote>
+<p>BasicErrorController.java源码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(produces = &quot;text/html&quot;) #浏览器访问</span><br><span class="line">public ModelAndView errorHtml(HttpServletRequest request,</span><br><span class="line">			HttpServletResponse response) &#123;</span><br><span class="line">		HttpStatus status = getStatus(request);</span><br><span class="line">		Map&lt;String, Object&gt; model = Collections.unmodifiableMap(getErrorAttributes(</span><br><span class="line">				request, isIncludeStackTrace(request, MediaType.TEXT_HTML)));</span><br><span class="line">		response.setStatus(status.value());</span><br><span class="line">		ModelAndView modelAndView = resolveErrorView(request, response, status, model);</span><br><span class="line">		return (modelAndView == null ? new ModelAndView(&quot;error&quot;, model) : modelAndView);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">@RequestMapping  #接口测试软件  application/json 默认没写</span><br><span class="line">@ResponseBody</span><br><span class="line">public ResponseEntity&lt;Map&lt;String, Object&gt;&gt; error(HttpServletRequest request) &#123;</span><br><span class="line">		Map&lt;String, Object&gt; body = getErrorAttributes(request,</span><br><span class="line">				isIncludeStackTrace(request, MediaType.ALL));</span><br><span class="line">		HttpStatus status = getStatus(request);</span><br><span class="line">		return new ResponseEntity&lt;Map&lt;String, Object&gt;&gt;(body, status);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<p>@RequestMapping(value = “/produces”, produces = “application/json”)：表示将功能处理方法将生产json格式的数据，此时根据请求头中的Accept进行匹配，如请求头“Accept:application/json”时即可匹配;<br>@RequestMapping(value = “/produces”, produces = “application/xml”)：表示将功能处理方法将生产xml格式的数据，此时根据请求头中的Accept进行匹配，如请求头“Accept:application/xml”时即可匹配。</p>
+</blockquote>
+<h1 id="自定义浏览器端错误的返回页面"><a href="#自定义浏览器端错误的返回页面" class="headerlink" title="自定义浏览器端错误的返回页面"></a>自定义浏览器端错误的返回页面</h1><h2 id="重写BasicErrorController"><a href="#重写BasicErrorController" class="headerlink" title="重写BasicErrorController"></a>重写BasicErrorController</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@Controller</span><br><span class="line">public class MyErrorController extends BasicErrorController &#123;</span><br><span class="line"></span><br><span class="line">	public MyErrorController(ServerProperties serverProperties) &#123;</span><br><span class="line">		super(new DefaultErrorAttributes(), serverProperties.getError());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public ModelAndView errorHtml(HttpServletRequest request, HttpServletResponse response) &#123;</span><br><span class="line">		HttpStatus status = getStatus(request);</span><br><span class="line">		response.setStatus(getStatus(request).value());</span><br><span class="line">		Map&lt;String, Object&gt; model = getErrorAttributes(request, isIncludeStackTrace(request, MediaType.TEXT_HTML));</span><br><span class="line">		return new ModelAndView(&quot;error/404.html&quot;, model);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="创建-src-main-resources-public-error-404-html-页面"><a href="#创建-src-main-resources-public-error-404-html-页面" class="headerlink" title="创建 src/main/resources/public/error/404.html 页面"></a>创建 src/main/resources/public/error/404.html 页面</h2><h1 id="自定义测试软件返回json"><a href="#自定义测试软件返回json" class="headerlink" title="自定义测试软件返回json"></a>自定义测试软件返回json</h1><blockquote>
+<p>重写BasicErrorController</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">@Controller</span><br><span class="line">public class MyErrorController extends BasicErrorController &#123;</span><br><span class="line"></span><br><span class="line">	public MyErrorController(ServerProperties serverProperties) &#123;</span><br><span class="line">		super(new DefaultErrorAttributes(), serverProperties.getError());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public ResponseEntity&lt;Map&lt;String, Object&gt;&gt; error(HttpServletRequest request) &#123;</span><br><span class="line">		Map&lt;String, Object&gt; body = getErrorAttributes(request, isIncludeStackTrace(request, MediaType.ALL));</span><br><span class="line">		HttpStatus status = getStatus(request);</span><br><span class="line"></span><br><span class="line">		Map&lt;String, Object&gt; map = new HashMap&lt;String, Object&gt;();</span><br><span class="line">		map.put(&quot;msg&quot;, body.get(&quot;message&quot;));</span><br><span class="line">		map.put(&quot;code&quot;, body.get(&quot;status&quot;));</span><br><span class="line">		map.put(&quot;data&quot;, &quot;&quot;);</span><br><span class="line">		return new ResponseEntity&lt;Map&lt;String, Object&gt;&gt;(map, status);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
       
         <categories>
             
-            <category> token </category>
+            <category> springboot </category>
             
         </categories>
         
@@ -407,7 +408,7 @@
             
             <tag> springboot </tag>
             
-            <tag> token </tag>
+            <tag> json </tag>
             
         </tags>
         
@@ -435,6 +436,29 @@
         <tags>
             
             <tag> springboot </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[springboot过滤器验证token]]></title>
+      <url>/spring-boot/spring-token.html</url>
+      <content type="html"><![CDATA[<p>springboot过滤器验证token<br><a id="more"></a></p>
+<h1 id="token-java"><a href="#token-java" class="headerlink" title="token.java"></a>token.java</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">public class TokenInterceptor extends HandlerInterceptorAdapter &#123;</span><br><span class="line">    @Autowired</span><br><span class="line">    private UserService userService;</span><br><span class="line">    @Autowired</span><br><span class="line">    private AdminService adminService;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception &#123;</span><br><span class="line">        String ip = request.getRemoteAddr();</span><br><span class="line">        String token = request.getHeader(&quot;token&quot;);</span><br><span class="line">        String user = request.getHeader(&quot;userId&quot;);</span><br><span class="line">        if (token == null || user == null) &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        Integer userId = Integer.valueOf(user);</span><br><span class="line">        //获取Service实例</span><br><span class="line">        if (userService == null) &#123;</span><br><span class="line">            BeanFactory factory = WebApplicationContextUtils.getRequiredWebApplicationContext(request.getServletContext());</span><br><span class="line">            userService = (UserService) factory.getBean(&quot;userService&quot;);</span><br><span class="line">            adminService = (AdminService) factory.getBean(&quot;adminService&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        //增加日活量</span><br><span class="line">        if (ip != null) &#123;</span><br><span class="line">            adminService.addAccessCount(ip);</span><br><span class="line">        &#125;</span><br><span class="line">        String checkToken = userService.selectToken(userId);</span><br><span class="line">        //检查头部请求</span><br><span class="line">        if (!checkToken.equals(token)) &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+        <categories>
+            
+            <category> token </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> springboot </tag>
+            
+            <tag> token </tag>
             
         </tags>
         
@@ -506,6 +530,18 @@
     </entry>
     
     <entry>
+      <title></title>
+      <url>/nginx%E5%B8%B8%E7%94%A8%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F%E5%8F%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html</url>
+      <content type="html"><![CDATA[<p>title: nginx常用基本变量及数据结构<br>tags: [nginx]<br>categories: nginx</p>
+<a id="more"></a>
+<h1 id="nginx-常用基本变量"><a href="#nginx-常用基本变量" class="headerlink" title="nginx 常用基本变量"></a>nginx 常用基本变量</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">typedef int  ngx_fd_t;</span><br><span class="line">typedef intptr_t        ngx_int_t;</span><br><span class="line">typedef uintptr_t       ngx_uint_t;</span><br><span class="line">typedef intptr_t        ngx_flag_t;</span><br><span class="line">typedef void *          ngx_buf_tag_t;</span><br></pre></td></tr></table></figure>
+<h1 id="nginx常用数据结构"><a href="#nginx常用数据结构" class="headerlink" title="nginx常用数据结构"></a>nginx常用数据结构</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> typedef struct &#123;</span><br><span class="line">     size_t      len;</span><br><span class="line">     u_char     *data;</span><br><span class="line">&#125; ngx_str_t;</span><br><span class="line"></span><br><span class="line">typedef struct stat  ngx_file_info_t;</span><br></pre></td></tr></table></figure>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[ngx_http_conf_get_module_loc_conf 分析]]></title>
       <url>/ngx_http_conf_get_module_loc_conf.html</url>
       <content type="html"><![CDATA[<p>自定义参数处理函数中会用到ngx_http_conf_get_module_loc_conf(cf, ngx_http_core_module);<br>获取配置块</p>
@@ -524,48 +560,6 @@
         <tags>
             
             <tag> nginx </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title></title>
-      <url>/nginx%E5%B8%B8%E7%94%A8%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F%E5%8F%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html</url>
-      <content type="html"><![CDATA[<p>title: nginx常用基本变量及数据结构<br>tags: [nginx]<br>categories: nginx</p>
-<a id="more"></a>
-<h1 id="nginx-常用基本变量"><a href="#nginx-常用基本变量" class="headerlink" title="nginx 常用基本变量"></a>nginx 常用基本变量</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">typedef int  ngx_fd_t;</span><br><span class="line">typedef intptr_t        ngx_int_t;</span><br><span class="line">typedef uintptr_t       ngx_uint_t;</span><br><span class="line">typedef intptr_t        ngx_flag_t;</span><br><span class="line">typedef void *          ngx_buf_tag_t;</span><br></pre></td></tr></table></figure>
-<h1 id="nginx常用数据结构"><a href="#nginx常用数据结构" class="headerlink" title="nginx常用数据结构"></a>nginx常用数据结构</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> typedef struct &#123;</span><br><span class="line">     size_t      len;</span><br><span class="line">     u_char     *data;</span><br><span class="line">&#125; ngx_str_t;</span><br><span class="line"></span><br><span class="line">typedef struct stat  ngx_file_info_t;</span><br></pre></td></tr></table></figure>
-]]></content>
-      
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[nginx-if指令与全局变量]]></title>
-      <url>/nginx-if%E6%8C%87%E4%BB%A4%E4%B8%8E%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F.html</url>
-      <content type="html"><![CDATA[<p>if判断指令<br>语法为if(condition){…}，对给定的条件condition进行判断。如果为真，大括号内的rewrite指令将被执行，if条件(conditon)可以是如下任何内容：</p>
-<blockquote>
-<p>当表达式只是一个变量时，如果值为空或任何以0开头的字符串都会当做false<br>直接比较变量和内容时，使用=或!=<br>~正则表达式匹配，~*不区分大小写的匹配，!~区分大小写的不匹配</p>
-</blockquote>
-<a id="more"></a>
-<h1 id="if-常用判断"><a href="#if-常用判断" class="headerlink" title="if 常用判断"></a>if 常用判断</h1><p>-f和!-f用来判断是否存在文件<br>-d和!-d用来判断是否存在目录<br>-e和!-e用来判断是否存在文件或目录<br>-x和!-x用来判断文件是否可执行</p>
-<h2 id="if应用"><a href="#if应用" class="headerlink" title="if应用"></a>if应用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">if ($http_user_agent ~ MSIE) &#123;</span><br><span class="line">    rewrite ^(.*)$ /msie/$1 break;</span><br><span class="line">&#125; //如果UA包含&quot;MSIE&quot;，rewrite请求到/msid/目录下</span><br><span class="line">if ($http_cookie ~* &quot;id=([^;]+)(?:;|$)&quot;) &#123;</span><br><span class="line">    set $id $1;</span><br><span class="line"> &#125; //如果cookie匹配正则，设置变量$id等于正则引用部分</span><br><span class="line">if ($request_method = POST) &#123;</span><br><span class="line">    return 405;</span><br><span class="line">&#125; //如果提交方法为POST，则返回状态405（Method not allowed）。return不能返回301,302</span><br><span class="line">if ($slow) &#123;</span><br><span class="line">    limit_rate 10k;</span><br><span class="line">&#125; //限速，$slow可以通过 set 指令设置</span><br><span class="line">if (!-f $request_filename)&#123;</span><br><span class="line">    break;</span><br><span class="line">    proxy_pass  http://127.0.0.1;</span><br><span class="line">&#125; //如果请求的文件名不存在，则反向代理到localhost 。这里的break也是停止rewrite检查</span><br><span class="line">if ($args ~ post=140)&#123;</span><br><span class="line">    rewrite ^ http://example.com/ permanent;</span><br><span class="line">&#125; //如果query string中包含&quot;post=140&quot;，永久重定向到example.com</span><br><span class="line">location ~* \.(gif|jpg|png|swf|flv)$ &#123;</span><br><span class="line">    valid_referers none blocked www.jefflei.com www.leizhenfang.com;</span><br><span class="line">    if ($invalid_referer) &#123;</span><br><span class="line">        return 404;</span><br><span class="line">    &#125; //防盗链</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="nginx-常用全局变量"><a href="#nginx-常用全局变量" class="headerlink" title="nginx 常用全局变量"></a>nginx 常用全局变量</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">$args ： #这个变量等于请求行中的参数，同$query_string</span><br><span class="line">$is_args : 如果请求带有参数, 值为 ? 否则为空字符串</span><br><span class="line">$content_length ： 请求头中的Content-length字段。</span><br><span class="line">$content_type ： 请求头中的Content-Type字段。</span><br><span class="line">$document_root ： 当前请求在root指令中指定的值。</span><br><span class="line">$host ： 请求主机头字段，否则为服务器名称。</span><br><span class="line">$http_user_agent ： 客户端agent信息</span><br><span class="line">$http_cookie ： 客户端cookie信息</span><br><span class="line">$limit_rate ： 这个变量可以限制连接速率。</span><br><span class="line">$request_method ： 客户端请求的动作，通常为GET或POST。</span><br><span class="line">$remote_addr ： 客户端的IP地址。</span><br><span class="line">$remote_port ： 客户端的端口。</span><br><span class="line">$remote_user ： 已经经过Auth Basic Module验证的用户名。</span><br><span class="line">$request_filename ： 当前请求的文件路径，由root或alias指令与URI请求生成。</span><br><span class="line">$scheme ： HTTP方法（如http，https）。</span><br><span class="line">$server_protocol ： 请求使用的协议，通常是HTTP/1.0或HTTP/1.1。</span><br><span class="line">$server_addr ： 服务器地址，在完成一次系统调用后可以确定这个值。</span><br><span class="line">$server_name ： 服务器名称。</span><br><span class="line">$server_port ： 请求到达服务器的端口号。</span><br><span class="line">$request_uri ： 包含请求参数的原始URI，不包含主机名，如：”/foo/bar.php?arg=baz”。</span><br><span class="line">$uri ： 不带请求参数的当前URI，$uri不包含主机名，如”/foo/bar.html”。</span><br><span class="line">$document_uri ： 与$uri相同。</span><br><span class="line">$nginx_version： 当前nginx版本</span><br><span class="line">$request: 原始请求 GET /one/2222 HTTP/1.1</span><br><span class="line">$status:  响应状态码</span><br><span class="line">$http_referer: url跳转来源</span><br><span class="line">$request_body : 客户端请求主体</span><br></pre></td></tr></table></figure>
-]]></content>
-      
-        <categories>
-            
-            <category> nginx </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> nginx </tag>
-            
-            <tag> if </tag>
             
         </tags>
         
@@ -635,6 +629,36 @@
     </entry>
     
     <entry>
+      <title><![CDATA[nginx-if指令与全局变量]]></title>
+      <url>/nginx-if%E6%8C%87%E4%BB%A4%E4%B8%8E%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F.html</url>
+      <content type="html"><![CDATA[<p>if判断指令<br>语法为if(condition){…}，对给定的条件condition进行判断。如果为真，大括号内的rewrite指令将被执行，if条件(conditon)可以是如下任何内容：</p>
+<blockquote>
+<p>当表达式只是一个变量时，如果值为空或任何以0开头的字符串都会当做false<br>直接比较变量和内容时，使用=或!=<br>~正则表达式匹配，~*不区分大小写的匹配，!~区分大小写的不匹配</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="if-常用判断"><a href="#if-常用判断" class="headerlink" title="if 常用判断"></a>if 常用判断</h1><p>-f和!-f用来判断是否存在文件<br>-d和!-d用来判断是否存在目录<br>-e和!-e用来判断是否存在文件或目录<br>-x和!-x用来判断文件是否可执行</p>
+<h2 id="if应用"><a href="#if应用" class="headerlink" title="if应用"></a>if应用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">if ($http_user_agent ~ MSIE) &#123;</span><br><span class="line">    rewrite ^(.*)$ /msie/$1 break;</span><br><span class="line">&#125; //如果UA包含&quot;MSIE&quot;，rewrite请求到/msid/目录下</span><br><span class="line">if ($http_cookie ~* &quot;id=([^;]+)(?:;|$)&quot;) &#123;</span><br><span class="line">    set $id $1;</span><br><span class="line"> &#125; //如果cookie匹配正则，设置变量$id等于正则引用部分</span><br><span class="line">if ($request_method = POST) &#123;</span><br><span class="line">    return 405;</span><br><span class="line">&#125; //如果提交方法为POST，则返回状态405（Method not allowed）。return不能返回301,302</span><br><span class="line">if ($slow) &#123;</span><br><span class="line">    limit_rate 10k;</span><br><span class="line">&#125; //限速，$slow可以通过 set 指令设置</span><br><span class="line">if (!-f $request_filename)&#123;</span><br><span class="line">    break;</span><br><span class="line">    proxy_pass  http://127.0.0.1;</span><br><span class="line">&#125; //如果请求的文件名不存在，则反向代理到localhost 。这里的break也是停止rewrite检查</span><br><span class="line">if ($args ~ post=140)&#123;</span><br><span class="line">    rewrite ^ http://example.com/ permanent;</span><br><span class="line">&#125; //如果query string中包含&quot;post=140&quot;，永久重定向到example.com</span><br><span class="line">location ~* \.(gif|jpg|png|swf|flv)$ &#123;</span><br><span class="line">    valid_referers none blocked www.jefflei.com www.leizhenfang.com;</span><br><span class="line">    if ($invalid_referer) &#123;</span><br><span class="line">        return 404;</span><br><span class="line">    &#125; //防盗链</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="nginx-常用全局变量"><a href="#nginx-常用全局变量" class="headerlink" title="nginx 常用全局变量"></a>nginx 常用全局变量</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">$args ： #这个变量等于请求行中的参数，同$query_string</span><br><span class="line">$is_args : 如果请求带有参数, 值为 ? 否则为空字符串</span><br><span class="line">$content_length ： 请求头中的Content-length字段。</span><br><span class="line">$content_type ： 请求头中的Content-Type字段。</span><br><span class="line">$document_root ： 当前请求在root指令中指定的值。</span><br><span class="line">$host ： 请求主机头字段，否则为服务器名称。</span><br><span class="line">$http_user_agent ： 客户端agent信息</span><br><span class="line">$http_cookie ： 客户端cookie信息</span><br><span class="line">$limit_rate ： 这个变量可以限制连接速率。</span><br><span class="line">$request_method ： 客户端请求的动作，通常为GET或POST。</span><br><span class="line">$remote_addr ： 客户端的IP地址。</span><br><span class="line">$remote_port ： 客户端的端口。</span><br><span class="line">$remote_user ： 已经经过Auth Basic Module验证的用户名。</span><br><span class="line">$request_filename ： 当前请求的文件路径，由root或alias指令与URI请求生成。</span><br><span class="line">$scheme ： HTTP方法（如http，https）。</span><br><span class="line">$server_protocol ： 请求使用的协议，通常是HTTP/1.0或HTTP/1.1。</span><br><span class="line">$server_addr ： 服务器地址，在完成一次系统调用后可以确定这个值。</span><br><span class="line">$server_name ： 服务器名称。</span><br><span class="line">$server_port ： 请求到达服务器的端口号。</span><br><span class="line">$request_uri ： 包含请求参数的原始URI，不包含主机名，如：”/foo/bar.php?arg=baz”。</span><br><span class="line">$uri ： 不带请求参数的当前URI，$uri不包含主机名，如”/foo/bar.html”。</span><br><span class="line">$document_uri ： 与$uri相同。</span><br><span class="line">$nginx_version： 当前nginx版本</span><br><span class="line">$request: 原始请求 GET /one/2222 HTTP/1.1</span><br><span class="line">$status:  响应状态码</span><br><span class="line">$http_referer: url跳转来源</span><br><span class="line">$request_body : 客户端请求主体</span><br></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> nginx </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> nginx </tag>
+            
+            <tag> if </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[JSON字符串转换为Map]]></title>
       <url>/json/fastjson.html</url>
       <content type="html"><![CDATA[<p>JSON字符串转换为Map<br><a id="more"></a></p>
@@ -652,6 +676,40 @@
             <tag> fastjson </tag>
             
             <tag> json </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[java-zip压缩单文件]]></title>
+      <url>/java-zip%E5%8E%8B%E7%BC%A9%E5%8D%95%E6%96%87%E4%BB%B6.html</url>
+      <content type="html"><![CDATA[<p>java开发中经常用到压缩文件,在JDK中自带zip 压缩相关的类</p>
+<blockquote>
+<p>ZipOutputStream<br>ZipEntry</p>
+<blockquote>
+<p>在压缩文件中，每一个压缩的内容都可以用一个ZipEntry 表示，所以在进行压缩之前必须通过putNextEntry 设置一个ZipEntry 即可。</p>
+</blockquote>
+</blockquote>
+<a id="more"></a>
+<h1 id="单文件压缩"><a href="#单文件压缩" class="headerlink" title="单文件压缩"></a>单文件压缩</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># in为原始文件的绝对路径</span><br><span class="line">public static void zip(String in) throws Exception &#123;</span><br><span class="line">		File file = new File(in);</span><br><span class="line">		File zipFile = new File(in + &quot;.zip&quot;);</span><br><span class="line">		InputStream input = new FileInputStream(file);</span><br><span class="line">		ZipOutputStream zipOut = null;</span><br><span class="line">		zipOut = new ZipOutputStream(new FileOutputStream(zipFile));</span><br><span class="line">		zipOut.putNextEntry(new ZipEntry(file.getName()));</span><br><span class="line">		zipOut.setComment(&quot;这是一个压缩文件&quot;);</span><br><span class="line">		int temp = 0;</span><br><span class="line">		while ((temp = input.read()) != -1) &#123;</span><br><span class="line">			zipOut.write(temp);</span><br><span class="line">		&#125;</span><br><span class="line">		input.close();</span><br><span class="line">		zipOut.close();</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+        <categories>
+            
+            <category> java </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> java </tag>
+            
+            <tag> zip </tag>
+            
+            <tag> ZipInputStream </tag>
+            
+            <tag> ZipFile </tag>
             
         </tags>
         
@@ -718,40 +776,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[java-zip压缩单文件]]></title>
-      <url>/java-zip%E5%8E%8B%E7%BC%A9%E5%8D%95%E6%96%87%E4%BB%B6.html</url>
-      <content type="html"><![CDATA[<p>java开发中经常用到压缩文件,在JDK中自带zip 压缩相关的类</p>
-<blockquote>
-<p>ZipOutputStream<br>ZipEntry</p>
-<blockquote>
-<p>在压缩文件中，每一个压缩的内容都可以用一个ZipEntry 表示，所以在进行压缩之前必须通过putNextEntry 设置一个ZipEntry 即可。</p>
-</blockquote>
-</blockquote>
-<a id="more"></a>
-<h1 id="单文件压缩"><a href="#单文件压缩" class="headerlink" title="单文件压缩"></a>单文件压缩</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># in为原始文件的绝对路径</span><br><span class="line">public static void zip(String in) throws Exception &#123;</span><br><span class="line">		File file = new File(in);</span><br><span class="line">		File zipFile = new File(in + &quot;.zip&quot;);</span><br><span class="line">		InputStream input = new FileInputStream(file);</span><br><span class="line">		ZipOutputStream zipOut = null;</span><br><span class="line">		zipOut = new ZipOutputStream(new FileOutputStream(zipFile));</span><br><span class="line">		zipOut.putNextEntry(new ZipEntry(file.getName()));</span><br><span class="line">		zipOut.setComment(&quot;这是一个压缩文件&quot;);</span><br><span class="line">		int temp = 0;</span><br><span class="line">		while ((temp = input.read()) != -1) &#123;</span><br><span class="line">			zipOut.write(temp);</span><br><span class="line">		&#125;</span><br><span class="line">		input.close();</span><br><span class="line">		zipOut.close();</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-        <categories>
-            
-            <category> java </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> java </tag>
-            
-            <tag> zip </tag>
-            
-            <tag> ZipInputStream </tag>
-            
-            <tag> ZipFile </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[fastjson解析json字符串]]></title>
       <url>/fastjson%E8%A7%A3%E6%9E%90json%E5%AD%97%E7%AC%A6%E4%B8%B2.html</url>
       <content type="html"><![CDATA[<p>在微服务开发过程中,常要解析json 字符串, 用fastjson解析json 字符串</p>
@@ -812,6 +836,31 @@
     </entry>
     
     <entry>
+      <title><![CDATA[The real difference between $host and $http_host]]></title>
+      <url>/The-real-difference-between-$host-and-$http_host.html</url>
+      <content type="html"><![CDATA[<p>Nginx中$host与$http_host的区别<br><a id="more"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">The wiki page of &quot;$host&quot; says $host and $host_addr are different only when there is no &quot;Host&quot; header or the &quot;Host&quot; header is empty. But I found when &quot;Host&quot; contains port number, $host never contains the port number while $http_host is equal to the value of &quot;Host&quot; header. </span><br><span class="line"></span><br><span class="line">That is, if &quot;Host: foo:8080&quot;, then </span><br><span class="line">$http_host = foo:8080 </span><br><span class="line">$host = foo </span><br><span class="line"></span><br><span class="line">$http_host是request里的host header </span><br><span class="line">$host是server&#123;&#125;里的server_name里的第一个</span><br><span class="line"></span><br><span class="line">&quot;192.168.160.1&quot; http_host:&quot;192.168.160.159:808&quot; host:&quot;192.168.160.159&quot; &quot;[08/Apr/2016:15:37:06 +0800]&quot; &quot;GET / HTTP/1.1&quot; &quot;304&quot; &quot;0&quot; &quot;171&quot; &quot;-&quot; &quot;-&quot; &quot;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36&quot; &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;0.000&quot;</span><br></pre></td></tr></table></figure>]]></content>
+      
+        <categories>
+            
+            <category> nginx </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> nginx </tag>
+            
+            <tag> host </tag>
+            
+            <tag> http_host </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[centos7-rc-local不起作用修复]]></title>
       <url>/centos7-rc-local%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E4%BF%AE%E5%A4%8D.html</url>
       <content type="html"><![CDATA[<p>在centos7版本以下的系统中, 尝尝用rc.local 自动启动一些软件. 但是在centos7 中 默认rc.local 是不起作用的, centos7 中把 SysV 替换成  system 。centos7保留了rc.local ,只需要简单的设置就可以开启.</p>
@@ -835,31 +884,6 @@
             <tag> centos7 </tag>
             
             <tag> rc.local </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[The real difference between $host and $http_host]]></title>
-      <url>/The-real-difference-between-$host-and-$http_host.html</url>
-      <content type="html"><![CDATA[<p>Nginx中$host与$http_host的区别<br><a id="more"></a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">The wiki page of &quot;$host&quot; says $host and $host_addr are different only when there is no &quot;Host&quot; header or the &quot;Host&quot; header is empty. But I found when &quot;Host&quot; contains port number, $host never contains the port number while $http_host is equal to the value of &quot;Host&quot; header. </span><br><span class="line"></span><br><span class="line">That is, if &quot;Host: foo:8080&quot;, then </span><br><span class="line">$http_host = foo:8080 </span><br><span class="line">$host = foo </span><br><span class="line"></span><br><span class="line">$http_host是request里的host header </span><br><span class="line">$host是server&#123;&#125;里的server_name里的第一个</span><br><span class="line"></span><br><span class="line">&quot;192.168.160.1&quot; http_host:&quot;192.168.160.159:808&quot; host:&quot;192.168.160.159&quot; &quot;[08/Apr/2016:15:37:06 +0800]&quot; &quot;GET / HTTP/1.1&quot; &quot;304&quot; &quot;0&quot; &quot;171&quot; &quot;-&quot; &quot;-&quot; &quot;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36&quot; &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;0.000&quot;</span><br></pre></td></tr></table></figure>]]></content>
-      
-        <categories>
-            
-            <category> nginx </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> nginx </tag>
-            
-            <tag> host </tag>
-            
-            <tag> http_host </tag>
             
         </tags>
         
