@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="springboot,token," />
+  <meta name="keywords" content="java,guava," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="springboot过滤器验证token">
-<meta name="keywords" content="springboot,token">
+<meta name="description" content="guava教程  guava谷歌出品,高效工具类目标：节约时间，资源，提高生产力  Guava工程包含了若干被Google的 Java项目广泛依赖 的核心库，例如：集合 [collections]缓存 [caching]原生类型支持 [primitives support]并发库 [concurrency librar">
+<meta name="keywords" content="java,guava">
 <meta property="og:type" content="article">
-<meta property="og:title" content="springboot过滤器验证token">
-<meta property="og:url" content="http://nginx.im/spring-boot/spring-token.html">
+<meta property="og:title" content="guava教程">
+<meta property="og:url" content="http://nginx.im/java/guava教程.html">
 <meta property="og:site_name" content="IM.NGINX">
-<meta property="og:description" content="springboot过滤器验证token">
+<meta property="og:description" content="guava教程  guava谷歌出品,高效工具类目标：节约时间，资源，提高生产力  Guava工程包含了若干被Google的 Java项目广泛依赖 的核心库，例如：集合 [collections]缓存 [caching]原生类型支持 [primitives support]并发库 [concurrency libraries]通用注解 [common annotations]字符串处理 [stri">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-05T04:58:45.369Z">
+<meta property="og:updated_time" content="2018-03-23T06:18:00.293Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="springboot过滤器验证token">
-<meta name="twitter:description" content="springboot过滤器验证token">
+<meta name="twitter:title" content="guava教程">
+<meta name="twitter:description" content="guava教程  guava谷歌出品,高效工具类目标：节约时间，资源，提高生产力  Guava工程包含了若干被Google的 Java项目广泛依赖 的核心库，例如：集合 [collections]缓存 [caching]原生类型支持 [primitives support]并发库 [concurrency libraries]通用注解 [common annotations]字符串处理 [stri">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://nginx.im/spring-boot/spring-token.html"/>
+  <link rel="canonical" href="http://nginx.im/java/guava教程.html"/>
 
 
 
 
 
-  <title>springboot过滤器验证token | IM.NGINX</title>
+  <title>guava教程 | IM.NGINX</title>
   
 
 
@@ -297,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nginx.im/spring-boot/spring-token.html">
+    <link itemprop="mainEntityOfPage" href="http://nginx.im/java/guava教程.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="IM.NGINX">
@@ -314,7 +314,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">springboot过滤器验证token</h2>
+          <h2 class="post-title" itemprop="name headline">guava教程</h2>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-05T12:58:45+08:00">
-                2018年03月5日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-23T13:50:18+08:00">
+                2018年03月23日
               </time>
             
 
@@ -349,8 +349,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/token/" itemprop="url" rel="index">
-                    <span itemprop="name">token</span>
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
                   </a>
                 </span>
 
@@ -386,8 +386,21 @@
       
 
       
-        <p>springboot过滤器验证token<br><a id="more"></a></p>
-<h1 id="token-java"><a href="#token-java" class="headerlink" title="token.java"></a>token.java</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">public class TokenInterceptor extends HandlerInterceptorAdapter &#123;</span><br><span class="line">    @Autowired</span><br><span class="line">    private UserService userService;</span><br><span class="line">    @Autowired</span><br><span class="line">    private AdminService adminService;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception &#123;</span><br><span class="line">        String ip = request.getRemoteAddr();</span><br><span class="line">        String token = request.getHeader(&quot;token&quot;);</span><br><span class="line">        String user = request.getHeader(&quot;userId&quot;);</span><br><span class="line">        if (token == null || user == null) &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        Integer userId = Integer.valueOf(user);</span><br><span class="line">        //获取Service实例</span><br><span class="line">        if (userService == null) &#123;</span><br><span class="line">            BeanFactory factory = WebApplicationContextUtils.getRequiredWebApplicationContext(request.getServletContext());</span><br><span class="line">            userService = (UserService) factory.getBean(&quot;userService&quot;);</span><br><span class="line">            adminService = (AdminService) factory.getBean(&quot;adminService&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        //增加日活量</span><br><span class="line">        if (ip != null) &#123;</span><br><span class="line">            adminService.addAccessCount(ip);</span><br><span class="line">        &#125;</span><br><span class="line">        String checkToken = userService.selectToken(userId);</span><br><span class="line">        //检查头部请求</span><br><span class="line">        if (!checkToken.equals(token)) &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>guava教程</p>
+<blockquote>
+<p>guava谷歌出品,高效工具类<br>目标：节约时间，资源，提高生产力  Guava工程包含了若干被Google的 Java项目广泛依赖 的核心库，例如：<br>集合 [collections]<br>缓存 [caching]<br>原生类型支持 [primitives support]<br>并发库 [concurrency libraries]<br>通用注解 [common annotations]<br>字符串处理 [string processing]<br>I/O 等等<br><a id="more"></a></p>
+</blockquote>
+<h1 id="集合的创建-可变，不可变"><a href="#集合的创建-可变，不可变" class="headerlink" title="集合的创建, 可变，不可变"></a>集合的创建, 可变，不可变</h1><h2 id="基本"><a href="#基本" class="headerlink" title="基本"></a>基本</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// 普通Collection的创建</span><br><span class="line">List&lt;String&gt; list = Lists.newArrayList();</span><br><span class="line">Set&lt;String&gt; set = Sets.newHashSet();</span><br><span class="line">Map&lt;String, String&gt; map = Maps.newHashMap();</span><br><span class="line"></span><br><span class="line">// 不变Collection的创建</span><br><span class="line">ImmutableList&lt;String&gt; iList = ImmutableList.of(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);</span><br><span class="line">ImmutableSet&lt;String&gt; iSet = ImmutableSet.of(&quot;e1&quot;, &quot;e2&quot;);</span><br><span class="line">ImmutableMap&lt;String, String&gt; iMap = ImmutableMap.of(&quot;k1&quot;, &quot;v1&quot;, &quot;k2&quot;, &quot;v2&quot;);</span><br><span class="line"></span><br><span class="line">immutable(不可变)对象</span><br><span class="line">1.在多线程操作下，是线程安全的。</span><br><span class="line">2.所有不可变集合会比可变集合更有效的利用资源。</span><br><span class="line">3.中途不可改变</span><br><span class="line"></span><br><span class="line">List&lt;String&gt; names = Lists.newArrayList(&quot;Richard&quot;, &quot;Amy&quot;, &quot;Lily&quot;, &quot;Sarah&quot;);</span><br><span class="line">List&lt;Integer&gt; numbers = Lists.newArrayList(11, 78, 89, 45, 30);</span><br><span class="line">//创建加初始化</span><br></pre></td></tr></table></figure>
+<h2 id="特殊的数据类型"><a href="#特殊的数据类型" class="headerlink" title="特殊的数据类型"></a>特殊的数据类型</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">MultiSet: 无序+可重复   count()方法获取单词的次数  增强了可读性+操作简单</span><br><span class="line">创建方式:  Multiset&lt;String&gt; set = HashMultiset.create();</span><br><span class="line">Multimap: key-value  key可以重复  </span><br><span class="line">创建方式: Multimap&lt;String, String&gt; teachers = ArrayListMultimap.create();</span><br><span class="line">BiMap: 双向Map(Bidirectional Map) 键与值都不能重复</span><br><span class="line">创建方式:  BiMap&lt;String, String&gt; biMap = HashBiMap.create();</span><br><span class="line">Table: 双键的Map Map--&gt; Table--&gt;rowKey+columnKey+value  //和sql中的联合主键有点像</span><br><span class="line">创建方式: Table&lt;String, String, Integer&gt; tables = HashBasedTable.create();</span><br></pre></td></tr></table></figure>
+<h1 id="集合转字符串"><a href="#集合转字符串" class="headerlink" title="集合转字符串"></a>集合转字符串</h1><h2 id="list-转字符串"><a href="#list-转字符串" class="headerlink" title="list 转字符串"></a>list 转字符串</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//use java</span><br><span class="line">List&lt;String&gt; list = new ArrayList&lt;String&gt;();</span><br><span class="line">list.add(&quot;aa&quot;);</span><br><span class="line">list.add(&quot;bb&quot;);</span><br><span class="line">list.add(&quot;cc&quot;);</span><br><span class="line">String str = &quot;&quot;;</span><br><span class="line">for(int i=0; i&lt;list.size(); i++)&#123;</span><br><span class="line">	str = str + &quot;-&quot; +list.get(i);</span><br><span class="line">&#125;</span><br><span class="line">//str 为-aa-bb-cc</span><br><span class="line">//use guava</span><br><span class="line">List&lt;String&gt; list = new ArrayList&lt;String&gt;();</span><br><span class="line">list.add(&quot;aa&quot;);</span><br><span class="line">list.add(&quot;bb&quot;);</span><br><span class="line">list.add(&quot;cc&quot;);</span><br><span class="line">String result = Joiner.on(&quot;-&quot;).join(list);</span><br><span class="line">//result为  aa-bb-cc</span><br></pre></td></tr></table></figure>
+<h2 id="map转字符串"><a href="#map转字符串" class="headerlink" title="map转字符串"></a>map转字符串</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String, Integer&gt; map = Maps.newHashMap();</span><br><span class="line">map.put(&quot;xiaoming&quot;, 12);</span><br><span class="line">map.put(&quot;xiaohong&quot;,13);</span><br><span class="line">String result = Joiner.on(&quot;,&quot;).withKeyValueSeparator(&quot;=&quot;).join(map);</span><br><span class="line">// result为 xiaoming=12,xiaohong=13</span><br></pre></td></tr></table></figure>
+<h1 id="字符串转集合"><a href="#字符串转集合" class="headerlink" title="字符串转集合"></a>字符串转集合</h1><h2 id="字符串转list"><a href="#字符串转list" class="headerlink" title="字符串转list"></a>字符串转list</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//use java</span><br><span class="line">List&lt;String&gt; list = new ArrayList&lt;String&gt;();</span><br><span class="line">String a = &quot;1-2-3-4-5-6&quot;;</span><br><span class="line">String[] strs = a.split(&quot;-&quot;);</span><br><span class="line">for(int i=0; i&lt;strs.length; i++)&#123;</span><br><span class="line">	list.add(strs[i]);</span><br><span class="line">&#125;</span><br><span class="line">//use guava</span><br><span class="line">String str = &quot;1-2-3-4-5-6&quot;;</span><br><span class="line">List&lt;String&gt; list = Splitter.on(&quot;-&quot;).splitToList(str);</span><br><span class="line">//list为  [1, 2, 3, 4, 5, 6]</span><br></pre></td></tr></table></figure>
+<h2 id="字符串转map"><a href="#字符串转map" class="headerlink" title="字符串转map"></a>字符串转map</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String str = &quot;xiaoming=11,xiaohong=23&quot;;</span><br><span class="line">Map&lt;String,String&gt; map = Splitter.on(&quot;,&quot;).withKeyValueSeparator(&quot;=&quot;).split(str);</span><br></pre></td></tr></table></figure>
+<h1 id="字符串分隔"><a href="#字符串分隔" class="headerlink" title="字符串分隔"></a>字符串分隔</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String input = &quot;aa.dd,,ff,,.&quot;;</span><br><span class="line">List&lt;String&gt; result = Splitter.onPattern(&quot;[.|,]&quot;).omitEmptyStrings().splitToList(input);</span><br></pre></td></tr></table></figure>
+<h1 id="差集合集并集"><a href="#差集合集并集" class="headerlink" title="差集合集并集"></a>差集合集并集</h1><h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">HashSet setA = newHashSet(1, 2, 3, 4, 5);  </span><br><span class="line">HashSet setB = newHashSet(4, 5, 6, 7, 8);  </span><br><span class="line">   </span><br><span class="line">SetView union = Sets.union(setA, setB);  </span><br><span class="line">System.out.println(&quot;union:&quot;);  </span><br><span class="line">for (Integer integer : union)  </span><br><span class="line">    System.out.println(integer);           //union:12345867</span><br><span class="line">   </span><br><span class="line">SetView difference = Sets.difference(setA, setB);  </span><br><span class="line">System.out.println(&quot;difference:&quot;);  </span><br><span class="line">for (Integer integer : difference)  </span><br><span class="line">    System.out.println(integer);        //difference:123</span><br><span class="line">   </span><br><span class="line">SetView intersection = Sets.intersection(setA, setB);  </span><br><span class="line">System.out.println(&quot;intersection:&quot;);  </span><br><span class="line">for (Integer integer : intersection)  </span><br><span class="line">    System.out.println(integer);  //intersection:45</span><br></pre></td></tr></table></figure>
+<h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">MapDifference differenceMap = Maps.difference(mapA, mapB);  </span><br><span class="line">differenceMap.areEqual();  </span><br><span class="line">Map entriesDiffering = differenceMap.entriesDiffering();  </span><br><span class="line">Map entriesOnlyOnLeft = differenceMap.entriesOnlyOnLeft();  </span><br><span class="line">Map entriesOnlyOnRight = differenceMap.entriesOnlyOnRight();  </span><br><span class="line">Map entriesInCommon = differenceMap.entriesInCommon();</span><br></pre></td></tr></table></figure>
+<h1 id="抓取网页"><a href="#抓取网页" class="headerlink" title="抓取网页"></a>抓取网页</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">URL url = new URL(&quot;http://www.baidu.com&quot;);</span><br><span class="line">       CharSource charSource = Resources.asByteSource(url).asCharSource(StandardCharsets.UTF_8);</span><br><span class="line">       charSource.readLines().forEach(System.out::println);</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -436,7 +449,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nginx.im/spring-boot/spring-token.html" title="springboot过滤器验证token">http://nginx.im/spring-boot/spring-token.html</a>
+    <a href="http://nginx.im/java/guava教程.html" title="guava教程">http://nginx.im/java/guava教程.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -451,9 +464,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/springboot/" rel="tag"># springboot</a>
+            <a href="/tags/java/" rel="tag"># java</a>
           
-            <a href="/tags/token/" rel="tag"># token</a>
+            <a href="/tags/guava/" rel="tag"># guava</a>
           
         </div>
       
@@ -466,8 +479,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/spring-boot-mybatis-druid整合.html" rel="next" title="spring-boot-mybatis-druid整合">
-                <i class="fa fa-chevron-left"></i> spring-boot-mybatis-druid整合
+              <a href="/spring-boot/springboot常用注解.html" rel="next" title="springboot常用的注解">
+                <i class="fa fa-chevron-left"></i> springboot常用的注解
               </a>
             
           </div>
@@ -475,10 +488,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/spring-boot/spring-boot-Access-Control-Allow-Origin.html" rel="prev" title="springboot-Access-Control-Allow-Origin">
-                springboot-Access-Control-Allow-Origin <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -621,7 +630,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#token-java"><span class="nav-number">1.</span> <span class="nav-text">token.java</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#集合的创建-可变，不可变"><span class="nav-number">1.</span> <span class="nav-text">集合的创建, 可变，不可变</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本"><span class="nav-number">1.1.</span> <span class="nav-text">基本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特殊的数据类型"><span class="nav-number">1.2.</span> <span class="nav-text">特殊的数据类型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#集合转字符串"><span class="nav-number">2.</span> <span class="nav-text">集合转字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#list-转字符串"><span class="nav-number">2.1.</span> <span class="nav-text">list 转字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#map转字符串"><span class="nav-number">2.2.</span> <span class="nav-text">map转字符串</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串转集合"><span class="nav-number">3.</span> <span class="nav-text">字符串转集合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串转list"><span class="nav-number">3.1.</span> <span class="nav-text">字符串转list</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串转map"><span class="nav-number">3.2.</span> <span class="nav-text">字符串转map</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串分隔"><span class="nav-number">4.</span> <span class="nav-text">字符串分隔</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#差集合集并集"><span class="nav-number">5.</span> <span class="nav-text">差集合集并集</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#set"><span class="nav-number">5.1.</span> <span class="nav-text">set</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#map"><span class="nav-number">5.2.</span> <span class="nav-text">map</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#抓取网页"><span class="nav-number">6.</span> <span class="nav-text">抓取网页</span></a></li></ol></div>
             
 
           </div>
