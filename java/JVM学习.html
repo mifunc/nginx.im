@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="centos7,rc.local," />
+  <meta name="keywords" content="java,jvm," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="在centos7版本以下的系统中, 尝尝用rc.local 自动启动一些软件. 但是在centos7 中 默认rc.local 是不起作用的, centos7 中把 SysV 替换成  system 。centos7保留了rc.local ,只需要简单的设置就可以开启.">
-<meta name="keywords" content="centos7,rc.local">
+<meta name="description" content="JVM Java Virtual Machine (java虚拟机)">
+<meta name="keywords" content="java,jvm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="centos7-rc-local不起作用修复">
-<meta property="og:url" content="http://nginx.im/centos7-rc-local不起作用修复.html">
+<meta property="og:title" content="jvm学习">
+<meta property="og:url" content="http://nginx.im/java/JVM学习.html">
 <meta property="og:site_name" content="IM.NGINX">
-<meta property="og:description" content="在centos7版本以下的系统中, 尝尝用rc.local 自动启动一些软件. 但是在centos7 中 默认rc.local 是不起作用的, centos7 中把 SysV 替换成  system 。centos7保留了rc.local ,只需要简单的设置就可以开启.">
+<meta property="og:description" content="JVM Java Virtual Machine (java虚拟机)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-05T04:58:45.346Z">
+<meta property="og:updated_time" content="2018-04-08T06:28:42.143Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="centos7-rc-local不起作用修复">
-<meta name="twitter:description" content="在centos7版本以下的系统中, 尝尝用rc.local 自动启动一些软件. 但是在centos7 中 默认rc.local 是不起作用的, centos7 中把 SysV 替换成  system 。centos7保留了rc.local ,只需要简单的设置就可以开启.">
+<meta name="twitter:title" content="jvm学习">
+<meta name="twitter:description" content="JVM Java Virtual Machine (java虚拟机)">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://nginx.im/centos7-rc-local不起作用修复.html"/>
+  <link rel="canonical" href="http://nginx.im/java/JVM学习.html"/>
 
 
 
 
 
-  <title>centos7-rc-local不起作用修复 | IM.NGINX</title>
+  <title>jvm学习 | IM.NGINX</title>
   
 
 
@@ -297,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nginx.im/centos7-rc-local不起作用修复.html">
+    <link itemprop="mainEntityOfPage" href="http://nginx.im/java/JVM学习.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="IM.NGINX">
@@ -314,7 +314,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">centos7-rc-local不起作用修复</h2>
+          <h2 class="post-title" itemprop="name headline">jvm学习</h2>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-05T12:58:45+08:00">
-                2018年03月5日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-08T14:21:14+08:00">
+                2018年04月8日
               </time>
             
 
@@ -349,8 +349,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/centos7/" itemprop="url" rel="index">
-                    <span itemprop="name">centos7</span>
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
                   </a>
                 </span>
 
@@ -386,14 +386,9 @@
       
 
       
-        <p>在centos7版本以下的系统中, 尝尝用rc.local 自动启动一些软件. 但是在centos7 中 默认rc.local 是不起作用的, centos7 中把 SysV 替换成  system 。centos7保留了rc.local ,只需要简单的设置就可以开启.</p>
+        <p>JVM Java Virtual Machine (java虚拟机)</p>
 <a id="more"></a>
-<h1 id="设置rc-local-权限"><a href="#设置rc-local-权限" class="headerlink" title="设置rc.local 权限"></a>设置rc.local 权限</h1><p>我们在一下目录可以看见rc.local<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/etc/rc.local</span><br><span class="line">/etc/rc.d/rc.local</span><br><span class="line">#/etc/rc.local 是 /etc/rc.d/rc.local的软连接</span><br></pre></td></tr></table></figure></p>
-<p>chmod +x /etc/rc.d/rc.local </p>
-<h1 id="设置开机启动"><a href="#设置开机启动" class="headerlink" title="设置开机启动"></a>设置开机启动</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable  rc-local.service</span><br></pre></td></tr></table></figure>
-<h1 id="启动rc-local-service"><a href="#启动rc-local-service" class="headerlink" title="启动rc-local.service"></a>启动rc-local.service</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start   rc-local.service</span><br></pre></td></tr></table></figure>
-<h1 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status rc-local.service</span><br></pre></td></tr></table></figure>
-<h1 id="在-etc-rc-local-编写启动软件指令"><a href="#在-etc-rc-local-编写启动软件指令" class="headerlink" title="在/etc/rc.local 编写启动软件指令"></a>在/etc/rc.local 编写启动软件指令</h1>
+<h1 id="JDK8-以后-Hotspot-JRockit-优秀特性"><a href="#JDK8-以后-Hotspot-JRockit-优秀特性" class="headerlink" title="JDK8 以后 Hotspot+JRockit 优秀特性"></a>JDK8 以后 Hotspot+JRockit 优秀特性</h1>
       
     </div>
     
@@ -442,7 +437,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nginx.im/centos7-rc-local不起作用修复.html" title="centos7-rc-local不起作用修复">http://nginx.im/centos7-rc-local不起作用修复.html</a>
+    <a href="http://nginx.im/java/JVM学习.html" title="jvm学习">http://nginx.im/java/JVM学习.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -457,9 +452,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/centos7/" rel="tag"># centos7</a>
+            <a href="/tags/java/" rel="tag"># java</a>
           
-            <a href="/tags/rc-local/" rel="tag"># rc.local</a>
+            <a href="/tags/jvm/" rel="tag"># jvm</a>
           
         </div>
       
@@ -472,8 +467,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Failed to start component.html" rel="next" title="Faile- to-star- component-Unable-to-register-MBean">
-                <i class="fa fa-chevron-left"></i> Faile- to-star- component-Unable-to-register-MBean
+              <a href="/java/guava教程.html" rel="next" title="guava教程">
+                <i class="fa fa-chevron-left"></i> guava教程
               </a>
             
           </div>
@@ -481,10 +476,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/The-real-difference-between-$host-and-$http_host.html" rel="prev" title="The real difference between $host and $http_host">
-                The real difference between $host and $http_host <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -627,7 +618,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#设置rc-local-权限"><span class="nav-number">1.</span> <span class="nav-text">设置rc.local 权限</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置开机启动"><span class="nav-number">2.</span> <span class="nav-text">设置开机启动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#启动rc-local-service"><span class="nav-number">3.</span> <span class="nav-text">启动rc-local.service</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看状态"><span class="nav-number">4.</span> <span class="nav-text">查看状态</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在-etc-rc-local-编写启动软件指令"><span class="nav-number">5.</span> <span class="nav-text">在/etc/rc.local 编写启动软件指令</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JDK8-以后-Hotspot-JRockit-优秀特性"><span class="nav-number">1.</span> <span class="nav-text">JDK8 以后 Hotspot+JRockit 优秀特性</span></a></li></ol></div>
             
 
           </div>
