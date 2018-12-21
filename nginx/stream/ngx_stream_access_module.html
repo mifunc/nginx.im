@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>stream/ngx_stream_access_module-nginx中文手册</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="None"/>
+<meta name="keywords" content="allow,deny,192.168,1.0,server"/>
+</head>
+<body>
+<div id="content"><h2 class="notranslate">Module ngx_stream_access_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#allow">allow</a> <br>     <a href="#deny">deny</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_stream_access_module</code>模块（1.9.2）允许限制对某些客户端地址的访问。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">server {
+    ...
+    deny  192.168.1.1;
+    allow 192.168.1.0/24;
+    allow 10.1.1.0/16;
+    allow 2001:0db8::/32;
+    deny  all;
+}
+</pre></blockquote><p></p><p>  按顺序检查规则，直到找到第一个匹配项。  在此示例中，仅允许IPv4网络<code class="notranslate">10.1.1.0/16</code>和<code class="notranslate">192.168.1.0/24</code>不包括地址<code class="notranslate">192.168.1.1</code> ）和IPv6网络<code class="notranslate">2001:0db8::/32</code> 。 </p><a name="directives"></a><center><h4>  指令 </h4></center><a name="allow"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>allow</strong> 
+    <code class="notranslate"><i>address</i></code> |
+    <code class="notranslate"><i>CIDR</i></code> |
+    <code class="notranslate">unix:</code> |
+    <code class="notranslate">all</code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table></div><p>  允许访问指定的网络或地址。  如果指定了特殊值<code class="notranslate">unix:</code>则允许访问所有UNIX域套接字。 </p><a name="deny"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>deny</strong> 
+    <code class="notranslate"><i>address</i></code> |
+    <code class="notranslate"><i>CIDR</i></code> |
+    <code class="notranslate">unix:</code> |
+    <code class="notranslate">all</code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table></div><p>  拒绝访问指定的网络或地址。  如果指定了特殊值<code class="notranslate">unix:</code>则拒绝所有UNIX域套接字的访问。 </p> 
+<span></span><div style="display: none;"></div></div>
+</body>
+</html>

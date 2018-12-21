@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>contributing_changes-nginx中文手册</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="None"/>
+<meta name="keywords" content="ngx,mail,http,connection,hg"/>
+</head>
+<body>
+<div id="content"><h2>  贡献变化 </h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a href="#getting_sources">Getting Sources</a> <br> <a href="#formatting_changes">Formatting Changes</a> <br> <a href="#before_submitting">Before Submitting</a> <br> <a href="#submitting_changes">Submitting Changes</a> <br> <a href="#license">License</a> <br></td></tr></tbody></table><a name="getting_sources"></a><center><h4>  获取资源 </h4></center><p>   <a href="https://www.mercurial-scm.org">Mercurial</a>用于存储源代码。  可以使用以下命令克隆<a href="http://hg.nginx.org/nginx">存储库</a> ： </p><blockquote class="example"><pre class="notranslate">hg clone http://hg.nginx.org/nginx
+</pre></blockquote><p></p><a name="formatting_changes"></a><center><h4>  格式化更改 </h4></center><p>  应根据nginx使用的<a href="dev/development_guide.html#code_style">代码样式</a>格式化更改。  有时，没有明确的规则;  在这种情况下，检查现有nginx源的格式并模仿这种风格。  如果样式与周围的代码相对应，则更有可能接受更改。 </p><p>  提交更改以创建Mercurial <a href="https://www.mercurial-scm.org/wiki/ChangeSet">变更集</a> 。  请确保更改作者的指定<a href="https://www.mercurial-scm.org/wiki/QuickStart#Setting_a_username">电子邮件</a>地址和真实姓名正确无误。 </p><p>  提交消息应该有一个单行的概要，后面跟一个空行后的详细描述。  希望第一行不超过67个符号。  可以使用<code class="notranslate">hg export</code>命令获取作为补丁的结果变更集： </p><blockquote class="example"><pre class="notranslate"># HG changeset patch
+# User Filipe Da Silva &lt;username@example.com&gt;
+# Date 1368089668 -7200
+#      Thu May 09 10:54:28 2013 +0200
+# Node ID 2220de0521ca2c0b664a8ea1e201ce1cb90fd7a2
+# Parent  822b82191940ef309cd1e6502f94d50d811252a1
+Mail: removed surplus ngx_close_connection() call.
+
+It is already called for a peer connection a few lines above.
+
+diff -r 822b82191940 -r 2220de0521ca src/mail/ngx_mail_auth_http_module.c
+--- a/src/mail/ngx_mail_auth_http_module.c      Wed May 15 15:04:49 2013 +0400
++++ b/src/mail/ngx_mail_auth_http_module.c      Thu May 09 10:54:28 2013 +0200
+@@ -699,7 +699,6 @@ ngx_mail_auth_http_process_headers(ngx_m
+
+                     p = ngx_pnalloc(s-&gt;connection-&gt;pool, ctx-&gt;err.len);
+                     if (p == NULL) {
+-                        ngx_close_connection(ctx-&gt;peer.connection);
+                         ngx_destroy_pool(ctx-&gt;pool);
+                         ngx_mail_session_internal_server_error(s);
+                         return;
+</pre></blockquote><p></p><a name="before_submitting"></a><center><h4>  在提交之前 </h4></center><p>  在提交更改之前，有几点值得考虑： </p><ul class="compact"><li>  建议的更改应适用于广泛的<a href="index.html#tested_os_and_platforms">受支持平台</a> 。 </li><li>  尽量明确为什么需要建议的更改，并尽可能提供用例。 </li><li>  通过测试套件传递更改是确保它们不会导致回归的好方法。  可以使用以下命令克隆包含测试的<a href="http://hg.nginx.org/nginx-tests">存储库</a> ： <blockquote class="example"><pre class="notranslate">hg clone http://hg.nginx.org/nginx-tests
+</pre></blockquote></li></ul><p></p><a name="submitting_changes"></a><center><h4>  提交更改 </h4></center><p>  建议的更改应发送到<a href="support.html#nginx_devel">nginx开发</a>邮件列表。  提交变更集的首选方便方法是使用<a href="https://www.mercurial-scm.org/wiki/PatchbombExtension">patchbomb</a>扩展。 </p><a name="license"></a><center><h4>  执照 </h4></center><p>  提交更改意味着授予项目在相应<a href="LICENSE">许可</a>下使用它的权限。 </p> 
+<span></span><div style="display: none;"></div></div>
+</body>
+</html>

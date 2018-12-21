@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>stream/ngx_stream_js_module-nginx中文手册</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="None"/>
+<meta name="keywords" content="req,line,js,var,function"/>
+</head>
+<body>
+<div id="content"><h2 class="notranslate">Module ngx_stream_js_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#js_access">js_access</a> <br>     <a href="#js_filter">js_filter</a> <br>     <a href="#js_include">js_include</a> <br>     <a href="#js_preread">js_preread</a> <br>     <a href="#js_set">js_set</a> <br> <a href="#properties">Session Object Properties</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_stream_js_module</code>模块用于在<a href="njs/index.html">njs中</a>实现处理程序 - 这是JavaScript语言的一个子集。 </p><p>  默认情况下不构建此模块。  可<a href="njs/install.html">在此处</a>下载和安装说明。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="note">  此示例适用于njs <a href="njs/changes.html#njs0.2.4">0.2.4</a>及更高版本。  对于njs 0.2.3及更早版本，请使用<a href="njs/examples.html#legacy">此</a>示例。 </blockquote><p></p><blockquote class="example"><pre class="notranslate">load_module modules/ngx_stream_js_module.so;
+...
+
+stream {
+    js_include stream.js;
+
+    js_set $bar bar;
+    js_set $req_line req_line;
+
+    server {
+        listen 12345;
+
+        js_preread preread;
+        return     $req_line;
+    }
+
+    server {
+        listen 12346;
+
+        js_access  access;
+        proxy_pass 127.0.0.1:8000;
+        js_filter  header_inject;
+    }
+}
+
+http {
+    server {
+        listen 8000;
+        location / {
+            return 200 $http_foo\n;
+        }
+    }
+}
+</pre></blockquote><p></p><p>   <code class="notranslate">stream.js</code>文件： </p><blockquote class="example"><pre class="notranslate">var line = '';
+
+function bar(s) {
+    var v = s.variables;
+    s.log("hello from bar() handler!");
+    return "bar-var" + v.remote_port + "; pid=" + v.pid;
+}
+
+function preread(s) {
+    s.on('upload', function (data, flags) {
+        var n = data.indexOf('\n');
+        if (n != -1) {
+            line = data.substr(0, n);
+            s.done();
+        }
+    });
+}
+
+function req_line(s) {
+    return line;
+}
+
+// Read HTTP request line.
+// Collect bytes in 'req' until
+// request line is read.
+// Injects HTTP header into a client's request
+
+var my_header =  'Foo: foo';
+function header_inject(s) {
+    var req = '';
+    s.on('upload', function(data, flags) {
+        req += data;
+        var n = req.search('\n');
+        if (n != -1) {
+            var rest = req.substr(n + 1);
+            req = req.substr(0, n + 1);
+            s.send(req + my_header + '\r\n' + rest, flags);
+            s.off('upload');
+        }
+    });
+}
+
+function access(s) {
+    if (s.remoteAddress.match('^192.*')) {
+        s.abort();
+        return;
+    }
+
+    s.allow();
+}
+</pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="js_access"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>js_access</strong> <code class="notranslate"><i>function</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table></div><p>  设置将在<a href="stream_processing.html#access_phase">访问</a>阶段调用的njs函数。 </p><a name="js_filter"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>js_filter</strong> <code class="notranslate"><i>function</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table></div><p>  设置数据过滤器。 </p><a name="js_include"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>js_include</strong> <code class="notranslate"><i>file</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">stream</code> <br>
+                </td></tr></tbody></table></div><p>  指定在njs中实现服务器和变量处理程序的文件。 </p><a name="js_preread"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>js_preread</strong> <code class="notranslate"><i>function</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table></div><p>  设置将在<a href="stream_processing.html#preread_phase">预读</a>阶段调用的njs函数。 </p><a name="js_set"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>js_set</strong> 
+<code class="notranslate"><i>$variable</i></code> <code class="notranslate"><i>function</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">stream</code> <br>
+                </td></tr></tbody></table></div><p>  为指定的变量设置njs函数。 </p><a name="properties"></a><center><h4>  会话对象属性 </h4></center><p>  每个流njs处理程序接收一个参数，即流会话<a href="njs/reference.html#stream">对象</a> 。 </p> 
+<span></span><div style="display: none;"></div></div>
+</body>
+</html>

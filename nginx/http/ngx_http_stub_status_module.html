@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>http/ngx_http_stub_status_module-nginx中文手册</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="None"/>
+<meta name="keywords" content="status,16630948,location,basic,stub"/>
+</head>
+<body>
+<div id="content"><h2 class="notranslate">Module ngx_http_stub_status_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#stub_status">stub_status</a> <br> <a href="#data">Data</a> <br> <a href="#variables">Embedded Variables</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_stub_status_module</code>模块提供对基本状态信息的访问。 </p><p>  默认情况下不构建此模块，应使用<code class="notranslate">--with-http_stub_status_module</code>配置参数启用它。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">location = /basic_status {
+    stub_status;
+}
+</pre></blockquote><p>  此配置创建一个简单的网页，其基本状态数据可能如下所示： </p><blockquote class="example"><pre class="notranslate">Active connections: 291 
+server accepts handled requests
+ 16630948 16630948 31070465 
+Reading: 6 Writing: 179 Waiting: 106 
+</pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="stub_status"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>stub_status</strong> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  可从周围位置访问基本状态信息。 </p><p></p><blockquote class="note">  在1.7.5之前的版本中，指令语法需要任意参数，例如“ <code class="notranslate">stub_status on</code> ”。 </blockquote><p></p><a name="data"></a><center><h4>  数据 </h4></center><p>  提供以下状态信息： </p><dl class="compact"><dt id="stubstat_active"> <code class="notranslate">Active connections</code> </dt> <dd>  当前活动客户端连接数，包括<code class="notranslate">Waiting</code>连接。 </dd><dt id="stubstat_accepts"> <code class="notranslate">accepts</code> </dt> <dd>  已接受的客户端连接总数。 </dd><dt id="stubstat_handled"> <code class="notranslate">handled</code> </dt> <dd>  处理的连接总数。  通常，参数值与<a href="ngx_core_module.html#worker_connections">accept</a>相同，除非已达到某些资源限制（例如， <a href="ngx_core_module.html#worker_connections">worker_connections</a>限制）。 </dd><dt id="stubstat_requests"> <code class="notranslate">requests</code> </dt> <dd>  客户端请求的总数。 </dd><dt id="stubstat_reading"> <code class="notranslate">Reading</code> </dt> <dd>   nginx正在读取请求标头的当前连接数。 </dd><dt id="stubstat_writing"> <code class="notranslate">Writing</code> </dt> <dd>   nginx将响应写回客户端的当前连接数。 </dd><dt id="stubstat_waiting"> <code class="notranslate">Waiting</code> </dt> <dd>  当前等待请求的空闲客户端连接数。 </dd></dl><p></p><a name="variables"></a><center><h4>  嵌入式变量 </h4></center><p>   <code class="notranslate">ngx_http_stub_status_module</code>模块支持以下嵌入变量（1.3.14）： </p><dl class="compact"><dt id="var_connections_active"> <code class="notranslate">$connections_active</code> </dt> <dd>  与<code class="notranslate">Active connections</code>值相同; </dd><dt id="var_connections_reading"> <code class="notranslate">$connections_reading</code> </dt> <dd>  与<code class="notranslate">Reading</code>值相同; </dd><dt id="var_connections_writing"> <code class="notranslate">$connections_writing</code> </dt> <dd>  与<code class="notranslate">Writing</code>值相同; </dd><dt id="var_connections_waiting"> <code class="notranslate">$connections_waiting</code> </dt> <dd>  与<code class="notranslate">Waiting</code>值相同。 </dd></dl><p></p> 
+<span></span><div style="display: none;"></div></div>
+</body>
+</html>

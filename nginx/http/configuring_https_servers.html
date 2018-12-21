@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>http/configuring_https_servers-nginx中文手册</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="None"/>
+<meta name="keywords" content="ssl,com,www,example,server"/>
+</head>
+<body>
+<div id="content"><h2>  配置HTTPS服务器 </h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a href="#optimization">HTTPS server optimization</a> <br> <a href="#chains">SSL certificate chains</a> <br> <a href="#single_http_https_server">A single HTTP/HTTPS server</a> <br> <a href="#name_based_https_servers">Name-based HTTPS servers</a> <br>     <a href="#certificate_with_several_names">An SSL certificate with several names</a> <br>     <a href="#sni">Server Name Indication</a> <br> <a href="#compatibility">Compatibility</a> <br></td></tr></tbody></table><p>  要配置HTTPS服务器，必须在<a href="ngx_http_core_module.html#server">服务器</a>块中的<a href="ngx_http_core_module.html#listen">侦听套接字</a>上启用<code class="notranslate">ssl</code>参数，并且应指定<a href="ngx_http_ssl_module.html#ssl_certificate">服务器证书</a>和<a href="ngx_http_ssl_module.html#ssl_certificate_key">私钥</a>文件的位置： </p><blockquote class="example"><pre class="notranslate">server {
+    listen              443 <b>ssl</b> ;
+    server_name         www.example.com;
+    ssl_certificate     <b>www.example.com.crt</b> ;
+    ssl_certificate_key <b>www.example.com.key</b> ;
+    ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;
+    ssl_ciphers         HIGH:!aNULL:!MD5;
+    ...
+}
+</pre></blockquote><p>  服务器证书是公共实体。  它被发送到连接到服务器的每个客户端。  私钥是一个安全的实体，应该存储在具有受限访问权限的文件中，但是，它必须是nginx的主进程可读的。  私钥可以替代地存储在与证书相同的文件中： </p><blockquote class="example"><pre class="notranslate">    ssl_certificate     www.example.com.cert;
+    ssl_certificate_key www.example.com.cert;
+</pre></blockquote><p>  在这种情况下，还应限制文件访问权限。  虽然证书和密钥存储在一个文件中，但只有证书才会发送到客户端。 </p><p>  指令<a href="ngx_http_ssl_module.html#ssl_protocols">ssl_protocols</a>和<a href="ngx_http_ssl_module.html#ssl_ciphers">ssl_ciphers</a>可用于限制连接以仅包括SSL / TLS的强版本和密码。  默认情况下，nginx使用“ <code class="notranslate">ssl_protocols TLSv1 TLSv1.1 TLSv1.2</code> ”和“ <code class="notranslate">ssl_ciphers HIGH:!aNULL:!MD5</code> ”，因此通常不需要明确配置它们。  请注意，这些指令的默认值已多次<a href="#compatibility">更改</a> 。 </p><a name="optimization"></a><center><h4>   HTTPS服务器优化 </h4></center><p>   SSL操作会消耗额外的CPU资源。  在多处理器系统上，应运行多个<a href="ngx_core_module.html#worker_processes">工作进程</a> ，不少于可用CPU核心数。   CPU占用最多的操作是SSL握手。  有两种方法可以最大限度地减少每个客户端的这些操作数量：第一种方法是通过启用<a href="ngx_http_core_module.html#keepalive_timeout">keepalive</a>连接来通过一个连接发送多个请求，第二种方法是重用SSL会话参数以避免SSL并行连接和后续连接。  会话存储在工作<a href="ngx_http_ssl_module.html#ssl_session_cache">线程</a>之间共享的SSL会话高速缓存中，并由<a href="ngx_http_ssl_module.html#ssl_session_cache">ssl_session_cache</a>指令配置。  一兆字节的缓存包含大约4000个会话。  默认缓存超时为5分钟。  可以使用<a href="ngx_http_ssl_module.html#ssl_session_timeout">ssl_session_timeout</a>指令增加它。  以下是针对具有10兆字节共享会话缓存的多核系统优化的示例配置： </p><blockquote class="example"><pre class="notranslate"> <b>worker_processes auto</b> ;
+
+http {
+    <b>ssl_session_cache   shared:SSL:10m</b> ;
+    <b>ssl_session_timeout 10m</b> ;
+
+    server {
+        listen              443 ssl;
+        server_name         www.example.com;
+        <b>keepalive_timeout   70</b> ;
+
+        ssl_certificate     www.example.com.crt;
+        ssl_certificate_key www.example.com.key;
+        ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;
+        ssl_ciphers         HIGH:!aNULL:!MD5;
+        ...
+</pre></blockquote><p></p><a name="chains"></a><center><h4>   SSL证书链 </h4></center><p>  某些浏览器可能会抱怨由知名证书颁发机构签名的证书，而其他浏览器可能会毫无问题地接受证书。  发生这种情况是因为颁发机构使用中间证书对服务器证书进行了签名，该中间证书不存在于与特定浏览器一起分发的知名可信证书颁发机构的证书库中。  在这种情况下，授权机构提供一组链式证书，这些证书应连接到签名的服务器证书。  服务器证书必须出现在组合文件中的链接证书之前： </p><blockquote class="example"><pre class="notranslate">$ cat www.example.com.crt bundle.crt &gt; www.example.com.chained.crt
+</pre></blockquote><p>  生成的文件应该在<a href="ngx_http_ssl_module.html#ssl_certificate">ssl_certificate</a>指令中使用： </p><blockquote class="example"><pre class="notranslate">server {
+    listen              443 ssl;
+    server_name         www.example.com;
+    ssl_certificate     www.example.com.chained.crt;
+    ssl_certificate_key www.example.com.key;
+    ...
+}
+</pre></blockquote><p>  如果服务器证书和软件包已按错误的顺序连接，则nginx将无法启动并显示错误消息： </p><blockquote class="example"><pre class="notranslate">SSL_CTX_use_PrivateKey_file(" ... /www.example.com.key") failed
+   (SSL: error:0B080074:x509 certificate routines:
+    X509_check_private_key:key values mismatch)
+</pre></blockquote><p>  因为nginx试图将私钥与bundle的第一个证书而不是服务器证书一起使用。 </p><p>  浏览器通常存储他们收到的中间证书，并由受信任的权威机构签名，因此主动使用的浏览器可能已经拥有所需的中间证书，并且可能不会抱怨没有链接束发送的证书。  要确保服务器发送完整的证书链，可以使用<code class="notranslate">openssl</code>命令行实用程序，例如： </p><blockquote class="example"><pre class="notranslate">$ openssl s_client -connect www.godaddy.com:443
+...
+Certificate chain
+ 0 s:/C=US/ST=Arizona/L=Scottsdale/1.3.6.1.4.1.311.60.2.1.3=US
+     /1.3.6.1.4.1.311.60.2.1.2=AZ/O=GoDaddy.com, Inc
+     /OU=MIS Department/ <b>CN=www.GoDaddy.com</b>
+     /serialNumber=0796928-7/2.5.4.15=V1.0, Clause 5.(b)
+   i:/C=US/ST=Arizona/L=Scottsdale/O=GoDaddy.com, Inc.
+     /OU=http://certificates.godaddy.com/repository
+     /CN=Go Daddy Secure Certification Authority
+     /serialNumber=07969287
+ 1 s:/C=US/ST=Arizona/L=Scottsdale/O=GoDaddy.com, Inc.
+     /OU=http://certificates.godaddy.com/repository
+     /CN=Go Daddy Secure Certification Authority
+     /serialNumber=07969287
+   i:/C=US/O=The Go Daddy Group, Inc.
+     /OU=Go Daddy Class 2 Certification Authority
+ 2 s:/C=US/O=The Go Daddy Group, Inc.
+     /OU=Go Daddy Class 2 Certification Authority
+   i:/L=ValiCert Validation Network/O= <b>ValiCert, Inc.</b>
+     /OU=ValiCert Class 2 Policy Validation Authority
+     /CN=http://www.valicert.com//emailAddress=info@valicert.com
+...
+</pre></blockquote><p></p><blockquote class="note">  在使用<a href="#sni">SNI</a>测试配置时，指定<code class="notranslate">-servername</code>选项很重要，因为默认情况下<code class="notranslate">openssl</code>不使用SNI。 </blockquote><p>  在该示例中， <code class="notranslate">www.GoDaddy.com</code>服务器证书＃0的主题（“ <i>s</i> ”）由发行者（“ <i>i</i> ”）签名，发行者本身是证书＃1的主题，其由发行者本身签署。是证书＃2的主题，由知名发行人<i>ValiCert，Inc。签署，</i>其证书存储在浏览器的内置证书库（位于Jack建造的房屋中）中。 </p><p>  如果尚未添加证书包，则仅显示服务器证书＃0。 </p><a name="single_http_https_server"></a><center><h4>  单个HTTP / HTTPS服务器 </h4></center><p>  可以配置处理HTTP和HTTPS请求的单个服务器： </p><blockquote class="example"><pre class="notranslate">server {
+    listen              80;
+    listen              443 ssl;
+    server_name         www.example.com;
+    ssl_certificate     www.example.com.crt;
+    ssl_certificate_key www.example.com.key;
+    ...
+}
+</pre></blockquote><p></p><blockquote class="note">  在0.7.14之前，无法为个别侦听套接字选择性地启用SSL，如上所示。  只能使用<a href="ngx_http_ssl_module.html#ssl">ssl</a>指令为整个服务器启用<a href="ngx_http_ssl_module.html#ssl">SSL</a> ，从而无法设置单个HTTP / HTTPS服务器。  添加了<a href="ngx_http_core_module.html#listen">listen</a>指令的<code class="notranslate">ssl</code>参数来解决此问题。  因此不鼓励在现代版本中使用<a href="ngx_http_ssl_module.html#ssl">ssl</a>指令。 </blockquote><p></p><a name="name_based_https_servers"></a><center><h4>  基于名称的HTTPS服务器 </h4></center><p>  配置两个或多个侦听单个IP地址的HTTPS服务器时会出现一个常见问题： </p><blockquote class="example"><pre class="notranslate">server {
+    listen          443 ssl;
+    server_name     www.example.com;
+    ssl_certificate www.example.com.crt;
+    ...
+}
+
+server {
+    listen          443 ssl;
+    server_name     www.example.org;
+    ssl_certificate www.example.org.crt;
+    ...
+}
+</pre></blockquote><p>  使用此配置，浏览器接收默认服务器的证书，即<code class="notranslate">www.example.com</code>无论请求的服务器名称如何。  这是由SSL协议行为引起的。  在浏览器发送HTTP请求之前建立SSL连接，并且nginx不知道所请求服务器的名称。  因此，它可能只提供默认服务器的证书。 </p><p>  解决此问题的最古老，最强大的方法是为每个HTTPS服务器分配一个单独的IP地址： </p><blockquote class="example"><pre class="notranslate">server {
+    listen          192.168.1.1:443 ssl;
+    server_name     www.example.com;
+    ssl_certificate www.example.com.crt;
+    ...
+}
+
+server {
+    listen          192.168.1.2:443 ssl;
+    server_name     www.example.org;
+    ssl_certificate www.example.org.crt;
+    ...
+}
+</pre></blockquote><p></p><a name="certificate_with_several_names"></a><center><h4>  具有多个名称的SSL证书 </h4></center><p>  还有其他方法允许在多个HTTPS服务器之间共享单个IP地址。  但是，所有这些都有它们的缺点。  一种方法是在SubjectAltName证书字段中使用具有多个名称的证书，例如<code class="notranslate">www.example.com</code>和<code class="notranslate">www.example.org</code> 。  但是，SubjectAltName字段长度是有限的。 </p><p>  另一种方法是使用带有通配符名称的证书，例如<code class="notranslate">*.example.org</code> 。  通配符证书可保护指定域的所有子域，但仅限于一个级别。  此证书与<code class="notranslate">www.example.org</code>匹配，但与<code class="notranslate">example.org</code>和<code class="notranslate">www.sub.example.org</code>不匹配。  这两种方法也可以组合使用。  证书可以在SubjectAltName字段中包含完全和通配符名称，例如<code class="notranslate">example.org</code>和<code class="notranslate">*.example.org</code> 。 </p><p>  最好将具有多个名称的证书文件及其私钥文件放在配置的<i>http</i>级别，以在所有服务器中继承其单个内存副本： </p><blockquote class="example"><pre class="notranslate">ssl_certificate     common.crt;
+ssl_certificate_key common.key;
+
+server {
+    listen          443 ssl;
+    server_name     www.example.com;
+    ...
+}
+
+server {
+    listen          443 ssl;
+    server_name     www.example.org;
+    ...
+}
+</pre></blockquote><p></p><a name="sni"></a><center><h4>  服务器名称指示 </h4></center><p>  在单个IP地址上运行多个HTTPS服务器的更通用的解决方案是<a href="http://en.wikipedia.org/wiki/Server_Name_Indication">TLS服务器名称指示扩展</a> （SNI，RFC 6066），它允许浏览器在SSL握手期间传递请求的服务器名称，因此服务器将知道哪个它应该用于连接的证书。  目前大多数现代浏览器都<a href="http://en.wikipedia.org/wiki/Server_Name_Indication#Support">支持</a> SNI，但某些老客户或特殊客户可能无法使用。 </p><blockquote class="note">  只有域名可以在SNI中传递，但是如果请求包含文字IP地址，某些浏览器可能会错误地传递服务器的IP地址作为其名称。  人们不应该依赖于此。 </blockquote><p></p><p>  为了在nginx中使用SNI，必须在构建nginx二进制文件的OpenSSL库以及在运行时动态链接到的库中支持它。  如果使用配置选项<nobr>“--enable-tlsext”</nobr>构建，OpenSSL支持自0.9.8f版本以来的SNI <nobr>。</nobr>  自OpenSSL 0.9.8j以来，默认情况下启用此选项。  如果nginx是使用SNI支持构建的，那么nginx将在使用“-V”开关运行时显示： </p><blockquote class="example"><pre class="notranslate">$ nginx -V
+...
+TLS SNI support enabled
+...
+</pre></blockquote><p>  但是，如果启用SNI的nginx动态链接到没有SNI支持的OpenSSL库，nginx会显示警告： </p><blockquote class="example"><pre class="notranslate">nginx was built with SNI support, however, now it is linked
+dynamically to an OpenSSL library which has no tlsext support,
+therefore SNI is not available
+</pre></blockquote><p></p><a name="compatibility"></a><center><h4>  兼容性 </h4></center><p></p><ul class="compact"><li>  自0.8.21和0.7.62以来，“-V”开关显示SNI支持状态。 </li><li>  自0.7.14起，支持<a href="ngx_http_core_module.html#listen">listen</a>指令的<code class="notranslate">ssl</code>参数。  在0.8.21之前，它只能与<code class="notranslate">default</code>参数一起指定。 </li><li>  自0.5.23以来，SNI一直受到支持。 </li><li>  自0.5.6以来一直支持共享SSL会话缓存。 </li></ul><p></p><p></p><ul class="compact"><li>  版本1.9.1及更高版本：默认的SSL协议是TLSv1，TLSv1.1和TLSv1.2（如果OpenSSL库支持）。 </li><li>  版本0.7.65,0.8.19及更高版本：默认的SSL协议是SSLv3，TLSv1，TLSv1.1和TLSv1.2（如果受OpenSSL库支持）。 </li><li>  版本0.7.64,0.8.18及更早版本：默认的SSL协议是SSLv2，SSLv3和TLSv1。 </li></ul><p></p><p></p><ul class="compact"><li>  版本1.0.5及更高版本：默认的SSL密码为“ <code class="notranslate">HIGH:!aNULL:!MD5</code> ”。 </li><li>  版本0.7.65,0.8.20及更高版本：默认SSL密码为“ <code class="notranslate">HIGH:!ADH:!MD5</code> ”。 </li><li>  版本0.8.19：默认SSL密码为“ <code class="notranslate">ALL:!ADH:RC4+RSA:+HIGH:+MEDIUM</code> ”。 </li><li>  版本0.7.64,0.8.18及更早版本：默认的SSL密码是 <br>   “ <code class="notranslate">ALL:!ADH:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP</code> ”。 </li></ul><p></p><table width="100%"><tbody><tr><td align="right" class="notranslate">written by Igor Sysoev<br>edited by Brian Mercer<br></td></tr></tbody></table> 
+<span></span><div style="display: none;"></div></div>
+</body>
+</html>

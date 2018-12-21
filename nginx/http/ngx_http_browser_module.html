@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>http/ngx_http_browser_module-nginx中文手册</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="None"/>
+<meta name="keywords" content="browser,modern,ancient,value,index"/>
+</head>
+<body>
+<div id="content"><h2 class="notranslate">Module ngx_http_browser_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#ancient_browser">ancient_browser</a> <br>     <a href="#ancient_browser_value">ancient_browser_value</a> <br>     <a href="#modern_browser">modern_browser</a> <br>     <a href="#modern_browser_value">modern_browser_value</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_browser_module</code>模块创建的变量的值取决于“User-Agent”请求标头字段的值： </p><dl class="compact"><dt id="var_modern_browser"> <code class="notranslate">$modern_browser</code> </dt> <dd>  如果浏览器被识别为现代，则等于<a href="#modern_browser_value">modern_browser_value</a>指令设置的值; </dd><dt id="var_ancient_browser"> <code class="notranslate">$ancient_browser</code> </dt> <dd>  如果浏览器被识别为古代，则等于<a href="#ancient_browser_value">ancient_browser_value</a>指令设置的值; </dd><dt id="var_msie"> <code class="notranslate">$msie</code> </dt> <dd>  如果浏览器被识别为任何版本的MSIE，则等于“1”。 </dd></dl><p></p><a name="example"></a><center><h4>  示例配置 </h4></center><p>  选择索引文件： </p><blockquote class="example"><pre class="notranslate">modern_browser_value "modern.";
+
+modern_browser msie      5.5;
+modern_browser gecko     1.0.0;
+modern_browser opera     9.0;
+modern_browser safari    413;
+modern_browser konqueror 3.0;
+
+index index.${modern_browser}html index.html;
+</pre></blockquote><p></p><p>  旧浏览器的重定向： </p><blockquote class="example"><pre class="notranslate">modern_browser msie      5.0;
+modern_browser gecko     0.9.1;
+modern_browser opera     8.0;
+modern_browser safari    413;
+modern_browser konqueror 3.0;
+
+modern_browser unlisted;
+
+ancient_browser Links Lynx netscape4;
+
+if ($ancient_browser) {
+    rewrite ^ /ancient.html;
+}
+</pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="ancient_browser"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>ancient_browser</strong> <code class="notranslate"><i>string</i></code> ...;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  如果在“User-Agent”请求标头字段中找到任何指定的子字符串，则浏览器将被视为古代。  特殊字符串“ <code class="notranslate">netscape4</code> ”对应于正则表达式“ <code class="notranslate">^Mozilla/[1-4]</code> ”。 </p><a name="ancient_browser_value"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>ancient_browser_value</strong> <code class="notranslate"><i>string</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">ancient_browser_value 1;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  设置<code class="notranslate">$ancient_browser</code>变量的值。 </p><a name="modern_browser"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>modern_browser</strong> <code class="notranslate"><i>browser</i></code> <code class="notranslate"><i>version</i></code> ;</code> <br> <code class="notranslate"><strong>modern_browser</strong> <code class="notranslate">unlisted</code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  指定从中将浏览器视为现代的版本。  浏览器可以是以下任何一种： <code class="notranslate">msie</code> ， <code class="notranslate">gecko</code> （基于Mozilla的浏览器）， <code class="notranslate">opera</code> ， <code class="notranslate">safari</code>或<code class="notranslate">konqueror</code> 。 </p><p>  可以使用以下格式指定版本：X，XX，XXX或XXXX每种格式的最大值分别为4000,4000.99,4000.99.99和4000.99.99.99。 </p><p>   <code class="notranslate">unlisted</code>的特殊值指定将浏览器视为现代浏览器，如果它未被<code class="notranslate">modern_browser</code>和<a href="#ancient_browser">ancient_browser</a>指令列出。  否则这样的浏览器被认为是古老的。  如果请求未在标头中提供“User-Agent”字段，则将浏览器视为未列出。 </p><a name="modern_browser_value"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>modern_browser_value</strong> <code class="notranslate"><i>string</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">modern_browser_value 1;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  设置<code class="notranslate">$modern_browser</code>变量的值。 </p> 
+<span></span><div style="display: none;"></div></div>
+</body>
+</html>

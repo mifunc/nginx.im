@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>stream/ngx_stream_geo_module-nginx中文手册</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="None"/>
+<meta name="keywords" content="127.0,0.0,geo,RU,0.1"/>
+</head>
+<body>
+<div id="content"><h2 class="notranslate">Module ngx_stream_geo_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#geo">geo</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_stream_geo_module</code>模块（1.11.3）使用取决于客户端IP地址的值创建变量。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">geo $geo {
+    default        0;
+
+    127.0.0.1      2;
+    192.168.1.0/24 1;
+    10.1.0.0/16    1;
+
+    ::1            2;
+    2001:0db8::/32 1;
+}
+</pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="geo"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>geo</strong> [ <code class="notranslate"><i>$address</i></code> ] <code class="notranslate"><i>$variable</i></code> { ... }</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">stream</code> <br>
+                </td></tr></tbody></table></div><p>  描述指定变量的值对客户端IP地址的依赖性。  默认情况下，地址取自<code class="notranslate">$remote_addr</code>变量，但也可以从另一个变量中获取，例如： </p><blockquote class="example"><pre class="notranslate">geo $arg_remote_addr $geo {
+    ...;
+}
+</pre></blockquote><p></p><p></p><blockquote class="note">  由于变量仅在使用时进行评估，因此即使存在大量已声明的“ <code class="notranslate">geo</code> ”变量也不会导致连接处理的任何额外成本。 </blockquote><p></p><p>  如果变量的值不表示有效的IP地址，则使用“ <code class="notranslate">255.255.255.255</code> ”地址。 </p><p>  地址被指定为CIDR表示法中的前缀（包括单个地址）或作为范围。 </p><p>  还支持以下特殊参数： </p><dl class="compact"><dt> <code class="notranslate">delete</code> </dt> <dd>  删除指定的网络。 </dd><dt> <code class="notranslate">default</code> </dt> <dd>  如果客户端地址与任何指定的地址不匹配，则设置为该变量的值。  当以CIDR表示法指定地址时，可以使用“ <code class="notranslate">0.0.0.0/0</code> ”和“ <code class="notranslate">::/0</code> ”而不是<code class="notranslate">default</code> 。  如果未指定default，则默认值为空字符串。 </dd><dt> <code class="notranslate">include</code> </dt> <dd>  包括一个包含地址和值的文件。  可能有几个夹杂物。 </dd><dt> <code class="notranslate">ranges</code> </dt> <dd>  表示地址被指定为范围。  这个参数应该是第一个。  要加快地理基地的加载速度，地址应按升序排列。 </dd></dl><p></p><p>  例： </p><blockquote class="example"><pre class="notranslate">geo $country {
+    default        ZZ;
+    include        conf/geo.conf;
+    delete         127.0.0.0/16;
+
+    127.0.0.0/24   US;
+    127.0.0.1/32   RU;
+    10.1.0.0/16    RU;
+    192.168.1.0/24 UK;
+}
+</pre></blockquote><p></p><p>   <code class="notranslate">conf/geo.conf</code>文件可以包含以下行： </p><blockquote class="example"><pre class="notranslate">10.2.0.0/16    RU;
+192.168.2.0/24 RU;
+</pre></blockquote><p></p><p>  使用最具体匹配的值。  例如，对于127.0.0.1地址，将选择值“ <code class="notranslate">RU</code> ”，而不是“ <code class="notranslate">US</code> ”。 </p><p>  范围示例： </p><blockquote class="example"><pre class="notranslate">geo $country {
+    ranges;
+    default                   ZZ;
+    127.0.0.0-127.0.0.0       US;
+    127.0.0.1-127.0.0.1       RU;
+    127.0.0.1-127.0.0.255     US;
+    10.1.0.0-10.1.255.255     RU;
+    192.168.1.0-192.168.1.255 UK;
+}
+</pre></blockquote><p></p> 
+<span></span><div style="display: none;"></div></div>
+</body>
+</html>

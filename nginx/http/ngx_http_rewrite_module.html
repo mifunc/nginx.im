@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>http/ngx_http_rewrite_module-nginx中文手册</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="None"/>
+<meta name="keywords" content="mp3,rewrite,download,copy,break"/>
+</head>
+<body>
+<div id="content"><h2 class="notranslate">Module ngx_http_rewrite_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a href="#directives">Directives</a> <br>     <a href="#break">break</a> <br>     <a href="#if">if</a> <br>     <a href="#return">return</a> <br>     <a href="#rewrite">rewrite</a> <br>     <a href="#rewrite_log">rewrite_log</a> <br>     <a href="#set">set</a> <br>     <a href="#uninitialized_variable_warn">uninitialized_variable_warn</a> <br> <a href="#internals">Internal Implementation</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_rewrite_module</code>模块用于使用PCRE正则表达式更改请求URI，返回重定向和有条件地选择配置。 </p><p>   <a href="#break">break</a> ， <a href="#if">if</a> ， <a href="#return">return</a> ， <a href="#rewrite">rewrite</a>和<a href="#set">set</a>指令按以下顺序处理： </p><ul class="compact"><li>  在<a href="ngx_http_core_module.html#server">服务器</a>级别指定的此模块的指令是按顺序执行的; </li><li>  反复： <ul class="compact"><li>  基于请求URI搜索<a href="ngx_http_core_module.html#location">位置</a> ; </li><li>  在找到的位置内指定的该模块的指令是顺序执行的; </li><li>  如果<a href="#rewrite">重写</a>请求URI，则重复循环，但不超过<a href="ngx_http_core_module.html#internal">10次</a> 。 </li></ul></li></ul><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="break"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>break</strong> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">server</code> , <code class="notranslate">location</code> , <code class="notranslate">if</code> <br>
+                </td></tr></tbody></table></div><p>  停止处理当前的<code class="notranslate">ngx_http_rewrite_module</code>指令集。 </p><p>  如果在该<a href="ngx_http_core_module.html#location">位置</a>内指定了指令，则在该<a href="ngx_http_core_module.html#location">位置</a>继续进一步处理该请求。 </p><p>  例： </p><blockquote class="example"><pre class="notranslate">if ($slow) {
+    limit_rate 10k;
+    break;
+}
+</pre></blockquote><p></p><a name="if"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>if</strong> ( <code class="notranslate"><i>condition</i></code> ) { ... }</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  评估指定的<code class="notranslate"><i>condition</i></code> 。  如果为true，则执行在大括号内指定的此模块指令，并在<code class="notranslate">if</code>指令内为该请求分配配置。   <code class="notranslate">if</code>指令内的配置继承自先前的配置级别。 </p><p>  条件可以是以下任何一种： </p><ul class="compact"><li>  变量名;  如果变量的值为空字符串或“ <code class="notranslate">0</code> ”，则为false; <blockquote class="note">  在版本1.0.1之前，任何以“ <code class="notranslate">0</code> ”开头的字符串都被视为错误值。 </blockquote></li><li>  使用“ <code class="notranslate">=</code> ”和“ <code class="notranslate">!=</code> ”运算符比较变量和字符串; </li><li>  使用“ <code class="notranslate">~</code> ”（对于区分大小写的匹配）和“ <code class="notranslate">~*</code> ”（对于不区分大小写的匹配）运算符，将变量与正则表达式进行匹配。  正则表达式可以包含可供以后在<code class="notranslate">$1</code> .. <code class="notranslate">$9</code>变量中重用的捕获。  负操作符“ <code class="notranslate">!~</code> ”和“ <code class="notranslate">!~*</code> ”也可用。  如果正则表达式包含“ <code class="notranslate">}</code> ”或“ <code class="notranslate">;</code>   “字符，整个表达式应该用单引号或双引号括起来。 </li><li>  使用“ <code class="notranslate">-f</code> ”和“ <code class="notranslate">!-f</code> ”运算符检查文件是否存在; </li><li>  使用“ <code class="notranslate">-d</code> ”和“ <code class="notranslate">!-d</code> ”运算符检查目录是否存在; </li><li>  使用“ <code class="notranslate">-e</code> ”和“ <code class="notranslate">!-e</code> ”运算符检查文件，目录或符号链接是否存在; </li><li>  使用“ <code class="notranslate">-x</code> ”和“ <code class="notranslate">!-x</code> ”运算符检查可执行文件。 </li></ul><p></p><p>  例子： </p><blockquote class="example"><pre class="notranslate">if ($http_user_agent ~ MSIE) {
+    rewrite ^(.*)$ /msie/$1 break;
+}
+
+if ($http_cookie ~* "id=([^;]+)(?:;|$)") {
+    set $id $1;
+}
+
+if ($request_method = POST) {
+    return 405;
+}
+
+if ($slow) {
+    limit_rate 10k;
+}
+
+if ($invalid_referer) {
+    return 403;
+}
+</pre></blockquote><p></p><blockquote class="note">   <code class="notranslate">$invalid_referer</code>嵌入变量的值由<a href="ngx_http_referer_module.html#valid_referers">valid_referers</a>指令设置。 </blockquote><p></p><a name="return"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>return</strong> <code class="notranslate"><i>code</i></code> [ <code class="notranslate"><i>text</i></code> ];</code> <br> <code class="notranslate"><strong>return</strong> <code class="notranslate"><i>code</i></code> <code class="notranslate"><i>URL</i></code> ;</code> <br> <code class="notranslate"><strong>return</strong> <code class="notranslate"><i>URL</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">server</code> , <code class="notranslate">location</code> , <code class="notranslate">if</code> <br>
+                </td></tr></tbody></table></div><p>  停止处理并将指定的<code class="notranslate"><i>code</i></code>返回给客户端。  非标准代码444在不发送响应头的情况下关闭连接。 </p><p>  从版本0.8.42开始，可以指定重定向URL（对于代码301,302,303,307和308）或响应正文<code class="notranslate"><i>text</i></code> （对于其他代码）。  响应正文文本和重定向URL可以包含变量。  作为特殊情况，可以将重定向URL指定为此服务器的本地URI，在这种情况下，根据请求方案（ <code class="notranslate">$scheme</code> ）以及<a href="ngx_http_core_module.html#server_name_in_redirect">server_name_in_redirect</a>和<a href="ngx_http_core_module.html#port_in_redirect">port_in_redirect</a>指令形成完整重定向URL。 </p><p>  另外，可以将用于具有代码302的临时重定向的<code class="notranslate"><i>URL</i></code>指定为唯一参数。  这样的参数应该以“ <code class="notranslate">http://</code> ”，“ <code class="notranslate">https://</code> ”或“ <code class="notranslate">$scheme</code> ”字符串开头。   <code class="notranslate"><i>URL</i></code>可以包含变量。 </p><p></p><blockquote class="note">  在版本0.7.51之前只能返回以下代码：204,400,402-406,408,410,411,413,416和500-504。 </blockquote><p></p><blockquote class="note">  在版本1.1.16和1.0.13之前，代码307不被视为重定向。 </blockquote><p></p><blockquote class="note">  在版本1.13.0之前，代码308不被视为重定向。 </blockquote><p></p><p>  另请参见<a href="ngx_http_core_module.html#error_page">error_page</a>指令。 </p><a name="rewrite"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>rewrite</strong> 
+    <code class="notranslate"><i>regex</i></code>
+    <code class="notranslate"><i>replacement</i></code>
+    [ <code class="notranslate"><i>flag</i></code> ];</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">server</code> , <code class="notranslate">location</code> , <code class="notranslate">if</code> <br>
+                </td></tr></tbody></table></div><p>  如果指定的正则表达式与请求URI匹配，则URI将根据<code class="notranslate"><i>replacement</i></code>字符串中的指定进行更改。   <code class="notranslate">rewrite</code>指令按照它们在配置文件中的出现顺序依次执行。  可以使用标志终止对指令的进一步处理。  如果替换字符串以“ <code class="notranslate">http://</code> ”，“ <code class="notranslate">https://</code> ”或“ <code class="notranslate">$scheme</code> ”开头，则处理停止并将重定向返回给客户端。 </p><p>  可选的<code class="notranslate"><i>flag</i></code>参数可以是以下之一： </p><dl class="compact"><dt> <code class="notranslate">last</code> </dt> <dd>  停止处理当前的<code class="notranslate">ngx_http_rewrite_module</code>指令集并开始搜索与更改的URI匹配的新位置; </dd><dt> <code class="notranslate">break</code> </dt> <dd>  与<a href="#break">break</a>指令一样，停止处理当前的<code class="notranslate">ngx_http_rewrite_module</code>指令集; </dd><dt> <code class="notranslate">redirect</code> </dt> <dd>  返回带有302代码的临时重定向;  如果替换字符串不以“ <code class="notranslate">http://</code> ”，“ <code class="notranslate">https://</code> ”或“ <code class="notranslate">$scheme</code> ”开头，则使用; </dd><dt> <code class="notranslate">permanent</code> </dt> <dd>  返回301代码的永久重定向。 </dd></dl><p>  完整重定向URL根据请求方案（ <code class="notranslate">$scheme</code> ）以及<a href="ngx_http_core_module.html#server_name_in_redirect">server_name_in_redirect</a>和<a href="ngx_http_core_module.html#port_in_redirect">port_in_redirect</a>指令形成。 </p><p>  例： </p><blockquote class="example"><pre class="notranslate">server {
+    ...
+    rewrite ^(/download/.*)/media/(.*)\..*$ $1/mp3/$2.mp3 last;
+    rewrite ^(/download/.*)/audio/(.*)\..*$ $1/mp3/$2.ra  last;
+    return  403;
+    ...
+}
+</pre></blockquote><p></p><p>  但是如果这些指令放在“ <code class="notranslate">/download/</code> ”位置， <code class="notranslate">last</code>标志应该用<code class="notranslate">break</code>替换，否则nginx会生成10个周期并返回500错误： </p><blockquote class="example"><pre class="notranslate">location /download/ {
+    rewrite ^(/download/.*)/media/(.*)\..*$ $1/mp3/$2.mp3 break;
+    rewrite ^(/download/.*)/audio/(.*)\..*$ $1/mp3/$2.ra  break;
+    return  403;
+}
+</pre></blockquote><p></p><p>  如果<code class="notranslate"><i>replacement</i></code>字符串包含新请求参数，则先前的请求参数将附加在它们之后。  如果这是不希望的，在替换字符串的末尾加上一个问号可以避免附加它们，例如： </p><blockquote class="example"><pre class="notranslate">rewrite ^/users/(.*)$ /show?user=$1? last;
+</pre></blockquote><p></p><p>  如果正则表达式包含“ <code class="notranslate">}</code> ”或“ <code class="notranslate">;</code>   “字符，整个表达式应该用单引号或双引号括起来。 </p><a name="rewrite_log"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>rewrite_log</strong> <code class="notranslate">on</code> | <code class="notranslate">off</code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">rewrite_log off;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> , <code class="notranslate">if</code> <br>
+                </td></tr></tbody></table></div><p>  启用或禁用将<code class="notranslate">ngx_http_rewrite_module</code>模块指令处理结果记录到<code class="notranslate">notice</code>级别的<a href="ngx_core_module.html#error_log">error_log</a>中。 </p><a name="set"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>set</strong> <code class="notranslate"><i>$variable</i></code> <code class="notranslate"><i>value</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">server</code> , <code class="notranslate">location</code> , <code class="notranslate">if</code> <br>
+                </td></tr></tbody></table></div><p>  设置指定<code class="notranslate"><i>variable</i></code>的<code class="notranslate"><i>value</i></code> 。  该<code class="notranslate"><i>value</i></code>可以包含文本，变量及其组合。 </p><a name="uninitialized_variable_warn"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>uninitialized_variable_warn</strong> <code class="notranslate">on</code> | <code class="notranslate">off</code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">uninitialized_variable_warn on;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> , <code class="notranslate">if</code> <br>
+                </td></tr></tbody></table></div><p>  控制是否记录有关未初始化变量的警告。 </p><a name="internals"></a><center><h4>  内部实施 </h4></center><p>   <code class="notranslate">ngx_http_rewrite_module</code>模块指令在配置阶段编译为在请求处理期间解释的内部指令。  解释器是一个简单的虚拟堆栈机器。 </p><p>  例如，指令 </p><blockquote class="example"><pre class="notranslate">location /download/ {
+    if ($forbidden) {
+        return 403;
+    }
+
+    if ($slow) {
+        limit_rate 10k;
+    }
+
+    rewrite ^/(download/.*)/media/(.*)\..*$ /$1/mp3/$2.mp3 break;
+}
+</pre></blockquote><p>  将被翻译成这些说明： </p><blockquote class="example"><pre class="notranslate">variable $forbidden
+check against zero
+    return 403
+    end of code
+variable $slow
+check against zero
+match of regular expression
+copy "/"
+copy $1
+copy "/mp3/"
+copy $2
+copy ".mp3"
+end of regular expression
+end of code
+</pre></blockquote><p></p><p>  请注意，上面的<a href="ngx_http_core_module.html#limit_rate">limit_rate</a>指令没有说明，因为它与<code class="notranslate">ngx_http_rewrite_module</code>模块无关。  为<a href="#if">if</a>块创建单独的配置。  如果条件成立，则为此配置分配一个请求，其中<code class="notranslate">limit_rate</code>等于10k。 </p><p>  指令 </p><blockquote class="example"><pre class="notranslate">rewrite ^/(download/.*)/media/(.*)\..*$ /$1/mp3/$2.mp3 break;
+</pre></blockquote><p>  如果正则表达式中的第一个斜杠放在括号内，则可以通过一条指令变小： </p><blockquote class="example"><pre class="notranslate">rewrite ^( <strong>/</strong> download/.*)/media/(.*)\..*$ $1/mp3/$2.mp3 break;
+</pre></blockquote><p>  相应的说明将如下所示： </p><blockquote class="example"><pre class="notranslate">match of regular expression
+copy $1
+copy "/mp3/"
+copy $2
+copy ".mp3"
+end of regular expression
+end of code
+</pre></blockquote><p></p> 
+<span></span><div style="display: none;"></div></div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>ngx_google_perftools_module-nginx中文手册</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="None"/>
+<meta name="keywords" content="google,perftools,profiles,path,profile"/>
+</head>
+<body>
+<div id="content"><h2 class="notranslate">Module ngx_google_perftools_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#google_perftools_profiles">google_perftools_profiles</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_google_perftoos_module</code>模块（0.6.29）支持使用<a href="https://github.com/gperftools/gperftools">Google Performance Tools</a>分析nginx工作进程。  该模块适用于nginx开发人员。 </p><p>  默认情况下不会构建此模块，应使用<code class="notranslate">--with-google_perftools_module</code>配置参数启用它。 </p><blockquote class="note">  该模块需要<a href="https://github.com/gperftools/gperftools">gperftools</a>库。 </blockquote><p></p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">google_perftools_profiles /path/to/profile;
+</pre></blockquote><p>  配置文件将存储为<code class="notranslate">/path/to/profile.&lt;worker_pid&gt;</code> 。 </p><a name="directives"></a><center><h4>  指令 </h4></center><a name="google_perftools_profiles"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>google_perftools_profiles</strong> <code class="notranslate"><i>file</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">main</code> <br>
+                </td></tr></tbody></table></div><p>  设置一个文件名，用于保存nginx工作进程的分析信息。  工作进程的ID始终是文件名的一部分，并在点后面附加到文件名的末尾。 </p> 
+<span></span><div style="display: none;"></div></div>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>http/ngx_http_ssi_module-nginx中文手册</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="None"/>
+<meta name="keywords" content="name,expr,...,ssi,text"/>
+</head>
+<body>
+<div id="content"><h2 class="notranslate">Module ngx_http_ssi_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#ssi">ssi</a> <br>     <a href="#ssi_last_modified">ssi_last_modified</a> <br>     <a href="#ssi_min_file_chunk">ssi_min_file_chunk</a> <br>     <a href="#ssi_silent_errors">ssi_silent_errors</a> <br>     <a href="#ssi_types">ssi_types</a> <br>     <a href="#ssi_value_length">ssi_value_length</a> <br> <a href="#commands">SSI Commands</a> <br> <a href="#variables">Embedded Variables</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_ssi_module</code>模块是一个过滤器，用于处理通过它的响应中的SSI（服务器端包含）命令。  目前，支持的SSI命令列表不完整。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">location / {
+    ssi on;
+    ...
+}
+</pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="ssi"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>ssi</strong> <code class="notranslate">on</code> | <code class="notranslate">off</code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">ssi off;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> , <code class="notranslate">if in location</code> <br>
+                </td></tr></tbody></table></div><p>  启用或禁用响应中SSI命令的处理。 </p><a name="ssi_last_modified"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>ssi_last_modified</strong> <code class="notranslate">on</code> | <code class="notranslate">off</code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">ssi_last_modified off;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table><p>  该指令出现在1.5.1版本中。 </p></div><p>  允许在SSI处理期间保留原始响应中的“Last-Modified”头字段，以便于响应缓存。 </p><p>  默认情况下，在处理过程中修改响应内容时会删除标题字段，并且可能包含动态生成的元素或与原始响应无关的部分。 </p><a name="ssi_min_file_chunk"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>ssi_min_file_chunk</strong> <code class="notranslate">size</code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">ssi_min_file_chunk 1k;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  设置存储在磁盘上的响应部分的最小<code class="notranslate"><i>size</i></code> ，从使用<a href="ngx_http_core_module.html#sendfile">sendfile</a>发送它们开始是有意义的。 </p><a name="ssi_silent_errors"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>ssi_silent_errors</strong> <code class="notranslate">on</code> | <code class="notranslate">off</code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">ssi_silent_errors off;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  如果启用，则在SSI处理期间发生<code class="notranslate">[an error occurred while processing the directive]</code> ，禁止输出“ <code class="notranslate">[an error occurred while processing the directive]</code> ”字符串。 </p><a name="ssi_types"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>ssi_types</strong> <code class="notranslate"><i>mime-type</i></code> ...;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">ssi_types text/html;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  除了“ <code class="notranslate">text/html</code> ”之外，还可以在具有指定MIME类型的响应中处理SSI命令。  特殊值“ <code class="notranslate">*</code> ”匹配任何MIME类型（0.8.29）。 </p><a name="ssi_value_length"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>ssi_value_length</strong> <code class="notranslate"><i>length</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">ssi_value_length 256;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  设置SSI命令中参数值的最大长度。 </p><a name="commands"></a><center><h4>   SSI命令 </h4></center><p>   SSI命令具有以下通用格式： </p><blockquote class="example"><pre class="notranslate">&lt;!--# command parameter1=value1 parameter2=value2 ... --&gt;
+</pre></blockquote><p></p><p>  支持以下命令： </p><dl class="compact"><dt> <code class="notranslate">block</code> </dt> <dd>  定义可在<code class="notranslate">include</code>命令中用作存根的块。  该块可以包含其他SSI命令。  该命令具有以下参数： <dl class="compact"><dt> <code class="notranslate">name</code> </dt> <dd>  块名称。 </dd></dl>  例： <blockquote class="example"><pre class="notranslate">&lt;!--# block name="one" --&gt;
+stub
+&lt;!--# endblock --&gt;
+</pre></blockquote></dd><dt> <code class="notranslate">config</code> </dt> <dd>  设置SSI处理期间使用的一些参数，即： <dl class="compact"><dt> <code class="notranslate">errmsg</code> </dt> <dd>  在SSI处理期间发生错误时输出的字符串。  默认情况下，输出以下字符串： <blockquote class="example"><pre class="notranslate">[an error occurred while processing the directive]
+</pre></blockquote></dd><dt> <code class="notranslate">timefmt</code> </dt> <dd>  传递给<code class="notranslate">strftime()</code>函数的格式字符串，用于输出日期和时间。  默认情况下，使用以下格式： <blockquote class="example"><pre class="notranslate">"%A, %d-%b-%Y %H:%M:%S %Z"
+</pre></blockquote>   “ <code class="notranslate">%s</code> ”格式适合以秒为单位输出时间。 </dd></dl></dd><dt> <code class="notranslate">echo</code> </dt> <dd>  输出变量的值。  该命令具有以下参数： <dl class="compact"><dt> <code class="notranslate">var</code> </dt> <dd>  变量名称。 </dd><dt> <code class="notranslate">encoding</code> </dt> <dd>  编码方法。  可能的值包括<code class="notranslate">none</code> ， <code class="notranslate">url</code>和<code class="notranslate">entity</code> 。  默认情况下，使用<code class="notranslate">entity</code> 。 </dd><dt> <code class="notranslate">default</code> </dt> <dd>  一个非标准参数，如果未定义变量，则设置要输出的字符串。  默认情况下，输出“ <code class="notranslate">(none)</code> ”。  命令 <blockquote class="example"><pre class="notranslate">&lt;!--# echo var="name" default=" <strong>no</strong> " --&gt;
+</pre></blockquote>  替换以下命令序列： <blockquote class="example"><pre class="notranslate">&lt;!--# if expr="$name" --&gt;&lt;!--# echo var="name" --&gt;&lt;!--#
+       else --&gt; <strong>no</strong> &lt;!--# endif --&gt;
+</pre></blockquote></dd></dl></dd><dt> <code class="notranslate">if</code> </dt> <dd>  执行条件包含。  支持以下命令： <blockquote class="example"><pre class="notranslate">&lt;!--# if expr="..." --&gt;
+...
+&lt;!--# elif expr="..." --&gt;
+...
+&lt;!--# else --&gt;
+...
+&lt;!--# endif --&gt;
+</pre></blockquote>  目前仅支持一级嵌套。  该命令具有以下参数： <dl class="compact"><dt> <code class="notranslate">expr</code> </dt> <dd>  表达。  表达式可以是： <ul class="compact"><li>  变量存在检查： <blockquote class="example"><pre class="notranslate">&lt;!--# if expr="$name" --&gt;
+</pre></blockquote></li><li>  变量与文本的比较： <blockquote class="example"><pre class="notranslate">&lt;!--# if expr="$name = <code class="notranslate"><i>text</i></code> " --&gt;
+&lt;!--# if expr="$name != <code class="notranslate"><i>text</i></code> " --&gt;
+</pre></blockquote></li><li>  变量与正则表达式的比较： <blockquote class="example"><pre class="notranslate">&lt;!--# if expr="$name = / <code class="notranslate"><i>text</i></code> /" --&gt;
+&lt;!--# if expr="$name != / <code class="notranslate"><i>text</i></code> /" --&gt;
+</pre></blockquote></li></ul>  如果<code class="notranslate"><i>text</i></code>包含变量，则替换它们的值。  正则表达式可以包含以后可以通过变量使用的位置和命名捕获，例如： <blockquote class="example"><pre class="notranslate">&lt;!--# if expr="$name = /(.+)@(?P&lt;domain&gt;.+)/" --&gt;
+    &lt;!--# echo var="1" --&gt;
+    &lt;!--# echo var="domain" --&gt;
+&lt;!--# endif --&gt;
+</pre></blockquote></dd></dl></dd><dt> <code class="notranslate">include</code> </dt> <dd>  将另一个请求的结果包含在响应中。  该命令具有以下参数： <dl class="compact"><dt> <code class="notranslate">file</code> </dt> <dd>  指定包含的文件，例如： <blockquote class="example"><pre class="notranslate">&lt;!--# include file="footer.html" --&gt;
+</pre></blockquote></dd><dt> <code class="notranslate">virtual</code> </dt> <dd>  指定包含的请求，例如： <blockquote class="example"><pre class="notranslate">&lt;!--# include virtual="/remote/body.php?argument=value" --&gt;
+</pre></blockquote>  在一个页面上指定并由代理或FastCGI / uwsgi / SCGI / gRPC服务器处理的多个请求并行运行。  如果需要顺序处理，则应使用<code class="notranslate">wait</code>参数。 </dd><dt> <code class="notranslate">stub</code> </dt> <dd>  一个非标准参数，用于命名块，如果包含的请求导致空体或在请求处理期间发生错误，则将输出其内容，例如： <blockquote class="example"><pre class="notranslate">&lt;!--# block name="one" --&gt;&amp;nbsp;&lt;!--# endblock --&gt;
+&lt;!--# include virtual="/remote/body.php?argument=value" stub="one" --&gt;
+</pre></blockquote>  替换块内容在包含的请求上下文中处理。 </dd><dt> <code class="notranslate">wait</code> </dt> <dd>  一个非标准参数，指示在继续进行SSI处理之前等待请求完全完成，例如： <blockquote class="example"><pre class="notranslate">&lt;!--# include virtual="/remote/body.php?argument=value" wait="yes" --&gt;
+</pre></blockquote></dd><dt id="ssi_include_set"> <code class="notranslate">set</code> </dt> <dd>  一个非标准参数，指示将请求处理的成功结果写入指定变量，例如： <blockquote class="example"><pre class="notranslate">&lt;!--# include virtual="/remote/body.php?argument=value" set="one" --&gt;
+</pre></blockquote>  响应的最大大小由subrequest_output_buffer_size指令（1.13.10）设置： <blockquote class="example"><pre class="notranslate">location /remote/ {
+    subrequest_output_buffer_size 64k;
+    ...
+}
+</pre></blockquote>  在版本1.13.10之前，只有使用<a href="ngx_http_proxy_module.html">ngx_http_proxy_module</a> ， <a href="ngx_http_memcached_module.html">ngx_http_memcached_module</a> ， <a href="ngx_http_fastcgi_module.html">ngx_http_fastcgi_module</a> （1.5.6）， <a href="ngx_http_uwsgi_module.html">ngx_http_uwsgi_module</a> （1.5.6）和<a href="ngx_http_scgi_module.html">ngx_http_scgi_module</a> （1.5.6）模块获得的响应结果才能写入变量。  响应的最大大小是使用<a href="ngx_http_proxy_module.html#proxy_buffer_size">proxy_buffer_size</a> ， <a href="ngx_http_memcached_module.html#memcached_buffer_size">memcached_buffer_size</a> ， <a href="ngx_http_fastcgi_module.html#fastcgi_buffer_size">fastcgi_buffer_size</a> ， <a href="ngx_http_uwsgi_module.html#uwsgi_buffer_size">uwsgi_buffer_size</a>和<a href="ngx_http_scgi_module.html#scgi_buffer_size">scgi_buffer_size</a>指令设置的。 </dd></dl></dd><dt> <code class="notranslate">set</code> </dt> <dd>  设置变量的值。  该命令具有以下参数： <dl class="compact"><dt> <code class="notranslate">var</code> </dt> <dd>  变量名称。 </dd><dt> <code class="notranslate">value</code> </dt> <dd>  变量值。  如果指定的值包含变量，则替换它们的值。 </dd></dl></dd></dl><p></p><a name="variables"></a><center><h4>  嵌入式变量 </h4></center><p>   <code class="notranslate">ngx_http_ssi_module</code>模块支持两个嵌入变量： </p><dl class="compact"><dt id="var_date_local"> <code class="notranslate">$date_local</code> </dt> <dd>  当地时区的当前时间。  该格式由<code class="notranslate">config</code>命令和<code class="notranslate">timefmt</code>参数设置。 </dd><dt id="var_date_gmt"> <code class="notranslate">$date_gmt</code> </dt> <dd>  格林威治标准时间当前时间  该格式由<code class="notranslate">config</code>命令和<code class="notranslate">timefmt</code>参数设置。 </dd></dl><p></p> 
+<span></span><div style="display: none;"></div></div>
+</body>
+</html>

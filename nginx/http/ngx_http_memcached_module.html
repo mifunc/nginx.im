@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>http/ngx_http_memcached_module-nginx中文手册</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="None"/>
+<meta name="keywords" content="memcached,timeout,pass,60s,next"/>
+</head>
+<body>
+<div id="content"><h2 class="notranslate">Module ngx_http_memcached_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#memcached_bind">memcached_bind</a> <br>     <a href="#memcached_buffer_size">memcached_buffer_size</a> <br>     <a href="#memcached_connect_timeout">memcached_connect_timeout</a> <br>     <a href="#memcached_force_ranges">memcached_force_ranges</a> <br>     <a href="#memcached_gzip_flag">memcached_gzip_flag</a> <br>     <a href="#memcached_next_upstream">memcached_next_upstream</a> <br>     <a href="#memcached_next_upstream_timeout">memcached_next_upstream_timeout</a> <br>     <a href="#memcached_next_upstream_tries">memcached_next_upstream_tries</a> <br>     <a href="#memcached_pass">memcached_pass</a> <br>     <a href="#memcached_read_timeout">memcached_read_timeout</a> <br>     <a href="#memcached_send_timeout">memcached_send_timeout</a> <br>     <a href="#memcached_socket_keepalive">memcached_socket_keepalive</a> <br> <a href="#variables">Embedded Variables</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_memcached_module</code>模块用于从memcached服务器获取响应。  密钥在<code class="notranslate">$memcached_key</code>变量中设置。  响应应该通过nginx外部的方式预先存储在memcached中。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">server {
+    location / {
+        set            $memcached_key "$uri?$args";
+        memcached_pass host:11211;
+        error_page     404 502 504 = @fallback;
+    }
+
+    location @fallback {
+        proxy_pass     http://backend;
+    }
+}
+</pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="memcached_bind"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>memcached_bind</strong> 
+    <code class="notranslate"><i>address</i></code>
+    [ <code class="notranslate">transparent </code> ] |
+    <code class="notranslate">off</code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table><p>  该指令出现在0.8.22版本中。 </p></div><p>  使用可选端口（1.11.2）从指定的本地IP地址发出到memcached服务器的传出连接。  参数值可以包含变量（1.3.12）。  特殊值<code class="notranslate">off</code> （1.3.12）取消了从先前配置级别继承的<code class="notranslate">memcached_bind</code>指令的效果，该指令允许系统自动分配本地IP地址和端口。 </p><a name="memcached_bind_transparent"></a><p>   <code class="notranslate">transparent</code>参数（1.11.0）允许到memcached服务器的传出连接源自非本地IP地址，例如，来自客户端的真实IP地址： </p><blockquote class="example"><pre class="notranslate">memcached_bind $remote_addr transparent;
+</pre></blockquote><p>  为了使此参数有效，通常需要使用<a href="ngx_core_module.html#user">超级用户</a>权限运行nginx工作进程。  在Linux上，不需要（1.13.8），就像指定了<code class="notranslate">transparent</code>参数一样，工作进程从主进程继承<code class="notranslate">CAP_NET_RAW</code>功能。  还必须配置内核路由表以拦截来自memcached服务器的网络流量。 </p><a name="memcached_buffer_size"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>memcached_buffer_size</strong> <code class="notranslate"><i>size</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">memcached_buffer_size 4k|8k;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  设置用于读取从memcached服务器接收的响应的缓冲区的<code class="notranslate"><i>size</i></code> 。  一旦收到响应，响应就会同步传递给客户端。 </p><a name="memcached_connect_timeout"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>memcached_connect_timeout</strong> <code class="notranslate"><i>time</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">memcached_connect_timeout 60s;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  定义与memcached服务器建立连接的超时。  应该注意，此超时通常不会超过75秒。 </p><a name="memcached_force_ranges"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>memcached_force_ranges</strong> <code class="notranslate">on</code> | <code class="notranslate">off</code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">memcached_force_ranges off;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table><p>  该指令出现在1.7.7版本中。 </p></div><p>  无论来自这些响应中的“Accept-Ranges”字段，都可以对来自memcached服务器的缓存和未缓存响应启用字节范围支持。 </p><a name="memcached_gzip_flag"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>memcached_gzip_flag</strong> <code class="notranslate"><i>flag</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table><p>  该指令出现在1.3.6版本中。 </p></div><p>  如果设置了<code class="notranslate"><i>flag</i></code> ，则在memcached服务器响应中启用<code class="notranslate"><i>flag</i></code>存在的测试，并将“ <code class="notranslate">Content-Encoding</code> ”响应头字段设置为“ <code class="notranslate">gzip</code> ”。 </p><a name="memcached_next_upstream"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>memcached_next_upstream</strong> 
+    <code class="notranslate">error</code> |
+    <code class="notranslate">timeout</code> |
+    <code class="notranslate">invalid_response</code> |
+    <code class="notranslate">not_found</code> |
+    <code class="notranslate">off</code>
+    ...;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">memcached_next_upstream error timeout;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  指定应将请求传递到下一个服务器的情况： </p><dl class="compact"><dt> <code class="notranslate">error</code> </dt> <dd>  与服务器建立连接，向其传递请求或读取响应头时发生错误; </dd><dt> <code class="notranslate">timeout</code> </dt> <dd>  在与服务器建立连接，向其传递请求或读取响应头时发生超时; </dd><dt> <code class="notranslate">invalid_response</code> </dt> <dd>  服务器返回空或无效响应; </dd><dt> <code class="notranslate">not_found</code> </dt> <dd>  在服务器上找不到响应; </dd><dt> <code class="notranslate">off</code> </dt> <dd>  禁用将请求传递给下一个服务器。 </dd></dl><p></p><p>  应该记住，只有在尚未向客户端发送任何内容的情况下，才能将请求传递给下一个服务器。  也就是说，如果在传输响应的过程中发生错误或超时，则无法修复此问题。 </p><p>  该指令还定义了与服务器通信的<a href="ngx_http_upstream_module.html#max_fails">不成功尝试</a> 。   <code class="notranslate">error</code> ， <code class="notranslate">timeout</code>和<code class="notranslate">invalid_response</code>情况始终被视为不成功的尝试，即使它们未在指令中指定。   <code class="notranslate">not_found</code>情况从未被视为不成功的尝试。 </p><p>  将请求传递到下一个服务器可能会受到<a href="#memcached_next_upstream_tries">尝试次数</a>和<a href="#memcached_next_upstream_timeout">时间的限制</a> 。 </p><a name="memcached_next_upstream_timeout"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>memcached_next_upstream_timeout</strong> <code class="notranslate"><i>time</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">memcached_next_upstream_timeout 0;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table><p>  该指令出现在1.7.5版本中。 </p></div><p>  限制请求可以传递到<a href="#memcached_next_upstream">下一个服务器的时间</a> 。   <code class="notranslate">0</code>值关闭此限制。 </p><a name="memcached_next_upstream_tries"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>memcached_next_upstream_tries</strong> <code class="notranslate"><i>number</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">memcached_next_upstream_tries 0;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table><p>  该指令出现在1.7.5版本中。 </p></div><p>  限制将请求传递到<a href="#memcached_next_upstream">下一个服务器</a>的可能尝试次数。   <code class="notranslate">0</code>值关闭此限制。 </p><a name="memcached_pass"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>memcached_pass</strong> <code class="notranslate"><i>address</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">location</code> , <code class="notranslate">if in location</code> <br>
+                </td></tr></tbody></table></div><p>  设置memcached服务器地址。  地址可以指定为域名或IP地址，以及端口： </p><blockquote class="example"><pre class="notranslate">memcached_pass localhost:11211;
+</pre></blockquote><p>  或者作为UNIX域套接字路径： </p><blockquote class="example"><pre class="notranslate">memcached_pass unix:/tmp/memcached.socket;
+</pre></blockquote><p></p><p>  如果域名解析为多个地址，则所有这些地址都将以循环方式使用。  此外，可以将地址指定为<a href="ngx_http_upstream_module.html">服务器组</a> 。 </p><a name="memcached_read_timeout"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>memcached_read_timeout</strong> <code class="notranslate"><i>time</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">memcached_read_timeout 60s;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  定义从memcached服务器读取响应的超时。  仅在两个连续的读操作之间设置超时，而不是为整个响应的传输。  如果memcached服务器在此时间内未传输任何内容，则关闭连接。 </p><a name="memcached_send_timeout"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>memcached_send_timeout</strong> <code class="notranslate"><i>time</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">memcached_send_timeout 60s;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  设置将请求传输到memcached服务器的超时。  仅在两个连续的写操作之间设置超时，而不是为整个请求的传输。  如果memcached服务器在此时间内未收到任何内容，则关闭连接。 </p><a name="memcached_socket_keepalive"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>memcached_socket_keepalive</strong> <code class="notranslate">on</code> | <code class="notranslate">off</code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">memcached_socket_keepalive off;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table><p>  该指令出现在1.15.6版中。 </p></div><p>  配置到memcached服务器的传出连接的“TCP keepalive”行为。  默认情况下，操作系统的设置对套接字有效。  如果指令设置为值“ <code class="notranslate">on</code> ”，则为套接字打开<code class="notranslate">SO_KEEPALIVE</code>套接字选项。 </p><a name="variables"></a><center><h4>  嵌入式变量 </h4></center><p></p><dl class="compact"><dt id="var_memcached_key"> <code class="notranslate">$memcached_key</code> </dt> <dd>  定义用于从memcached服务器获取响应的密钥。 </dd></dl><p></p> 
+<span></span><div style="display: none;"></div></div>
+</body>
+</html>

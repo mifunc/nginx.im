@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>http/ngx_http_js_module-nginx中文手册</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="None"/>
+<meta name="keywords" content="js,foo,summary,return,hello"/>
+</head>
+<body>
+<div id="content"><h2 class="notranslate">Module ngx_http_js_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#js_content">js_content</a> <br>     <a href="#js_include">js_include</a> <br>     <a href="#js_set">js_set</a> <br> <a href="#arguments">Request Argument</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_js_module</code>模块用于在<a href="njs/index.html">njs中</a>实现位置和变量处理程序 - 这是JavaScript语言的一个子集。 </p><p>  默认情况下不构建此模块。  可<a href="njs/install.html">在此处</a>下载和安装说明。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">load_module modules/ngx_http_js_module.so;
+...
+
+http {
+    js_include http.js;
+
+    js_set $foo     foo;
+    js_set $summary summary;
+
+    server {
+        listen 8000;
+
+        location / {
+            add_header X-Foo $foo;
+            js_content baz;
+        }
+
+        location = /summary {
+            return 200 $summary;
+        }
+
+        location = /hello {
+            js_content hello;
+        }
+    }
+}
+</pre></blockquote><p></p><p>   <code class="notranslate">http.js</code>文件： </p><blockquote class="example"><pre class="notranslate">function foo(r) {
+    r.log("hello from foo() handler");
+    return "foo";
+}
+
+function summary(r) {
+    var a, s, h;
+
+    s = "JS summary\n\n";
+
+    s += "Method: " + r.method + "\n";
+    s += "HTTP version: " + r.httpVersion + "\n";
+    s += "Host: " + r.headersIn.host + "\n";
+    s += "Remote Address: " + r.remoteAddress + "\n";
+    s += "URI: " + r.uri + "\n";
+
+    s += "Headers:\n";
+    for (h in r.headersIn) {
+        s += "  header '" + h + "' is '" + r.headersIn[h] + "'\n";
+    }
+
+    s += "Args:\n";
+    for (a in r.args) {
+        s += "  arg '" + a + "' is '" + r.args[a] + "'\n";
+    }
+
+    return s;
+}
+
+function baz(r) {
+    r.status = 200;
+    r.headersOut.foo = 1234;
+    r.headersOut['Content-Type'] = "text/plain; charset=utf-8";
+    r.headersOut['Content-Length'] = 15;
+    r.sendHeader();
+    r.send("nginx");
+    r.send("java");
+    r.send("script");
+
+    r.finish();
+}
+
+function hello(r) {
+    r.return(200, "Hello world!");
+}
+</pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="js_content"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>js_content</strong> <code class="notranslate"><i>function</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">location</code> , <code class="notranslate">limit_except</code> <br>
+                </td></tr></tbody></table></div><p>  将njs函数设置为位置内容处理程序。 </p><a name="js_include"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>js_include</strong> <code class="notranslate"><i>file</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> <br>
+                </td></tr></tbody></table></div><p>  指定在njs中实现位置和变量处理程序的文件。 </p><a name="js_set"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>js_set</strong> 
+<code class="notranslate"><i>$variable</i></code> <code class="notranslate"><i>function</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> <br>
+                </td></tr></tbody></table></div><p>  为指定的变量设置njs函数。 </p><a name="arguments"></a><center><h4>  请求参数 </h4></center><p>  每个HTTP njs处理程序都接收一个参数，一个请求<a href="njs/reference.html#http">对象</a> 。 </p> 
+<span></span><div style="display: none;"></div></div>
+</body>
+</html>

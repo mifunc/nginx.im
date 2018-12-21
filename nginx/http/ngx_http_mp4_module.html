@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>http/ngx_http_mp4_module-nginx中文手册</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="None"/>
+<meta name="keywords" content="mp4,buffer,size,limit,rate"/>
+</head>
+<body>
+<div id="content"><h2 class="notranslate">Module ngx_http_mp4_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#mp4">mp4</a> <br>     <a href="#mp4_buffer_size">mp4_buffer_size</a> <br>     <a href="#mp4_max_buffer_size">mp4_max_buffer_size</a> <br>     <a href="#mp4_limit_rate">mp4_limit_rate</a> <br>     <a href="#mp4_limit_rate_after">mp4_limit_rate_after</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_mp4_module</code>模块为MP4文件提供伪流服务器端支持。  此类文件通常具有<code class="notranslate">.mp4</code> ， <code class="notranslate">.m4v</code>或<code class="notranslate">.m4a</code>文件扩展名。 </p><p>  伪流与兼容的Flash播放器结合使用。  播放器使用查询字符串参数中指定的开始时间（仅命名为<code class="notranslate">start</code>并以秒为单位指定）向服务器发送HTTP请求，服务器以流响应，使其起始位置对应于请求的时间，例如： </p><blockquote class="example"><pre class="notranslate">http://example.com/elephants_dream.mp4?start=238.88
+</pre></blockquote><p>  这允许在任何时间执行随机搜索，或者在时间线的中间开始回放。 </p><p>  为了支持搜索，基于H.264的格式将元数据存储在所谓的“moov原子”中。  它是文件的一部分，用于保存整个文件的索引信息。 </p><p>  要开始播放，播放器首先需要读取元数据。  这是通过使用<code class="notranslate">start=0</code>参数发送特殊请求来完成的。  许多编码软件在文件末尾插入元数据。  这对于伪流是次优的，因为播放器必须在开始播放之前下载整个文件。  如果元数据位于文件的开头，则nginx只需开始发回文件内容就足够了。  如果元数据位于文件末尾，则nginx必须读取整个文件并准备新流，以便元数据位于媒体数据之前。  这涉及一些CPU，内存和磁盘I / O开销，因此最好事先<a href="http://flowplayer.org/plugins/streaming/pseudostreaming.html#prepare">准备一个用于伪流的原始文件</a> ，而不是让nginx在每个这样的请求上执行此操作。 </p><p>  该模块还支持HTTP请求的<code class="notranslate">end</code>参数（1.5.13），该请求设置回放的结束点。   <code class="notranslate">end</code>参数可以使用<code class="notranslate">start</code>参数指定，也可以单独指定： </p><blockquote class="example"><pre class="notranslate">http://example.com/elephants_dream.mp4?start=238.88&amp;end=555.55
+</pre></blockquote><p></p><p>  对于具有非零<code class="notranslate">start</code>或<code class="notranslate">end</code>参数的匹配请求，nginx将从文件中读取元数据，准备具有所请求时间范围的流，并将其发送到客户端。  这具有与上述相同的开销。 </p><p>  如果匹配请求不包含<code class="notranslate">start</code>和<code class="notranslate">end</code>参数，则没有开销，并且文件仅作为静态资源发送。  一些播放器也支持字节范围请求，因此不需要此模块。 </p><p>  默认情况下不构建此模块，应使用<code class="notranslate">--with-http_mp4_module</code>配置参数启用它。 </p><blockquote class="note">  如果以前使用过第三方mp4模块，则应禁用它。 </blockquote><p></p><p>   <a href="ngx_http_flv_module.html">ngx_http_flv_module</a>模块提供了对FLV文件的类似伪流支持。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">location /video/ {
+    mp4;
+    mp4_buffer_size       1m;
+    mp4_max_buffer_size   5m;
+    mp4_limit_rate        on;
+    mp4_limit_rate_after  30s;
+}
+</pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="mp4"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>mp4</strong> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  打开周围位置的模块处理。 </p><a name="mp4_buffer_size"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>mp4_buffer_size</strong> <code class="notranslate"><i>size</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">mp4_buffer_size 512K;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  设置用于处理MP4文件的缓冲区的初始<code class="notranslate"><i>size</i></code> 。 </p><a name="mp4_max_buffer_size"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>mp4_max_buffer_size</strong> <code class="notranslate"><i>size</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">mp4_max_buffer_size 10M;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  在元数据处理期间，可能需要更大的缓冲区。  它的大小不能超过指定的<code class="notranslate"><i>size</i></code> ，否则nginx将返回500（内部服务器错误）服务器错误，并记录以下消息： </p><blockquote class="example"><pre class="notranslate">"/some/movie/file.mp4" mp4 moov atom is too large:
+12583268, you may want to increase mp4_max_buffer_size
+</pre></blockquote><p></p><a name="mp4_limit_rate"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>mp4_limit_rate</strong> 
+    <code class="notranslate">on</code> |
+    <code class="notranslate">off</code> |
+    <code class="notranslate"><i>factor</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">mp4_limit_rate off;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  限制向客户端传输的响应速率。  根据所服务的MP4文件的平均比特率限制速率。  要计算速率，比特率乘以指定的<code class="notranslate"><i>factor</i></code> 。  特殊值“ <code class="notranslate">on</code> ”对应于因子1.1。  特殊值“ <code class="notranslate">off</code> ”禁用速率限制。  根据请求设置限制，因此如果客户端同时打开两个连接，则总速率将是指定限制的两倍。 </p><p></p><blockquote class="note">  该指令作为我们<a href="http://nginx.com/products/">商业订阅的</a>一部分提供。 </blockquote><p></p><a name="mp4_limit_rate_after"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>mp4_limit_rate_after</strong> <code class="notranslate"><i>time</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">mp4_limit_rate_after 60s;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  设置媒体数据的初始量（以回放时间测量），之后对客户端的进一步传输将是速率限制的。 </p><p></p><blockquote class="note">  该指令作为我们<a href="http://nginx.com/products/">商业订阅的</a>一部分提供。 </blockquote><p></p> 
+<span></span><div style="display: none;"></div></div>
+</body>
+</html>

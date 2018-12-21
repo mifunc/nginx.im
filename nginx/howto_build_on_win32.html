@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>howto_build_on_win32-nginx中文手册</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="None"/>
+<meta name="keywords" content="temp,path,http,objs,tar"/>
+</head>
+<body>
+<div id="content"><h2>  使用Visual C在Win32平台上构建nginx </h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a href="#build_steps">Build steps</a> <br> <a href="#see_also">See also</a> <br></td></tr></tbody></table><center><h4>  先决条件 </h4></center><p>  要在MicrosoftWin32®平台上构建nginx，您需要： </p><ul class="compact"><li>   Microsoft Visual C编译器。  已知Microsoft VisualStudio®8和10可以使用。 </li><li>   <a href="http://www.mingw.org/wiki/MSYS">MSYS</a> 。 </li><li>   Perl，如果你想用SSL支持构建OpenSSL®和nginx。  例如<a href="http://www.activestate.com/activeperl">ActivePerl</a>或<a href="http://strawberryperl.com">Strawberry Perl</a> 。 </li><li>   <a href="https://www.mercurial-scm.org">Mercurial</a>客户。 </li><li>   <a href="http://www.pcre.org">PCRE</a> ， <a href="http://zlib.net">zlib</a>和<a href="http://www.openssl.org">OpenSSL</a>库源。 </li></ul><p></p><a name="build_steps"></a><center><h4>  构建步骤 </h4></center><p>  确保在开始构建之前将Perl，Mercurial和MSYS bin目录的路径添加到PATH环境变量中。  要设置Visual C环境，请从Visual C目录运行vcvarsall.bat脚本。 </p><p>  要构建nginx： </p><ul class="compact"><li>  启动MSYS bash。 </li><li>  查看hg.nginx.org存储库中的nginx源代码。  例如： <blockquote class="example"><pre class="notranslate">hg clone http://hg.nginx.org/nginx
+</pre></blockquote></li><li>  创建一个build和lib目录，并将zlib，PCRE和OpenSSL库源解压缩到lib目录中： <blockquote class="example"><pre class="notranslate">mkdir objs
+mkdir objs/lib
+cd objs/lib
+tar -xzf ../../pcre-8.42.tar.gz
+tar -xzf ../../zlib-1.2.11.tar.gz
+tar -xzf ../../openssl-1.0.2q.tar.gz
+</pre></blockquote></li><li>  运行configure脚本： <blockquote class="example"><pre class="notranslate">auto/configure \
+    --with-cc=cl \
+    --with-debug \
+    --prefix= \
+    --conf-path=conf/nginx.conf \
+    --pid-path=logs/nginx.pid \
+    --http-log-path=logs/access.log \
+    --error-log-path=logs/error.log \
+    --sbin-path=nginx.exe \
+    --http-client-body-temp-path=temp/client_body_temp \
+    --http-proxy-temp-path=temp/proxy_temp \
+    --http-fastcgi-temp-path=temp/fastcgi_temp \
+    --http-scgi-temp-path=temp/scgi_temp \
+    --http-uwsgi-temp-path=temp/uwsgi_temp \
+    --with-cc-opt=-DFD_SETSIZE=1024 \
+    --with-pcre=objs/lib/pcre-8.42 \
+    --with-zlib=objs/lib/zlib-1.2.11 \
+    --with-openssl=objs/lib/openssl-1.0.2q \
+    --with-openssl-opt=no-asm \
+    --with-select_module \
+    --with-http_ssl_module
+</pre></blockquote></li><li>  运行make： <blockquote class="example"><pre class="notranslate">nmake
+</pre></blockquote></li></ul><p></p><a name="see_also"></a><center><h4>  也可以看看 </h4></center><p></p><ul class="compact"><li>   <a href="windows.html">适用于Windows的nginx</a> </li></ul><p></p> 
+<span></span><div style="display: none;"></div></div>
+</body>
+</html>

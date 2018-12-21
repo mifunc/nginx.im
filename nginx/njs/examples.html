@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>njs/examples-nginx中文手册</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="None"/>
+<meta name="keywords" content="js,foo,return,function,var"/>
+</head>
+<body>
+<div id="content"><h2>  例子 </h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a href="#helloword">Hello World</a> <br> <a href="#urldecode">URL Decoding</a> <br> <a href="#urlencode">URL Encoding</a> <br> <a href="#redirect">Internal Redirect</a> <br> <a href="#fast_response">Returning Fastest Response from Proxy</a> <br> <a href="#jwt">Creating HS JWT</a> <br> <a href="#subrequest">Accessing API from a Subrequest</a> <br> <a href="#secure_link">Creating secure_link Hash</a> <br> <a href="#legacy">Legacy Examples</a> <br>     <a href="#legacy_stream">Injecting HTTP header using stream proxy</a> <br></td></tr></tbody></table><a name="helloword"></a><center><h4>  你好，世界 </h4></center><p>   <code class="notranslate">nginx.conf</code> ： </p><blockquote class="example"><pre class="notranslate">load_module modules/ngx_http_js_module.so;
+
+events {}
+
+http {
+    js_include hello_world.js;
+
+    server {
+        listen 8000;
+
+        location / {
+            js_content hello;
+        }
+    }
+}
+
+</pre></blockquote><p></p><p>   <code class="notranslate">hello_world.js</code> ： </p><blockquote class="example"><pre class="notranslate">function hello(r) {
+    r.return(200, "Hello world!");
+}
+</pre></blockquote><p></p><a name="urldecode"></a><center><h4>  网址解码 </h4></center><p>   <code class="notranslate">nginx.conf</code> ： </p><blockquote class="example"><pre class="notranslate">js_include urldecode.js;
+
+js_set $decoded_foo decoded_foo;
+</pre></blockquote><p></p><p>   <code class="notranslate">urldecode.js</code> ： </p><blockquote class="example"><pre class="notranslate">function decoded_foo(r) {
+    return decodeURIComponent(r.args.foo);
+}
+</pre></blockquote><p></p><a name="urlencode"></a><center><h4>  网址编码 </h4></center><p>   <code class="notranslate">nginx.conf</code> ： </p><blockquote class="example"><pre class="notranslate">js_include urlencode.js;
+
+js_set $encoded_foo encoded_foo;
+...
+
+location / {
+    proxy_pass http://example.com?foo=$encoded_foo;
+}
+</pre></blockquote><p></p><p>   <code class="notranslate">urlencode.js</code> ： </p><blockquote class="example"><pre class="notranslate">function encoded_foo(r) {
+    return encodeURIComponent('foo &amp; bar?');
+}
+</pre></blockquote><p></p><a name="redirect"></a><center><h4>  内部重定向 </h4></center><p>   <code class="notranslate">nginx.conf</code> ： </p><blockquote class="example"><pre class="notranslate">js_include redirect.js;
+
+location /redirect {
+    js_content redirect;
+}
+
+location @named {
+    return 200 named;
+}
+</pre></blockquote><p></p><p>   <code class="notranslate">redirect.js</code> ： </p><blockquote class="example"><pre class="notranslate">function redirect(r) {
+    r.internalRedirect('@named');
+}
+</pre></blockquote><p></p><a name="fast_response"></a><center><h4>  从代理返回最快的响应 </h4></center><p>   <code class="notranslate">nginx.conf</code> ： </p><blockquote class="example"><pre class="notranslate">js_include fastresponse.js;
+
+location /start {
+    js_content content;
+}
+
+location /foo {
+    proxy_pass http://backend1;
+}
+
+location /bar {
+    proxy_pass http://backend2;
+}
+</pre></blockquote><p></p><p>   <code class="notranslate">fastresponse.js</code> ： </p><blockquote class="example"><pre class="notranslate">function content(r) {
+    var n = 0;
+
+    function done(res) {
+        if (n++ == 0) {
+            r.return(res.status, res.responseBody);
+        }
+    }
+
+    r.subrequest('/foo', r.variables.args, done);
+    r.subrequest('/bar', r.variables.args, done);
+}
+</pre></blockquote><p></p><a name="jwt"></a><center><h4>  创建HS JWT </h4></center><p>   <code class="notranslate">nginx.conf</code> ： </p><blockquote class="example"><pre class="notranslate">js_include hs_jwt.js;
+
+js_set $jwt jwt;
+</pre></blockquote><p></p><p>   <code class="notranslate">hs_jwt.js</code> ： </p><blockquote class="example"><pre class="notranslate">function create_hs256_jwt(claims, key, valid) {
+    var header = { "typ" : "JWT", "alg" : "HS256", "exp" : Date.now() + valid };
+
+    var s = JSON.stringify(header).toBytes().toString('base64url') + '.'
+            + JSON.stringify(claims).toBytes().toString('base64url');
+
+    var h = require('crypto').createHmac('sha256', key);
+
+    return s + '.' + h.update(s).digest().toString('base64url');
+}
+
+function jwt(r) {
+    var claims = {
+        "iss" : "nginx",
+        "sub" : "alice",
+        "foo" : 123,
+        "bar" : "qq",
+        "zyx" : false
+    };
+
+    return create_hs256_jwt(claims, 'foo', 600);
+}
+</pre></blockquote><p></p><a name="subrequest"></a><center><h4>  从子请求访问API </h4></center><p>   <code class="notranslate">nginx.conf</code> ： </p><blockquote class="example"><pre class="notranslate">js_include subrequest.js;
+
+keyval_zone zone=foo:10m;
+...
+
+location /keyval {
+    js_content set_keyval;
+}
+
+location /version {
+    js_content version;
+}
+
+location /api {
+    api write=on;
+}
+</pre></blockquote><p></p><p>   <code class="notranslate">subrequest.js</code> ： </p><blockquote class="example"><pre class="notranslate">function set_keyval(r) {
+    r.subrequest('/api/3/http/keyvals/foo',
+        { method: 'POST',
+          body: JSON.stringify({ foo: 789, bar: "ss dd 00" })},
+
+        function(res) {
+            if (res.status &gt;= 300) {
+                r.return(res.status, res.responseBody);
+                return;
+            }
+            r.return(500);
+        });
+}
+
+function version(r) {
+    r.subrequest('/api/3/nginx', { method: 'GET' }, function(res) {
+        if (res.status != 200) {
+            r.return(res.status);
+            return;
+        }
+
+        var json = JSON.parse(res.responseBody);
+        r.return(200, json.version);
+    });
+}
+</pre></blockquote><p></p><a name="secure_link"></a><center><h4>  创建secure_link哈希 </h4></center><p>   <code class="notranslate">nginx.conf</code> ： </p><blockquote class="example"><pre class="notranslate">js_include hash.js;
+
+js_set $new_foo create_secure_link;
+...
+
+location / {
+    secure_link $cookie_foo;
+    secure_link_md5 "$uri mykey";
+    ...
+}
+
+location @login {
+    add_header Set-Cookie "foo=$new_foo; Max-Age=60";
+    return 302 /;
+}
+</pre></blockquote><p></p><p>   <code class="notranslate">hash.js</code> ： </p><blockquote class="example"><pre class="notranslate">function create_secure_link(r) {
+    return require('crypto').createHash('md5')
+                            .update(r.uri).update(" mykey")
+                            .digest('base64url');
+}
+</pre></blockquote><p></p><a name="legacy"></a><center><h4>  遗留的例子 </h4></center><a name="legacy_stream"></a><center><h4>  使用流代理注入HTTP标头 </h4></center><p>  从njs <a href="njs/changes.html#njs0.2.4">0.2.4</a>开始，流配置<a href="stream/ngx_stream_js_module.html#example">示例</a>已更改。  对于njs 0.2.3及更早版本，请使用此配置示例： </p><blockquote class="example"><pre class="notranslate">load_module modules/ngx_stream_js_module.so;
+...
+
+stream {
+    js_include stream.js;
+
+    js_set $foo foo;
+    js_set $bar bar;
+
+    server {
+        listen 12345;
+
+        js_preread qux;
+        return     $foo;
+    }
+
+    server {
+        listen 12346;
+
+        js_access  xyz;
+        proxy_pass 127.0.0.1:8000;
+        js_filter  baz;
+    }
+}
+
+http {
+    server {
+        listen 8000;
+        location / {
+            return 200 $http_foo\n;
+        }
+    }
+}
+</pre></blockquote><p></p><p>   <code class="notranslate">stream.js</code>文件： </p><blockquote class="example"><pre class="notranslate">var req = '';
+var matched = 0;
+var line = '';
+
+function qux(s) {
+    var n = s.buffer.indexOf('\n');
+    if (n == -1) {
+        return s.AGAIN;
+    }
+
+    line = s.buffer.substr(0, n);
+}
+
+function foo(s) {
+    return line;
+}
+
+function bar(s) {
+    var v = s.variables;
+    s.log("hello from bar() handler!");
+    return "foo-var" + v.remote_port + "; pid=" + v.pid;
+}
+
+// The filter processes one buffer per call.
+// The buffer is available in s.buffer both for
+// reading and writing.  Called for both directions.
+
+function baz(s) {
+    if (s.fromUpstream || matched) {
+        return;
+    }
+
+    // Disable certain addresses.
+
+    if (s.remoteAddress.match('^192.*')) {
+        return s.ERROR;
+    }
+
+    // Read HTTP request line.
+    // Collect bytes in 'req' until request
+    // line is read.  Clear current buffer to
+    // disable output.
+
+    req = req + s.buffer;
+    s.buffer = '';
+
+    var n = req.search('\n');
+
+    if (n != -1) {
+        // Inject a new HTTP header.
+        var rest = req.substr(n + 1);
+        req = req.substr(0, n + 1);
+
+        var addr = s.remoteAddress;
+
+        s.log('req:' + req);
+        s.log('rest:' + rest);
+
+        // Output the result and skip further
+        // processing.
+
+        s.buffer = req + 'Foo: addr_' + addr + '\r\n' + rest;
+        matched = 1;
+    }
+}
+
+function xyz(s) {
+    if (s.remoteAddress.match('^192.*')) {
+        return s.ABORT;
+    }
+}
+</pre></blockquote><p></p> 
+<span></span><div style="display: none;"></div></div>
+</body>
+</html>

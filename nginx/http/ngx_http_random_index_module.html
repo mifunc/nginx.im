@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>http/ngx_http_random_index_module-nginx中文手册</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="None"/>
+<meta name="keywords" content="random,index,location,off"/>
+</head>
+<body>
+<div id="content"><h2 class="notranslate">Module ngx_http_random_index_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#random_index">random_index</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_random_index_module</code>模块处理以斜杠字符（' <code class="notranslate">/</code> '）结尾的请求，并在目录中选择一个随机文件作为索引文件。  在<a href="ngx_http_index_module.html">ngx_http_index_module</a>模块之前处理该模块。 </p><p>  默认情况下不构建此模块，应使用<code class="notranslate">--with-http_random_index_module</code>配置参数启用它。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">location / {
+    random_index on;
+}
+</pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="random_index"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>random_index</strong> <code class="notranslate">on</code> | <code class="notranslate">off</code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">random_index off;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  启用或禁用周围位置的模块处理。 </p> 
+<span></span><div style="display: none;"></div></div>
+</body>
+</html>

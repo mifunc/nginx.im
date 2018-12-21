@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>linux_packages-nginx中文手册</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="None"/>
+<meta name="keywords" content="nginx,http,org,packages,key"/>
+</head>
+<body>
+<div id="content"><h2>   nginx：Linux包 </h2><a name="distributions"></a><p>  目前，nginx软件包可用于以下发行版和版本： </p><p>   RHEL / CentOS的： </p><blockquote><table width="100%"><tbody><tr><td width="20%" class="notranslate">Version</td><td class="notranslate">Supported Platforms</td></tr><tr><td width="20%" class="notranslate">6.x</td><td class="notranslate">x86_64, i386</td></tr><tr><td width="20%" class="notranslate">7.4+</td><td class="notranslate">x86_64, ppc64le</td></tr></tbody></table></blockquote><p></p><p>   Debian的： </p><blockquote><table width="100%"><tbody><tr><td width="20%" class="notranslate">Version</td><td width="20%" class="notranslate">Codename</td><td class="notranslate">Supported Platforms</td></tr><tr><td width="20%" class="notranslate">8.x</td><td width="20%" class="notranslate">jessie</td><td class="notranslate">x86_64, i386</td></tr><tr><td width="20%" class="notranslate">9.x</td><td width="20%" class="notranslate">stretch</td><td class="notranslate">x86_64, i386</td></tr></tbody></table></blockquote><p></p><p>   Ubuntu的： </p><blockquote><table width="100%"><tbody><tr><td width="20%" class="notranslate">Version</td><td width="20%" class="notranslate">Codename</td><td class="notranslate">Supported Platforms</td></tr><tr><td width="20%" class="notranslate">14.04</td><td width="20%" class="notranslate">trusty</td><td class="notranslate">x86_64, i386, aarch64/arm64</td></tr><tr><td width="20%" class="notranslate">16.04</td><td width="20%" class="notranslate">xenial</td><td class="notranslate">x86_64, i386, ppc64el, aarch64/arm64</td></tr><tr><td width="20%" class="notranslate">18.04</td><td width="20%" class="notranslate">bionic</td><td class="notranslate">x86_64, aarch64/arm64</td></tr><tr><td width="20%" class="notranslate">18.10</td><td width="20%" class="notranslate">cosmic</td><td class="notranslate">x86_64</td></tr></tbody></table></blockquote><p></p><p>   SLES： </p><blockquote><table width="100%"><tbody><tr><td width="20%" class="notranslate">Version</td><td class="notranslate">Supported Platforms</td></tr><tr><td width="20%" class="notranslate">12</td><td class="notranslate">x86_64</td></tr><tr><td width="20%" class="notranslate">15</td><td class="notranslate">x86_64</td></tr></tbody></table></blockquote><p></p><p>  要启用Linux软件包的自动更新，请为RHEL / CentOS发行版设置yum存储库，为Debian / Ubuntu发行版设置apt存储库，或为SLES设置zypper存储库。 </p><a name="stable"></a><center><h4>  用于稳定版本的预制包 </h4></center><p>  要为RHEL / CentOS设置yum存储库，请使用以下内容创建名为<code class="notranslate">/etc/yum.repos.d/nginx.repo</code>的文件： </p><blockquote class="example"><pre class="notranslate">[nginx]
+name=nginx repo
+baseurl=http://nginx.org/packages/OS/OSRELEASE/$basearch/
+gpgcheck=0
+enabled=1
+</pre></blockquote><p>  对于6.x或7.x版本，将“ <code class="notranslate">OS</code> ”替换为“ <code class="notranslate">rhel</code> ”或“ <code class="notranslate">centos</code> ”，取决于所使用的分布，将“ <code class="notranslate">OSRELEASE</code> ”替换为“ <code class="notranslate">6</code> ”或“ <code class="notranslate">7</code> ”。 </p><p>  对于Debian / Ubuntu，为了验证nginx存储库签名并在安装nginx包期间消除有关丢失PGP密钥的警告，有必要将用于签署nginx包和存储库的密钥添加到<code class="notranslate">apt</code>程序密钥环。  请从我们的网站下载<a href="/keys/nginx_signing.key">此密钥</a> ，并使用以下命令将其添加到<code class="notranslate">apt</code>程序密钥环： </p><blockquote class="example"><pre class="notranslate">sudo apt-key add nginx_signing.key
+</pre></blockquote><p></p><p>  对于Debian，用Debian分发<a href="#distributions">代号</a>取代<i>代号</i> ，并将以下内容附加到<code class="notranslate">/etc/apt/sources.list</code>文件的末尾： </p><blockquote class="example"><pre class="notranslate">deb http://nginx.org/packages/debian/ <i>codename</i> nginx
+deb-src http://nginx.org/packages/debian/ <i>codename</i> nginx
+</pre></blockquote><p></p><p>  对于Ubuntu，使用Ubuntu分发<a href="#distributions">代号来</a>替换<i>代号</i> ，并将以下内容附加到<code class="notranslate">/etc/apt/sources.list</code>文件的末尾： </p><blockquote class="example"><pre class="notranslate">deb http://nginx.org/packages/ubuntu/ <i>codename</i> nginx
+deb-src http://nginx.org/packages/ubuntu/ <i>codename</i> nginx
+</pre></blockquote><p></p><p>  对于Debian / Ubuntu，然后运行以下命令： </p><blockquote class="example"><pre class="notranslate">apt-get update
+apt-get install nginx
+</pre></blockquote><p></p><p>  对于SLES 12，运行以下命令： </p><blockquote class="example"><pre class="notranslate">zypper addrepo -G -t yum -c 'http://nginx.org/packages/sles/12' nginx
+</pre></blockquote><p></p><p>  对于SLES 15，运行以下命令： </p><blockquote class="example"><pre class="notranslate">zypper addrepo -G -t yum -c 'http://nginx.org/packages/sles/15' nginx
+</pre></blockquote><p></p><a name="mainline"></a><center><h4>   Mainline版本的预构建包 </h4></center><p>  要为RHEL / CentOS设置yum存储库，请使用以下内容创建名为<code class="notranslate">/etc/yum.repos.d/nginx.repo</code>的文件： </p><blockquote class="example"><pre class="notranslate">[nginx]
+name=nginx repo
+baseurl=http://nginx.org/packages/mainline/OS/OSRELEASE/$basearch/
+gpgcheck=0
+enabled=1
+</pre></blockquote><p>  对于6.x或7.x版本，将“ <code class="notranslate">OS</code> ”替换为“ <code class="notranslate">rhel</code> ”或“ <code class="notranslate">centos</code> ”，取决于所使用的分布，将“ <code class="notranslate">OSRELEASE</code> ”替换为“ <code class="notranslate">6</code> ”或“ <code class="notranslate">7</code> ”。 </p><p>  对于Debian / Ubuntu，为了验证nginx存储库签名并在安装nginx包期间消除有关丢失PGP密钥的警告，有必要将用于签署nginx包和存储库的密钥添加到<code class="notranslate">apt</code>程序密钥环。  请从我们的网站下载<a href="/keys/nginx_signing.key">此密钥</a> ，并使用以下命令将其添加到<code class="notranslate">apt</code>程序密钥环： </p><blockquote class="example"><pre class="notranslate">sudo apt-key add nginx_signing.key
+</pre></blockquote><p></p><p>  对于Debian，用Debian分发<a href="#distributions">代号</a>取代<i>代号</i> ，并将以下内容附加到<code class="notranslate">/etc/apt/sources.list</code>文件的末尾： </p><blockquote class="example"><pre class="notranslate">deb http://nginx.org/packages/mainline/debian/ <i>codename</i> nginx
+deb-src http://nginx.org/packages/mainline/debian/ <i>codename</i> nginx
+</pre></blockquote><p></p><p>  对于Ubuntu，使用Ubuntu分发<a href="#distributions">代号来</a>替换<i>代号</i> ，并将以下内容附加到<code class="notranslate">/etc/apt/sources.list</code>文件的末尾： </p><blockquote class="example"><pre class="notranslate">deb http://nginx.org/packages/mainline/ubuntu/ <i>codename</i> nginx
+deb-src http://nginx.org/packages/mainline/ubuntu/ <i>codename</i> nginx
+</pre></blockquote><p></p><p>  对于Debian / Ubuntu，然后运行以下命令： </p><blockquote class="example"><pre class="notranslate">apt-get update
+apt-get install nginx
+</pre></blockquote><p></p><p>  对于SLES 12，运行以下命令： </p><blockquote class="example"><pre class="notranslate">zypper addrepo -G -t yum -c 'http://nginx.org/packages/mainline/sles/12' nginx
+</pre></blockquote><p></p><p>  对于SLES 15，运行以下命令： </p><blockquote class="example"><pre class="notranslate">zypper addrepo -G -t yum -c 'http://nginx.org/packages/mainline/sles/15' nginx
+</pre></blockquote><p></p><a name="sourcepackages"></a><center><h4>  源包 </h4></center><p>  包装源可以在<a href="http://hg.nginx.org/pkg-oss">包装源库中找到</a> 。 </p><p>   <code class="notranslate">default</code>分支包含当前主线版本的打包源，而<code class="notranslate">stable-*</code>分支包含稳定版本的最新源。  要构建二进制包，请在Debian / Ubuntu上的<code class="notranslate">debian/</code>目录中运行<code class="notranslate">make</code> ，或在RHEL / CentOS / SLES上的<code class="notranslate">rpm/SPECS/</code>运行<code class="notranslate">make</code> 。 </p><p>  打包源在nginx使用的相同的<a href="LICENSE">2条款BSD类许可证</a>下分发。 </p><a name="dynmodules"></a><center><h4>  动态模块 </h4></center><p>  主nginx包是使用所有模块构建的，这些模块不需要额外的库来避免额外的依赖性。  从版本1.9.11开始，nginx支持<a href="ngx_core_module.html#load_module">动态模块</a> ，以下模块构建为动态模块并作为单独的软件包提供： </p><blockquote class="example"><pre class="notranslate">nginx-module-geoip
+nginx-module-image-filter
+nginx-module-njs
+nginx-module-perl
+nginx-module-xslt
+</pre></blockquote><p></p><a name="signatures"></a><center><h4>  签名 </h4></center><p>   RPM软件包和Debian / Ubuntu存储库都使用数字签名来验证下载软件包的完整性和来源。  为了检查签名，有必要下载<a href="/keys/nginx_signing.key">nginx签名密钥</a>并将其导入<code class="notranslate">rpm</code>或<code class="notranslate">apt</code>程序的密钥环： </p><ul class="compact"><li>  在Debian / Ubuntu上： <blockquote class="example"><pre class="notranslate">sudo apt-key add nginx_signing.key</pre></blockquote></li><li>  在RHEL / CentOS上： <blockquote class="example"><pre class="notranslate">sudo rpm --import nginx_signing.key</pre></blockquote></li><li>  在SLES上： <blockquote class="example"><pre class="notranslate">sudo rpm --import nginx_signing.key</pre></blockquote></li></ul><p></p><p>  在Debian / Ubuntu / SLES上，默认情况下会检查签名，但在RHEL / CentOS上需要设置 </p><blockquote class="example"><pre class="notranslate">gpgcheck=1</pre></blockquote><p>  在<code class="notranslate">/etc/yum.repos.d/nginx.repo</code>文件中。 </p><p>  由于我们的<a href="en/pgp_keys.html">PGP密钥</a>和软件包位于同一台服务器上，因此它们同样受信任。  强烈建议另外验证下载的PGP密钥的真实性。   PGP具有“信任网”概念，当一个密钥由其他人的密钥签名时，该密钥又由另一个密钥签名，依此类推。  通常可以构建从任意密钥到您知道并亲自信任的某个人密钥的链，从而验证链中第一个密钥的真实性。   <a href="http://www.dewinter.com/gnupg_howto/english/GPGMiniHowto-1.html">GPG Mini Howto</a>详细描述了这一概念。  我们的密钥有足够的签名，其真实性相对容易检查。 </p> 
+<span></span><div style="display: none;"></div></div>
+</body>
+</html>

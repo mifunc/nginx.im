@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>http/ngx_http_keyval_module-nginx中文手册</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="None"/>
+<meta name="keywords" content="keyval,zone,text,...,location"/>
+</head>
+<body>
+<div id="content"><h2 class="notranslate">Module ngx_http_keyval_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#keyval">keyval</a> <br>     <a href="#keyval_zone">keyval_zone</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_keyval_module</code>模块（1.13.3）创建的变量的值取自<a href="ngx_http_api_module.html#http_keyvals_">API</a>管理的键值对。 </p><p></p><blockquote class="note">  该模块作为我们<a href="http://nginx.com/products/">商业订阅的</a>一部分提供。 </blockquote><p></p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">http {
+
+    keyval_zone zone=one:32k state=one.keyval;
+    keyval $arg_text $text zone=one;
+    ...
+    server {
+        ...
+        location / {
+            return 200 $text;
+        }
+
+        location /api {
+            api write=on;
+        }
+    }
+}
+</pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="keyval"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>keyval</strong> 
+    <code class="notranslate"><i>key</i></code>
+    <code class="notranslate"><i>$variable</i></code>
+    <code class="notranslate">zone</code> = <code class="notranslate"><i>name</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> <br>
+                </td></tr></tbody></table></div><p>  创建一个新的<code class="notranslate"><i>$variable</i></code>其值由<code class="notranslate"><i>key</i></code>数据库中的键查找。  字符串匹配忽略大小写。  数据库存储在<code class="notranslate">zone</code>参数指定的共享内存区域中。 </p><a name="keyval_zone"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>keyval_zone</strong> 
+    <code class="notranslate">zone</code> = <code class="notranslate"><i>name</i></code> : <code class="notranslate"><i>size</i></code>
+    [ <code class="notranslate">state</code> = <code class="notranslate"><i>file</i></code> ]
+    [ <code class="notranslate">timeout</code> = <code class="notranslate"><i>time</i></code> ]
+    [ <code class="notranslate">sync</code> ];</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> <br>
+                </td></tr></tbody></table></div><p>  设置保留键值数据库的共享内存区域的<code class="notranslate"><i>name</i></code>和<code class="notranslate"><i>size</i></code> 。  键值对由<a href="ngx_http_api_module.html#http_keyvals_">API</a>管理。 </p><a name="keyval_state"></a><p>  可选的<code class="notranslate">state</code>参数指定一个<code class="notranslate"><i>file</i></code> ，该<code class="notranslate"><i>file</i></code>以JSON格式保持键值数据库的当前状态，并使其在nginx重新启动时保持不变。 </p><a name="keyval_timeout"></a><p>  可选的<code class="notranslate">timeout</code>参数（1.15.0）设置从区域中删除键值对的时间。 </p><a name="keyval_sync"></a><p>  可选的<code class="notranslate">sync</code>参数（1.15.0）可以<a href="stream/ngx_stream_zone_sync_module.html#zone_sync">同步</a>共享内存区域。  同步需要设置<a href="#keyval_timeout">超时</a>参数。 </p> 
+<span></span><div style="display: none;"></div></div>
+</body>
+</html>

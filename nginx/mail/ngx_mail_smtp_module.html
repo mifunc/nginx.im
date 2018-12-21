@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>mail/ngx_mail_smtp_module-nginx中文手册</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="None"/>
+<meta name="keywords" content="smtp,auth,login,plain,client"/>
+</head>
+<body>
+<div id="content"><h2 class="notranslate">Module ngx_mail_smtp_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a href="#directives">Directives</a> <br>     <a href="#smtp_auth">smtp_auth</a> <br>     <a href="#smtp_capabilities">smtp_capabilities</a> <br>     <a href="#smtp_client_buffer">smtp_client_buffer</a> <br>     <a href="#smtp_greeting_delay">smtp_greeting_delay</a> <br></td></tr></tbody></table><a name="directives"></a><center><h4>  指令 </h4></center><a name="smtp_auth"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>smtp_auth</strong> <code class="notranslate"><i>method</i></code> ...;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">smtp_auth login plain;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">mail</code> , <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table></div><p>  为SMTP客户端设置允许的<a href="https://tools.ietf.org/html/rfc2554">SASL身份验证</a>方法。  支持的方法是： </p><dl class="compact"><dt> <code class="notranslate">login</code> </dt> <dd>   <a href="https://tools.ietf.org/html/draft-murchison-sasl-login-00">AUTH LOGIN</a> </dd><dt> <code class="notranslate">plain</code> </dt> <dd>   <a href="https://tools.ietf.org/html/rfc4616">AUTH PLAIN</a> </dd><dt> <code class="notranslate">cram-md5</code> </dt> <dd>   <a href="https://tools.ietf.org/html/rfc2195">AUTH CRAM-MD5</a> 。  为了使此方法有效，密码必须以未加密的方式存储。 </dd><dt> <code class="notranslate">external</code> </dt> <dd>   <a href="https://tools.ietf.org/html/rfc4422">AUTH EXTERNAL</a> （1.11.6）。 </dd><dt> <code class="notranslate">none</code> </dt> <dd>  不需要身份验证。 </dd></dl><p></p><a name="smtp_capabilities"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>smtp_capabilities</strong> <code class="notranslate"><i>extension</i></code> ...;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">mail</code> , <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table></div><p>  设置传递给客户端以响应<code class="notranslate">EHLO</code>命令的SMTP协议扩展列表。   <a href="#smtp_auth">smtp_auth</a>指令和<a href="https://tools.ietf.org/html/rfc3207">STARTTLS</a>中指定的身份验证方法将根据<a href="ngx_mail_ssl_module.html#starttls">starttls</a>指令值自动添加到此列表中。 </p><p>  指定客户端所代理的MTA支持的扩展是有意义的（如果这些扩展与身份验证后使用的命令相关，当nginx透明地代理客户端连接到后端时）。 </p><p>  目前的标准化扩展列表发布在<a href="http://www.iana.org/assignments/mail-parameters">www.iana.org</a> 。 </p><a name="smtp_client_buffer"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>smtp_client_buffer</strong> <code class="notranslate"><i>size</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">smtp_client_buffer 4k|8k;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">mail</code> , <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table></div><p>  设置用于读取SMTP命令的缓冲区的<code class="notranslate"><i>size</i></code> 。  默认情况下，缓冲区大小等于一个内存页面。  这是4K或8K，具体取决于平台。 </p><a name="smtp_greeting_delay"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>smtp_greeting_delay</strong> <code class="notranslate"><i>time</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">smtp_greeting_delay 0;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">mail</code> , <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table></div><p>  允许在发送SMTP问候语之前设置延迟，以便在发送SMTP命令之前拒绝未能等待问候语的客户端。 </p> 
+<span></span><div style="display: none;"></div></div>
+</body>
+</html>

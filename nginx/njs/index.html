@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>njs/index-nginx中文手册</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="None"/>
+<meta name="keywords" content="js,hello,world,module,http"/>
+</head>
+<body>
+<div id="content"><h2>   njs脚本语言 </h2><a name="summary"></a><p>   njs是JavaScript语言的一个子集，允许扩展nginx功能。   njs是根据<a href="http://www.ecma-international.org/ecma-262/5.1/">ECMAScript 5.1</a> （严格模式）创建的，带有一些<a href="http://www.ecma-international.org/ecma-262/6.0/">ECMAScript 6</a>及更高版本的扩展。  合规性仍在<a href="compatibility.html">不断发展</a> 。 </p><a name="links"></a><p></p><ul class="compact"><li>   <a href="install.html">下载并安装</a> </li><li>   <a href="changes.html">变化</a> </li><li>   <a href="reference.html">参考</a> </li><li>   <a href="examples.html">例子</a> </li><li>   <a href="compatibility.html">兼容性</a> </li><li>   <a href="cli.html">命令行界面</a> </li></ul><p></p><p></p><ul class="compact"><li>   <a href="http/ngx_http_js_module.html">ngx_http_js_module</a> </li><li>   <a href="stream/ngx_stream_js_module.html">ngx_stream_js_module</a> </li></ul><p></p><a name="usecases"></a><center><h4>  用例 </h4></center><p></p><ul class="compact"><li>  在请求到达上游服务器之前，njs中的复杂访问控制和安全性检查 </li><li>  操纵响应标头 </li><li>  编写灵活的异步内容处理程序和过滤器 </li></ul><p>  有关更多njs用例，请参阅<a href="examples.html">示例</a>和<a href="https://www.nginx.com/blog/tag/nginx-javascript-module/">博客文章</a> 。 </p><a name="example"></a><center><h4>  基本HTTP示例 </h4></center><p>  要在nginx中使用njs： </p><ul class="compact"><li><p>   <a href="install.html">安装</a> njs脚本语言 </p></li><li id="hello_world"><p>  创建一个njs脚本文件，例如<code class="notranslate">hello_world.js</code> 。  有关njs属性和方法的列表，请参见<a href="reference.html">参考</a> 。 </p><blockquote class="example"><pre class="notranslate">function hello(r) {
+    r.return(200, "Hello world!");
+}
+</pre></blockquote><p></p></li><li><p>  在<code class="notranslate">nginx.conf</code>文件中，启用<a href="http/ngx_http_js_module.html">ngx_http_js_module</a>模块并使用<code class="notranslate">hello_world.js</code>脚本文件指定<a href="http/ngx_http_js_module.html#js_include">js_include</a>指令： </p><blockquote class="example"><pre class="notranslate">load_module modules/ngx_http_js_module.so;
+
+events {}
+
+http {
+    js_include hello_world.js;
+
+    server {
+        listen 8000;
+
+        location / {
+            js_content hello;
+        }
+    }
+}
+
+</pre></blockquote><p></p></li></ul><p>  还有一个独立的<a href="cli.html">命令行</a>实用程序，可以独立于nginx用于njs开发和调试。 </p><a name="presentation"></a><center><h4>  在2018年的nginx.conf上发表演讲 </h4></center><p>
+<span></span></p><div style="display: none;"></div></div>
+</body>
+</html>

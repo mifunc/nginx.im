@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>http/ngx_http_addition_module-nginx中文手册</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="None"/>
+<meta name="keywords" content="add,before,body,action,after"/>
+</head>
+<body>
+<div id="content"><h2 class="notranslate">Module ngx_http_addition_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#add_before_body">add_before_body</a> <br>     <a href="#add_after_body">add_after_body</a> <br>     <a href="#addition_types">addition_types</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_addition_module</code>模块是一个过滤器，用于在响应之前和之后添加文本。  默认情况下不构建此模块，应使用<code class="notranslate">--with-http_addition_module</code>配置参数启用它。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">location / {
+    add_before_body /before_action;
+    add_after_body  /after_action;
+}
+</pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="add_before_body"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>add_before_body</strong> <code class="notranslate"><i>uri</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  添加由于在响应主体之前处理给定子请求而返回的文本。  作为参数的空字符串（ <code class="notranslate">""</code> ）取消从先前配置级别继承的添加。 </p><a name="add_after_body"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>add_after_body</strong> <code class="notranslate"><i>uri</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  添加由于在响应主体之后处理给定子请求而返回的文本。  作为参数的空字符串（ <code class="notranslate">""</code> ）取消从先前配置级别继承的添加。 </p><a name="addition_types"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>addition_types</strong> <code class="notranslate"><i>mime-type</i></code> ...;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">addition_types text/html;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table><p>  该指令出现在0.7.9版本中。 </p></div><p>  除了“ <code class="notranslate">text/html</code> ”之外，还允许在具有指定MIME类型的响应中添加文本。  特殊值“ <code class="notranslate">*</code> ”匹配任何MIME类型（0.8.29）。 </p> 
+<span></span><div style="display: none;"></div></div>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>http/ngx_http_perl_module-nginx中文手册</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="None"/>
+<meta name="keywords" content="return,perl,sub,my,OK"/>
+</head>
+<body>
+<div id="content"><h2 class="notranslate">Module ngx_http_perl_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a href="#issues">Known Issues</a> <br> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#perl">perl</a> <br>     <a href="#perl_modules">perl_modules</a> <br>     <a href="#perl_require">perl_require</a> <br>     <a href="#perl_set">perl_set</a> <br> <a href="#ssi">Calling Perl from SSI</a> <br> <a href="#methods">The $r Request Object Methods</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_perl_module</code>模块用于在Perl中实现位置和变量处理程序，并将Perl调用插入到SSI中。 </p><p>  默认情况下不构建此模块，应使用<code class="notranslate">--with-http_perl_module</code>配置参数启用它。 </p><blockquote class="note">  此模块需要<a href="https://www.perl.org/get.html">Perl</a> 5.6.1或更高版本。   C编译器应该与用于构建Perl的编译器兼容。 </blockquote><p></p><a name="issues"></a><center><h4>  已知的问题 </h4></center><p>  该模块是实验性的，需要注意的是经纪人。 </p><p>  为了让Perl在重新配置期间重新编译已修改的模块，它应该使用<code class="notranslate">-Dusemultiplicity=yes</code>或<code class="notranslate">-Dusethreads=yes</code>参数<code class="notranslate">-Dusethreads=yes</code> 。  另外，为了使Perl在运行时泄漏更少的内存，应该使用<code class="notranslate">-Dusemymalloc=no</code>参数构建它。  要在已构建的Perl中检查这些参数的值（在示例中指定了首选值），请运行： </p><blockquote class="example"><pre class="notranslate">$ perl -V:usemultiplicity -V:usemymalloc
+usemultiplicity='define';
+usemymalloc='n';
+</pre></blockquote><p></p><p>  请注意，在使用新的<code class="notranslate">-Dusemultiplicity=yes</code>或<code class="notranslate">-Dusethreads=yes</code>参数重建Perl之后，还必须重建所有二进制Perl模块 - 它们将停止使用新的Perl。 </p><p>  每次重新配置后，主进程和工作进程都有可能增大。  如果主进程增长到不可接受的大小，则可以在不更改可执行文件的情况下应用<a href="control.html#upgrade">实时升级</a>过程。 </p><p>  当Perl模块执行长时间运行的操作（例如解析域名，连接到另一个服务器或查询数据库）时，将不会处理分配给当前工作进程的其他请求。  因此，建议仅执行具有可预测和短执行时间的此类操作，例如访问本地文件系统。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">http {
+
+    perl_modules perl/lib;
+    perl_require hello.pm;
+
+    perl_set $msie6 '
+
+        sub {
+            my $r = shift;
+            my $ua = $r-&gt;header_in("User-Agent");
+
+            return "" if $ua =~ /Opera/;
+            return "1" if $ua =~ / MSIE [6-9]\.\d+/;
+            return "";
+        }
+
+    ';
+
+    server {
+        location / {
+            perl hello::handler;
+        }
+    }
+</pre></blockquote><p></p><p>   <code class="notranslate">perl/lib/hello.pm</code>模块： </p><blockquote class="example"><pre class="notranslate">package hello;
+
+use nginx;
+
+sub handler {
+    my $r = shift;
+
+    $r-&gt;send_http_header("text/html");
+    return OK if $r-&gt;header_only;
+
+    $r-&gt;print("hello!\n&lt;br/&gt;");
+
+    if (-f $r-&gt;filename or -d _) {
+        $r-&gt;print($r-&gt;uri, " exists!\n");
+    }
+
+    return OK;
+}
+
+1;
+__END__
+</pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="perl"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>perl</strong> <code class="notranslate"><i>module</i></code> :: <code class="notranslate"><i>function</i></code> |'sub { ... }';</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">location</code> , <code class="notranslate">limit_except</code> <br>
+                </td></tr></tbody></table></div><p>  为给定位置设置Perl处理程序。 </p><a name="perl_modules"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>perl_modules</strong> <code class="notranslate"><i>path</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> <br>
+                </td></tr></tbody></table></div><p>  为Perl模块设置其他路径。 </p><a name="perl_require"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>perl_require</strong> <code class="notranslate"><i>module</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> <br>
+                </td></tr></tbody></table></div><p>  定义将在每次重新配置期间加载的模块的名称。  可以存在几个<code class="notranslate">perl_require</code>指令。 </p><a name="perl_set"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>perl_set</strong> 
+    <code class="notranslate"><i>$variable</i></code>
+    <code class="notranslate"><i>module</i></code> :: <code class="notranslate"><i>function</i></code> |'sub { ... }';</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> <br>
+                </td></tr></tbody></table></div><p>  为指定的变量安装Perl处理程序。 </p><a name="ssi"></a><center><h4>  从SSI调用Perl </h4></center><p>  调用Perl的SSI命令具有以下格式： </p><blockquote class="example"><pre class="notranslate">&lt;!--# perl sub=" <code class="notranslate"><i>module</i></code> :: <code class="notranslate"><i>function</i></code> " arg=" <code class="notranslate"><i>parameter1</i></code> " arg=" <code class="notranslate"><i>parameter2</i></code> " ...
+--&gt;
+</pre></blockquote><p></p><a name="methods"></a><center><h4>   $ r请求对象方法 </h4></center><p></p><dl class="compact"><dt> <code class="notranslate">$r-&gt;args</code> </dt> <dd>  返回请求参数。 </dd><dt> <code class="notranslate">$r-&gt;filename</code> </dt> <dd>  返回与请求URI对应的文件名。 </dd><dt> <code class="notranslate">$r-&gt;has_request_body( <code class="notranslate"><i>handler</i></code> )</code> </dt> <dd>  如果请求中没有正文，则返回0。  如果有正文，则为请求设置指定的处理程序，并返回1。  在读取请求主体后，nginx将调用指定的处理程序。  请注意，处理函数应该通过引用传递。  例： <blockquote class="example"><pre class="notranslate">package hello;
+
+use nginx;
+
+sub handler {
+    my $r = shift;
+
+    if ($r-&gt;request_method ne "POST") {
+        return DECLINED;
+    }
+
+    if ($r-&gt;has_request_body( <strong>\&amp;post</strong> )) {
+        return OK;
+    }
+
+    return HTTP_BAD_REQUEST;
+}
+
+sub <strong>post</strong> {
+    my $r = shift;
+
+    $r-&gt;send_http_header;
+
+    $r-&gt;print("request_body: \"", $r-&gt;request_body, "\"&lt;br/&gt;");
+    $r-&gt;print("request_body_file: \"", $r-&gt;request_body_file, "\"&lt;br/&gt;\n");
+
+    return OK;
+}
+
+1;
+
+__END__
+</pre></blockquote></dd><dt> <code class="notranslate">$r-&gt;allow_ranges</code> </dt> <dd>  在发送响应时允许使用字节范围。 </dd><dt> <code class="notranslate">$r-&gt;discard_request_body</code> </dt> <dd>  指示nginx丢弃请求正文。 </dd><dt> <code class="notranslate">$r-&gt;header_in( <code class="notranslate"><i>field</i></code> )</code> </dt> <dd>  返回指定的客户端请求标头字段的值。 </dd><dt> <code class="notranslate">$r-&gt;header_only</code> </dt> <dd>  确定是应将整个响应还是仅应将其标头发送给客户端。 </dd><dt> <code class="notranslate">$r-&gt;header_out( <code class="notranslate"><i>field</i></code> , <code class="notranslate"><i>value</i></code> )</code> </dt> <dd>  为指定的响应头字段设置一个值。 </dd><dt> <code class="notranslate">$r-&gt;internal_redirect( <code class="notranslate"><i>uri</i></code> )</code> </dt> <dd>  内部重定向到指定的<code class="notranslate"><i>uri</i></code> 。   Perl处理程序执行完成后发生实际重定向。 <blockquote class="note">  目前不支持重定向到命名位置。 </blockquote></dd><dt> <code class="notranslate">$r-&gt;log_error( <code class="notranslate"><i>errno</i></code> , <code class="notranslate"><i>message</i></code> )</code> </dt> <dd>  将指定的<code class="notranslate"><i>message</i></code>写入<a href="ngx_core_module.html#error_log">error_log</a> 。  如果<code class="notranslate"><i>errno</i></code>不为零，则错误代码及其描述将附加到消息中。 </dd><dt> <code class="notranslate">$r-&gt;print( <code class="notranslate"><i>text</i></code> , ...)</code> </dt> <dd>  将数据传递给客户端。 </dd><dt> <code class="notranslate">$r-&gt;request_body</code> </dt> <dd>  如果客户端请求正文尚未写入临时文件，则返回该请求正文。  要确保客户端请求正文在内存中，其大小应受<a href="ngx_http_core_module.html#client_max_body_size">client_max_body_size</a>限制，并且应使用<a href="ngx_http_core_module.html#client_body_buffer_size">client_body_buffer_size</a>设置足够的缓冲区大小。 </dd><dt> <code class="notranslate">$r-&gt;request_body_file</code> </dt> <dd>  返回客户端请求正文的文件名。  处理完毕后，应删除该文件。  要始终将请求主体写入文件，应启用<a href="ngx_http_core_module.html#client_body_in_file_only">client_body_in_file_only</a> 。 </dd><dt> <code class="notranslate">$r-&gt;request_method</code> </dt> <dd>  返回客户端请求HTTP方法。 </dd><dt> <code class="notranslate">$r-&gt;remote_addr</code> </dt> <dd>  返回客户端IP地址。 </dd><dt> <code class="notranslate">$r-&gt;flush</code> </dt> <dd>  立即将数据发送到客户端。 </dd><dt> <code class="notranslate">$r-&gt;sendfile( <code class="notranslate"><i>name</i></code> [, <code class="notranslate"><i>offset</i></code> [, <code class="notranslate"><i>length</i></code> ]])</code> </dt> <dd>  将指定的文件内容发送给客户端。  可选参数指定要传输的数据的初始偏移量和长度。  实际的数据传输发生在Perl处理程序完成之后。 </dd><dt> <code class="notranslate">$r-&gt;send_http_header([ <code class="notranslate"><i>type</i></code> ])</code> </dt> <dd>  将响应头发送给客户端。  可选的<code class="notranslate"><i>type</i></code>参数设置“Content-Type”响应头字段的值。  如果该值为空字符串，则不会发送“Content-Type”标头字段。 </dd><dt> <code class="notranslate">$r-&gt;status( <code class="notranslate"><i>code</i></code> )</code> </dt> <dd>  设置响应代码。 </dd><dt> <code class="notranslate">$r-&gt;sleep( <code class="notranslate"><i>milliseconds</i></code> , <code class="notranslate"><i>handler</i></code> )</code> </dt> <dd>  设置指定的处理程序并停止指定时间的请求处理。  与此同时，nginx继续处理其他请求。  经过指定的时间后，nginx将调用已安装的处理程序。  请注意，处理函数应该通过引用传递。  为了在处理程序之间传递数据，应该使用<code class="notranslate">$r-&gt;variable()</code> 。  例： <blockquote class="example"><pre class="notranslate">package hello;
+
+use nginx;
+
+sub handler {
+    my $r = shift;
+
+    $r-&gt;discard_request_body;
+    $r-&gt;variable("var", "OK");
+    $r-&gt;sleep(1000, <strong>\&amp;next</strong> );
+
+    return OK;
+}
+
+sub <strong>next</strong> {
+    my $r = shift;
+
+    $r-&gt;send_http_header;
+    $r-&gt;print($r-&gt;variable("var"));
+
+    return OK;
+}
+
+1;
+
+__END__
+</pre></blockquote></dd><dt> <code class="notranslate">$r-&gt;unescape( <code class="notranslate"><i>text</i></code> )</code> </dt> <dd>  解码以“％XX”形式编码的文本。 </dd><dt> <code class="notranslate">$r-&gt;uri</code> </dt> <dd>  返回请求URI。 </dd><dt> <code class="notranslate">$r-&gt;variable( <code class="notranslate"><i>name</i></code> [, <code class="notranslate"><i>value</i></code> ])</code> </dt> <dd>  返回或设置指定变量的值。  变量是每个请求的本地变量。 </dd></dl><p></p> 
+<span></span><div style="display: none;"></div></div>
+</body>
+</html>

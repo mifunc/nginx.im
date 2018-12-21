@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>mail/ngx_mail_proxy_module-nginx中文手册</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="None"/>
+<meta name="keywords" content="proxy,buffer,4k,8k,pass"/>
+</head>
+<body>
+<div id="content"><h2 class="notranslate">Module ngx_mail_proxy_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a href="#directives">Directives</a> <br>     <a href="#proxy_buffer">proxy_buffer</a> <br>     <a href="#proxy_pass_error_message">proxy_pass_error_message</a> <br>     <a href="#proxy_timeout">proxy_timeout</a> <br>     <a href="#xclient">xclient</a> <br></td></tr></tbody></table><a name="directives"></a><center><h4>  指令 </h4></center><a name="proxy_buffer"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>proxy_buffer</strong> <code class="notranslate"><i>size</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">proxy_buffer 4k|8k;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">mail</code> , <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table></div><p>  设置用于代理的缓冲区的大小。  默认情况下，缓冲区大小等于一个内存页面。  根据平台，它是4K或8K。 </p><a name="proxy_pass_error_message"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>proxy_pass_error_message</strong> <code class="notranslate">on</code> | <code class="notranslate">off</code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">proxy_pass_error_message off;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">mail</code> , <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table></div><p>  指示是否将后端身份验证期间获取的错误消息传递给客户端。 </p><p>  通常，如果nginx中的身份验证成功，则后端无法返回错误。  如果它仍然返回错误，则表示发生了一些内部错误。  在这种情况下，后端消息可以包含不应向客户端显示的信息。  但是，对于某些POP3服务器，使用正确密码的错误进行响应是正常行为。  例如，CommuniGatePro通过定期输出<a href="http://www.stalker.com/CommuniGatePro/POP.html#Alerts">身份验证错误</a>通知用户<a href="http://www.stalker.com/CommuniGatePro/Alerts.html#Quota">邮箱溢出</a>或其他事件。  在这种情况下应该启用该指令。 </p><a name="proxy_timeout"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>proxy_timeout</strong> <code class="notranslate"><i>timeout</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">proxy_timeout 24h;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">mail</code> , <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table></div><p>  设置客户端或代理服务器连接上两次连续读取或写入操作之间的<code class="notranslate"><i>timeout</i></code> 。  如果在此时间内没有传输数据，则关闭连接。 </p><a name="xclient"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>xclient</strong> <code class="notranslate">on</code> | <code class="notranslate">off</code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">xclient on;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">mail</code> , <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table></div><p>  连接到SMTP后端时，启用或禁用带有客户端参数的<a href="http://www.postfix.org/XCLIENT_README.html">XCLIENT</a>命令的传递。 </p><p>  使用<code class="notranslate">XCLIENT</code> ，MTA能够将客户端信息写入日志，并根据此数据应用各种限制。 </p><p>  如果启用了<code class="notranslate">XCLIENT</code> ，则nginx在连接到后端时会传递以下命令： </p><ul class="compact"><li>   <code class="notranslate">EHLO</code>与<a href="ngx_mail_core_module.html#server_name">服务器名称</a> </li><li> <code class="notranslate">XCLIENT</code> </li> <li>   <code class="notranslate">EHLO</code>或<code class="notranslate">HELO</code> ，由客户通过 </li></ul><p></p><p>  如果客户端IP地址<a href="ngx_mail_core_module.html#resolver">找到</a>的名称指向同一地址，则会在<code class="notranslate">XCLIENT</code>命令的<code class="notranslate">NAME</code>参数中传递该<code class="notranslate">NAME</code> 。  如果找不到名称，指向不同的地址，或未指定<a href="ngx_mail_core_module.html#resolver">解析器</a> ，则在<code class="notranslate">NAME</code>参数中传递<code class="notranslate">[UNAVAILABLE]</code> 。  如果在解析过程中发生错误，则使用<code class="notranslate">[TEMPUNAVAIL]</code>值。 </p><p>  如果禁用了<code class="notranslate">XCLIENT</code> ，那么如果客户端已通过<code class="notranslate">EHLO</code> ，则nginx在连接到后端时传递带有<a href="ngx_mail_core_module.html#server_name">服务器名称</a>的<code class="notranslate">EHLO</code>命令，否则传递带有服务器名称的<code class="notranslate">HELO</code> 。 </p> 
+<span></span><div style="display: none;"></div></div>
+</body>
+</html>

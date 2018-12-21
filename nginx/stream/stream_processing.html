@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>stream/stream_processing-nginx中文手册</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="stream/stream_processing"/>
+<meta name="keywords" content="stream/stream_processing"/>
+</head>
+<body>
+<div id="content"><h2>   nginx如何处理TCP / UDP会话 </h2><p>  来自客户端的TCP / UDP会话在称为<b>阶段的</b>连续步骤中处理： </p><dl class="compact"><dt id="postaccept_phase"> <code class="notranslate">Post-accept</code> </dt> <dd>  接受客户端连接后的第一阶段。  在此阶段调用<a href="ngx_stream_realip_module.html">ngx_stream_realip_module</a>模块。 </dd><dt id="preaccess_phase"> <code class="notranslate">Pre-access</code> </dt> <dd>  初步检查访问。  在此阶段调用<a href="ngx_stream_limit_conn_module.html">ngx_stream_limit_conn_module</a>模块。 </dd><dt id="access_phase"> <code class="notranslate">Access</code> </dt> <dd>  实际数据处理前的客户端访问限制。  在此阶段调用<a href="ngx_stream_access_module.html">ngx_stream_access_module</a>模块。 </dd><dt id="ssl_phase"> <code class="notranslate">SSL</code> </dt> <dd>   TLS / SSL终止。  在此阶段调用<a href="ngx_stream_ssl_module.html">ngx_stream_ssl_module</a>模块。 </dd><dt id="preread_phase"> <code class="notranslate">Preread</code> </dt> <dd>  将初始数据字节<a href="ngx_stream_core_module.html#preread_buffer_size">读</a>入<a href="ngx_stream_core_module.html#preread_buffer_size">预读缓冲区，</a>以允许诸如<a href="ngx_stream_ssl_preread_module.html">ngx_stream_ssl_preread_module之类的</a>模块在处理之前分析数据。 </dd><dt id="content_phase"> <code class="notranslate">Content</code> </dt> <dd>  实际处理数据的强制阶段（通常<a href="ngx_stream_proxy_module.html">代理</a>到<a href="ngx_stream_upstream_module.html">上游</a>服务器）或指定值<a href="ngx_stream_return_module.html">返回</a>给客户端。 </dd><dt id="log_phase"> <code class="notranslate">Log</code> </dt> <dd>  记录客户端会话处理结果的最后阶段。  在此阶段调用<a href="ngx_stream_log_module.html">ngx_stream_log_module</a>模块。 </dd></dl><p></p> 
+<span></span><div style="display: none;"></div></div>
+</body>
+</html>

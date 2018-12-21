@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>http/ngx_http_gunzip_module-nginx中文手册</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="None"/>
+<meta name="keywords" content="gunzip,location,storage,...,off"/>
+</head>
+<body>
+<div id="content"><h2 class="notranslate">Module ngx_http_gunzip_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#gunzip">gunzip</a> <br>     <a href="#gunzip_buffers">gunzip_buffers</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_gunzip_module</code>模块是一个过滤器，它使用“ <code class="notranslate">Content-Encoding: gzip</code> ”解压缩响应，用于不支持“gzip”编码方法的客户端。  当需要存储压缩数据以节省空间并降低I / O成本时，该模块将非常有用。 </p><p>  默认情况下不构建此模块，应使用<code class="notranslate">--with-http_gunzip_module</code>配置参数启用它。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">location /storage/ {
+    gunzip on;
+    ...
+}
+</pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="gunzip"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>gunzip</strong> <code class="notranslate">on</code> | <code class="notranslate">off</code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">gunzip off;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  启用或禁用对缺少gzip支持的客户端的gzip压缩解压缩。  如果启用，则在确定客户端是否支持gzip时还会考虑以下指令： <a href="ngx_http_gzip_module.html#gzip_http_version">gzip_http_version</a> ， <a href="ngx_http_gzip_module.html#gzip_proxied">gzip_proxied</a>和<a href="ngx_http_gzip_module.html#gzip_disable">gzip_disable</a> 。  另请参见<a href="ngx_http_gzip_module.html#gzip_vary">gzip_vary</a>指令。 </p><a name="gunzip_buffers"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>gunzip_buffers</strong> <code class="notranslate"><i>number</i></code> <code class="notranslate"><i>size</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">gunzip_buffers 32 4k|16 8k;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  设置用于解压缩响应的缓冲区的<code class="notranslate"><i>number</i></code>和<code class="notranslate"><i>size</i></code> 。  默认情况下，缓冲区大小等于一个内存页面。  这是4K或8K，具体取决于平台。 </p> 
+<span></span><div style="display: none;"></div></div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>http/ngx_http_referer_module-nginx中文手册</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="None"/>
+<meta name="keywords" content="example,referer,valid,referers,none"/>
+</head>
+<body>
+<div id="content"><h2 class="notranslate">Module ngx_http_referer_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#referer_hash_bucket_size">referer_hash_bucket_size</a> <br>     <a href="#referer_hash_max_size">referer_hash_max_size</a> <br>     <a href="#valid_referers">valid_referers</a> <br> <a href="#variables">Embedded Variables</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_referer_module</code>模块用于阻止对“Referer”头字段中具有无效值的请求访问站点。  应该记住，使用适当的“Referer”字段值来构造请求非常容易，因此本模块的预期目的不是要彻底阻止此类请求，而是阻止常规浏览器发送的请求的大量流量。  还应该考虑到，即使对于有效请求，常规浏览器也可能不发送“Referer”字段。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">valid_referers none blocked server_names
+               *.example.com example.* www.example.org/galleries/
+               ~\.google\.;
+
+if ($invalid_referer) {
+    return 403;
+}
+</pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="referer_hash_bucket_size"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>referer_hash_bucket_size</strong> <code class="notranslate"><i>size</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">referer_hash_bucket_size 64;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table><p>  该指令出现在1.0.5版本中。 </p></div><p>  设置有效引用散列表的存储区大小。  设置哈希表的详细信息在单独的<a href="hash.html">文档</a>中提供。 </p><a name="referer_hash_max_size"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>referer_hash_max_size</strong> <code class="notranslate"><i>size</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">referer_hash_max_size 2048;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table><p>  该指令出现在1.0.5版本中。 </p></div><p>  设置有效引用者哈希表的最大<code class="notranslate"><i>size</i></code> 。  设置哈希表的详细信息在单独的<a href="hash.html">文档</a>中提供。 </p><a name="valid_referers"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>valid_referers</strong> 
+    <code class="notranslate">none</code> |
+    <code class="notranslate">blocked</code> |
+    <code class="notranslate">server_names</code> |
+    <code class="notranslate"><i>string</i></code>
+    ...;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  指定将导致嵌入的<code class="notranslate">$invalid_referer</code>变量设置为空字符串的“Referer”请求标头字段值。  否则，变量将设置为“ <code class="notranslate">1</code> ”。  搜索匹配不区分大小写。 </p><p>  参数可以如下： </p><dl class="compact"><dt> <code class="notranslate">none</code> </dt> <dd>  请求标头中缺少“Referer”字段; </dd><dt> <code class="notranslate">blocked</code> </dt> <dd>   “Referer”字段出现在请求标头中，但其值已被防火墙或代理服务器删除;  这些值是不以“ <code class="notranslate">http://</code> ”或“ <code class="notranslate">https://</code> ”开头的字符串; </dd><dt> <code class="notranslate">server_names</code> </dt> <dd>   “Referer”请求头字段包含一个服务器名称; </dd><dt>  任意字串 </dt><dd>  定义服务器名称和可选的URI前缀。  服务器名称的开头或结尾可以包含“ <code class="notranslate">*</code> ”。  在检查期间，“Referer”字段中的服务器端口被忽略; </dd><dt>  正则表达式 </dt><dd>  第一个符号应为“ <code class="notranslate">~</code> ”。  应该注意的是，表达式将与“ <code class="notranslate">http://</code> ”或“ <code class="notranslate">https://</code> ”之后的文本匹配。 </dd></dl><p></p><p>  例： </p><blockquote class="example"><pre class="notranslate">valid_referers none blocked server_names
+               *.example.com example.* www.example.org/galleries/
+               ~\.google\.;
+</pre></blockquote><p></p><a name="variables"></a><center><h4>  嵌入式变量 </h4></center><p></p><dl class="compact"><dt id="var_invalid_referer"> <code class="notranslate">$invalid_referer</code> </dt> <dd>  空字符串，如果“Referer”请求标头字段值被认为<a href="#valid_referers">有效</a> ，否则为“ <code class="notranslate">1</code> ”。 </dd></dl><p></p> 
+<span></span><div style="display: none;"></div></div>
+</body>
+</html>

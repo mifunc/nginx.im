@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>http/ngx_http_mirror_module-nginx中文手册</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="None"/>
+<meta name="keywords" content="mirror,proxy,pass,request,location"/>
+</head>
+<body>
+<div id="content"><h2 class="notranslate">Module ngx_http_mirror_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#mirror">mirror</a> <br>     <a href="#mirror_request_body">mirror_request_body</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_mirror_module</code>模块（1.13.4）通过创建后台镜像子请求来实现原始请求的镜像。  忽略对镜像子请求的响应。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">location / {
+    mirror /mirror;
+    proxy_pass http://backend;
+}
+
+location = /mirror {
+    internal;
+    proxy_pass http://test_backend$request_uri;
+}
+</pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="mirror"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>mirror</strong> <code class="notranslate"><i>uri</i></code> | <code class="notranslate">off</code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">mirror off;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  设置将镜像原始请求的URI。  可以在同一级别指定多个镜像。 </p><a name="mirror_request_body"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>mirror_request_body</strong> <code class="notranslate">on</code> | <code class="notranslate">off</code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">mirror_request_body on;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  指示是否镜像客户端请求正文。  启用后，将在创建镜像子请求之前读取客户端请求正文。  在这种情况下，将禁用由<a href="ngx_http_proxy_module.html#proxy_request_buffering">proxy_request_buffering</a> ， <a href="ngx_http_fastcgi_module.html#fastcgi_request_buffering">fastcgi_request_buffering</a> ， <a href="ngx_http_scgi_module.html#scgi_request_buffering">scgi_request_buffering</a>和<a href="ngx_http_uwsgi_module.html#uwsgi_request_buffering">uwsgi_request_buffering</a>指令设置的无缓冲客户机请求正文代理。 </p><blockquote class="example"><pre class="notranslate">location / {
+    mirror /mirror;
+    mirror_request_body off;
+    proxy_pass http://backend;
+}
+
+location = /mirror {
+    internal;
+    proxy_pass http://log_backend;
+    proxy_pass_request_body off;
+    proxy_set_header Content-Length "";
+    proxy_set_header X-Original-URI $request_uri;
+}
+</pre></blockquote><p></p> 
+<span></span><div style="display: none;"></div></div>
+</body>
+</html>

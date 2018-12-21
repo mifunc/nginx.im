@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>events-nginx中文手册</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="events"/>
+<meta name="keywords" content="events"/>
+</head>
+<body>
+<div id="content"><h2>  连接处理方法 </h2><p>   nginx支持各种连接处理方法。  特定方法的可用性取决于所使用的平台。  在支持多种方法的平台上，nginx通常会自动选择最有效的方法。  但是，如果需要，可以<a href="ngx_core_module.html#use">使用use</a>指令显式选择连接处理方法。 </p><p>  支持以下连接处理方法： </p><ul class="compact"><li id="select"><p>   <code class="notranslate">select</code> - 标准方法。  支持模块自动构建在缺乏更有效方法的平台上。   <code class="notranslate">--with-select_module</code>和<code class="notranslate">--without-select_module</code>配置参数可用于强制启用或禁用此模块的构建。 </p></li><li id="poll"><p>   <code class="notranslate">poll</code> - 标准方法。  支持模块自动构建在缺乏更有效方法的平台上。   <code class="notranslate">--with-poll_module</code>和<code class="notranslate">--without-poll_module</code>配置参数可用于强制启用或禁用此模块的构建。 </p></li><li id="kqueue"><p>   <code class="notranslate">kqueue</code> - 在FreeBSD 4.1 +，OpenBSD 2.9 +，NetBSD 2.0和macOS上使用的有效方法。 </p></li><li id="epoll"><p>   Linux 2.6+上使用的<code class="notranslate">epoll</code> -efficient方法。 </p><blockquote class="note">  自1.11.3起，支持<code class="notranslate">EPOLLRDHUP</code> （Linux 2.6.17，glibc 2.8）和<code class="notranslate">EPOLLEXCLUSIVE</code> （Linux 4.5，glibc 2.24）标志。 </blockquote><p></p><blockquote class="note">  一些较旧的发行版（如SuSE 8.2）提供了为2.4内核添加epoll支持的补丁。 </blockquote><p></p></li><li id="devpoll"><p>   <code class="notranslate">/dev/poll</code> -  Solaris 7 11/99 +，HP / UX 11.22+（eventport），IRIX 6.5.15+和Tru64 UNIX 5.1A +上使用的有效方法。 </p></li><li id="eventport"><p>   <code class="notranslate">eventport</code> - 事件端口，Solaris 10+上使用的方法（由于已知问题，建议使用<code class="notranslate">/dev/poll</code>方法）。 </p></li></ul><p></p> 
+<span></span><div style="display: none;"></div></div>
+</body>
+</html>
