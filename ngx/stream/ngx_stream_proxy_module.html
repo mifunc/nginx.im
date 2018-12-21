@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="nginx," />
+  <meta name="keywords" content="LINUX,NGINX,JAVA,PYTHON,PYTHON,前端,运维实践" />
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="stream,ngx_stream_proxy_module">
-<meta name="keywords" content="nginx">
+<meta name="description" content="Module ngx_stream_proxy_module Example Configuration  Directives      proxy_bind      proxy_buffer_size      proxy_connect_timeout      proxy_download_rate     ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="stream&#x2F;ngx_stream_proxy_module-nginx中文手册">
+<meta property="og:title" content="IM.NGINX">
 <meta property="og:url" content="http://nginx.im/ngx/stream/ngx_stream_proxy_module.html">
 <meta property="og:site_name" content="IM.NGINX">
-<meta property="og:description" content="stream,ngx_stream_proxy_module">
+<meta property="og:description" content="Module ngx_stream_proxy_module Example Configuration  Directives      proxy_bind      proxy_buffer_size      proxy_connect_timeout      proxy_download_rate      proxy_next_upstream      proxy_next_ups">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:56:12.496Z">
+<meta property="og:updated_time" content="2018-12-21T08:09:37.346Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="stream&#x2F;ngx_stream_proxy_module-nginx中文手册">
-<meta name="twitter:description" content="stream,ngx_stream_proxy_module">
+<meta name="twitter:title" content="IM.NGINX">
+<meta name="twitter:description" content="Module ngx_stream_proxy_module Example Configuration  Directives      proxy_bind      proxy_buffer_size      proxy_connect_timeout      proxy_download_rate      proxy_next_upstream      proxy_next_ups">
 
 
 
@@ -126,7 +125,7 @@
 
 
 
-  <title>stream/ngx_stream_proxy_module-nginx中文手册 | IM.NGINX</title>
+  <title> | IM.NGINX</title>
   
 
 
@@ -324,7 +323,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">stream/ngx_stream_proxy_module-nginx中文手册</h2>
+          <h2 class="post-title" itemprop="name headline"></h2>
         
 
         <div class="post-meta">
@@ -336,7 +335,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
                 2018年12月21日
               </time>
             
@@ -346,28 +345,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx中文手册</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -396,165 +373,243 @@
       
 
       
-        <p>stream,ngx_stream_proxy_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-stream-proxy-module"><a href="#Module-ngx-stream-proxy-module" class="headerlink" title="Module ngx_stream_proxy_module"></a>Module ngx_stream_proxy_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#proxy_bind">proxy_bind</a> <br>     <a href="#proxy_buffer_size">proxy_buffer_size</a> <br>     <a href="#proxy_connect_timeout">proxy_connect_timeout</a> <br>     <a href="#proxy_download_rate">proxy_download_rate</a> <br>     <a href="#proxy_next_upstream">proxy_next_upstream</a> <br>     <a href="#proxy_next_upstream_timeout">proxy_next_upstream_timeout</a> <br>     <a href="#proxy_next_upstream_tries">proxy_next_upstream_tries</a> <br>     <a href="#proxy_pass">proxy_pass</a> <br>     <a href="#proxy_protocol">proxy_protocol</a> <br>     <a href="#proxy_requests">proxy_requests</a> <br>     <a href="#proxy_responses">proxy_responses</a> <br>     <a href="#proxy_socket_keepalive">proxy_socket_keepalive</a> <br>     <a href="#proxy_ssl">proxy_ssl</a> <br>     <a href="#proxy_ssl_certificate">proxy_ssl_certificate</a> <br>     <a href="#proxy_ssl_certificate_key">proxy_ssl_certificate_key</a> <br>     <a href="#proxy_ssl_ciphers">proxy_ssl_ciphers</a> <br>     <a href="#proxy_ssl_crl">proxy_ssl_crl</a> <br>     <a href="#proxy_ssl_name">proxy_ssl_name</a> <br>     <a href="#proxy_ssl_password_file">proxy_ssl_password_file</a> <br>     <a href="#proxy_ssl_protocols">proxy_ssl_protocols</a> <br>     <a href="#proxy_ssl_server_name">proxy_ssl_server_name</a> <br>     <a href="#proxy_ssl_session_reuse">proxy_ssl_session_reuse</a> <br>     <a href="#proxy_ssl_trusted_certificate">proxy_ssl_trusted_certificate</a> <br>     <a href="#proxy_ssl_verify">proxy_ssl_verify</a> <br>     <a href="#proxy_ssl_verify_depth">proxy_ssl_verify_depth</a> <br>     <a href="#proxy_timeout">proxy_timeout</a> <br>     <a href="#proxy_upload_rate">proxy_upload_rate</a> <br></td>
-
-<p>   <code>ngx_stream_proxy_module</code>模块（1.9.0）允许通过TCP，UDP（1.9.13）和UNIX域套接字代理数据流。 </p>
-<h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><blockquote>
-<p><pre class="notranslate">server {<br>    listen 127.0.0.1:12345;<br>    proxy_pass 127.0.0.1:8080;<br>}</pre></p>
-</blockquote>
+        <p></p><h2 class="notranslate">Module ngx_stream_proxy_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#example">Example Configuration</a> <br> <a hhref="#directives">Directives</a> <br>     <a hhref="#proxy_bind">proxy_bind</a> <br>     <a hhref="#proxy_buffer_size">proxy_buffer_size</a> <br>     <a hhref="#proxy_connect_timeout">proxy_connect_timeout</a> <br>     <a hhref="#proxy_download_rate">proxy_download_rate</a> <br>     <a hhref="#proxy_next_upstream">proxy_next_upstream</a> <br>     <a hhref="#proxy_next_upstream_timeout">proxy_next_upstream_timeout</a> <br>     <a hhref="#proxy_next_upstream_tries">proxy_next_upstream_tries</a> <br>     <a hhref="#proxy_pass">proxy_pass</a> <br>     <a hhref="#proxy_protocol">proxy_protocol</a> <br>     <a hhref="#proxy_requests">proxy_requests</a> <br>     <a hhref="#proxy_responses">proxy_responses</a> <br>     <a hhref="#proxy_socket_keepalive">proxy_socket_keepalive</a> <br>     <a hhref="#proxy_ssl">proxy_ssl</a> <br>     <a hhref="#proxy_ssl_certificate">proxy_ssl_certificate</a> <br>     <a hhref="#proxy_ssl_certificate_key">proxy_ssl_certificate_key</a> <br>     <a hhref="#proxy_ssl_ciphers">proxy_ssl_ciphers</a> <br>     <a hhref="#proxy_ssl_crl">proxy_ssl_crl</a> <br>     <a hhref="#proxy_ssl_name">proxy_ssl_name</a> <br>     <a hhref="#proxy_ssl_password_file">proxy_ssl_password_file</a> <br>     <a hhref="#proxy_ssl_protocols">proxy_ssl_protocols</a> <br>     <a hhref="#proxy_ssl_server_name">proxy_ssl_server_name</a> <br>     <a hhref="#proxy_ssl_session_reuse">proxy_ssl_session_reuse</a> <br>     <a hhref="#proxy_ssl_trusted_certificate">proxy_ssl_trusted_certificate</a> <br>     <a hhref="#proxy_ssl_verify">proxy_ssl_verify</a> <br>     <a hhref="#proxy_ssl_verify_depth">proxy_ssl_verify_depth</a> <br>     <a hhref="#proxy_timeout">proxy_timeout</a> <br>     <a hhref="#proxy_upload_rate">proxy_upload_rate</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_stream_proxy_module</code>模块（1.9.0）允许通过TCP，UDP（1.9.13）和UNIX域套接字代理数据流。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">server {<br>    listen 127.0.0.1:12345;<br>    proxy_pass 127.0.0.1:8080;<br>}<p></p>
 <p>server {<br>    listen 12345;<br>    proxy_connect_timeout 1s;<br>    proxy_timeout 1m;<br>    proxy_pass example.com:12345;<br>}</p>
 <p>server {<br>    listen 53 udp reuseport;<br>    proxy_timeout 20s;<br>    proxy_pass dns.example.com:53;<br>}</p>
-<p>server {<br>    listen [::1]:12345;<br>    proxy_pass unix:/tmp/stream.socket;<br>}<br></p>
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_bind**     &lt;code class=&quot;notranslate&quot;&gt;*address*</code>    [ <code>transparent</code> ] |    <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  该指令出现在1.9.2版本中。 </p>
-<p>  使与代理服务器的传出连接源自指定的本地IP <code>*address*</code> 。  参数值可以包含变量（1.11.2）。  特殊值<code>off</code>取消了从先前配置级别继承的<code>proxy_bind</code>指令的效果，允许系统自动分配本地IP地址。 </p>
-<p>   <code>transparent</code>参数（1.11.0）允许到代理服务器的传出连接源自非本地IP地址，例如，来自客户端的真实IP地址： </p>
-<blockquote>
-<pre class="notranslate">proxy_bind $remote_addr transparent;
-</pre>
+<p>server {<br>    listen [::1]:12345;<br>    proxy_pass unix:/tmp/stream.socket;<br>}<br></p></pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="proxy_bind"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>proxy_bind</strong><br>    <code class="notranslate"><i>address</i></code><br>    [ <code class="notranslate">transparent</code> ] |<br>    <code class="notranslate">off</code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>—
 
-</blockquote>
-<p>  为了使此参数有效，通常需要使用<a href="ngx_core_module.html#user">超级用户</a>权限运行nginx工作进程。  在Linux上，不需要（1.13.8），就像指定了<code>transparent</code>参数一样，工作进程从主进程继承<code>CAP_NET_RAW</code>功能。  还需要配置内核路由表以拦截来自代理服务器的网络流量。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_buffer_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_buffer_size 16k;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  该指令出现在1.9.4版本中。 </p>
-<p>  设置用于从代理服务器读取数据的缓冲区的<code>*size*</code> 。  还设置用于从客户端读取数据的缓冲区的<code>*size*</code> 。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_connect_timeout** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_connect_timeout 60s;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  定义与代理服务器建立连接的超时。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_download_rate** &lt;code class=&quot;notranslate&quot;&gt;*rate*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_download_rate 0;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  该指令出现在1.9.3版本中。 </p>
-<p>  限制从代理服务器读取数据的速度。   <code>*rate*</code>以每秒字节数指定。  零值禁用速率限制。  每个连接设置限制，因此如果nginx同时打开到代理服务器的两个连接，则总速率将是指定限制的两倍。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_next_upstream** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_next_upstream on;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  当无法建立与代理服务器的连接时，确定是否将客户端连接传递给下一个服务器。 </p>
-<p>  将连接传递到下一个服务器可能会受到<a href="#proxy_next_upstream_tries">尝试次数</a>和<a href="#proxy_next_upstream_timeout">时间的限制</a> 。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_next_upstream_timeout** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_next_upstream_timeout 0;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  限制将连接传递给<a href="#proxy_next_upstream">下一个服务器所</a>允许的时间。   <code>0</code>值关闭此限制。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_next_upstream_tries** &lt;code class=&quot;notranslate&quot;&gt;*number*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_next_upstream_tries 0;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  限制将连接传递到<a href="#proxy_next_upstream">下一个服务器</a>的可能尝试次数。   <code>0</code>值关闭此限制。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_pass** &lt;code class=&quot;notranslate&quot;&gt;*address*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>server</code> <br>                </td></p>
-<p>  设置代理服务器的地址。  地址可以指定为域名或IP地址，以及端口： </p>
-<blockquote>
-<pre class="notranslate">proxy_pass localhost:12345;
-</pre>
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p&gt;  该指令出现在1.9.2版本中。 &lt;/p&gt;&lt;/div&gt;&lt;p&gt;  使与代理服务器的传出连接源自指定的本地IP &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;address&lt;/i&gt;&lt;/code&gt; 。  参数值可以包含变量（1.11.2）。  特殊值&lt;code class=&quot;notranslate&quot;&gt;off&lt;/code&gt;取消了从先前配置级别继承的&lt;code class=&quot;notranslate&quot;&gt;proxy_bind&lt;/code&gt;指令的效果，允许系统自动分配本地IP地址。 &lt;/p&gt;&lt;a name=&quot;proxy_bind_transparent&quot;&gt;&lt;/a&gt;&lt;p&gt;   &lt;code class=&quot;notranslate&quot;&gt;transparent&lt;/code&gt;参数（1.11.0）允许到代理服务器的传出连接源自非本地IP地址，例如，来自客户端的真实IP地址： &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;proxy_bind $remote_addr transparent;
+</code></pre><p></p><p>  为了使此参数有效，通常需要使用<a hhref="ngx_core_module.html#user">超级用户</a>权限运行nginx工作进程。  在Linux上，不需要（1.13.8），就像指定了<code class="notranslate">transparent</code>参数一样，工作进程从主进程继承<code class="notranslate">CAP_NET_RAW</code>功能。  还需要配置内核路由表以拦截来自代理服务器的网络流量。 </p><a name="proxy_buffer_size"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>proxy_buffer_size</strong> <code class="notranslate"><i>size</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">proxy_buffer_size 16k;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br><br>                </td></tr></tbody></table><p>  该指令出现在1.9.4版本中。 </p></div><p>  设置用于从代理服务器读取数据的缓冲区的<code class="notranslate"><i>size</i></code> 。  还设置用于从客户端读取数据的缓冲区的<code class="notranslate"><i>size</i></code> 。 </p><a name="proxy_connect_timeout"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>proxy_connect_timeout</strong> <code class="notranslate"><i>time</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">proxy_connect_timeout 60s;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br><br>                </td></tr></tbody></table></div><p>  定义与代理服务器建立连接的超时。 </p><a name="proxy_download_rate"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>proxy_download_rate</strong> <code class="notranslate"><i>rate</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">proxy_download_rate 0;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br><br>                </td></tr></tbody></table><p>  该指令出现在1.9.3版本中。 </p></div><p>  限制从代理服务器读取数据的速度。   <code class="notranslate"><i>rate</i></code>以每秒字节数指定。  零值禁用速率限制。  每个连接设置限制，因此如果nginx同时打开到代理服务器的两个连接，则总速率将是指定限制的两倍。 </p><a name="proxy_next_upstream"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>proxy_next_upstream</strong> <code class="notranslate">on</code> | <code class="notranslate">off</code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">proxy_next_upstream on;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br><br>                </td></tr></tbody></table></div><p>  当无法建立与代理服务器的连接时，确定是否将客户端连接传递给下一个服务器。 </p><p>  将连接传递到下一个服务器可能会受到<a hhref="#proxy_next_upstream_tries">尝试次数</a>和<a hhref="#proxy_next_upstream_timeout">时间的限制</a> 。 </p><a name="proxy_next_upstream_timeout"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>proxy_next_upstream_timeout</strong> <code class="notranslate"><i>time</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">proxy_next_upstream_timeout 0;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br><br>                </td></tr></tbody></table></div><p>  限制将连接传递给<a hhref="#proxy_next_upstream">下一个服务器所</a>允许的时间。   <code class="notranslate">0</code>值关闭此限制。 </p><a name="proxy_next_upstream_tries"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>proxy_next_upstream_tries</strong> <code class="notranslate"><i>number</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">proxy_next_upstream_tries 0;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br><br>                </td></tr></tbody></table></div><p>  限制将连接传递到<a hhref="#proxy_next_upstream">下一个服务器</a>的可能尝试次数。   <code class="notranslate">0</code>值关闭此限制。 </p><a name="proxy_pass"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>proxy_pass</strong> <code class="notranslate"><i>address</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>—
 
-</blockquote>
-<p>  或者作为UNIX域套接字路径： </p>
-<blockquote>
-<pre class="notranslate">proxy_pass unix:/tmp/stream.socket;
-</pre>
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  设置代理服务器的地址。  地址可以指定为域名或IP地址，以及端口： &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;proxy_pass localhost:12345;
+</code></pre><p></p><p>  或者作为UNIX域套接字路径： </p><blockquote class="example"><pre class="notranslate">proxy_pass unix:/tmp/stream.socket;<br></pre></blockquote><p></p><p>  如果域名解析为多个地址，则所有这些地址都将以循环方式使用。  此外，可以将地址指定为<a hhref="ngx_stream_upstream_module.html">服务器组</a> 。 </p><p>  也可以使用变量（1.11.3）指定地址： </p><blockquote class="example"><pre class="notranslate">proxy_pass $upstream;<br></pre></blockquote><p>  在这种情况下，在所描述的<a hhref="ngx_stream_upstream_module.html">服务器组中</a>搜索服务器名称，并且如果未找到，则使用<a hhref="ngx_stream_core_module.html#resolver">解析器</a>来确定服务器名称。 </p><a name="proxy_protocol"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>proxy_protocol</strong> <code class="notranslate">on</code> | <code class="notranslate">off</code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">proxy_protocol off;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br><br>                </td></tr></tbody></table><p>  该指令出现在1.9.2版本中。 </p></div><p>  启用<a hhref="http://www.haproxy.org/download/1.5/doc/proxy-protocol.txt">PROXY协议</a>以连接到代理服务器。 </p><a name="proxy_requests"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>proxy_requests</strong> <code class="notranslate"><i>number</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">proxy_requests 0;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br><br>                </td></tr></tbody></table><p>  该指令出现在1.15.7版中。 </p></div><p>  设置客户端与现有UDP流会话之间的绑定被删除的客户端数据报的数量。  在收到指定数量的数据报后，来自同一客户端的下一个数据报将启动一个新会话。  当所有客户端数据报都传输到代理服务器并且收到预期的<a hhref="#proxy_responses">响应</a>数时，或者当它达到<a hhref="#proxy_timeout">超时</a>时，会话终止。 </p><a name="proxy_responses"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>proxy_responses</strong> <code class="notranslate"><i>number</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>        —
 
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p&gt;  该指令出现在1.9.13版本中。 &lt;/p&gt;&lt;/div&gt;&lt;p&gt;  如果使用&lt;a hhref=&quot;ngx_stream_core_module.html#udp&quot;&gt;UDP&lt;/a&gt;协议，则设置代理服务器响应客户端数据报所需的数据报数。  该号码用作会话终止的提示。  默认情况下，数据报的数量不受限制。 &lt;/p&gt;&lt;p&gt;  如果指定零值，则不期望响应。  但是，如果收到响应且会话仍未完成，则将处理响应。 &lt;/p&gt;&lt;a name=&quot;proxy_socket_keepalive&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;proxy_socket_keepalive&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;on&lt;/code&gt; | &lt;code class=&quot;notranslate&quot;&gt;off&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;pre class=&quot;notranslate&quot;&gt;proxy_socket_keepalive off;&lt;/pre&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p&gt;  该指令出现在1.15.6版中。 &lt;/p&gt;&lt;/div&gt;&lt;p&gt;  配置到代理服务器的传出连接的“TCP keepalive”行为。  默认情况下，操作系统的设置对套接字有效。  如果指令设置为值“ &lt;code class=&quot;notranslate&quot;&gt;on&lt;/code&gt; ”，则为套接字打开&lt;code class=&quot;notranslate&quot;&gt;SO_KEEPALIVE&lt;/code&gt;套接字选项。 &lt;/p&gt;&lt;a name=&quot;proxy_ssl&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;proxy_ssl&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;on&lt;/code&gt; | &lt;code class=&quot;notranslate&quot;&gt;off&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;pre class=&quot;notranslate&quot;&gt;proxy_ssl off;&lt;/pre&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  启用S​​SL / TLS协议以连接到代理服务器。 &lt;/p&gt;&lt;a name=&quot;proxy_ssl_certificate&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;proxy_ssl_certificate&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;file&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
 
+        —
 
-</blockquote>
-<p>  如果域名解析为多个地址，则所有这些地址都将以循环方式使用。  此外，可以将地址指定为<a href="ngx_stream_upstream_module.html">服务器组</a> 。 </p>
-<p>  也可以使用变量（1.11.3）指定地址： </p>
-<blockquote>
-<pre class="notranslate">proxy_pass $upstream;
-</pre>
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  指定具有PEM格式的证书的&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;file&lt;/i&gt;&lt;/code&gt; ，该证书用于对代理服务器进行身份验证。 &lt;/p&gt;&lt;a name=&quot;proxy_ssl_certificate_key&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;proxy_ssl_certificate_key&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;file&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
 
-</blockquote>
-<p>  在这种情况下，在所描述的<a href="ngx_stream_upstream_module.html">服务器组中</a>搜索服务器名称，并且如果未找到，则使用<a href="ngx_stream_core_module.html#resolver">解析器</a>来确定服务器名称。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_protocol** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_protocol off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  该指令出现在1.9.2版本中。 </p>
-<p>  启用<a href="http://www.haproxy.org/download/1.5/doc/proxy-protocol.txt" target="_blank" rel="noopener">PROXY协议</a>以连接到代理服务器。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_requests** &lt;code class=&quot;notranslate&quot;&gt;*number*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_requests 0;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  该指令出现在1.15.7版中。 </p>
-<p>  设置客户端与现有UDP流会话之间的绑定被删除的客户端数据报的数量。  在收到指定数量的数据报后，来自同一客户端的下一个数据报将启动一个新会话。  当所有客户端数据报都传输到代理服务器并且收到预期的<a href="#proxy_responses">响应</a>数时，或者当它达到<a href="#proxy_timeout">超时</a>时，会话终止。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_responses** &lt;code class=&quot;notranslate&quot;&gt;*number*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  该指令出现在1.9.13版本中。 </p>
-<p>  如果使用<a href="ngx_stream_core_module.html#udp">UDP</a>协议，则设置代理服务器响应客户端数据报所需的数据报数。  该号码用作会话终止的提示。  默认情况下，数据报的数量不受限制。 </p>
-<p>  如果指定零值，则不期望响应。  但是，如果收到响应且会话仍未完成，则将处理响应。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_socket_keepalive** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_socket_keepalive off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  该指令出现在1.15.6版中。 </p>
-<p>  配置到代理服务器的传出连接的“TCP keepalive”行为。  默认情况下，操作系统的设置对套接字有效。  如果指令设置为值“ <code>on</code> ”，则为套接字打开<code>SO_KEEPALIVE</code>套接字选项。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_ssl** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_ssl off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  启用S​​SL / TLS协议以连接到代理服务器。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_ssl_certificate** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  指定具有PEM格式的证书的<code>*file*</code> ，该证书用于对代理服务器进行身份验证。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_ssl_certificate_key** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  指定具有PEM格式的密钥的<code>*file*</code> ，用于对代理服务器进行身份验证。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_ssl_ciphers** &lt;code class=&quot;notranslate&quot;&gt;*ciphers*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_ssl_ciphers DEFAULT;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  指定与代理服务器的连接的已启用密码。  密码以OpenSSL库理解的格式指定。 </p>
-<p>  可以使用“ <code>openssl ciphers</code> ”命令查看完整列表。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_ssl_crl** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  指定具有PEM格式的已吊销证书（CRL）的<code>*file*</code> ，用于<a href="#proxy_ssl_verify">验证</a>代理服务器的证书。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_ssl_name** &lt;code class=&quot;notranslate&quot;&gt;*name*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_ssl_name host from proxy_pass;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  允许覆盖用于<a href="#proxy_ssl_verify">验证</a>代理服务器证书的服务器名称，并在与代理服务器建立连接时<a href="#proxy_ssl_server_name">通过SNI传递</a> 。  也可以使用变量（1.11.3）指定服务器名称。 </p>
-<p>  默认情况下，使用<a href="#proxy_pass">proxy_pass</a>地址的主机部分。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_ssl_password_file** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  指定具有密钥密码的<code>*file*</code> ，其中每个密码在单独的行上指定。  在加载密钥时依次尝试密码短语。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_ssl_protocols**     [ &lt;code class=&quot;notranslate&quot;&gt;SSLv2</code> ]    [ <code>SSLv3</code> ]    [ <code>TLSv1</code> ]    [ <code>TLSv1.1</code> ]    [ <code>TLSv1.2</code> ]    [ <code>TLSv1.3</code> ]; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  启用指定的协议以连接到代理服务器。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_ssl_server_name** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_ssl_server_name off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  在与代理服务器建立连接时，启用或禁用通过<a href="http://en.wikipedia.org/wiki/Server_Name_Indication" target="_blank" rel="noopener">TLS服务器名称指示扩展</a> （SNI，RFC 6066）传递服务器名称。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_ssl_session_reuse** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_ssl_session_reuse on;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  确定在使用代理服务器时是否可以重用SSL会话。  如果日志中出现“ <code>SSL3_GET_FINISHED:digest check failed</code> ”错误，请尝试禁用会话重用。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_ssl_trusted_certificate** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  指定具有PEM格式的可信CA证书的<code>*file*</code> ，用于<a href="#proxy_ssl_verify">验证</a>代理服务器的证书。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_ssl_verify** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_ssl_verify off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  启用或禁用代理服务器证书的验证。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_ssl_verify_depth** &lt;code class=&quot;notranslate&quot;&gt;*number*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_ssl_verify_depth 1;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  在代理服务器证书链中设置验证深度。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_timeout** &lt;code class=&quot;notranslate&quot;&gt;*timeout*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_timeout 10m;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  设置客户端或代理服务器连接上两次连续读取或写入操作之间的<code>*timeout*</code> 。  如果在此时间内没有传输数据，则关闭连接。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_upload_rate** &lt;code class=&quot;notranslate&quot;&gt;*rate*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_upload_rate 0;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  该指令出现在1.9.3版本中。 </p>
-<p>  限制从客户端读取数据的速度。   <code>*rate*</code>以每秒字节数指定。  零值禁用速率限制。  根据连接设置限制，因此如果客户端同时打开两个连接，则总速率将是指定限制的两倍。 </p>
+        —
 
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  指定具有PEM格式的密钥的&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;file&lt;/i&gt;&lt;/code&gt; ，用于对代理服务器进行身份验证。 &lt;/p&gt;&lt;a name=&quot;proxy_ssl_ciphers&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;proxy_ssl_ciphers&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;ciphers&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;pre class=&quot;notranslate&quot;&gt;proxy_ssl_ciphers DEFAULT;&lt;/pre&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  指定与代理服务器的连接的已启用密码。  密码以OpenSSL库理解的格式指定。 &lt;/p&gt;&lt;p&gt;  可以使用“ &lt;code class=&quot;notranslate&quot;&gt;openssl ciphers&lt;/code&gt; ”命令查看完整列表。 &lt;/p&gt;&lt;a name=&quot;proxy_ssl_crl&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;proxy_ssl_crl&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;file&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+
+        —
+
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  指定具有PEM格式的已吊销证书（CRL）的&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;file&lt;/i&gt;&lt;/code&gt; ，用于&lt;a hhref=&quot;#proxy_ssl_verify&quot;&gt;验证&lt;/a&gt;代理服务器的证书。 &lt;/p&gt;&lt;a name=&quot;proxy_ssl_name&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;proxy_ssl_name&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;name&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;pre class=&quot;notranslate&quot;&gt;proxy_ssl_name host from proxy_pass;&lt;/pre&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  允许覆盖用于&lt;a hhref=&quot;#proxy_ssl_verify&quot;&gt;验证&lt;/a&gt;代理服务器证书的服务器名称，并在与代理服务器建立连接时&lt;a hhref=&quot;#proxy_ssl_server_name&quot;&gt;通过SNI传递&lt;/a&gt; 。  也可以使用变量（1.11.3）指定服务器名称。 &lt;/p&gt;&lt;p&gt;  默认情况下，使用&lt;a hhref=&quot;#proxy_pass&quot;&gt;proxy_pass&lt;/a&gt;地址的主机部分。 &lt;/p&gt;&lt;a name=&quot;proxy_ssl_password_file&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;proxy_ssl_password_file&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;file&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+
+        —
+
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  指定具有密钥密码的&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;file&lt;/i&gt;&lt;/code&gt; ，其中每个密码在单独的行上指定。  在加载密钥时依次尝试密码短语。 &lt;/p&gt;&lt;a name=&quot;proxy_ssl_protocols&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;proxy_ssl_protocols&lt;/strong&gt; 
+[ &lt;code class=&quot;notranslate&quot;&gt;SSLv2&lt;/code&gt; ]
+[ &lt;code class=&quot;notranslate&quot;&gt;SSLv3&lt;/code&gt; ]
+[ &lt;code class=&quot;notranslate&quot;&gt;TLSv1&lt;/code&gt; ]
+[ &lt;code class=&quot;notranslate&quot;&gt;TLSv1.1&lt;/code&gt; ]
+[ &lt;code class=&quot;notranslate&quot;&gt;TLSv1.2&lt;/code&gt; ]
+[ &lt;code class=&quot;notranslate&quot;&gt;TLSv1.3&lt;/code&gt; ];&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;pre class=&quot;notranslate&quot;&gt;proxy_ssl_protocols TLSv1 TLSv1.1 TLSv1.2;&lt;/pre&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  启用指定的协议以连接到代理服务器。 &lt;/p&gt;&lt;a name=&quot;proxy_ssl_server_name&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;proxy_ssl_server_name&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;on&lt;/code&gt; | &lt;code class=&quot;notranslate&quot;&gt;off&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;pre class=&quot;notranslate&quot;&gt;proxy_ssl_server_name off;&lt;/pre&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  在与代理服务器建立连接时，启用或禁用通过&lt;a hhref=&quot;http://en.wikipedia.org/wiki/Server_Name_Indication&quot;&gt;TLS服务器名称指示扩展&lt;/a&gt; （SNI，RFC 6066）传递服务器名称。 &lt;/p&gt;&lt;a name=&quot;proxy_ssl_session_reuse&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;proxy_ssl_session_reuse&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;on&lt;/code&gt; | &lt;code class=&quot;notranslate&quot;&gt;off&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;pre class=&quot;notranslate&quot;&gt;proxy_ssl_session_reuse on;&lt;/pre&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  确定在使用代理服务器时是否可以重用SSL会话。  如果日志中出现“ &lt;code class=&quot;notranslate&quot;&gt;SSL3_GET_FINISHED:digest check failed&lt;/code&gt; ”错误，请尝试禁用会话重用。 &lt;/p&gt;&lt;a name=&quot;proxy_ssl_trusted_certificate&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;proxy_ssl_trusted_certificate&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;file&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+
+        —
+
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  指定具有PEM格式的可信CA证书的&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;file&lt;/i&gt;&lt;/code&gt; ，用于&lt;a hhref=&quot;#proxy_ssl_verify&quot;&gt;验证&lt;/a&gt;代理服务器的证书。 &lt;/p&gt;&lt;a name=&quot;proxy_ssl_verify&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;proxy_ssl_verify&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;on&lt;/code&gt; | &lt;code class=&quot;notranslate&quot;&gt;off&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;pre class=&quot;notranslate&quot;&gt;proxy_ssl_verify off;&lt;/pre&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  启用或禁用代理服务器证书的验证。 &lt;/p&gt;&lt;a name=&quot;proxy_ssl_verify_depth&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;proxy_ssl_verify_depth&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;number&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;pre class=&quot;notranslate&quot;&gt;proxy_ssl_verify_depth 1;&lt;/pre&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  在代理服务器证书链中设置验证深度。 &lt;/p&gt;&lt;a name=&quot;proxy_timeout&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;proxy_timeout&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;timeout&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;pre class=&quot;notranslate&quot;&gt;proxy_timeout 10m;&lt;/pre&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  设置客户端或代理服务器连接上两次连续读取或写入操作之间的&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;timeout&lt;/i&gt;&lt;/code&gt; 。  如果在此时间内没有传输数据，则关闭连接。 &lt;/p&gt;&lt;a name=&quot;proxy_upload_rate&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;proxy_upload_rate&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;rate&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;pre class=&quot;notranslate&quot;&gt;proxy_upload_rate 0;&lt;/pre&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p&gt;  该指令出现在1.9.3版本中。 &lt;/p&gt;&lt;/div&gt;&lt;p&gt;  限制从客户端读取数据的速度。   &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;rate&lt;/i&gt;&lt;/code&gt;以每秒字节数指定。  零值禁用速率限制。  根据连接设置限制，因此如果客户端同时打开两个连接，则总速率将是指定限制的两倍。 &lt;/p&gt; 
+</code></pre><p><span></span><div style="display: none;"></div></p>
+</td></tr></tbody></table></div></td></tr></tbody></table></div></td></tr></tbody></table></div>
       
     </div>
     
@@ -603,7 +658,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nginx.im/ngx/stream/ngx_stream_proxy_module.html" title="stream/ngx_stream_proxy_module-nginx中文手册">http://nginx.im/ngx/stream/ngx_stream_proxy_module.html</a>
+    <a href="http://nginx.im/ngx/stream/ngx_stream_proxy_module.html" title="">http://nginx.im/ngx/stream/ngx_stream_proxy_module.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -616,12 +671,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/nginx/" rel="tag"># nginx</a>
-          
-        </div>
-      
 
       
       
@@ -631,8 +680,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ngx/stream/ngx_stream_map_module.html" rel="next" title="stream/ngx_stream_map_module-nginx中文手册">
-                <i class="fa fa-chevron-left"></i> stream/ngx_stream_map_module-nginx中文手册
+              <a href="/ngx/stream/ngx_stream_map_module.html" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -641,8 +690,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ngx/stream/ngx_stream_realip_module.html" rel="prev" title="stream/ngx_stream_realip_module-nginx中文手册">
-                stream/ngx_stream_realip_module-nginx中文手册 <i class="fa fa-chevron-right"></i>
+              <a href="/ngx/stream/ngx_stream_realip_module.html" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -740,7 +789,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -786,7 +835,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-stream-proxy-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_stream_proxy_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_stream_proxy_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">  示例配置 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">  指令 </span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

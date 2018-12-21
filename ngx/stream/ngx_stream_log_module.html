@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="nginx," />
+  <meta name="keywords" content="LINUX,NGINX,JAVA,PYTHON,PYTHON,前端,运维实践" />
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="stream,ngx_stream_log_module">
-<meta name="keywords" content="nginx">
+<meta name="description" content="Module ngx_stream_log_module Example Configuration  Directives      access_log      log_format      open_log_file_cache    ngx_stream_log_module模块（1.11.4）以指定的格式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="stream&#x2F;ngx_stream_log_module-nginx中文手册">
+<meta property="og:title" content="IM.NGINX">
 <meta property="og:url" content="http://nginx.im/ngx/stream/ngx_stream_log_module.html">
 <meta property="og:site_name" content="IM.NGINX">
-<meta property="og:description" content="stream,ngx_stream_log_module">
+<meta property="og:description" content="Module ngx_stream_log_module Example Configuration  Directives      access_log      log_format      open_log_file_cache    ngx_stream_log_module模块（1.11.4）以指定的格式写入会话日志。   示例配置 log_format basic ‘$remote">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:56:12.394Z">
+<meta property="og:updated_time" content="2018-12-21T08:09:37.195Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="stream&#x2F;ngx_stream_log_module-nginx中文手册">
-<meta name="twitter:description" content="stream,ngx_stream_log_module">
+<meta name="twitter:title" content="IM.NGINX">
+<meta name="twitter:description" content="Module ngx_stream_log_module Example Configuration  Directives      access_log      log_format      open_log_file_cache    ngx_stream_log_module模块（1.11.4）以指定的格式写入会话日志。   示例配置 log_format basic ‘$remote">
 
 
 
@@ -126,7 +125,7 @@
 
 
 
-  <title>stream/ngx_stream_log_module-nginx中文手册 | IM.NGINX</title>
+  <title> | IM.NGINX</title>
   
 
 
@@ -324,7 +323,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">stream/ngx_stream_log_module-nginx中文手册</h2>
+          <h2 class="post-title" itemprop="name headline"></h2>
         
 
         <div class="post-meta">
@@ -336,7 +335,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
                 2018年12月21日
               </time>
             
@@ -346,28 +345,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx中文手册</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -396,73 +373,20 @@
       
 
       
-        <p>stream,ngx_stream_log_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-stream-log-module"><a href="#Module-ngx-stream-log-module" class="headerlink" title="Module ngx_stream_log_module"></a>Module ngx_stream_log_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#access_log">access_log</a> <br>     <a href="#log_format">log_format</a> <br>     <a href="#open_log_file_cache">open_log_file_cache</a> <br></td>
+        <p></p><h2 class="notranslate">Module ngx_stream_log_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#example">Example Configuration</a> <br> <a hhref="#directives">Directives</a> <br>     <a hhref="#access_log">access_log</a> <br>     <a hhref="#log_format">log_format</a> <br>     <a hhref="#open_log_file_cache">open_log_file_cache</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_stream_log_module</code>模块（1.11.4）以指定的格式写入会话日志。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">log_format basic ‘$remote_addr [$time_local] ‘<br>                 ‘$protocol $status $bytes_sent $bytes_received ‘<br>                 ‘$session_time’;<p></p>
+<p>access_log /spool/logs/nginx-access.log basic buffer=32k;<br></p></pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="access_log"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>access_log</strong><br>    <code class="notranslate"><i>path</i></code><br>    <code class="notranslate"><i>format</i></code><br>    [ <code class="notranslate">buffer</code> = <code class="notranslate"><i>size</i></code> ]<br>    [ <code class="notranslate">gzip[= <code class="notranslate"><i>level</i></code> ]</code> ]<br>    [ <code class="notranslate">flush</code> = <code class="notranslate"><i>time</i></code> ]<br>    [ <code class="notranslate">if</code> = <code class="notranslate"><i>condition</i></code> ];</code> <br> <code class="notranslate"><strong>access_log</strong> <code class="notranslate">off</code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">access_log off;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br><br>                </td></tr></tbody></table></div><p>  设置缓冲日志写入的路径， <a hhref="#log_format">格式</a>和配置。  可以在同一级别指定多个日志。  可以通过在第一个参数中指定“ <code class="notranslate">syslog:</code> ”前缀来配置记录到<a hhref="syslog.html">syslog</a> 。  特殊值<code class="notranslate">off</code>取消当前级别的所有<code class="notranslate">access_log</code>指令。 </p><p>  如果使用<code class="notranslate">buffer</code>或<code class="notranslate">gzip</code>参数，则将缓冲对log的写入。 </p><blockquote class="note">  缓冲区大小不得超过磁盘文件的原子写入大小。  对于FreeBSD，这个大小是无限的。 </blockquote><p></p><p>  启用缓冲后，数据将写入文件： </p><ul class="compact"><li>  如果下一个日志行不适合缓冲区; </li><li>  如果缓冲的数据早于<code class="notranslate">flush</code>参数指定的数据; </li><li>  当工作进程<a hhref="control.html">重新打开</a>日志文件或正在关闭时。 </li></ul><p></p><p>  如果使用<code class="notranslate">gzip</code>参数，则在写入文件之前将压缩缓冲的数据。  压缩级别可以设置为1（最快，压缩较少）和9（最慢，最佳压缩）。  默认情况下，缓冲区大小等于64K字节，压缩级别设置为1.由于数据是以原子块压缩的，因此日志文件可以随时通过“ <code class="notranslate">zcat</code> ”解压缩或读取。 </p><p>  例： </p><blockquote class="example"><pre class="notranslate">access_log /path/to/log.gz basic gzip flush=5m;<br></pre></blockquote><p></p><p></p><blockquote class="note">  要使gzip压缩起作用，必须使用zlib库构建nginx。 </blockquote><p></p><p>  文件路径可以包含变量，但是这样的日志有一些约束： </p><ul class="compact"><li>  工作进程使用其凭据的<a hhref="ngx_core_module.html#user">用户</a>应具有在具有此类日志的目录中创建文件的权限; </li><li>  缓冲写入不起作用; </li><li>  每个日志写入都会打开和关闭该文件。  但是，由于常用文件的描述符可以存储在<a hhref="#open_log_file_cache">缓存中</a> ，因此写入旧文件可以在<a hhref="#open_log_file_cache">open_log_file_cache</a>指令的<code class="notranslate">valid</code>参数指定的时间内继续写入 </li></ul><p></p><p>   <code class="notranslate">if</code>参数启用条件记录。  如果<code class="notranslate"><i>condition</i></code>计算为“0”或空字符串，则不会记录会话。 </p><a name="log_format"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>log_format</strong><br>    <code class="notranslate"><i>name</i></code><br>    [ <code class="notranslate">escape</code> = <code class="notranslate">default</code> | <code class="notranslate">json</code> | <code class="notranslate">none</code> ]<br>    <code class="notranslate"><i>string</i></code> …;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>—
 
-<p>   <code>ngx_stream_log_module</code>模块（1.11.4）以指定的格式写入会话日志。 </p>
-<h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><blockquote>
-<p><pre class="notranslate">log_format basic ‘$remote_addr [$time_local] ‘<br>                 ‘$protocol $status $bytes_sent $bytes_received ‘<br>                 ‘$session_time’;</pre></p>
-</blockquote>
-<p>access_log /spool/logs/nginx-access.log basic buffer=32k;<br></p>
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**access_log**     &lt;code class=&quot;notranslate&quot;&gt;*path*</code>    <code>*format*</code>    [ <code>buffer</code> = <code>*size*</code> ]    [ <code>gzip[= &lt;code class=&quot;notranslate&quot;&gt;*level*</code> ] ]    [ <code>flush</code> = <code>*time*</code> ]    [ <code>if</code> = <code>*condition*</code> ]; <br> <code>**access_log** &lt;code class=&quot;notranslate&quot;&gt;off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">access_log off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  设置缓冲日志写入的路径， <a href="#log_format">格式</a>和配置。  可以在同一级别指定多个日志。  可以通过在第一个参数中指定“ <code>syslog:</code> ”前缀来配置记录到<a href="syslog.html">syslog</a> 。  特殊值<code>off</code>取消当前级别的所有<code>access_log</code>指令。 </p>
-<p>  如果使用<code>buffer</code>或<code>gzip</code>参数，则将缓冲对log的写入。 </p>
-<blockquote>
-<p>  缓冲区大小不得超过磁盘文件的原子写入大小。  对于FreeBSD，这个大小是无限的。 </p>
-</blockquote>
-<p>  启用缓冲后，数据将写入文件： </p>
-<ul>
-<li>如果下一个日志行不适合缓冲区; -   如果缓冲的数据早于<code>flush</code>参数指定的数据; -   当工作进程<a href="control.html">重新打开</a>日志文件或正在关闭时。 </li>
-</ul>
-<p>  如果使用<code>gzip</code>参数，则在写入文件之前将压缩缓冲的数据。  压缩级别可以设置为1（最快，压缩较少）和9（最慢，最佳压缩）。  默认情况下，缓冲区大小等于64K字节，压缩级别设置为1.由于数据是以原子块压缩的，因此日志文件可以随时通过“ <code>zcat</code> ”解压缩或读取。 </p>
-<p>  例： </p>
-<blockquote>
-<pre class="notranslate">access_log /path/to/log.gz basic gzip flush=5m;
-</pre>
-
-
-
-
-
-<p>  要使gzip压缩起作用，必须使用zlib库构建nginx。 </p>
-</blockquote>
-<p>  文件路径可以包含变量，但是这样的日志有一些约束： </p>
-<ul>
-<li>工作进程使用其凭据的<a href="ngx_core_module.html#user">用户</a>应具有在具有此类日志的目录中创建文件的权限; -   缓冲写入不起作用; -   每个日志写入都会打开和关闭该文件。  但是，由于常用文件的描述符可以存储在<a href="#open_log_file_cache">缓存中</a> ，因此写入旧文件可以在<a href="#open_log_file_cache">open_log_file_cache</a>指令的<code>valid</code>参数指定的时间内继续写入 </li>
-</ul>
-<p>   <code>if</code>参数启用条件记录。  如果<code>*condition*</code>计算为“0”或空字符串，则不会记录会话。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**log_format**     &lt;code class=&quot;notranslate&quot;&gt;*name*</code>    [ <code>escape</code> = <code>default</code> | <code>json</code> | <code>none</code> ]    <code>*string*</code> …; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> <br>                </td></p>
-<p>  指定日志格式，例如： </p>
-<blockquote>
-<pre class="notranslate">log_format proxy '$remote_addr [$time_local] '
-                 '$protocol $status $bytes_sent $bytes_received '
-                 '$session_time "$upstream_addr" '
-                 '"$upstream_bytes_sent" "$upstream_bytes_received" "$upstream_connect_time"';
-</pre>
-
-
-
-</blockquote>
-<p>   <code>escape</code>参数（1.11.8）允许设置在变量中转义的<code>json</code>或<code>default</code>字符，默认情况下，使用<code>default</code>转义。   <code>none</code>参数（1.13.10）禁用转义。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**open_log_file_cache** &lt;code class=&quot;notranslate&quot;&gt;max</code> = <code>*N*</code>[ <code>inactive</code> = <code>*time*</code> ][ <code>min_uses</code> = <code>*N*</code> ][ <code>valid</code> = <code>*time*</code> ]; <br> <code>**open_log_file_cache** &lt;code class=&quot;notranslate&quot;&gt;off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">open_log_file_cache off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  定义一个缓存，用于存储名称中包含变量的常用日志的文件描述符。  该指令具有以下参数： </p>
-<p>  用法示例： </p>
-<blockquote>
-<pre class="notranslate">open_log_file_cache max=1000 inactive=20s valid=1m min_uses=2;
-</pre>
-
-
-
-
-
-</blockquote>
-
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  指定日志格式，例如： &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;log_format proxy &apos;$remote_addr [$time_local] &apos;
+     &apos;$protocol $status $bytes_sent $bytes_received &apos;
+     &apos;$session_time &quot;$upstream_addr&quot; &apos;
+     &apos;&quot;$upstream_bytes_sent&quot; &quot;$upstream_bytes_received&quot; &quot;$upstream_connect_time&quot;&apos;;
+</code></pre><p></p><p></p><a name="log_format_escape"></a><p>   <code class="notranslate">escape</code>参数（1.11.8）允许设置在变量中转义的<code class="notranslate">json</code>或<code class="notranslate">default</code>字符，默认情况下，使用<code class="notranslate">default</code>转义。   <code class="notranslate">none</code>参数（1.13.10）禁用转义。 </p><a name="open_log_file_cache"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>open_log_file_cache</strong><br><code class="notranslate">max</code> = <code class="notranslate"><i>N</i></code><br>[ <code class="notranslate">inactive</code> = <code class="notranslate"><i>time</i></code> ]<br>[ <code class="notranslate">min_uses</code> = <code class="notranslate"><i>N</i></code> ]<br>[ <code class="notranslate">valid</code> = <code class="notranslate"><i>time</i></code> ];</code> <br> <code class="notranslate"><strong>open_log_file_cache</strong> <code class="notranslate">off</code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">open_log_file_cache off;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br><br>                </td></tr></tbody></table></div><p>  定义一个缓存，用于存储名称中包含变量的常用日志的文件描述符。  该指令具有以下参数： </p><dl class="compact"><dt> <code class="notranslate">max</code> </dt> <dd>  设置缓存中的最大描述符数;  如果缓存变满，则最近最少使用（LRU）描述符将被关闭 </dd><dt> <code class="notranslate">inactive</code> </dt> <dd>  如果在此期间没有访问权限，则设置关闭缓存描述符的时间;  默认情况下，10秒 </dd><dt> <code class="notranslate">min_uses</code> </dt> <dd>  设置在<code class="notranslate">inactive</code>参数定义的时间内使文件使用的最小数量，以使描述符在缓存中保持打开状态;  默认情况下，1 </dd><dt> <code class="notranslate">valid</code> </dt> <dd>  设置应该检查文件是否仍然存在同名的时间;  默认情况下，60秒 </dd><dt> <code class="notranslate">off</code> </dt> <dd>  禁用缓存 </dd></dl><p></p><p>  用法示例： </p><blockquote class="example"><pre class="notranslate">open_log_file_cache max=1000 inactive=20s valid=1m min_uses=2;<br></pre></blockquote><p></p><br><span></span><div style="display: none;"></div><p></p>
+</td></tr></tbody></table></div>
       
     </div>
     
@@ -511,7 +435,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nginx.im/ngx/stream/ngx_stream_log_module.html" title="stream/ngx_stream_log_module-nginx中文手册">http://nginx.im/ngx/stream/ngx_stream_log_module.html</a>
+    <a href="http://nginx.im/ngx/stream/ngx_stream_log_module.html" title="">http://nginx.im/ngx/stream/ngx_stream_log_module.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -524,12 +448,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/nginx/" rel="tag"># nginx</a>
-          
-        </div>
-      
 
       
       
@@ -539,8 +457,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ngx/stream/ngx_stream_limit_conn_module.html" rel="next" title="stream/ngx_stream_limit_conn_module-nginx中文手册">
-                <i class="fa fa-chevron-left"></i> stream/ngx_stream_limit_conn_module-nginx中文手册
+              <a href="/ngx/stream/ngx_stream_limit_conn_module.html" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -549,8 +467,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ngx/stream/ngx_stream_map_module.html" rel="prev" title="stream/ngx_stream_map_module-nginx中文手册">
-                stream/ngx_stream_map_module-nginx中文手册 <i class="fa fa-chevron-right"></i>
+              <a href="/ngx/stream/ngx_stream_map_module.html" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -648,7 +566,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -694,7 +612,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-stream-log-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_stream_log_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_stream_log_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">  示例配置 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">  指令 </span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

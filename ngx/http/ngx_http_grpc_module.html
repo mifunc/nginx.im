@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="nginx," />
+  <meta name="keywords" content="LINUX,NGINX,JAVA,PYTHON,PYTHON,前端,运维实践" />
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="http,ngx_http_grpc_module">
-<meta name="keywords" content="nginx">
+<meta name="description" content="Module ngx_http_grpc_module Example Configuration  Directives      grpc_bind      grpc_buffer_size      grpc_connect_timeout      grpc_hide_header      grpc_ign">
 <meta property="og:type" content="article">
-<meta property="og:title" content="http&#x2F;ngx_http_grpc_module-nginx中文手册">
+<meta property="og:title" content="IM.NGINX">
 <meta property="og:url" content="http://nginx.im/ngx/http/ngx_http_grpc_module.html">
 <meta property="og:site_name" content="IM.NGINX">
-<meta property="og:description" content="http,ngx_http_grpc_module">
+<meta property="og:description" content="Module ngx_http_grpc_module Example Configuration  Directives      grpc_bind      grpc_buffer_size      grpc_connect_timeout      grpc_hide_header      grpc_ignore_headers      grpc_intercept_errors">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:56:09.350Z">
+<meta property="og:updated_time" content="2018-12-21T08:09:35.327Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="http&#x2F;ngx_http_grpc_module-nginx中文手册">
-<meta name="twitter:description" content="http,ngx_http_grpc_module">
+<meta name="twitter:title" content="IM.NGINX">
+<meta name="twitter:description" content="Module ngx_http_grpc_module Example Configuration  Directives      grpc_bind      grpc_buffer_size      grpc_connect_timeout      grpc_hide_header      grpc_ignore_headers      grpc_intercept_errors">
 
 
 
@@ -126,7 +125,7 @@
 
 
 
-  <title>http/ngx_http_grpc_module-nginx中文手册 | IM.NGINX</title>
+  <title> | IM.NGINX</title>
   
 
 
@@ -324,7 +323,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">http/ngx_http_grpc_module-nginx中文手册</h2>
+          <h2 class="post-title" itemprop="name headline"></h2>
         
 
         <div class="post-meta">
@@ -336,7 +335,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
                 2018年12月21日
               </time>
             
@@ -346,28 +345,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx中文手册</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -396,177 +373,315 @@
       
 
       
-        <p>http,ngx_http_grpc_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-http-grpc-module"><a href="#Module-ngx-http-grpc-module" class="headerlink" title="Module ngx_http_grpc_module"></a>Module ngx_http_grpc_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#grpc_bind">grpc_bind</a> <br>     <a href="#grpc_buffer_size">grpc_buffer_size</a> <br>     <a href="#grpc_connect_timeout">grpc_connect_timeout</a> <br>     <a href="#grpc_hide_header">grpc_hide_header</a> <br>     <a href="#grpc_ignore_headers">grpc_ignore_headers</a> <br>     <a href="#grpc_intercept_errors">grpc_intercept_errors</a> <br>     <a href="#grpc_next_upstream">grpc_next_upstream</a> <br>     <a href="#grpc_next_upstream_timeout">grpc_next_upstream_timeout</a> <br>     <a href="#grpc_next_upstream_tries">grpc_next_upstream_tries</a> <br>     <a href="#grpc_pass">grpc_pass</a> <br>     <a href="#grpc_pass_header">grpc_pass_header</a> <br>     <a href="#grpc_read_timeout">grpc_read_timeout</a> <br>     <a href="#grpc_send_timeout">grpc_send_timeout</a> <br>     <a href="#grpc_set_header">grpc_set_header</a> <br>     <a href="#grpc_socket_keepalive">grpc_socket_keepalive</a> <br>     <a href="#grpc_ssl_certificate">grpc_ssl_certificate</a> <br>     <a href="#grpc_ssl_certificate_key">grpc_ssl_certificate_key</a> <br>     <a href="#grpc_ssl_ciphers">grpc_ssl_ciphers</a> <br>     <a href="#grpc_ssl_crl">grpc_ssl_crl</a> <br>     <a href="#grpc_ssl_name">grpc_ssl_name</a> <br>     <a href="#grpc_ssl_password_file">grpc_ssl_password_file</a> <br>     <a href="#grpc_ssl_protocols">grpc_ssl_protocols</a> <br>     <a href="#grpc_ssl_server_name">grpc_ssl_server_name</a> <br>     <a href="#grpc_ssl_session_reuse">grpc_ssl_session_reuse</a> <br>     <a href="#grpc_ssl_trusted_certificate">grpc_ssl_trusted_certificate</a> <br>     <a href="#grpc_ssl_verify">grpc_ssl_verify</a> <br>     <a href="#grpc_ssl_verify_depth">grpc_ssl_verify_depth</a> <br></td>
-
-<p>   <code>ngx_http_grpc_module</code>模块允许将请求传递到gRPC服务器（1.13.10）。  该模块需要<a href="ngx_http_v2_module.html">ngx_http_v2_module</a>模块。 </p>
-<h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><blockquote>
-<p><pre class="notranslate">server {<br>    listen 9000 http2;</pre></p>
-</blockquote>
+        <p></p><h2 class="notranslate">Module ngx_http_grpc_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#example">Example Configuration</a> <br> <a hhref="#directives">Directives</a> <br>     <a hhref="#grpc_bind">grpc_bind</a> <br>     <a hhref="#grpc_buffer_size">grpc_buffer_size</a> <br>     <a hhref="#grpc_connect_timeout">grpc_connect_timeout</a> <br>     <a hhref="#grpc_hide_header">grpc_hide_header</a> <br>     <a hhref="#grpc_ignore_headers">grpc_ignore_headers</a> <br>     <a hhref="#grpc_intercept_errors">grpc_intercept_errors</a> <br>     <a hhref="#grpc_next_upstream">grpc_next_upstream</a> <br>     <a hhref="#grpc_next_upstream_timeout">grpc_next_upstream_timeout</a> <br>     <a hhref="#grpc_next_upstream_tries">grpc_next_upstream_tries</a> <br>     <a hhref="#grpc_pass">grpc_pass</a> <br>     <a hhref="#grpc_pass_header">grpc_pass_header</a> <br>     <a hhref="#grpc_read_timeout">grpc_read_timeout</a> <br>     <a hhref="#grpc_send_timeout">grpc_send_timeout</a> <br>     <a hhref="#grpc_set_header">grpc_set_header</a> <br>     <a hhref="#grpc_socket_keepalive">grpc_socket_keepalive</a> <br>     <a hhref="#grpc_ssl_certificate">grpc_ssl_certificate</a> <br>     <a hhref="#grpc_ssl_certificate_key">grpc_ssl_certificate_key</a> <br>     <a hhref="#grpc_ssl_ciphers">grpc_ssl_ciphers</a> <br>     <a hhref="#grpc_ssl_crl">grpc_ssl_crl</a> <br>     <a hhref="#grpc_ssl_name">grpc_ssl_name</a> <br>     <a hhref="#grpc_ssl_password_file">grpc_ssl_password_file</a> <br>     <a hhref="#grpc_ssl_protocols">grpc_ssl_protocols</a> <br>     <a hhref="#grpc_ssl_server_name">grpc_ssl_server_name</a> <br>     <a hhref="#grpc_ssl_session_reuse">grpc_ssl_session_reuse</a> <br>     <a hhref="#grpc_ssl_trusted_certificate">grpc_ssl_trusted_certificate</a> <br>     <a hhref="#grpc_ssl_verify">grpc_ssl_verify</a> <br>     <a hhref="#grpc_ssl_verify_depth">grpc_ssl_verify_depth</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_grpc_module</code>模块允许将请求传递到gRPC服务器（1.13.10）。  该模块需要<a hhref="ngx_http_v2_module.html">ngx_http_v2_module</a>模块。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">server {<br>    listen 9000 http2;<p></p>
 <pre><code>location / {
     grpc_pass 127.0.0.1:9000;
 }
-</code></pre><p>}<br></p>
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**grpc_bind**     &lt;code class=&quot;notranslate&quot;&gt;*address*</code>    [ <code>transparent</code> ] |    <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  使用可选端口从指定的本地IP地址发出到gRPC服务器的传出连接。  参数值可以包含变量。  特殊值<code>off</code>取消了从先前配置级别继承的<code>grpc_bind</code>指令的效果，该指令允许系统自动分配本地IP地址和端口。 </p>
-<p>   <code>transparent</code>参数允许到gRPC服务器的传出连接源自非本地IP地址，例如，来自客户端的真实IP地址： </p>
-<blockquote>
-<pre class="notranslate">grpc_bind $remote_addr transparent;
-</pre>
+</code></pre><p>}<br></p></pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="grpc_bind"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>grpc_bind</strong><br>    <code class="notranslate"><i>address</i></code><br>    [ <code class="notranslate">transparent </code> ] |<br>    <code class="notranslate">off</code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>—
 
-</blockquote>
-<p>  为了使此参数有效，通常需要使用<a href="ngx_core_module.html#user">超级用户</a>权限运行nginx工作进程。  在Linux上，不需要像指定<code>transparent</code>参数那样，工作进程从主进程继承<code>CAP_NET_RAW</code>功能。  还必须配置内核路由表以拦截来自gRPC服务器的网络流量。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**grpc_buffer_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">grpc_buffer_size 4k|8k;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  设置用于读取从gRPC服务器接收的响应的缓冲区的<code>*size*</code> 。  一旦收到响应，响应就会同步传递给客户端。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**grpc_connect_timeout** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">grpc_connect_timeout 60s;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  定义与gRPC服务器建立连接的超时。  应该注意，此超时通常不会超过75秒。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**grpc_hide_header** &lt;code class=&quot;notranslate&quot;&gt;*field*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  默认情况下，nginx不会从gRPC服务器对客户端的响应中传递标题字段“Date”，“Server”和“X-Accel -…”。   <code>grpc_hide_header</code>指令设置了不会传递的其他字段。  相反，如果需要允许传递字段，则可以使用<a href="#grpc_pass_header">grpc_pass_header</a>指令。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**grpc_ignore_headers** &lt;code class=&quot;notranslate&quot;&gt;*field*</code> …; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  禁用从gRPC服务器处理某些响应头字段。  可以忽略以下字段：“X-Accel-Redirect”和“X-Accel-Charset”。 </p>
-<p>  如果未禁用，则处理这些标头字段会产生以下影响： </p>
-<ul>
-<li>“X-Accel-Redirect”执行<a href="ngx_http_core_module.html#internal">内部重定向</a>到指定的URI; -    “X-Accel-Charset”设置了所需的响应<a href="ngx_http_charset_module.html#charset">字符集</a> 。 </li>
-</ul>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**grpc_intercept_errors** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">grpc_intercept_errors off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  确定代码大于或等于300的gRPC服务器响应是应该传递给客户端还是被拦截并重定向到nginx以便使用<a href="ngx_http_core_module.html#error_page">error_page</a>指令进行处理。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**grpc_next_upstream**     &lt;code class=&quot;notranslate&quot;&gt;error</code> |    <code>timeout</code> |    <code>invalid_header</code> |    <code>http_500</code> |    <code>http_502</code> |    <code>http_503</code> |    <code>http_504</code> |    <code>http_403</code> |    <code>http_404</code> |    <code>http_429</code> |    <code>non_idempotent</code> |    <code>off</code>    …; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">grpc_next_upstream error timeout;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  指定应将请求传递到下一个服务器的情况： </p>
-<p>  应该记住，只有在尚未向客户端发送任何内容的情况下，才能将请求传递给下一个服务器。  也就是说，如果在传输响应的过程中发生错误或超时，则无法修复此问题。 </p>
-<p>  该指令还定义了与服务器通信的<a href="ngx_http_upstream_module.html#max_fails">不成功尝试</a> 。   <code>error</code> ， <code>timeout</code>和<code>invalid_header</code>情况始终被视为不成功的尝试，即使它们未在指令中指定。   <code>http_500</code> ， <code>http_502</code> ， <code>http_503</code> ， <code>http_504</code>和<code>http_429</code>情况仅在指令中指定<code>http_429</code>被视为不成功尝试。   <code>http_403</code>和<code>http_404</code>情况从未被视为不成功的尝试。 </p>
-<p>  将请求传递到下一个服务器可能会受到<a href="#grpc_next_upstream_tries">尝试次数</a>和<a href="#grpc_next_upstream_timeout">时间的限制</a> 。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**grpc_next_upstream_timeout** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">grpc_next_upstream_timeout 0;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  限制请求可以传递到<a href="#grpc_next_upstream">下一个服务器的时间</a> 。   <code>0</code>值关闭此限制。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**grpc_next_upstream_tries** &lt;code class=&quot;notranslate&quot;&gt;*number*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">grpc_next_upstream_tries 0;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  限制将请求传递到<a href="#grpc_next_upstream">下一个服务器</a>的可能尝试次数。   <code>0</code>值关闭此限制。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**grpc_pass** &lt;code class=&quot;notranslate&quot;&gt;*address*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>location</code> , <code>if in location</code> <br>                </td></p>
-<p>  设置gRPC服务器地址。  地址可以指定为域名或IP地址，以及端口： </p>
-<blockquote>
-<pre class="notranslate">grpc_pass localhost:9000;
-</pre>
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  使用可选端口从指定的本地IP地址发出到gRPC服务器的传出连接。  参数值可以包含变量。  特殊值&lt;code class=&quot;notranslate&quot;&gt;off&lt;/code&gt;取消了从先前配置级别继承的&lt;code class=&quot;notranslate&quot;&gt;grpc_bind&lt;/code&gt;指令的效果，该指令允许系统自动分配本地IP地址和端口。 &lt;/p&gt;&lt;a name=&quot;grpc_bind_transparent&quot;&gt;&lt;/a&gt;&lt;p&gt;   &lt;code class=&quot;notranslate&quot;&gt;transparent&lt;/code&gt;参数允许到gRPC服务器的传出连接源自非本地IP地址，例如，来自客户端的真实IP地址： &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;grpc_bind $remote_addr transparent;
+</code></pre><p></p><p>  为了使此参数有效，通常需要使用<a hhref="ngx_core_module.html#user">超级用户</a>权限运行nginx工作进程。  在Linux上，不需要像指定<code class="notranslate">transparent</code>参数那样，工作进程从主进程继承<code class="notranslate">CAP_NET_RAW</code>功能。  还必须配置内核路由表以拦截来自gRPC服务器的网络流量。 </p><a name="grpc_buffer_size"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>grpc_buffer_size</strong> <code class="notranslate"><i>size</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">grpc_buffer_size 4k|8k;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table></div><p>  设置用于读取从gRPC服务器接收的响应的缓冲区的<code class="notranslate"><i>size</i></code> 。  一旦收到响应，响应就会同步传递给客户端。 </p><a name="grpc_connect_timeout"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>grpc_connect_timeout</strong> <code class="notranslate"><i>time</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">grpc_connect_timeout 60s;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table></div><p>  定义与gRPC服务器建立连接的超时。  应该注意，此超时通常不会超过75秒。 </p><a name="grpc_hide_header"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>grpc_hide_header</strong> <code class="notranslate"><i>field</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>        —
 
-</blockquote>
-<p>  或者作为UNIX域套接字路径： </p>
-<blockquote>
-<pre class="notranslate">grpc_pass unix:/tmp/grpc.socket;
-</pre>
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  默认情况下，nginx不会从gRPC服务器对客户端的响应中传递标题字段“Date”，“Server”和“X-Accel -...”。   &lt;code class=&quot;notranslate&quot;&gt;grpc_hide_header&lt;/code&gt;指令设置了不会传递的其他字段。  相反，如果需要允许传递字段，则可以使用&lt;a hhref=&quot;#grpc_pass_header&quot;&gt;grpc_pass_header&lt;/a&gt;指令。 &lt;/p&gt;&lt;a name=&quot;grpc_ignore_headers&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;grpc_ignore_headers&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;field&lt;/i&gt;&lt;/code&gt; ...;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
 
-</blockquote>
-<p>  或者，可以使用“ <code>grpc://</code> ”方案： </p>
-<blockquote>
-<pre class="notranslate">grpc_pass grpc://127.0.0.1:9000;
-</pre>
+        —
 
-</blockquote>
-<p>  要通过SSL使用gRPC，应使用“ <code>grpcs://</code> ”方案： </p>
-<blockquote>
-<pre class="notranslate">grpc_pass grpcs://127.0.0.1:443;
-</pre>
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  禁用从gRPC服务器处理某些响应头字段。  可以忽略以下字段：“X-Accel-Redirect”和“X-Accel-Charset”。 &lt;/p&gt;&lt;p&gt;  如果未禁用，则处理这些标头字段会产生以下影响： &lt;/p&gt;&lt;ul&gt;&lt;li&gt;   “X-Accel-Redirect”执行&lt;a hhref=&quot;ngx_http_core_module.html#internal&quot;&gt;内部重定向&lt;/a&gt;到指定的URI; &lt;/li&gt;&lt;li&gt;   “X-Accel-Charset”设置了所需的响应&lt;a hhref=&quot;ngx_http_charset_module.html#charset&quot;&gt;字符集&lt;/a&gt; 。 &lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;/p&gt;&lt;a name=&quot;grpc_intercept_errors&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;grpc_intercept_errors&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;on&lt;/code&gt; | &lt;code class=&quot;notranslate&quot;&gt;off&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;pre class=&quot;notranslate&quot;&gt;grpc_intercept_errors off;&lt;/pre&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  确定代码大于或等于300的gRPC服务器响应是应该传递给客户端还是被拦截并重定向到nginx以便使用&lt;a hhref=&quot;ngx_http_core_module.html#error_page&quot;&gt;error_page&lt;/a&gt;指令进行处理。 &lt;/p&gt;&lt;a name=&quot;grpc_next_upstream&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;grpc_next_upstream&lt;/strong&gt; 
+&lt;code class=&quot;notranslate&quot;&gt;error&lt;/code&gt; |
+&lt;code class=&quot;notranslate&quot;&gt;timeout&lt;/code&gt; |
+&lt;code class=&quot;notranslate&quot;&gt;invalid_header&lt;/code&gt; |
+&lt;code class=&quot;notranslate&quot;&gt;http_500&lt;/code&gt; |
+&lt;code class=&quot;notranslate&quot;&gt;http_502&lt;/code&gt; |
+&lt;code class=&quot;notranslate&quot;&gt;http_503&lt;/code&gt; |
+&lt;code class=&quot;notranslate&quot;&gt;http_504&lt;/code&gt; |
+&lt;code class=&quot;notranslate&quot;&gt;http_403&lt;/code&gt; |
+&lt;code class=&quot;notranslate&quot;&gt;http_404&lt;/code&gt; |
+&lt;code class=&quot;notranslate&quot;&gt;http_429&lt;/code&gt; |
+&lt;code class=&quot;notranslate&quot;&gt;non_idempotent&lt;/code&gt; |
+&lt;code class=&quot;notranslate&quot;&gt;off&lt;/code&gt;
+...;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;pre class=&quot;notranslate&quot;&gt;grpc_next_upstream error timeout;&lt;/pre&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  指定应将请求传递到下一个服务器的情况： &lt;/p&gt;&lt;dl class=&quot;compact&quot;&gt;&lt;dt&gt; &lt;code class=&quot;notranslate&quot;&gt;error&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  与服务器建立连接，向其传递请求或读取响应头时发生错误; &lt;/dd&gt;&lt;dt&gt; &lt;code class=&quot;notranslate&quot;&gt;timeout&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  在与服务器建立连接，向其传递请求或读取响应头时发生超时; &lt;/dd&gt;&lt;dt&gt; &lt;code class=&quot;notranslate&quot;&gt;invalid_header&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  服务器返回空或无效响应; &lt;/dd&gt;&lt;dt&gt; &lt;code class=&quot;notranslate&quot;&gt;http_500&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  服务器返回代码为500的响应; &lt;/dd&gt;&lt;dt&gt; &lt;code class=&quot;notranslate&quot;&gt;http_502&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  服务器返回代码为502的响应; &lt;/dd&gt;&lt;dt&gt; &lt;code class=&quot;notranslate&quot;&gt;http_503&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  服务器返回代码为503的响应; &lt;/dd&gt;&lt;dt&gt; &lt;code class=&quot;notranslate&quot;&gt;http_504&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  服务器返回代码504的响应; &lt;/dd&gt;&lt;dt&gt; &lt;code class=&quot;notranslate&quot;&gt;http_403&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  服务器返回代码为403的响应; &lt;/dd&gt;&lt;dt&gt; &lt;code class=&quot;notranslate&quot;&gt;http_404&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  服务器返回代码为404的响应; &lt;/dd&gt;&lt;dt&gt; &lt;code class=&quot;notranslate&quot;&gt;http_429&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  服务器返回代码为429的响应; &lt;/dd&gt;&lt;dt id=&quot;non_idempotent&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;non_idempotent&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  通常，如果请求已发送到上游服务器，则使用&lt;a hhref=&quot;https://tools.ietf.org/html/rfc7231#section-4.2.2&quot;&gt;非幂等&lt;/a&gt;方法（ &lt;code class=&quot;notranslate&quot;&gt;POST&lt;/code&gt; ， &lt;code class=&quot;notranslate&quot;&gt;LOCK&lt;/code&gt; ， &lt;code class=&quot;notranslate&quot;&gt;PATCH&lt;/code&gt; ）的请求不会传递到下一个服务器;  启用此选项显式允许重试此类请求; &lt;/dd&gt;&lt;dt&gt; &lt;code class=&quot;notranslate&quot;&gt;off&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  禁用将请求传递给下一个服务器。 &lt;/dd&gt;&lt;/dl&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;  应该记住，只有在尚未向客户端发送任何内容的情况下，才能将请求传递给下一个服务器。  也就是说，如果在传输响应的过程中发生错误或超时，则无法修复此问题。 &lt;/p&gt;&lt;p&gt;  该指令还定义了与服务器通信的&lt;a hhref=&quot;ngx_http_upstream_module.html#max_fails&quot;&gt;不成功尝试&lt;/a&gt; 。   &lt;code class=&quot;notranslate&quot;&gt;error&lt;/code&gt; ， &lt;code class=&quot;notranslate&quot;&gt;timeout&lt;/code&gt;和&lt;code class=&quot;notranslate&quot;&gt;invalid_header&lt;/code&gt;情况始终被视为不成功的尝试，即使它们未在指令中指定。   &lt;code class=&quot;notranslate&quot;&gt;http_500&lt;/code&gt; ， &lt;code class=&quot;notranslate&quot;&gt;http_502&lt;/code&gt; ， &lt;code class=&quot;notranslate&quot;&gt;http_503&lt;/code&gt; ， &lt;code class=&quot;notranslate&quot;&gt;http_504&lt;/code&gt;和&lt;code class=&quot;notranslate&quot;&gt;http_429&lt;/code&gt;情况仅在指令中指定&lt;code class=&quot;notranslate&quot;&gt;http_429&lt;/code&gt;被视为不成功尝试。   &lt;code class=&quot;notranslate&quot;&gt;http_403&lt;/code&gt;和&lt;code class=&quot;notranslate&quot;&gt;http_404&lt;/code&gt;情况从未被视为不成功的尝试。 &lt;/p&gt;&lt;p&gt;  将请求传递到下一个服务器可能会受到&lt;a hhref=&quot;#grpc_next_upstream_tries&quot;&gt;尝试次数&lt;/a&gt;和&lt;a hhref=&quot;#grpc_next_upstream_timeout&quot;&gt;时间的限制&lt;/a&gt; 。 &lt;/p&gt;&lt;a name=&quot;grpc_next_upstream_timeout&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;grpc_next_upstream_timeout&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;time&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;pre class=&quot;notranslate&quot;&gt;grpc_next_upstream_timeout 0;&lt;/pre&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  限制请求可以传递到&lt;a hhref=&quot;#grpc_next_upstream&quot;&gt;下一个服务器的时间&lt;/a&gt; 。   &lt;code class=&quot;notranslate&quot;&gt;0&lt;/code&gt;值关闭此限制。 &lt;/p&gt;&lt;a name=&quot;grpc_next_upstream_tries&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;grpc_next_upstream_tries&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;number&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;pre class=&quot;notranslate&quot;&gt;grpc_next_upstream_tries 0;&lt;/pre&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  限制将请求传递到&lt;a hhref=&quot;#grpc_next_upstream&quot;&gt;下一个服务器&lt;/a&gt;的可能尝试次数。   &lt;code class=&quot;notranslate&quot;&gt;0&lt;/code&gt;值关闭此限制。 &lt;/p&gt;&lt;a name=&quot;grpc_pass&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;grpc_pass&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;address&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
 
+        —
 
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;if in location&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  设置gRPC服务器地址。  地址可以指定为域名或IP地址，以及端口： &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;grpc_pass localhost:9000;
+</code></pre><p></p><p>  或者作为UNIX域套接字路径： </p><blockquote class="example"><pre class="notranslate">grpc_pass unix:/tmp/grpc.socket;<br></pre></blockquote><p>  或者，可以使用“ <code class="notranslate">grpc://</code> ”方案： </p><blockquote class="example"><pre class="notranslate">grpc_pass grpc://127.0.0.1:9000;<br></pre></blockquote><p>  要通过SSL使用gRPC，应使用“ <code class="notranslate">grpcs://</code> ”方案： </p><blockquote class="example"><pre class="notranslate">grpc_pass grpcs://127.0.0.1:443;<br></pre></blockquote><p></p><p>  如果域名解析为多个地址，则所有这些地址都将以循环方式使用。  此外，可以将地址指定为<a hhref="ngx_http_upstream_module.html">服务器组</a> 。 </p><a name="grpc_pass_header"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>grpc_pass_header</strong> <code class="notranslate"><i>field</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>—
 
-</blockquote>
-<p>  如果域名解析为多个地址，则所有这些地址都将以循环方式使用。  此外，可以将地址指定为<a href="ngx_http_upstream_module.html">服务器组</a> 。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**grpc_pass_header** &lt;code class=&quot;notranslate&quot;&gt;*field*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  允许将<a href="#grpc_hide_header">其他禁用的</a>头字段从gRPC服务器传递到客户端。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**grpc_read_timeout** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">grpc_read_timeout 60s;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  定义从gRPC服务器读取响应的超时。  仅在两个连续的读操作之间设置超时，而不是为整个响应的传输。  如果gRPC服务器在此时间内未传输任何内容，则关闭连接。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**grpc_send_timeout** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">grpc_send_timeout 60s;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  设置将请求发送到gRPC服务器的超时。  仅在两个连续的写操作之间设置超时，而不是为整个请求的传输。  如果gRPC服务器在此时间内未收到任何内容，则关闭连接。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**grpc_set_header** &lt;code class=&quot;notranslate&quot;&gt;*field*</code> <code>*value*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">grpc_set_header Content-Length $content_length;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  允许将字段重新定义或附加到<a href="#grpc_pass_request_headers">传递</a>给gRPC服务器的请求标头。  该<code>*value*</code>可以包含文本，变量及其组合。  当且仅当在当前级别上没有定义<code>grpc_set_header</code>指令时，这些指令才从前一级继承。 </p>
-<p>  如果标头字段的值是空字符串，则该字段将不会传递给gRPC服务器： </p>
-<blockquote>
-<pre class="notranslate">grpc_set_header Accept-Encoding "";
-</pre>
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  允许将&lt;a hhref=&quot;#grpc_hide_header&quot;&gt;其他禁用的&lt;/a&gt;头字段从gRPC服务器传递到客户端。 &lt;/p&gt;&lt;a name=&quot;grpc_read_timeout&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Syntax:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;grpc_read_timeout&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;time&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Default:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;pre class=&quot;notranslate&quot;&gt;grpc_read_timeout 60s;&lt;/pre&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  定义从gRPC服务器读取响应的超时。  仅在两个连续的读操作之间设置超时，而不是为整个响应的传输。  如果gRPC服务器在此时间内未传输任何内容，则关闭连接。 &lt;/p&gt;&lt;a name=&quot;grpc_send_timeout&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Syntax:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;grpc_send_timeout&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;time&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Default:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;pre class=&quot;notranslate&quot;&gt;grpc_send_timeout 60s;&lt;/pre&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  设置将请求发送到gRPC服务器的超时。  仅在两个连续的写操作之间设置超时，而不是为整个请求的传输。  如果gRPC服务器在此时间内未收到任何内容，则关闭连接。 &lt;/p&gt;&lt;a name=&quot;grpc_set_header&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Syntax:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;grpc_set_header&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;field&lt;/i&gt;&lt;/code&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;value&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Default:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;pre class=&quot;notranslate&quot;&gt;grpc_set_header Content-Length $content_length;&lt;/pre&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  允许将字段重新定义或附加到&lt;a hhref=&quot;#grpc_pass_request_headers&quot;&gt;传递&lt;/a&gt;给gRPC服务器的请求标头。  该&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;value&lt;/i&gt;&lt;/code&gt;可以包含文本，变量及其组合。  当且仅当在当前级别上没有定义&lt;code class=&quot;notranslate&quot;&gt;grpc_set_header&lt;/code&gt;指令时，这些指令才从前一级继承。 &lt;/p&gt;&lt;p&gt;  如果标头字段的值是空字符串，则该字段将不会传递给gRPC服务器： &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;grpc_set_header Accept-Encoding &quot;&quot;;
+</code></pre><p></p><p></p><a name="grpc_socket_keepalive"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>grpc_socket_keepalive</strong> <code class="notranslate">on</code> | <code class="notranslate">off</code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">grpc_socket_keepalive off;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table><p>  该指令出现在1.15.6版中。 </p></div><p>  配置与gRPC服务器的传出连接的“TCP keepalive”行为。  默认情况下，操作系统的设置对套接字有效。  如果指令设置为值“ <code class="notranslate">on</code> ”，则为套接字打开<code class="notranslate">SO_KEEPALIVE</code>套接字选项。 </p><a name="grpc_ssl_certificate"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>grpc_ssl_certificate</strong> <code class="notranslate"><i>file</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>        —
 
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  指定具有PEM格式的证书的&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;file&lt;/i&gt;&lt;/code&gt; ，用于对gRPC SSL服务器进行身份验证。 &lt;/p&gt;&lt;a name=&quot;grpc_ssl_certificate_key&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;grpc_ssl_certificate_key&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;file&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
 
-</blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**grpc_socket_keepalive** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">grpc_socket_keepalive off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  该指令出现在1.15.6版中。 </p>
-<p>  配置与gRPC服务器的传出连接的“TCP keepalive”行为。  默认情况下，操作系统的设置对套接字有效。  如果指令设置为值“ <code>on</code> ”，则为套接字打开<code>SO_KEEPALIVE</code>套接字选项。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**grpc_ssl_certificate** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  指定具有PEM格式的证书的<code>*file*</code> ，用于对gRPC SSL服务器进行身份验证。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**grpc_ssl_certificate_key** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  指定具有PEM格式的密钥的<code>*file*</code> ，用于对gRPC SSL服务器进行身份验证。 </p>
-<p>  可以指定value <code>engine</code> ： <code>*name*</code> ： <code>*id*</code>而不是<code>*file*</code> ，该<code>*file*</code>从OpenSSL引擎<code>*name*</code>加载具有指定<code>*id*</code>密钥。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**grpc_ssl_ciphers** &lt;code class=&quot;notranslate&quot;&gt;*ciphers*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">grpc_ssl_ciphers DEFAULT;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  指定对gRPC SSL服务器的请求的已启用密码。  密码以OpenSSL库理解的格式指定。 </p>
-<p>  可以使用“ <code>openssl ciphers</code> ”命令查看完整列表。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**grpc_ssl_crl** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  指定具有PEM格式的已吊销证书（CRL）的<code>*file*</code> ，用于<a href="#grpc_ssl_verify">验证</a> gRPC SSL服务器的证书。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**grpc_ssl_name** &lt;code class=&quot;notranslate&quot;&gt;*name*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">grpc_ssl_name host from grpc_pass;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  允许覆盖用于<a href="#grpc_ssl_verify">验证</a> gRPC SSL服务器证书的服务器名称，并在与gRPC SSL服务器建立连接时<a href="#grpc_ssl_server_name">通过SNI传递</a> 。 </p>
-<p>  默认情况下，使用<a href="#grpc_pass">grpc_pass</a>的主机部分。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**grpc_ssl_password_file** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  指定具有密钥密码的<code>*file*</code> ，其中每个密码在单独的行上指定。  在加载密钥时依次尝试密码短语。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**grpc_ssl_protocols**     [ &lt;code class=&quot;notranslate&quot;&gt;SSLv2</code> ]    [ <code>SSLv3</code> ]    [ <code>TLSv1</code> ]    [ <code>TLSv1.1</code> ]    [ <code>TLSv1.2</code> ]    [ <code>TLSv1.3</code> ]; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">grpc_ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  为gRPC SSL服务器的请求启用指定的协议。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**grpc_ssl_server_name** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">grpc_ssl_server_name off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  在与gRPC SSL服务器建立连接时，启用或禁用通过<a href="http://en.wikipedia.org/wiki/Server_Name_Indication" target="_blank" rel="noopener">TLS服务器名称指示扩展</a> （SNI，RFC 6066）传递服务器名称。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**grpc_ssl_session_reuse** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">grpc_ssl_session_reuse on;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  确定在使用gRPC服务器时是否可以重用SSL会话。  如果日志中出现“ <code>SSL3_GET_FINISHED:digest check failed</code> ”错误，请尝试禁用会话重用。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**grpc_ssl_trusted_certificate** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  指定具有PEM格式的可信CA证书的<code>*file*</code> ，用于<a href="#grpc_ssl_verify">验证</a> gRPC SSL服务器的证书。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**grpc_ssl_verify** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">grpc_ssl_verify off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  启用或禁用gRPC SSL服务器证书的验证。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**grpc_ssl_verify_depth** &lt;code class=&quot;notranslate&quot;&gt;*number*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">grpc_ssl_verify_depth 1;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  设置gRPC SSL服务器证书链中的验证深度。 </p>
+        —
 
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  指定具有PEM格式的密钥的&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;file&lt;/i&gt;&lt;/code&gt; ，用于对gRPC SSL服务器进行身份验证。 &lt;/p&gt;&lt;p&gt;  可以指定value &lt;code class=&quot;notranslate&quot;&gt;engine&lt;/code&gt; ： &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;name&lt;/i&gt;&lt;/code&gt; ： &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;id&lt;/i&gt;&lt;/code&gt;而不是&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;file&lt;/i&gt;&lt;/code&gt; ，该&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;file&lt;/i&gt;&lt;/code&gt;从OpenSSL引擎&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;name&lt;/i&gt;&lt;/code&gt;加载具有指定&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;id&lt;/i&gt;&lt;/code&gt;密钥。 &lt;/p&gt;&lt;a name=&quot;grpc_ssl_ciphers&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;grpc_ssl_ciphers&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;ciphers&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;pre class=&quot;notranslate&quot;&gt;grpc_ssl_ciphers DEFAULT;&lt;/pre&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  指定对gRPC SSL服务器的请求的已启用密码。  密码以OpenSSL库理解的格式指定。 &lt;/p&gt;&lt;p&gt;  可以使用“ &lt;code class=&quot;notranslate&quot;&gt;openssl ciphers&lt;/code&gt; ”命令查看完整列表。 &lt;/p&gt;&lt;a name=&quot;grpc_ssl_crl&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;grpc_ssl_crl&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;file&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+
+        —
+
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  指定具有PEM格式的已吊销证书（CRL）的&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;file&lt;/i&gt;&lt;/code&gt; ，用于&lt;a hhref=&quot;#grpc_ssl_verify&quot;&gt;验证&lt;/a&gt; gRPC SSL服务器的证书。 &lt;/p&gt;&lt;a name=&quot;grpc_ssl_name&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;grpc_ssl_name&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;name&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;pre class=&quot;notranslate&quot;&gt;grpc_ssl_name host from grpc_pass;&lt;/pre&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  允许覆盖用于&lt;a hhref=&quot;#grpc_ssl_verify&quot;&gt;验证&lt;/a&gt; gRPC SSL服务器证书的服务器名称，并在与gRPC SSL服务器建立连接时&lt;a hhref=&quot;#grpc_ssl_server_name&quot;&gt;通过SNI传递&lt;/a&gt; 。 &lt;/p&gt;&lt;p&gt;  默认情况下，使用&lt;a hhref=&quot;#grpc_pass&quot;&gt;grpc_pass&lt;/a&gt;的主机部分。 &lt;/p&gt;&lt;a name=&quot;grpc_ssl_password_file&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;grpc_ssl_password_file&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;file&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+
+        —
+
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  指定具有密钥密码的&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;file&lt;/i&gt;&lt;/code&gt; ，其中每个密码在单独的行上指定。  在加载密钥时依次尝试密码短语。 &lt;/p&gt;&lt;a name=&quot;grpc_ssl_protocols&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;grpc_ssl_protocols&lt;/strong&gt; 
+[ &lt;code class=&quot;notranslate&quot;&gt;SSLv2&lt;/code&gt; ]
+[ &lt;code class=&quot;notranslate&quot;&gt;SSLv3&lt;/code&gt; ]
+[ &lt;code class=&quot;notranslate&quot;&gt;TLSv1&lt;/code&gt; ]
+[ &lt;code class=&quot;notranslate&quot;&gt;TLSv1.1&lt;/code&gt; ]
+[ &lt;code class=&quot;notranslate&quot;&gt;TLSv1.2&lt;/code&gt; ]
+[ &lt;code class=&quot;notranslate&quot;&gt;TLSv1.3&lt;/code&gt; ];&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;pre class=&quot;notranslate&quot;&gt;grpc_ssl_protocols TLSv1 TLSv1.1 TLSv1.2;&lt;/pre&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  为gRPC SSL服务器的请求启用指定的协议。 &lt;/p&gt;&lt;a name=&quot;grpc_ssl_server_name&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;grpc_ssl_server_name&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;on&lt;/code&gt; | &lt;code class=&quot;notranslate&quot;&gt;off&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;pre class=&quot;notranslate&quot;&gt;grpc_ssl_server_name off;&lt;/pre&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  在与gRPC SSL服务器建立连接时，启用或禁用通过&lt;a hhref=&quot;http://en.wikipedia.org/wiki/Server_Name_Indication&quot;&gt;TLS服务器名称指示扩展&lt;/a&gt; （SNI，RFC 6066）传递服务器名称。 &lt;/p&gt;&lt;a name=&quot;grpc_ssl_session_reuse&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;grpc_ssl_session_reuse&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;on&lt;/code&gt; | &lt;code class=&quot;notranslate&quot;&gt;off&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;pre class=&quot;notranslate&quot;&gt;grpc_ssl_session_reuse on;&lt;/pre&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  确定在使用gRPC服务器时是否可以重用SSL会话。  如果日志中出现“ &lt;code class=&quot;notranslate&quot;&gt;SSL3_GET_FINISHED:digest check failed&lt;/code&gt; ”错误，请尝试禁用会话重用。 &lt;/p&gt;&lt;a name=&quot;grpc_ssl_trusted_certificate&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;grpc_ssl_trusted_certificate&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;file&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+
+        —
+
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  指定具有PEM格式的可信CA证书的&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;file&lt;/i&gt;&lt;/code&gt; ，用于&lt;a hhref=&quot;#grpc_ssl_verify&quot;&gt;验证&lt;/a&gt; gRPC SSL服务器的证书。 &lt;/p&gt;&lt;a name=&quot;grpc_ssl_verify&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;grpc_ssl_verify&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;on&lt;/code&gt; | &lt;code class=&quot;notranslate&quot;&gt;off&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;pre class=&quot;notranslate&quot;&gt;grpc_ssl_verify off;&lt;/pre&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  启用或禁用gRPC SSL服务器证书的验证。 &lt;/p&gt;&lt;a name=&quot;grpc_ssl_verify_depth&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;grpc_ssl_verify_depth&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;number&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;pre class=&quot;notranslate&quot;&gt;grpc_ssl_verify_depth 1;&lt;/pre&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  设置gRPC SSL服务器证书链中的验证深度。 &lt;/p&gt; 
+</code></pre><p><span></span><div style="display: none;"></div></p>
+</td></tr></tbody></table></div></td></tr></tbody></table></div></td></tr></tbody></table></div></td></tr></tbody></table></div>
       
     </div>
     
@@ -615,7 +730,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nginx.im/ngx/http/ngx_http_grpc_module.html" title="http/ngx_http_grpc_module-nginx中文手册">http://nginx.im/ngx/http/ngx_http_grpc_module.html</a>
+    <a href="http://nginx.im/ngx/http/ngx_http_grpc_module.html" title="">http://nginx.im/ngx/http/ngx_http_grpc_module.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -628,12 +743,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/nginx/" rel="tag"># nginx</a>
-          
-        </div>
-      
 
       
       
@@ -643,8 +752,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ngx/http/ngx_http_geo_module.html" rel="next" title="http/ngx_http_geo_module-nginx中文手册">
-                <i class="fa fa-chevron-left"></i> http/ngx_http_geo_module-nginx中文手册
+              <a href="/ngx/http/ngx_http_geo_module.html" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -653,8 +762,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ngx/http/ngx_http_gunzip_module.html" rel="prev" title="http/ngx_http_gunzip_module-nginx中文手册">
-                http/ngx_http_gunzip_module-nginx中文手册 <i class="fa fa-chevron-right"></i>
+              <a href="/ngx/http/ngx_http_gunzip_module.html" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -752,7 +861,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -798,7 +907,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-grpc-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_grpc_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_grpc_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">  示例配置 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">  指令 </span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

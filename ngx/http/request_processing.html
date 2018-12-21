@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="nginx," />
+  <meta name="keywords" content="LINUX,NGINX,JAVA,PYTHON,PYTHON,前端,运维实践" />
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="http,request_processing">
-<meta name="keywords" content="nginx">
+<meta name="description" content="nginx如何处理请求  How to prevent processing requests with undefined server names  Mixed name-based and IP-based virtual servers  A simple PHP site configuration   基于">
 <meta property="og:type" content="article">
-<meta property="og:title" content="http&#x2F;request_processing-nginx中文手册">
+<meta property="og:title" content="IM.NGINX">
 <meta property="og:url" content="http://nginx.im/ngx/http/request_processing.html">
 <meta property="og:site_name" content="IM.NGINX">
-<meta property="og:description" content="http,request_processing">
+<meta property="og:description" content="nginx如何处理请求  How to prevent processing requests with undefined server names  Mixed name-based and IP-based virtual servers  A simple PHP site configuration   基于名称的虚拟服务器    nginx首先决定哪个服务器应该处理请求。  让我">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:56:06.448Z">
+<meta property="og:updated_time" content="2018-12-21T08:09:34.369Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="http&#x2F;request_processing-nginx中文手册">
-<meta name="twitter:description" content="http,request_processing">
+<meta name="twitter:title" content="IM.NGINX">
+<meta name="twitter:description" content="nginx如何处理请求  How to prevent processing requests with undefined server names  Mixed name-based and IP-based virtual servers  A simple PHP site configuration   基于名称的虚拟服务器    nginx首先决定哪个服务器应该处理请求。  让我">
 
 
 
@@ -126,7 +125,7 @@
 
 
 
-  <title>http/request_processing-nginx中文手册 | IM.NGINX</title>
+  <title> | IM.NGINX</title>
   
 
 
@@ -324,7 +323,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">http/request_processing-nginx中文手册</h2>
+          <h2 class="post-title" itemprop="name headline"></h2>
         
 
         <div class="post-meta">
@@ -336,7 +335,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
                 2018年12月21日
               </time>
             
@@ -346,28 +345,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx中文手册</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -396,60 +373,13 @@
       
 
       
-        <p>http,request_processing<br><a id="more"></a></p>
-<h2 id="nginx如何处理请求"><a href="#nginx如何处理请求" class="headerlink" title="nginx如何处理请求"></a>nginx如何处理请求</h2><td align="left" class="notranslate"> <a href="#how_to_prevent_undefined_server_names">How to prevent processing requests with undefined server names</a> <br> <a href="#mixed_name_ip_based_servers">Mixed name-based and IP-based virtual servers</a> <br> <a href="#simple_php_site_configuration">A simple PHP site configuration</a> <br></td>
-
-<h4 id="基于名称的虚拟服务器"><a href="#基于名称的虚拟服务器" class="headerlink" title="基于名称的虚拟服务器"></a>基于名称的虚拟服务器</h4><p>   nginx首先决定哪个<em>服务器</em>应该处理请求。  让我们从一个简单的配置开始，其中所有三个虚拟服务器都在端口*：80上侦听： </p>
-<blockquote>
-<p><pre class="notranslate">server {<br>    listen      80;<br>    server_name example.org www.example.org;<br>    …<br>}</pre></p>
-</blockquote>
+        <p></p><h2>   nginx如何处理请求 </h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#how_to_prevent_undefined_server_names">How to prevent processing requests with undefined server names</a> <br> <a hhref="#mixed_name_ip_based_servers">Mixed name-based and IP-based virtual servers</a> <br> <a hhref="#simple_php_site_configuration">A simple PHP site configuration</a> <br></td></tr></tbody></table><center><h4>  基于名称的虚拟服务器 </h4></center><p>   nginx首先决定哪个<i>服务器</i>应该处理请求。  让我们从一个简单的配置开始，其中所有三个虚拟服务器都在端口*：80上侦听： </p><blockquote class="example"><pre class="notranslate">server {<br>    listen      80;<br>    server_name example.org www.example.org;<br>    …<br>}<p></p>
 <p>server {<br>    listen      80;<br>    server_name example.net www.example.net;<br>    …<br>}</p>
-<p>server {<br>    listen      80;<br>    server_name example.com www.example.com;<br>    …<br>}<br></p>
-<p>  在此配置中，nginx仅测试请求的标头字段“Host”，以确定请求应路由到哪个服务器。  如果其值与任何服务器名称都不匹配，或者请求根本不包含此标头字段，则nginx会将请求路由到此端口的默认服务器。  在上面的配置中，默认服务器是第一个 - 这是nginx的标准默认行为。  也可以使用<a href="ngx_http_core_module.html#listen">listen</a>指令中的<code>default_server</code>参数明确设置哪个服务器应该是默认的： </p>
-<blockquote>
-<pre class="notranslate">server {
-    listen      80 **default_server** ;
-    server_name example.net www.example.net;
-    ...
-}
-</pre>
-
-
-
-<p>   <code>default_server</code>参数自版本0.8.21起可用。  在早期版本中，应使用<code>default</code>参数。 </p>
-</blockquote>
-<p>  请注意，默认服务器是侦听端口的属性，而不是服务器名称的属性。  稍后会详细介绍。 </p>
-<h4 id="如何使用未定义的服务器名称防止处理请求"><a href="#如何使用未定义的服务器名称防止处理请求" class="headerlink" title="如何使用未定义的服务器名称防止处理请求"></a>如何使用未定义的服务器名称防止处理请求</h4><p>  如果不允许没有“Host”头字段的请求，则可以定义只删除请求的服务器： </p>
-<blockquote>
-<pre class="notranslate">server {
-    listen      80;
-    server_name "";
-    return      444;
-}
-</pre>
-
-</blockquote>
-<p>  这里，服务器名称设置为一个空字符串，它将匹配没有“Host”头字段的请求，并返回一个特殊的nginx非标准代码444来关闭连接。 </p>
-<blockquote>
-<p>  从版本0.8.48开始，这是服务器名称的默认设置，因此可以省略<code>server_name &quot;&quot;</code> 。  在早期版本中，计算机的<em>主机名</em>用作默认服务器名称。 </p>
-</blockquote>
-<h4 id="基于名称的混合和基于IP的虚拟服务器"><a href="#基于名称的混合和基于IP的虚拟服务器" class="headerlink" title="基于名称的混合和基于IP的虚拟服务器"></a>基于名称的混合和基于IP的虚拟服务器</h4><p>  让我们看一个更复杂的配置，其中一些虚拟服务器监听不同的地址： </p>
-<blockquote>
-<p><pre class="notranslate">server {<br>    listen      192.168.1.1:80;<br>    server_name example.org www.example.org;<br>    …<br>}</pre></p>
-</blockquote>
+<p>server {<br>    listen      80;<br>    server_name example.com www.example.com;<br>    …<br>}<br></p></pre></blockquote><p></p><p>  在此配置中，nginx仅测试请求的标头字段“Host”，以确定请求应路由到哪个服务器。  如果其值与任何服务器名称都不匹配，或者请求根本不包含此标头字段，则nginx会将请求路由到此端口的默认服务器。  在上面的配置中，默认服务器是第一个 - 这是nginx的标准默认行为。  也可以使用<a hhref="ngx_http_core_module.html#listen">listen</a>指令中的<code class="notranslate">default_server</code>参数明确设置哪个服务器应该是默认的： </p><blockquote class="example"><pre class="notranslate">server {<br>    listen      80 <b>default_server</b> ;<br>    server_name example.net www.example.net;<br>    …<br>}<br></pre></blockquote><p></p><blockquote class="note">   <code class="notranslate">default_server</code>参数自版本0.8.21起可用。  在早期版本中，应使用<code class="notranslate">default</code>参数。 </blockquote><p>  请注意，默认服务器是侦听端口的属性，而不是服务器名称的属性。  稍后会详细介绍。 </p><a name="how_to_prevent_undefined_server_names"></a><center><h4>  如何使用未定义的服务器名称防止处理请求 </h4></center><p>  如果不允许没有“Host”头字段的请求，则可以定义只删除请求的服务器： </p><blockquote class="example"><pre class="notranslate">server {<br>    listen      80;<br>    server_name “”;<br>    return      444;<br>}<br></pre></blockquote><p>  这里，服务器名称设置为一个空字符串，它将匹配没有“Host”头字段的请求，并返回一个特殊的nginx非标准代码444来关闭连接。 </p><blockquote class="note">  从版本0.8.48开始，这是服务器名称的默认设置，因此可以省略<code class="notranslate">server_name “”</code> 。  在早期版本中，计算机的<i>主机名</i>用作默认服务器名称。 </blockquote><p></p><a name="mixed_name_ip_based_servers"></a><center><h4>  基于名称的混合和基于IP的虚拟服务器 </h4></center><p>  让我们看一个更复杂的配置，其中一些虚拟服务器监听不同的地址： </p><blockquote class="example"><pre class="notranslate">server {<br>    listen      192.168.1.1:80;<br>    server_name example.org www.example.org;<br>    …<br>}<p></p>
 <p>server {<br>    listen      192.168.1.1:80;<br>    server_name example.net www.example.net;<br>    …<br>}</p>
-<p>server {<br>    listen      192.168.1.2:80;<br>    server_name example.com www.example.com;<br>    …<br>}<br></p>
-<p>  在此配置中，nginx首先根据<a href="ngx_http_core_module.html#server">服务器</a>块的<a href="ngx_http_core_module.html#listen">listen</a>指令测试请求的IP地址和端口。  然后，它针对与IP地址和端口匹配的<a href="ngx_http_core_module.html#server">服务器</a>块的<a href="ngx_http_core_module.html#server_name">server_name</a>条目测试请求的“Host”头字段。  如果未找到服务器名称，则默认服务器将处理该请求。  例如，在192.168.1.1:80端口上收到的<code>www.example.com</code>请求将由192.168.1.1:80端口的默认服务器处理，即由第一台服务器处理，因为没有<code>www.example.com</code>为此端口定义。 </p>
-<p>  如前所述，默认服务器是监听端口的属性，可以为不同的端口定义不同的默认服务器： </p>
-<blockquote>
-<p><pre class="notranslate">server {<br>    listen      192.168.1.1:80;<br>    server_name example.org www.example.org;<br>    …<br>}</pre></p>
-</blockquote>
-<p>server {<br>    listen      192.168.1.1:80 <strong>default_server</strong> ;<br>    server_name example.net www.example.net;<br>    …<br>}</p>
-<p>server {<br>    listen      192.168.1.2:80 <strong>default_server</strong> ;<br>    server_name example.com www.example.com;<br>    …<br>}<br></p>
-<h4 id="一个简单的PHP站点配置"><a href="#一个简单的PHP站点配置" class="headerlink" title="一个简单的PHP站点配置"></a>一个简单的PHP站点配置</h4><p>  现在让我们看看nginx如何选择一个<em>位置</em>来处理一个典型的简单PHP站点的请求： </p>
-<blockquote>
-<p><pre class="notranslate">server {<br>    listen      80;<br>    server_name example.org www.example.org;<br>    root        /data/www;</pre></p>
-</blockquote>
+<p>server {<br>    listen      192.168.1.2:80;<br>    server_name example.com www.example.com;<br>    …<br>}<br></p></pre></blockquote><p>  在此配置中，nginx首先根据<a hhref="ngx_http_core_module.html#server">服务器</a>块的<a hhref="ngx_http_core_module.html#listen">listen</a>指令测试请求的IP地址和端口。  然后，它针对与IP地址和端口匹配的<a hhref="ngx_http_core_module.html#server">服务器</a>块的<a hhref="ngx_http_core_module.html#server_name">server_name</a>条目测试请求的“Host”头字段。  如果未找到服务器名称，则默认服务器将处理该请求。  例如，在192.168.1.1:80端口上收到的<code class="notranslate">www.example.com</code>请求将由192.168.1.1:80端口的默认服务器处理，即由第一台服务器处理，因为没有<code class="notranslate">www.example.com</code>为此端口定义。 </p><p>  如前所述，默认服务器是监听端口的属性，可以为不同的端口定义不同的默认服务器： </p><blockquote class="example"><pre class="notranslate">server {<br>    listen      192.168.1.1:80;<br>    server_name example.org www.example.org;<br>    …<br>}<p></p>
+<p>server {<br>    listen      192.168.1.1:80 <b>default_server</b> ;<br>    server_name example.net www.example.net;<br>    …<br>}</p>
+<p>server {<br>    listen      192.168.1.2:80 <b>default_server</b> ;<br>    server_name example.com www.example.com;<br>    …<br>}<br></p></pre></blockquote><p></p><a name="simple_php_site_configuration"></a><center><h4>  一个简单的PHP站点配置 </h4></center><p>  现在让我们看看nginx如何选择一个<i>位置</i>来处理一个典型的简单PHP站点的请求： </p><blockquote class="example"><pre class="notranslate">server {<br>    listen      80;<br>    server_name example.org www.example.org;<br>    root        /data/www;<p></p>
 <pre><code>location / {
     index   index.html index.php;
 }
@@ -464,31 +394,7 @@ location ~ \.php$ {
                   $document_root$fastcgi_script_name;
     include       fastcgi_params;
 }
-</code></pre><p>}<br></p>
-<p>   nginx首先搜索由文字字符串给出的最具体的前缀位置，而不管列出的顺序如何。  在上面的配置中，唯一的前缀位置是“ <code>/</code> ”，因为它匹配任何请求，它将被用作最后的手段。  然后nginx按照配置文件中列出的顺序检查正则表达式给出的位置。  第一个匹配表达式将停止搜索，nginx将使用此位置。  如果没有正则表达式与请求匹配，则nginx使用先前找到的最具体的前缀位置。 </p>
-<p>  请注意，所有类型的位置仅测试不带参数的请求行的URI部分。  这样做是因为查询字符串中的参数可以通过多种方式给出，例如： </p>
-<blockquote>
-<pre class="notranslate">/index.php?user=john&amp;page=1
-/index.php?page=1&amp;user=john
-</pre>
-
-</blockquote>
-<p>  此外，任何人都可以在查询字符串中请求任何内容 </p>
-<blockquote>
-<pre class="notranslate">/index.php?page=1&amp;something+else&amp;user=john
-</pre>
-
-
-
-</blockquote>
-<p>  现在让我们看看如何在上面的配置中处理请求： </p>
-<ul>
-<li>请求“ <code>/logo.gif</code> ”首先与前缀位置“ <code>/</code> ”匹配，然后由正则表达式“ <code>\.(gif|jpg|png)$</code> ”匹配，因此，它由后一个位置处理。  使用指令“ <code>root /data/www</code> ”将请求映射到文件<code>/data/www/logo.gif</code> ，并将文件发送到客户端。 -   请求“ <code>/index.php</code> ”也首先与前缀位置“ <code>/</code> ”匹配，然后由正则表达式“ <code>\.(php)$</code> ”匹配。  因此，它由后一个位置处理，请求被传递给侦听localhost：9000的FastCGI服务器。   <a href="ngx_http_fastcgi_module.html#fastcgi_param">fastcgi_param</a>指令将FastCGI参数<code>SCRIPT_FILENAME</code>为“ <code>/data/www/index.php</code>服务器执行该文件。  变量<code>$document_root</code>等于<a href="ngx_http_core_module.html#root">root</a>指令的值，变量<code>$fastcgi_script_name</code>等于请求URI，即“ <code>/index.php</code> ”。 -   请求“ <code>/about.html</code> ”仅与前缀位置“ <code>/</code> ”匹配，因此，它在此位置处理。  使用指令“ <code>root /data/www</code> ”将请求映射到文件<code>/data/www/about.html</code> ，并将文件发送到客户端。 -   处理请求“ <code>/</code> ”更复杂。  它仅与前缀位置“ <code>/</code> ”匹配，因此，它由此位置处理。  然后<a href="ngx_http_index_module.html#index">索引</a>指令根据其参数和“ <code>root /data/www</code> ”指令测试索引文件是否存在。  如果文件<code>/data/www/index.html</code>不存在，并且文件<code>/data/www/index.php</code>存在，则该指令执行内部重定向到“ <code>/index.php</code> ”，并且nginx再次搜索位置如果请求是由客户发送的。  正如我们之前看到的，重定向的请求最终将由FastCGI服务器处理。 </li>
-</ul>
-<td align="right" class="notranslate">written by Igor Sysoev<br>edited by Brian Mercer<br></td>
-
-
-
+</code></pre><p>}<br></p></pre></blockquote><p></p><p>   nginx首先搜索由文字字符串给出的最具体的前缀位置，而不管列出的顺序如何。  在上面的配置中，唯一的前缀位置是“ <code class="notranslate">/</code> ”，因为它匹配任何请求，它将被用作最后的手段。  然后nginx按照配置文件中列出的顺序检查正则表达式给出的位置。  第一个匹配表达式将停止搜索，nginx将使用此位置。  如果没有正则表达式与请求匹配，则nginx使用先前找到的最具体的前缀位置。 </p><p>  请注意，所有类型的位置仅测试不带参数的请求行的URI部分。  这样做是因为查询字符串中的参数可以通过多种方式给出，例如： </p><blockquote class="example"><pre class="notranslate">/index.php?user=john&amp;page=1<br>/index.php?page=1&amp;user=john<br></pre></blockquote><p>  此外，任何人都可以在查询字符串中请求任何内容 </p><blockquote class="example"><pre class="notranslate">/index.php?page=1&amp;something+else&amp;user=john<br></pre></blockquote><p></p><p>  现在让我们看看如何在上面的配置中处理请求： </p><ul><li>  请求“ <code class="notranslate">/logo.gif</code> ”首先与前缀位置“ <code class="notranslate">/</code> ”匹配，然后由正则表达式“ <code class="notranslate">.(gif|jpg|png)$</code> ”匹配，因此，它由后一个位置处理。  使用指令“ <code class="notranslate">root /data/www</code> ”将请求映射到文件<code class="notranslate">/data/www/logo.gif</code> ，并将文件发送到客户端。 </li><li>  请求“ <code class="notranslate">/index.php</code> ”也首先与前缀位置“ <code class="notranslate">/</code> ”匹配，然后由正则表达式“ <code class="notranslate">.(php)$</code> ”匹配。  因此，它由后一个位置处理，请求被传递给侦听localhost：9000的FastCGI服务器。   <a hhref="ngx_http_fastcgi_module.html#fastcgi_param">fastcgi_param</a>指令将FastCGI参数<code class="notranslate">SCRIPT_FILENAME</code>为“ <code class="notranslate">/data/www/index.php</code>服务器执行该文件。  变量<code class="notranslate">$document_root</code>等于<a hhref="ngx_http_core_module.html#root">root</a>指令的值，变量<code class="notranslate">$fastcgi_script_name</code>等于请求URI，即“ <code class="notranslate">/index.php</code> ”。 </li><li>  请求“ <code class="notranslate">/about.html</code> ”仅与前缀位置“ <code class="notranslate">/</code> ”匹配，因此，它在此位置处理。  使用指令“ <code class="notranslate">root /data/www</code> ”将请求映射到文件<code class="notranslate">/data/www/about.html</code> ，并将文件发送到客户端。 </li><li>  处理请求“ <code class="notranslate">/</code> ”更复杂。  它仅与前缀位置“ <code class="notranslate">/</code> ”匹配，因此，它由此位置处理。  然后<a hhref="ngx_http_index_module.html#index">索引</a>指令根据其参数和“ <code class="notranslate">root /data/www</code> ”指令测试索引文件是否存在。  如果文件<code class="notranslate">/data/www/index.html</code>不存在，并且文件<code class="notranslate">/data/www/index.php</code>存在，则该指令执行内部重定向到“ <code class="notranslate">/index.php</code> ”，并且nginx再次搜索位置如果请求是由客户发送的。  正如我们之前看到的，重定向的请求最终将由FastCGI服务器处理。 </li></ul><p></p><table width="100%"><tbody><tr><td align="right" class="notranslate">written by Igor Sysoev<br>edited by Brian Mercer<br></td></tr></tbody></table><br><span></span><div style="display: none;"></div><p></p>
 
       
     </div>
@@ -538,7 +444,7 @@ location ~ \.php$ {
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nginx.im/ngx/http/request_processing.html" title="http/request_processing-nginx中文手册">http://nginx.im/ngx/http/request_processing.html</a>
+    <a href="http://nginx.im/ngx/http/request_processing.html" title="">http://nginx.im/ngx/http/request_processing.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -551,12 +457,6 @@ location ~ \.php$ {
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/nginx/" rel="tag"># nginx</a>
-          
-        </div>
-      
 
       
       
@@ -566,8 +466,8 @@ location ~ \.php$ {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ngx/http/ngx_http_xslt_module.html" rel="next" title="http/ngx_http_xslt_module-nginx中文手册">
-                <i class="fa fa-chevron-left"></i> http/ngx_http_xslt_module-nginx中文手册
+              <a href="/ngx/http/ngx_http_xslt_module.html" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -576,8 +476,8 @@ location ~ \.php$ {
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ngx/http/server_names.html" rel="prev" title="http/server_names-nginx中文手册">
-                http/server_names-nginx中文手册 <i class="fa fa-chevron-right"></i>
+              <a href="/ngx/http/server_names.html" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -675,7 +575,7 @@ location ~ \.php$ {
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -721,7 +621,7 @@ location ~ \.php$ {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#nginx如何处理请求"><span class="nav-number">1.</span> <span class="nav-text">nginx如何处理请求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基于名称的虚拟服务器"><span class="nav-number">1.0.1.</span> <span class="nav-text">基于名称的虚拟服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何使用未定义的服务器名称防止处理请求"><span class="nav-number">1.0.2.</span> <span class="nav-text">如何使用未定义的服务器名称防止处理请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基于名称的混合和基于IP的虚拟服务器"><span class="nav-number">1.0.3.</span> <span class="nav-text">基于名称的混合和基于IP的虚拟服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一个简单的PHP站点配置"><span class="nav-number">1.0.4.</span> <span class="nav-text">一个简单的PHP站点配置</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">   nginx如何处理请求 </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">  基于名称的虚拟服务器 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">  如何使用未定义的服务器名称防止处理请求 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.3.</span> <span class="nav-text">  基于名称的混合和基于IP的虚拟服务器 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.4.</span> <span class="nav-text">  一个简单的PHP站点配置 </span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

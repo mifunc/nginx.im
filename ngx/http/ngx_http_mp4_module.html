@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="nginx," />
+  <meta name="keywords" content="LINUX,NGINX,JAVA,PYTHON,PYTHON,前端,运维实践" />
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="http,ngx_http_mp4_module">
-<meta name="keywords" content="nginx">
+<meta name="description" content="Module ngx_http_mp4_module Example Configuration  Directives      mp4      mp4_buffer_size      mp4_max_buffer_size      mp4_limit_rate      mp4_limit_rate_afte">
 <meta property="og:type" content="article">
-<meta property="og:title" content="http&#x2F;ngx_http_mp4_module-nginx中文手册">
+<meta property="og:title" content="IM.NGINX">
 <meta property="og:url" content="http://nginx.im/ngx/http/ngx_http_mp4_module.html">
 <meta property="og:site_name" content="IM.NGINX">
-<meta property="og:description" content="http,ngx_http_mp4_module">
+<meta property="og:description" content="Module ngx_http_mp4_module Example Configuration  Directives      mp4      mp4_buffer_size      mp4_max_buffer_size      mp4_limit_rate      mp4_limit_rate_after    ngx_http_mp4_module模块为MP4文件提供伪流服务器端">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:56:10.059Z">
+<meta property="og:updated_time" content="2018-12-21T08:09:35.814Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="http&#x2F;ngx_http_mp4_module-nginx中文手册">
-<meta name="twitter:description" content="http,ngx_http_mp4_module">
+<meta name="twitter:title" content="IM.NGINX">
+<meta name="twitter:description" content="Module ngx_http_mp4_module Example Configuration  Directives      mp4      mp4_buffer_size      mp4_max_buffer_size      mp4_limit_rate      mp4_limit_rate_after    ngx_http_mp4_module模块为MP4文件提供伪流服务器端">
 
 
 
@@ -126,7 +125,7 @@
 
 
 
-  <title>http/ngx_http_mp4_module-nginx中文手册 | IM.NGINX</title>
+  <title> | IM.NGINX</title>
   
 
 
@@ -324,7 +323,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">http/ngx_http_mp4_module-nginx中文手册</h2>
+          <h2 class="post-title" itemprop="name headline"></h2>
         
 
         <div class="post-meta">
@@ -336,7 +335,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
                 2018年12月21日
               </time>
             
@@ -346,28 +345,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx中文手册</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -396,81 +373,40 @@
       
 
       
-        <p>http,ngx_http_mp4_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-http-mp4-module"><a href="#Module-ngx-http-mp4-module" class="headerlink" title="Module ngx_http_mp4_module"></a>Module ngx_http_mp4_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#mp4">mp4</a> <br>     <a href="#mp4_buffer_size">mp4_buffer_size</a> <br>     <a href="#mp4_max_buffer_size">mp4_max_buffer_size</a> <br>     <a href="#mp4_limit_rate">mp4_limit_rate</a> <br>     <a href="#mp4_limit_rate_after">mp4_limit_rate_after</a> <br></td>
+        <p></p><h2 class="notranslate">Module ngx_http_mp4_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#example">Example Configuration</a> <br> <a hhref="#directives">Directives</a> <br>     <a hhref="#mp4">mp4</a> <br>     <a hhref="#mp4_buffer_size">mp4_buffer_size</a> <br>     <a hhref="#mp4_max_buffer_size">mp4_max_buffer_size</a> <br>     <a hhref="#mp4_limit_rate">mp4_limit_rate</a> <br>     <a hhref="#mp4_limit_rate_after">mp4_limit_rate_after</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_mp4_module</code>模块为MP4文件提供伪流服务器端支持。  此类文件通常具有<code class="notranslate">.mp4</code> ， <code class="notranslate">.m4v</code>或<code class="notranslate">.m4a</code>文件扩展名。 </p><p>  伪流与兼容的Flash播放器结合使用。  播放器使用查询字符串参数中指定的开始时间（仅命名为<code class="notranslate">start</code>并以秒为单位指定）向服务器发送HTTP请求，服务器以流响应，使其起始位置对应于请求的时间，例如： </p><blockquote class="example"><pre class="notranslate"><a href="http://example.com/elephants_dream.mp4?start=238.88" target="_blank" rel="noopener">http://example.com/elephants_dream.mp4?start=238.88</a><br></pre></blockquote><p>  这允许在任何时间执行随机搜索，或者在时间线的中间开始回放。 </p><p>  为了支持搜索，基于H.264的格式将元数据存储在所谓的“moov原子”中。  它是文件的一部分，用于保存整个文件的索引信息。 </p><p>  要开始播放，播放器首先需要读取元数据。  这是通过使用<code class="notranslate">start=0</code>参数发送特殊请求来完成的。  许多编码软件在文件末尾插入元数据。  这对于伪流是次优的，因为播放器必须在开始播放之前下载整个文件。  如果元数据位于文件的开头，则nginx只需开始发回文件内容就足够了。  如果元数据位于文件末尾，则nginx必须读取整个文件并准备新流，以便元数据位于媒体数据之前。  这涉及一些CPU，内存和磁盘I / O开销，因此最好事先<a hhref="http://flowplayer.org/plugins/streaming/pseudostreaming.html#prepare">准备一个用于伪流的原始文件</a> ，而不是让nginx在每个这样的请求上执行此操作。 </p><p>  该模块还支持HTTP请求的<code class="notranslate">end</code>参数（1.5.13），该请求设置回放的结束点。   <code class="notranslate">end</code>参数可以使用<code class="notranslate">start</code>参数指定，也可以单独指定： </p><blockquote class="example"><pre class="notranslate"><a href="http://example.com/elephants_dream.mp4?start=238.88&amp;end=555.55" target="_blank" rel="noopener">http://example.com/elephants_dream.mp4?start=238.88&amp;end=555.55</a><br></pre></blockquote><p></p><p>  对于具有非零<code class="notranslate">start</code>或<code class="notranslate">end</code>参数的匹配请求，nginx将从文件中读取元数据，准备具有所请求时间范围的流，并将其发送到客户端。  这具有与上述相同的开销。 </p><p>  如果匹配请求不包含<code class="notranslate">start</code>和<code class="notranslate">end</code>参数，则没有开销，并且文件仅作为静态资源发送。  一些播放器也支持字节范围请求，因此不需要此模块。 </p><p>  默认情况下不构建此模块，应使用<code class="notranslate">–with-http_mp4_module</code>配置参数启用它。 </p><blockquote class="note">  如果以前使用过第三方mp4模块，则应禁用它。 </blockquote><p></p><p>   <a hhref="ngx_http_flv_module.html">ngx_http_flv_module</a>模块提供了对FLV文件的类似伪流支持。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">location /video/ {<br>    mp4;<br>    mp4_buffer_size       1m;<br>    mp4_max_buffer_size   5m;<br>    mp4_limit_rate        on;<br>    mp4_limit_rate_after  30s;<br>}<br></pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="mp4"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>mp4</strong> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>—
 
-<p>   <code>ngx_http_mp4_module</code>模块为MP4文件提供伪流服务器端支持。  此类文件通常具有<code>.mp4</code> ， <code>.m4v</code>或<code>.m4a</code>文件扩展名。 </p>
-<p>  伪流与兼容的Flash播放器结合使用。  播放器使用查询字符串参数中指定的开始时间（仅命名为<code>start</code>并以秒为单位指定）向服务器发送HTTP请求，服务器以流响应，使其起始位置对应于请求的时间，例如： </p>
-<blockquote>
-<pre class="notranslate">http://example.com/elephants_dream.mp4?start=238.88
-</pre>
-
-</blockquote>
-<p>  这允许在任何时间执行随机搜索，或者在时间线的中间开始回放。 </p>
-<p>  为了支持搜索，基于H.264的格式将元数据存储在所谓的“moov原子”中。  它是文件的一部分，用于保存整个文件的索引信息。 </p>
-<p>  要开始播放，播放器首先需要读取元数据。  这是通过使用<code>start=0</code>参数发送特殊请求来完成的。  许多编码软件在文件末尾插入元数据。  这对于伪流是次优的，因为播放器必须在开始播放之前下载整个文件。  如果元数据位于文件的开头，则nginx只需开始发回文件内容就足够了。  如果元数据位于文件末尾，则nginx必须读取整个文件并准备新流，以便元数据位于媒体数据之前。  这涉及一些CPU，内存和磁盘I / O开销，因此最好事先<a href="http://flowplayer.org/plugins/streaming/pseudostreaming.html#prepare" target="_blank" rel="noopener">准备一个用于伪流的原始文件</a> ，而不是让nginx在每个这样的请求上执行此操作。 </p>
-<p>  该模块还支持HTTP请求的<code>end</code>参数（1.5.13），该请求设置回放的结束点。   <code>end</code>参数可以使用<code>start</code>参数指定，也可以单独指定： </p>
-<blockquote>
-<pre class="notranslate">http://example.com/elephants_dream.mp4?start=238.88&amp;end=555.55
-</pre>
-
-
-
-</blockquote>
-<p>  对于具有非零<code>start</code>或<code>end</code>参数的匹配请求，nginx将从文件中读取元数据，准备具有所请求时间范围的流，并将其发送到客户端。  这具有与上述相同的开销。 </p>
-<p>  如果匹配请求不包含<code>start</code>和<code>end</code>参数，则没有开销，并且文件仅作为静态资源发送。  一些播放器也支持字节范围请求，因此不需要此模块。 </p>
-<p>  默认情况下不构建此模块，应使用<code>--with-http_mp4_module</code>配置参数启用它。 </p>
-<blockquote>
-<p>  如果以前使用过第三方mp4模块，则应禁用它。 </p>
-</blockquote>
-<p>   <a href="ngx_http_flv_module.html">ngx_http_flv_module</a>模块提供了对FLV文件的类似伪流支持。 </p>
-<h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><blockquote>
-<pre class="notranslate">location /video/ {
-    mp4;
-    mp4_buffer_size       1m;
-    mp4_max_buffer_size   5m;
-    mp4_limit_rate        on;
-    mp4_limit_rate_after  30s;
-}
-</pre>
-
-
-
-</blockquote>
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**mp4** ;</code> <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>location</code> <br>                </td></p>
-<p>  打开周围位置的模块处理。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**mp4_buffer_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">mp4_buffer_size 512K;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  设置用于处理MP4文件的缓冲区的初始<code>*size*</code> 。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**mp4_max_buffer_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">mp4_max_buffer_size 10M;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  在元数据处理期间，可能需要更大的缓冲区。  它的大小不能超过指定的<code>*size*</code> ，否则nginx将返回500（内部服务器错误）服务器错误，并记录以下消息： </p>
-<blockquote>
-<pre class="notranslate">"/some/movie/file.mp4" mp4 moov atom is too large:
-12583268, you may want to increase mp4_max_buffer_size
-</pre>
-
-
-</blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**mp4_limit_rate**     &lt;code class=&quot;notranslate&quot;&gt;on</code> |    <code>off</code> |    <code>*factor*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">mp4_limit_rate off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  限制向客户端传输的响应速率。  根据所服务的MP4文件的平均比特率限制速率。  要计算速率，比特率乘以指定的<code>*factor*</code> 。  特殊值“ <code>on</code> ”对应于因子1.1。  特殊值“ <code>off</code> ”禁用速率限制。  根据请求设置限制，因此如果客户端同时打开两个连接，则总速率将是指定限制的两倍。 </p>
-<blockquote>
-<p>  该指令作为我们<a href="http://nginx.com/products/" target="_blank" rel="noopener">商业订阅的</a>一部分提供。 </p>
-</blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**mp4_limit_rate_after** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">mp4_limit_rate_after 60s;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  设置媒体数据的初始量（以回放时间测量），之后对客户端的进一步传输将是速率限制的。 </p>
-<blockquote>
-<p>  该指令作为我们<a href="http://nginx.com/products/" target="_blank" rel="noopener">商业订阅的</a>一部分提供。 </p>
-</blockquote>
-
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  打开周围位置的模块处理。 &lt;/p&gt;&lt;a name=&quot;mp4_buffer_size&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Syntax:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;mp4_buffer_size&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;size&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Default:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;pre class=&quot;notranslate&quot;&gt;mp4_buffer_size 512K;&lt;/pre&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  设置用于处理MP4文件的缓冲区的初始&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;size&lt;/i&gt;&lt;/code&gt; 。 &lt;/p&gt;&lt;a name=&quot;mp4_max_buffer_size&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Syntax:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;mp4_max_buffer_size&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;size&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Default:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;pre class=&quot;notranslate&quot;&gt;mp4_max_buffer_size 10M;&lt;/pre&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  在元数据处理期间，可能需要更大的缓冲区。  它的大小不能超过指定的&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;size&lt;/i&gt;&lt;/code&gt; ，否则nginx将返回500（内部服务器错误）服务器错误，并记录以下消息： &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;&quot;/some/movie/file.mp4&quot; mp4 moov atom is too large:
+</code></pre><p>12583268, you may want to increase mp4_max_buffer_size<br></p><p></p><a name="mp4_limit_rate"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>mp4_limit_rate</strong><br>    <code class="notranslate">on</code> |<br>    <code class="notranslate">off</code> |<br>    <code class="notranslate"><i>factor</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">mp4_limit_rate off;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table></div><p>  限制向客户端传输的响应速率。  根据所服务的MP4文件的平均比特率限制速率。  要计算速率，比特率乘以指定的<code class="notranslate"><i>factor</i></code> 。  特殊值“ <code class="notranslate">on</code> ”对应于因子1.1。  特殊值“ <code class="notranslate">off</code> ”禁用速率限制。  根据请求设置限制，因此如果客户端同时打开两个连接，则总速率将是指定限制的两倍。 </p><p></p><blockquote class="note">  该指令作为我们<a hhref="http://nginx.com/products/">商业订阅的</a>一部分提供。 </blockquote><p></p><a name="mp4_limit_rate_after"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>mp4_limit_rate_after</strong> <code class="notranslate"><i>time</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">mp4_limit_rate_after 60s;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table></div><p>  设置媒体数据的初始量（以回放时间测量），之后对客户端的进一步传输将是速率限制的。 </p><p></p><blockquote class="note">  该指令作为我们<a hhref="http://nginx.com/products/">商业订阅的</a>一部分提供。 </blockquote><p></p><br><span></span><div style="display: none;"></div><p></p>
+</td></tr></tbody></table></div>
       
     </div>
     
@@ -519,7 +455,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nginx.im/ngx/http/ngx_http_mp4_module.html" title="http/ngx_http_mp4_module-nginx中文手册">http://nginx.im/ngx/http/ngx_http_mp4_module.html</a>
+    <a href="http://nginx.im/ngx/http/ngx_http_mp4_module.html" title="">http://nginx.im/ngx/http/ngx_http_mp4_module.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -532,12 +468,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/nginx/" rel="tag"># nginx</a>
-          
-        </div>
-      
 
       
       
@@ -547,8 +477,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ngx/http/ngx_http_mirror_module.html" rel="next" title="http/ngx_http_mirror_module-nginx中文手册">
-                <i class="fa fa-chevron-left"></i> http/ngx_http_mirror_module-nginx中文手册
+              <a href="/ngx/http/ngx_http_mirror_module.html" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -557,8 +487,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ngx/http/ngx_http_perl_module.html" rel="prev" title="http/ngx_http_perl_module-nginx中文手册">
-                http/ngx_http_perl_module-nginx中文手册 <i class="fa fa-chevron-right"></i>
+              <a href="/ngx/http/ngx_http_perl_module.html" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -656,7 +586,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -702,7 +632,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-mp4-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_mp4_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_mp4_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">  示例配置 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">  指令 </span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

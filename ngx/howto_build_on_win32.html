@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="nginx," />
+  <meta name="keywords" content="LINUX,NGINX,JAVA,PYTHON,PYTHON,前端,运维实践" />
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="howto_build_on_win32">
-<meta name="keywords" content="nginx">
+<meta name="description" content="使用Visual C在Win32平台上构建nginx  Build steps  See also   先决条件   要在MicrosoftWin32®平台上构建nginx，您需要：    Microsoft Visual C编译器。  已知Microsoft VisualStudio®8和10可以使用。    MSY">
 <meta property="og:type" content="article">
-<meta property="og:title" content="howto_build_on_win32-nginx中文手册">
+<meta property="og:title" content="IM.NGINX">
 <meta property="og:url" content="http://nginx.im/ngx/howto_build_on_win32.html">
 <meta property="og:site_name" content="IM.NGINX">
-<meta property="og:description" content="howto_build_on_win32">
+<meta property="og:description" content="使用Visual C在Win32平台上构建nginx  Build steps  See also   先决条件   要在MicrosoftWin32®平台上构建nginx，您需要：    Microsoft Visual C编译器。  已知Microsoft VisualStudio®8和10可以使用。    MSYS 。    Perl，如果你想用SSL支持构建OpenSSL®和nginx">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:56:06.723Z">
+<meta property="og:updated_time" content="2018-12-21T08:09:34.562Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="howto_build_on_win32-nginx中文手册">
-<meta name="twitter:description" content="howto_build_on_win32">
+<meta name="twitter:title" content="IM.NGINX">
+<meta name="twitter:description" content="使用Visual C在Win32平台上构建nginx  Build steps  See also   先决条件   要在MicrosoftWin32®平台上构建nginx，您需要：    Microsoft Visual C编译器。  已知Microsoft VisualStudio®8和10可以使用。    MSYS 。    Perl，如果你想用SSL支持构建OpenSSL®和nginx">
 
 
 
@@ -126,7 +125,7 @@
 
 
 
-  <title>howto_build_on_win32-nginx中文手册 | IM.NGINX</title>
+  <title> | IM.NGINX</title>
   
 
 
@@ -324,7 +323,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">howto_build_on_win32-nginx中文手册</h2>
+          <h2 class="post-title" itemprop="name headline"></h2>
         
 
         <div class="post-meta">
@@ -336,7 +335,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
                 2018年12月21日
               </time>
             
@@ -346,28 +345,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx中文手册</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -396,38 +373,7 @@
       
 
       
-        <p>howto_build_on_win32<br><a id="more"></a></p>
-<h2 id="使用Visual-C在Win32平台上构建nginx"><a href="#使用Visual-C在Win32平台上构建nginx" class="headerlink" title="使用Visual C在Win32平台上构建nginx"></a>使用Visual C在Win32平台上构建nginx</h2><td align="left" class="notranslate"> <a href="#build_steps">Build steps</a> <br> <a href="#see_also">See also</a> <br></td>
-
-<h4 id="先决条件"><a href="#先决条件" class="headerlink" title="先决条件"></a>先决条件</h4><p>  要在MicrosoftWin32®平台上构建nginx，您需要： </p>
-<ul>
-<li>Microsoft Visual C编译器。  已知Microsoft VisualStudio®8和10可以使用。 -    <a href="http://www.mingw.org/wiki/MSYS" target="_blank" rel="noopener">MSYS</a> 。 -    Perl，如果你想用SSL支持构建OpenSSL®和nginx。  例如<a href="http://www.activestate.com/activeperl" target="_blank" rel="noopener">ActivePerl</a>或<a href="http://strawberryperl.com" target="_blank" rel="noopener">Strawberry Perl</a> 。 -    <a href="https://www.mercurial-scm.org" target="_blank" rel="noopener">Mercurial</a>客户。 -    <a href="http://www.pcre.org" target="_blank" rel="noopener">PCRE</a> ， <a href="http://zlib.net" target="_blank" rel="noopener">zlib</a>和<a href="http://www.openssl.org" target="_blank" rel="noopener">OpenSSL</a>库源。 </li>
-</ul>
-<h4 id="构建步骤"><a href="#构建步骤" class="headerlink" title="构建步骤"></a>构建步骤</h4><p>  确保在开始构建之前将Perl，Mercurial和MSYS bin目录的路径添加到PATH环境变量中。  要设置Visual C环境，请从Visual C目录运行vcvarsall.bat脚本。 </p>
-<p>  要构建nginx： </p>
-<ul>
-<li>启动MSYS bash。 </li><li>  查看hg.nginx.org存储库中的nginx源代码。  例如： <blockquote class="example"><pre class="notranslate">hg clone <a href="http://hg.nginx.org/nginx" target="_blank" rel="noopener">http://hg.nginx.org/nginx</a><br></pre></blockquote></li><li>  创建一个build和lib目录，并将zlib，PCRE和OpenSSL库源解压缩到lib目录中： <blockquote class="example"><pre class="notranslate">mkdir objs<br>mkdir objs/lib<br>cd objs/lib<br>tar -xzf ../../pcre-8.42.tar.gz<br>tar -xzf ../../zlib-1.2.11.tar.gz<br>tar -xzf ../../openssl-1.0.2q.tar.gz<br></pre></blockquote></li><li>  运行configure脚本： <blockquote class="example"><pre class="notranslate">auto/configure \<br>–with-cc=cl \<br>–with-debug \<br>–prefix= \<br>–conf-path=conf/nginx.conf \<br>–pid-path=logs/nginx.pid \<br>–http-log-path=logs/access.log \<br>–error-log-path=logs/error.log \<br>–sbin-path=nginx.exe \<br>–http-client-body-temp-path=temp/client_body_temp \<br>–http-proxy-temp-path=temp/proxy_temp \<br>–http-fastcgi-temp-path=temp/fastcgi_temp \<br>–http-scgi-temp-path=temp/scgi_temp \<br>–http-uwsgi-temp-path=temp/uwsgi_temp \<br>–with-cc-opt=-DFD_SETSIZE=1024 \<br>–with-pcre=objs/lib/pcre-8.42 \<br>–with-zlib=objs/lib/zlib-1.2.11 \<br>–with-openssl=objs/lib/openssl-1.0.2q \<br>–with-openssl-opt=no-asm \<br>–with-select_module \<br>–with-http_ssl_module<br></pre></blockquote></li><li>  运行make： <blockquote class="example"><pre class="notranslate">nmake<br></pre></blockquote></li><blockquote>
-<pre class="notranslate">mkdir objs
-mkdir objs/lib
-cd objs/lib
-tar -xzf ../../pcre-8.42.tar.gz
-tar -xzf ../../zlib-1.2.11.tar.gz
-tar -xzf ../../openssl-1.0.2q.tar.gz
-</pre>
-
-</blockquote>
-
-</ul>
-<blockquote>
-<pre class="notranslate">nmake
-</pre>
-
-
-
-</blockquote>
-<h4 id="也可以看看"><a href="#也可以看看" class="headerlink" title="也可以看看"></a>也可以看看</h4><ul>
-<li><a href="windows.html">适用于Windows的nginx</a> </li>
-</ul>
+        <p></p><h2>  使用Visual C在Win32平台上构建nginx </h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#build_steps">Build steps</a> <br> <a hhref="#see_also">See also</a> <br></td></tr></tbody></table><center><h4>  先决条件 </h4></center><p>  要在MicrosoftWin32®平台上构建nginx，您需要： </p><ul class="compact"><li>   Microsoft Visual C编译器。  已知Microsoft VisualStudio®8和10可以使用。 </li><li>   <a hhref="http://www.mingw.org/wiki/MSYS">MSYS</a> 。 </li><li>   Perl，如果你想用SSL支持构建OpenSSL®和nginx。  例如<a hhref="http://www.activestate.com/activeperl">ActivePerl</a>或<a hhref="http://strawberryperl.com">Strawberry Perl</a> 。 </li><li>   <a hhref="https://www.mercurial-scm.org">Mercurial</a>客户。 </li><li>   <a hhref="http://www.pcre.org">PCRE</a> ， <a hhref="http://zlib.net">zlib</a>和<a hhref="http://www.openssl.org">OpenSSL</a>库源。 </li></ul><p></p><a name="build_steps"></a><center><h4>  构建步骤 </h4></center><p>  确保在开始构建之前将Perl，Mercurial和MSYS bin目录的路径添加到PATH环境变量中。  要设置Visual C环境，请从Visual C目录运行vcvarsall.bat脚本。 </p><p>  要构建nginx： </p><ul class="compact"><li>  启动MSYS bash。 </li><li>  查看hg.nginx.org存储库中的nginx源代码。  例如： <blockquote class="example"><pre class="notranslate">hg clone <a href="http://hg.nginx.org/nginx" target="_blank" rel="noopener">http://hg.nginx.org/nginx</a><br></pre></blockquote></li><li>  创建一个build和lib目录，并将zlib，PCRE和OpenSSL库源解压缩到lib目录中： <blockquote class="example"><pre class="notranslate">mkdir objs<br>mkdir objs/lib<br>cd objs/lib<br>tar -xzf ../../pcre-8.42.tar.gz<br>tar -xzf ../../zlib-1.2.11.tar.gz<br>tar -xzf ../../openssl-1.0.2q.tar.gz<br></pre></blockquote></li><li>  运行configure脚本： <blockquote class="example"><pre class="notranslate">auto/configure \<br>    –with-cc=cl \<br>    –with-debug \<br>    –prefix= \<br>    –conf-path=conf/nginx.conf \<br>    –pid-path=logs/nginx.pid \<br>    –http-log-path=logs/access.log \<br>    –error-log-path=logs/error.log \<br>    –sbin-path=nginx.exe \<br>    –http-client-body-temp-path=temp/client_body_temp \<br>    –http-proxy-temp-path=temp/proxy_temp \<br>    –http-fastcgi-temp-path=temp/fastcgi_temp \<br>    –http-scgi-temp-path=temp/scgi_temp \<br>    –http-uwsgi-temp-path=temp/uwsgi_temp \<br>    –with-cc-opt=-DFD_SETSIZE=1024 \<br>    –with-pcre=objs/lib/pcre-8.42 \<br>    –with-zlib=objs/lib/zlib-1.2.11 \<br>    –with-openssl=objs/lib/openssl-1.0.2q \<br>    –with-openssl-opt=no-asm \<br>    –with-select_module \<br>    –with-http_ssl_module<br></pre></blockquote></li><li>  运行make： <blockquote class="example"><pre class="notranslate">nmake<br></pre></blockquote></li></ul><p></p><a name="see_also"></a><center><h4>  也可以看看 </h4></center><p></p><ul class="compact"><li>   <a hhref="windows.html">适用于Windows的nginx</a> </li></ul><p></p><br><span></span><div style="display: none;"></div><p></p>
 
       
     </div>
@@ -477,7 +423,7 @@ tar -xzf ../../openssl-1.0.2q.tar.gz
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nginx.im/ngx/howto_build_on_win32.html" title="howto_build_on_win32-nginx中文手册">http://nginx.im/ngx/howto_build_on_win32.html</a>
+    <a href="http://nginx.im/ngx/howto_build_on_win32.html" title="">http://nginx.im/ngx/howto_build_on_win32.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -490,12 +436,6 @@ tar -xzf ../../openssl-1.0.2q.tar.gz
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/nginx/" rel="tag"># nginx</a>
-          
-        </div>
-      
 
       
       
@@ -505,8 +445,8 @@ tar -xzf ../../openssl-1.0.2q.tar.gz
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ngx/hash.html" rel="next" title="hash-nginx中文手册">
-                <i class="fa fa-chevron-left"></i> hash-nginx中文手册
+              <a href="/ngx/hash.html" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -515,8 +455,8 @@ tar -xzf ../../openssl-1.0.2q.tar.gz
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ngx/index.html" rel="prev" title="index-nginx中文手册">
-                index-nginx中文手册 <i class="fa fa-chevron-right"></i>
+              <a href="/ngx/index.html" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -614,7 +554,7 @@ tar -xzf ../../openssl-1.0.2q.tar.gz
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -660,7 +600,7 @@ tar -xzf ../../openssl-1.0.2q.tar.gz
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Visual-C在Win32平台上构建nginx"><span class="nav-number">1.</span> <span class="nav-text">使用Visual C在Win32平台上构建nginx</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#先决条件"><span class="nav-number">1.0.1.</span> <span class="nav-text">先决条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构建步骤"><span class="nav-number">1.0.2.</span> <span class="nav-text">构建步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#也可以看看"><span class="nav-number">1.0.3.</span> <span class="nav-text">也可以看看</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">  使用Visual C在Win32平台上构建nginx </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">  先决条件 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">  构建步骤 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.3.</span> <span class="nav-text">  也可以看看 </span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

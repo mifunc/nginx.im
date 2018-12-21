@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="nginx," />
+  <meta name="keywords" content="LINUX,NGINX,JAVA,PYTHON,PYTHON,前端,运维实践" />
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="http,ngx_http_referer_module">
-<meta name="keywords" content="nginx">
+<meta name="description" content="Module ngx_http_referer_module Example Configuration  Directives      referer_hash_bucket_size      referer_hash_max_size      valid_referers  Embedded Variable">
 <meta property="og:type" content="article">
-<meta property="og:title" content="http&#x2F;ngx_http_referer_module-nginx中文手册">
+<meta property="og:title" content="IM.NGINX">
 <meta property="og:url" content="http://nginx.im/ngx/http/ngx_http_referer_module.html">
 <meta property="og:site_name" content="IM.NGINX">
-<meta property="og:description" content="http,ngx_http_referer_module">
+<meta property="og:description" content="Module ngx_http_referer_module Example Configuration  Directives      referer_hash_bucket_size      referer_hash_max_size      valid_referers  Embedded Variables    ngx_http_referer_module模块用于阻止对“Refe">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:56:10.507Z">
+<meta property="og:updated_time" content="2018-12-21T08:09:36.053Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="http&#x2F;ngx_http_referer_module-nginx中文手册">
-<meta name="twitter:description" content="http,ngx_http_referer_module">
+<meta name="twitter:title" content="IM.NGINX">
+<meta name="twitter:description" content="Module ngx_http_referer_module Example Configuration  Directives      referer_hash_bucket_size      referer_hash_max_size      valid_referers  Embedded Variables    ngx_http_referer_module模块用于阻止对“Refe">
 
 
 
@@ -126,7 +125,7 @@
 
 
 
-  <title>http/ngx_http_referer_module-nginx中文手册 | IM.NGINX</title>
+  <title> | IM.NGINX</title>
   
 
 
@@ -324,7 +323,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">http/ngx_http_referer_module-nginx中文手册</h2>
+          <h2 class="post-title" itemprop="name headline"></h2>
         
 
         <div class="post-meta">
@@ -336,7 +335,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
                 2018年12月21日
               </time>
             
@@ -346,28 +345,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx中文手册</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -396,40 +373,19 @@
       
 
       
-        <p>http,ngx_http_referer_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-http-referer-module"><a href="#Module-ngx-http-referer-module" class="headerlink" title="Module ngx_http_referer_module"></a>Module ngx_http_referer_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#referer_hash_bucket_size">referer_hash_bucket_size</a> <br>     <a href="#referer_hash_max_size">referer_hash_max_size</a> <br>     <a href="#valid_referers">valid_referers</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
+        <p></p><h2 class="notranslate">Module ngx_http_referer_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#example">Example Configuration</a> <br> <a hhref="#directives">Directives</a> <br>     <a hhref="#referer_hash_bucket_size">referer_hash_bucket_size</a> <br>     <a hhref="#referer_hash_max_size">referer_hash_max_size</a> <br>     <a hhref="#valid_referers">valid_referers</a> <br> <a hhref="#variables">Embedded Variables</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_referer_module</code>模块用于阻止对“Referer”头字段中具有无效值的请求访问站点。  应该记住，使用适当的“Referer”字段值来构造请求非常容易，因此本模块的预期目的不是要彻底阻止此类请求，而是阻止常规浏览器发送的请求的大量流量。  还应该考虑到，即使对于有效请求，常规浏览器也可能不发送“Referer”字段。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">valid_referers none blocked server_names<br>               <em>.example.com example.</em> www.example.org/galleries/<br>               ~.google.;<p></p>
+<p>if ($invalid_referer) {<br>    return 403;<br>}<br></p></pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="referer_hash_bucket_size"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>referer_hash_bucket_size</strong> <code class="notranslate"><i>size</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">referer_hash_bucket_size 64;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table><p>  该指令出现在1.0.5版本中。 </p></div><p>  设置有效引用散列表的存储区大小。  设置哈希表的详细信息在单独的<a hhref="hash.html">文档</a>中提供。 </p><a name="referer_hash_max_size"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>referer_hash_max_size</strong> <code class="notranslate"><i>size</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">referer_hash_max_size 2048;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table><p>  该指令出现在1.0.5版本中。 </p></div><p>  设置有效引用者哈希表的最大<code class="notranslate"><i>size</i></code> 。  设置哈希表的详细信息在单独的<a hhref="hash.html">文档</a>中提供。 </p><a name="valid_referers"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>valid_referers</strong><br>    <code class="notranslate">none</code> |<br>    <code class="notranslate">blocked</code> |<br>    <code class="notranslate">server_names</code> |<br>    <code class="notranslate"><i>string</i></code><br>    …;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>—
 
-<p>   <code>ngx_http_referer_module</code>模块用于阻止对“Referer”头字段中具有无效值的请求访问站点。  应该记住，使用适当的“Referer”字段值来构造请求非常容易，因此本模块的预期目的不是要彻底阻止此类请求，而是阻止常规浏览器发送的请求的大量流量。  还应该考虑到，即使对于有效请求，常规浏览器也可能不发送“Referer”字段。 </p>
-<h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><blockquote>
-<p><pre class="notranslate">valid_referers none blocked server_names<br>               <em>.example.com example.</em> www.example.org/galleries/<br>               ~.google.;</pre></p>
-</blockquote>
-<p>if ($invalid_referer) {<br>    return 403;<br>}<br></p>
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**referer_hash_bucket_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">referer_hash_bucket_size 64;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  该指令出现在1.0.5版本中。 </p>
-<p>  设置有效引用散列表的存储区大小。  设置哈希表的详细信息在单独的<a href="hash.html">文档</a>中提供。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**referer_hash_max_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">referer_hash_max_size 2048;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  该指令出现在1.0.5版本中。 </p>
-<p>  设置有效引用者哈希表的最大<code>*size*</code> 。  设置哈希表的详细信息在单独的<a href="hash.html">文档</a>中提供。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**valid_referers**     &lt;code class=&quot;notranslate&quot;&gt;none</code> |    <code>blocked</code> |    <code>server_names</code> |    <code>*string*</code>    …; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  指定将导致嵌入的<code>$invalid_referer</code>变量设置为空字符串的“Referer”请求标头字段值。  否则，变量将设置为“ <code>1</code> ”。  搜索匹配不区分大小写。 </p>
-<p>  参数可以如下： </p>
-<p>  例： </p>
-<blockquote>
-<pre class="notranslate">valid_referers none blocked server_names
-               *.example.com example.* www.example.org/galleries/
-               ~\.google\.;
-</pre>
-
-
-
-</blockquote>
-<h4 id="嵌入式变量"><a href="#嵌入式变量" class="headerlink" title="嵌入式变量"></a>嵌入式变量</h4>
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  指定将导致嵌入的&lt;code class=&quot;notranslate&quot;&gt;$invalid_referer&lt;/code&gt;变量设置为空字符串的“Referer”请求标头字段值。  否则，变量将设置为“ &lt;code class=&quot;notranslate&quot;&gt;1&lt;/code&gt; ”。  搜索匹配不区分大小写。 &lt;/p&gt;&lt;p&gt;  参数可以如下： &lt;/p&gt;&lt;dl class=&quot;compact&quot;&gt;&lt;dt&gt; &lt;code class=&quot;notranslate&quot;&gt;none&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  请求标头中缺少“Referer”字段; &lt;/dd&gt;&lt;dt&gt; &lt;code class=&quot;notranslate&quot;&gt;blocked&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;   “Referer”字段出现在请求标头中，但其值已被防火墙或代理服务器删除;  这些值是不以“ &lt;code class=&quot;notranslate&quot;&gt;http://&lt;/code&gt; ”或“ &lt;code class=&quot;notranslate&quot;&gt;https://&lt;/code&gt; ”开头的字符串; &lt;/dd&gt;&lt;dt&gt; &lt;code class=&quot;notranslate&quot;&gt;server_names&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;   “Referer”请求头字段包含一个服务器名称; &lt;/dd&gt;&lt;dt&gt;  任意字串 &lt;/dt&gt;&lt;dd&gt;  定义服务器名称和可选的URI前缀。  服务器名称的开头或结尾可以包含“ &lt;code class=&quot;notranslate&quot;&gt;*&lt;/code&gt; ”。  在检查期间，“Referer”字段中的服务器端口被忽略; &lt;/dd&gt;&lt;dt&gt;  正则表达式 &lt;/dt&gt;&lt;dd&gt;  第一个符号应为“ &lt;code class=&quot;notranslate&quot;&gt;~&lt;/code&gt; ”。  应该注意的是，表达式将与“ &lt;code class=&quot;notranslate&quot;&gt;http://&lt;/code&gt; ”或“ &lt;code class=&quot;notranslate&quot;&gt;https://&lt;/code&gt; ”之后的文本匹配。 &lt;/dd&gt;&lt;/dl&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;  例： &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;valid_referers none blocked server_names
+   *.example.com example.* www.example.org/galleries/
+   ~\.google\.;
+</code></pre><p></p><p></p><a name="variables"></a><center><h4>  嵌入式变量 </h4></center><p></p><dl class="compact"><dt id="var_invalid_referer"> <code class="notranslate">$invalid_referer</code> </dt> <dd>  空字符串，如果“Referer”请求标头字段值被认为<a hhref="#valid_referers">有效</a> ，否则为“ <code class="notranslate">1</code> ”。 </dd></dl><p></p><br><span></span><div style="display: none;"></div><p></p>
+</td></tr></tbody></table></div>
       
     </div>
     
@@ -478,7 +434,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nginx.im/ngx/http/ngx_http_referer_module.html" title="http/ngx_http_referer_module-nginx中文手册">http://nginx.im/ngx/http/ngx_http_referer_module.html</a>
+    <a href="http://nginx.im/ngx/http/ngx_http_referer_module.html" title="">http://nginx.im/ngx/http/ngx_http_referer_module.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -491,12 +447,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/nginx/" rel="tag"># nginx</a>
-          
-        </div>
-      
 
       
       
@@ -506,8 +456,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ngx/http/ngx_http_realip_module.html" rel="next" title="http/ngx_http_realip_module-nginx中文手册">
-                <i class="fa fa-chevron-left"></i> http/ngx_http_realip_module-nginx中文手册
+              <a href="/ngx/http/ngx_http_realip_module.html" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -516,8 +466,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ngx/http/ngx_http_rewrite_module.html" rel="prev" title="http/ngx_http_rewrite_module-nginx中文手册">
-                http/ngx_http_rewrite_module-nginx中文手册 <i class="fa fa-chevron-right"></i>
+              <a href="/ngx/http/ngx_http_rewrite_module.html" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -615,7 +565,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -661,7 +611,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-referer-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_referer_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌入式变量"><span class="nav-number">1.0.3.</span> <span class="nav-text">嵌入式变量</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_referer_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">  示例配置 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">  指令 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.3.</span> <span class="nav-text">  嵌入式变量 </span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

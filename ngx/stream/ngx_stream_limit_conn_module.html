@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="nginx," />
+  <meta name="keywords" content="LINUX,NGINX,JAVA,PYTHON,PYTHON,前端,运维实践" />
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="stream,ngx_stream_limit_conn_module">
-<meta name="keywords" content="nginx">
+<meta name="description" content="Module ngx_stream_limit_conn_module Example Configuration  Directives      limit_conn      limit_conn_log_level      limit_conn_zone    ngx_stream_limit_conn_mo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="stream&#x2F;ngx_stream_limit_conn_module-nginx中文手册">
+<meta property="og:title" content="IM.NGINX">
 <meta property="og:url" content="http://nginx.im/ngx/stream/ngx_stream_limit_conn_module.html">
 <meta property="og:site_name" content="IM.NGINX">
-<meta property="og:description" content="stream,ngx_stream_limit_conn_module">
+<meta property="og:description" content="Module ngx_stream_limit_conn_module Example Configuration  Directives      limit_conn      limit_conn_log_level      limit_conn_zone    ngx_stream_limit_conn_module模块（1.9.3）用于限制每个定义密钥的连接数，特别是来自单个IP地址的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:56:12.356Z">
+<meta property="og:updated_time" content="2018-12-21T08:09:37.163Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="stream&#x2F;ngx_stream_limit_conn_module-nginx中文手册">
-<meta name="twitter:description" content="stream,ngx_stream_limit_conn_module">
+<meta name="twitter:title" content="IM.NGINX">
+<meta name="twitter:description" content="Module ngx_stream_limit_conn_module Example Configuration  Directives      limit_conn      limit_conn_log_level      limit_conn_zone    ngx_stream_limit_conn_module模块（1.9.3）用于限制每个定义密钥的连接数，特别是来自单个IP地址的">
 
 
 
@@ -126,7 +125,7 @@
 
 
 
-  <title>stream/ngx_stream_limit_conn_module-nginx中文手册 | IM.NGINX</title>
+  <title> | IM.NGINX</title>
   
 
 
@@ -324,7 +323,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">stream/ngx_stream_limit_conn_module-nginx中文手册</h2>
+          <h2 class="post-title" itemprop="name headline"></h2>
         
 
         <div class="post-meta">
@@ -336,7 +335,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
                 2018年12月21日
               </time>
             
@@ -346,28 +345,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx中文手册</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -396,13 +373,7 @@
       
 
       
-        <p>stream,ngx_stream_limit_conn_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-stream-limit-conn-module"><a href="#Module-ngx-stream-limit-conn-module" class="headerlink" title="Module ngx_stream_limit_conn_module"></a>Module ngx_stream_limit_conn_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#limit_conn">limit_conn</a> <br>     <a href="#limit_conn_log_level">limit_conn_log_level</a> <br>     <a href="#limit_conn_zone">limit_conn_zone</a> <br></td>
-
-<p>   <code>ngx_stream_limit_conn_module</code>模块（1.9.3）用于限制每个定义密钥的连接数，特别是来自单个IP地址的连接数。 </p>
-<h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><blockquote>
-<p><pre class="notranslate">stream {<br>    limit_conn_zone $binary_remote_addr zone=addr:10m;</pre></p>
-</blockquote>
+        <p></p><h2 class="notranslate">Module ngx_stream_limit_conn_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#example">Example Configuration</a> <br> <a hhref="#directives">Directives</a> <br>     <a hhref="#limit_conn">limit_conn</a> <br>     <a hhref="#limit_conn_log_level">limit_conn_log_level</a> <br>     <a hhref="#limit_conn_zone">limit_conn_zone</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_stream_limit_conn_module</code>模块（1.9.3）用于限制每个定义密钥的连接数，特别是来自单个IP地址的连接数。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">stream {<br>    limit_conn_zone $binary_remote_addr zone=addr:10m;<p></p>
 <pre><code>...
 
 server {
@@ -412,33 +383,24 @@ server {
     limit_conn           addr 1;
     limit_conn_log_level error;
 }
-</code></pre><p>}<br></p>
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**limit_conn** &lt;code class=&quot;notranslate&quot;&gt;*zone*</code> <code>*number*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  设置共享内存区域和给定键值的最大允许连接数。  超过此限制时，服务器将关闭连接。  例如，指令 </p>
-<blockquote>
-<p><pre class="notranslate">limit_conn_zone $binary_remote_addr zone=addr:10m;</pre></p>
-</blockquote>
-<p>server {<br>    …<br>    limit_conn addr 1;<br>}<br></p>
-<p>  每次只允许一个IP地址连接一个。 </p>
-<p>  如果指定了几个<code>limit_conn</code>指令，则将应用任何已配置的限制。 </p>
-<p>  当且仅当当前级别没有<code>limit_conn</code>指令时，指令才从前一级继承。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**limit_conn_log_level** &lt;code class=&quot;notranslate&quot;&gt;info</code> |<code>notice</code> |<code>warn</code> |<code>error</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">limit_conn_log_level error;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  为服务器限制连接数的情况设置所需的日志记录级别。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**limit_conn_zone**     &lt;code class=&quot;notranslate&quot;&gt;*key*</code>    <code>zone</code> = <code>*name*</code> : <code>*size*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> <br>                </td></p>
-<p>  设置共享内存区域的参数，该区域将保留各种键的状态。  特别是，状态包括当前的连接数。   <code>*key*</code>可以包含文本，变量及其组合（1.11.2）。  不计算具有空键值的连接。  用法示例： </p>
-<blockquote>
-<pre class="notranslate">limit_conn_zone $binary_remote_addr zone=addr:10m;
-</pre>
+</code></pre><p>}<br></p></pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="limit_conn"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>limit_conn</strong> <code class="notranslate"><i>zone</i></code> <code class="notranslate"><i>number</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>—
 
-</blockquote>
-<p>  这里，密钥是<code>$binary_remote_addr</code>变量设置的客户端IP地址。   <code>$binary_remote_addr</code>的大小为IPv4地址的4个字节或IPv6地址的16个字节。  存储状态在32位平台上总是占用32或64字节，在64位平台上占用64字节。  一兆字节区域可以保留大约32,000个32字节状态或大约16,000个64字节状态。  如果区域存储耗尽，服务器将关闭连接。 </p>
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  设置共享内存区域和给定键值的最大允许连接数。  超过此限制时，服务器将关闭连接。  例如，指令 &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;limit_conn_zone $binary_remote_addr zone=addr:10m;
+</code></pre><p>server {<br>    …<br>    limit_conn addr 1;<br>}<br></p><p>  每次只允许一个IP地址连接一个。 </p><p>  如果指定了几个<code class="notranslate">limit_conn</code>指令，则将应用任何已配置的限制。 </p><p>  当且仅当当前级别没有<code class="notranslate">limit_conn</code>指令时，指令才从前一级继承。 </p><a name="limit_conn_log_level"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>limit_conn_log_level</strong><br><code class="notranslate">info</code> |<br><code class="notranslate">notice</code> |<br><code class="notranslate">warn</code> |<br><code class="notranslate">error</code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">limit_conn_log_level error;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br><br>                </td></tr></tbody></table></div><p>  为服务器限制连接数的情况设置所需的日志记录级别。 </p><a name="limit_conn_zone"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>limit_conn_zone</strong><br>    <code class="notranslate"><i>key</i></code><br>    <code class="notranslate">zone</code> = <code class="notranslate"><i>name</i></code> : <code class="notranslate"><i>size</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>—
 
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  设置共享内存区域的参数，该区域将保留各种键的状态。  特别是，状态包括当前的连接数。   &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;key&lt;/i&gt;&lt;/code&gt;可以包含文本，变量及其组合（1.11.2）。  不计算具有空键值的连接。  用法示例： &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;limit_conn_zone $binary_remote_addr zone=addr:10m;
+</code></pre><p></p><p>  这里，密钥是<code class="notranslate">$binary_remote_addr</code>变量设置的客户端IP地址。   <code class="notranslate">$binary_remote_addr</code>的大小为IPv4地址的4个字节或IPv6地址的16个字节。  存储状态在32位平台上总是占用32或64字节，在64位平台上占用64字节。  一兆字节区域可以保留大约32,000个32字节状态或大约16,000个64字节状态。  如果区域存储耗尽，服务器将关闭连接。 </p><br><span></span><div style="display: none;"></div><p></p>
+</td></tr></tbody></table></div></td></tr></tbody></table></div>
       
     </div>
     
@@ -487,7 +449,7 @@ server {
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nginx.im/ngx/stream/ngx_stream_limit_conn_module.html" title="stream/ngx_stream_limit_conn_module-nginx中文手册">http://nginx.im/ngx/stream/ngx_stream_limit_conn_module.html</a>
+    <a href="http://nginx.im/ngx/stream/ngx_stream_limit_conn_module.html" title="">http://nginx.im/ngx/stream/ngx_stream_limit_conn_module.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -500,12 +462,6 @@ server {
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/nginx/" rel="tag"># nginx</a>
-          
-        </div>
-      
 
       
       
@@ -515,8 +471,8 @@ server {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ngx/stream/ngx_stream_keyval_module.html" rel="next" title="stream/ngx_stream_keyval_module-nginx中文手册">
-                <i class="fa fa-chevron-left"></i> stream/ngx_stream_keyval_module-nginx中文手册
+              <a href="/ngx/stream/ngx_stream_keyval_module.html" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -525,8 +481,8 @@ server {
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ngx/stream/ngx_stream_log_module.html" rel="prev" title="stream/ngx_stream_log_module-nginx中文手册">
-                stream/ngx_stream_log_module-nginx中文手册 <i class="fa fa-chevron-right"></i>
+              <a href="/ngx/stream/ngx_stream_log_module.html" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -624,7 +580,7 @@ server {
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -670,7 +626,7 @@ server {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-stream-limit-conn-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_stream_limit_conn_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_stream_limit_conn_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">  示例配置 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">  指令 </span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

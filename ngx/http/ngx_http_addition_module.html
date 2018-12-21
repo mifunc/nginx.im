@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="nginx," />
+  <meta name="keywords" content="LINUX,NGINX,JAVA,PYTHON,PYTHON,前端,运维实践" />
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="http,ngx_http_addition_module">
-<meta name="keywords" content="nginx">
+<meta name="description" content="Module ngx_http_addition_module Example Configuration  Directives      add_before_body      add_after_body      addition_types    ngx_http_addition_module模块是一个过">
 <meta property="og:type" content="article">
-<meta property="og:title" content="http&#x2F;ngx_http_addition_module-nginx中文手册">
+<meta property="og:title" content="IM.NGINX">
 <meta property="og:url" content="http://nginx.im/ngx/http/ngx_http_addition_module.html">
 <meta property="og:site_name" content="IM.NGINX">
-<meta property="og:description" content="http,ngx_http_addition_module">
+<meta property="og:description" content="Module ngx_http_addition_module Example Configuration  Directives      add_before_body      add_after_body      addition_types    ngx_http_addition_module模块是一个过滤器，用于在响应之前和之后添加文本。  默认情况下不构建此模块，应使用–with">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:56:08.376Z">
+<meta property="og:updated_time" content="2018-12-21T08:09:34.920Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="http&#x2F;ngx_http_addition_module-nginx中文手册">
-<meta name="twitter:description" content="http,ngx_http_addition_module">
+<meta name="twitter:title" content="IM.NGINX">
+<meta name="twitter:description" content="Module ngx_http_addition_module Example Configuration  Directives      add_before_body      add_after_body      addition_types    ngx_http_addition_module模块是一个过滤器，用于在响应之前和之后添加文本。  默认情况下不构建此模块，应使用–with">
 
 
 
@@ -126,7 +125,7 @@
 
 
 
-  <title>http/ngx_http_addition_module-nginx中文手册 | IM.NGINX</title>
+  <title> | IM.NGINX</title>
   
 
 
@@ -324,7 +323,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">http/ngx_http_addition_module-nginx中文手册</h2>
+          <h2 class="post-title" itemprop="name headline"></h2>
         
 
         <div class="post-meta">
@@ -336,7 +335,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
                 2018年12月21日
               </time>
             
@@ -346,28 +345,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx中文手册</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -396,34 +373,42 @@
       
 
       
-        <p>http,ngx_http_addition_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-http-addition-module"><a href="#Module-ngx-http-addition-module" class="headerlink" title="Module ngx_http_addition_module"></a>Module ngx_http_addition_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#add_before_body">add_before_body</a> <br>     <a href="#add_after_body">add_after_body</a> <br>     <a href="#addition_types">addition_types</a> <br></td>
+        <p></p><h2 class="notranslate">Module ngx_http_addition_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#example">Example Configuration</a> <br> <a hhref="#directives">Directives</a> <br>     <a hhref="#add_before_body">add_before_body</a> <br>     <a hhref="#add_after_body">add_after_body</a> <br>     <a hhref="#addition_types">addition_types</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_addition_module</code>模块是一个过滤器，用于在响应之前和之后添加文本。  默认情况下不构建此模块，应使用<code class="notranslate">–with-http_addition_module</code>配置参数启用它。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">location / {<br>    add_before_body /before_action;<br>    add_after_body  /after_action;<br>}<br></pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="add_before_body"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>add_before_body</strong> <code class="notranslate"><i>uri</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>—
 
-<p>   <code>ngx_http_addition_module</code>模块是一个过滤器，用于在响应之前和之后添加文本。  默认情况下不构建此模块，应使用<code>--with-http_addition_module</code>配置参数启用它。 </p>
-<h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><blockquote>
-<pre class="notranslate">location / {
-    add_before_body /before_action;
-    add_after_body  /after_action;
-}
-</pre>
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  添加由于在响应主体之前处理给定子请求而返回的文本。  作为参数的空字符串（ &lt;code class=&quot;notranslate&quot;&gt;&quot;&quot;&lt;/code&gt; ）取消从先前配置级别继承的添加。 &lt;/p&gt;&lt;a name=&quot;add_after_body&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Syntax:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;add_after_body&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;uri&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Default:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
 
+—
 
-
-</blockquote>
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**add_before_body** &lt;code class=&quot;notranslate&quot;&gt;*uri*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  添加由于在响应主体之前处理给定子请求而返回的文本。  作为参数的空字符串（ <code>&quot;&quot;</code> ）取消从先前配置级别继承的添加。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**add_after_body** &lt;code class=&quot;notranslate&quot;&gt;*uri*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  添加由于在响应主体之后处理给定子请求而返回的文本。  作为参数的空字符串（ <code>&quot;&quot;</code> ）取消从先前配置级别继承的添加。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**addition_types** &lt;code class=&quot;notranslate&quot;&gt;*mime-type*</code> …; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">addition_types text/html;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  该指令出现在0.7.9版本中。 </p>
-<p>  除了“ <code>text/html</code> ”之外，还允许在具有指定MIME类型的响应中添加文本。  特殊值“ <code>*</code> ”匹配任何MIME类型（0.8.29）。 </p>
-
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  添加由于在响应主体之后处理给定子请求而返回的文本。  作为参数的空字符串（ &lt;code class=&quot;notranslate&quot;&gt;&quot;&quot;&lt;/code&gt; ）取消从先前配置级别继承的添加。 &lt;/p&gt;&lt;a name=&quot;addition_types&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Syntax:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;addition_types&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;mime-type&lt;/i&gt;&lt;/code&gt; ...;&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Default:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;pre class=&quot;notranslate&quot;&gt;addition_types text/html;&lt;/pre&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p&gt;  该指令出现在0.7.9版本中。 &lt;/p&gt;&lt;/div&gt;&lt;p&gt;  除了“ &lt;code class=&quot;notranslate&quot;&gt;text/html&lt;/code&gt; ”之外，还允许在具有指定MIME类型的响应中添加文本。  特殊值“ &lt;code class=&quot;notranslate&quot;&gt;*&lt;/code&gt; ”匹配任何MIME类型（0.8.29）。 &lt;/p&gt; 
+</code></pre><p><span></span><div style="display: none;"></div></p>
+</td></tr></tbody></table></div>
       
     </div>
     
@@ -472,7 +457,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nginx.im/ngx/http/ngx_http_addition_module.html" title="http/ngx_http_addition_module-nginx中文手册">http://nginx.im/ngx/http/ngx_http_addition_module.html</a>
+    <a href="http://nginx.im/ngx/http/ngx_http_addition_module.html" title="">http://nginx.im/ngx/http/ngx_http_addition_module.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -485,12 +470,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/nginx/" rel="tag"># nginx</a>
-          
-        </div>
-      
 
       
       
@@ -500,8 +479,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ngx/http/ngx_http_access_module.html" rel="next" title="http/ngx_http_access_module-nginx中文手册">
-                <i class="fa fa-chevron-left"></i> http/ngx_http_access_module-nginx中文手册
+              <a href="/ngx/http/ngx_http_access_module.html" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -510,8 +489,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ngx/http/ngx_http_api_module.html" rel="prev" title="http/ngx_http_api_module-nginx中文手册">
-                http/ngx_http_api_module-nginx中文手册 <i class="fa fa-chevron-right"></i>
+              <a href="/ngx/http/ngx_http_api_module.html" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -609,7 +588,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -655,7 +634,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-addition-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_addition_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_addition_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">  示例配置 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">  指令 </span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

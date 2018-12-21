@@ -322,7 +322,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/ngx/stream/ngx_stream_map_module.html" itemprop="url">stream/ngx_stream_map_module-nginx中文手册</a></h2>
+                <a class="post-title-link" href="/ngx/stream/ngx_stream_map_module.html" itemprop="url">未命名</a></h2>
         
 
         <div class="post-meta">
@@ -334,7 +334,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
                 2018年12月21日
               </time>
             
@@ -344,28 +344,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx中文手册</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -395,14 +373,20 @@
 
       
         
-          <p>stream,ngx_stream_map_module<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/ngx/stream/ngx_stream_map_module.html#post.more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p></p><h2 class="notranslate">Module ngx_stream_map_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#example">Example Configuration</a> <br> <a hhref="#directives">Directives</a> <br>     <a hhref="#map">map</a> <br>     <a hhref="#map_hash_bucket_size">map_hash_bucket_size</a> <br>     <a hhref="#map_hash_max_size">map_hash_max_size</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_stream_map_module</code>模块（1.11.2）创建的变量的值取决于其他变量的值。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">map $remote_addr $limit {<br>    127.0.0.1    “”;<br>    default      $binary_remote_addr;<br>}<p></p>
+<p>limit_conn_zone $limit zone=addr:10m;<br>limit_conn addr 1;<br></p></pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="map"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>map</strong><br>    <code class="notranslate"><i>string</i></code><br>    <code class="notranslate"><i>$variable</i></code> { … }</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>—
+
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  创建一个新变量，其值取决于第一个参数中指定的一个或多个源变量的值。 &lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;blockquote class=&quot;note&quot;&gt;  由于变量仅在使用时进行评估，因此即使是大量“ &lt;code class=&quot;notranslate&quot;&gt;map&lt;/code&gt; ”变量的声明也不会给连接处理增加任何额外成本。 &lt;/blockquote&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;  地图块内的参数指定源和结果值之间的映射。 &lt;/p&gt;&lt;p&gt;  源值指定为字符串或正则表达式。 &lt;/p&gt;&lt;p&gt;  字符串匹配忽略大小写。 &lt;/p&gt;&lt;p&gt;  正则表达式应该从“ &lt;code class=&quot;notranslate&quot;&gt;~&lt;/code&gt; ”符号开始，用于区分大小写的匹配，或者从“ &lt;code class=&quot;notranslate&quot;&gt;~*&lt;/code&gt; ”符号开始，用于不区分大小写的匹配。  正则表达式可以包含命名和位置捕获，以后可以在其他指令中使用结果变量。 &lt;/p&gt;&lt;p&gt;  如果源值与下面描述的特殊参数名称之一匹配，则应使用“ &lt;code class=&quot;notranslate&quot;&gt;\&lt;/code&gt; ”符号作为前缀。 &lt;/p&gt;&lt;p&gt;  结果值可以包含文本，变量及其组合。 &lt;/p&gt;&lt;p&gt;  还支持以下特殊参数： &lt;/p&gt;&lt;dl class=&quot;compact&quot;&gt;&lt;dt&gt;   &lt;code class=&quot;notranslate&quot;&gt;default&lt;/code&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;value&lt;/i&gt;&lt;/code&gt; &lt;/dt&gt;&lt;dd&gt;  如果源值与任何指定的变量都不匹配，则设置结果值。  如果未指定default，则默认结果值将为空字符串。 &lt;/dd&gt;&lt;dt&gt; &lt;code class=&quot;notranslate&quot;&gt;hostnames&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  表示源值可以是带有前缀或后缀掩码的主机名： &lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;*.example.com 1;
+</code></pre><p>example.<em>     1;<br>  以下两条记录 <blockquote class="example"><pre class="notranslate">example.com   1;
+</pre></blockquote></em>.example.com 1;<br>  可以合并： <blockquote class="example"><pre class="notranslate">.example.com  1;<br></pre></blockquote>  应在值列表之前指定此参数。 <dt>   <code class="notranslate">include</code> <code class="notranslate"><i>file</i></code> </dt><dd>  包含一个包含值的文件。  可能有几个夹杂物。 </dd><dt id="volatile"> <code class="notranslate">volatile</code> </dt> <dd>  表示该变量不可缓存（1.11.7）。 </dd></p><p></p><p>  如果源值与多个指定变量匹配，例如掩码和正则表达式匹配，则将按以下优先级顺序选择第一个匹配变量： </p><ol class="compact"><li>  没有掩码的字符串值 </li><li>  带有前缀掩码的最长字符串值，例如“ <code class="notranslate"><em>.example.com</em></code> ” </li><li>  带有后缀掩码的最长字符串值，例如“ <code class="notranslate">mail.</code> ” </li><li>  第一个匹配正则表达式（按配置文件中的出现顺序） </li><li>  默认值 </li></ol><p></p><a name="map_hash_bucket_size"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>map_hash_bucket_size</strong> <code class="notranslate"><i>size</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">map_hash_bucket_size 32|64|128;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">stream</code> <br><br>                </td></tr></tbody></table></div><p>  设置<a hhref="#map">映射</a>变量哈希表的存储区大小。  默认值取决于处理器的缓存行大小。  设置哈希表的详细信息在单独的<a hhref="hash.html">文档</a>中提供。 </p><a name="map_hash_max_size"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>map_hash_max_size</strong> <code class="notranslate"><i>size</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">map_hash_max_size 2048;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">stream</code> <br><br>                </td></tr></tbody></table></div><p>  设置<a hhref="#map">映射</a>变量哈希表的最大<code class="notranslate"><i>size</i></code> 。  设置哈希表的详细信息在单独的<a hhref="hash.html">文档</a>中提供。 </p><br><span></span><div style="display: none;"></div><p></p>
+</td></tr></tbody></table></div>
+          
         
       
     </div>
@@ -468,7 +452,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/ngx/stream/ngx_stream_log_module.html" itemprop="url">stream/ngx_stream_log_module-nginx中文手册</a></h2>
+                <a class="post-title-link" href="/ngx/stream/ngx_stream_log_module.html" itemprop="url">未命名</a></h2>
         
 
         <div class="post-meta">
@@ -480,7 +464,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
                 2018年12月21日
               </time>
             
@@ -490,28 +474,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx中文手册</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -541,14 +503,22 @@
 
       
         
-          <p>stream,ngx_stream_log_module<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/ngx/stream/ngx_stream_log_module.html#post.more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p></p><h2 class="notranslate">Module ngx_stream_log_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#example">Example Configuration</a> <br> <a hhref="#directives">Directives</a> <br>     <a hhref="#access_log">access_log</a> <br>     <a hhref="#log_format">log_format</a> <br>     <a hhref="#open_log_file_cache">open_log_file_cache</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_stream_log_module</code>模块（1.11.4）以指定的格式写入会话日志。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">log_format basic ‘$remote_addr [$time_local] ‘<br>                 ‘$protocol $status $bytes_sent $bytes_received ‘<br>                 ‘$session_time’;<p></p>
+<p>access_log /spool/logs/nginx-access.log basic buffer=32k;<br></p></pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="access_log"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>access_log</strong><br>    <code class="notranslate"><i>path</i></code><br>    <code class="notranslate"><i>format</i></code><br>    [ <code class="notranslate">buffer</code> = <code class="notranslate"><i>size</i></code> ]<br>    [ <code class="notranslate">gzip[= <code class="notranslate"><i>level</i></code> ]</code> ]<br>    [ <code class="notranslate">flush</code> = <code class="notranslate"><i>time</i></code> ]<br>    [ <code class="notranslate">if</code> = <code class="notranslate"><i>condition</i></code> ];</code> <br> <code class="notranslate"><strong>access_log</strong> <code class="notranslate">off</code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">access_log off;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br><br>                </td></tr></tbody></table></div><p>  设置缓冲日志写入的路径， <a hhref="#log_format">格式</a>和配置。  可以在同一级别指定多个日志。  可以通过在第一个参数中指定“ <code class="notranslate">syslog:</code> ”前缀来配置记录到<a hhref="syslog.html">syslog</a> 。  特殊值<code class="notranslate">off</code>取消当前级别的所有<code class="notranslate">access_log</code>指令。 </p><p>  如果使用<code class="notranslate">buffer</code>或<code class="notranslate">gzip</code>参数，则将缓冲对log的写入。 </p><blockquote class="note">  缓冲区大小不得超过磁盘文件的原子写入大小。  对于FreeBSD，这个大小是无限的。 </blockquote><p></p><p>  启用缓冲后，数据将写入文件： </p><ul class="compact"><li>  如果下一个日志行不适合缓冲区; </li><li>  如果缓冲的数据早于<code class="notranslate">flush</code>参数指定的数据; </li><li>  当工作进程<a hhref="control.html">重新打开</a>日志文件或正在关闭时。 </li></ul><p></p><p>  如果使用<code class="notranslate">gzip</code>参数，则在写入文件之前将压缩缓冲的数据。  压缩级别可以设置为1（最快，压缩较少）和9（最慢，最佳压缩）。  默认情况下，缓冲区大小等于64K字节，压缩级别设置为1.由于数据是以原子块压缩的，因此日志文件可以随时通过“ <code class="notranslate">zcat</code> ”解压缩或读取。 </p><p>  例： </p><blockquote class="example"><pre class="notranslate">access_log /path/to/log.gz basic gzip flush=5m;<br></pre></blockquote><p></p><p></p><blockquote class="note">  要使gzip压缩起作用，必须使用zlib库构建nginx。 </blockquote><p></p><p>  文件路径可以包含变量，但是这样的日志有一些约束： </p><ul class="compact"><li>  工作进程使用其凭据的<a hhref="ngx_core_module.html#user">用户</a>应具有在具有此类日志的目录中创建文件的权限; </li><li>  缓冲写入不起作用; </li><li>  每个日志写入都会打开和关闭该文件。  但是，由于常用文件的描述符可以存储在<a hhref="#open_log_file_cache">缓存中</a> ，因此写入旧文件可以在<a hhref="#open_log_file_cache">open_log_file_cache</a>指令的<code class="notranslate">valid</code>参数指定的时间内继续写入 </li></ul><p></p><p>   <code class="notranslate">if</code>参数启用条件记录。  如果<code class="notranslate"><i>condition</i></code>计算为“0”或空字符串，则不会记录会话。 </p><a name="log_format"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>log_format</strong><br>    <code class="notranslate"><i>name</i></code><br>    [ <code class="notranslate">escape</code> = <code class="notranslate">default</code> | <code class="notranslate">json</code> | <code class="notranslate">none</code> ]<br>    <code class="notranslate"><i>string</i></code> …;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>—
+
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  指定日志格式，例如： &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;log_format proxy &apos;$remote_addr [$time_local] &apos;
+     &apos;$protocol $status $bytes_sent $bytes_received &apos;
+     &apos;$session_time &quot;$upstream_addr&quot; &apos;
+     &apos;&quot;$upstream_bytes_sent&quot; &quot;$upstream_bytes_received&quot; &quot;$upstream_connect_time&quot;&apos;;
+</code></pre><p></p><p></p><a name="log_format_escape"></a><p>   <code class="notranslate">escape</code>参数（1.11.8）允许设置在变量中转义的<code class="notranslate">json</code>或<code class="notranslate">default</code>字符，默认情况下，使用<code class="notranslate">default</code>转义。   <code class="notranslate">none</code>参数（1.13.10）禁用转义。 </p><a name="open_log_file_cache"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>open_log_file_cache</strong><br><code class="notranslate">max</code> = <code class="notranslate"><i>N</i></code><br>[ <code class="notranslate">inactive</code> = <code class="notranslate"><i>time</i></code> ]<br>[ <code class="notranslate">min_uses</code> = <code class="notranslate"><i>N</i></code> ]<br>[ <code class="notranslate">valid</code> = <code class="notranslate"><i>time</i></code> ];</code> <br> <code class="notranslate"><strong>open_log_file_cache</strong> <code class="notranslate">off</code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">open_log_file_cache off;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br><br>                </td></tr></tbody></table></div><p>  定义一个缓存，用于存储名称中包含变量的常用日志的文件描述符。  该指令具有以下参数： </p><dl class="compact"><dt> <code class="notranslate">max</code> </dt> <dd>  设置缓存中的最大描述符数;  如果缓存变满，则最近最少使用（LRU）描述符将被关闭 </dd><dt> <code class="notranslate">inactive</code> </dt> <dd>  如果在此期间没有访问权限，则设置关闭缓存描述符的时间;  默认情况下，10秒 </dd><dt> <code class="notranslate">min_uses</code> </dt> <dd>  设置在<code class="notranslate">inactive</code>参数定义的时间内使文件使用的最小数量，以使描述符在缓存中保持打开状态;  默认情况下，1 </dd><dt> <code class="notranslate">valid</code> </dt> <dd>  设置应该检查文件是否仍然存在同名的时间;  默认情况下，60秒 </dd><dt> <code class="notranslate">off</code> </dt> <dd>  禁用缓存 </dd></dl><p></p><p>  用法示例： </p><blockquote class="example"><pre class="notranslate">open_log_file_cache max=1000 inactive=20s valid=1m min_uses=2;<br></pre></blockquote><p></p><br><span></span><div style="display: none;"></div><p></p>
+</td></tr></tbody></table></div>
+          
         
       
     </div>
@@ -614,7 +584,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/ngx/stream/ngx_stream_limit_conn_module.html" itemprop="url">stream/ngx_stream_limit_conn_module-nginx中文手册</a></h2>
+                <a class="post-title-link" href="/ngx/stream/ngx_stream_limit_conn_module.html" itemprop="url">未命名</a></h2>
         
 
         <div class="post-meta">
@@ -626,7 +596,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
                 2018年12月21日
               </time>
             
@@ -636,28 +606,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx中文手册</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -687,14 +635,36 @@
 
       
         
-          <p>stream,ngx_stream_limit_conn_module<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/ngx/stream/ngx_stream_limit_conn_module.html#post.more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p></p><h2 class="notranslate">Module ngx_stream_limit_conn_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#example">Example Configuration</a> <br> <a hhref="#directives">Directives</a> <br>     <a hhref="#limit_conn">limit_conn</a> <br>     <a hhref="#limit_conn_log_level">limit_conn_log_level</a> <br>     <a hhref="#limit_conn_zone">limit_conn_zone</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_stream_limit_conn_module</code>模块（1.9.3）用于限制每个定义密钥的连接数，特别是来自单个IP地址的连接数。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">stream {<br>    limit_conn_zone $binary_remote_addr zone=addr:10m;<p></p>
+<pre><code>...
+
+server {
+
+    ...
+
+    limit_conn           addr 1;
+    limit_conn_log_level error;
+}
+</code></pre><p>}<br></p></pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="limit_conn"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>limit_conn</strong> <code class="notranslate"><i>zone</i></code> <code class="notranslate"><i>number</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>—
+
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  设置共享内存区域和给定键值的最大允许连接数。  超过此限制时，服务器将关闭连接。  例如，指令 &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;limit_conn_zone $binary_remote_addr zone=addr:10m;
+</code></pre><p>server {<br>    …<br>    limit_conn addr 1;<br>}<br></p><p>  每次只允许一个IP地址连接一个。 </p><p>  如果指定了几个<code class="notranslate">limit_conn</code>指令，则将应用任何已配置的限制。 </p><p>  当且仅当当前级别没有<code class="notranslate">limit_conn</code>指令时，指令才从前一级继承。 </p><a name="limit_conn_log_level"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>limit_conn_log_level</strong><br><code class="notranslate">info</code> |<br><code class="notranslate">notice</code> |<br><code class="notranslate">warn</code> |<br><code class="notranslate">error</code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">limit_conn_log_level error;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br><br>                </td></tr></tbody></table></div><p>  为服务器限制连接数的情况设置所需的日志记录级别。 </p><a name="limit_conn_zone"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>limit_conn_zone</strong><br>    <code class="notranslate"><i>key</i></code><br>    <code class="notranslate">zone</code> = <code class="notranslate"><i>name</i></code> : <code class="notranslate"><i>size</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>—
+
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  设置共享内存区域的参数，该区域将保留各种键的状态。  特别是，状态包括当前的连接数。   &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;key&lt;/i&gt;&lt;/code&gt;可以包含文本，变量及其组合（1.11.2）。  不计算具有空键值的连接。  用法示例： &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;limit_conn_zone $binary_remote_addr zone=addr:10m;
+</code></pre><p></p><p>  这里，密钥是<code class="notranslate">$binary_remote_addr</code>变量设置的客户端IP地址。   <code class="notranslate">$binary_remote_addr</code>的大小为IPv4地址的4个字节或IPv6地址的16个字节。  存储状态在32位平台上总是占用32或64字节，在64位平台上占用64字节。  一兆字节区域可以保留大约32,000个32字节状态或大约16,000个64字节状态。  如果区域存储耗尽，服务器将关闭连接。 </p><br><span></span><div style="display: none;"></div><p></p>
+</td></tr></tbody></table></div></td></tr></tbody></table></div>
+          
         
       
     </div>
@@ -760,7 +730,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/ngx/stream/ngx_stream_keyval_module.html" itemprop="url">stream/ngx_stream_keyval_module-nginx中文手册</a></h2>
+                <a class="post-title-link" href="/ngx/stream/ngx_stream_keyval_module.html" itemprop="url">未命名</a></h2>
         
 
         <div class="post-meta">
@@ -772,7 +742,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
                 2018年12月21日
               </time>
             
@@ -782,28 +752,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx中文手册</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -833,14 +781,54 @@
 
       
         
-          <p>stream,ngx_stream_keyval_module<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/ngx/stream/ngx_stream_keyval_module.html#post.more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p></p><h2 class="notranslate">Module ngx_stream_keyval_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#example">Example Configuration</a> <br> <a hhref="#directives">Directives</a> <br>     <a hhref="#keyval">keyval</a> <br>     <a hhref="#keyval_zone">keyval_zone</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_stream_keyval_module</code>模块（1.13.7）创建的变量的值取自<a hhref="http/ngx_http_api_module.html#stream_keyvals_">API</a>管理的键值对。 </p><p></p><blockquote class="note">  该模块作为我们<a hhref="http://nginx.com/products/">商业订阅的</a>一部分提供。 </blockquote><p></p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">http {<p></p>
+<pre><code>server {
+    ...
+    location /api {
+        api write=on;
+    }
+}
+</code></pre><p>}</p>
+<p>stream {</p>
+<pre><code>keyval_zone zone=one:32k state=one.keyval;
+keyval      $ssl_server_name $name zone=one;
+
+server {
+    listen              12345 ssl;
+    proxy_pass          $name;
+    ssl_certificate     /usr/local/nginx/conf/cert.pem;
+    ssl_certificate_key /usr/local/nginx/conf/cert.key;
+}
+</code></pre><p>}<br></p></pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="keyval"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>keyval</strong><br>    <code class="notranslate"><i>key</i></code><br>    <code class="notranslate"><i>$variable</i></code><br>    <code class="notranslate">zone</code> = <code class="notranslate"><i>name</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>        —
+
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  创建一个新的&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;$variable&lt;/i&gt;&lt;/code&gt;其值由&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;key&lt;/i&gt;&lt;/code&gt;数据库中的键查找。  字符串匹配忽略大小写。  数据库存储在&lt;code class=&quot;notranslate&quot;&gt;zone&lt;/code&gt;参数指定的共享内存区域中。 &lt;/p&gt;&lt;a name=&quot;keyval_zone&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;keyval_zone&lt;/strong&gt; 
+&lt;code class=&quot;notranslate&quot;&gt;zone&lt;/code&gt; = &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;name&lt;/i&gt;&lt;/code&gt; : &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;size&lt;/i&gt;&lt;/code&gt;
+[ &lt;code class=&quot;notranslate&quot;&gt;state&lt;/code&gt; = &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;file&lt;/i&gt;&lt;/code&gt; ]
+[ &lt;code class=&quot;notranslate&quot;&gt;timeout&lt;/code&gt; = &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;time&lt;/i&gt;&lt;/code&gt; ]
+[ &lt;code class=&quot;notranslate&quot;&gt;sync&lt;/code&gt; ];&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+
+        —
+
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  设置保留键值数据库的共享内存区域的&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;name&lt;/i&gt;&lt;/code&gt;和&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;size&lt;/i&gt;&lt;/code&gt; 。  键值对由&lt;a hhref=&quot;http/ngx_http_api_module.html#stream_keyvals_&quot;&gt;API&lt;/a&gt;管理。 &lt;/p&gt;&lt;a name=&quot;keyval_state&quot;&gt;&lt;/a&gt;&lt;p&gt;  可选的&lt;code class=&quot;notranslate&quot;&gt;state&lt;/code&gt;参数指定一个&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;file&lt;/i&gt;&lt;/code&gt; ，该&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;file&lt;/i&gt;&lt;/code&gt;以JSON格式保持键值数据库的当前状态，并使其在nginx重新启动时保持不变。 &lt;/p&gt;&lt;a name=&quot;keyval_timeout&quot;&gt;&lt;/a&gt;&lt;p&gt;  可选的&lt;code class=&quot;notranslate&quot;&gt;timeout&lt;/code&gt;参数（1.15.0）设置从区域中删除键值对的时间。 &lt;/p&gt;&lt;a name=&quot;keyval_sync&quot;&gt;&lt;/a&gt;&lt;p&gt;  可选的&lt;code class=&quot;notranslate&quot;&gt;sync&lt;/code&gt;参数（1.15.0）可以&lt;a hhref=&quot;ngx_stream_zone_sync_module.html#zone_sync&quot;&gt;同步&lt;/a&gt;共享内存区域。  同步需要设置&lt;a hhref=&quot;#keyval_timeout&quot;&gt;超时&lt;/a&gt;参数。 &lt;/p&gt; 
+</code></pre><p><span></span><div style="display: none;"></div></p>
+</td></tr></tbody></table></div>
+          
         
       
     </div>
@@ -906,7 +894,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/ngx/stream/ngx_stream_js_module.html" itemprop="url">stream/ngx_stream_js_module-nginx中文手册</a></h2>
+                <a class="post-title-link" href="/ngx/stream/ngx_stream_js_module.html" itemprop="url">未命名</a></h2>
         
 
         <div class="post-meta">
@@ -918,7 +906,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
                 2018年12月21日
               </time>
             
@@ -928,28 +916,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx中文手册</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -979,14 +945,99 @@
 
       
         
-          <p>stream,ngx_stream_js_module<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/ngx/stream/ngx_stream_js_module.html#post.more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p></p><h2 class="notranslate">Module ngx_stream_js_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#example">Example Configuration</a> <br> <a hhref="#directives">Directives</a> <br>     <a hhref="#js_access">js_access</a> <br>     <a hhref="#js_filter">js_filter</a> <br>     <a hhref="#js_include">js_include</a> <br>     <a hhref="#js_preread">js_preread</a> <br>     <a hhref="#js_set">js_set</a> <br> <a hhref="#properties">Session Object Properties</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_stream_js_module</code>模块用于在<a hhref="njs/index.html">njs中</a>实现处理程序 - 这是JavaScript语言的一个子集。 </p><p>  默认情况下不构建此模块。  可<a hhref="njs/install.html">在此处</a>下载和安装说明。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="note">  此示例适用于njs <a hhref="njs/changes.html#njs0.2.4">0.2.4</a>及更高版本。  对于njs 0.2.3及更早版本，请使用<a hhref="njs/examples.html#legacy">此</a>示例。 </blockquote><p></p><blockquote class="example"><pre class="notranslate">load_module modules/ngx_stream_js_module.so;<br>…<p></p>
+<p>stream {<br>    js_include stream.js;</p>
+<pre><code>js_set $bar bar;
+js_set $req_line req_line;
+
+server {
+    listen 12345;
+
+    js_preread preread;
+    return     $req_line;
+}
+
+server {
+    listen 12346;
+
+    js_access  access;
+    proxy_pass 127.0.0.1:8000;
+    js_filter  header_inject;
+}
+</code></pre><p>}</p>
+<p>http {<br>    server {<br>        listen 8000;<br>        location / {<br>            return 200 $http_foo\n;<br>        }<br>    }<br>}<br></p></pre></blockquote><p></p><p>   <code class="notranslate">stream.js</code>文件： </p><blockquote class="example"><pre class="notranslate">var line = ‘’;<p></p>
+<p>function bar(s) {<br>    var v = s.variables;<br>    s.log(“hello from bar() handler!”);<br>    return “bar-var” + v.remote_port + “; pid=” + v.pid;<br>}</p>
+<p>function preread(s) {<br>    s.on(‘upload’, function (data, flags) {<br>        var n = data.indexOf(‘\n’);<br>        if (n != -1) {<br>            line = data.substr(0, n);<br>            s.done();<br>        }<br>    });<br>}</p>
+<p>function req_line(s) {<br>    return line;<br>}</p>
+<p>// Read HTTP request line.<br>// Collect bytes in ‘req’ until<br>// request line is read.<br>// Injects HTTP header into a client’s request</p>
+<p>var my_header =  ‘Foo: foo’;<br>function header_inject(s) {<br>    var req = ‘’;<br>    s.on(‘upload’, function(data, flags) {<br>        req += data;<br>        var n = req.search(‘\n’);<br>        if (n != -1) {<br>            var rest = req.substr(n + 1);<br>            req = req.substr(0, n + 1);<br>            s.send(req + my_header + ‘\r\n’ + rest, flags);<br>            s.off(‘upload’);<br>        }<br>    });<br>}</p>
+<p>function access(s) {<br>    if (s.remoteAddress.match(‘^192.*’)) {<br>        s.abort();<br>        return;<br>    }</p>
+<pre><code>s.allow();
+</code></pre><p>}<br></p></pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="js_access"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>js_access</strong> <code class="notranslate"><i>function</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>—
+
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  设置将在&lt;a hhref=&quot;stream_processing.html#access_phase&quot;&gt;访问&lt;/a&gt;阶段调用的njs函数。 &lt;/p&gt;&lt;a name=&quot;js_filter&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Syntax:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;js_filter&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;function&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Default:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+
+—
+
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  设置数据过滤器。 &lt;/p&gt;&lt;a name=&quot;js_include&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Syntax:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;js_include&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;file&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Default:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+
+—
+
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  指定在njs中实现服务器和变量处理程序的文件。 &lt;/p&gt;&lt;a name=&quot;js_preread&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Syntax:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;js_preread&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;function&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Default:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+
+—
+
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  设置将在&lt;a hhref=&quot;stream_processing.html#preread_phase&quot;&gt;预读&lt;/a&gt;阶段调用的njs函数。 &lt;/p&gt;&lt;a name=&quot;js_set&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Syntax:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;js_set&lt;/strong&gt; 
+</code></pre><p><code class="notranslate"><i>$variable</i></code> <code class="notranslate"><i>function</i></code> ; <br><br>                </p></td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>—
+
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  为指定的变量设置njs函数。 &lt;/p&gt;&lt;a name=&quot;properties&quot;&gt;&lt;/a&gt;&lt;center&gt;&lt;h4&gt;  会话对象属性 &lt;/h4&gt;&lt;/center&gt;&lt;p&gt;  每个流njs处理程序接收一个参数，即流会话&lt;a hhref=&quot;njs/reference.html#stream&quot;&gt;对象&lt;/a&gt; 。 &lt;/p&gt; 
+</code></pre><p><span></span><div style="display: none;"></div></p>
+</td></tr></tbody></table></div>
+          
         
       
     </div>
@@ -1052,7 +1103,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/ngx/stream/ngx_stream_geo_module.html" itemprop="url">stream/ngx_stream_geo_module-nginx中文手册</a></h2>
+                <a class="post-title-link" href="/ngx/stream/ngx_stream_geo_module.html" itemprop="url">未命名</a></h2>
         
 
         <div class="post-meta">
@@ -1064,7 +1115,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
                 2018年12月21日
               </time>
             
@@ -1074,28 +1125,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx中文手册</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -1125,14 +1154,31 @@
 
       
         
-          <p>stream,ngx_stream_geo_module<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/ngx/stream/ngx_stream_geo_module.html#post.more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p></p><h2 class="notranslate">Module ngx_stream_geo_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#example">Example Configuration</a> <br> <a hhref="#directives">Directives</a> <br>     <a hhref="#geo">geo</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_stream_geo_module</code>模块（1.11.3）使用取决于客户端IP地址的值创建变量。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">geo $geo {<br>    default        0;<p></p>
+<pre><code>127.0.0.1      2;
+192.168.1.0/24 1;
+10.1.0.0/16    1;
+
+::1            2;
+2001:0db8::/32 1;
+</code></pre><p>}<br></p></pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="geo"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>geo</strong> [ <code class="notranslate"><i>$address</i></code> ] <code class="notranslate"><i>$variable</i></code> { … }</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>        —
+
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  描述指定变量的值对客户端IP地址的依赖性。  默认情况下，地址取自&lt;code class=&quot;notranslate&quot;&gt;$remote_addr&lt;/code&gt;变量，但也可以从另一个变量中获取，例如： &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;geo $arg_remote_addr $geo {
+...;
+</code></pre><p>}<br></p><p></p><p></p><blockquote class="note">  由于变量仅在使用时进行评估，因此即使存在大量已声明的“ <code class="notranslate">geo</code> ”变量也不会导致连接处理的任何额外成本。 </blockquote><p></p><p>  如果变量的值不表示有效的IP地址，则使用“ <code class="notranslate">255.255.255.255</code> ”地址。 </p><p>  地址被指定为CIDR表示法中的前缀（包括单个地址）或作为范围。 </p><p>  还支持以下特殊参数： </p><dl class="compact"><dt> <code class="notranslate">delete</code> </dt> <dd>  删除指定的网络。 </dd><dt> <code class="notranslate">default</code> </dt> <dd>  如果客户端地址与任何指定的地址不匹配，则设置为该变量的值。  当以CIDR表示法指定地址时，可以使用“ <code class="notranslate">0.0.0.0/0</code> ”和“ <code class="notranslate">::/0</code> ”而不是<code class="notranslate">default</code> 。  如果未指定default，则默认值为空字符串。 </dd><dt> <code class="notranslate">include</code> </dt> <dd>  包括一个包含地址和值的文件。  可能有几个夹杂物。 </dd><dt> <code class="notranslate">ranges</code> </dt> <dd>  表示地址被指定为范围。  这个参数应该是第一个。  要加快地理基地的加载速度，地址应按升序排列。 </dd></dl><p></p><p>  例： </p><blockquote class="example"><pre class="notranslate">geo $country {<br>    default        ZZ;<br>    include        conf/geo.conf;<br>    delete         127.0.0.0/16;<p></p>
+<pre><code>127.0.0.0/24   US;
+127.0.0.1/32   RU;
+10.1.0.0/16    RU;
+192.168.1.0/24 UK;
+</code></pre><p>}<br></p></pre></blockquote><p></p><p>   <code class="notranslate">conf/geo.conf</code>文件可以包含以下行： </p><blockquote class="example"><pre class="notranslate">10.2.0.0/16    RU;<br>192.168.2.0/24 RU;<br></pre></blockquote><p></p><p>  使用最具体匹配的值。  例如，对于127.0.0.1地址，将选择值“ <code class="notranslate">RU</code> ”，而不是“ <code class="notranslate">US</code> ”。 </p><p>  范围示例： </p><blockquote class="example"><pre class="notranslate">geo $country {<br>    ranges;<br>    default                   ZZ;<br>    127.0.0.0-127.0.0.0       US;<br>    127.0.0.1-127.0.0.1       RU;<br>    127.0.0.1-127.0.0.255     US;<br>    10.1.0.0-10.1.255.255     RU;<br>    192.168.1.0-192.168.1.255 UK;<br>}<br></pre></blockquote><p></p><br><span></span><div style="display: none;"></div><p></p>
+</td></tr></tbody></table></div>
+          
         
       
     </div>
@@ -1198,7 +1244,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/ngx/stream/ngx_stream_geoip_module.html" itemprop="url">stream/ngx_stream_geoip_module-nginx中文手册</a></h2>
+                <a class="post-title-link" href="/ngx/stream/ngx_stream_geoip_module.html" itemprop="url">未命名</a></h2>
         
 
         <div class="post-meta">
@@ -1210,7 +1256,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
                 2018年12月21日
               </time>
             
@@ -1220,28 +1266,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx中文手册</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -1271,14 +1295,53 @@
 
       
         
-          <p>stream,ngx_stream_geoip_module<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/ngx/stream/ngx_stream_geoip_module.html#post.more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p></p><h2 class="notranslate">Module ngx_stream_geoip_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#example">Example Configuration</a> <br> <a hhref="#directives">Directives</a> <br>     <a hhref="#geoip_country">geoip_country</a> <br>     <a hhref="#geoip_city">geoip_city</a> <br>     <a hhref="#geoip_org">geoip_org</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_stream_geoip_module</code>模块（1.11.3）使用预编译的<a hhref="http://www.maxmind.com">MaxMind</a>数据库创建具有取决于客户端IP地址的值的变量。 </p><p>  使用支持IPv6的数据库时，IPv4地址将被查找为IPv4映射的IPv6地址。 </p><p>  默认情况下不构建此模块，应使用<code class="notranslate">–with-stream_geoip_module</code>配置参数启用它。 </p><blockquote class="note">  该模块需要<a hhref="http://www.maxmind.com/app/c">MaxMind GeoIP</a>库。 </blockquote><p></p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">stream {<br>    geoip_country         GeoIP.dat;<br>    geoip_city            GeoLiteCity.dat;<p></p>
+<pre><code>map $geoip_city_continent_code $nearest_server {
+    default        example.com;
+    EU          eu.example.com;
+    NA          na.example.com;
+    AS          as.example.com;
+}
+</code></pre><p>   …<br>}<br></p></pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="geoip_country"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>geoip_country</strong> <code class="notranslate"><i>file</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>—
+
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  指定用于根据客户端IP地址确定国家/地区的数据库。  使用此数据库时，以下变量可用： &lt;/p&gt;&lt;dl class=&quot;compact&quot;&gt;&lt;dt id=&quot;var_geoip_country_code&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$geoip_country_code&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  两个字母的国家/地区代码，例如“ &lt;code class=&quot;notranslate&quot;&gt;RU&lt;/code&gt; ”，“ &lt;code class=&quot;notranslate&quot;&gt;US&lt;/code&gt; ”。 &lt;/dd&gt;&lt;dt id=&quot;var_geoip_country_code3&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$geoip_country_code3&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  三个字母的国家/地区代码，例如“ &lt;code class=&quot;notranslate&quot;&gt;RUS&lt;/code&gt; ”，“ &lt;code class=&quot;notranslate&quot;&gt;USA&lt;/code&gt; ”。 &lt;/dd&gt;&lt;dt id=&quot;var_geoip_country_name&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$geoip_country_name&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  国名，例如“ &lt;code class=&quot;notranslate&quot;&gt;Russian Federation&lt;/code&gt; ”，“ &lt;code class=&quot;notranslate&quot;&gt;United States&lt;/code&gt; ”。 &lt;/dd&gt;&lt;/dl&gt;&lt;p&gt;&lt;/p&gt;&lt;a name=&quot;geoip_city&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Syntax:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;geoip_city&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;file&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Default:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+
+—
+
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  指定用于根据客户端IP地址确定国家，地区和城市的数据库。  使用此数据库时，以下变量可用： &lt;/p&gt;&lt;dl class=&quot;compact&quot;&gt;&lt;dt id=&quot;var_geoip_area_code&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$geoip_area_code&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  电话区号（仅限美国）。 &lt;blockquote class=&quot;note&quot;&gt;  此变量可能包含过时的信息，因为不推荐使用相应的数据库字段。 &lt;/blockquote&gt;&lt;/dd&gt;&lt;dt id=&quot;var_geoip_city_continent_code&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$geoip_city_continent_code&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  两个字母的大陆代码，例如“ &lt;code class=&quot;notranslate&quot;&gt;EU&lt;/code&gt; ”，“ &lt;code class=&quot;notranslate&quot;&gt;NA&lt;/code&gt; ”。 &lt;/dd&gt;&lt;dt id=&quot;var_geoip_city_country_code&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$geoip_city_country_code&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  两个字母的国家/地区代码，例如“ &lt;code class=&quot;notranslate&quot;&gt;RU&lt;/code&gt; ”，“ &lt;code class=&quot;notranslate&quot;&gt;US&lt;/code&gt; ”。 &lt;/dd&gt;&lt;dt id=&quot;var_geoip_city_country_code3&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$geoip_city_country_code3&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  三个字母的国家/地区代码，例如“ &lt;code class=&quot;notranslate&quot;&gt;RUS&lt;/code&gt; ”，“ &lt;code class=&quot;notranslate&quot;&gt;USA&lt;/code&gt; ”。 &lt;/dd&gt;&lt;dt id=&quot;var_geoip_city_country_name&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$geoip_city_country_name&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  国名，例如“ &lt;code class=&quot;notranslate&quot;&gt;Russian Federation&lt;/code&gt; ”，“ &lt;code class=&quot;notranslate&quot;&gt;United States&lt;/code&gt; ”。 &lt;/dd&gt;&lt;dt id=&quot;var_geoip_dma_code&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$geoip_dma_code&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  根据Google AdWords API中的&lt;a hhref=&quot;https://developers.google.com/adwords/api/appendix/cities-DMAregions&quot;&gt;地理位置定位&lt;/a&gt; ，美国的DMA区域代码（也称为“都市代码”）。 &lt;/dd&gt;&lt;dt id=&quot;var_geoip_latitude&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$geoip_latitude&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  纬度。 &lt;/dd&gt;&lt;dt id=&quot;var_geoip_longitude&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$geoip_longitude&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  经度。 &lt;/dd&gt;&lt;dt id=&quot;var_geoip_region&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$geoip_region&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  双符号国家区域代码（地区，领土，州，省，联邦土地等），例如“ &lt;code class=&quot;notranslate&quot;&gt;48&lt;/code&gt; ”，“ &lt;code class=&quot;notranslate&quot;&gt;DC&lt;/code&gt; ”。 &lt;/dd&gt;&lt;dt id=&quot;var_geoip_region_name&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$geoip_region_name&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  国家地区名称（地区，领土，州，省，联邦土地等），例如“ &lt;code class=&quot;notranslate&quot;&gt;Moscow City&lt;/code&gt; ”，“ &lt;code class=&quot;notranslate&quot;&gt;District of Columbia&lt;/code&gt; ”。 &lt;/dd&gt;&lt;dt id=&quot;var_geoip_city&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$geoip_city&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  城市名称，例如“ &lt;code class=&quot;notranslate&quot;&gt;Moscow&lt;/code&gt; ”，“ &lt;code class=&quot;notranslate&quot;&gt;Washington&lt;/code&gt; ”。 &lt;/dd&gt;&lt;dt id=&quot;var_geoip_postal_code&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$geoip_postal_code&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  邮政编码。 &lt;/dd&gt;&lt;/dl&gt;&lt;p&gt;&lt;/p&gt;&lt;a name=&quot;geoip_org&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Syntax:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;geoip_org&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;file&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Default:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+
+—
+
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  指定用于根据客户端IP地址确定组织的数据库。  使用此数据库时，以下变量可用： &lt;/p&gt;&lt;dl class=&quot;compact&quot;&gt;&lt;dt id=&quot;var_geoip_org&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$geoip_org&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  组织名称，例如“墨尔本大学”。 &lt;/dd&gt;&lt;/dl&gt;&lt;p&gt;&lt;/p&gt; 
+</code></pre><p><span></span><div style="display: none;"></div></p>
+</td></tr></tbody></table></div>
+          
         
       
     </div>
@@ -1344,7 +1407,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/ngx/stream/ngx_stream_core_module.html" itemprop="url">stream/ngx_stream_core_module-nginx中文手册</a></h2>
+                <a class="post-title-link" href="/ngx/stream/ngx_stream_core_module.html" itemprop="url">未命名</a></h2>
         
 
         <div class="post-meta">
@@ -1356,7 +1419,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
                 2018年12月21日
               </time>
             
@@ -1366,28 +1429,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx中文手册</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -1417,14 +1458,115 @@
 
       
         
-          <p>stream,ngx_stream_core_module<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/ngx/stream/ngx_stream_core_module.html#post.more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p></p><h2 class="notranslate">Module ngx_stream_core_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#example">Example Configuration</a> <br> <a hhref="#directives">Directives</a> <br>     <a hhref="#listen">listen</a> <br>     <a hhref="#preread_buffer_size">preread_buffer_size</a> <br>     <a hhref="#preread_timeout">preread_timeout</a> <br>     <a hhref="#proxy_protocol_timeout">proxy_protocol_timeout</a> <br>     <a hhref="#resolver">resolver</a> <br>     <a hhref="#resolver_timeout">resolver_timeout</a> <br>     <a hhref="#server">server</a> <br>     <a hhref="#stream">stream</a> <br>     <a hhref="#tcp_nodelay">tcp_nodelay</a> <br>     <a hhref="#variables_hash_bucket_size">variables_hash_bucket_size</a> <br>     <a hhref="#variables_hash_max_size">variables_hash_max_size</a> <br> <a hhref="#variables">Embedded Variables</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_stream_core_module</code>模块自版本1.9.0起可用。  默认情况下不构建此模块，应使用<code class="notranslate">–with-stream</code>配置参数启用它。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">worker_processes auto;<p></p>
+<p>error_log /var/log/nginx/error.log info;</p>
+<p>events {<br>    worker_connections  1024;<br>}</p>
+<p>stream {<br>    upstream backend {<br>        hash $remote_addr consistent;</p>
+<pre><code>    server backend1.example.com:12345 weight=5;
+    server 127.0.0.1:12345            max_fails=3 fail_timeout=30s;
+    server unix:/tmp/backend3;
+}
+
+upstream dns {
+   server 192.168.0.1:53535;
+   server dns.example.com:53;
+}
+
+server {
+    listen 12345;
+    proxy_connect_timeout 1s;
+    proxy_timeout 3s;
+    proxy_pass backend;
+}
+
+server {
+    listen 127.0.0.1:53 udp reuseport;
+    proxy_timeout 20s;
+    proxy_pass dns;
+}
+
+server {
+    listen [::1]:12345;
+    proxy_pass unix:/tmp/stream.socket;
+}
+</code></pre><p>}<br></p></pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="listen"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>listen</strong><br>    <code class="notranslate"><i>address</i></code> : <code class="notranslate"><i>port</i></code><br>    [ <code class="notranslate">ssl</code> ]<br>    [ <code class="notranslate">udp</code> ]<br>    [ <code class="notranslate">proxy_protocol</code> ]<br>    [ <code class="notranslate">backlog</code> = <code class="notranslate"><i>number</i></code> ]<br>    [ <code class="notranslate">rcvbuf</code> = <code class="notranslate"><i>size</i></code> ]<br>    [ <code class="notranslate">sndbuf</code> = <code class="notranslate"><i>size</i></code> ]<br>    [ <code class="notranslate">bind</code> ]<br>    [ <code class="notranslate">ipv6only</code> = <code class="notranslate">on</code> | <code class="notranslate">off</code> ]<br>    [ <code class="notranslate">reuseport</code> ]<br>    [ <code class="notranslate">so_keepalive</code> = <code class="notranslate">on</code> | <code class="notranslate">off</code> |[ <code class="notranslate"><i>keepidle</i></code> ]:[ <code class="notranslate"><i>keepintvl</i></code> ]:[ <code class="notranslate"><i>keepcnt</i></code> ]];</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>—
+
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  设置服务器将接受连接的套接字的&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;address&lt;/i&gt;&lt;/code&gt;和&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;port&lt;/i&gt;&lt;/code&gt; 。  可以仅指定端口。  地址也可以是主机名，例如： &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;listen 127.0.0.1:12345;
+</code></pre><p>listen <em>:12345;<br>listen 12345;     # same as </em>:12345<br>listen localhost:12345;<br></p><p>   IPv6地址在方括号中指定： </p><blockquote class="example"><pre class="notranslate">listen [::1]:12345;<br>listen [::]:12345;<br></pre></blockquote><p>   UNIX域套接字使用“ <code class="notranslate">unix:</code> ”前缀指定： </p><blockquote class="example"><pre class="notranslate">listen unix:/var/run/nginx.sock;<br></pre></blockquote><p></p><p>   <code class="notranslate">ssl</code>参数允许指定此端口上接受的所有连接都应在SSL模式下工作。 </p><a name="udp"></a><p>   <code class="notranslate">udp</code>参数配置一个侦听套接字以处理数据报（1.9.13）。 </p><a name="proxy_protocol"></a><p>   <code class="notranslate">proxy_protocol</code>参数（1.11.4）允许指定此端口上接受的所有连接都应使用<a hhref="http://www.haproxy.org/download/1.5/doc/proxy-protocol.txt">PROXY协议</a> 。 </p><blockquote class="note">  自版本1.13.11起支持PROXY协议版本2。 </blockquote><p></p><p>   <code class="notranslate">listen</code>指令可以有几个特定于与套接字相关的系统调用的附加参数。 </p><dl class="compact"><dt>   <code class="notranslate">backlog</code> = <code class="notranslate"><i>number</i></code> </dt><dd>  在<code class="notranslate">listen()</code>调用中设置<code class="notranslate">backlog</code>参数，该参数限制挂起连接队列的最大长度（1.9.2）。  默认情况下， <code class="notranslate">backlog</code>在FreeBSD，DragonFly BSD和macOS上设置为-1，在其他平台上设置为511。 </dd><dt>   <code class="notranslate">rcvbuf</code> = <code class="notranslate"><i>size</i></code> </dt><dd>  设置侦听套接字的接收缓冲区大小（ <code class="notranslate">SO_RCVBUF</code>选项）（1.11.13）。 </dd><dt>   <code class="notranslate">sndbuf</code> = <code class="notranslate"><i>size</i></code> </dt><dd>  设置侦听套接字的发送缓冲区大小（ <code class="notranslate">SO_SNDBUF</code>选项）（1.11.13）。 </dd><dt> <code class="notranslate">bind</code> </dt> <dd>  此参数指示对给定地址：端口对进行单独的<code class="notranslate">bind()</code>调用。  事实是，如果有几个具有相同端口但不同地址的<code class="notranslate">listen</code>指令，并且其中一个<code class="notranslate">listen</code>指令侦听给定端口（ <code class="notranslate"><em>:</em></code> <code class="notranslate"><i>port</i></code> ）的所有地址，则nginx将<code class="notranslate">bind()</code>仅限于<code class="notranslate">:</code> <code class="notranslate"><i>port</i></code> 。  应该注意的是，在这种情况下将进行<code class="notranslate">getsockname()</code>系统调用以确定接受连接的地址。  如果使用<code class="notranslate">ipv6only</code>或<code class="notranslate">so_keepalive</code>参数，那么对于给定的<code class="notranslate"><i>address</i></code> ： <code class="notranslate"><i>port</i></code>对将始终进行单独的<code class="notranslate">bind()</code>调用。 </dd><dt>   <code class="notranslate">ipv6only</code> = <code class="notranslate">on</code> | <code class="notranslate">off</code> </dt><dd>  此参数确定（通过<code class="notranslate">IPV6_V6ONLY</code>套接字选项）侦听通配符地址<code class="notranslate">[::]</code>的IPv6套接字是仅接受IPv6连接还是仅接受IPv6和IPv4连接。  默认情况下，此参数处于启用状态。  它只能在开始时设置一次。 </dd><dt id="reuseport"> <code class="notranslate">reuseport</code> </dt> <dd>  此参数（1.9.1）指示为每个工作进程创建一个单独的侦听套接字（使用Linux 3.9+和DragonFly BSD上的<code class="notranslate">SO_REUSEPORT</code>套接字选项，或FreeBSD 12+上的<code class="notranslate">SO_REUSEPORT_LB</code> ），允许内核在工作进程之间分配传入连接。  目前仅适用于Linux 3.9 +，DragonFly BSD和FreeBSD 12+（1.15.1）。 <blockquote class="note">  不恰当地使用此选项可能会产生安全<a hhref="http://man7.org/linux/man-pages/man7/socket.7.html">隐患</a> 。 </blockquote></dd><dt>   <code class="notranslate">so_keepalive</code> = <code class="notranslate">on</code> |   <code class="notranslate">off</code> | [ <code class="notranslate"><i>keepidle</i></code> ]：[ <code class="notranslate"><i>keepintvl</i></code> ]：[ <code class="notranslate"><i>keepcnt</i></code> ] </dt><dd>  此参数配置侦听套接字的“TCP keepalive”行为。  如果省略此参数，则操作系统的设置将对套接字有效。  如果将其设置为值“ <code class="notranslate">on</code> ”，则为套接字打开<code class="notranslate">SO_KEEPALIVE</code>选项。  如果将其设置为值“ <code class="notranslate">off</code> ”，则为套接字关闭<code class="notranslate">SO_KEEPALIVE</code>选项。  某些操作系统支持使用<code class="notranslate">TCP_KEEPIDLE</code> ， <code class="notranslate">TCP_KEEPINTVL</code>和<code class="notranslate">TCP_KEEPCNT</code>套接字选项在每个套接字的基础上设置TCP keepalive参数。  在这样的系统上（目前，Linux 2.4 +，NetBSD 5+和FreeBSD 9.0-STABLE），可以使用<code class="notranslate"><i>keepidle</i></code> ， <code class="notranslate"><i>keepintvl</i></code>和<code class="notranslate"><i>keepcnt</i></code>参数配置它们。  可以省略一个或两个参数，在这种情况下，相应套接字选项的系统默认设置将生效。  例如， <blockquote class="example"><pre class="notranslate">so_keepalive=30m::10</pre></blockquote>  将空闲超时（ <code class="notranslate">TCP_KEEPIDLE</code> ）设置为30分钟，将探测间隔（ <code class="notranslate">TCP_KEEPINTVL</code> ）保留为系统默认值，并将探测计数（ <code class="notranslate">TCP_KEEPCNT</code> ）设置为10个探测。 </dd></dl><p></p><p>  不同的服务器必须侦听不同的<code class="notranslate"><i>address</i></code> ： <code class="notranslate"><i>port</i></code>对。 </p><a name="preread_buffer_size"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>preread_buffer_size</strong> <code class="notranslate"><i>size</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">preread_buffer_size 16k;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br><br>                </td></tr></tbody></table><p>  该指令出现在1.11.5版中。 </p></div><p>  指定<a hhref="stream_processing.html#preread_phase">预读</a>缓冲区的<code class="notranslate"><i>size</i></code> 。 </p><a name="preread_timeout"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>preread_timeout</strong> <code class="notranslate"><i>timeout</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">preread_timeout 30s;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br><br>                </td></tr></tbody></table><p>  该指令出现在1.11.5版中。 </p></div><p>  指定<a hhref="stream_processing.html#preread_phase">预读</a>阶段的<code class="notranslate"><i>timeout</i></code> 。 </p><a name="proxy_protocol_timeout"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>proxy_protocol_timeout</strong> <code class="notranslate"><i>timeout</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">proxy_protocol_timeout 30s;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br><br>                </td></tr></tbody></table><p>  该指令出现在1.11.4版中。 </p></div><p>  指定读取PROXY协议标头以完成的<code class="notranslate"><i>timeout</i></code> 。  如果在此时间内未传输整个标头，则关闭连接。 </p><a name="resolver"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>resolver</strong><br>    <code class="notranslate"><i>address</i></code> …<br>    [ <code class="notranslate">valid</code> = <code class="notranslate"><i>time</i></code> ]<br>    [ <code class="notranslate">ipv6</code> = <code class="notranslate">on</code> | <code class="notranslate">off</code> ];</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>—
+
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p&gt;  该指令出现在1.11.3版中。 &lt;/p&gt;&lt;/div&gt;&lt;p&gt;  将用于解析上游服务器名称的名称服务器配置到地址中，例如： &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;resolver 127.0.0.1 [::1]:5353;
+</code></pre><p></p><p>  可以将地址指定为域名或IP地址，以及可选端口。  如果未指定端口，则使用端口53。  以循环方式查询名称服务器。 </p><p>  默认情况下，nginx将在解析时查找IPv4和IPv6地址。  如果不需要查找IPv6地址，可以指定<code class="notranslate">ipv6=off</code>参数。 </p><p>  默认情况下，nginx使用响应的TTL值缓存答案。  可选的<code class="notranslate">valid</code>参数允许覆盖它： </p><blockquote class="example"><pre class="notranslate">resolver 127.0.0.1 [::1]:5353 valid=30s;<br></pre></blockquote><p></p><blockquote class="note">  在1.11.3版之前，该指令作为我们<a hhref="http://nginx.com/products/">商业订阅的</a>一部分提供。 </blockquote><p></p><a name="resolver_timeout"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>resolver_timeout</strong> <code class="notranslate"><i>time</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">resolver_timeout 30s;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br><br>                </td></tr></tbody></table><p>  该指令出现在1.11.3版中。 </p></div><p>  设置名称解析的超时，例如： </p><blockquote class="example"><pre class="notranslate">resolver_timeout 5s;<br></pre></blockquote><p></p><blockquote class="note">  在1.11.3版之前，该指令作为我们<a hhref="http://nginx.com/products/">商业订阅的</a>一部分提供。 </blockquote><p></p><a name="server"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>server</strong> { … }</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>—
+
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  设置服务器的配置。 &lt;/p&gt;&lt;a name=&quot;stream&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Syntax:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;stream&lt;/strong&gt; { ... }&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Default:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+
+—
+
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;main&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  提供指定流服务器指令的配置文件上下文。 &lt;/p&gt;&lt;a name=&quot;tcp_nodelay&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Syntax:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;tcp_nodelay&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;on&lt;/code&gt; | &lt;code class=&quot;notranslate&quot;&gt;off&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Default:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;pre class=&quot;notranslate&quot;&gt;tcp_nodelay on;&lt;/pre&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p&gt;  该指令出现在1.9.4版本中。 &lt;/p&gt;&lt;/div&gt;&lt;p&gt;  启用或禁用&lt;code class=&quot;notranslate&quot;&gt;TCP_NODELAY&lt;/code&gt;选项的使用。  为客户端和代理服务器连接启用该选项。 &lt;/p&gt;&lt;a name=&quot;variables_hash_bucket_size&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Syntax:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;variables_hash_bucket_size&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;size&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Default:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;pre class=&quot;notranslate&quot;&gt;variables_hash_bucket_size 64;&lt;/pre&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p&gt;  该指令出现在1.11.2版中。 &lt;/p&gt;&lt;/div&gt;&lt;p&gt;  设置变量哈希表的桶大小。  设置哈希表的详细信息在单独的&lt;a hhref=&quot;hash.html&quot;&gt;文档&lt;/a&gt;中提供。 &lt;/p&gt;&lt;a name=&quot;variables_hash_max_size&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Syntax:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;variables_hash_max_size&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;size&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Default:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;pre class=&quot;notranslate&quot;&gt;variables_hash_max_size 1024;&lt;/pre&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p&gt;  该指令出现在1.11.2版中。 &lt;/p&gt;&lt;/div&gt;&lt;p&gt;  设置变量哈希表的最大&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;size&lt;/i&gt;&lt;/code&gt; 。  设置哈希表的详细信息在单独的&lt;a hhref=&quot;hash.html&quot;&gt;文档&lt;/a&gt;中提供。 &lt;/p&gt;&lt;a name=&quot;variables&quot;&gt;&lt;/a&gt;&lt;center&gt;&lt;h4&gt;  嵌入式变量 &lt;/h4&gt;&lt;/center&gt;&lt;p&gt;   &lt;code class=&quot;notranslate&quot;&gt;ngx_stream_core_module&lt;/code&gt;模块支持自1.11.2以来的变量。 &lt;/p&gt;&lt;dl class=&quot;compact&quot;&gt;&lt;dt id=&quot;var_binary_remote_addr&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$binary_remote_addr&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  客户端地址采用二进制形式，值的长度始终为IPv4地址的4个字节或IPv6地址的16个字节 &lt;/dd&gt;&lt;dt id=&quot;var_bytes_received&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$bytes_received&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  从客户端收到的字节数（1.11.4） &lt;/dd&gt;&lt;dt id=&quot;var_bytes_sent&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$bytes_sent&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  发送到客户端的字节数 &lt;/dd&gt;&lt;dt id=&quot;var_connection&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$connection&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  连接序列号 &lt;/dd&gt;&lt;dt id=&quot;var_hostname&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$hostname&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  主机名 &lt;/dd&gt;&lt;dt id=&quot;var_msec&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$msec&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  以毫秒为单位的当前时间（以毫秒为单位） &lt;/dd&gt;&lt;dt id=&quot;var_nginx_version&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$nginx_version&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;   nginx版本 &lt;/dd&gt;&lt;dt id=&quot;var_pid&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$pid&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  工作进程的PID &lt;/dd&gt;&lt;dt id=&quot;var_protocol&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$protocol&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  用于与客户端通信的协议： &lt;code class=&quot;notranslate&quot;&gt;TCP&lt;/code&gt;或&lt;code class=&quot;notranslate&quot;&gt;UDP&lt;/code&gt; （1.11.4） &lt;/dd&gt;&lt;dt id=&quot;var_proxy_protocol_addr&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$proxy_protocol_addr&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  来自PROXY协议头的客户端地址，否则为空字符串（1.11.4） &lt;p&gt;  必须先通过在&lt;a hhref=&quot;#listen&quot;&gt;listen&lt;/a&gt;指令中设置&lt;code class=&quot;notranslate&quot;&gt;proxy_protocol&lt;/code&gt;参数来启用PROXY协议。 &lt;/p&gt;&lt;/dd&gt;&lt;dt id=&quot;var_proxy_protocol_port&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$proxy_protocol_port&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  来自PROXY协议头的客户端端口，否则为空字符串（1.11.4） &lt;p&gt;  必须先通过在&lt;a hhref=&quot;#listen&quot;&gt;listen&lt;/a&gt;指令中设置&lt;code class=&quot;notranslate&quot;&gt;proxy_protocol&lt;/code&gt;参数来启用PROXY协议。 &lt;/p&gt;&lt;/dd&gt;&lt;dt id=&quot;var_remote_addr&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$remote_addr&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  客户地址 &lt;/dd&gt;&lt;dt id=&quot;var_remote_port&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$remote_port&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  客户端端口 &lt;/dd&gt;&lt;dt id=&quot;var_server_addr&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$server_addr&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  接受连接的服务器的地址 &lt;p&gt;  计算此变量的值通常需要一次系统调用。  为避免系统调用， &lt;a hhref=&quot;#listen&quot;&gt;listen&lt;/a&gt;指令必须指定地址并使用&lt;code class=&quot;notranslate&quot;&gt;bind&lt;/code&gt;参数。 &lt;/p&gt;&lt;/dd&gt;&lt;dt id=&quot;var_server_port&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$server_port&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  接受连接的服务器的端口 &lt;/dd&gt;&lt;dt id=&quot;var_session_time&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$session_time&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  会话持续时间（以秒为单位），分辨率为毫秒（1.11.4）; &lt;/dd&gt;&lt;dt id=&quot;var_status&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$status&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  会话状态（1.11.4），可以是以下之一： &lt;dl class=&quot;compact&quot;&gt;&lt;dt&gt; &lt;code class=&quot;notranslate&quot;&gt;200&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  会话成功完成 &lt;/dd&gt;&lt;dt&gt; &lt;code class=&quot;notranslate&quot;&gt;400&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  无法解析客户端数据，例如&lt;a hhref=&quot;#proxy_protocol&quot;&gt;PROXY协议&lt;/a&gt;头 &lt;/dd&gt;&lt;dt&gt; &lt;code class=&quot;notranslate&quot;&gt;403&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  例如，当&lt;a hhref=&quot;ngx_stream_access_module.html&quot;&gt;某些客户端地址的&lt;/a&gt;访问受限时，禁止访问 &lt;/dd&gt;&lt;dt&gt; &lt;code class=&quot;notranslate&quot;&gt;500&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  内部服务器错误 &lt;/dd&gt;&lt;dt&gt; &lt;code class=&quot;notranslate&quot;&gt;502&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  坏网关，例如，如果无法选择或到达上游服务器。 &lt;/dd&gt;&lt;dt&gt; &lt;code class=&quot;notranslate&quot;&gt;503&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  服务不可用，例如，当访问受&lt;a hhref=&quot;ngx_stream_limit_conn_module.html&quot;&gt;连接数&lt;/a&gt;限制时 &lt;/dd&gt;&lt;/dl&gt;&lt;/dd&gt;&lt;dt id=&quot;var_time_iso8601&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$time_iso8601&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  当地时间采用ISO 8601标准格式 &lt;/dd&gt;&lt;dt id=&quot;var_time_local&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$time_local&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  通用日志格式的本地时间 &lt;/dd&gt;&lt;/dl&gt;&lt;p&gt;&lt;/p&gt; 
+</code></pre><p><span></span><div style="display: none;"></div></p>
+</td></tr></tbody></table></div></td></tr></tbody></table></div></td></tr></tbody></table></div>
+          
         
       
     </div>
@@ -1490,7 +1632,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/ngx/stream/ngx_stream_access_module.html" itemprop="url">stream/ngx_stream_access_module-nginx中文手册</a></h2>
+                <a class="post-title-link" href="/ngx/stream/ngx_stream_access_module.html" itemprop="url">未命名</a></h2>
         
 
         <div class="post-meta">
@@ -1502,7 +1644,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
                 2018年12月21日
               </time>
             
@@ -1512,28 +1654,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx中文手册</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -1563,14 +1683,36 @@
 
       
         
-          <p>stream,ngx_stream_access_module<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/ngx/stream/ngx_stream_access_module.html#post.more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p></p><h2 class="notranslate">Module ngx_stream_access_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#example">Example Configuration</a> <br> <a hhref="#directives">Directives</a> <br>     <a hhref="#allow">allow</a> <br>     <a hhref="#deny">deny</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_stream_access_module</code>模块（1.9.2）允许限制对某些客户端地址的访问。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">server {<br>    …<br>    deny  192.168.1.1;<br>    allow 192.168.1.0/24;<br>    allow 10.1.1.0/16;<br>    allow 2001:0db8::/32;<br>    deny  all;<br>}<br></pre></blockquote><p></p><p>  按顺序检查规则，直到找到第一个匹配项。  在此示例中，仅允许IPv4网络<code class="notranslate">10.1.1.0/16</code>和<code class="notranslate">192.168.1.0/24</code>不包括地址<code class="notranslate">192.168.1.1</code> ）和IPv6网络<code class="notranslate">2001:0db8::/32</code> 。 </p><a name="directives"></a><center><h4>  指令 </h4></center><a name="allow"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>allow</strong><br>    <code class="notranslate"><i>address</i></code> |<br>    <code class="notranslate"><i>CIDR</i></code> |<br>    <code class="notranslate">unix:</code> |<br>    <code class="notranslate">all</code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>        —
+
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  允许访问指定的网络或地址。  如果指定了特殊值&lt;code class=&quot;notranslate&quot;&gt;unix:&lt;/code&gt;则允许访问所有UNIX域套接字。 &lt;/p&gt;&lt;a name=&quot;deny&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;deny&lt;/strong&gt; 
+&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;address&lt;/i&gt;&lt;/code&gt; |
+&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;CIDR&lt;/i&gt;&lt;/code&gt; |
+&lt;code class=&quot;notranslate&quot;&gt;unix:&lt;/code&gt; |
+&lt;code class=&quot;notranslate&quot;&gt;all&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+
+        —
+
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  拒绝访问指定的网络或地址。  如果指定了特殊值&lt;code class=&quot;notranslate&quot;&gt;unix:&lt;/code&gt;则拒绝所有UNIX域套接字的访问。 &lt;/p&gt; 
+</code></pre><p><span></span><div style="display: none;"></div></p>
+</td></tr></tbody></table></div>
+          
         
       
     </div>
@@ -1636,7 +1778,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/ngx/njs/install.html" itemprop="url">njs/install-nginx中文手册</a></h2>
+                <a class="post-title-link" href="/ngx/njs/install.html" itemprop="url">未命名</a></h2>
         
 
         <div class="post-meta">
@@ -1648,7 +1790,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
                 2018年12月21日
               </time>
             
@@ -1658,28 +1800,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx中文手册</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -1709,14 +1829,10 @@
 
       
         
-          <p>njs,install<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/ngx/njs/install.html#post.more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p></p><h2>  下载并安装 </h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#install_package">Installing as a Linux package</a> <br> <a hhref="#install_sources">Building from the sources</a> <br></td></tr></tbody></table><a name="install_package"></a><center><h4>  作为Linux软件包安装 </h4></center><p>  对于Linux，可以使用njs模块<a hhref="linux_packages.html#dynmodules">包</a> ： </p><ul class="compact"><li>   <code class="notranslate">nginx-module-njs</code> -  njs <a hhref="ngx_core_module.html#load_module">动态</a>模块 </li><li>   <code class="notranslate">nginx-module-njs-dbg</code> - <code class="notranslate">nginx-module-njs</code>包的调试符号 </li></ul><p></p><a name="install_sources"></a><center><h4>  从源头构建 </h4></center><p>  可以使用以下命令克隆具有njs源的<a hhref="http://hg.nginx.org/njs">存储库</a> :(需要<a hhref="https://www.mercurial-scm.org">Mercurial</a>客户端）： </p><blockquote class="example"><pre class="notranslate">hg clone <a href="http://hg.nginx.org/njs" target="_blank" rel="noopener">http://hg.nginx.org/njs</a><br></pre></blockquote><p>  然后应使用<code class="notranslate">–add-module</code>配置参数编译<code class="notranslate">–add-module</code> ： </p><blockquote class="example"><pre class="notranslate">./configure –add-module= <code class="notranslate"><i>path-to-njs</i></code> /nginx<br></pre></blockquote><p>  模块也可以构建为<a hhref="ngx_core_module.html#load_module">动态</a> ： </p><blockquote class="example"><pre class="notranslate">./configure –add-dynamic-module= <code class="notranslate"><i>path-to-njs</i></code> /nginx<br></pre></blockquote><p></p><p>  要仅构建njs命令行<a hhref="cli.html">实用程序</a> ，请运行<code class="notranslate">./configure</code>并从njs根目录<code class="notranslate">make njs</code>命令。  该实用程序以<code class="notranslate">./build/njs</code> 。 </p><br><span></span><div style="display: none;"></div><p></p>
+
+          
         
       
     </div>
@@ -1815,7 +1931,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>

@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="nginx," />
+  <meta name="keywords" content="LINUX,NGINX,JAVA,PYTHON,PYTHON,前端,运维实践" />
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="syntax">
-<meta name="keywords" content="nginx">
+<meta name="description" content="配置文件测量单位   大小可以以字节，千字节（后缀k和K ）或兆字节（后缀m和M ）来指定，例如，“ 1024 ”，“ 8k ”，“ 1m ”。   也可以使用g或G后缀以千兆字节为g指定偏移量。   可以使用以下后缀以毫秒，秒，分钟，小时，天等指定时间间隔： msmillisecondsssecondsmminute">
 <meta property="og:type" content="article">
-<meta property="og:title" content="syntax-nginx中文手册">
+<meta property="og:title" content="IM.NGINX">
 <meta property="og:url" content="http://nginx.im/ngx/syntax.html">
 <meta property="og:site_name" content="IM.NGINX">
-<meta property="og:description" content="syntax">
+<meta property="og:description" content="配置文件测量单位   大小可以以字节，千字节（后缀k和K ）或兆字节（后缀m和M ）来指定，例如，“ 1024 ”，“ 8k ”，“ 1m ”。   也可以使用g或G后缀以千兆字节为g指定偏移量。   可以使用以下后缀以毫秒，秒，分钟，小时，天等指定时间间隔： msmillisecondsssecondsmminuteshhoursddayswweeksMmonths, 30 daysyyea">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:56:06.332Z">
+<meta property="og:updated_time" content="2018-12-21T08:09:34.296Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="syntax-nginx中文手册">
-<meta name="twitter:description" content="syntax">
+<meta name="twitter:title" content="IM.NGINX">
+<meta name="twitter:description" content="配置文件测量单位   大小可以以字节，千字节（后缀k和K ）或兆字节（后缀m和M ）来指定，例如，“ 1024 ”，“ 8k ”，“ 1m ”。   也可以使用g或G后缀以千兆字节为g指定偏移量。   可以使用以下后缀以毫秒，秒，分钟，小时，天等指定时间间隔： msmillisecondsssecondsmminuteshhoursddayswweeksMmonths, 30 daysyyea">
 
 
 
@@ -126,7 +125,7 @@
 
 
 
-  <title>syntax-nginx中文手册 | IM.NGINX</title>
+  <title> | IM.NGINX</title>
   
 
 
@@ -324,7 +323,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">syntax-nginx中文手册</h2>
+          <h2 class="post-title" itemprop="name headline"></h2>
         
 
         <div class="post-meta">
@@ -336,7 +335,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
                 2018年12月21日
               </time>
             
@@ -346,28 +345,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx中文手册</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -396,16 +373,7 @@
       
 
       
-        <p>syntax<br><a id="more"></a></p>
-<h2 id="配置文件测量单位"><a href="#配置文件测量单位" class="headerlink" title="配置文件测量单位"></a>配置文件测量单位</h2><p>  大小可以以字节，千字节（后缀<code>k</code>和<code>K</code> ）或兆字节（后缀<code>m</code>和<code>M</code> ）来指定，例如，“ <code>1024</code> ”，“ <code>8k</code> ”，“ <code>1m</code> ”。 </p>
-<p>  也可以使用<code>g</code>或<code>G</code>后缀以千兆字节为<code>g</code>指定偏移量。 </p>
-<p>  可以使用以下后缀以毫秒，秒，分钟，小时，天等指定时间间隔： </p>
-<td width="20%" class="notranslate">ms</td><td class="notranslate">milliseconds</td><br><td width="20%" class="notranslate">s</td><td class="notranslate">seconds</td><br><td width="20%" class="notranslate">m</td><td class="notranslate">minutes</td><br><td width="20%" class="notranslate">h</td><td class="notranslate">hours</td><br><td width="20%" class="notranslate">d</td><td class="notranslate">days</td><br><td width="20%" class="notranslate">w</td><td class="notranslate">weeks</td><br><td width="20%" class="notranslate">M</td><td class="notranslate">months, 30 days</td><br><td width="20%" class="notranslate">y</td><td class="notranslate">years, 365 days</td>
-
-
-
-<p>  通过按从最高有效到最低有序的顺序指定多个单元，可以将多个单元组合成单个值，并且可选地由空格分隔。  例如，“ <code>1h 30m</code> ”指定与“ <code>90m</code> ”或“ <code>5400s</code> ”相同的时间。  没有后缀的值表示秒。  建议始终指定后缀。 </p>
-<p>  某些时间间隔只能以秒分辨率指定。 </p>
+        <p></p><h2>  配置文件测量单位 </h2><p>  大小可以以字节，千字节（后缀<code class="notranslate">k</code>和<code class="notranslate">K</code> ）或兆字节（后缀<code class="notranslate">m</code>和<code class="notranslate">M</code> ）来指定，例如，“ <code class="notranslate">1024</code> ”，“ <code class="notranslate">8k</code> ”，“ <code class="notranslate">1m</code> ”。 </p><p>  也可以使用<code class="notranslate">g</code>或<code class="notranslate">G</code>后缀以千兆字节为<code class="notranslate">g</code>指定偏移量。 </p><p>  可以使用以下后缀以毫秒，秒，分钟，小时，天等指定时间间隔： </p><table width="30%"><tbody><tr><td width="20%" class="notranslate">ms</td><td class="notranslate">milliseconds</td></tr><tr><td width="20%" class="notranslate">s</td><td class="notranslate">seconds</td></tr><tr><td width="20%" class="notranslate">m</td><td class="notranslate">minutes</td></tr><tr><td width="20%" class="notranslate">h</td><td class="notranslate">hours</td></tr><tr><td width="20%" class="notranslate">d</td><td class="notranslate">days</td></tr><tr><td width="20%" class="notranslate">w</td><td class="notranslate">weeks</td></tr><tr><td width="20%" class="notranslate">M</td><td class="notranslate">months, 30 days</td></tr><tr><td width="20%" class="notranslate">y</td><td class="notranslate">years, 365 days</td></tr></tbody></table><p></p><p>  通过按从最高有效到最低有序的顺序指定多个单元，可以将多个单元组合成单个值，并且可选地由空格分隔。  例如，“ <code class="notranslate">1h 30m</code> ”指定与“ <code class="notranslate">90m</code> ”或“ <code class="notranslate">5400s</code> ”相同的时间。  没有后缀的值表示秒。  建议始终指定后缀。 </p><p>  某些时间间隔只能以秒分辨率指定。 </p><br><span></span><div style="display: none;"></div><p></p>
 
       
     </div>
@@ -455,7 +423,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nginx.im/ngx/syntax.html" title="syntax-nginx中文手册">http://nginx.im/ngx/syntax.html</a>
+    <a href="http://nginx.im/ngx/syntax.html" title="">http://nginx.im/ngx/syntax.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -468,12 +436,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/nginx/" rel="tag"># nginx</a>
-          
-        </div>
-      
 
       
       
@@ -483,8 +445,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ngx/switches.html" rel="next" title="switches-nginx中文手册">
-                <i class="fa fa-chevron-left"></i> switches-nginx中文手册
+              <a href="/ngx/switches.html" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -493,8 +455,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ngx/syslog.html" rel="prev" title="syslog-nginx中文手册">
-                syslog-nginx中文手册 <i class="fa fa-chevron-right"></i>
+              <a href="/ngx/syslog.html" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -592,7 +554,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -638,7 +600,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置文件测量单位"><span class="nav-number">1.</span> <span class="nav-text">配置文件测量单位</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">  配置文件测量单位 </span></a></li></ol></div>
             
 
           </div>

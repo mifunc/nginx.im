@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="nginx," />
+  <meta name="keywords" content="LINUX,NGINX,JAVA,PYTHON,PYTHON,前端,运维实践" />
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="beginners_guide">
-<meta name="keywords" content="nginx">
+<meta name="description" content="初学者指南  Starting, Stopping, and Reloading Configuration  Configuration File’s Structure  Serving Static Content  Setting Up a Simple Proxy Server  Setting Up Fas">
 <meta property="og:type" content="article">
-<meta property="og:title" content="beginners_guide-nginx中文手册">
+<meta property="og:title" content="IM.NGINX">
 <meta property="og:url" content="http://nginx.im/ngx/beginners_guide.html">
 <meta property="og:site_name" content="IM.NGINX">
-<meta property="og:description" content="beginners_guide">
+<meta property="og:description" content="初学者指南  Starting, Stopping, and Reloading Configuration  Configuration File’s Structure  Serving Static Content  Setting Up a Simple Proxy Server  Setting Up FastCGI Proxying   本指南提供了对nginx的基本介绍，并介绍了">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:56:05.983Z">
+<meta property="og:updated_time" content="2018-12-21T08:09:34.109Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="beginners_guide-nginx中文手册">
-<meta name="twitter:description" content="beginners_guide">
+<meta name="twitter:title" content="IM.NGINX">
+<meta name="twitter:description" content="初学者指南  Starting, Stopping, and Reloading Configuration  Configuration File’s Structure  Serving Static Content  Setting Up a Simple Proxy Server  Setting Up FastCGI Proxying   本指南提供了对nginx的基本介绍，并介绍了">
 
 
 
@@ -126,7 +125,7 @@
 
 
 
-  <title>beginners_guide-nginx中文手册 | IM.NGINX</title>
+  <title> | IM.NGINX</title>
   
 
 
@@ -324,7 +323,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">beginners_guide-nginx中文手册</h2>
+          <h2 class="post-title" itemprop="name headline"></h2>
         
 
         <div class="post-meta">
@@ -336,7 +335,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
                 2018年12月21日
               </time>
             
@@ -346,28 +345,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx中文手册</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -396,154 +373,26 @@
       
 
       
-        <p>beginners_guide<br><a id="more"></a></p>
-<h2 id="初学者指南"><a href="#初学者指南" class="headerlink" title="初学者指南"></a>初学者指南</h2><td align="left" class="notranslate"> <a href="#control">Starting, Stopping, and Reloading Configuration</a> <br> <a href="#conf_structure">Configuration File’s Structure</a> <br> <a href="#static">Serving Static Content</a> <br> <a href="#proxy">Setting Up a Simple Proxy Server</a> <br> <a href="#fastcgi">Setting Up FastCGI Proxying</a> <br></td>
-
-<p>  本指南提供了对nginx的基本介绍，并介绍了可以使用它完成的一些简单任务。  据推测，nginx已安装在阅读器的机器上。  如果不是，请参阅<a href="install.html">安装nginx</a>页面。  本指南介绍如何启动和停止nginx，重新加载其配置，解释配置文件的结构，并介绍如何设置nginx以提供静态内容，如何将nginx配置为代理服务器，以及如何将其与一个FastCGI应用程序。 </p>
-<p>   nginx有一个主进程和几个工作进程。  主进程的主要目的是读取和评估配置，并维护工作进程。  工作进程会对请求进行实际处理。   nginx使用基于事件的模型和依赖于操作系统的机制来有效地在工作进程之间分发请求。  工作进程数在配置文件中定义，可以针对给定配置进行修复，也可以自动调整为可用CPU内核数（请参阅<a href="ngx_core_module.html#worker_processes">worker_processes</a> ）。 </p>
-<p>   nginx及其模块的工作方式在配置文件中确定。  默认情况下，配置文件名为<code>nginx.conf</code>并放在目录<code>/usr/local/nginx/conf</code> ， <code>/etc/nginx</code>或<code>/usr/local/etc/nginx</code> 。 </p>
-<h4 id="启动，停止和重新加载配置"><a href="#启动，停止和重新加载配置" class="headerlink" title="启动，停止和重新加载配置"></a>启动，停止和重新加载配置</h4><p>  要启动nginx，请运行可执行文件。  启动nginx后，可以通过使用<code>-s</code>参数调用可执行文件来控制它。  使用以下语法： </p>
-<blockquote>
-<pre class="notranslate">nginx -s *signal*
-</pre>
-
-</blockquote>
-<p>   <em>信号</em>可能是以下之一： </p>
-<ul>
-<li><code>stop</code> - 快速关机 -    <code>quit</code> - 正常关机 -    <code>reload</code> - 重新加载配置文件 -    <code>reopen</code> - 重新打开日志文件<br>例如，要在等待工作进程完成当前请求的服务时停止nginx进程，可以执行以下命令： </li>
-</ul>
-<blockquote>
-<pre class="notranslate">nginx -s quit
-</pre>
-
-
-
-<p>  此命令应在启动nginx的同一用户下执行。 </p>
-</blockquote>
-<p>  在将重新加载配置的命令发送到nginx或重新启动之前，将不会应用配置文件中所做的更改。  要重新加载配置，请执行： </p>
-<blockquote>
-<pre class="notranslate">nginx -s reload
-</pre>
-
-
-
-</blockquote>
-<p>  一旦主进程收到重新加载配置的信号，它将检查新配置文件的语法有效性并尝试应用其中提供的配置。  如果成功，主进程将启动新的工作进程并向旧工作进程发送消息，请求它们关闭。  否则，主进程将回滚更改并继续使用旧配置。  旧工作进程，接收命令关闭，停止接受新连接并继续为当前请求提供服务，直到所有此类请求都得到服务。  之后，旧工作进程退出。 </p>
-<p>  也可以借助Unix工具（如<code>kill</code>实用程序）将信号发送到nginx进程。  在这种情况下，信号直接发送到具有给定进程ID的进程。  默认情况下，nginx主进程的进程ID写入目录<code>/usr/local/nginx/logs</code>或<code>/var/run</code>的<code>nginx.pid</code> 。  例如，如果主进程ID是1628，要发送导致nginx正常关闭的QUIT信号，请执行： </p>
-<blockquote>
-<pre class="notranslate">kill -s QUIT 1628
-</pre>
-
-</blockquote>
-<p>  要获取所有正在运行的nginx进程的列表，可以使用<code>ps</code>实用程序，例如，通过以下方式： </p>
-<blockquote>
-<pre class="notranslate">ps -ax | grep nginx
-</pre>
-
-</blockquote>
-<p>  有关向nginx发送信号的更多信息，请参阅<a href="control.html">控制nginx</a> 。 </p>
-<h4 id="配置文件的结构"><a href="#配置文件的结构" class="headerlink" title="配置文件的结构"></a>配置文件的结构</h4><p>   nginx由模块组成，这些模块由配置文件中指定的指令控制。  指令分为简单指令和块指令。  一个简单的指令包括由空格分隔的名称和参数，以分号（ <code>;</code> ）结尾。  块指令与简单指令具有相同的结构，但它不是以分号结尾，而是以大括号（ <code>{</code>和<code>}</code> ）包围的一组附加指令结束。  如果块指令可以在大括号内包含其他指令，则称为上下文（示例： <a href="ngx_core_module.html#events">events</a> ， <a href="http/ngx_http_core_module.html#http">http</a> ， <a href="http/ngx_http_core_module.html#server">server</a>和<a href="http/ngx_http_core_module.html#location">location</a> ）。 </p>
-<p>  放置在任何上下文之外的配置文件中的指令被认为是在<a href="ngx_core_module.html">主</a>上下文中。   <code>events</code>和<code>http</code>指令驻留在<code>main</code>上下文中， <code>server</code>位于<code>http</code> ，位于<code>server</code> 。 </p>
-<p>   <code>#</code>符号后面的其余部分被视为评论。 </p>
-<h4 id="提供静态内容"><a href="#提供静态内容" class="headerlink" title="提供静态内容"></a>提供静态内容</h4><p>  一个重要的Web服务器任务是提供文件（例如图像或静态HTML页面）。  您将实现一个示例，根据请求，将从不同的本地目录提供文件： <code>/data/www</code> （可能包含HTML文件）和<code>/data/images</code> （包含图像）。  这将需要编辑配置文件并在<a href="http/ngx_http_core_module.html#http">http</a>块内设置具有两个<a href="http/ngx_http_core_module.html#location">位置</a>块的<a href="http/ngx_http_core_module.html#server">服务器</a>块。 </p>
-<p>  首先，创建<code>/data/www</code>目录并将包含任何文本内容的<code>index.html</code>文件放入其中，然后创建<code>/data/images</code>目录并在其中放置一些图像。 </p>
-<p>  接下来，打开配置文件。  默认配置文件已包含几个<code>server</code>块的示例，主要是注释掉的。  现在注释掉所有这些块并启动一个新的<code>server</code>块： </p>
-<blockquote>
-<pre class="notranslate">http {
-    server {
-    }
-}
-</pre>
-
-</blockquote>
-<p>  通常，配置文件可以包括由它们<a href="http/ngx_http_core_module.html#listen">监听</a>的端口和<a href="http/server_names.html">服务器名称</a> <a href="http/request_processing.html">区分</a>的多个<code>server</code>块。  一旦nginx决定哪个<code>server</code>处理请求，它就会根据<code>server</code>块内定义的<code>location</code>指令的参数测试请求头中指定的URI。 </p>
-<p>  将以下<code>location</code>块添加到<code>server</code>块： </p>
-<blockquote>
-<pre class="notranslate">location / {
-    root /data/www;
-}
-</pre>
-
-</blockquote>
-<p>  此<code>location</code>块指定与请求中的URI进行比较的“ <code>/</code> ”前缀。  对于匹配请求，URI将添加到<a href="http/ngx_http_core_module.html#root">根</a>指令中指定的路径，即<code>/data/www</code> ，以形成本地文件系统上所请求文件的路径。  如果存在多个匹配的<code>location</code>块，则nginx选择具有最长前缀的<code>location</code>块。  上面的<code>location</code>块提供长度为1的最短前缀，因此仅当所有其他<code>location</code>块无法提供匹配时，才会使用此块。 </p>
-<p>  接下来，添加第二个<code>location</code>块： </p>
-<blockquote>
-<pre class="notranslate">location /images/ {
-    root /data;
-}
-</pre>
-
-</blockquote>
-<p>  它将匹配以<code>/images/</code>开头的请求（ <code>location /</code>也匹配此类请求，但前缀较短）。 </p>
-<p>  生成的<code>server</code>块配置应如下所示： </p>
-<blockquote>
-<p><pre class="notranslate">server {<br>    location / {<br>        root /data/www;<br>    }</pre></p>
-</blockquote>
+        <p></p><h2>  初学者指南 </h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#control">Starting, Stopping, and Reloading Configuration</a> <br> <a hhref="#conf_structure">Configuration File’s Structure</a> <br> <a hhref="#static">Serving Static Content</a> <br> <a hhref="#proxy">Setting Up a Simple Proxy Server</a> <br> <a hhref="#fastcgi">Setting Up FastCGI Proxying</a> <br></td></tr></tbody></table><p>  本指南提供了对nginx的基本介绍，并介绍了可以使用它完成的一些简单任务。  据推测，nginx已安装在阅读器的机器上。  如果不是，请参阅<a hhref="install.html">安装nginx</a>页面。  本指南介绍如何启动和停止nginx，重新加载其配置，解释配置文件的结构，并介绍如何设置nginx以提供静态内容，如何将nginx配置为代理服务器，以及如何将其与一个FastCGI应用程序。 </p><p>   nginx有一个主进程和几个工作进程。  主进程的主要目的是读取和评估配置，并维护工作进程。  工作进程会对请求进行实际处理。   nginx使用基于事件的模型和依赖于操作系统的机制来有效地在工作进程之间分发请求。  工作进程数在配置文件中定义，可以针对给定配置进行修复，也可以自动调整为可用CPU内核数（请参阅<a hhref="ngx_core_module.html#worker_processes">worker_processes</a> ）。 </p><p>   nginx及其模块的工作方式在配置文件中确定。  默认情况下，配置文件名为<code class="notranslate">nginx.conf</code>并放在目录<code class="notranslate">/usr/local/nginx/conf</code> ， <code class="notranslate">/etc/nginx</code>或<code class="notranslate">/usr/local/etc/nginx</code> 。 </p><a name="control"></a><center><h4>  启动，停止和重新加载配置 </h4></center><p>  要启动nginx，请运行可执行文件。  启动nginx后，可以通过使用<code class="notranslate">-s</code>参数调用可执行文件来控制它。  使用以下语法： </p><blockquote class="example"><pre class="notranslate">nginx -s <i>signal</i><br></pre></blockquote><p>   <i>信号</i>可能是以下之一： </p><ul class="compact"><li>   <code class="notranslate">stop</code> - 快速关机 </li><li>   <code class="notranslate">quit</code> - 正常关机 </li><li>   <code class="notranslate">reload</code> - 重新加载配置文件 </li><li>   <code class="notranslate">reopen</code> - 重新打开日志文件 </li></ul><p>  例如，要在等待工作进程完成当前请求的服务时停止nginx进程，可以执行以下命令： </p><blockquote class="example"><pre class="notranslate">nginx -s quit<br></pre></blockquote><p></p><blockquote class="note">  此命令应在启动nginx的同一用户下执行。 </blockquote><p></p><p>  在将重新加载配置的命令发送到nginx或重新启动之前，将不会应用配置文件中所做的更改。  要重新加载配置，请执行： </p><blockquote class="example"><pre class="notranslate">nginx -s reload<br></pre></blockquote><p></p><p>  一旦主进程收到重新加载配置的信号，它将检查新配置文件的语法有效性并尝试应用其中提供的配置。  如果成功，主进程将启动新的工作进程并向旧工作进程发送消息，请求它们关闭。  否则，主进程将回滚更改并继续使用旧配置。  旧工作进程，接收命令关闭，停止接受新连接并继续为当前请求提供服务，直到所有此类请求都得到服务。  之后，旧工作进程退出。 </p><p>  也可以借助Unix工具（如<code class="notranslate">kill</code>实用程序）将信号发送到nginx进程。  在这种情况下，信号直接发送到具有给定进程ID的进程。  默认情况下，nginx主进程的进程ID写入目录<code class="notranslate">/usr/local/nginx/logs</code>或<code class="notranslate">/var/run</code>的<code class="notranslate">nginx.pid</code> 。  例如，如果主进程ID是1628，要发送导致nginx正常关闭的QUIT信号，请执行： </p><blockquote class="example"><pre class="notranslate">kill -s QUIT 1628<br></pre></blockquote><p>  要获取所有正在运行的nginx进程的列表，可以使用<code class="notranslate">ps</code>实用程序，例如，通过以下方式： </p><blockquote class="example"><pre class="notranslate">ps -ax | grep nginx<br></pre></blockquote><p>  有关向nginx发送信号的更多信息，请参阅<a hhref="control.html">控制nginx</a> 。 </p><a name="conf_structure"></a><center><h4>  配置文件的结构 </h4></center><p>   nginx由模块组成，这些模块由配置文件中指定的指令控制。  指令分为简单指令和块指令。  一个简单的指令包括由空格分隔的名称和参数，以分号（ <code class="notranslate">;</code> ）结尾。  块指令与简单指令具有相同的结构，但它不是以分号结尾，而是以大括号（ <code class="notranslate">{</code>和<code class="notranslate">}</code> ）包围的一组附加指令结束。  如果块指令可以在大括号内包含其他指令，则称为上下文（示例： <a hhref="ngx_core_module.html#events">events</a> ， <a hhref="http/ngx_http_core_module.html#http">http</a> ， <a hhref="http/ngx_http_core_module.html#server">server</a>和<a hhref="http/ngx_http_core_module.html#location">location</a> ）。 </p><p>  放置在任何上下文之外的配置文件中的指令被认为是在<a hhref="ngx_core_module.html">主</a>上下文中。   <code class="notranslate">events</code>和<code class="notranslate">http</code>指令驻留在<code class="notranslate">main</code>上下文中， <code class="notranslate">server</code>位于<code class="notranslate">http</code> ，位于<code class="notranslate">server</code> 。 </p><p>   <code class="notranslate">#</code>符号后面的其余部分被视为评论。 </p><a name="static"></a><center><h4>  提供静态内容 </h4></center><p>  一个重要的Web服务器任务是提供文件（例如图像或静态HTML页面）。  您将实现一个示例，根据请求，将从不同的本地目录提供文件： <code class="notranslate">/data/www</code> （可能包含HTML文件）和<code class="notranslate">/data/images</code> （包含图像）。  这将需要编辑配置文件并在<a hhref="http/ngx_http_core_module.html#http">http</a>块内设置具有两个<a hhref="http/ngx_http_core_module.html#location">位置</a>块的<a hhref="http/ngx_http_core_module.html#server">服务器</a>块。 </p><p>  首先，创建<code class="notranslate">/data/www</code>目录并将包含任何文本内容的<code class="notranslate">index.html</code>文件放入其中，然后创建<code class="notranslate">/data/images</code>目录并在其中放置一些图像。 </p><p>  接下来，打开配置文件。  默认配置文件已包含几个<code class="notranslate">server</code>块的示例，主要是注释掉的。  现在注释掉所有这些块并启动一个新的<code class="notranslate">server</code>块： </p><blockquote class="example"><pre class="notranslate">http {<br>    server {<br>    }<br>}<br></pre></blockquote><p>  通常，配置文件可以包括由它们<a hhref="http/ngx_http_core_module.html#listen">监听</a>的端口和<a hhref="http/server_names.html">服务器名称</a> <a hhref="http/request_processing.html">区分</a>的多个<code class="notranslate">server</code>块。  一旦nginx决定哪个<code class="notranslate">server</code>处理请求，它就会根据<code class="notranslate">server</code>块内定义的<code class="notranslate">location</code>指令的参数测试请求头中指定的URI。 </p><p>  将以下<code class="notranslate">location</code>块添加到<code class="notranslate">server</code>块： </p><blockquote class="example"><pre class="notranslate">location / {<br>    root /data/www;<br>}<br></pre></blockquote><p>  此<code class="notranslate">location</code>块指定与请求中的URI进行比较的“ <code class="notranslate">/</code> ”前缀。  对于匹配请求，URI将添加到<a hhref="http/ngx_http_core_module.html#root">根</a>指令中指定的路径，即<code class="notranslate">/data/www</code> ，以形成本地文件系统上所请求文件的路径。  如果存在多个匹配的<code class="notranslate">location</code>块，则nginx选择具有最长前缀的<code class="notranslate">location</code>块。  上面的<code class="notranslate">location</code>块提供长度为1的最短前缀，因此仅当所有其他<code class="notranslate">location</code>块无法提供匹配时，才会使用此块。 </p><p>  接下来，添加第二个<code class="notranslate">location</code>块： </p><blockquote class="example"><pre class="notranslate">location /images/ {<br>    root /data;<br>}<br></pre></blockquote><p>  它将匹配以<code class="notranslate">/images/</code>开头的请求（ <code class="notranslate">location /</code>也匹配此类请求，但前缀较短）。 </p><p>  生成的<code class="notranslate">server</code>块配置应如下所示： </p><blockquote class="example"><pre class="notranslate">server {<br>    location / {<br>        root /data/www;<br>    }<p></p>
 <pre><code>location /images/ {
     root /data;
 }
-</code></pre><p>}<br></p>
-<p>  这已经是服务器的工作配置，它可以侦听标准端口80，并且可以在本地计算机上访问<code>http://localhost/</code> 。  响应具有以<code>/images/</code>开头的URI的请求，服务器将从<code>/data/images</code>目录发送文件。  例如，响应<code>http://localhost/images/example.png</code>请求，nginx将发送<code>/data/images/example.png</code>文件。  如果此类文件不存在，nginx将发送指示404错误的响应。   URI不以<code>/images/</code>开头的请求将映射到<code>/data/www</code>目录。  例如，响应<code>http://localhost/some/example.html</code>请求，nginx将发送<code>/data/www/some/example.html</code>文件。 </p>
-<p>  要应用新配置，请启动nginx（如果尚未启动）或通过执行以下命令将<code>reload</code>信号发送到nginx的主进程： </p>
-<blockquote>
-<pre class="notranslate">nginx -s reload
-</pre>
-
-
-
-
-
-<p>  如果某些内容无法按预期工作，您可以尝试在目录<code>/usr/local/nginx/logs</code>或<code>/var/log/nginx</code>中的<code>access.log</code>和<code>error.log</code>文件中找出原因。 </p>
-</blockquote>
-<h4 id="设置简单的代理服务器"><a href="#设置简单的代理服务器" class="headerlink" title="设置简单的代理服务器"></a>设置简单的代理服务器</h4><p>   nginx的一个常见用途是将其设置为代理服务器，这意味着服务器接收请求，将它们传递给代理服务器，从中检索响应，然后将它们发送给客户端。 </p>
-<p>  我们将配置一个基本代理服务器，它使用来自本地目录的文件处理图像请求，并将所有其他请求发送到代理服务器。  在此示例中，将在单个nginx实例上定义两个服务器。 </p>
-<p>  首先，通过向nginx的配置文件添加一个以上的<code>server</code>块来定义代理服务器，其中包含以下内容： </p>
-<blockquote>
-<p><pre class="notranslate">server {<br>    listen 8080;<br>    root /data/up1;</pre></p>
-</blockquote>
+</code></pre><p>}<br></p></pre></blockquote><p>  这已经是服务器的工作配置，它可以侦听标准端口80，并且可以在本地计算机上访问<code class="notranslate"><a href="http://localhost/" target="_blank" rel="noopener">http://localhost/</a></code> 。  响应具有以<code class="notranslate">/images/</code>开头的URI的请求，服务器将从<code class="notranslate">/data/images</code>目录发送文件。  例如，响应<code class="notranslate"><a href="http://localhost/images/example.png" target="_blank" rel="noopener">http://localhost/images/example.png</a></code>请求，nginx将发送<code class="notranslate">/data/images/example.png</code>文件。  如果此类文件不存在，nginx将发送指示404错误的响应。   URI不以<code class="notranslate">/images/</code>开头的请求将映射到<code class="notranslate">/data/www</code>目录。  例如，响应<code class="notranslate"><a href="http://localhost/some/example.html" target="_blank" rel="noopener">http://localhost/some/example.html</a></code>请求，nginx将发送<code class="notranslate">/data/www/some/example.html</code>文件。 </p><p>  要应用新配置，请启动nginx（如果尚未启动）或通过执行以下命令将<code class="notranslate">reload</code>信号发送到nginx的主进程： </p><blockquote class="example"><pre class="notranslate">nginx -s reload<br></pre></blockquote><p></p><p></p><blockquote class="note">  如果某些内容无法按预期工作，您可以尝试在目录<code class="notranslate">/usr/local/nginx/logs</code>或<code class="notranslate">/var/log/nginx</code>中的<code class="notranslate">access.log</code>和<code class="notranslate">error.log</code>文件中找出原因。 </blockquote><p></p><a name="proxy"></a><center><h4>  设置简单的代理服务器 </h4></center><p>   nginx的一个常见用途是将其设置为代理服务器，这意味着服务器接收请求，将它们传递给代理服务器，从中检索响应，然后将它们发送给客户端。 </p><p>  我们将配置一个基本代理服务器，它使用来自本地目录的文件处理图像请求，并将所有其他请求发送到代理服务器。  在此示例中，将在单个nginx实例上定义两个服务器。 </p><p>  首先，通过向nginx的配置文件添加一个以上的<code class="notranslate">server</code>块来定义代理服务器，其中包含以下内容： </p><blockquote class="example"><pre class="notranslate">server {<br>    listen 8080;<br>    root /data/up1;<p></p>
 <pre><code>location / {
 }
-</code></pre><p>}<br></p>
-<p>  这将是一个侦听端口8080的简单服务器（之前，自使用标准端口80以来尚未指定<code>listen</code>指令）并将所有请求映射到本地文件系统上的<code>/data/up1</code>目录。  创建此目录并将<code>index.html</code>文件放入其中。  请注意， <code>root</code>指令放在<code>server</code>上下文中。  当选择用于提供请求的<code>location</code>块不包括自己的<code>root</code>指令时，使用这样的<code>root</code>指令。 </p>
-<p>  接下来，使用上一节中的服务器配置并对其进行修改以使其成为代理服务器配置。  在第一个<code>location</code>块中，将<a href="http/ngx_http_proxy_module.html#proxy_pass">proxy_pass</a>指令与参数中指定的代理服务器的协议，名称和端口放在一起（在我们的示例中，它是<code>http://localhost:8080</code> ）： </p>
-<blockquote>
-<p><pre class="notranslate">server {<br>    location / {<br>        proxy_pass <a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a>;<br>    }</pre></p>
-</blockquote>
+</code></pre><p>}<br></p></pre></blockquote><p>  这将是一个侦听端口8080的简单服务器（之前，自使用标准端口80以来尚未指定<code class="notranslate">listen</code>指令）并将所有请求映射到本地文件系统上的<code class="notranslate">/data/up1</code>目录。  创建此目录并将<code class="notranslate">index.html</code>文件放入其中。  请注意， <code class="notranslate">root</code>指令放在<code class="notranslate">server</code>上下文中。  当选择用于提供请求的<code class="notranslate">location</code>块不包括自己的<code class="notranslate">root</code>指令时，使用这样的<code class="notranslate">root</code>指令。 </p><p>  接下来，使用上一节中的服务器配置并对其进行修改以使其成为代理服务器配置。  在第一个<code class="notranslate">location</code>块中，将<a hhref="http/ngx_http_proxy_module.html#proxy_pass">proxy_pass</a>指令与参数中指定的代理服务器的协议，名称和端口放在一起（在我们的示例中，它是<code class="notranslate"><a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a></code> ）： </p><blockquote class="example"><pre class="notranslate">server {<br>    location / {<br>        proxy_pass <a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a>;<br>    }<p></p>
 <pre><code>location /images/ {
     root /data;
 }
-</code></pre><p>}<br></p>
-<p>  我们将修改第二个<code>location</code>块，该块当前将带有<code>/images/</code>前缀的请求映射到<code>/data/images</code>目录下的文件，以使其与具有典型文件扩展名的图像请求相匹配。  修改后的<code>location</code>块如下所示： </p>
-<blockquote>
-<pre class="notranslate">location ~ \.(gif|jpg|png)$ {
-    root /data/images;
-}
-</pre>
-
-</blockquote>
-<p>  该参数是一个正则表达式，匹配以<code>.gif</code> ， <code>.jpg</code>或<code>.png</code>结尾的所有URI。  正则表达式应该以<code>~</code> 。  相应的请求将映射到<code>/data/images</code>目录。 </p>
-<p>  当nginx选择一个<code>location</code>块来提供请求时，它首先检查指定前缀的<a href="http/ngx_http_core_module.html#location">位置</a>指令，记住具有最长前缀的<code>location</code> ，然后检查正则表达式。  如果与正则表达式匹配，则nginx选择此<code>location</code> ，否则，它会选择之前记住的那个。 </p>
-<p>  生成的代理服务器配置如下所示： </p>
-<blockquote>
-<p><pre class="notranslate">server {<br>    location / {<br>        proxy_pass <a href="http://localhost:8080/" target="_blank" rel="noopener">http://localhost:8080/</a>;<br>    }</pre></p>
-</blockquote>
+</code></pre><p>}<br></p></pre></blockquote><p></p><p>  我们将修改第二个<code class="notranslate">location</code>块，该块当前将带有<code class="notranslate">/images/</code>前缀的请求映射到<code class="notranslate">/data/images</code>目录下的文件，以使其与具有典型文件扩展名的图像请求相匹配。  修改后的<code class="notranslate">location</code>块如下所示： </p><blockquote class="example"><pre class="notranslate">location ~ .(gif|jpg|png)$ {<br>    root /data/images;<br>}<br></pre></blockquote><p>  该参数是一个正则表达式，匹配以<code class="notranslate">.gif</code> ， <code class="notranslate">.jpg</code>或<code class="notranslate">.png</code>结尾的所有URI。  正则表达式应该以<code class="notranslate">~</code> 。  相应的请求将映射到<code class="notranslate">/data/images</code>目录。 </p><p>  当nginx选择一个<code class="notranslate">location</code>块来提供请求时，它首先检查指定前缀的<a hhref="http/ngx_http_core_module.html#location">位置</a>指令，记住具有最长前缀的<code class="notranslate">location</code> ，然后检查正则表达式。  如果与正则表达式匹配，则nginx选择此<code class="notranslate">location</code> ，否则，它会选择之前记住的那个。 </p><p>  生成的代理服务器配置如下所示： </p><blockquote class="example"><pre class="notranslate">server {<br>    location / {<br>        proxy_pass <a href="http://localhost:8080/" target="_blank" rel="noopener">http://localhost:8080/</a>;<br>    }<p></p>
 <pre><code>location ~ \.(gif|jpg|png)$ {
     root /data/images;
 }
-</code></pre><p>}<br></p>
-<p>  此服务器将过滤以<code>.gif</code> ， <code>.jpg</code>或<code>.png</code>结尾的请求，并将它们映射到<code>/data/images</code>目录（通过将URI添加到<code>root</code>指令的参数），并将所有其他请求传递给上面配置的代理服务器。 </p>
-<p>  要应用新配置，请将<code>reload</code>信号发送到nginx，如前面部分所述。 </p>
-<p>  可以使用<a href="http/ngx_http_proxy_module.html">更多</a>指令来进一步配置代理连接。 </p>
-<h4 id="设置FastCGI代理"><a href="#设置FastCGI代理" class="headerlink" title="设置FastCGI代理"></a>设置FastCGI代理</h4><p>   nginx可用于将请求路由到FastCGI服务器，这些服务器运行使用各种框架和编程语言（如PHP）构建的应用程序。 </p>
-<p>  使用FastCGI服务器的最基本的nginx配置包括使用<a href="http/ngx_http_fastcgi_module.html#fastcgi_pass">fastcgi_pass</a>指令而不是<code>proxy_pass</code>指令，以及<a href="http/ngx_http_fastcgi_module.html#fastcgi_param">fastcgi_param</a>指令来设置传递给FastCGI服务器的参数。  假设可以在<code>localhost:9000</code>上访问FastCGI服务器。  以上一节中的代理配置为基础，将<code>proxy_pass</code>指令替换为<code>fastcgi_pass</code>指令，并将参数更改为<code>localhost:9000</code> 。  在PHP中， <code>SCRIPT_FILENAME</code>参数用于确定脚本名称， <code>QUERY_STRING</code>参数用于传递请求参数。  结果配置为： </p>
-<blockquote>
-<p><pre class="notranslate">server {<br>    location / {<br>        fastcgi_pass  localhost:9000;<br>        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;<br>        fastcgi_param QUERY_STRING    $query_string;<br>    }</pre></p>
-</blockquote>
+</code></pre><p>}<br></p></pre></blockquote><p>  此服务器将过滤以<code class="notranslate">.gif</code> ， <code class="notranslate">.jpg</code>或<code class="notranslate">.png</code>结尾的请求，并将它们映射到<code class="notranslate">/data/images</code>目录（通过将URI添加到<code class="notranslate">root</code>指令的参数），并将所有其他请求传递给上面配置的代理服务器。 </p><p>  要应用新配置，请将<code class="notranslate">reload</code>信号发送到nginx，如前面部分所述。 </p><p>  可以使用<a hhref="http/ngx_http_proxy_module.html">更多</a>指令来进一步配置代理连接。 </p><a name="fastcgi"></a><center><h4>  设置FastCGI代理 </h4></center><p>   nginx可用于将请求路由到FastCGI服务器，这些服务器运行使用各种框架和编程语言（如PHP）构建的应用程序。 </p><p>  使用FastCGI服务器的最基本的nginx配置包括使用<a hhref="http/ngx_http_fastcgi_module.html#fastcgi_pass">fastcgi_pass</a>指令而不是<code class="notranslate">proxy_pass</code>指令，以及<a hhref="http/ngx_http_fastcgi_module.html#fastcgi_param">fastcgi_param</a>指令来设置传递给FastCGI服务器的参数。  假设可以在<code class="notranslate">localhost:9000</code>上访问FastCGI服务器。  以上一节中的代理配置为基础，将<code class="notranslate">proxy_pass</code>指令替换为<code class="notranslate">fastcgi_pass</code>指令，并将参数更改为<code class="notranslate">localhost:9000</code> 。  在PHP中， <code class="notranslate">SCRIPT_FILENAME</code>参数用于确定脚本名称， <code class="notranslate">QUERY_STRING</code>参数用于传递请求参数。  结果配置为： </p><blockquote class="example"><pre class="notranslate">server {<br>    location / {<br>        fastcgi_pass  localhost:9000;<br>        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;<br>        fastcgi_param QUERY_STRING    $query_string;<br>    }<p></p>
 <pre><code>location ~ \.(gif|jpg|png)$ {
     root /data/images;
 }
-</code></pre><p>}<br></p>
-<p>  这将设置一个服务器，该服务器将除静态图像请求之外的所有请求路由到通过FastCGI协议在<code>localhost:9000</code>上运行的代理服务器。 </p>
+</code></pre><p>}<br></p></pre></blockquote><p>  这将设置一个服务器，该服务器将除静态图像请求之外的所有请求路由到通过FastCGI协议在<code class="notranslate">localhost:9000</code>上运行的代理服务器。 </p><br><span></span><div style="display: none;"></div><p></p>
 
       
     </div>
@@ -593,7 +442,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nginx.im/ngx/beginners_guide.html" title="beginners_guide-nginx中文手册">http://nginx.im/ngx/beginners_guide.html</a>
+    <a href="http://nginx.im/ngx/beginners_guide.html" title="">http://nginx.im/ngx/beginners_guide.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -605,12 +454,6 @@
     
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/nginx/" rel="tag"># nginx</a>
-          
-        </div>
       
 
       
@@ -631,8 +474,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ngx/changes.html" rel="prev" title="changes-nginx中文手册">
-                changes-nginx中文手册 <i class="fa fa-chevron-right"></i>
+              <a href="/ngx/changes.html" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -730,7 +573,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -776,7 +619,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#初学者指南"><span class="nav-number">1.</span> <span class="nav-text">初学者指南</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#启动，停止和重新加载配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">启动，停止和重新加载配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置文件的结构"><span class="nav-number">1.0.2.</span> <span class="nav-text">配置文件的结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#提供静态内容"><span class="nav-number">1.0.3.</span> <span class="nav-text">提供静态内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置简单的代理服务器"><span class="nav-number">1.0.4.</span> <span class="nav-text">设置简单的代理服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置FastCGI代理"><span class="nav-number">1.0.5.</span> <span class="nav-text">设置FastCGI代理</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">  初学者指南 </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">  启动，停止和重新加载配置 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">  配置文件的结构 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.3.</span> <span class="nav-text">  提供静态内容 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.4.</span> <span class="nav-text">  设置简单的代理服务器 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.5.</span> <span class="nav-text">  设置FastCGI代理 </span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

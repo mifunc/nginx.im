@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="nginx," />
+  <meta name="keywords" content="LINUX,NGINX,JAVA,PYTHON,PYTHON,前端,运维实践" />
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="http,ngx_http_fastcgi_module">
-<meta name="keywords" content="nginx">
+<meta name="description" content="Module ngx_http_fastcgi_module Example Configuration  Directives      fastcgi_bind      fastcgi_buffer_size      fastcgi_buffering      fastcgi_buffers      fas">
 <meta property="og:type" content="article">
-<meta property="og:title" content="http&#x2F;ngx_http_fastcgi_module-nginx中文手册">
+<meta property="og:title" content="IM.NGINX">
 <meta property="og:url" content="http://nginx.im/ngx/http/ngx_http_fastcgi_module.html">
 <meta property="og:site_name" content="IM.NGINX">
-<meta property="og:description" content="http,ngx_http_fastcgi_module">
+<meta property="og:description" content="Module ngx_http_fastcgi_module Example Configuration  Directives      fastcgi_bind      fastcgi_buffer_size      fastcgi_buffering      fastcgi_buffers      fastcgi_busy_buffers_size      fastcgi_cach">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:56:09.157Z">
+<meta property="og:updated_time" content="2018-12-21T08:09:35.219Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="http&#x2F;ngx_http_fastcgi_module-nginx中文手册">
-<meta name="twitter:description" content="http,ngx_http_fastcgi_module">
+<meta name="twitter:title" content="IM.NGINX">
+<meta name="twitter:description" content="Module ngx_http_fastcgi_module Example Configuration  Directives      fastcgi_bind      fastcgi_buffer_size      fastcgi_buffering      fastcgi_buffers      fastcgi_busy_buffers_size      fastcgi_cach">
 
 
 
@@ -126,7 +125,7 @@
 
 
 
-  <title>http/ngx_http_fastcgi_module-nginx中文手册 | IM.NGINX</title>
+  <title> | IM.NGINX</title>
   
 
 
@@ -324,7 +323,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">http/ngx_http_fastcgi_module-nginx中文手册</h2>
+          <h2 class="post-title" itemprop="name headline"></h2>
         
 
         <div class="post-meta">
@@ -336,7 +335,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
                 2018年12月21日
               </time>
             
@@ -346,28 +345,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx中文手册</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -396,428 +373,313 @@
       
 
       
-        <p>http,ngx_http_fastcgi_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-http-fastcgi-module"><a href="#Module-ngx-http-fastcgi-module" class="headerlink" title="Module ngx_http_fastcgi_module"></a>Module ngx_http_fastcgi_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#fastcgi_bind">fastcgi_bind</a> <br>     <a href="#fastcgi_buffer_size">fastcgi_buffer_size</a> <br>     <a href="#fastcgi_buffering">fastcgi_buffering</a> <br>     <a href="#fastcgi_buffers">fastcgi_buffers</a> <br>     <a href="#fastcgi_busy_buffers_size">fastcgi_busy_buffers_size</a> <br>     <a href="#fastcgi_cache">fastcgi_cache</a> <br>     <a href="#fastcgi_cache_background_update">fastcgi_cache_background_update</a> <br>     <a href="#fastcgi_cache_bypass">fastcgi_cache_bypass</a> <br>     <a href="#fastcgi_cache_key">fastcgi_cache_key</a> <br>     <a href="#fastcgi_cache_lock">fastcgi_cache_lock</a> <br>     <a href="#fastcgi_cache_lock_age">fastcgi_cache_lock_age</a> <br>     <a href="#fastcgi_cache_lock_timeout">fastcgi_cache_lock_timeout</a> <br>     <a href="#fastcgi_cache_max_range_offset">fastcgi_cache_max_range_offset</a> <br>     <a href="#fastcgi_cache_methods">fastcgi_cache_methods</a> <br>     <a href="#fastcgi_cache_min_uses">fastcgi_cache_min_uses</a> <br>     <a href="#fastcgi_cache_path">fastcgi_cache_path</a> <br>     <a href="#fastcgi_cache_purge">fastcgi_cache_purge</a> <br>     <a href="#fastcgi_cache_revalidate">fastcgi_cache_revalidate</a> <br>     <a href="#fastcgi_cache_use_stale">fastcgi_cache_use_stale</a> <br>     <a href="#fastcgi_cache_valid">fastcgi_cache_valid</a> <br>     <a href="#fastcgi_catch_stderr">fastcgi_catch_stderr</a> <br>     <a href="#fastcgi_connect_timeout">fastcgi_connect_timeout</a> <br>     <a href="#fastcgi_force_ranges">fastcgi_force_ranges</a> <br>     <a href="#fastcgi_hide_header">fastcgi_hide_header</a> <br>     <a href="#fastcgi_ignore_client_abort">fastcgi_ignore_client_abort</a> <br>     <a href="#fastcgi_ignore_headers">fastcgi_ignore_headers</a> <br>     <a href="#fastcgi_index">fastcgi_index</a> <br>     <a href="#fastcgi_intercept_errors">fastcgi_intercept_errors</a> <br>     <a href="#fastcgi_keep_conn">fastcgi_keep_conn</a> <br>     <a href="#fastcgi_limit_rate">fastcgi_limit_rate</a> <br>     <a href="#fastcgi_max_temp_file_size">fastcgi_max_temp_file_size</a> <br>     <a href="#fastcgi_next_upstream">fastcgi_next_upstream</a> <br>     <a href="#fastcgi_next_upstream_timeout">fastcgi_next_upstream_timeout</a> <br>     <a href="#fastcgi_next_upstream_tries">fastcgi_next_upstream_tries</a> <br>     <a href="#fastcgi_no_cache">fastcgi_no_cache</a> <br>     <a href="#fastcgi_param">fastcgi_param</a> <br>     <a href="#fastcgi_pass">fastcgi_pass</a> <br>     <a href="#fastcgi_pass_header">fastcgi_pass_header</a> <br>     <a href="#fastcgi_pass_request_body">fastcgi_pass_request_body</a> <br>     <a href="#fastcgi_pass_request_headers">fastcgi_pass_request_headers</a> <br>     <a href="#fastcgi_read_timeout">fastcgi_read_timeout</a> <br>     <a href="#fastcgi_request_buffering">fastcgi_request_buffering</a> <br>     <a href="#fastcgi_send_lowat">fastcgi_send_lowat</a> <br>     <a href="#fastcgi_send_timeout">fastcgi_send_timeout</a> <br>     <a href="#fastcgi_socket_keepalive">fastcgi_socket_keepalive</a> <br>     <a href="#fastcgi_split_path_info">fastcgi_split_path_info</a> <br>     <a href="#fastcgi_store">fastcgi_store</a> <br>     <a href="#fastcgi_store_access">fastcgi_store_access</a> <br>     <a href="#fastcgi_temp_file_write_size">fastcgi_temp_file_write_size</a> <br>     <a href="#fastcgi_temp_path">fastcgi_temp_path</a> <br> <a href="#parameters">Parameters Passed to a FastCGI Server</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
-
-<p>   <code>ngx_http_fastcgi_module</code>模块允许将请求传递给FastCGI服务器。 </p>
-<h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><blockquote>
-<p><pre class="notranslate">location / {<br>    fastcgi_pass  localhost:9000;<br>    fastcgi_index index.php;</pre></p>
-</blockquote>
+        <p></p><h2 class="notranslate">Module ngx_http_fastcgi_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#example">Example Configuration</a> <br> <a hhref="#directives">Directives</a> <br>     <a hhref="#fastcgi_bind">fastcgi_bind</a> <br>     <a hhref="#fastcgi_buffer_size">fastcgi_buffer_size</a> <br>     <a hhref="#fastcgi_buffering">fastcgi_buffering</a> <br>     <a hhref="#fastcgi_buffers">fastcgi_buffers</a> <br>     <a hhref="#fastcgi_busy_buffers_size">fastcgi_busy_buffers_size</a> <br>     <a hhref="#fastcgi_cache">fastcgi_cache</a> <br>     <a hhref="#fastcgi_cache_background_update">fastcgi_cache_background_update</a> <br>     <a hhref="#fastcgi_cache_bypass">fastcgi_cache_bypass</a> <br>     <a hhref="#fastcgi_cache_key">fastcgi_cache_key</a> <br>     <a hhref="#fastcgi_cache_lock">fastcgi_cache_lock</a> <br>     <a hhref="#fastcgi_cache_lock_age">fastcgi_cache_lock_age</a> <br>     <a hhref="#fastcgi_cache_lock_timeout">fastcgi_cache_lock_timeout</a> <br>     <a hhref="#fastcgi_cache_max_range_offset">fastcgi_cache_max_range_offset</a> <br>     <a hhref="#fastcgi_cache_methods">fastcgi_cache_methods</a> <br>     <a hhref="#fastcgi_cache_min_uses">fastcgi_cache_min_uses</a> <br>     <a hhref="#fastcgi_cache_path">fastcgi_cache_path</a> <br>     <a hhref="#fastcgi_cache_purge">fastcgi_cache_purge</a> <br>     <a hhref="#fastcgi_cache_revalidate">fastcgi_cache_revalidate</a> <br>     <a hhref="#fastcgi_cache_use_stale">fastcgi_cache_use_stale</a> <br>     <a hhref="#fastcgi_cache_valid">fastcgi_cache_valid</a> <br>     <a hhref="#fastcgi_catch_stderr">fastcgi_catch_stderr</a> <br>     <a hhref="#fastcgi_connect_timeout">fastcgi_connect_timeout</a> <br>     <a hhref="#fastcgi_force_ranges">fastcgi_force_ranges</a> <br>     <a hhref="#fastcgi_hide_header">fastcgi_hide_header</a> <br>     <a hhref="#fastcgi_ignore_client_abort">fastcgi_ignore_client_abort</a> <br>     <a hhref="#fastcgi_ignore_headers">fastcgi_ignore_headers</a> <br>     <a hhref="#fastcgi_index">fastcgi_index</a> <br>     <a hhref="#fastcgi_intercept_errors">fastcgi_intercept_errors</a> <br>     <a hhref="#fastcgi_keep_conn">fastcgi_keep_conn</a> <br>     <a hhref="#fastcgi_limit_rate">fastcgi_limit_rate</a> <br>     <a hhref="#fastcgi_max_temp_file_size">fastcgi_max_temp_file_size</a> <br>     <a hhref="#fastcgi_next_upstream">fastcgi_next_upstream</a> <br>     <a hhref="#fastcgi_next_upstream_timeout">fastcgi_next_upstream_timeout</a> <br>     <a hhref="#fastcgi_next_upstream_tries">fastcgi_next_upstream_tries</a> <br>     <a hhref="#fastcgi_no_cache">fastcgi_no_cache</a> <br>     <a hhref="#fastcgi_param">fastcgi_param</a> <br>     <a hhref="#fastcgi_pass">fastcgi_pass</a> <br>     <a hhref="#fastcgi_pass_header">fastcgi_pass_header</a> <br>     <a hhref="#fastcgi_pass_request_body">fastcgi_pass_request_body</a> <br>     <a hhref="#fastcgi_pass_request_headers">fastcgi_pass_request_headers</a> <br>     <a hhref="#fastcgi_read_timeout">fastcgi_read_timeout</a> <br>     <a hhref="#fastcgi_request_buffering">fastcgi_request_buffering</a> <br>     <a hhref="#fastcgi_send_lowat">fastcgi_send_lowat</a> <br>     <a hhref="#fastcgi_send_timeout">fastcgi_send_timeout</a> <br>     <a hhref="#fastcgi_socket_keepalive">fastcgi_socket_keepalive</a> <br>     <a hhref="#fastcgi_split_path_info">fastcgi_split_path_info</a> <br>     <a hhref="#fastcgi_store">fastcgi_store</a> <br>     <a hhref="#fastcgi_store_access">fastcgi_store_access</a> <br>     <a hhref="#fastcgi_temp_file_write_size">fastcgi_temp_file_write_size</a> <br>     <a hhref="#fastcgi_temp_path">fastcgi_temp_path</a> <br> <a hhref="#parameters">Parameters Passed to a FastCGI Server</a> <br> <a hhref="#variables">Embedded Variables</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_fastcgi_module</code>模块允许将请求传递给FastCGI服务器。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">location / {<br>    fastcgi_pass  localhost:9000;<br>    fastcgi_index index.php;<p></p>
 <pre><code>fastcgi_param SCRIPT_FILENAME /home/www/scripts/php$fastcgi_script_name;
 fastcgi_param QUERY_STRING    $query_string;
 fastcgi_param REQUEST_METHOD  $request_method;
 fastcgi_param CONTENT_TYPE    $content_type;
 fastcgi_param CONTENT_LENGTH  $content_length;
-</code></pre><p>}<br></p>
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_bind**     &lt;code class=&quot;notranslate&quot;&gt;*address*</code>    [ <code>transparent</code> ] |    <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  该指令出现在0.8.22版本中。 </p>
-<p>  使用可选端口（1.11.2）从指定的本地IP地址发出到FastCGI服务器的传出连接。  参数值可以包含变量（1.3.12）。  特殊值<code>off</code> （1.3.12）取消了从先前配置级别继承的<code>fastcgi_bind</code>指令的效果，该指令允许系统自动分配本地IP地址和端口。 </p>
-<p>   <code>transparent</code>参数（1.11.0）允许到FastCGI服务器的传出连接源自非本地IP地址，例如，来自客户端的真实IP地址： </p>
-<blockquote>
-<pre class="notranslate">fastcgi_bind $remote_addr transparent;
-</pre>
+</code></pre><p>}<br></p></pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="fastcgi_bind"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>fastcgi_bind</strong><br>    <code class="notranslate"><i>address</i></code><br>    [ <code class="notranslate">transparent</code> ] |<br>    <code class="notranslate">off</code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>—
 
-</blockquote>
-<p>  为了使此参数有效，通常需要使用<a href="ngx_core_module.html#user">超级用户</a>权限运行nginx工作进程。  在Linux上，不需要（1.13.8），就像指定了<code>transparent</code>参数一样，工作进程从主进程继承<code>CAP_NET_RAW</code>功能。  还必须配置内核路由表以拦截来自FastCGI服务器的网络流量。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_buffer_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_buffer_size 4k|8k;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  设置用于读取从FastCGI服务器接收的响应的第一部分的缓冲区的<code>*size*</code> 。  这部分通常包含一个小的响应头。  默认情况下，缓冲区大小等于一个内存页面。  这是4K或8K，具体取决于平台。  然而，它可以做得更小。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_buffering** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_buffering on;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  该指令出现在1.5.6版本中。 </p>
-<p>  启用或禁用缓冲来自FastCGI服务器的响应。 </p>
-<p>  启用缓冲后，nginx会尽快从FastCGI服务器接收响应，并将其保存到<a href="#fastcgi_buffer_size">fastcgi_buffer_size</a>和<a href="#fastcgi_buffers">fastcgi_buffers</a>指令设置的缓冲区中。  如果整个响应不适合内存，则可以将其中的一部分保存到磁盘上的<a href="#fastcgi_temp_path">临时文件中</a> 。  写入临时文件由<a href="#fastcgi_max_temp_file_size">fastcgi_max_temp_file_size</a>和<a href="#fastcgi_temp_file_write_size">fastcgi_temp_file_write_size</a>指令控制。 </p>
-<p>  禁用缓冲时，响应会在收到响应时立即同步传递给客户端。   nginx不会尝试从FastCGI服务器读取整个响应。   nginx一次可以从服务器接收的数据的最大大小由<a href="#fastcgi_buffer_size">fastcgi_buffer_size</a>指令设置。 </p>
-<p>  也可以通过在“X-Accel-Buffering”响应头字段中传递“ <code>yes</code> ”或“ <code>no</code> ”来启用或禁用缓冲。  可以使用<a href="#fastcgi_ignore_headers">fastcgi_ignore_headers</a>指令禁用此功能。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_buffers** &lt;code class=&quot;notranslate&quot;&gt;*number*</code> <code>*size*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_buffers 8 4k|8k;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  设置用于从FastCGI服务器读取响应的缓冲区的<code>*number*</code>和<code>*size*</code> ，用于单个连接。  默认情况下，缓冲区大小等于一个内存页面。  这是4K或8K，具体取决于平台。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_busy_buffers_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_busy_buffers_size 8k|16k;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  当启用从FastCGI服务器<a href="#fastcgi_buffering">缓冲</a>响应时，限制可能忙于向响应客户端发送响应的缓冲区的总<code>*size*</code> ，而响应尚未完全读取。  同时，其余的缓冲区可用于读取响应，并在需要时缓冲部分响应临时文件。  默认情况下， <code>*size*</code>由<a href="#fastcgi_buffer_size">fastcgi_buffer_size</a>和<a href="#fastcgi_buffers">fastcgi_buffers</a>指令设置的两个缓冲区的大小限制。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_cache** &lt;code class=&quot;notranslate&quot;&gt;*zone*</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_cache off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  定义用于缓存的共享内存区域。  可以在多个地方使用相同的区域。  参数值可以包含变量（1.7.9）。   <code>off</code>参数禁用从先前配置级别继承的高速缓存。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_cache_background_update** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_cache_background_update off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  该指令出现在1.11.10版中。 </p>
-<p>  允许启动后台子请求以更新过期的缓存项，同时将过时的缓存响应返回给客户端。  请注意，在更新时必须<a href="#fastcgi_cache_use_stale_updating">允许</a>使用陈旧的缓存响应。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_cache_bypass** &lt;code class=&quot;notranslate&quot;&gt;*string*</code> …; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  定义不从缓存中获取响应的条件。  如果字符串参数的至少一个值不为空且不等于“0”，则不会从缓存中获取响应： </p>
-<blockquote>
-<pre class="notranslate">fastcgi_cache_bypass $cookie_nocache $arg_nocache$arg_comment;
-fastcgi_cache_bypass $http_pragma    $http_authorization;
-</pre>
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p&gt;  该指令出现在0.8.22版本中。 &lt;/p&gt;&lt;/div&gt;&lt;p&gt;  使用可选端口（1.11.2）从指定的本地IP地址发出到FastCGI服务器的传出连接。  参数值可以包含变量（1.3.12）。  特殊值&lt;code class=&quot;notranslate&quot;&gt;off&lt;/code&gt; （1.3.12）取消了从先前配置级别继承的&lt;code class=&quot;notranslate&quot;&gt;fastcgi_bind&lt;/code&gt;指令的效果，该指令允许系统自动分配本地IP地址和端口。 &lt;/p&gt;&lt;a name=&quot;fastcgi_bind_transparent&quot;&gt;&lt;/a&gt;&lt;p&gt;   &lt;code class=&quot;notranslate&quot;&gt;transparent&lt;/code&gt;参数（1.11.0）允许到FastCGI服务器的传出连接源自非本地IP地址，例如，来自客户端的真实IP地址： &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;fastcgi_bind $remote_addr transparent;
+</code></pre><p></p><p>  为了使此参数有效，通常需要使用<a hhref="ngx_core_module.html#user">超级用户</a>权限运行nginx工作进程。  在Linux上，不需要（1.13.8），就像指定了<code class="notranslate">transparent</code>参数一样，工作进程从主进程继承<code class="notranslate">CAP_NET_RAW</code>功能。  还必须配置内核路由表以拦截来自FastCGI服务器的网络流量。 </p><a name="fastcgi_buffer_size"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>fastcgi_buffer_size</strong> <code class="notranslate"><i>size</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">fastcgi_buffer_size 4k|8k;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table></div><p>  设置用于读取从FastCGI服务器接收的响应的第一部分的缓冲区的<code class="notranslate"><i>size</i></code> 。  这部分通常包含一个小的响应头。  默认情况下，缓冲区大小等于一个内存页面。  这是4K或8K，具体取决于平台。  然而，它可以做得更小。 </p><a name="fastcgi_buffering"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>fastcgi_buffering</strong> <code class="notranslate">on</code> | <code class="notranslate">off</code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">fastcgi_buffering on;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table><p>  该指令出现在1.5.6版本中。 </p></div><p>  启用或禁用缓冲来自FastCGI服务器的响应。 </p><p>  启用缓冲后，nginx会尽快从FastCGI服务器接收响应，并将其保存到<a hhref="#fastcgi_buffer_size">fastcgi_buffer_size</a>和<a hhref="#fastcgi_buffers">fastcgi_buffers</a>指令设置的缓冲区中。  如果整个响应不适合内存，则可以将其中的一部分保存到磁盘上的<a hhref="#fastcgi_temp_path">临时文件中</a> 。  写入临时文件由<a hhref="#fastcgi_max_temp_file_size">fastcgi_max_temp_file_size</a>和<a hhref="#fastcgi_temp_file_write_size">fastcgi_temp_file_write_size</a>指令控制。 </p><p>  禁用缓冲时，响应会在收到响应时立即同步传递给客户端。   nginx不会尝试从FastCGI服务器读取整个响应。   nginx一次可以从服务器接收的数据的最大大小由<a hhref="#fastcgi_buffer_size">fastcgi_buffer_size</a>指令设置。 </p><p>  也可以通过在“X-Accel-Buffering”响应头字段中传递“ <code class="notranslate">yes</code> ”或“ <code class="notranslate">no</code> ”来启用或禁用缓冲。  可以使用<a hhref="#fastcgi_ignore_headers">fastcgi_ignore_headers</a>指令禁用此功能。 </p><a name="fastcgi_buffers"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>fastcgi_buffers</strong> <code class="notranslate"><i>number</i></code> <code class="notranslate"><i>size</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">fastcgi_buffers 8 4k|8k;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table></div><p>  设置用于从FastCGI服务器读取响应的缓冲区的<code class="notranslate"><i>number</i></code>和<code class="notranslate"><i>size</i></code> ，用于单个连接。  默认情况下，缓冲区大小等于一个内存页面。  这是4K或8K，具体取决于平台。 </p><a name="fastcgi_busy_buffers_size"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>fastcgi_busy_buffers_size</strong> <code class="notranslate"><i>size</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">fastcgi_busy_buffers_size 8k|16k;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table></div><p>  当启用从FastCGI服务器<a hhref="#fastcgi_buffering">缓冲</a>响应时，限制可能忙于向响应客户端发送响应的缓冲区的总<code class="notranslate"><i>size</i></code> ，而响应尚未完全读取。  同时，其余的缓冲区可用于读取响应，并在需要时缓冲部分响应临时文件。  默认情况下， <code class="notranslate"><i>size</i></code>由<a hhref="#fastcgi_buffer_size">fastcgi_buffer_size</a>和<a hhref="#fastcgi_buffers">fastcgi_buffers</a>指令设置的两个缓冲区的大小限制。 </p><a name="fastcgi_cache"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>fastcgi_cache</strong> <code class="notranslate"><i>zone</i></code> | <code class="notranslate">off</code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">fastcgi_cache off;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table></div><p>  定义用于缓存的共享内存区域。  可以在多个地方使用相同的区域。  参数值可以包含变量（1.7.9）。   <code class="notranslate">off</code>参数禁用从先前配置级别继承的高速缓存。 </p><a name="fastcgi_cache_background_update"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>fastcgi_cache_background_update</strong> <code class="notranslate">on</code> | <code class="notranslate">off</code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">fastcgi_cache_background_update off;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table><p>  该指令出现在1.11.10版中。 </p></div><p>  允许启动后台子请求以更新过期的缓存项，同时将过时的缓存响应返回给客户端。  请注意，在更新时必须<a hhref="#fastcgi_cache_use_stale_updating">允许</a>使用陈旧的缓存响应。 </p><a name="fastcgi_cache_bypass"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>fastcgi_cache_bypass</strong> <code class="notranslate"><i>string</i></code> …;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>—
 
-</blockquote>
-<p>  可以与<a href="#fastcgi_no_cache">fastcgi_no_cache</a>指令一起使用。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_cache_key** &lt;code class=&quot;notranslate&quot;&gt;*string*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  例如，定义缓存的键 </p>
-<blockquote>
-<pre class="notranslate">fastcgi_cache_key localhost:9000$request_uri;
-</pre>
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  定义不从缓存中获取响应的条件。  如果字符串参数的至少一个值不为空且不等于“0”，则不会从缓存中获取响应： &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;fastcgi_cache_bypass $cookie_nocache $arg_nocache$arg_comment;
+</code></pre><p>fastcgi_cache_bypass $http_pragma    $http_authorization;<br></p><p>  可以与<a hhref="#fastcgi_no_cache">fastcgi_no_cache</a>指令一起使用。 </p><a name="fastcgi_cache_key"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>fastcgi_cache_key</strong> <code class="notranslate"><i>string</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>—
 
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  例如，定义缓存的键 &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;fastcgi_cache_key localhost:9000$request_uri;
+</code></pre><p></p><p></p><a name="fastcgi_cache_lock"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>fastcgi_cache_lock</strong> <code class="notranslate">on</code> | <code class="notranslate">off</code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">fastcgi_cache_lock off;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table><p>  该指令出现在1.1.12版本中。 </p></div><p>  启用后，通过将请求传递给FastCGI服务器，一次只允许一个请求填充根据<a hhref="#fastcgi_cache_key">fastcgi_cache_key</a>指令标识的新缓存元素。  同一缓存元素的其他请求将等待响应出现在缓存中或缓存锁定以释放此元素，直到<a hhref="#fastcgi_cache_lock_timeout">fastcgi_cache_lock_timeout</a>指令设置的时间。 </p><a name="fastcgi_cache_lock_age"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>fastcgi_cache_lock_age</strong> <code class="notranslate"><i>time</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">fastcgi_cache_lock_age 5s;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table><p>  该指令出现在1.7.8版本中。 </p></div><p>  如果传递给FastCGI服务器以填充新缓存元素的最后一个请求在指定<code class="notranslate"><i>time</i></code>内没有完成，则可以将另一个请求传递给FastCGI服务器。 </p><a name="fastcgi_cache_lock_timeout"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>fastcgi_cache_lock_timeout</strong> <code class="notranslate"><i>time</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">fastcgi_cache_lock_timeout 5s;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table><p>  该指令出现在1.1.12版本中。 </p></div><p>  为<a hhref="#fastcgi_cache_lock">fastcgi_cache_lock</a>设置超时。  当<code class="notranslate"><i>time</i></code>到期时，请求将被传递给FastCGI服务器，但是，响应将不会被缓存。 </p><blockquote class="note">  在1.7.8之前，可以缓存响应。 </blockquote><p></p><a name="fastcgi_cache_max_range_offset"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>fastcgi_cache_max_range_offset</strong> <code class="notranslate"><i>number</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>        —
 
-</blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_cache_lock** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_cache_lock off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  该指令出现在1.1.12版本中。 </p>
-<p>  启用后，通过将请求传递给FastCGI服务器，一次只允许一个请求填充根据<a href="#fastcgi_cache_key">fastcgi_cache_key</a>指令标识的新缓存元素。  同一缓存元素的其他请求将等待响应出现在缓存中或缓存锁定以释放此元素，直到<a href="#fastcgi_cache_lock_timeout">fastcgi_cache_lock_timeout</a>指令设置的时间。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_cache_lock_age** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_cache_lock_age 5s;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  该指令出现在1.7.8版本中。 </p>
-<p>  如果传递给FastCGI服务器以填充新缓存元素的最后一个请求在指定<code>*time*</code>内没有完成，则可以将另一个请求传递给FastCGI服务器。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_cache_lock_timeout** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_cache_lock_timeout 5s;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  该指令出现在1.1.12版本中。 </p>
-<p>  为<a href="#fastcgi_cache_lock">fastcgi_cache_lock</a>设置超时。  当<code>*time*</code>到期时，请求将被传递给FastCGI服务器，但是，响应将不会被缓存。 </p>
-<blockquote>
-<p>  在1.7.8之前，可以缓存响应。 </p>
-</blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_cache_max_range_offset** &lt;code class=&quot;notranslate&quot;&gt;*number*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  该指令出现在1.11.6版中。 </p>
-<p>  设置字节范围请求的偏移量（以字节为单位）。  如果范围超出偏移量，则范围请求将传递给FastCGI服务器，并且不会缓存响应。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_cache_methods**     &lt;code class=&quot;notranslate&quot;&gt;GET</code> |    <code>HEAD</code> |    <code>POST</code>    …; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_cache_methods GET HEAD;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  该指令出现在0.7.59版本中。 </p>
-<p>  如果此指令中列出了客户端请求方法，则将缓存响应。   “ <code>GET</code> ”和“ <code>HEAD</code> ”方法总是添加到列表中，但建议明确指定它们。  另请参见<a href="#fastcgi_no_cache">fastcgi_no_cache</a>指令。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_cache_min_uses** &lt;code class=&quot;notranslate&quot;&gt;*number*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_cache_min_uses 1;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  设置将缓存响应的请求<code>*number*</code> 。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_cache_path**     &lt;code class=&quot;notranslate&quot;&gt;*path*</code>    [ <code>levels</code> = <code>*levels*</code> ]    [ <code>use_temp_path</code> = <code>on</code> | <code>off</code> ]    <code>keys_zone</code> = <code>*name*</code> : <code>*size*</code>    [ <code>inactive</code> = <code>*time*</code> ]    [ <code>max_size</code> = <code>*size*</code> ]    [ <code>manager_files</code> = <code>*number*</code> ]    [ <code>manager_sleep</code> = <code>*time*</code> ]    [ <code>manager_threshold</code> = <code>*time*</code> ]    [ <code>loader_files</code> = <code>*number*</code> ]    [ <code>loader_sleep</code> = <code>*time*</code> ]    [ <code>loader_threshold</code> = <code>*time*</code> ]    [ <code>purger</code> = <code>on</code> | <code>off</code> ]    [ <code>purger_files</code> = <code>*number*</code> ]    [ <code>purger_sleep</code> = <code>*time*</code> ]    [ <code>purger_threshold</code> = <code>*time*</code> ]; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> <br>                </td></p>
-<p>  设置缓存的路径和其他参数。  缓存数据存储在文件中。  缓存中的密钥和文件名都是将MD5功能应用于代理URL的结果。   <code>levels</code>参数定义高速缓存的层次结构级别：从1到3，每个级别接受值1或2.例如，在以下配置中 </p>
-<blockquote>
-<pre class="notranslate">fastcgi_cache_path /data/nginx/cache levels=1:2 keys_zone=one:10m;
-</pre>
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p&gt;  该指令出现在1.11.6版中。 &lt;/p&gt;&lt;/div&gt;&lt;p&gt;  设置字节范围请求的偏移量（以字节为单位）。  如果范围超出偏移量，则范围请求将传递给FastCGI服务器，并且不会缓存响应。 &lt;/p&gt;&lt;a name=&quot;fastcgi_cache_methods&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;fastcgi_cache_methods&lt;/strong&gt; 
+&lt;code class=&quot;notranslate&quot;&gt;GET&lt;/code&gt; |
+&lt;code class=&quot;notranslate&quot;&gt;HEAD&lt;/code&gt; |
+&lt;code class=&quot;notranslate&quot;&gt;POST&lt;/code&gt;
+...;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;pre class=&quot;notranslate&quot;&gt;fastcgi_cache_methods GET HEAD;&lt;/pre&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p&gt;  该指令出现在0.7.59版本中。 &lt;/p&gt;&lt;/div&gt;&lt;p&gt;  如果此指令中列出了客户端请求方法，则将缓存响应。   “ &lt;code class=&quot;notranslate&quot;&gt;GET&lt;/code&gt; ”和“ &lt;code class=&quot;notranslate&quot;&gt;HEAD&lt;/code&gt; ”方法总是添加到列表中，但建议明确指定它们。  另请参见&lt;a hhref=&quot;#fastcgi_no_cache&quot;&gt;fastcgi_no_cache&lt;/a&gt;指令。 &lt;/p&gt;&lt;a name=&quot;fastcgi_cache_min_uses&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;fastcgi_cache_min_uses&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;number&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;pre class=&quot;notranslate&quot;&gt;fastcgi_cache_min_uses 1;&lt;/pre&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  设置将缓存响应的请求&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;number&lt;/i&gt;&lt;/code&gt; 。 &lt;/p&gt;&lt;a name=&quot;fastcgi_cache_path&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;fastcgi_cache_path&lt;/strong&gt; 
+&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;path&lt;/i&gt;&lt;/code&gt;
+[ &lt;code class=&quot;notranslate&quot;&gt;levels&lt;/code&gt; = &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;levels&lt;/i&gt;&lt;/code&gt; ]
+[ &lt;code class=&quot;notranslate&quot;&gt;use_temp_path&lt;/code&gt; = &lt;code class=&quot;notranslate&quot;&gt;on&lt;/code&gt; | &lt;code class=&quot;notranslate&quot;&gt;off&lt;/code&gt; ]
+&lt;code class=&quot;notranslate&quot;&gt;keys_zone&lt;/code&gt; = &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;name&lt;/i&gt;&lt;/code&gt; : &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;size&lt;/i&gt;&lt;/code&gt;
+[ &lt;code class=&quot;notranslate&quot;&gt;inactive&lt;/code&gt; = &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;time&lt;/i&gt;&lt;/code&gt; ]
+[ &lt;code class=&quot;notranslate&quot;&gt;max_size&lt;/code&gt; = &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;size&lt;/i&gt;&lt;/code&gt; ]
+[ &lt;code class=&quot;notranslate&quot;&gt;manager_files&lt;/code&gt; = &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;number&lt;/i&gt;&lt;/code&gt; ]
+[ &lt;code class=&quot;notranslate&quot;&gt;manager_sleep&lt;/code&gt; = &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;time&lt;/i&gt;&lt;/code&gt; ]
+[ &lt;code class=&quot;notranslate&quot;&gt;manager_threshold&lt;/code&gt; = &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;time&lt;/i&gt;&lt;/code&gt; ]
+[ &lt;code class=&quot;notranslate&quot;&gt;loader_files&lt;/code&gt; = &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;number&lt;/i&gt;&lt;/code&gt; ]
+[ &lt;code class=&quot;notranslate&quot;&gt;loader_sleep&lt;/code&gt; = &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;time&lt;/i&gt;&lt;/code&gt; ]
+[ &lt;code class=&quot;notranslate&quot;&gt;loader_threshold&lt;/code&gt; = &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;time&lt;/i&gt;&lt;/code&gt; ]
+[ &lt;code class=&quot;notranslate&quot;&gt;purger&lt;/code&gt; = &lt;code class=&quot;notranslate&quot;&gt;on&lt;/code&gt; | &lt;code class=&quot;notranslate&quot;&gt;off&lt;/code&gt; ]
+[ &lt;code class=&quot;notranslate&quot;&gt;purger_files&lt;/code&gt; = &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;number&lt;/i&gt;&lt;/code&gt; ]
+[ &lt;code class=&quot;notranslate&quot;&gt;purger_sleep&lt;/code&gt; = &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;time&lt;/i&gt;&lt;/code&gt; ]
+[ &lt;code class=&quot;notranslate&quot;&gt;purger_threshold&lt;/code&gt; = &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;time&lt;/i&gt;&lt;/code&gt; ];&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
 
-</blockquote>
-<p>  缓存中的文件名如下所示： </p>
-<blockquote>
-<pre class="notranslate">/data/nginx/cache/ **c** / **29** /b7f54b2df7773722d382f4809d650 **29c**
-</pre>
+        —
 
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  设置缓存的路径和其他参数。  缓存数据存储在文件中。  缓存中的密钥和文件名都是将MD5功能应用于代理URL的结果。   &lt;code class=&quot;notranslate&quot;&gt;levels&lt;/code&gt;参数定义高速缓存的层次结构级别：从1到3，每个级别接受值1或2.例如，在以下配置中 &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;fastcgi_cache_path /data/nginx/cache levels=1:2 keys_zone=one:10m;
+</code></pre><p></p><p>  缓存中的文件名如下所示： </p><blockquote class="example"><pre class="notranslate">/data/nginx/cache/ <strong>c</strong> / <strong>29</strong> /b7f54b2df7773722d382f4809d650 <strong>29c</strong><br></pre></blockquote><p></p><p>  首先将缓存的响应写入临时文件，然后重命名该文件。  从版本0.8.9开始，临时文件和缓存可以放在不同的文件系统上。  但是，请注意，在这种情况下，文件将跨两个文件系统复制，而不是廉价的重命名操作。  因此，建议对于任何给定位置，缓存和保存临时文件的目录都放在同一文件系统上。  根据<code class="notranslate">use_temp_path</code>参数（1.7.10）设置临时文件的目录。  如果省略此参数或将其设置为<code class="notranslate">on</code> ，则将使用<a hhref="#fastcgi_temp_path">fastcgi_temp_path</a>指令为给定位置设置的目录。  如果该值设置为<code class="notranslate">off</code> ，则临时文件将直接放入缓存目录中。 </p><p>  此外，所有活动密钥和有关数据的信息都存储在共享内存区域中，其<code class="notranslate"><i>name</i></code>和<code class="notranslate"><i>size</i></code>由<code class="notranslate">keys_zone</code>参数配置。  一兆字节区域可以存储大约8000个密钥。 </p><blockquote class="note">  作为<a hhref="http://nginx.com/products/">商业订阅的</a>一部分，共享存储器区域还存储扩展的高速缓存<a hhref="ngx_http_api_module.html#http_caches_">信息</a> ，因此，需要为相同数量的密钥指定更大的区域大小。  例如，一兆字节区域可以存储大约4000个密钥。 </blockquote><p></p><p>  在<code class="notranslate">inactive</code>参数指定的时间内未访问的缓存数据将从缓存中删除，无论其新鲜度如何。  默认情况下， <code class="notranslate">inactive</code>设置为10分钟。 </p><p>  特殊的“缓存管理器”进程监视<code class="notranslate">max_size</code>参数设置的最大缓存大小。  超过此大小时，它会删除最近最少使用的数据。  在<code class="notranslate">manager_files</code> ， <code class="notranslate">manager_threshold</code>和<code class="notranslate">manager_sleep</code>参数（1.11.5）配置的迭代中删除数据。  在一次迭代期间，不会删除<code class="notranslate">manager_files</code>项（默认情况下为100）。  一次迭代的持续时间受<code class="notranslate">manager_threshold</code>参数限制（默认情况下为200毫秒）。  在迭代之间，由<code class="notranslate">manager_sleep</code>参数（默认为50毫秒）配置的暂停。 </p><p>  启动一分钟后，激活特殊的“缓存加载程序”进程。  它将有关存储在文件系统中的先前缓存数据的信息加载到缓存区。  加载也是在迭代中完成的。  在一次迭代期间，加载的<code class="notranslate">loader_files</code>项目不超过（默认情况下为100）。  此外，一次迭代的持续时间受<code class="notranslate">loader_threshold</code>参数限制（默认为200毫秒）。  在迭代之间，由<code class="notranslate">loader_sleep</code>参数（默认为50毫秒）配置暂停。 </p><p>  此外，以下参数作为我们<a hhref="http://nginx.com/products/">商业订阅的</a>一部分提供： </p><p></p><dl class="compact"><dt id="purger">   <code class="notranslate">purger</code> = <code class="notranslate">on</code> | <code class="notranslate">off</code> </dt><dd>  指示缓存清除程序是否将从磁盘中删除与<a hhref="#fastcgi_cache_purge">通配符密钥</a>匹配的缓存条目（1.7.12）。  将参数设置为<code class="notranslate">on</code> （默认为<code class="notranslate">off</code> ）将激活“cache purger”进程，该进程将永久迭代所有缓存条目并删除与通配符键匹配的条目。 </dd><dt id="purger_files">   <code class="notranslate">purger_files</code> = <code class="notranslate"><i>number</i></code> </dt><dd>  设置在一次迭代（1.7.12）期间将扫描的项目数。  默认情况下， <code class="notranslate">purger_files</code>设置为10。 </dd><dt id="purger_threshold">   <code class="notranslate">purger_threshold</code> = <code class="notranslate"><i>number</i></code> </dt><dd>  设置一次迭代的持续时间（1.7.12）。  默认情况下， <code class="notranslate">purger_threshold</code>设置为50毫秒。 </dd><dt id="purger_sleep">   <code class="notranslate">purger_sleep</code> = <code class="notranslate"><i>number</i></code> </dt><dd>  设置迭代之间的暂停（1.7.12）。  默认情况下， <code class="notranslate">purger_sleep</code>设置为50毫秒。 </dd></dl><p></p><p></p><blockquote class="note">  在版本1.7.3,1.7.7和1.11.10中，缓存头格式已更改。  升级到较新的nginx版本之前，缓存的响应将被视为无效。 </blockquote><p></p><a name="fastcgi_cache_purge"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>fastcgi_cache_purge</strong> string …;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>—
 
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p&gt;  该指令出现在1.5.7版本中。 &lt;/p&gt;&lt;/div&gt;&lt;p&gt;  定义将请求视为缓存清除请求的条件。  如果字符串参数的至少一个值不为空并且不等于“0”，则移除具有相应&lt;a hhref=&quot;#fastcgi_cache_key&quot;&gt;高速缓存键&lt;/a&gt;的高速缓存条目。  通过返回204（无内容）响应来指示成功操作的结果。 &lt;/p&gt;&lt;p&gt;  如果清除请求的&lt;a hhref=&quot;#fastcgi_cache_key&quot;&gt;缓存键&lt;/a&gt;以星号（“ &lt;code class=&quot;notranslate&quot;&gt;*&lt;/code&gt; ”）结尾，则将从缓存中删除与通配符键匹配的所有缓存条目。  但是，这些条目将保留在磁盘上，直到它们被删除&lt;a hhref=&quot;#fastcgi_cache_path&quot;&gt;为非活动状态&lt;/a&gt; ，或由&lt;a hhref=&quot;#purger&quot;&gt;缓存&lt;/a&gt;清除程序（1.7.12）处理，或者客户端尝试访问它们。 &lt;/p&gt;&lt;p&gt;  配置示例： &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;fastcgi_cache_path /data/nginx/cache keys_zone=cache_zone:10m;
+</code></pre><p>map $request_method $purge_method {<br>    PURGE   1;<br>    default 0;<br>}</p>
+<p>server {<br>    …<br>    location / {<br>        fastcgi_pass        backend;<br>        fastcgi_cache       cache_zone;<br>        fastcgi_cache_key   $uri;<br>        fastcgi_cache_purge $purge_method;<br>    }<br>}<br></p><p></p><blockquote class="note">  此功能作为我们<a hhref="http://nginx.com/products/">商业订阅的</a>一部分提供。 </blockquote><p></p><a name="fastcgi_cache_revalidate"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>fastcgi_cache_revalidate</strong> <code class="notranslate">on</code> | <code class="notranslate">off</code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">fastcgi_cache_revalidate off;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table><p>  该指令出现在1.5.7版本中。 </p></div><p>  使用具有“If-Modified-Since”和“If-None-Match”标头字段的条件请求启用过期缓存项的重新验证。 </p><a name="fastcgi_cache_use_stale"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>fastcgi_cache_use_stale</strong><br>    <code class="notranslate">error</code> |<br>    <code class="notranslate">timeout</code> |<br>    <code class="notranslate">invalid_header</code> |<br>    <code class="notranslate">updating</code> |<br>    <code class="notranslate">http_500</code> |<br>    <code class="notranslate">http_503</code> |<br>    <code class="notranslate">http_403</code> |<br>    <code class="notranslate">http_404</code> |<br>    <code class="notranslate">http_429</code> |<br>    <code class="notranslate">off</code><br>    …;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">fastcgi_cache_use_stale off;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table></div><p>  确定在与FastCGI服务器通信期间发生错误时可以使用过时的缓存响应的情况。  该指令的参数与<a hhref="#fastcgi_next_upstream">fastcgi_next_upstream</a>指令的参数匹配。 </p><p>  如果无法选择要处理请求的FastCGI服务器，则<code class="notranslate">error</code>参数还允许使用过时的缓存响应。 </p><a name="fastcgi_cache_use_stale_updating"></a><p>  此外，如果当前正在更新，则<code class="notranslate">updating</code>参数允许使用过时的缓存响应。  这样可以在更新缓存数据时最大限度地减少对FastCGI服务器的访问次数。 </p><p>  在响应变为失效后，也可以在响应头中直接启用过时的缓存响应指定的秒数（1.11.10）。  这比使用指令参数的优先级低。 </p><ul><li>   “Cache-Control”头字段的“ <a hhref="https://tools.ietf.org/html/rfc5861#section-3">stale-while-revalidate</a> ”扩展允许使用陈旧的缓存响应（如果当前正在更新）。 </li><li>   “Cache-Control”头字段的“ <a hhref="https://tools.ietf.org/html/rfc5861#section-4">stale-if-error</a> ”扩展允许在出现错误时使用陈旧的缓存响应。 </li></ul><p></p><p>  要在填充新缓存元素时最小化对FastCGI服务器的访问次数，可以使用<a hhref="#fastcgi_cache_lock">fastcgi_cache_lock</a>指令。 </p><a name="fastcgi_cache_valid"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>fastcgi_cache_valid</strong> [ <code class="notranslate"><i>code</i></code> …] <code class="notranslate"><i>time</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>—
 
-</blockquote>
-<p>  首先将缓存的响应写入临时文件，然后重命名该文件。  从版本0.8.9开始，临时文件和缓存可以放在不同的文件系统上。  但是，请注意，在这种情况下，文件将跨两个文件系统复制，而不是廉价的重命名操作。  因此，建议对于任何给定位置，缓存和保存临时文件的目录都放在同一文件系统上。  根据<code>use_temp_path</code>参数（1.7.10）设置临时文件的目录。  如果省略此参数或将其设置为<code>on</code> ，则将使用<a href="#fastcgi_temp_path">fastcgi_temp_path</a>指令为给定位置设置的目录。  如果该值设置为<code>off</code> ，则临时文件将直接放入缓存目录中。 </p>
-<p>  此外，所有活动密钥和有关数据的信息都存储在共享内存区域中，其<code>*name*</code>和<code>*size*</code>由<code>keys_zone</code>参数配置。  一兆字节区域可以存储大约8000个密钥。 </p>
-<blockquote>
-<p>  作为<a href="http://nginx.com/products/" target="_blank" rel="noopener">商业订阅的</a>一部分，共享存储器区域还存储扩展的高速缓存<a href="ngx_http_api_module.html#http_caches_">信息</a> ，因此，需要为相同数量的密钥指定更大的区域大小。  例如，一兆字节区域可以存储大约4000个密钥。 </p>
-</blockquote>
-<p>  在<code>inactive</code>参数指定的时间内未访问的缓存数据将从缓存中删除，无论其新鲜度如何。  默认情况下， <code>inactive</code>设置为10分钟。 </p>
-<p>  特殊的“缓存管理器”进程监视<code>max_size</code>参数设置的最大缓存大小。  超过此大小时，它会删除最近最少使用的数据。  在<code>manager_files</code> ， <code>manager_threshold</code>和<code>manager_sleep</code>参数（1.11.5）配置的迭代中删除数据。  在一次迭代期间，不会删除<code>manager_files</code>项（默认情况下为100）。  一次迭代的持续时间受<code>manager_threshold</code>参数限制（默认情况下为200毫秒）。  在迭代之间，由<code>manager_sleep</code>参数（默认为50毫秒）配置的暂停。 </p>
-<p>  启动一分钟后，激活特殊的“缓存加载程序”进程。  它将有关存储在文件系统中的先前缓存数据的信息加载到缓存区。  加载也是在迭代中完成的。  在一次迭代期间，加载的<code>loader_files</code>项目不超过（默认情况下为100）。  此外，一次迭代的持续时间受<code>loader_threshold</code>参数限制（默认为200毫秒）。  在迭代之间，由<code>loader_sleep</code>参数（默认为50毫秒）配置暂停。 </p>
-<p>  此外，以下参数作为我们<a href="http://nginx.com/products/" target="_blank" rel="noopener">商业订阅的</a>一部分提供： </p>
-<blockquote>
-<p>  在版本1.7.3,1.7.7和1.11.10中，缓存头格式已更改。  升级到较新的nginx版本之前，缓存的响应将被视为无效。 </p>
-</blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_cache_purge** string ...;</code> <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  该指令出现在1.5.7版本中。 </p>
-<p>  定义将请求视为缓存清除请求的条件。  如果字符串参数的至少一个值不为空并且不等于“0”，则移除具有相应<a href="#fastcgi_cache_key">高速缓存键</a>的高速缓存条目。  通过返回204（无内容）响应来指示成功操作的结果。 </p>
-<p>  如果清除请求的<a href="#fastcgi_cache_key">缓存键</a>以星号（“ <code>*</code> ”）结尾，则将从缓存中删除与通配符键匹配的所有缓存条目。  但是，这些条目将保留在磁盘上，直到它们被删除<a href="#fastcgi_cache_path">为非活动状态</a> ，或由<a href="#purger">缓存</a>清除程序（1.7.12）处理，或者客户端尝试访问它们。 </p>
-<p>  配置示例： </p>
-<blockquote>
-<p><pre class="notranslate">fastcgi_cache_path /data/nginx/cache keys_zone=cache_zone:10m;</pre></p>
-</blockquote>
-<p>map $request_method $purge_method {<br>    PURGE   1;<br>    default 0;<br>}</p>
-<p>server {<br>    …<br>    location / {<br>        fastcgi_pass        backend;<br>        fastcgi_cache       cache_zone;<br>        fastcgi_cache_key   $uri;<br>        fastcgi_cache_purge $purge_method;<br>    }<br>}<br></p>
-<blockquote>
-<p>  此功能作为我们<a href="http://nginx.com/products/" target="_blank" rel="noopener">商业订阅的</a>一部分提供。 </p>
-</blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_cache_revalidate** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_cache_revalidate off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  该指令出现在1.5.7版本中。 </p>
-<p>  使用具有“If-Modified-Since”和“If-None-Match”标头字段的条件请求启用过期缓存项的重新验证。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_cache_use_stale**     &lt;code class=&quot;notranslate&quot;&gt;error</code> |    <code>timeout</code> |    <code>invalid_header</code> |    <code>updating</code> |    <code>http_500</code> |    <code>http_503</code> |    <code>http_403</code> |    <code>http_404</code> |    <code>http_429</code> |    <code>off</code>    …; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_cache_use_stale off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  确定在与FastCGI服务器通信期间发生错误时可以使用过时的缓存响应的情况。  该指令的参数与<a href="#fastcgi_next_upstream">fastcgi_next_upstream</a>指令的参数匹配。 </p>
-<p>  如果无法选择要处理请求的FastCGI服务器，则<code>error</code>参数还允许使用过时的缓存响应。 </p>
-<p>  此外，如果当前正在更新，则<code>updating</code>参数允许使用过时的缓存响应。  这样可以在更新缓存数据时最大限度地减少对FastCGI服务器的访问次数。 </p>
-<p>  在响应变为失效后，也可以在响应头中直接启用过时的缓存响应指定的秒数（1.11.10）。  这比使用指令参数的优先级低。 </p>
-<ul>
-<li>“Cache-Control”头字段的“ <a href="https://tools.ietf.org/html/rfc5861#section-3" target="_blank" rel="noopener">stale-while-revalidate</a> ”扩展允许使用陈旧的缓存响应（如果当前正在更新）。 -    “Cache-Control”头字段的“ <a href="https://tools.ietf.org/html/rfc5861#section-4" target="_blank" rel="noopener">stale-if-error</a> ”扩展允许在出现错误时使用陈旧的缓存响应。 </li>
-</ul>
-<p>  要在填充新缓存元素时最小化对FastCGI服务器的访问次数，可以使用<a href="#fastcgi_cache_lock">fastcgi_cache_lock</a>指令。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_cache_valid** [ &lt;code class=&quot;notranslate&quot;&gt;*code*</code> …] <code>*time*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  设置不同响应代码的缓存时间。  例如，以下指令 </p>
-<blockquote>
-<pre class="notranslate">fastcgi_cache_valid 200 302 10m;
-fastcgi_cache_valid 404      1m;
-</pre>
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  设置不同响应代码的缓存时间。  例如，以下指令 &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;fastcgi_cache_valid 200 302 10m;
+</code></pre><p>fastcgi_cache_valid 404      1m;<br></p><p>  为代码为200和302的响应设置10分钟的缓存，为代码404的响应设置1分钟。 </p><p>  如果仅指定了缓存<code class="notranslate"><i>time</i></code> </p><blockquote class="example"><pre class="notranslate">fastcgi_cache_valid 5m;<br></pre></blockquote><p>  然后只缓存200,301和302个响应。 </p><p>  此外，可以指定<code class="notranslate">any</code>参数来缓存任何响应： </p><blockquote class="example"><pre class="notranslate">fastcgi_cache_valid 200 302 10m;<br>fastcgi_cache_valid 301      1h;<br>fastcgi_cache_valid any      1m;<br></pre></blockquote><p></p><p>  缓存的参数也可以直接在响应头中设置。  这比使用该指令设置缓存时间具有更高的优先级。 </p><ul><li>   “X-Accel-Expires”标题字段以秒为单位设置响应的缓存时间。  零值禁用响应的缓存。  如果值以<code class="notranslate">@</code>前缀开头，则设置自Epoch以来的绝对时间（以秒为单位），响应可以高速缓存。 </li><li>  如果标题不包括“X-Accel-Expires”字段，则可以在标题字段“Expires”或“Cache-Control”中设置高速缓存的参数。 </li><li>  如果标头包含“Set-Cookie”字段，则不会缓存此类响应。 </li><li>  如果标题包含具有特殊值“ <code class="notranslate">*</code> ”的“Vary”字段，则不会缓存此类响应（1.7.7）。  如果标题包含具有另一个值的“Vary”字段，则将考虑相应的请求标题字段来缓存这样的响应（1.7.7）。 </li></ul><p>  可以使用<a hhref="#fastcgi_ignore_headers">fastcgi_ignore_headers</a>指令禁用这些响应头字段中的一个或多个的处理。 </p><a name="fastcgi_catch_stderr"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>fastcgi_catch_stderr</strong> <code class="notranslate"><i>string</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>        —
 
-</blockquote>
-<p>  为代码为200和302的响应设置10分钟的缓存，为代码404的响应设置1分钟。 </p>
-<p>  如果仅指定了缓存<code>*time*</code> </p>
-<blockquote>
-<pre class="notranslate">fastcgi_cache_valid 5m;
-</pre>
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  设置要在从FastCGI服务器接收的响应的错误流中搜索的字符串。  如果找到该&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;string&lt;/i&gt;&lt;/code&gt; ，则认为FastCGI服务器返回了&lt;a hhref=&quot;#fastcgi_next_upstream&quot;&gt;无效响应&lt;/a&gt; 。  这允许在nginx中处理应用程序错误，例如： &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;location /php/ {
+fastcgi_pass backend:9000;
+...
+fastcgi_catch_stderr &quot;PHP Fatal error&quot;;
+fastcgi_next_upstream error timeout invalid_header;
+</code></pre><p>}<br></p><p></p><a name="fastcgi_connect_timeout"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>fastcgi_connect_timeout</strong> <code class="notranslate"><i>time</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">fastcgi_connect_timeout 60s;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table></div><p>  定义与FastCGI服务器建立连接的超时。  应该注意，此超时通常不会超过75秒。 </p><a name="fastcgi_force_ranges"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>fastcgi_force_ranges</strong> <code class="notranslate">on</code> | <code class="notranslate">off</code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">fastcgi_force_ranges off;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table><p>  该指令出现在1.7.7版本中。 </p></div><p>  无论来自这些响应中的“Accept-Ranges”字段如何，都可以对来自FastCGI服务器的缓存和未缓存响应启用字节范围支持。 </p><a name="fastcgi_hide_header"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>fastcgi_hide_header</strong> <code class="notranslate"><i>field</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>—
 
-</blockquote>
-<p>  然后只缓存200,301和302个响应。 </p>
-<p>  此外，可以指定<code>any</code>参数来缓存任何响应： </p>
-<blockquote>
-<pre class="notranslate">fastcgi_cache_valid 200 302 10m;
-fastcgi_cache_valid 301      1h;
-fastcgi_cache_valid any      1m;
-</pre>
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  默认情况下，nginx不会将FastCGI服务器的响应中的标题字段“Status”和“X-Accel -...”传递给客户端。   &lt;code class=&quot;notranslate&quot;&gt;fastcgi_hide_header&lt;/code&gt;指令设置不会传递的其他字段。  相反，如果需要允许传递字段，则可以使用&lt;a hhref=&quot;#fastcgi_pass_header&quot;&gt;fastcgi_pass_header&lt;/a&gt;指令。 &lt;/p&gt;&lt;a name=&quot;fastcgi_ignore_client_abort&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Syntax:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;fastcgi_ignore_client_abort&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;on&lt;/code&gt; | &lt;code class=&quot;notranslate&quot;&gt;off&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Default:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;pre class=&quot;notranslate&quot;&gt;fastcgi_ignore_client_abort off;&lt;/pre&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  确定客户端在不等待响应的情况下关闭连接时是否应关闭与FastCGI服务器的连接。 &lt;/p&gt;&lt;a name=&quot;fastcgi_ignore_headers&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Syntax:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;fastcgi_ignore_headers&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;field&lt;/i&gt;&lt;/code&gt; ...;&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Default:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
 
+—
 
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  禁用从FastCGI服务器处理某些响应头字段。  可以忽略以下字段：“X-Accel-Redirect”，“X-Accel-Expires”，“X-Accel-Limit-Rate”（1.1.6），“X-Accel-Buffering”（1.1.6） ，“X-Accel-Charset”（1.1.6），“Expires”，“Cache-Control”，“Set-Cookie”（0.8.44）和“Vary”（1.7.7）。 &lt;/p&gt;&lt;p&gt;  如果未禁用，则处理这些标头字段会产生以下影响： &lt;/p&gt;&lt;ul&gt;&lt;li&gt;   “X-Accel-Expires”，“Expires”，“Cache-Control”，“Set-Cookie”和“Vary”设置响应&lt;a hhref=&quot;#fastcgi_cache_valid&quot;&gt;缓存&lt;/a&gt;的参数; &lt;/li&gt;&lt;li&gt;   “X-Accel-Redirect”执行&lt;a hhref=&quot;ngx_http_core_module.html#internal&quot;&gt;内部重定向&lt;/a&gt;到指定的URI; &lt;/li&gt;&lt;li&gt;   “X-Accel-Limit-Rate”设置向客户端传输响应的&lt;a hhref=&quot;ngx_http_core_module.html#limit_rate&quot;&gt;速率限制&lt;/a&gt; ; &lt;/li&gt;&lt;li&gt;   “X-Accel-Buffering”启用或禁用&lt;a hhref=&quot;#fastcgi_buffering&quot;&gt;缓冲&lt;/a&gt;响应; &lt;/li&gt;&lt;li&gt;   “X-Accel-Charset”设置了所需的响应&lt;a hhref=&quot;ngx_http_charset_module.html#charset&quot;&gt;字符集&lt;/a&gt; 。 &lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;/p&gt;&lt;a name=&quot;fastcgi_index&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Syntax:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;fastcgi_index&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;name&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Default:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
 
-</blockquote>
-<p>  缓存的参数也可以直接在响应头中设置。  这比使用该指令设置缓存时间具有更高的优先级。 </p>
-<ul>
-<li><p>“X-Accel-Expires”标题字段以秒为单位设置响应的缓存时间。  零值禁用响应的缓存。  如果值以<code>@</code>前缀开头，则设置自Epoch以来的绝对时间（以秒为单位），响应可以高速缓存。 -   如果标题不包括“X-Accel-Expires”字段，则可以在标题字段“Expires”或“Cache-Control”中设置高速缓存的参数。 -   如果标头包含“Set-Cookie”字段，则不会缓存此类响应。 -   如果标题包含具有特殊值“ <code>*</code> ”的“Vary”字段，则不会缓存此类响应（1.7.7）。  如果标题包含具有另一个值的“Vary”字段，则将考虑相应的请求标题字段来缓存这样的响应（1.7.7）。<br>可以使用<a href="#fastcgi_ignore_headers">fastcgi_ignore_headers</a>指令禁用这些响应头字段中的一个或多个的处理。<br><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_catch_stderr** &lt;code class=&quot;notranslate&quot;&gt;*string*</code> ; <br>                </td><br><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td><br><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>设置要在从FastCGI服务器接收的响应的错误流中搜索的字符串。  如果找到该<code>*string*</code> ，则认为FastCGI服务器返回了<a href="#fastcgi_next_upstream">无效响应</a> 。  这允许在nginx中处理应用程序错误，例如： </p>
-</li>
-</ul>
-<blockquote>
-<pre class="notranslate">location /php/ {
-    fastcgi_pass backend:9000;
-    ...
-    fastcgi_catch_stderr "PHP Fatal error";
-    fastcgi_next_upstream error timeout invalid_header;
-}
-</pre>
+—
 
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  在&lt;code class=&quot;notranslate&quot;&gt;$fastcgi_script_name&lt;/code&gt;变量的值中设置将在以斜杠结尾的URI之后附加的文件名。  例如，使用这些设置 &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;fastcgi_index index.php;
+</code></pre><p>fastcgi_param SCRIPT_FILENAME /home/www/scripts/php$fastcgi_script_name;<br></p><p>  和“ <code class="notranslate">/page.php</code> ”请求， <code class="notranslate">SCRIPT_FILENAME</code>参数将等于“ <code class="notranslate">/home/www/scripts/php/page.php</code> ”，并且使用“ <code class="notranslate">/</code> ”请求它将等于“ <code class="notranslate">/home/www/scripts/php/index.php</code> “。 </p><a name="fastcgi_intercept_errors"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>fastcgi_intercept_errors</strong> <code class="notranslate">on</code> | <code class="notranslate">off</code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">fastcgi_intercept_errors off;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table></div><p>  确定代码大于或等于300的FastCGI服务器响应是应该传递给客户端还是被拦截并重定向到nginx以便使用<a hhref="ngx_http_core_module.html#error_page">error_page</a>指令进行处理。 </p><a name="fastcgi_keep_conn"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>fastcgi_keep_conn</strong> <code class="notranslate">on</code> | <code class="notranslate">off</code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">fastcgi_keep_conn off;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table><p>  该指令出现在1.1.4版中。 </p></div><p>  默认情况下，FastCGI服务器将在发送响应后立即关闭连接。  但是，当此伪指令设置为<code class="notranslate">on</code> ，nginx将指示FastCGI服务器保持连接打开。  特别是，这对于FastCGI服务器的<a hhref="ngx_http_upstream_module.html#keepalive">keepalive</a>连接起作用是必要的。 </p><a name="fastcgi_limit_rate"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>fastcgi_limit_rate</strong> <code class="notranslate"><i>rate</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">fastcgi_limit_rate 0;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table><p>  该指令出现在1.7.7版本中。 </p></div><p>  限制从FastCGI服务器读取响应的速度。   <code class="notranslate"><i>rate</i></code>以每秒字节数指定。  零值禁用速率限制。  根据请求设置限制，因此如果nginx同时打开两个到FastCFI服务器的连接，则总速率将是指定限制的两倍。  仅当启用了对来自FastCGI服务器的响应的<a hhref="#fastcgi_buffering">缓冲时</a> ，该限制才有效。 </p><a name="fastcgi_max_temp_file_size"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>fastcgi_max_temp_file_size</strong> <code class="notranslate"><i>size</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">fastcgi_max_temp_file_size 1024m;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table></div><p>  当启用来自FastCGI服务器的响应<a hhref="#fastcgi_buffering">缓冲</a> ，并且整个响应不适合<a hhref="#fastcgi_buffer_size">fastcgi_buffer_size</a>和<a hhref="#fastcgi_buffers">fastcgi_buffers</a>指令设置的缓冲区时，响应的一部分可以保存到临时文件中。  该指令设置临时文件的最大<code class="notranslate"><i>size</i></code> 。  一次写入临时文件的数据大小由<a hhref="#fastcgi_temp_file_write_size">fastcgi_temp_file_write_size</a>指令设置。 </p><p>  零值禁用缓冲对临时文件的响应。 </p><p></p><blockquote class="note">  此限制不适用于将<a hhref="#fastcgi_cache">缓存</a>或<a hhref="#fastcgi_store">存储</a>在磁盘上的响应。 </blockquote><p></p><a name="fastcgi_next_upstream"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>fastcgi_next_upstream</strong><br>    <code class="notranslate">error</code> |<br>    <code class="notranslate">timeout</code> |<br>    <code class="notranslate">invalid_header</code> |<br>    <code class="notranslate">http_500</code> |<br>    <code class="notranslate">http_503</code> |<br>    <code class="notranslate">http_403</code> |<br>    <code class="notranslate">http_404</code> |<br>    <code class="notranslate">http_429</code> |<br>    <code class="notranslate">non_idempotent</code> |<br>    <code class="notranslate">off</code><br>    …;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">fastcgi_next_upstream error timeout;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table></div><p>  指定应将请求传递到下一个服务器的情况： </p><dl class="compact"><dt> <code class="notranslate">error</code> </dt> <dd>  与服务器建立连接，向其传递请求或读取响应头时发生错误; </dd><dt> <code class="notranslate">timeout</code> </dt> <dd>  在与服务器建立连接，向其传递请求或读取响应头时发生超时; </dd><dt> <code class="notranslate">invalid_header</code> </dt> <dd>  服务器返回空或无效响应; </dd><dt> <code class="notranslate">http_500</code> </dt> <dd>  服务器返回代码为500的响应; </dd><dt> <code class="notranslate">http_503</code> </dt> <dd>  服务器返回代码为503的响应; </dd><dt> <code class="notranslate">http_403</code> </dt> <dd>  服务器返回代码为403的响应; </dd><dt> <code class="notranslate">http_404</code> </dt> <dd>  服务器返回代码为404的响应; </dd><dt> <code class="notranslate">http_429</code> </dt> <dd>  服务器返回代码为429的响应（1.11.13）; </dd><dt id="non_idempotent"> <code class="notranslate">non_idempotent</code> </dt> <dd>  通常，如果请求已发送到上游服务器，则使用<a hhref="https://tools.ietf.org/html/rfc7231#section-4.2.2">非幂等</a>方法（ <code class="notranslate">POST</code> ， <code class="notranslate">LOCK</code> ， <code class="notranslate">PATCH</code> ）的请求不会传递给下一个服务器（1.9.13）;  启用此选项显式允许重试此类请求; </dd><dt> <code class="notranslate">off</code> </dt> <dd>  禁用将请求传递给下一个服务器。 </dd></dl><p></p><p>  应该记住，只有在尚未向客户端发送任何内容的情况下，才能将请求传递给下一个服务器。  也就是说，如果在传输响应的过程中发生错误或超时，则无法修复此问题。 </p><p>  该指令还定义了与服务器通信的<a hhref="ngx_http_upstream_module.html#max_fails">不成功尝试</a> 。   <code class="notranslate">error</code> ， <code class="notranslate">timeout</code>和<code class="notranslate">invalid_header</code>情况始终被视为不成功的尝试，即使它们未在指令中指定。   <code class="notranslate">http_500</code> ， <code class="notranslate">http_503</code>和<code class="notranslate">http_429</code>情况仅在指令中指定<code class="notranslate">http_429</code>被视为不成功尝试。   <code class="notranslate">http_403</code>和<code class="notranslate">http_404</code>情况从未被视为不成功的尝试。 </p><p>  将请求传递到下一个服务器可能会受到<a hhref="#fastcgi_next_upstream_tries">尝试次数</a>和<a hhref="#fastcgi_next_upstream_timeout">时间的限制</a> 。 </p><a name="fastcgi_next_upstream_timeout"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>fastcgi_next_upstream_timeout</strong> <code class="notranslate"><i>time</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">fastcgi_next_upstream_timeout 0;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table><p>  该指令出现在1.7.5版本中。 </p></div><p>  限制请求可以传递到<a hhref="#fastcgi_next_upstream">下一个服务器的时间</a> 。   <code class="notranslate">0</code>值关闭此限制。 </p><a name="fastcgi_next_upstream_tries"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>fastcgi_next_upstream_tries</strong> <code class="notranslate"><i>number</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">fastcgi_next_upstream_tries 0;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table><p>  该指令出现在1.7.5版本中。 </p></div><p>  限制将请求传递到<a hhref="#fastcgi_next_upstream">下一个服务器</a>的可能尝试次数。   <code class="notranslate">0</code>值关闭此限制。 </p><a name="fastcgi_no_cache"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>fastcgi_no_cache</strong> <code class="notranslate"><i>string</i></code> …;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>—
 
-</blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_connect_timeout** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_connect_timeout 60s;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  定义与FastCGI服务器建立连接的超时。  应该注意，此超时通常不会超过75秒。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_force_ranges** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_force_ranges off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  该指令出现在1.7.7版本中。 </p>
-<p>  无论来自这些响应中的“Accept-Ranges”字段如何，都可以对来自FastCGI服务器的缓存和未缓存响应启用字节范围支持。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_hide_header** &lt;code class=&quot;notranslate&quot;&gt;*field*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  默认情况下，nginx不会将FastCGI服务器的响应中的标题字段“Status”和“X-Accel -…”传递给客户端。   <code>fastcgi_hide_header</code>指令设置不会传递的其他字段。  相反，如果需要允许传递字段，则可以使用<a href="#fastcgi_pass_header">fastcgi_pass_header</a>指令。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_ignore_client_abort** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_ignore_client_abort off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  确定客户端在不等待响应的情况下关闭连接时是否应关闭与FastCGI服务器的连接。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_ignore_headers** &lt;code class=&quot;notranslate&quot;&gt;*field*</code> …; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  禁用从FastCGI服务器处理某些响应头字段。  可以忽略以下字段：“X-Accel-Redirect”，“X-Accel-Expires”，“X-Accel-Limit-Rate”（1.1.6），“X-Accel-Buffering”（1.1.6） ，“X-Accel-Charset”（1.1.6），“Expires”，“Cache-Control”，“Set-Cookie”（0.8.44）和“Vary”（1.7.7）。 </p>
-<p>  如果未禁用，则处理这些标头字段会产生以下影响： </p>
-<ul>
-<li>“X-Accel-Expires”，“Expires”，“Cache-Control”，“Set-Cookie”和“Vary”设置响应<a href="#fastcgi_cache_valid">缓存</a>的参数; -    “X-Accel-Redirect”执行<a href="ngx_http_core_module.html#internal">内部重定向</a>到指定的URI; -    “X-Accel-Limit-Rate”设置向客户端传输响应的<a href="ngx_http_core_module.html#limit_rate">速率限制</a> ; -    “X-Accel-Buffering”启用或禁用<a href="#fastcgi_buffering">缓冲</a>响应; -    “X-Accel-Charset”设置了所需的响应<a href="ngx_http_charset_module.html#charset">字符集</a> 。 </li>
-</ul>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_index** &lt;code class=&quot;notranslate&quot;&gt;*name*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  在<code>$fastcgi_script_name</code>变量的值中设置将在以斜杠结尾的URI之后附加的文件名。  例如，使用这些设置 </p>
-<blockquote>
-<pre class="notranslate">fastcgi_index index.php;
-fastcgi_param SCRIPT_FILENAME /home/www/scripts/php$fastcgi_script_name;
-</pre>
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  定义不将响应保存到缓存的条件。  如果字符串参数的至少一个值不为空且不等于“0”，则不会保存响应： &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;fastcgi_no_cache $cookie_nocache $arg_nocache$arg_comment;
+</code></pre><p>fastcgi_no_cache $http_pragma    $http_authorization;<br></p><p>  可以与<a hhref="#fastcgi_cache_bypass">fastcgi_cache_bypass</a>指令一起使用。 </p><a name="fastcgi_param"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>fastcgi_param</strong><br>    <code class="notranslate"><i>parameter</i></code> <code class="notranslate"><i>value</i></code><br>    [ <code class="notranslate">if_not_empty</code> ];</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>—
 
-</blockquote>
-<p>  和“ <code>/page.php</code> ”请求， <code>SCRIPT_FILENAME</code>参数将等于“ <code>/home/www/scripts/php/page.php</code> ”，并且使用“ <code>/</code> ”请求它将等于“ <code>/home/www/scripts/php/index.php</code> “。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_intercept_errors** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_intercept_errors off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  确定代码大于或等于300的FastCGI服务器响应是应该传递给客户端还是被拦截并重定向到nginx以便使用<a href="ngx_http_core_module.html#error_page">error_page</a>指令进行处理。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_keep_conn** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_keep_conn off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  该指令出现在1.1.4版中。 </p>
-<p>  默认情况下，FastCGI服务器将在发送响应后立即关闭连接。  但是，当此伪指令设置为<code>on</code> ，nginx将指示FastCGI服务器保持连接打开。  特别是，这对于FastCGI服务器的<a href="ngx_http_upstream_module.html#keepalive">keepalive</a>连接起作用是必要的。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_limit_rate** &lt;code class=&quot;notranslate&quot;&gt;*rate*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_limit_rate 0;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  该指令出现在1.7.7版本中。 </p>
-<p>  限制从FastCGI服务器读取响应的速度。   <code>*rate*</code>以每秒字节数指定。  零值禁用速率限制。  根据请求设置限制，因此如果nginx同时打开两个到FastCFI服务器的连接，则总速率将是指定限制的两倍。  仅当启用了对来自FastCGI服务器的响应的<a href="#fastcgi_buffering">缓冲时</a> ，该限制才有效。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_max_temp_file_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_max_temp_file_size 1024m;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  当启用来自FastCGI服务器的响应<a href="#fastcgi_buffering">缓冲</a> ，并且整个响应不适合<a href="#fastcgi_buffer_size">fastcgi_buffer_size</a>和<a href="#fastcgi_buffers">fastcgi_buffers</a>指令设置的缓冲区时，响应的一部分可以保存到临时文件中。  该指令设置临时文件的最大<code>*size*</code> 。  一次写入临时文件的数据大小由<a href="#fastcgi_temp_file_write_size">fastcgi_temp_file_write_size</a>指令设置。 </p>
-<p>  零值禁用缓冲对临时文件的响应。 </p>
-<blockquote>
-<p>  此限制不适用于将<a href="#fastcgi_cache">缓存</a>或<a href="#fastcgi_store">存储</a>在磁盘上的响应。 </p>
-</blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_next_upstream**     &lt;code class=&quot;notranslate&quot;&gt;error</code> |    <code>timeout</code> |    <code>invalid_header</code> |    <code>http_500</code> |    <code>http_503</code> |    <code>http_403</code> |    <code>http_404</code> |    <code>http_429</code> |    <code>non_idempotent</code> |    <code>off</code>    …; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_next_upstream error timeout;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  指定应将请求传递到下一个服务器的情况： </p>
-<p>  应该记住，只有在尚未向客户端发送任何内容的情况下，才能将请求传递给下一个服务器。  也就是说，如果在传输响应的过程中发生错误或超时，则无法修复此问题。 </p>
-<p>  该指令还定义了与服务器通信的<a href="ngx_http_upstream_module.html#max_fails">不成功尝试</a> 。   <code>error</code> ， <code>timeout</code>和<code>invalid_header</code>情况始终被视为不成功的尝试，即使它们未在指令中指定。   <code>http_500</code> ， <code>http_503</code>和<code>http_429</code>情况仅在指令中指定<code>http_429</code>被视为不成功尝试。   <code>http_403</code>和<code>http_404</code>情况从未被视为不成功的尝试。 </p>
-<p>  将请求传递到下一个服务器可能会受到<a href="#fastcgi_next_upstream_tries">尝试次数</a>和<a href="#fastcgi_next_upstream_timeout">时间的限制</a> 。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_next_upstream_timeout** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_next_upstream_timeout 0;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  该指令出现在1.7.5版本中。 </p>
-<p>  限制请求可以传递到<a href="#fastcgi_next_upstream">下一个服务器的时间</a> 。   <code>0</code>值关闭此限制。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_next_upstream_tries** &lt;code class=&quot;notranslate&quot;&gt;*number*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_next_upstream_tries 0;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  该指令出现在1.7.5版本中。 </p>
-<p>  限制将请求传递到<a href="#fastcgi_next_upstream">下一个服务器</a>的可能尝试次数。   <code>0</code>值关闭此限制。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_no_cache** &lt;code class=&quot;notranslate&quot;&gt;*string*</code> …; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  定义不将响应保存到缓存的条件。  如果字符串参数的至少一个值不为空且不等于“0”，则不会保存响应： </p>
-<blockquote>
-<pre class="notranslate">fastcgi_no_cache $cookie_nocache $arg_nocache$arg_comment;
-fastcgi_no_cache $http_pragma    $http_authorization;
-</pre>
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  设置应传递给FastCGI服务器的参数。  该&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;value&lt;/i&gt;&lt;/code&gt;可以包含文本，变量及其组合。  当且仅当在当前级别上没有定义&lt;code class=&quot;notranslate&quot;&gt;fastcgi_param&lt;/code&gt;指令时，这些指令才从前一级继承。 &lt;/p&gt;&lt;p&gt;  以下示例显示了PHP的最低必需设置： &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;fastcgi_param SCRIPT_FILENAME /home/www/scripts/php$fastcgi_script_name;
+</code></pre><p>fastcgi_param QUERY_STRING    $query_string;<br></p><p></p><p>   <code class="notranslate">SCRIPT_FILENAME</code>参数在PHP中用于确定脚本名称， <code class="notranslate">QUERY_STRING</code>参数用于传递请求参数。 </p><p>  对于处理<code class="notranslate">POST</code>请求的脚本，还需要以下三个参数： </p><blockquote class="example"><pre class="notranslate">fastcgi_param REQUEST_METHOD  $request_method;<br>fastcgi_param CONTENT_TYPE    $content_type;<br>fastcgi_param CONTENT_LENGTH  $content_length;<br></pre></blockquote><p></p><p>  如果PHP是使用<code class="notranslate">–enable-force-cgi-redirect</code>配置参数构建的，则还应使用值“200”传递<code class="notranslate">REDIRECT_STATUS</code>参数： </p><blockquote class="example"><pre class="notranslate">fastcgi_param REDIRECT_STATUS 200;<br></pre></blockquote><p></p><p>  如果使用<code class="notranslate">if_not_empty</code> （1.1.11）指定了该指令，则只有在其值不为空时，才会将此参数传递给服务器： </p><blockquote class="example"><pre class="notranslate">fastcgi_param HTTPS           $https if_not_empty;<br></pre></blockquote><p></p><a name="fastcgi_pass"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>fastcgi_pass</strong> <code class="notranslate"><i>address</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>—
 
-</blockquote>
-<p>  可以与<a href="#fastcgi_cache_bypass">fastcgi_cache_bypass</a>指令一起使用。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_param**     &lt;code class=&quot;notranslate&quot;&gt;*parameter*</code> <code>*value*</code>    [ <code>if_not_empty</code> ]; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  设置应传递给FastCGI服务器的参数。  该<code>*value*</code>可以包含文本，变量及其组合。  当且仅当在当前级别上没有定义<code>fastcgi_param</code>指令时，这些指令才从前一级继承。 </p>
-<p>  以下示例显示了PHP的最低必需设置： </p>
-<blockquote>
-<pre class="notranslate">fastcgi_param SCRIPT_FILENAME /home/www/scripts/php$fastcgi_script_name;
-fastcgi_param QUERY_STRING    $query_string;
-</pre>
+    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+Context:
+    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+&lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;if in location&lt;/code&gt; &lt;br&gt;
+    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  设置FastCGI服务器的地址。  地址可以指定为域名或IP地址，以及端口： &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;fastcgi_pass localhost:9000;
+</code></pre><p></p><p>  或者作为UNIX域套接字路径： </p><blockquote class="example"><pre class="notranslate">fastcgi_pass unix:/tmp/fastcgi.socket;<br></pre></blockquote><p></p><p>  如果域名解析为多个地址，则所有这些地址都将以循环方式使用。  此外，可以将地址指定为<a hhref="ngx_http_upstream_module.html">服务器组</a> 。 </p><p>  参数值可以包含变量。  在这种情况下，如果将地址指定为域名，则在所描述的<a hhref="ngx_http_upstream_module.html">服务器组中</a>搜索名称，如果未找到，则使用<a hhref="ngx_http_core_module.html#resolver">解析器</a>确定。 </p><a name="fastcgi_pass_header"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>fastcgi_pass_header</strong> <code class="notranslate"><i>field</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
+<pre><code>        —
 
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  允许将FastCGI服务器上&lt;a hhref=&quot;#fastcgi_hide_header&quot;&gt;禁用的&lt;/a&gt;标头字段传递给客户端。 &lt;/p&gt;&lt;a name=&quot;fastcgi_pass_request_body&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;fastcgi_pass_request_body&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;on&lt;/code&gt; | &lt;code class=&quot;notranslate&quot;&gt;off&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;pre class=&quot;notranslate&quot;&gt;fastcgi_pass_request_body on;&lt;/pre&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  指示是否将原始请求正文传递给FastCGI服务器。  另请参见&lt;a hhref=&quot;#fastcgi_pass_request_headers&quot;&gt;fastcgi_pass_request_headers&lt;/a&gt;指令。 &lt;/p&gt;&lt;a name=&quot;fastcgi_pass_request_headers&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;fastcgi_pass_request_headers&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;on&lt;/code&gt; | &lt;code class=&quot;notranslate&quot;&gt;off&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;pre class=&quot;notranslate&quot;&gt;fastcgi_pass_request_headers on;&lt;/pre&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  指示原始请求的标头字段是否传递给FastCGI服务器。  另请参见&lt;a hhref=&quot;#fastcgi_pass_request_body&quot;&gt;fastcgi_pass_request_body&lt;/a&gt;指令。 &lt;/p&gt;&lt;a name=&quot;fastcgi_read_timeout&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;fastcgi_read_timeout&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;time&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;pre class=&quot;notranslate&quot;&gt;fastcgi_read_timeout 60s;&lt;/pre&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  定义从FastCGI服务器读取响应的超时。  仅在两个连续的读操作之间设置超时，而不是为整个响应的传输。  如果FastCGI服务器在此时间内未传输任何内容，则关闭连接。 &lt;/p&gt;&lt;a name=&quot;fastcgi_request_buffering&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;fastcgi_request_buffering&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;on&lt;/code&gt; | &lt;code class=&quot;notranslate&quot;&gt;off&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;pre class=&quot;notranslate&quot;&gt;fastcgi_request_buffering on;&lt;/pre&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p&gt;  该指令出现在1.7.11版本中。 &lt;/p&gt;&lt;/div&gt;&lt;p&gt;  启用或禁用客户端请求正文的缓冲。 &lt;/p&gt;&lt;p&gt;  启用缓冲后，在将请求发送到FastCGI服务器之前，将从客户端&lt;a hhref=&quot;ngx_http_core_module.html#client_body_buffer_size&quot;&gt;读取&lt;/a&gt;整个请求正文。 &lt;/p&gt;&lt;p&gt;  禁用缓冲时，请求主体在收到时立即发送到FastCGI服务器。  在这种情况下，如果nginx已经开始发送请求主体，则无法将请求传递给&lt;a hhref=&quot;#fastcgi_next_upstream&quot;&gt;下一个服务器&lt;/a&gt; 。 &lt;/p&gt;&lt;a name=&quot;fastcgi_send_lowat&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;fastcgi_send_lowat&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;size&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;pre class=&quot;notranslate&quot;&gt;fastcgi_send_lowat 0;&lt;/pre&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  如果指令设置为非零值，则nginx将尝试通过使用&lt;a hhref=&quot;events.html#kqueue&quot;&gt;kqueue&lt;/a&gt;方法的&lt;code class=&quot;notranslate&quot;&gt;NOTE_LOWAT&lt;/code&gt;标志或具有指定&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;size&lt;/i&gt;&lt;/code&gt;的&lt;code class=&quot;notranslate&quot;&gt;SO_SNDLOWAT&lt;/code&gt;套接字选项来最小化到FastCGI服务器的传出连接上的发送操作数。 &lt;/p&gt;&lt;p&gt;  在Linux，Solaris和Windows上忽略此指令。 &lt;/p&gt;&lt;a name=&quot;fastcgi_send_timeout&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;fastcgi_send_timeout&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;time&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;pre class=&quot;notranslate&quot;&gt;fastcgi_send_timeout 60s;&lt;/pre&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  设置将请求传输到FastCGI服务器的超时。  仅在两个连续的写操作之间设置超时，而不是为整个请求的传输。  如果FastCGI服务器在此时间内未收到任何内容，则关闭连接。 &lt;/p&gt;&lt;a name=&quot;fastcgi_socket_keepalive&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;fastcgi_socket_keepalive&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;on&lt;/code&gt; | &lt;code class=&quot;notranslate&quot;&gt;off&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;pre class=&quot;notranslate&quot;&gt;fastcgi_socket_keepalive off;&lt;/pre&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p&gt;  该指令出现在1.15.6版中。 &lt;/p&gt;&lt;/div&gt;&lt;p&gt;  配置到FastCGI服务器的传出连接的“TCP keepalive”行为。  默认情况下，操作系统的设置对套接字有效。  如果指令设置为值“ &lt;code class=&quot;notranslate&quot;&gt;on&lt;/code&gt; ”，则为套接字打开&lt;code class=&quot;notranslate&quot;&gt;SO_KEEPALIVE&lt;/code&gt;套接字选项。 &lt;/p&gt;&lt;a name=&quot;fastcgi_split_path_info&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Syntax:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;fastcgi_split_path_info&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;regex&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Default:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
 
+        —
 
-</blockquote>
-<p>   <code>SCRIPT_FILENAME</code>参数在PHP中用于确定脚本名称， <code>QUERY_STRING</code>参数用于传递请求参数。 </p>
-<p>  对于处理<code>POST</code>请求的脚本，还需要以下三个参数： </p>
-<blockquote>
-<pre class="notranslate">fastcgi_param REQUEST_METHOD  $request_method;
-fastcgi_param CONTENT_TYPE    $content_type;
-fastcgi_param CONTENT_LENGTH  $content_length;
-</pre>
-
-
-
-</blockquote>
-<p>  如果PHP是使用<code>--enable-force-cgi-redirect</code>配置参数构建的，则还应使用值“200”传递<code>REDIRECT_STATUS</code>参数： </p>
-<blockquote>
-<pre class="notranslate">fastcgi_param REDIRECT_STATUS 200;
-</pre>
-
-
-
-</blockquote>
-<p>  如果使用<code>if_not_empty</code> （1.1.11）指定了该指令，则只有在其值不为空时，才会将此参数传递给服务器： </p>
-<blockquote>
-<pre class="notranslate">fastcgi_param HTTPS           $https if_not_empty;
-</pre>
-
-
-</blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_pass** &lt;code class=&quot;notranslate&quot;&gt;*address*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>location</code> , <code>if in location</code> <br>                </td></p>
-<p>  设置FastCGI服务器的地址。  地址可以指定为域名或IP地址，以及端口： </p>
-<blockquote>
-<pre class="notranslate">fastcgi_pass localhost:9000;
-</pre>
-
-</blockquote>
-<p>  或者作为UNIX域套接字路径： </p>
-<blockquote>
-<pre class="notranslate">fastcgi_pass unix:/tmp/fastcgi.socket;
-</pre>
-
-
-
-</blockquote>
-<p>  如果域名解析为多个地址，则所有这些地址都将以循环方式使用。  此外，可以将地址指定为<a href="ngx_http_upstream_module.html">服务器组</a> 。 </p>
-<p>  参数值可以包含变量。  在这种情况下，如果将地址指定为域名，则在所描述的<a href="ngx_http_upstream_module.html">服务器组中</a>搜索名称，如果未找到，则使用<a href="ngx_http_core_module.html#resolver">解析器</a>确定。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_pass_header** &lt;code class=&quot;notranslate&quot;&gt;*field*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  允许将FastCGI服务器上<a href="#fastcgi_hide_header">禁用的</a>标头字段传递给客户端。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_pass_request_body** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_pass_request_body on;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  指示是否将原始请求正文传递给FastCGI服务器。  另请参见<a href="#fastcgi_pass_request_headers">fastcgi_pass_request_headers</a>指令。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_pass_request_headers** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_pass_request_headers on;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  指示原始请求的标头字段是否传递给FastCGI服务器。  另请参见<a href="#fastcgi_pass_request_body">fastcgi_pass_request_body</a>指令。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_read_timeout** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_read_timeout 60s;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  定义从FastCGI服务器读取响应的超时。  仅在两个连续的读操作之间设置超时，而不是为整个响应的传输。  如果FastCGI服务器在此时间内未传输任何内容，则关闭连接。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_request_buffering** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_request_buffering on;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  该指令出现在1.7.11版本中。 </p>
-<p>  启用或禁用客户端请求正文的缓冲。 </p>
-<p>  启用缓冲后，在将请求发送到FastCGI服务器之前，将从客户端<a href="ngx_http_core_module.html#client_body_buffer_size">读取</a>整个请求正文。 </p>
-<p>  禁用缓冲时，请求主体在收到时立即发送到FastCGI服务器。  在这种情况下，如果nginx已经开始发送请求主体，则无法将请求传递给<a href="#fastcgi_next_upstream">下一个服务器</a> 。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_send_lowat** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_send_lowat 0;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  如果指令设置为非零值，则nginx将尝试通过使用<a href="events.html#kqueue">kqueue</a>方法的<code>NOTE_LOWAT</code>标志或具有指定<code>*size*</code>的<code>SO_SNDLOWAT</code>套接字选项来最小化到FastCGI服务器的传出连接上的发送操作数。 </p>
-<p>  在Linux，Solaris和Windows上忽略此指令。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_send_timeout** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_send_timeout 60s;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  设置将请求传输到FastCGI服务器的超时。  仅在两个连续的写操作之间设置超时，而不是为整个请求的传输。  如果FastCGI服务器在此时间内未收到任何内容，则关闭连接。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_socket_keepalive** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_socket_keepalive off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  该指令出现在1.15.6版中。 </p>
-<p>  配置到FastCGI服务器的传出连接的“TCP keepalive”行为。  默认情况下，操作系统的设置对套接字有效。  如果指令设置为值“ <code>on</code> ”，则为套接字打开<code>SO_KEEPALIVE</code>套接字选项。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_split_path_info** &lt;code class=&quot;notranslate&quot;&gt;*regex*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>location</code> <br>                </td></p>
-<p>  定义捕获<code>$fastcgi_path_info</code>变量值的正则表达式。  正则表达式应该有两个捕获：第一个变为<code>$fastcgi_script_name</code>变量的值，第二个变为<code>$fastcgi_path_info</code>变量的值。  例如，使用这些设置 </p>
-<blockquote>
-<pre class="notranslate">location ~ ^(.+\.php)(.*)$ {
-    fastcgi_split_path_info       ^(.+\.php)(.*)$;
-    fastcgi_param SCRIPT_FILENAME /path/to/php$fastcgi_script_name;
-    fastcgi_param PATH_INFO       $fastcgi_path_info;
-</pre>
-
-</blockquote>
-<p>  和“ <code>/show.php/article/0001</code> ”请求， <code>SCRIPT_FILENAME</code>参数将等于“ <code>/path/to/php/show.php</code>参数将等于“ <code>/article/0001</code> ”。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_store**     &lt;code class=&quot;notranslate&quot;&gt;on</code> |    <code>off</code> |    <code>*string*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_store off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  允许将文件保存到磁盘。   <code>on</code>参数使用与指令<a href="ngx_http_core_module.html#alias">别名</a>或<a href="ngx_http_core_module.html#root">root</a>对应的路径保存文件。   <code>off</code>参数禁用文件保存。  此外，可以使用带变量的<code>*string*</code>显式设置文件名： </p>
-<blockquote>
-<pre class="notranslate">fastcgi_store /data/www$original_uri;
-</pre>
-
-
-
-</blockquote>
-<p>  根据接收到的“Last-Modified”响应头字段设置文件的修改时间。  首先将响应写入临时文件，然后重命名该文件。  从版本0.8.9开始，临时文件和持久性存储可以放在不同的文件系统上。  但是，请注意，在这种情况下，文件将跨两个文件系统复制，而不是廉价的重命名操作。  因此，建议对于任何给定位置，由<a href="#fastcgi_temp_path">fastcgi_temp_path</a>指令设置的保存文件和保存临时文件的目录都放在同一文件系统上。 </p>
-<p>  该指令可用于创建静态不可更改文件的本地副本，例如： </p>
-<blockquote>
-<p><pre class="notranslate">location /images/ {<br>    root                 /data/www;<br>    error_page           404 = /fetch$uri;<br>}</pre></p>
-</blockquote>
+            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
+        Context:
+            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+        &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
+            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  定义捕获&lt;code class=&quot;notranslate&quot;&gt;$fastcgi_path_info&lt;/code&gt;变量值的正则表达式。  正则表达式应该有两个捕获：第一个变为&lt;code class=&quot;notranslate&quot;&gt;$fastcgi_script_name&lt;/code&gt;变量的值，第二个变为&lt;code class=&quot;notranslate&quot;&gt;$fastcgi_path_info&lt;/code&gt;变量的值。  例如，使用这些设置 &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;location ~ ^(.+\.php)(.*)$ {
+fastcgi_split_path_info       ^(.+\.php)(.*)$;
+fastcgi_param SCRIPT_FILENAME /path/to/php$fastcgi_script_name;
+fastcgi_param PATH_INFO       $fastcgi_path_info;
+</code></pre><p></p><p>  和“ <code class="notranslate">/show.php/article/0001</code> ”请求， <code class="notranslate">SCRIPT_FILENAME</code>参数将等于“ <code class="notranslate">/path/to/php/show.php</code>参数将等于“ <code class="notranslate">/article/0001</code> ”。 </p><a name="fastcgi_store"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>fastcgi_store</strong><br>    <code class="notranslate">on</code> |<br>    <code class="notranslate">off</code> |<br>    <code class="notranslate"><i>string</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">fastcgi_store off;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table></div><p>  允许将文件保存到磁盘。   <code class="notranslate">on</code>参数使用与指令<a hhref="ngx_http_core_module.html#alias">别名</a>或<a hhref="ngx_http_core_module.html#root">root</a>对应的路径保存文件。   <code class="notranslate">off</code>参数禁用文件保存。  此外，可以使用带变量的<code class="notranslate"><i>string</i></code>显式设置文件名： </p><blockquote class="example"><pre class="notranslate">fastcgi_store /data/www$original_uri;<br></pre></blockquote><p></p><p>  根据接收到的“Last-Modified”响应头字段设置文件的修改时间。  首先将响应写入临时文件，然后重命名该文件。  从版本0.8.9开始，临时文件和持久性存储可以放在不同的文件系统上。  但是，请注意，在这种情况下，文件将跨两个文件系统复制，而不是廉价的重命名操作。  因此，建议对于任何给定位置，由<a hhref="#fastcgi_temp_path">fastcgi_temp_path</a>指令设置的保存文件和保存临时文件的目录都放在同一文件系统上。 </p><p>  该指令可用于创建静态不可更改文件的本地副本，例如： </p><blockquote class="example"><pre class="notranslate">location /images/ {<br>    root                 /data/www;<br>    error_page           404 = /fetch$uri;<br>}<p></p>
 <p>location /fetch/ {<br>    internal;</p>
 <pre><code>fastcgi_pass         backend:9000;
 ...
@@ -827,57 +689,8 @@ fastcgi_store_access user:rw group:rw all:r;
 fastcgi_temp_path    /data/temp;
 
 alias                /data/www/;
-</code></pre><p>}<br></p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_store_access** &lt;code class=&quot;notranslate&quot;&gt;*users*</code> : <code>*permissions*</code> …; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_store_access user:rw;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  为新创建的文件和目录设置访问权限，例如： </p>
-<blockquote>
-<pre class="notranslate">fastcgi_store_access user:rw group:rw all:r;
-</pre>
-
-
-
-</blockquote>
-<p>  如果指定了任何<code>group</code>或<code>all</code>访问权限，则可以省略<code>user</code>权限： </p>
-<blockquote>
-<pre class="notranslate">fastcgi_store_access group:rw all:r;
-</pre>
-
-
-</blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_temp_file_write_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_temp_file_write_size 8k|16k;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  当启用从FastCGI服务器到临时文件的响应缓冲时，限制一次写入临时文件的数据<code>*size*</code> 。  默认情况下， <code>*size*</code>由<a href="#fastcgi_buffer_size">fastcgi_buffer_size</a>和<a href="#fastcgi_buffers">fastcgi_buffers</a>指令设置的两个缓冲区限制。  临时文件的最大大小由<a href="#fastcgi_max_temp_file_size">fastcgi_max_temp_file_size</a>指令设置。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_temp_path**     &lt;code class=&quot;notranslate&quot;&gt;*path*</code>    [ <code>*level1*</code>    [ <code>*level2*</code>    [ <code>*level3*</code> ]]]; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_temp_path fastcgi_temp;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  定义用于存储临时文件的目录，其中包含从FastCGI服务器接收的数据。  在指定目录下最多可以使用三级子目录层次结构。  例如，在以下配置中 </p>
-<blockquote>
-<pre class="notranslate">fastcgi_temp_path /spool/nginx/fastcgi_temp 1 2;
-</pre>
-
-</blockquote>
-<p>  临时文件可能如下所示： </p>
-<blockquote>
-<pre class="notranslate">/spool/nginx/fastcgi_temp/ **7** / **45** /00000123 **457**
-</pre>
-
-
-
-</blockquote>
-<p>  另请参见<a href="#fastcgi_cache_path">fastcgi_cache_path</a>指令的<code>use_temp_path</code>参数。 </p>
-<h4 id="传递给FastCGI服务器的参数"><a href="#传递给FastCGI服务器的参数" class="headerlink" title="传递给FastCGI服务器的参数"></a>传递给FastCGI服务器的参数</h4><p>   HTTP请求标头字段作为参数传递给FastCGI服务器。  在作为FastCGI服务器运行的应用程序和脚本中，这些参数通常可用作环境变量。  例如，“User-Agent”标头字段作为<code>HTTP_USER_AGENT</code>参数传递。  除HTTP请求头字段外，还可以使用<a href="#fastcgi_param">fastcgi_param</a>指令传递任意参数。 </p>
-<h4 id="嵌入式变量"><a href="#嵌入式变量" class="headerlink" title="嵌入式变量"></a>嵌入式变量</h4><p>   <code>ngx_http_fastcgi_module</code>模块支持可用于使用<a href="#fastcgi_param">fastcgi_param</a>指令设置参数的嵌入变量： </p>
-<blockquote>
-<pre class="notranslate">fastcgi_index index.php;
-fastcgi_param SCRIPT_FILENAME /home/www/scripts/php$fastcgi_script_name;
-</pre>
-
-</blockquote>
-<p>  使用<a href="#fastcgi_split_path_info">fastcgi_split_path_info</a>指令时， <code>$fastcgi_script_name</code>变量等于指令设置的第一个捕获的值。 </p>
-
+</code></pre><p>}<br></p></pre></blockquote><p></p><a name="fastcgi_store_access"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>fastcgi_store_access</strong> <code class="notranslate"><i>users</i></code> : <code class="notranslate"><i>permissions</i></code> …;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">fastcgi_store_access user:rw;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table></div><p>  为新创建的文件和目录设置访问权限，例如： </p><blockquote class="example"><pre class="notranslate">fastcgi_store_access user:rw group:rw all:r;<br></pre></blockquote><p></p><p>  如果指定了任何<code class="notranslate">group</code>或<code class="notranslate">all</code>访问权限，则可以省略<code class="notranslate">user</code>权限： </p><blockquote class="example"><pre class="notranslate">fastcgi_store_access group:rw all:r;<br></pre></blockquote><p></p><a name="fastcgi_temp_file_write_size"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>fastcgi_temp_file_write_size</strong> <code class="notranslate"><i>size</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">fastcgi_temp_file_write_size 8k|16k;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table></div><p>  当启用从FastCGI服务器到临时文件的响应缓冲时，限制一次写入临时文件的数据<code class="notranslate"><i>size</i></code> 。  默认情况下， <code class="notranslate"><i>size</i></code>由<a hhref="#fastcgi_buffer_size">fastcgi_buffer_size</a>和<a hhref="#fastcgi_buffers">fastcgi_buffers</a>指令设置的两个缓冲区限制。  临时文件的最大大小由<a hhref="#fastcgi_max_temp_file_size">fastcgi_max_temp_file_size</a>指令设置。 </p><a name="fastcgi_temp_path"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>fastcgi_temp_path</strong><br>    <code class="notranslate"><i>path</i></code><br>    [ <code class="notranslate"><i>level1</i></code><br>    [ <code class="notranslate"><i>level2</i></code><br>    [ <code class="notranslate"><i>level3</i></code> ]]];</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">fastcgi_temp_path fastcgi_temp;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table></div><p>  定义用于存储临时文件的目录，其中包含从FastCGI服务器接收的数据。  在指定目录下最多可以使用三级子目录层次结构。  例如，在以下配置中 </p><blockquote class="example"><pre class="notranslate">fastcgi_temp_path /spool/nginx/fastcgi_temp 1 2;<br></pre></blockquote><p>  临时文件可能如下所示： </p><blockquote class="example"><pre class="notranslate">/spool/nginx/fastcgi_temp/ <strong>7</strong> / <strong>45</strong> /00000123 <strong>457</strong><br></pre></blockquote><p></p><p>  另请参见<a hhref="#fastcgi_cache_path">fastcgi_cache_path</a>指令的<code class="notranslate">use_temp_path</code>参数。 </p><a name="parameters"></a><center><h4>  传递给FastCGI服务器的参数 </h4></center><p>   HTTP请求标头字段作为参数传递给FastCGI服务器。  在作为FastCGI服务器运行的应用程序和脚本中，这些参数通常可用作环境变量。  例如，“User-Agent”标头字段作为<code class="notranslate">HTTP_USER_AGENT</code>参数传递。  除HTTP请求头字段外，还可以使用<a hhref="#fastcgi_param">fastcgi_param</a>指令传递任意参数。 </p><a name="variables"></a><center><h4>  嵌入式变量 </h4></center><p>   <code class="notranslate">ngx_http_fastcgi_module</code>模块支持可用于使用<a hhref="#fastcgi_param">fastcgi_param</a>指令设置参数的嵌入变量： </p><dl class="compact"><dt id="var_fastcgi_script_name"> <code class="notranslate">$fastcgi_script_name</code> </dt> <dd>  请求URI，或者，如果URI以斜杠结尾，请求带有由附加的<a hhref="#fastcgi_index">fastcgi_index</a>指令配置的索引文件名的URI。  此变量可用于设置确定PHP中脚本名称的<code class="notranslate">SCRIPT_FILENAME</code>和<code class="notranslate">PATH_TRANSLATED</code>参数。  例如，对于具有以下指令的“ <code class="notranslate">/info/</code> ”请求 <blockquote class="example"><pre class="notranslate">fastcgi_index index.php;<br>fastcgi_param SCRIPT_FILENAME /home/www/scripts/php$fastcgi_script_name;<br></pre></blockquote>   <code class="notranslate">SCRIPT_FILENAME</code>参数将等于“ <code class="notranslate">/home/www/scripts/php/info/index.php</code> ”。 <p>  使用<a hhref="#fastcgi_split_path_info">fastcgi_split_path_info</a>指令时， <code class="notranslate">$fastcgi_script_name</code>变量等于指令设置的第一个捕获的值。 </p></dd><dt id="var_fastcgi_path_info"> <code class="notranslate">$fastcgi_path_info</code> </dt> <dd>   <a hhref="#fastcgi_split_path_info">fastcgi_split_path_info</a>指令设置的第二个捕获的值。  此变量可用于设置<code class="notranslate">PATH_INFO</code>参数。 </dd></dl><p></p><br><span></span><div style="display: none;"></div><p></p>
+</td></tr></tbody></table></div></td></tr></tbody></table></div></td></tr></tbody></table></div></td></tr></tbody></table></div></td></tr></tbody></table></div></td></tr></tbody></table></div></td></tr></tbody></table></div></td></tr></tbody></table></div></td></tr></tbody></table></div></td></tr></tbody></table></div></td></tr></tbody></table></div></td></tr></tbody></table></div>
       
     </div>
     
@@ -926,7 +739,7 @@ fastcgi_param SCRIPT_FILENAME /home/www/scripts/php$fastcgi_script_name;
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nginx.im/ngx/http/ngx_http_fastcgi_module.html" title="http/ngx_http_fastcgi_module-nginx中文手册">http://nginx.im/ngx/http/ngx_http_fastcgi_module.html</a>
+    <a href="http://nginx.im/ngx/http/ngx_http_fastcgi_module.html" title="">http://nginx.im/ngx/http/ngx_http_fastcgi_module.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -939,12 +752,6 @@ fastcgi_param SCRIPT_FILENAME /home/www/scripts/php$fastcgi_script_name;
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/nginx/" rel="tag"># nginx</a>
-          
-        </div>
-      
 
       
       
@@ -954,8 +761,8 @@ fastcgi_param SCRIPT_FILENAME /home/www/scripts/php$fastcgi_script_name;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ngx/http/ngx_http_f4f_module.html" rel="next" title="http/ngx_http_f4f_module-nginx中文手册">
-                <i class="fa fa-chevron-left"></i> http/ngx_http_f4f_module-nginx中文手册
+              <a href="/ngx/http/ngx_http_f4f_module.html" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -964,8 +771,8 @@ fastcgi_param SCRIPT_FILENAME /home/www/scripts/php$fastcgi_script_name;
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ngx/http/ngx_http_flv_module.html" rel="prev" title="http/ngx_http_flv_module-nginx中文手册">
-                http/ngx_http_flv_module-nginx中文手册 <i class="fa fa-chevron-right"></i>
+              <a href="/ngx/http/ngx_http_flv_module.html" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1063,7 +870,7 @@ fastcgi_param SCRIPT_FILENAME /home/www/scripts/php$fastcgi_script_name;
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1109,7 +916,7 @@ fastcgi_param SCRIPT_FILENAME /home/www/scripts/php$fastcgi_script_name;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-fastcgi-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_fastcgi_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#传递给FastCGI服务器的参数"><span class="nav-number">1.0.3.</span> <span class="nav-text">传递给FastCGI服务器的参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌入式变量"><span class="nav-number">1.0.4.</span> <span class="nav-text">嵌入式变量</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_fastcgi_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">  示例配置 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">  指令 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.3.</span> <span class="nav-text">  传递给FastCGI服务器的参数 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.4.</span> <span class="nav-text">  嵌入式变量 </span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
