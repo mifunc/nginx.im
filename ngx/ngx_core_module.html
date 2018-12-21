@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="nginx," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="None">
+<meta name="keywords" content="nginx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ngx_core_module-nginx中文手册">
+<meta property="og:url" content="http://nginx.im/ngx/ngx_core_module.html">
+<meta property="og:site_name" content="IM.NGINX">
+<meta property="og:description" content="None">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-21T07:39:13.118Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ngx_core_module-nginx中文手册">
+<meta name="twitter:description" content="None">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://nginx.im/ngx/ngx_core_module.html"/>
+
+
+
+
+
+  <title>ngx_core_module-nginx中文手册 | IM.NGINX</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8ff19561e3a0e2a31ba9fffe98d8fc00";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">IM.NGINX</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">运维实践</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-nginx中文手册">
+          <a href="/nginx/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            NGINX中文手册
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nginx.im/ngx/ngx_core_module.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="IM.NGINX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IM.NGINX">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">ngx_core_module-nginx中文手册</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:39:56+08:00">
+                2018年12月21日
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx中文手册</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>None<br><a id="more"></a></p>
+<h2 id="核心功能"><a href="#核心功能" class="headerlink" title="核心功能"></a>核心功能</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#accept_mutex">accept_mutex</a> <br>     <a href="#accept_mutex_delay">accept_mutex_delay</a> <br>     <a href="#daemon">daemon</a> <br>     <a href="#debug_connection">debug_connection</a> <br>     <a href="#debug_points">debug_points</a> <br>     <a href="#env">env</a> <br>     <a href="#error_log">error_log</a> <br>     <a href="#events">events</a> <br>     <a href="#include">include</a> <br>     <a href="#load_module">load_module</a> <br>     <a href="#lock_file">lock_file</a> <br>     <a href="#master_process">master_process</a> <br>     <a href="#multi_accept">multi_accept</a> <br>     <a href="#pcre_jit">pcre_jit</a> <br>     <a href="#pid">pid</a> <br>     <a href="#ssl_engine">ssl_engine</a> <br>     <a href="#thread_pool">thread_pool</a> <br>     <a href="#timer_resolution">timer_resolution</a> <br>     <a href="#use">use</a> <br>     <a href="#user">user</a> <br>     <a href="#worker_aio_requests">worker_aio_requests</a> <br>     <a href="#worker_connections">worker_connections</a> <br>     <a href="#worker_cpu_affinity">worker_cpu_affinity</a> <br>     <a href="#worker_priority">worker_priority</a> <br>     <a href="#worker_processes">worker_processes</a> <br>     <a href="#worker_rlimit_core">worker_rlimit_core</a> <br>     <a href="#worker_rlimit_nofile">worker_rlimit_nofile</a> <br>     <a href="#worker_shutdown_timeout">worker_shutdown_timeout</a> <br>     <a href="#working_directory">working_directory</a> <br></td>
+
+<h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><blockquote>
+<p><pre class="notranslate">user www www;<br>worker_processes 2;</pre></p>
+</blockquote>
+<p>error_log /var/log/nginx-error.log info;</p>
+<p>events {<br>    use kqueue;<br>    worker_connections 2048;<br>}</p>
+<p>…<br></p>
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**accept_mutex** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">accept_mutex off;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>events</code> <br>                </td></p>
+<p>  如果启用了<code>accept_mutex</code> ，则工作进程将依次接受新连接。  否则，将通知所有工作进程有关新连接的信息，如果新连接的数量很少，则某些工作进程可能只是浪费系统资源。 </p>
+<blockquote>
+<p>  无需在支持<a href="events.html#epoll">EPOLLEXCLUSIVE</a>标志（1.11.3）的系统上或使用<a href="http/ngx_http_core_module.html#reuseport">reuseport</a>时<a href="http/ngx_http_core_module.html#reuseport">启用accept_mutex</a> 。 </p>
+<p>  在1.11.3版之前，默认值为<code>on</code> 。 </p>
+</blockquote>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**accept_mutex_delay** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">accept_mutex_delay 500ms;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>events</code> <br>                </td></p>
+<p>  如果启用了<a href="#accept_mutex">accept_mutex</a> ，则指定当另一个工作进程当前正在接受新连接时，工作进程将尝试重新启动接受新连接的最长时间。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**daemon** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">daemon on;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
+<p>  确定nginx是否应该成为守护进程。  主要用于开发过程中。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**debug_connection**     &lt;code class=&quot;notranslate&quot;&gt;*address*</code> |    <code>*CIDR*</code> |    <code>unix:</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>events</code> <br>                </td></p>
+<p>  为选定的客户端连接启用调试日志。  其他连接将使用<a href="#error_log">error_log</a>指令设置的日志记录级别。  调试连接由IPv4或IPv6（1.3.0,1.2.1）地址或网络指定。  也可以使用主机名指定连接。  对于使用UNIX域套接字（1.3.0,1.2.1）的连接，调试日志由“ <code>unix:</code> ”参数启用。 </p>
+<blockquote>
+<pre class="notranslate">events {
+    debug_connection 127.0.0.1;
+    debug_connection localhost;
+    debug_connection 192.0.2.0/24;
+    debug_connection ::1;
+    debug_connection 2001:0db8::/32;
+    debug_connection unix:;
+    ...
+}
+</pre>
+
+
+
+<p>  要使此指令起作用，需要使用<code>--with-debug</code>构建nginx，请参阅“ <a href="debugging_log.html">调试日志</a> ”。 </p>
+</blockquote>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**debug_points** &lt;code class=&quot;notranslate&quot;&gt;abort</code> | <code>stop</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
+<p>  该指令用于调试。 </p>
+<p>  当检测到内部错误时，例如在重新启动工作进程时套接字泄漏，启用<code>debug_points</code>会导致核心文件创建（ <code>abort</code> ）或停止进程（ <code>stop</code> ）以使用系统调试器进行进一步分析。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**env** &lt;code class=&quot;notranslate&quot;&gt;*variable*</code> [= <code>*value*</code> ]; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">env TZ;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
+<p>  默认情况下，nginx会删除从其父进程继承的所有环境变量，但TZ变量除外。  该指令允许保留一些继承的变量，更改其值或创建新的环境变量。  那么这些变量是： </p>
+<ul>
+<li>在可执行文件的<a href="control.html#upgrade">实时升级</a>期间继承; -   由<a href="http/ngx_http_perl_module.html">ngx_http_perl_module</a>模块使用; -   由工作进程使用。  应该记住，以这种方式控制系统库并不总是可行的，因为库只在初始化期间检查变量是常见的，远在它们可以使用该指令设置之前。  一个例外是上面提到的可执行文件的<a href="control.html#upgrade">实时升级</a> 。 </li>
+</ul>
+<p>  除非明确配置，否则TZ变量始终继承并可供<a href="http/ngx_http_perl_module.html">ngx_http_perl_module</a>模块使用。 </p>
+<p>  用法示例： </p>
+<blockquote>
+<pre class="notranslate">env MALLOC_OPTIONS;
+env PERL5LIB=/data/site/modules;
+env OPENSSL_ALLOW_PROXY_CERTS=1;
+</pre>
+
+
+
+
+
+<p>   NGINX环境变量由nginx在内部使用，不应由用户直接设置。 </p>
+</blockquote>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**error_log** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> [ <code>*level*</code> ]; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">error_log logs/error.log error;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> , <code>http</code> , <code>mail</code> , <code>stream</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  配置日志记录。  可以在同一级别指定多个日志（1.5.2）。  如果在<code>main</code>配置级别上未明确定义将日志写入文件，则将使用默认文件。 </p>
+<p>  第一个参数定义将存储日志的<code>*file*</code> 。  特殊值<code>stderr</code>选择标准错误文件。  可以通过指定“ <code>syslog:</code> ”前缀来配置记录到<a href="syslog.html">syslog</a> 。  可以通过指定“ <code>memory:</code> ”前缀和缓冲区<code>*size*</code>来配置记录到<a href="debugging_log.html#memory">循环内存缓冲区</a> ，通常用于调试（1.7.11）。 </p>
+<p>  第二个参数确定日志记录<code>*level*</code> ，可以是以下之一： <code>debug</code> ， <code>info</code> ， <code>notice</code> ， <code>warn</code> ， <code>error</code> ， <code>crit</code> ， <code>alert</code>或<code>emerg</code> 。  上面的日志级别按严重性增加的顺序列出。  设置某个日志级别将导致记录指定和更严重日志级别的所有消息。  例如，默认级别<code>error</code>将导致记录<code>error</code> ， <code>crit</code> ， <code>alert</code>和<code>emerg</code>消息。  如果省略此参数，则使用<code>error</code> 。 </p>
+<blockquote>
+<p>  要使<code>debug</code>日志记录正常工作，需要使用<code>--with-debug</code>构建nginx，请参阅“ <a href="debugging_log.html">调试日志</a> ”。 </p>
+<p>  该指令可以在从1.7.11版本开始的<code>stream</code>级别上指定，也可以在从1.9.0版本开始的<code>mail</code>级别上指定。 </p>
+</blockquote>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**events** { ... }</code> <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
+<p>  提供配置文件上下文，其中指定了影响连接处理的指令。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**include** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> | <code>*mask*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>any</code> <br>                </td></p>
+<p>  包含另一个<code>*file*</code>或与指定<code>*mask*</code>匹配的文件到配置中。  包含的文件应包含语法正确的指令和块。 </p>
+<p>  用法示例： </p>
+<blockquote>
+<pre class="notranslate">include mime.types;
+include vhosts/*.conf;
+</pre>
+
+
+</blockquote>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**load_module** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
+<p>  该指令出现在1.9.11版中。 </p>
+<p>  加载动态模块。 </p>
+<p>  例： </p>
+<blockquote>
+<pre class="notranslate">load_module modules/ngx_mail_module.so;
+</pre>
+
+
+</blockquote>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**lock_file** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">lock_file logs/nginx.lock;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
+<p>   nginx使用锁定机制来实现<a href="#accept_mutex">accept_mutex</a>并序列化对共享内存的访问。  在大多数系统上，锁是使用原子操作实现的，并且忽略该指令。  在其他系统上，使用“锁定文件”机制。  该指令指定锁文件名称的前缀。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**master_process** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">master_process on;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
+<p>  确定是否已启动工作进程。  该指令适用于nginx开发人员。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**multi_accept** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">multi_accept off;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>events</code> <br>                </td></p>
+<p>  如果禁用<code>multi_accept</code>则工作进程将一次接受一个新连接。  否则，工作进程将一次接受所有新连接。 </p>
+<blockquote>
+<p>  如果使用<a href="events.html#kqueue">kqueue</a>连接处理方法，则忽略该指令，因为它报告了等待接受的新连接的数量。 </p>
+</blockquote>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**pcre_jit** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">pcre_jit off;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
+<p>  该指令出现在1.1.12版本中。 </p>
+<p>  启用或禁用对配置解析时已知的正则表达式使用“即时编译”（PCRE JIT）。 </p>
+<p>   PCRE JIT可以显着加快正则表达式的处理速度。 </p>
+<blockquote>
+<p>  从使用<code>--enable-jit</code>配置参数构建的8.20版开始，JIT在PCRE库中可用。  当使用nginx（– <code>--with-pcre=</code> ）构建PCRE库时，通过<code>--with-pcre-jit</code>配置参数启用JIT支持。 </p>
+</blockquote>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**pid** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">pid logs/nginx.pid;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
+<p>  定义将存储主进程的进程ID的<code>*file*</code> 。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_engine** &lt;code class=&quot;notranslate&quot;&gt;*device*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
+<p>  定义硬件SSL加速器的名称。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**thread_pool**     &lt;code class=&quot;notranslate&quot;&gt;*name*</code>    <code>threads</code> = <code>*number*</code>    [ <code>max_queue</code> = <code>*number*</code> ]; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">thread_pool default threads=32 max_queue=65536;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
+<p>  该指令出现在1.7.11版本中。 </p>
+<p>  定义用于多线程读取和发送文件<a href="http/ngx_http_core_module.html#aio">而不阻塞</a>工作进程的命名线程池。 </p>
+<p>   <code>threads</code>参数定义池中的线程数。 </p>
+<p>  如果池中的所有线程都忙，则新任务将在队列中等待。   <code>max_queue</code>参数限制允许在队列中等待的任务数。  默认情况下，队列中最多可以等待65536个任务。  当队列溢出时，任务完成并出现错误。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**timer_resolution** &lt;code class=&quot;notranslate&quot;&gt;*interval*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
+<p>  减少工作进程中的计时器分辨率，从而减少<code>gettimeofday()</code>系统调用的次数。  默认情况下，每次收到内核事件时都会调用<code>gettimeofday()</code> 。  在降低分辨率的情况下， <code>gettimeofday()</code>仅在每个指定的<code>*interval*</code>调用一次。 </p>
+<p>  例： </p>
+<blockquote>
+<pre class="notranslate">timer_resolution 100ms;
+</pre>
+
+
+
+</blockquote>
+<p>  间隔的内部实现取决于使用的方法： </p>
+<ul>
+<li>如果使用<code>kqueue</code> ， <code>EVFILT_TIMER</code>过滤器; -    <code>timer_create()</code>如果使用了<code>eventport</code> ; -    <code>setitimer()</code>否则。 </li>
+</ul>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**use** &lt;code class=&quot;notranslate&quot;&gt;*method*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>events</code> <br>                </td></p>
+<p>  指定要使用的<a href="events.html">连接处理</a> <code>*method*</code> 。  通常不需要明确指定它，因为nginx默认使用最有效的方法。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**user** &lt;code class=&quot;notranslate&quot;&gt;*user*</code> [ <code>*group*</code> ]; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">user nobody nobody;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
+<p>  定义工作进程使用的<code>*user*</code>和<code>*group*</code>凭据。  如果省略group，则使用名称等于<code>*user*</code>的组。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**worker_aio_requests** &lt;code class=&quot;notranslate&quot;&gt;*number*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">worker_aio_requests 32;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>events</code> <br>                </td></p>
+<p>  该指令出现在1.1.4和1.0.7版本中。 </p>
+<p>  将<a href="http/ngx_http_core_module.html#aio">aio</a>与<a href="events.html#epoll">epoll</a>连接处理方法一起使用时，设置单个工作进程的未完成异步I / O操作的最大<code>*number*</code> 。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**worker_connections** &lt;code class=&quot;notranslate&quot;&gt;*number*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">worker_connections 512;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>events</code> <br>                </td></p>
+<p>  设置工作进程可以打开的最大并发连接数。 </p>
+<p>  应该记住，这个数字包括所有连接（例如与代理服务器的连接等），而不仅仅是与客户端的连接。  另一个考虑因素是实际的并发连接数不能超过最大打开文件数的当前限制，可以通过<a href="#worker_rlimit_nofile">worker_rlimit_nofile</a>更改。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**worker_cpu_affinity** &lt;code class=&quot;notranslate&quot;&gt;*cpumask*</code> …; <br> <code>**worker_cpu_affinity** &lt;code class=&quot;notranslate&quot;&gt;auto</code> [ <code>*cpumask*</code> ]; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
+<p>  将工作进程绑定到CPU组。  每个CPU集由允许的CPU的位掩码表示。  应该为每个工作进程定义一个单独的集合。  默认情况下，工作进程不绑定到任何特定的CPU。 </p>
+<p>  例如， </p>
+<blockquote>
+<pre class="notranslate">worker_processes    4;
+worker_cpu_affinity 0001 0010 0100 1000;
+</pre>
+
+</blockquote>
+<p>  将每个工作进程绑定到一个单独的CPU，同时 </p>
+<blockquote>
+<pre class="notranslate">worker_processes    2;
+worker_cpu_affinity 0101 1010;
+</pre>
+
+</blockquote>
+<p>  将第一个工作进程绑定到CPU0 / CPU2，将第二个工作进程绑定到CPU1 / CPU3。  第二个例子适用于超线程。 </p>
+<p>  特殊值<code>auto</code> （1.9.10）允许将工作进程自动绑定到可用的CPU： </p>
+<blockquote>
+<pre class="notranslate">worker_processes auto;
+worker_cpu_affinity auto;
+</pre>
+
+</blockquote>
+<p>  可选的mask参数可用于限制可用于自动绑定的CPU： </p>
+<blockquote>
+<pre class="notranslate">worker_cpu_affinity auto 01010101;
+</pre>
+
+
+
+
+
+<p>  该指令仅适用于FreeBSD和Linux。 </p>
+</blockquote>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**worker_priority** &lt;code class=&quot;notranslate&quot;&gt;*number*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">worker_priority 0;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
+<p>  定义工作进程的调度优先级，就像使用<code>nice</code>命令一样：负数表示更高的优先级。  允许范围通常在-20到20之间变化。 </p>
+<p>  例： </p>
+<blockquote>
+<pre class="notranslate">worker_priority -10;
+</pre>
+
+
+</blockquote>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**worker_processes** &lt;code class=&quot;notranslate&quot;&gt;*number*</code> | <code>auto</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">worker_processes 1;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
+<p>  定义工作进程的数量。 </p>
+<p>  最佳值取决于许多因素，包括（但不限于）CPU核心数，存储数据的硬盘驱动器数和负载模式。  如果有疑问，将其设置为可用CPU核心数将是一个良好的开端（值“ <code>auto</code> ”将尝试自动检测它）。 </p>
+<blockquote>
+<p>  从版本1.3.8和1.2.5开始支持<code>auto</code>参数。 </p>
+</blockquote>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**worker_rlimit_core** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
+<p>  更改工作进程的核心文件（ <code>RLIMIT_CORE</code> ）的最大大小限制。  用于在不重新启动主进程的情况下增加限制。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**worker_rlimit_nofile** &lt;code class=&quot;notranslate&quot;&gt;*number*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
+<p>  更改工作进程的最大打开文件数（ <code>RLIMIT_NOFILE</code> ）限制。  用于在不重新启动主进程的情况下增加限制。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**worker_shutdown_timeout** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
+<p>  该指令出现在1.11.11版中。 </p>
+<p>  配置正常关闭工作进程的超时。  当<code>*time*</code>到期时，nginx将尝试关闭当前打开的所有连接以方便关闭。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**working_directory** &lt;code class=&quot;notranslate&quot;&gt;*directory*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
+<p>  定义工作进程的当前工作目录。  它主要在编写核心文件时使用，在这种情况下，工作进程应具有指定目录的写入权限。 </p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作(*锐)！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weixin.png" alt="IM.NGINX 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="IM.NGINX 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    IM.NGINX
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://nginx.im/ngx/ngx_core_module.html" title="ngx_core_module-nginx中文手册">http://nginx.im/ngx/ngx_core_module.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/nginx/" rel="tag"># nginx</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/ngx/nginx_dtrace_pid_provider.html" rel="next" title="nginx_dtrace_pid_provider-nginx中文手册">
+                <i class="fa fa-chevron-left"></i> nginx_dtrace_pid_provider-nginx中文手册
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/ngx/ngx_google_perftools_module.html" rel="prev" title="ngx_google_perftools_module-nginx中文手册">
+                ngx_google_perftools_module-nginx中文手册 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTg1NS84NDE5"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="IM.NGINX" />
+            
+              <p class="site-author-name" itemprop="name">IM.NGINX</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">153</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#核心功能"><span class="nav-number">1.</span> <span class="nav-text">核心功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">IM.NGINX</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+		
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

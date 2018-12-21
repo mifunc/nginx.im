@@ -1,0 +1,2169 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="nginx," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="None">
+<meta name="keywords" content="nginx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="http&#x2F;ngx_http_core_module-nginx中文手册">
+<meta property="og:url" content="http://nginx.im/ngx/http/ngx_http_core_module.html">
+<meta property="og:site_name" content="IM.NGINX">
+<meta property="og:description" content="None">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-21T07:39:13.460Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="http&#x2F;ngx_http_core_module-nginx中文手册">
+<meta name="twitter:description" content="None">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://nginx.im/ngx/http/ngx_http_core_module.html"/>
+
+
+
+
+
+  <title>http/ngx_http_core_module-nginx中文手册 | IM.NGINX</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8ff19561e3a0e2a31ba9fffe98d8fc00";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">IM.NGINX</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">运维实践</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-nginx中文手册">
+          <a href="/nginx/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            NGINX中文手册
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nginx.im/ngx/http/ngx_http_core_module.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="IM.NGINX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IM.NGINX">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">http/ngx_http_core_module-nginx中文手册</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:39:56+08:00">
+                2018年12月21日
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx中文手册</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>None<br><a id="more"></a></p>
+<h2 id="Module-ngx-http-core-module"><a href="#Module-ngx-http-core-module" class="headerlink" title="Module ngx_http_core_module"></a>Module ngx_http_core_module</h2><td align="left" class="notranslate"> <a href="#directives">Directives</a> <br>     <a href="#absolute_redirect">absolute_redirect</a> <br>     <a href="#aio">aio</a> <br>     <a href="#aio_write">aio_write</a> <br>     <a href="#alias">alias</a> <br>     <a href="#chunked_transfer_encoding">chunked_transfer_encoding</a> <br>     <a href="#client_body_buffer_size">client_body_buffer_size</a> <br>     <a href="#client_body_in_file_only">client_body_in_file_only</a> <br>     <a href="#client_body_in_single_buffer">client_body_in_single_buffer</a> <br>     <a href="#client_body_temp_path">client_body_temp_path</a> <br>     <a href="#client_body_timeout">client_body_timeout</a> <br>     <a href="#client_header_buffer_size">client_header_buffer_size</a> <br>     <a href="#client_header_timeout">client_header_timeout</a> <br>     <a href="#client_max_body_size">client_max_body_size</a> <br>     <a href="#connection_pool_size">connection_pool_size</a> <br>     <a href="#default_type">default_type</a> <br>     <a href="#directio">directio</a> <br>     <a href="#directio_alignment">directio_alignment</a> <br>     <a href="#disable_symlinks">disable_symlinks</a> <br>     <a href="#error_page">error_page</a> <br>     <a href="#etag">etag</a> <br>     <a href="#http">http</a> <br>     <a href="#if_modified_since">if_modified_since</a> <br>     <a href="#ignore_invalid_headers">ignore_invalid_headers</a> <br>     <a href="#internal">internal</a> <br>     <a href="#keepalive_disable">keepalive_disable</a> <br>     <a href="#keepalive_requests">keepalive_requests</a> <br>     <a href="#keepalive_timeout">keepalive_timeout</a> <br>     <a href="#large_client_header_buffers">large_client_header_buffers</a> <br>     <a href="#limit_except">limit_except</a> <br>     <a href="#limit_rate">limit_rate</a> <br>     <a href="#limit_rate_after">limit_rate_after</a> <br>     <a href="#lingering_close">lingering_close</a> <br>     <a href="#lingering_time">lingering_time</a> <br>     <a href="#lingering_timeout">lingering_timeout</a> <br>     <a href="#listen">listen</a> <br>     <a href="#location">location</a> <br>     <a href="#log_not_found">log_not_found</a> <br>     <a href="#log_subrequest">log_subrequest</a> <br>     <a href="#max_ranges">max_ranges</a> <br>     <a href="#merge_slashes">merge_slashes</a> <br>     <a href="#msie_padding">msie_padding</a> <br>     <a href="#msie_refresh">msie_refresh</a> <br>     <a href="#open_file_cache">open_file_cache</a> <br>     <a href="#open_file_cache_errors">open_file_cache_errors</a> <br>     <a href="#open_file_cache_min_uses">open_file_cache_min_uses</a> <br>     <a href="#open_file_cache_valid">open_file_cache_valid</a> <br>     <a href="#output_buffers">output_buffers</a> <br>     <a href="#port_in_redirect">port_in_redirect</a> <br>     <a href="#postpone_output">postpone_output</a> <br>     <a href="#read_ahead">read_ahead</a> <br>     <a href="#recursive_error_pages">recursive_error_pages</a> <br>     <a href="#request_pool_size">request_pool_size</a> <br>     <a href="#reset_timedout_connection">reset_timedout_connection</a> <br>     <a href="#resolver">resolver</a> <br>     <a href="#resolver_timeout">resolver_timeout</a> <br>     <a href="#root">root</a> <br>     <a href="#satisfy">satisfy</a> <br>     <a href="#send_lowat">send_lowat</a> <br>     <a href="#send_timeout">send_timeout</a> <br>     <a href="#sendfile">sendfile</a> <br>     <a href="#sendfile_max_chunk">sendfile_max_chunk</a> <br>     <a href="#server">server</a> <br>     <a href="#server_name">server_name</a> <br>     <a href="#server_name_in_redirect">server_name_in_redirect</a> <br>     <a href="#server_names_hash_bucket_size">server_names_hash_bucket_size</a> <br>     <a href="#server_names_hash_max_size">server_names_hash_max_size</a> <br>     <a href="#server_tokens">server_tokens</a> <br>     <a href="#subrequest_output_buffer_size">subrequest_output_buffer_size</a> <br>     <a href="#tcp_nodelay">tcp_nodelay</a> <br>     <a href="#tcp_nopush">tcp_nopush</a> <br>     <a href="#try_files">try_files</a> <br>     <a href="#types">types</a> <br>     <a href="#types_hash_bucket_size">types_hash_bucket_size</a> <br>     <a href="#types_hash_max_size">types_hash_max_size</a> <br>     <a href="#underscores_in_headers">underscores_in_headers</a> <br>     <a href="#variables_hash_bucket_size">variables_hash_bucket_size</a> <br>     <a href="#variables_hash_max_size">variables_hash_max_size</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
+
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**absolute_redirect** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">absolute_redirect on;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  该指令出现在1.11.8版中。 </p>
+<p>  如果禁用，nginx发出的重定向将是相对的。 </p>
+<p>  另请参见<a href="#server_name_in_redirect">server_name_in_redirect</a>和<a href="#port_in_redirect">port_in_redirect</a>指令。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**aio** 
+    &lt;code class=&quot;notranslate&quot;&gt;on</code> |<br>    <code>off</code> |<br>    <code>threads</code> [ <code>=</code> <code>*pool*</code> ]; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">aio off;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  该指令出现在0.8.11版本中。 </p>
+<p>  启用或禁用在FreeBSD和Linux上使用异步文件I / O（AIO）： </p>
+<blockquote>
+<pre class="notranslate">location /video/ {
+    aio            on;
+    output_buffers 1 64k;
+}
+</pre>
+
+
+
+</blockquote>
+<p>  在FreeBSD上，可以从FreeBSD 4.3开始使用AIO。  在FreeBSD 11.0之前，AIO可以静态链接到内核： </p>
+<blockquote>
+<pre class="notranslate">options VFS_AIO
+</pre>
+
+</blockquote>
+<p>  或作为内核可加载模块动态加载： </p>
+<blockquote>
+<pre class="notranslate">kldload aio
+</pre>
+
+
+
+</blockquote>
+<p>  在Linux上，可以从内核版本2.6.22开始使用AIO。  此外，有必要启用<a href="#directio">directio</a> ，否则读取将被阻止： </p>
+<blockquote>
+<pre class="notranslate">location /video/ {
+    aio            on;
+    directio       512;
+    output_buffers 1 128k;
+}
+</pre>
+
+
+
+</blockquote>
+<p>  在Linux上， <a href="#directio">directio</a>只能用于读取在512字节边界（或XFS为4K）上对齐的块。  在阻塞模式下读取文件的未对齐结束。  对于字节范围请求和不是从文件开头的FLV请求也是如此：在文件开头和结尾读取未对齐数据将被阻塞。 </p>
+<p>  当在Linux上启用AIO和<a href="#sendfile">sendfile时</a> ，AIO用于大于或等于<a href="#directio">directio</a>指令中指定大小的文件，而<a href="#sendfile">sendfile</a>用于较小大小的文件或禁用<a href="#directio">directio</a>时。 </p>
+<blockquote>
+<pre class="notranslate">location /video/ {
+    sendfile       on;
+    aio            on;
+    directio       8m;
+}
+</pre>
+
+
+
+</blockquote>
+<p>  最后，可以使用多线程（1.7.11）读取和<a href="#sendfile">发送</a>文件，而不会阻止工作进程： </p>
+<blockquote>
+<pre class="notranslate">location /video/ {
+    sendfile       on;
+    aio            threads;
+}
+</pre>
+
+</blockquote>
+<p>  读取和发送文件操作被卸载到指定<a href="ngx_core_module.html#thread_pool">池的</a>线程。  如果省略池名称，则使用名称为“ <code>default</code> ”的池。  池名称也可以使用变量设置： </p>
+<blockquote>
+<pre class="notranslate">aio threads=pool$disk;
+</pre>
+
+</blockquote>
+<p>  默认情况下，禁用多线程，应使用<code>--with-threads</code>配置参数启用它。  目前，多线程仅与<a href="events.html#epoll">epoll</a> ， <a href="events.html#kqueue">kqueue</a>和<a href="events.html#eventport">eventport</a>方法兼容。  只在Linux上支持多线程文件发送。 </p>
+<p>  另请参见<a href="#sendfile">sendfile</a>指令。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**aio_write** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">aio_write off;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  该指令出现在1.9.13版本中。 </p>
+<p>  如果启用了<a href="#aio">aio</a> ，则指定是否用于写入文件。  目前，这仅在使用<code>aio threads</code> ，并且仅限于使用从代理服务器接收的数据编写临时文件。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**alias** &lt;code class=&quot;notranslate&quot;&gt;*path*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"></td></p>
+<pre><code>—
+
+    &lt;/td&gt;
+</code></pre><p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>location</code> <br><br>                </td></p>
+<p>  定义指定位置的替换。  例如，使用以下配置 </p>
+<blockquote>
+<pre class="notranslate">location /i/ {
+    alias /data/w3/images/;
+}
+</pre>
+
+</blockquote>
+<p>  根据“ <code>/i/top.gif</code> ”的请求，将发送文件<code>/data/w3/images/top.gif</code> 。 </p>
+<p>   <code>*path*</code>值可以包含变量， <code>$document_root</code>和<code>$realpath_root</code>除外。 </p>
+<p>  如果在使用正则表达式定义的位置内使用<code>alias</code>则此类正则表达式应包含捕获，而<code>alias</code>应引用这些捕获（0.7.40），例如： </p>
+<blockquote>
+<pre class="notranslate">location ~ ^/users/(.+\.(?:gif|jpe?g|png))$ {
+    alias /data/w3/images/$1;
+}
+</pre>
+
+
+
+</blockquote>
+<p>  当location匹配指令值的最后一部分时： </p>
+<blockquote>
+<pre class="notranslate">location /images/ {
+    alias /data/w3/images/;
+}
+</pre>
+
+</blockquote>
+<p>  最好使用<a href="#root">root</a>指令： </p>
+<blockquote>
+<pre class="notranslate">location /images/ {
+    root /data/w3;
+}
+</pre>
+
+
+</blockquote>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**chunked_transfer_encoding** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">chunked_transfer_encoding on;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  允许在HTTP / 1.1中禁用分块传输编码。  尽管符合标准要求，但在使用软件无法支持分块编码时，它可能会派上用场。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**client_body_buffer_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">client_body_buffer_size 8k|16k;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  设置读取客户端请求正文的缓冲区大小。  如果请求主体大于缓冲区，则整个主体或仅其部分被写入<a href="#client_body_temp_path">临时文件</a> 。  默认情况下，缓冲区大小等于两个内存页。  这是x86上的8K，其他32位平台和x86-64。  在其他64位平台上通常为16K。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**client_body_in_file_only** 
+    &lt;code class=&quot;notranslate&quot;&gt;on</code> |<br>    <code>clean</code> |<br>    <code>off</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">client_body_in_file_only off;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  确定nginx是否应将整个客户端请求主体保存到文件中。  该指令可以在调试期间使用，或者在使用<code>$request_body_file</code>变量或模块<a href="ngx_http_perl_module.html">ngx_http_perl_module</a>的<a href="ngx_http_perl_module.html#methods">$ r-&gt; request_body_file</a>方法时使用。 </p>
+<p>  设置为打开值<code>on</code> ，请求处理后不会删除临时文件。 </p>
+<p>  值<code>clean</code>将导致删除请求处理后留下的临时文件。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**client_body_in_single_buffer** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">client_body_in_single_buffer off;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  确定nginx是否应将整个客户端请求主体保存在单个缓冲区中。  使用<code>$request_body</code>变量时，建议使用该指令，以保存所涉及的复制操作数。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**client_body_temp_path** 
+    &lt;code class=&quot;notranslate&quot;&gt;*path*</code><br>    [ <code>*level1*</code><br>    [ <code>*level2*</code><br>    [ <code>*level3*</code> ]]]; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">client_body_temp_path client_body_temp;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  定义用于存储包含客户端请求主体的临时文件的目录。  在指定目录下最多可以使用三级子目录层次结构。  例如，在以下配置中 </p>
+<blockquote>
+<pre class="notranslate">client_body_temp_path /spool/nginx/client_temp 1 2;
+</pre>
+
+</blockquote>
+<p>  临时文件的路径可能如下所示： </p>
+<blockquote>
+<pre class="notranslate">/spool/nginx/client_temp/7/45/00000123457
+</pre>
+
+
+</blockquote>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**client_body_timeout** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">client_body_timeout 60s;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  定义读取客户端请求正文的超时。  超时仅设置为两个连续读取操作之间的时间段，而不是整个请求主体的传输。  如果客户端在此时间内未传输任何内容，请求将以408（请求超时）错误终止。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**client_header_buffer_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">client_header_buffer_size 1k;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> <br><br>                </td></p>
+<p>  设置缓冲区大小以读取客户端请求标头。  对于大多数请求，1K字节的缓冲区就足够了。  但是，如果请求包含长cookie或来自WAP客户端，则可能不适合1K。  如果请求行或请求头字段不适合此缓冲区，则分配由<a href="#large_client_header_buffers">large_client_header_buffers</a>指令配置的较大缓冲区。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**client_header_timeout** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">client_header_timeout 60s;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> <br><br>                </td></p>
+<p>  定义读取客户端请求标头的超时。  如果客户端在此时间内未传输整个标头，请求将以408（请求超时）错误终止。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**client_max_body_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">client_max_body_size 1m;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  设置客户端请求正文的最大允许大小，在“Content-Length”请求标头字段中指定。  如果请求中的大小超过配置的值，则会将413（请求实体太大）错误返回给客户端。  请注意，浏览器无法正确显示此错误。  将<code>*size*</code>设置为0将禁用检查客户端请求正文大小。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**connection_pool_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">connection_pool_size 256|512;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> <br><br>                </td></p>
+<p>  允许精确调整每个连接的内存分配。  该指令对性能的影响最小，通常不应使用。  默认情况下，大小在32位平台上等于256字节，在64位平台上等于512字节。 </p>
+<blockquote>
+<p>  在1.9.8版之前，所有平台上的默认值均为256。 </p>
+</blockquote>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**default_type** &lt;code class=&quot;notranslate&quot;&gt;*mime-type*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">default_type text/plain;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  定义响应的默认MIME类型。  可以使用<a href="#types">types</a>指令设置文件扩展名到MIME类型的映射。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**directio** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> | <code>off</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">directio off;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  该指令出现在0.7.7版本中。 </p>
+<p>  在读取大于或等于指定<code>*size*</code>文件时，允许使用<code>O_DIRECT</code>标志（FreeBSD，Linux）， <code>F_NOCACHE</code>标志（macOS）或<code>directio()</code>函数（Solaris）。  该指令自动禁用（0.7.15）对给定请求使用<a href="#sendfile">sendfile</a> 。  它对于提供大型文件非常有用： </p>
+<blockquote>
+<pre class="notranslate">directio 4m;
+</pre>
+
+</blockquote>
+<p>  或者在Linux上使用<a href="#aio">aio</a>时。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**directio_alignment** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">directio_alignment 512;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  该指令出现在0.8.11版本中。 </p>
+<p>  设置<a href="#directio">directio</a>的对齐方式。  在大多数情况下，512字节对齐就足够了。  但是，在Linux下使用XFS时，需要将其增加到4K。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**disable_symlinks** &lt;code class=&quot;notranslate&quot;&gt;off</code> ; <br> <code>**disable_symlinks** 
+    &lt;code class=&quot;notranslate&quot;&gt;on</code> |<br>    <code>if_not_owner</code><br>    [ <code>from</code> = <code>*part*</code> ]; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">disable_symlinks off;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  该指令出现在1.1.15版中。 </p>
+<p>  确定打开文件时应如何处理符号链接： </p>
+<p>  例： </p>
+<blockquote>
+<pre class="notranslate">disable_symlinks on from=$document_root;
+</pre>
+
+
+
+</blockquote>
+<p>  该指令仅适用于具有<code>openat()</code>和<code>fstatat()</code>接口的系统。  这些系统包括FreeBSD，Linux和Solaris的现代版本。 </p>
+<p>  参数<code>on</code>和<code>if_not_owner</code>添加了处理开销。 </p>
+<blockquote>
+<p>  在不支持仅为搜索打开目录的系统上，要使用这些参数，需要工作进程对所有正在检查的目录具有读取权限。 </p>
+<p>   <a href="ngx_http_autoindex_module.html">ngx_http_autoindex_module</a> ， <a href="ngx_http_random_index_module.html">ngx_http_random_index_module</a>和<a href="ngx_http_dav_module.html">ngx_http_dav_module</a>模块当前忽略此指令。 </p>
+</blockquote>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**error_page** 
+    &lt;code class=&quot;notranslate&quot;&gt;*code*</code> …<br>    [ <code>=</code> [ <code>*response*</code> ]]<br>    <code>*uri*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"></td></p>
+<pre><code>—
+
+    &lt;/td&gt;
+</code></pre><p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> , <code>if in location</code> <br><br>                </td></p>
+<p>  定义将为指定错误显示的URI。   <code>*uri*</code>值可以包含变量。 </p>
+<p>  例： </p>
+<blockquote>
+<pre class="notranslate">error_page 404             /404.html;
+error_page 500 502 503 504 /50x.html;
+</pre>
+
+
+
+</blockquote>
+<p>  这导致内部重定向到指定的<code>*uri*</code> ，客户端请求方法更改为“ <code>GET</code> ”（对于“ <code>GET</code> ”和“ <code>HEAD</code> ”以外的所有方法）。 </p>
+<p>  此外，可以使用“ <code>=</code> <code>*response*</code> ”语法将响应代码更改为另一个，例如： </p>
+<blockquote>
+<pre class="notranslate">error_page 404 =200 /empty.gif;
+</pre>
+
+
+
+</blockquote>
+<p>  如果代理服务器或FastCGI / uwsgi / SCGI / gRPC服务器处理错误响应，并且服务器可能返回不同的响应代码（例如，200,302,401或404），则可以使用代码进行响应收益： </p>
+<blockquote>
+<pre class="notranslate">error_page 404 = /404.php;
+</pre>
+
+
+
+</blockquote>
+<p>  如果在内部重定向期间无需更改URI和方法，则可以将错误处理传递到命名位置： </p>
+<blockquote>
+<p><pre class="notranslate">location / {<br>    error_page 404 = @fallback;<br>}</pre></p>
+</blockquote>
+<p>location @fallback {<br>    proxy_pass <a href="http://backend" target="_blank" rel="noopener">http://backend</a>;<br>}<br></p>
+<blockquote>
+<p>  如果<code>*uri*</code>处理导致错误，则将上次发生的错误的状态代码返回给客户端。 </p>
+</blockquote>
+<p>  也可以使用URL重定向进行错误处理： </p>
+<blockquote>
+<pre class="notranslate">error_page 403      http://example.com/forbidden.html;
+error_page 404 =301 http://example.com/notfound.html;
+</pre>
+
+</blockquote>
+<p>  在这种情况下，默认情况下，响应代码302返回给客户端。  它只能更改为重定向状态代码之一（301,302,303,307和308）。 </p>
+<blockquote>
+<p>  在版本1.1.16和1.0.13之前，代码307不被视为重定向。 </p>
+<p>  在版本1.13.0之前，代码308不被视为重定向。 </p>
+</blockquote>
+<p>  当且仅当在当前级别上没有定义<code>error_page</code>指令时，这些指令才从前一级继承。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**etag** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">etag on;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  该指令出现在1.3.3版本中。 </p>
+<p>  启用或禁用自动生成静态资源的“ETag”响应头字段。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**http** { ... }</code> <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"></td></p>
+<pre><code>—
+
+    &lt;/td&gt;
+</code></pre><p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>main</code> <br><br>                </td></p>
+<p>  提供指定HTTP服务器指令的配置文件上下文。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**if_modified_since** 
+    &lt;code class=&quot;notranslate&quot;&gt;off</code> |<br>    <code>exact</code> |<br>    <code>before</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">if_modified_since exact;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  该指令出现在0.7.24版本中。 </p>
+<p>  指定如何将响应的修改时间与“If-Modified-Since”请求标头字段中的时间进行比较： </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**ignore_invalid_headers** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">ignore_invalid_headers on;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> <br><br>                </td></p>
+<p>  控制是否应忽略具有无效名称的标头字段。  有效名称由英文字母，数字，连字符和可能的下划线组成（由<a href="#underscores_in_headers">underscores_in_headers</a>指令控制）。 </p>
+<p>  如果在<a href="#server">服务器</a>级别指定了该指令，则仅在服务器是默认服务器时使用其值。  指定的值也适用于侦听同一地址和端口的所有虚拟服务器。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**internal** ;</code> <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"></td></p>
+<pre><code>—
+
+    &lt;/td&gt;
+</code></pre><p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>location</code> <br><br>                </td></p>
+<p>  指定给定位置只能用于内部请求。  对于外部请求，返回客户端错误404（未找到）。  内部请求如下： </p>
+<ul>
+<li>由<a href="#error_page">error_page</a> ， <a href="ngx_http_index_module.html#index">index</a> ， <a href="ngx_http_random_index_module.html#random_index">random_index</a>和<a href="#try_files">try_files</a>指令重定向的请求; -   来自上游服务器的“X-Accel-Redirect”响应头字段重定向的请求; -   由<a href="ngx_http_ssi_module.html">ngx_http_ssi_module</a>模块的“ <code>include virtual</code> ”命令， <a href="ngx_http_addition_module.html">ngx_http_addition_module</a>模块指令以及<a href="ngx_http_auth_request_module.html#auth_request">auth_request</a>和<a href="ngx_http_mirror_module.html#mirror">mirror</a>指令形成的子请求; -   请求由<a href="ngx_http_rewrite_module.html#rewrite">重写</a>指令更改。 </li>
+</ul>
+<p>  例： </p>
+<blockquote>
+<p><pre class="notranslate">error_page 404 /404.html;</pre></p>
+</blockquote>
+<p>location = /404.html {<br>    internal;<br>}<br></p>
+<blockquote>
+<p>  每个请求最多有10个内部重定向，以防止在错误配置中发生的请求处理周期。  如果达到此限制，则返回错误500（内部服务器错误）。  在这种情况下，可以在错误日志中看到“重写或内部重定向周期”消息。 </p>
+</blockquote>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**keepalive_disable** &lt;code class=&quot;notranslate&quot;&gt;none</code> | <code>*browser*</code> …; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">keepalive_disable msie6;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  禁用与行为不当的浏览器保持连接状态。   <code>*browser*</code>参数指定将受影响的浏览器。  一旦收到POST请求，值<code>msie6</code>将禁用与旧版本MSIE的保持活动连接。  值<code>safari</code>禁用与macOS和类似macOS的操作系统上的Safari和类似Safari的浏览器的保持活动连接。  值<code>none</code>与所有浏览器保持连接。 </p>
+<blockquote>
+<p>  在版本1.1.18之前，值<code>safari</code>与所有操作系统上的所有Safari和类似Safari的浏览器相匹配，默认情况下禁用与它们保持连接的连接。 </p>
+</blockquote>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**keepalive_requests** &lt;code class=&quot;notranslate&quot;&gt;*number*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">keepalive_requests 100;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  该指令出现在0.8.0版本中。 </p>
+<p>  设置可通过一个保持活动连接提供的最大请求数。  在发出最大请求数后，将关闭连接。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**keepalive_timeout** 
+    &lt;code class=&quot;notranslate&quot;&gt;*timeout*</code><br>    [ <code>*header_timeout*</code> ]; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">keepalive_timeout 75s;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  第一个参数设置一个超时，在此期间保持活动的客户端连接将在服务器端保持打开状态。  零值禁用保持活动的客户端连接。  可选的第二个参数在“Keep-Alive：timeout = <code>*time*</code> ”响应头字段中设置一个值。  两个参数可能不同。 </p>
+<p>   Mozilla和Konqueror识别“Keep-Alive：timeout = <code>*time*</code> ”标题字段。   MSIE在大约60秒内自行关闭保持连接。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**large_client_header_buffers** &lt;code class=&quot;notranslate&quot;&gt;*number*</code> <code>*size*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">large_client_header_buffers 4 8k;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> <br><br>                </td></p>
+<p>  设置用于读取大客户机请求标头的缓冲区的最大<code>*number*</code>和<code>*size*</code> 。  请求行不能超过一个缓冲区的大小，否则会将414（Request-URI Too Large）错误返回给客户端。  请求头字段也不能超过一个缓冲区的大小，或者400（错误请求）错误返回给客户端。  缓冲区仅按需分配。  默认情况下，缓冲区大小等于8K字节。  如果在请求处理结束后连接转换为保持活动状态，则释放这些缓冲区。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**limit_except** &lt;code class=&quot;notranslate&quot;&gt;*method*</code> … { … } <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"></td></p>
+<pre><code>—
+
+    &lt;/td&gt;
+</code></pre><p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>location</code> <br><br>                </td></p>
+<p>  限制允许位置内的HTTP方法。   <code>*method*</code>参数可以是以下之一： <code>GET</code> ， <code>HEAD</code> ， <code>POST</code> ， <code>PUT</code> ， <code>DELETE</code> ， <code>MKCOL</code> ， <code>COPY</code> ， <code>MOVE</code> ， <code>OPTIONS</code> ， <code>PROPFIND</code> ， <code>PROPPATCH</code> ， <code>LOCK</code> ， <code>UNLOCK</code>或<code>PATCH</code> 。  允许<code>GET</code>方法也允许使用<code>HEAD</code>方法。  使用<a href="ngx_http_access_module.html">ngx_http_access_module</a> ， <a href="ngx_http_auth_basic_module.html">ngx_http_auth_basic_module</a>和<a href="ngx_http_auth_jwt_module.html">ngx_http_auth_jwt_module</a> （1.13.10）模块指令可以限制对其他方法的访问： </p>
+<blockquote>
+<pre class="notranslate">limit_except GET {
+    allow 192.168.1.0/32;
+    deny  all;
+}
+</pre>
+
+</blockquote>
+<p>  请注意，这将限制对<strong>除</strong> GET和HEAD <strong>之外的</strong>所有方法的访问。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**limit_rate** &lt;code class=&quot;notranslate&quot;&gt;*rate*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">limit_rate 0;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> , <code>if in location</code> <br><br>                </td></p>
+<p>  限制向客户端传输的响应速率。   <code>*rate*</code>以每秒字节数指定。  零值禁用速率限制。  根据请求设置限制，因此如果客户端同时打开两个连接，则总速率将是指定限制的两倍。 </p>
+<p>  也可以在<code>$limit_rate</code>变量中设置速率限制。  在根据特定条件限制费率的情况下，它可能很有用： </p>
+<blockquote>
+<p><pre class="notranslate">server {</pre></p>
+</blockquote>
+<pre><code>if ($slow) {
+    set $limit_rate 4k;
+}
+
+...
+</code></pre><p>}<br></p>
+<p>  还可以在代理服务器响应的“X-Accel-Limit-Rate”头字段中设置速率限制。  可以使用<a href="ngx_http_proxy_module.html#proxy_ignore_headers">proxy_ignore_headers</a> ， <a href="ngx_http_fastcgi_module.html#fastcgi_ignore_headers">fastcgi_ignore_headers</a> ， <a href="ngx_http_uwsgi_module.html#uwsgi_ignore_headers">uwsgi_ignore_headers</a>和<a href="ngx_http_scgi_module.html#scgi_ignore_headers">scgi_ignore_headers</a>指令禁用此功能。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**limit_rate_after** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">limit_rate_after 0;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> , <code>if in location</code> <br><br>                </td></p>
+<p>  该指令出现在0.8.0版本中。 </p>
+<p>  设置初始量，在此之后，对客户端的响应的进一步传输将受到速率限制。 </p>
+<p>  例： </p>
+<blockquote>
+<pre class="notranslate">location /flv/ {
+    flv;
+    limit_rate_after 500k;
+    limit_rate       50k;
+}
+</pre>
+
+
+</blockquote>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**lingering_close** 
+    &lt;code class=&quot;notranslate&quot;&gt;off</code> |<br>    <code>on</code> |<br>    <code>always</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">lingering_close on;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  该指令出现在1.1.0和1.0.6版本中。 </p>
+<p>  控制nginx如何关闭客户端连接。 </p>
+<p>  默认值“ <code>on</code> ”指示nginx在完全关闭连接之前<a href="#lingering_timeout">等待</a>并<a href="#lingering_time">处理</a>来自客户端的其他数据，但仅当启发式表明客户端可能正在发送更多数据时。 </p>
+<p>  值“ <code>always</code> ”将导致nginx无条件地等待并处理其他客户端数据。 </p>
+<p>  值“ <code>off</code> ”告诉nginx永远不要等待更多数据并立即关闭连接。  此行为会破坏协议，不应在正常情况下使用。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**lingering_time** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">lingering_time 30s;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  当<a href="#lingering_close">lingering_close</a>生效时，此指令指定nginx处理（读取和忽略）来自客户端的其他数据的最长时间。  之后，即使有更多数据，连接也将关闭。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**lingering_timeout** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">lingering_timeout 5s;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  当<a href="#lingering_close">lingering_close</a>生效时，此指令指定更多客户端数据到达的最长等待时间。  如果在此期间未收到数据，则关闭连接。  否则，将读取并忽略数据，并且nginx会再次开始等待更多数据。  重复“wait-read-ignore”循环，但不会超过<a href="#lingering_time">lingering_time</a>指令指定的循环。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**listen** 
+    &lt;code class=&quot;notranslate&quot;&gt;*address*</code> [: <code>*port*</code> ]<br>    [ <code>default_server</code> ]<br>    [ <code>ssl</code> ]<br>    [ <code>http2</code> | <code>spdy</code> ]<br>    [ <code>proxy_protocol</code> ]<br>    [ <code>setfib</code> = <code>*number*</code> ]<br>    [ <code>fastopen</code> = <code>*number*</code> ]<br>    [ <code>backlog</code> = <code>*number*</code> ]<br>    [ <code>rcvbuf</code> = <code>*size*</code> ]<br>    [ <code>sndbuf</code> = <code>*size*</code> ]<br>    [ <code>accept_filter</code> = <code>*filter*</code> ]<br>    [ <code>deferred</code> ]<br>    [ <code>bind</code> ]<br>    [ <code>ipv6only</code> = <code>on</code> | <code>off</code> ]<br>    [ <code>reuseport</code> ]<br>    [ <code>so_keepalive</code> = <code>on</code> | <code>off</code> |[ <code>*keepidle*</code> ]:[ <code>*keepintvl*</code> ]:[ <code>*keepcnt*</code> ]]; <br> <code>**listen** 
+    &lt;code class=&quot;notranslate&quot;&gt;*port*</code><br>    [ <code>default_server</code> ]<br>    [ <code>ssl</code> ]<br>    [ <code>http2</code> | <code>spdy</code> ]<br>    [ <code>proxy_protocol</code> ]<br>    [ <code>setfib</code> = <code>*number*</code> ]<br>    [ <code>fastopen</code> = <code>*number*</code> ]<br>    [ <code>backlog</code> = <code>*number*</code> ]<br>    [ <code>rcvbuf</code> = <code>*size*</code> ]<br>    [ <code>sndbuf</code> = <code>*size*</code> ]<br>    [ <code>accept_filter</code> = <code>*filter*</code> ]<br>    [ <code>deferred</code> ]<br>    [ <code>bind</code> ]<br>    [ <code>ipv6only</code> = <code>on</code> | <code>off</code> ]<br>    [ <code>reuseport</code> ]<br>    [ <code>so_keepalive</code> = <code>on</code> | <code>off</code> |[ <code>*keepidle*</code> ]:[ <code>*keepintvl*</code> ]:[ <code>*keepcnt*</code> ]]; <br> <code>**listen** 
+    &lt;code class=&quot;notranslate&quot;&gt;unix:</code> <code>*path*</code><br>    [ <code>default_server</code> ]<br>    [ <code>ssl</code> ]<br>    [ <code>http2</code> | <code>spdy</code> ]<br>    [ <code>proxy_protocol</code> ]<br>    [ <code>backlog</code> = <code>*number*</code> ]<br>    [ <code>rcvbuf</code> = <code>*size*</code> ]<br>    [ <code>sndbuf</code> = <code>*size*</code> ]<br>    [ <code>accept_filter</code> = <code>*filter*</code> ]<br>    [ <code>deferred</code> ]<br>    [ <code>bind</code> ]<br>    [ <code>so_keepalive</code> = <code>on</code> | <code>off</code> |[ <code>*keepidle*</code> ]:[ <code>*keepintvl*</code> ]:[ <code>*keepcnt*</code> ]]; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">listen <em>:80 | </em>:8000;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>server</code> <br><br>                </td></p>
+<p>  设置IP的<code>*address*</code>和<code>*port*</code> ，或服务器将接受请求的UNIX域套接字的<code>*path*</code> 。  可以指定<code>*address*</code>和<code>*port*</code> ，或仅指定<code>*address*</code>或仅<code>*port*</code> 。   <code>*address*</code>也可以是主机名，例如： </p>
+<blockquote>
+<pre class="notranslate">listen 127.0.0.1:8000;
+listen 127.0.0.1;
+listen 8000;
+listen *:8000;
+listen localhost:8000;
+</pre>
+
+</blockquote>
+<p>   IPv6地址（0.7.36）在方括号中指定： </p>
+<blockquote>
+<pre class="notranslate">listen [::]:8000;
+listen [::1];
+</pre>
+
+</blockquote>
+<p>   UNIX域套接字（0.8.21）使用“ <code>unix:</code> ”前缀指定： </p>
+<blockquote>
+<pre class="notranslate">listen unix:/var/run/nginx.sock;
+</pre>
+
+
+
+</blockquote>
+<p>  如果仅给出<code>*address*</code> ，则使用端口80。 </p>
+<p>  如果指令不存在，那么如果nginx以超级用户权限运行，则使用<code>*:80</code> ，否则使用<code>*:8000</code> 。 </p>
+<p>   <code>default_server</code>参数（如果存在）将使服务器成为指定<code>*address*</code> ： <code>*port*</code>对的默认服务器。  如果没有任何指令具有<code>default_server</code>参数，则具有<code>*address*</code> ： <code>*port*</code>对的第一个服务器将成为该对的默认服务器。 </p>
+<blockquote>
+<p>  在0.8.21之前的版本中，此参数仅命名为<code>default</code> 。 </p>
+</blockquote>
+<p>   <code>ssl</code>参数（0.7.14）允许指定此端口上接受的所有连接都应在SSL模式下工作。  这样可以为处理HTTP和HTTPS请求的服务器提供更紧凑的<a href="configuring_https_servers.html#single_http_https_server">配置</a> 。 </p>
+<p>   <code>http2</code>参数（1.9.5）将端口配置为接受<a href="ngx_http_v2_module.html">HTTP / 2</a>连接。  通常，为了使其工作，也应该指定<code>ssl</code>参数，但是也可以将nginx配置为接受没有SSL的HTTP / 2连接。 </p>
+<p>   <code>spdy</code>参数（1.3.15-1.9.4）允许接受此端口上的<a href="ngx_http_spdy_module.html">SPDY</a>连接。  通常，为了使其工作，还应指定<code>ssl</code>参数，但也可以将nginx配置为接受不带SSL的SPDY连接。 </p>
+<p>   <code>proxy_protocol</code>参数（1.5.12）允许指定此端口上接受的所有连接都应使用<a href="http://www.haproxy.org/download/1.5/doc/proxy-protocol.txt" target="_blank" rel="noopener">PROXY协议</a> 。 </p>
+<blockquote>
+<p>  自版本1.13.11起支持PROXY协议版本2。 </p>
+</blockquote>
+<p>   <code>listen</code>指令可以有几个特定于与套接字相关的系统调用的附加参数。  这些参数可以在任何<code>listen</code>指令中指定，但对于给定的<code>*address*</code>只能指定一次： <code>*port*</code>对。 </p>
+<blockquote>
+<p>  在0.8.21之前的版本中，它们只能在<code>listen</code>指令中与<code>default</code>参数一起指定。 </p>
+<p>  除非服务器可以处理多次<a href="https://tools.ietf.org/html/rfc7413#section-6.1" target="_blank" rel="noopener">使用数据</a>的<a href="https://tools.ietf.org/html/rfc7413#section-6.1" target="_blank" rel="noopener">同一SYN数据包，</a>否则不要启用此功能。 </p>
+<p>  在1.3.4版之前，如果省略此参数，则操作系统的设置对套接字有效。 </p>
+<p>  不恰当地使用此选项可能会产生安全<a href="http://man7.org/linux/man-pages/man7/socket.7.html" target="_blank" rel="noopener">隐患</a> 。 </p>
+<pre class="notranslate">so_keepalive=30m::10</pre>
+
+
+
+</blockquote>
+<p>  例： </p>
+<blockquote>
+<pre class="notranslate">listen 127.0.0.1 default_server accept_filter=dataready backlog=1024;
+</pre>
+
+
+</blockquote>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**location** [
+    &lt;code class=&quot;notranslate&quot;&gt;=</code> |<br>    <code>~</code> |<br>    <code>~*</code> |<br>    <code>^~</code><br>    ] <code>*uri*</code> { … } <br> <code>**location** &lt;code class=&quot;notranslate&quot;&gt;@</code> <code>*name*</code> { … } <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"></td></p>
+<pre><code>—
+
+    &lt;/td&gt;
+</code></pre><p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  根据请求URI设置配置。 </p>
+<p>  在解码以“ <code>%XX</code> ”形式编码的文本，解析对相对路径分量的引用之后，针对规范化的URI执行匹配<code>.</code>   “和” <code>..</code> “，并且可能<a href="#merge_slashes">将</a>两个或多个相邻斜线<a href="#merge_slashes">压缩</a>成单个斜线。 </p>
+<p>  位置可以由前缀字符串或正则表达式定义。  正则表达式使用前面的“ <code>~*</code> ”修饰符（用于不区分大小写的匹配）或“ <code>~</code> ”修饰符（用于区分大小写的匹配）指定。  为了找到与给定请求匹配的位置，nginx首先检查使用前缀字符串（前缀位置）定义的位置。  其中，选择并记住具有最长匹配前缀的位置。  然后按照它们在配置文件中的出现顺序检查正则表达式。  正则表达式的搜索在第一个匹配时终止，并使用相应的配置。  如果未找到与正则表达式的匹配，则使用先前记住的前缀位置的配置。 </p>
+<p>  可以嵌套<code>location</code>块，但下面提到了一些例外情况。 </p>
+<p>  对于不区分大小写的操作系统（如macOS和Cygwin），与前缀字符串匹配会忽略大小写（0.7.7）。  但是，比较仅限于一个字节的区域设置。 </p>
+<p>  正则表达式可以包含稍后可以在其他指令中使用的捕获（0.7.40）。 </p>
+<p>  如果最长匹配前缀位置具有“ <code>^~</code> ”修饰符，则不检查正则表达式。 </p>
+<p>  此外，使用“ <code>=</code> ”修饰符可以定义URI和位置的精确匹配。  如果找到完全匹配，则搜索终止。  例如，如果频繁发生“ <code>/</code> ”请求，则定义“ <code>location = /</code> ”将加速这些请求的处理，因为搜索在第一次比较之后立即终止。  这样的位置显然不能包含嵌套位置。 </p>
+<blockquote>
+<p>  在0.7.1到0.8.41的版本中，如果请求与前缀位置匹配而没有“ <code>=</code> ”和“ <code>^~</code> ”修饰符，则搜索也会终止，并且不会检查正则表达式。 </p>
+</blockquote>
+<p>  让我们通过一个例子来说明以上内容： </p>
+<blockquote>
+<p><pre class="notranslate">location = / {<br>    [ configuration A ]<br>}</pre></p>
+</blockquote>
+<p>location / {<br>    [ configuration B ]<br>}</p>
+<p>location /documents/ {<br>    [ configuration C ]<br>}</p>
+<p>location ^~ /images/ {<br>    [ configuration D ]<br>}</p>
+<p>location ~* .(gif|jpg|jpeg)$ {<br>    [ configuration E ]<br>}<br></p>
+<p>   “ <code>/</code> ”请求将匹配配置A，“/ <code>/index.html</code> ”请求将匹配配置B，“/ <code>/documents/document.html</code> ”请求将匹配配置C，“/ <code>/images/1.gif</code> ”请求将匹配配置D，“/ <code>/documents/1.jpg</code> ”请求将匹配配置E. </p>
+<p>   “ <code>@</code> ”前缀定义了命名位置。  这样的位置不用于常规请求处理，而是用于请求重定向。  它们不能嵌套，也不能包含嵌套位置。 </p>
+<p>  如果位置由以斜杠字符结尾的前缀字符串定义，并且请求由<a href="ngx_http_proxy_module.html#proxy_pass">proxy_pass</a> ， <a href="ngx_http_fastcgi_module.html#fastcgi_pass">fastcgi_pass</a> ， <a href="ngx_http_uwsgi_module.html#uwsgi_pass">uwsgi_pass</a> ， <a href="ngx_http_scgi_module.html#scgi_pass">scgi_pass</a> ， <a href="ngx_http_memcached_module.html#memcached_pass">memcached_pa​​ss</a>或<a href="ngx_http_grpc_module.html#grpc_pass">grpc_pass之一</a>处理，则执行特殊处理。  为了响应URI等于此字符串但没有尾部斜杠的请求，带有代码301的永久重定向将返回到请求的URI，并附加斜杠。  如果不需要，可以像下面这样定义URI和位置的完全匹配： </p>
+<blockquote>
+<p><pre class="notranslate">location /user/ {<br>    proxy_pass <a href="http://user.example.com" target="_blank" rel="noopener">http://user.example.com</a>;<br>}</pre></p>
+</blockquote>
+<p>location = /user {<br>    proxy_pass <a href="http://login.example.com" target="_blank" rel="noopener">http://login.example.com</a>;<br>}<br></p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**log_not_found** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">log_not_found on;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  启用或禁用将未找到的文件的错误记录到<a href="ngx_core_module.html#error_log">error_log中</a> 。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**log_subrequest** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">log_subrequest off;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  启用或禁用将子请求记录到<a href="ngx_http_log_module.html#access_log">access_log中</a> 。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**max_ranges** &lt;code class=&quot;notranslate&quot;&gt;*number*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"></td></p>
+<pre><code>—
+
+    &lt;/td&gt;
+</code></pre><p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  该指令出现在1.1.2版中。 </p>
+<p>  限制字节范围请求中允许的最大范围数。  超出限制的请求将被处理，就像没有指定字节范围一样。  默认情况下，范围数量不受限制。  零值完全禁用字节范围支持。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**merge_slashes** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">merge_slashes on;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> <br><br>                </td></p>
+<p>  启用或禁用将URI中的两个或多个相邻斜杠压缩为单个斜杠。 </p>
+<p>  请注意，压缩对于正确匹配前缀字符串和正则表达式位置至关重要。  没有它，“ <code>//scripts/one.php</code> ”请求将不匹配 </p>
+<blockquote>
+<pre class="notranslate">location /scripts/ {
+    ...
+}
+</pre>
+
+</blockquote>
+<p>  并且可能被处理为静态文件。  所以它被转换为“ <code>/scripts/one.php</code> ”。 </p>
+<p>  如果URI包含base64编码的名称，则必须<code>off</code>压缩，因为base64在内部使用“ <code>/</code> ”字符。  但是，出于安全考虑，最好避免关闭压缩。 </p>
+<p>  如果在<a href="#server">服务器</a>级别指定了该指令，则仅在服务器是默认服务器时使用其值。  指定的值也适用于侦听同一地址和端口的所有虚拟服务器。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**msie_padding** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">msie_padding on;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  启用或禁用向状态大于400的MSIE客户端的响应添加注释，以将响应大小增加到512字节。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**msie_refresh** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">msie_refresh off;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  启用或禁用发布刷新而不是MSIE客户端的重定向。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**open_file_cache** &lt;code class=&quot;notranslate&quot;&gt;off</code> ; <br> <code>**open_file_cache** 
+&lt;code class=&quot;notranslate&quot;&gt;max</code> = <code>*N*</code><br>[ <code>inactive</code> = <code>*time*</code> ]; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">open_file_cache off;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  配置可以存储的缓存： </p>
+<ul>
+<li>打开文件描述符，它们的大小和修改时间; -   关于目录存在的信息; -   文件查找错误，例如“找不到文件”，“没有读取权限”等。 <blockquote class="note">  应该通过<a href="#open_file_cache_errors">open_file_cache_errors</a>指令单独启用缓存错误。 </blockquote></li>
+</ul>
+<p>  该指令具有以下参数： </p>
+<p>  例： </p>
+<blockquote>
+<pre class="notranslate">open_file_cache          max=1000 inactive=20s;
+open_file_cache_valid    30s;
+open_file_cache_min_uses 2;
+open_file_cache_errors   on;
+</pre>
+
+
+</blockquote>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**open_file_cache_errors** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">open_file_cache_errors off;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  通过<a href="#open_file_cache">open_file_cache</a>启用或禁用文件查找错误的缓存。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**open_file_cache_min_uses** &lt;code class=&quot;notranslate&quot;&gt;*number*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">open_file_cache_min_uses 1;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  设置在<a href="#open_file_cache">open_file_cache</a>指令的<code>inactive</code>参数配置的时间段内文件访问的最小<code>*number*</code> ，这是文件描述符在缓存中保持打开所必需的。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**open_file_cache_valid** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">open_file_cache_valid 60s;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  设置应验证<a href="#open_file_cache">open_file_cache</a>元素的时间。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**output_buffers** &lt;code class=&quot;notranslate&quot;&gt;*number*</code> <code>*size*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">output_buffers 2 32k;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  设置用于从磁盘读取响应的缓冲区的<code>*number*</code>和<code>*size*</code> 。 </p>
+<blockquote>
+<p>  在1.9.5版之前，默认值为1 32k。 </p>
+</blockquote>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**port_in_redirect** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">port_in_redirect on;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  启用或禁用在nginx发出的<a href="#absolute_redirect">绝对</a>重定向中指定端口。 </p>
+<p>  在重定向中使用主服务器名称由<a href="#server_name_in_redirect">server_name_in_redirect</a>指令控制。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**postpone_output** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">postpone_output 1460;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  如果可能，客户端数据的传输将被推迟，直到nginx至少要发送<code>*size*</code>字节的数据。  零值禁用推迟数据传输。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**read_ahead** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">read_ahead 0;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  设置使用文件时内核的预读取量。 </p>
+<p>  在Linux上，使用<code>posix_fadvise(0, 0, 0, POSIX_FADV_SEQUENTIAL)</code>系统调用，因此忽略<code>*size*</code>参数。 </p>
+<p>  在FreeBSD上，使用了自FreeBSD 9.0-CURRENT以来支持的<code>fcntl(O_READAHEAD,</code> <code>*size*</code> <code>)</code>系统调用。   FreeBSD 7必须<a href="http://sysoev.ru/freebsd/patch.readahead.txt" target="_blank" rel="noopener">打补丁</a> 。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**recursive_error_pages** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">recursive_error_pages off;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  使用<a href="#error_page">error_page</a>指令启用或禁用多个重定向。  此类重定向的数量<a href="#internal">有限</a> 。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**request_pool_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">request_pool_size 4k;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> <br><br>                </td></p>
+<p>  允许精确调整每个请求的内存分配。  该指令对性能的影响最小，通常不应使用。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**reset_timedout_connection** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">reset_timedout_connection off;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  启用或禁用重置超时连接。  重置如下进行。  在关闭套接字之前，在其上设置<code>SO_LINGER</code>选项，超时值为0.当套接字关闭时，TCP RST将发送到客户端，并释放此套接字占用的所有内存。  这有助于避免将已填充缓冲区的已关闭套接字保持在FIN_WAIT1状态很长时间。 </p>
+<p>  应该注意，超时保持连接正常关闭。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**resolver** 
+    &lt;code class=&quot;notranslate&quot;&gt;*address*</code> …<br>    [ <code>valid</code> = <code>*time*</code> ]<br>    [ <code>ipv6</code> = <code>on</code> | <code>off</code> ]; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"></td></p>
+<pre><code>—
+
+    &lt;/td&gt;
+</code></pre><p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  将用于解析上游服务器名称的名称服务器配置到地址中，例如： </p>
+<blockquote>
+<pre class="notranslate">resolver 127.0.0.1 [::1]:5353;
+</pre>
+
+</blockquote>
+<p>  可以将地址指定为域名或IP地址，以及可选端口（1.3.1,1.2.2）。  如果未指定端口，则使用端口53。  以循环方式查询名称服务器。 </p>
+<blockquote>
+<p>  在1.1.7版之前，只能配置一个名称服务器。  从版本1.3.1和1.2.2开始支持使用IPv6地址指定名称服务器。 </p>
+</blockquote>
+<p>  默认情况下，nginx将在解析时查找IPv4和IPv6地址。  如果不需要查找IPv6地址，可以指定<code>ipv6=off</code>参数。 </p>
+<blockquote>
+<p>  从版本1.5.8开始支持将名称解析为IPv6地址。 </p>
+</blockquote>
+<p>  默认情况下，nginx使用响应的TTL值缓存答案。  可选的<code>valid</code>参数允许覆盖它： </p>
+<blockquote>
+<pre class="notranslate">resolver 127.0.0.1 [::1]:5353 valid=30s;
+</pre>
+
+
+
+<p>  在版本1.1.9之前，无法调整缓存时间，并且nginx始终缓存5分钟的持续时间。 </p>
+<p>  为防止DNS欺骗，建议在正确安全的受信任本地网络中配置DNS服务器。 </p>
+</blockquote>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**resolver_timeout** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">resolver_timeout 30s;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  设置名称解析的超时，例如： </p>
+<blockquote>
+<pre class="notranslate">resolver_timeout 5s;
+</pre>
+
+
+</blockquote>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**root** &lt;code class=&quot;notranslate&quot;&gt;*path*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">root html;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> , <code>if in location</code> <br><br>                </td></p>
+<p>  设置请求的根目录。  例如，使用以下配置 </p>
+<blockquote>
+<pre class="notranslate">location /i/ {
+    root /data/w3;
+}
+</pre>
+
+</blockquote>
+<p>  将发送<code>/data/w3/i/top.gif</code>文件以响应“ <code>/i/top.gif</code> ”请求。 </p>
+<p>   <code>*path*</code>值可以包含变量， <code>$document_root</code>和<code>$realpath_root</code>除外。 </p>
+<p>  仅通过向<code>root</code>指令的值添加URI来构造文件的路径。  如果必须修改URI，则应使用<a href="#alias">别名</a>指令。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**satisfy** &lt;code class=&quot;notranslate&quot;&gt;all</code> | <code>any</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">satisfy all;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  如果所有（ <code>all</code> ）或至少一个（ <code>any</code> ） <a href="ngx_http_access_module.html">ngx_http_access_module</a> ， <a href="ngx_http_auth_basic_module.html">ngx_http_auth_basic_module</a> ， <a href="ngx_http_auth_request_module.html">ngx_http_auth_request_module</a>或<a href="ngx_http_auth_jwt_module.html">ngx_http_auth_jwt_module</a>模块允许访问，则允许访问。 </p>
+<p>  例： </p>
+<blockquote>
+<p><pre class="notranslate">location / {<br>    satisfy any;</pre></p>
+</blockquote>
+<pre><code>allow 192.168.1.0/32;
+deny  all;
+
+auth_basic           &quot;closed site&quot;;
+auth_basic_user_file conf/htpasswd;
+</code></pre><p>}<br></p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**send_lowat** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">send_lowat 0;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  如果指令设置为非零值，nginx将尝试通过使用<a href="events.html#kqueue">kqueue</a>方法的<code>NOTE_LOWAT</code>标志或<code>SO_SNDLOWAT</code>套接字选项来最小化客户端套接字上的发送操作数。  在这两种情况下都使用指定的<code>*size*</code> 。 </p>
+<p>  在Linux，Solaris和Windows上忽略此指令。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**send_timeout** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">send_timeout 60s;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  设置将响应传输到客户端的超时。  仅在两次连续写操作之间设置超时，而不是整个响应的传输。  如果客户端在此时间内未收到任何内容，则会关闭连接。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**sendfile** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">sendfile off;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> , <code>if in location</code> <br><br>                </td></p>
+<p>  启用或禁用<code>sendfile()</code>的使用。 </p>
+<p>  从nginx 0.8.12和FreeBSD 5.2.1开始， <a href="#aio">aio</a>可用于预加载<code>sendfile()</code>数据： </p>
+<blockquote>
+<pre class="notranslate">location /video/ {
+    sendfile       on;
+    tcp_nopush     on;
+    aio            on;
+}
+</pre>
+
+</blockquote>
+<p>  在此配置中，使用<code>SF_NODISKIO</code>标志调用<code>sendfile()</code> ，这会导致它不阻塞磁盘I / O，而是报告数据不在内存中。  然后，nginx通过读取一个字节来启动异步数据加载。  在第一次读取时，FreeBSD内核将文件的前128K字节加载到内存中，尽管下一次读取只会以16K块的形式加载数据。  可以使用<a href="#read_ahead">read_ahead</a>指令更改此<a href="#read_ahead">设置</a> 。 </p>
+<blockquote>
+<p>  在1.7.11版之前，可以使用<code>aio sendfile;</code>启用预加载<code>aio sendfile;</code>   。 </p>
+</blockquote>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**sendfile_max_chunk** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">sendfile_max_chunk 0;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  设置为非零值时，限制可在单个<code>sendfile()</code>调用中传输的数据量。  没有限制，一个快速连接可能完全占用工作进程。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**server** { ... }</code> <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"></td></p>
+<pre><code>—
+
+    &lt;/td&gt;
+</code></pre><p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> <br><br>                </td></p>
+<p>  设置虚拟服务器的配置。  基于IP（基于IP地址）和基于名称（基于“主机”请求标头字段）的虚拟服务器之间没有明确的区别。  相反， <a href="#listen">listen</a>指令描述了应该接受服务器连接的所有地址和端口， <a href="#server_name">server_name</a>指令列出了所有服务器名称。   “ <a href="request_processing.html">如何nginx处理请求</a> ”文档中提供了示例配置。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**server_name** &lt;code class=&quot;notranslate&quot;&gt;*name*</code> …; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">server_name “”;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>server</code> <br><br>                </td></p>
+<p>  设置虚拟服务器的名称，例如： </p>
+<blockquote>
+<pre class="notranslate">server {
+    server_name example.com www.example.com;
+}
+</pre>
+
+
+
+</blockquote>
+<p>  第一个名称成为主服务器名称。 </p>
+<p>  服务器名称可以包含替换名称的第一个或最后一个部分的星号（“ <code>*</code> ”）： </p>
+<blockquote>
+<pre class="notranslate">server {
+    server_name example.com *.example.com www.example.*;
+}
+</pre>
+
+</blockquote>
+<p>  这些名称称为通配符名称。 </p>
+<p>  上面提到的前两个名称可以合二为一： </p>
+<blockquote>
+<pre class="notranslate">server {
+    server_name .example.com;
+}
+</pre>
+
+
+
+</blockquote>
+<p>  也可以在服务器名称中使用正则表达式，在名称前面加上波浪号（“ <code>~</code> ”）： </p>
+<blockquote>
+<pre class="notranslate">server {
+    server_name www.example.com ~^www\d+\.example\.com$;
+}
+</pre>
+
+
+
+</blockquote>
+<p>  正则表达式可以包含以后可以在其他指令中使用的捕获（0.7.40）： </p>
+<blockquote>
+<p><pre class="notranslate">server {<br>    server_name ~^(www.)?(.+)$;</pre></p>
+</blockquote>
+<pre><code>location / {
+    root /sites/$2;
+}
+</code></pre><p>}</p>
+<p>server {<br>    server<em>name </em>;</p>
+<pre><code>location / {
+    root /sites/default;
+}
+</code></pre><p>}<br></p>
+<p>  正则表达式中的命名捕获创建变量（0.8.25），以后可以在其他指令中使用它们： </p>
+<blockquote>
+<p><pre class="notranslate">server {<br>    server_name ~^(www.)?(?&lt;domain&gt;.+)$;</pre></p>
+</blockquote>
+<pre><code>location / {
+    root /sites/$domain;
+}
+</code></pre><p>}</p>
+<p>server {<br>    server<em>name </em>;</p>
+<pre><code>location / {
+    root /sites/default;
+}
+</code></pre><p>}<br></p>
+<p>  如果指令的参数设置为“ <code>$hostname</code> ”（0.9.4），则插入机器的主机名。 </p>
+<p>  也可以指定一个空的服务器名称（0.7.11）： </p>
+<blockquote>
+<pre class="notranslate">server {
+    server_name www.example.com "";
+}
+</pre>
+
+</blockquote>
+<p>  它允许此服务器处理请求而不使用“Host”头字段 - 而不是默认服务器 - 用于给定地址：端口对。  这是默认设置。 </p>
+<blockquote>
+<p>  在0.8.48之前，默认使用机器的主机名。 </p>
+</blockquote>
+<p>  在按名称搜索虚拟服务器期间，如果名称与多个指定的变体匹配（例如，通配符名称和正则表达式匹配），将按以下优先级顺序选择第一个匹配的变体： </p>
+<ol>
+<li>确切的名字 1.   以星号开头的最长通配符名称，例如“ <code>*.example.com</code> ” 1.   最长的通配符名称以星号结尾，例如“ <code>mail.*</code> ” 1.   第一个匹配的正则表达式（按配置文件中的出现顺序） </li>
+</ol>
+<p>  服务器名称的详细描述在单独的<a href="server_names.html">服务器名称</a>文档中提供。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**server_name_in_redirect** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">server_name_in_redirect off;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  在nginx发出的<a href="#absolute_redirect">绝对</a>重定向中启用或禁用<a href="#server_name">server_name</a>指令指定的主服务器名称。  禁用主服务器名称时，将使用“主机”请求标头字段中的名称。  如果此字段不存在，则使用服务器的IP地址。 </p>
+<p>  在重定向中使用端口由<a href="#port_in_redirect">port_in_redirect</a>指令控制。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**server_names_hash_bucket_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">server_names_hash_bucket_size 32|64|128;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> <br><br>                </td></p>
+<p>  设置服务器名称哈希表的存储桶大小。  默认值取决于处理器缓存行的大小。  设置哈希表的详细信息在单独的<a href="hash.html">文档</a>中提供。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**server_names_hash_max_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">server_names_hash_max_size 512;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> <br><br>                </td></p>
+<p>  设置服务器名称哈希表的最大<code>*size*</code> 。  设置哈希表的详细信息在单独的<a href="hash.html">文档</a>中提供。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**server_tokens** 
+    &lt;code class=&quot;notranslate&quot;&gt;on</code> |<br>    <code>off</code> |<br>    <code>build</code> |<br>    <code>*string*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">server_tokens on;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  启用或禁用在错误页面和“服务器”响应头字段中发出nginx版本。 </p>
+<p>   <code>build</code>参数（1.11.10）允许发出<a href="configure.html#build">构建名称</a>和nginx版本。 </p>
+<p>  此外，作为<a href="http://nginx.com/products/" target="_blank" rel="noopener">商业订阅的</a>一部分，从版本1.9.13开始，错误页面上的签名和“服务器”响应头字段值可以使用带变量的<code>*string*</code>显式设置。  空字符串禁用“服务器”字段的发射。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**subrequest_output_buffer_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">subrequest_output_buffer_size 4k|8k;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  该指令出现在1.13.10版本中。 </p>
+<p> Sets the <code>*size*</code> of the buffer used for storing the response body of a subrequest.  默认情况下，缓冲区大小等于一个内存页面。  这是4K或8K，具体取决于平台。  然而，它可以做得更小。 </p>
+<p> The directive is applicable only for subrequests with response bodies saved into memory. For example, such subrequests are created by <a href="ngx_http_ssi_module.html#ssi_include_set">SSI</a> . </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**tcp_nodelay** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">tcp_nodelay on;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p>  启用或禁用<code>TCP_NODELAY</code>选项的使用。 The option is enabled when a connection is transitioned into the keep-alive state. Additionally, it is enabled on SSL connections, for unbuffered proxying, and for <a href="websocket.html">WebSocket</a> proxying. </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**tcp_nopush** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">tcp_nopush off;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p> Enables or disables the use of the <code>TCP_NOPUSH</code> socket option on FreeBSD or the <code>TCP_CORK</code> socket option on Linux. The options are enabled only when <a href="#sendfile">sendfile</a> is used. Enabling the option allows </p>
+<ul>
+<li>sending the response header and the beginning of a file in one packet, on Linux and FreeBSD 4.*; -  sending a file in full packets. </li>
+</ul>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**try_files** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> … <code>*uri*</code> ; <br> <code>**try_files** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> … = <code>*code*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"></td></p>
+<pre><code>—
+
+    &lt;/td&gt;
+</code></pre><p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p> Checks the existence of files in the specified order and uses the first found file for request processing; the processing is performed in the current context. The path to a file is constructed from the <code>*file*</code> parameter according to the <a href="#root">root</a> and <a href="#alias">alias</a> directives. It is possible to check directory’s existence by specifying a slash at the end of a name, eg “ <code>$uri/</code> ”. If none of the files were found, an internal redirect to the <code>*uri*</code> specified in the last parameter is made.  例如： </p>
+<blockquote>
+<p><pre class="notranslate">location /images/ {<br>    try_files $uri /images/default.gif;<br>}</pre></p>
+</blockquote>
+<p>location = /images/default.gif {<br>    expires 30s;<br>}<br></p>
+<p> The last parameter can also point to a named location, as shown in examples below. Starting from version 0.7.51, the last parameter can also be a <code>*code*</code> : </p>
+<blockquote>
+<pre class="notranslate">location / {
+    try_files $uri $uri/index.html $uri.html =404;
+}
+</pre>
+
+
+
+</blockquote>
+<p> Example in proxying Mongrel: </p>
+<blockquote>
+<p><pre class="notranslate">location / {<br>    try_files /system/maintenance.html<br>              $uri $uri/index.html $uri.html<br>              @mongrel;<br>}</pre></p>
+</blockquote>
+<p>location @mongrel {<br>    proxy_pass <a href="http://mongrel" target="_blank" rel="noopener">http://mongrel</a>;<br>}<br></p>
+<p> Example for Drupal/FastCGI: </p>
+<blockquote>
+<p><pre class="notranslate">location / {<br>    try_files $uri $uri/ @drupal;<br>}</pre></p>
+</blockquote>
+<p>location ~ .php$ {<br>    try_files $uri @drupal;</p>
+<pre><code>fastcgi_pass ...;
+
+fastcgi_param SCRIPT_FILENAME /path/to$fastcgi_script_name;
+fastcgi_param SCRIPT_NAME     $fastcgi_script_name;
+fastcgi_param QUERY_STRING    $args;
+
+... other fastcgi_param&apos;s
+</code></pre><p>}</p>
+<p>location @drupal {<br>    fastcgi_pass …;</p>
+<pre><code>fastcgi_param SCRIPT_FILENAME /path/to/index.php;
+fastcgi_param SCRIPT_NAME     /index.php;
+fastcgi_param QUERY_STRING    q=$uri&amp;amp;$args;
+
+... other fastcgi_param&apos;s
+</code></pre><p>}<br></p>
+<p> In the following example, </p>
+<blockquote>
+<pre class="notranslate">location / {
+    try_files $uri $uri/ @drupal;
+}
+</pre>
+
+</blockquote>
+<p> the <code>try_files</code> directive is equivalent to </p>
+<blockquote>
+<pre class="notranslate">location / {
+    error_page 404 = @drupal;
+    log_not_found off;
+}
+</pre>
+
+</blockquote>
+<p> And here, </p>
+<blockquote>
+<p><pre class="notranslate">location ~ .php$ {<br>    try_files $uri @drupal;</pre></p>
+</blockquote>
+<pre><code>fastcgi_pass ...;
+
+fastcgi_param SCRIPT_FILENAME /path/to$fastcgi_script_name;
+
+...
+</code></pre><p>}<br></p>
+<p> <code>try_files</code> checks the existence of the PHP file before passing the request to the FastCGI server. </p>
+<p> Example for Wordpress and Joomla: </p>
+<blockquote>
+<p><pre class="notranslate">location / {<br>    try_files $uri $uri/ @wordpress;<br>}</pre></p>
+</blockquote>
+<p>location ~ .php$ {<br>    try_files $uri @wordpress;</p>
+<pre><code>fastcgi_pass ...;
+
+fastcgi_param SCRIPT_FILENAME /path/to$fastcgi_script_name;
+... other fastcgi_param&apos;s
+</code></pre><p>}</p>
+<p>location @wordpress {<br>    fastcgi_pass …;</p>
+<pre><code>fastcgi_param SCRIPT_FILENAME /path/to/index.php;
+... other fastcgi_param&apos;s
+</code></pre><p>}<br></p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**types** { ... }</code> <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">types {<br>    text/html  html;<br>    image/gif  gif;<br>    image/jpeg jpg;<br>}</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p> Maps file name extensions to MIME types of responses. Extensions are case-insensitive. Several extensions can be mapped to one type, for example: </p>
+<blockquote>
+<pre class="notranslate">types {
+    application/octet-stream bin exe dll;
+    application/octet-stream deb;
+    application/octet-stream dmg;
+}
+</pre>
+
+
+
+</blockquote>
+<p> A sufficiently full mapping table is distributed with nginx in the <code>conf/mime.types</code> file. </p>
+<p> To make a particular location emit the “ <code>application/octet-stream</code> ” MIME type for all requests, the following configuration can be used: </p>
+<blockquote>
+<pre class="notranslate">location /download/ {
+    types        { }
+    default_type application/octet-stream;
+}
+</pre>
+
+
+</blockquote>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**types_hash_bucket_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">types_hash_bucket_size 64;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p> Sets the bucket size for the types hash tables.  设置哈希表的详细信息在单独的<a href="hash.html">文档</a>中提供。 </p>
+<blockquote>
+<p> Prior to version 1.5.13, the default value depended on the size of the processor’s cache line. </p>
+</blockquote>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**types_hash_max_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">types_hash_max_size 1024;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
+<p> Sets the maximum <code>*size*</code> of the types hash tables.  设置哈希表的详细信息在单独的<a href="hash.html">文档</a>中提供。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**underscores_in_headers** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">underscores_in_headers off;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> <br><br>                </td></p>
+<p> Enables or disables the use of underscores in client request header fields. When the use of underscores is disabled, request header fields whose names contain underscores are marked as invalid and become subject to the <a href="#ignore_invalid_headers">ignore_invalid_headers</a> directive. </p>
+<p> If the directive is specified on the <a href="#server">server</a> level, its value is only used if a server is a default one. The value specified also applies to all virtual servers listening on the same address and port. </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**variables_hash_bucket_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">variables_hash_bucket_size 64;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> <br><br>                </td></p>
+<p>  设置变量哈希表的桶大小。  设置哈希表的详细信息在单独的<a href="hash.html">文档</a>中提供。 </p>
+<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**variables_hash_max_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br><br>                </td></p>
+<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">variables_hash_max_size 1024;</pre><br>                </td></p>
+<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> <br><br>                </td></p>
+<p>  设置变量哈希表的最大<code>*size*</code> 。  设置哈希表的详细信息在单独的<a href="hash.html">文档</a>中提供。 </p>
+<blockquote>
+<p> Prior to version 1.5.13, the default value was 512. </p>
+</blockquote>
+<h4 id="嵌入式变量"><a href="#嵌入式变量" class="headerlink" title="嵌入式变量"></a>嵌入式变量</h4><p> The <code>ngx_http_core_module</code> module supports embedded variables with names matching the Apache Server variables. First of all, these are variables representing client request header fields, such as <code>$http_user_agent</code> , <code>$http_cookie</code> , and so on. Also there are other variables: </p>
+<p>  必须先通过在<a href="#listen">listen</a>指令中设置<code>proxy_protocol</code>参数来启用PROXY协议。 </p>
+<p>  必须先通过在<a href="#listen">listen</a>指令中设置<code>proxy_protocol</code>参数来启用PROXY协议。 </p>
+<p> The variable’s value is made available in locations processed by the <a href="ngx_http_proxy_module.html#proxy_pass">proxy_pass</a> , <a href="ngx_http_fastcgi_module.html#fastcgi_pass">fastcgi_pass</a> , <a href="ngx_http_uwsgi_module.html#uwsgi_pass">uwsgi_pass</a> , and <a href="ngx_http_scgi_module.html#scgi_pass">scgi_pass</a> directives when the request body was read to a <a href="#client_body_buffer_size">memory buffer</a> . </p>
+<p> At the end of processing, the file needs to be removed. To always write the request body to a file, <a href="#client_body_in_file_only">client_body_in_file_only</a> needs to be enabled. When the name of a temporary file is passed in a proxied request or in a request to a FastCGI/uwsgi/SCGI server, passing the request body should be disabled by the <a href="ngx_http_proxy_module.html#proxy_pass_request_body">proxy_pass_request_body off</a> , <a href="ngx_http_fastcgi_module.html#fastcgi_pass_request_body">fastcgi_pass_request_body off</a> , <a href="ngx_http_uwsgi_module.html#uwsgi_pass_request_body">uwsgi_pass_request_body off</a> , or <a href="ngx_http_scgi_module.html#scgi_pass_request_body">scgi_pass_request_body off</a> directives, respectively. </p>
+<p>  计算此变量的值通常需要一次系统调用。  为避免系统调用， <a href="#listen">listen</a>指令必须指定地址并使用<code>bind</code>参数。 </p>
+<p> The value of <code>$uri</code> may change during request processing, eg when doing internal redirects, or when using index files. </p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作(*锐)！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weixin.png" alt="IM.NGINX 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="IM.NGINX 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    IM.NGINX
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://nginx.im/ngx/http/ngx_http_core_module.html" title="http/ngx_http_core_module-nginx中文手册">http://nginx.im/ngx/http/ngx_http_core_module.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/nginx/" rel="tag"># nginx</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/ngx/http/ngx_http_charset_module.html" rel="next" title="http/ngx_http_charset_module-nginx中文手册">
+                <i class="fa fa-chevron-left"></i> http/ngx_http_charset_module-nginx中文手册
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/ngx/http/ngx_http_dav_module.html" rel="prev" title="http/ngx_http_dav_module-nginx中文手册">
+                http/ngx_http_dav_module-nginx中文手册 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTg1NS84NDE5"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="IM.NGINX" />
+            
+              <p class="site-author-name" itemprop="name">IM.NGINX</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">153</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-core-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_core_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.1.</span> <span class="nav-text">指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌入式变量"><span class="nav-number">1.0.2.</span> <span class="nav-text">嵌入式变量</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">IM.NGINX</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+		
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

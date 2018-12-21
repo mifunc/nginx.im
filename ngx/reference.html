@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="nginx," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="None">
+<meta name="keywords" content="nginx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="reference-nginx中文手册">
+<meta property="og:url" content="http://nginx.im/ngx/reference.html">
+<meta property="og:site_name" content="IM.NGINX">
+<meta property="og:description" content="None">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-21T07:39:18.039Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="reference-nginx中文手册">
+<meta name="twitter:description" content="None">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://nginx.im/ngx/reference.html"/>
+
+
+
+
+
+  <title>reference-nginx中文手册 | IM.NGINX</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8ff19561e3a0e2a31ba9fffe98d8fc00";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">IM.NGINX</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">运维实践</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-nginx中文手册">
+          <a href="/nginx/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            NGINX中文手册
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nginx.im/ngx/reference.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="IM.NGINX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IM.NGINX">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">reference-nginx中文手册</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:39:56+08:00">
+                2018年12月21日
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx中文手册</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>None<br><a id="more"></a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><td align="left" class="notranslate"> <a href="#http_stream">nginx objects</a> <br>     <a href="#http">HTTP Request</a> <br>     <a href="#stream">Stream Session</a> <br> <a href="#core">Core</a> <br>     <a href="#string">String</a> <br>     <a href="#core_json">JSON</a> <br>     <a href="#crypto">Crypto</a> <br>     <a href="#njs_api_timers">Timers</a> <br>     <a href="#njs_api_fs">File System</a> <br></td>
+
+<p>   <a href="index.html">njs</a>提供了扩展nginx功能的对象，方法和属性。 </p>
+<h4 id="nginx对象"><a href="#nginx对象" class="headerlink" title="nginx对象"></a>nginx对象</h4><h4 id="HTTP请求"><a href="#HTTP请求" class="headerlink" title="HTTP请求"></a>HTTP请求</h4><p>   HTTP请求对象仅在<a href="http/ngx_http_js_module.html">ngx_http_js_module</a>模块中可用。  对象的所有字符串属性都是<a href="#string">字节字符串</a> 。 </p>
+<p>  例如，可以使用语法<code>headersIn.foo</code>或<code>headersIn[&#39;Foo&#39;]</code>访问<code>Foo</code>标头 </p>
+<p>  例如，可以使用语法<code>headersOut.foo</code>或<code>headersOut[&#39;Foo&#39;]</code>访问<code>Foo</code>标头 </p>
+<p>  可以指定重定向URL（对于代码301,302,303,307和308）或响应正文文本（对于其他代码）作为第二个参数 </p>
+<p>  如果<code>options</code>是一个字符串，那么它包含子请求参数字符串。  否则， <code>options</code>应该是具有以下键的对象： </p>
+<p>  完成<code>callback</code>接收子请求响应对象，其方法和属性与父请求对象相同。 </p>
+<h4 id="流会话"><a href="#流会话" class="headerlink" title="流会话"></a>流会话</h4><p>  流会话对象仅在<a href="stream/ngx_stream_js_module.html">ngx_stream_js_module</a>模块中可用。  对象的所有字符串属性都是<a href="#string">字节字符串</a> 。 </p>
+<blockquote>
+<p>  在njs <a href="njs/changes.html#njs0.2.4">0.2.4</a>之前，流会话对象具有一些当前<a href="#stream_obsolete">被删除的</a>属性。 </p>
+</blockquote>
+<p>   <code>event</code>可以是以下字符串之一： </p>
+<p>  完成回调具有以下原型： <code>callback(data, flags)</code> ，其中<code>data</code>是字符串， <code>flags</code>是具有以下属性的对象： </p>
+<h4 id="过时的属性"><a href="#过时的属性" class="headerlink" title="过时的属性"></a>过时的属性</h4><p>  这些属性已在njs <a href="njs/changes.html#njs0.2.4">0.2.4中</a>删除，并且与现有的njs代码不向后兼容。 </p>
+<blockquote>
+<p>  从njs <a href="njs/changes.html#njs0.2.4">0.2.4</a>开始，应该使用<a href="#s_deny">s.deny（）</a>方法。 </p>
+<p>  从njs <a href="njs/changes.html#njs0.2.4">0.2.4</a>开始，如果没有<a href="#s_allow">调用s.allow（）</a> ， <a href="#s_deny">s.deny（）</a> ， <a href="#s_decline">s.decline（）</a> ， <a href="#s_done">s.done（）</a>并且注册了回调， <a href="#s_deny">则会</a>实现相应的行为。 </p>
+<p>  从<a href="njs/changes.html#njs0.2.4">0.2.4</a>开始，应该使用<a href="#s_send">s.send（）</a>方法进行编写。  对于读取，当前缓冲区可用作<code>event</code>回调的第一个参数。 </p>
+<p>  从njs <a href="njs/changes.html#njs0.2.4">0.2.4</a>开始，应该使用<a href="#s_decline">s.decline（）</a>方法。 </p>
+<p>  从<a href="njs/changes.html#njs0.2.4">0.2.4</a>开始，应该使用<a href="#s_on_callback_last">flags.last</a>属性。 </p>
+<p>  从njs <a href="njs/changes.html#njs0.2.4">0.2.4</a>开始，可以抛出适当的异常来报告错误。 </p>
+<p>  从<a href="njs/changes.html#njs0.2.4">0.2.4</a>开始，应使用相应的<a href="#s_on">事件</a> （ <code>upload</code>或<code>download</code> ）来处理来自客户端的数据。 </p>
+<p>  从njs <a href="njs/changes.html#njs0.2.4">0.2.4</a>开始，应该使用<a href="#s_allow">s.allow（）</a>方法。 </p>
+</blockquote>
+<h4 id="核心"><a href="#核心" class="headerlink" title="核心"></a>核心</h4><h4 id="串"><a href="#串" class="headerlink" title="串"></a>串</h4><p>  有两种类型的字符串： <code>Unicode string</code> （默认）和<code>byte string</code> 。 </p>
+<p>   <code>Unicode string</code>对应于包含Unicode字符的ECMAScript字符串。 </p>
+<p>   <code>Byte strings</code>包含一系列字节。  它们用于将Unicode字符串序列化为外部数据，并从外部源反序列化。  例如， <a href="#string_toutf8">toUTF8（）</a>方法使用UTF8编码将Unicode字符串序列化为字节字符串： </p>
+<blockquote>
+<pre class="notranslate">&gt;&gt; '£'.toUTF8().toString('hex')
+'c2a3'  /* C2 A3 is the UTF8 representation of 00A3 ('£') code point */
+</pre>
+
+</blockquote>
+<p>   <a href="#string_tobytes">toBytes（）</a>方法将代码点最多为255的Unicode字符串序列化为字节字符串，否则返回<code>null</code> ： </p>
+<blockquote>
+<pre class="notranslate">&gt;&gt; '£'.toBytes().toString('hex')
+'a3'  /* a3 is a byte equal to 00A3 ('£') code point  */
+</pre>
+
+</blockquote>
+<p>  只有字节字符串可以转换为不同的编码。  例如，字符串不能直接编码为<code>hex</code> ： </p>
+<blockquote>
+<pre class="notranslate">&gt;&gt; 'αβγδ'.toString('base64')
+TypeError: argument must be a byte string
+    at String.prototype.toString (native)
+    at main (native)
+</pre>
+
+</blockquote>
+<p>  要将Unicode字符串转换为十六进制，首先应将其转换为字节字符串，然后转换为十六进制： </p>
+<blockquote>
+<pre class="notranslate">&gt;&gt; 'αβγδ'.toUTF8().toString('base64')
+'zrHOss6zzrQ='
+</pre>
+
+
+
+<p><pre class="notranslate">&gt;&gt; String.bytesFrom([0x62, 0x75, 0x66, 0x66, 0x65, 0x72])<br>‘buffer’</pre></p>
+</blockquote>
+<p>&gt;&gt; String.bytesFrom(‘YnVmZmVy’, ‘base64’)<br>‘buffer’<br></p>
+<blockquote>
+<pre class="notranslate">&gt;&gt; String.fromCharCode(97, 98, 99, 100)
+'abcd'
+</pre>
+
+<pre class="notranslate">&gt;&gt; String.fromCodePoint(97, 98, 99, 100)
+'abcd'
+</pre>
+
+<pre class="notranslate">&gt;&gt; 'ABCD'.codePointAt(3);
+68
+</pre>
+
+<pre class="notranslate">&gt;&gt; "a".concat("b", "c")
+'abc'
+</pre>
+
+<pre class="notranslate">&gt;&gt; 'abc'.endsWith('abc')
+true
+&gt;&gt; 'abca'.endsWith('abc')
+false
+</pre>
+
+<pre class="notranslate">&gt;&gt; 'abc'.includes('bc')
+true
+</pre>
+
+<pre class="notranslate">&gt;&gt; 'abcdef'.indexOf('de', 2)
+3
+</pre>
+
+<pre class="notranslate">&gt;&gt; "nginx".lastIndexOf("gi")
+1
+</pre>
+
+<pre class="notranslate">&gt;&gt; 'αβγδ'.length
+4
+</pre>
+
+<pre class="notranslate">&gt;&gt; 'nginx'.match( /ng/i )
+'ng'
+</pre>
+
+<pre class="notranslate">&gt;&gt; '1234'.padEnd(8, 'abcd')
+'1234abcd'
+</pre>
+
+<pre class="notranslate">&gt;&gt; '1234'.padStart(8, 'abcd')
+'abcd1234'
+</pre>
+
+<pre class="notranslate">&gt;&gt; 'abc'.repeat(3)
+'abcabcabc'
+</pre>
+
+<pre class="notranslate">&gt;&gt; 'abcdefgh'.replace('d', 1)
+'abc1efgh'
+</pre>
+
+<pre class="notranslate">&gt;&gt; 'abcdefgh'.search('def')
+3
+</pre>
+
+<pre class="notranslate">&gt;&gt; 'abcdefghijklmno'.slice(NaN, 5)
+'abcde'
+</pre>
+
+<pre class="notranslate">&gt;&gt; 'abc'.split('')
+[
+ 'a',
+ 'b',
+ 'c'
+]
+</pre>
+
+<pre class="notranslate">&gt;&gt; 'abc'.startsWith('abc')
+true
+&gt; 'aabc'.startsWith('abc')
+false
+</pre>
+
+<pre class="notranslate">&gt;&gt;  'abcdefghijklmno'.substr(3, 5)
+'defgh'
+</pre>
+
+<pre class="notranslate">&gt;&gt; 'abcdefghijklmno'.substring(3, 5)
+'de'
+</pre>
+
+<pre class="notranslate">&gt;&gt; 'ΑΒΓΔ'.toLowerCase()
+'αβγδ'
+</pre>
+
+</blockquote>
+<p>  如果未指定<code>encoding</code> ，则返回ECMAScript中指定的Unicode字符串或字节字符串。 </p>
+<p>   （特定于njs）如果指定了<code>encoding</code> ，则将<a href="#string_tobytes">字节字符串</a>编码为<code>hex</code> ， <code>base64</code>或<code>base64url</code> 。 </p>
+<blockquote>
+<pre class="notranslate">&gt;&gt;  'αβγδ'.toUTF8().toString('base64url')
+'zrHOss6zzrQ'
+</pre>
+
+<pre class="notranslate">&gt;&gt; 'αβγδ'.toUpperCase()
+'ΑΒΓΔ'
+</pre>
+
+<pre class="notranslate">&gt;&gt; 'αβγδ'.toUTF8().length
+8
+&gt;&gt; 'αβγδ'.length
+4
+</pre>
+
+<pre class="notranslate">&gt;&gt; '   abc  '.trim()
+'abc'
+</pre>
+
+<pre class="notranslate">&gt;&gt; encodeURI('012αβγδ')
+'012%CE%B1%CE%B2%CE%B3%CE%B4'
+</pre>
+
+<pre class="notranslate">&gt;&gt; encodeURIComponent('[@?=')
+'%5B%40%3F%3D'
+</pre>
+
+<pre class="notranslate">&gt;&gt; decodeURI('012%CE%B1%CE%B2%CE%B3%CE%B4')
+'012αβγδ'
+</pre>
+
+<pre class="notranslate">&gt;&gt; decodeURIComponent('%5B%40%3F%3D')
+'[@?='
+</pre>
+
+
+
+</blockquote>
+<h4 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h4><p>   <code>JSON</code>对象（ES 5.1）提供了将njs值转换为JSON格式和从JSON格式转换的函数。 </p>
+<blockquote>
+<p><pre class="notranslate">&gt;&gt; var json = JSON.parse(‘{“a”:1, “b”:true}’)<br>&gt;&gt; json.a<br>1</pre></p>
+</blockquote>
+<p>&gt;&gt; JSON.stringify(json)<br>‘{“a”:1,”b”:true}’</p>
+<p>&gt;&gt; JSON.stringify(json, undefined, 1)<br>‘{\n “a”: 1,\n “b”: true\n}’</p>
+<p>&gt;&gt; JSON.stringify({ x: [10, undefined, function(){}] })<br>‘{“x”:[10,null,null]}’</p>
+<p>&gt;&gt; JSON.stringify({“a”:1, “toJSON”: function() {return “xxx”}})<br>‘“xxx”‘</p>
+<h1 id="Example-with-function-replacer"><a href="#Example-with-function-replacer" class="headerlink" title="Example with function replacer"></a>Example with function replacer</h1><p>&gt;&gt; function replacer(key, value) {return (typeof value === ‘string’) ? undefined : value}<br>&gt;&gt;JSON.stringify({a:1, b:”b”, c:true}, replacer)<br>‘{“a”:1,”c”:true}’<br></p>
+<h4 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h4><p>   Crypto模块提供加密功能支持。   <code>require(&#39;crypto&#39;)</code>返回Crypto模块对象。 </p>
+<h4 id="哈希"><a href="#哈希" class="headerlink" title="哈希"></a>哈希</h4><blockquote>
+<p><pre class="notranslate">&gt;&gt; var cr = require(‘crypto’)<br>undefined</pre></p>
+</blockquote>
+<p>&gt;&gt; cr.createHash(‘sha1’).update(‘A’).update(‘B’).digest(‘base64url’)<br>‘BtlFlCqiamG-GMPiK_GbvKjdK10’<br></p>
+<h4 id="HMAC"><a href="#HMAC" class="headerlink" title="HMAC"></a>HMAC</h4><blockquote>
+<p><pre class="notranslate">&gt;&gt; var cr = require(‘crypto’)<br>undefined</pre></p>
+</blockquote>
+<p>&gt;&gt; cr.createHmac(‘sha1’, ‘secret.key’).update(‘AB’).digest(‘base64url’)<br>‘Oglm93xn23_MkiaEq_e9u8zk374’<br></p>
+<h4 id="计时器"><a href="#计时器" class="headerlink" title="计时器"></a>计时器</h4><blockquote>
+<p><pre class="notranslate">function handler(v)<br>{<br>    // …<br>}</pre></p>
+</blockquote>
+<p>t = setTimeout(handler, 12);</p>
+<p>// …</p>
+<p>clearTimeout(t);<br></p>
+<h4 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h4><p>  文件系统模块提供文件操作。   <code>require(&#39;fs&#39;)</code>返回模块对象。 </p>
+<blockquote>
+<pre class="notranslate">&gt;&gt; var fs = require('fs')
+undefined
+&gt;&gt; var file = fs.readFileSync('/file/path.tar.gz')
+undefined
+&gt;&gt; var gzipped = /^\x1f\x8b/.test(file); gzipped
+true
+</pre>
+
+<pre class="notranslate">&gt;&gt; var fs = require('fs')
+undefined
+&gt;&gt; var file = fs.writeFileSync('hello.txt', 'Hello world')
+undefined
+</pre>
+
+
+
+</blockquote>
+<h4 id="文件系统标志"><a href="#文件系统标志" class="headerlink" title="文件系统标志"></a>文件系统标志</h4><p>   <code>flag</code>选项可以接受以下值： </p>
+<ul>
+<li><code>a</code> - 打开要追加的文件。  如果文件不存在，则创建该文件 -    <code>ax</code> - 与<code>a</code>相同但如果文件已存在则失败 -    <code>a+</code> - 打开一个文件进行阅读和追加。  如果该文件不存在，则将创建该文件 -    <code>ax+</code> - 与<code>a+</code>相同但如果文件已经存在则失败 -    <code>as</code> - 打开一个文件以便以同步模式追加。  如果该文件不存在，则将创建该文件 -    <code>as+</code> - 打开一个文件以便以同步模式读取和追加。  如果该文件不存在，则将创建该文件 -    <code>r</code> - 打开文件进行阅读。  如果文件不存在，则会发生异常 -    <code>r+</code> - 打开一个文件进行读写。  如果文件不存在，则会发生异常 -    <code>rs+</code> - 打开一个文件，以同步模式读写。  指示操作系统绕过本地文件系统缓存 -    <code>w</code> - 打开文件进行写作。  如果该文件不存在，则将创建该文件。  如果文件存在，则将替换它 -    <code>wx</code> - 与<code>w</code>相同但如果文件已存在则失败 -    <code>w+</code> - 打开一个文件进行读写。  如果该文件不存在，则将创建该文件。  如果文件存在，则将替换它 -    <code>wx+</code> - 与<code>w+</code>相同但如果文件已存在则失败 </li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作(*锐)！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weixin.png" alt="IM.NGINX 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="IM.NGINX 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    IM.NGINX
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://nginx.im/ngx/reference.html" title="reference-nginx中文手册">http://nginx.im/ngx/reference.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/nginx/" rel="tag"># nginx</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/ngx/ngx_google_perftools_module.html" rel="next" title="ngx_google_perftools_module-nginx中文手册">
+                <i class="fa fa-chevron-left"></i> ngx_google_perftools_module-nginx中文手册
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/ngx/switches.html" rel="prev" title="switches-nginx中文手册">
+                switches-nginx中文手册 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTg1NS84NDE5"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="IM.NGINX" />
+            
+              <p class="site-author-name" itemprop="name">IM.NGINX</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">153</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">1.</span> <span class="nav-text">参考</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#nginx对象"><span class="nav-number">1.0.1.</span> <span class="nav-text">nginx对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP请求"><span class="nav-number">1.0.2.</span> <span class="nav-text">HTTP请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#流会话"><span class="nav-number">1.0.3.</span> <span class="nav-text">流会话</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#过时的属性"><span class="nav-number">1.0.4.</span> <span class="nav-text">过时的属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#核心"><span class="nav-number">1.0.5.</span> <span class="nav-text">核心</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#串"><span class="nav-number">1.0.6.</span> <span class="nav-text">串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON"><span class="nav-number">1.0.7.</span> <span class="nav-text">JSON</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Example-with-function-replacer"><span class="nav-number"></span> <span class="nav-text">Example with function replacer</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#加密"><span class="nav-number">0.0.1.</span> <span class="nav-text">加密</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#哈希"><span class="nav-number">0.0.2.</span> <span class="nav-text">哈希</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HMAC"><span class="nav-number">0.0.3.</span> <span class="nav-text">HMAC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计时器"><span class="nav-number">0.0.4.</span> <span class="nav-text">计时器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件系统"><span class="nav-number">0.0.5.</span> <span class="nav-text">文件系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件系统标志"><span class="nav-number">0.0.6.</span> <span class="nav-text">文件系统标志</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">IM.NGINX</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+		
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
