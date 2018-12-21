@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="None">
+<meta name="description" content="dev,development_guide">
 <meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="dev&#x2F;development_guide-nginx中文手册">
 <meta property="og:url" content="http://nginx.im/ngx/dev/development_guide.html">
 <meta property="og:site_name" content="IM.NGINX">
-<meta property="og:description" content="None">
+<meta property="og:description" content="dev,development_guide">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:39:12.877Z">
+<meta property="og:updated_time" content="2018-12-21T07:44:57.100Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="dev&#x2F;development_guide-nginx中文手册">
-<meta name="twitter:description" content="None">
+<meta name="twitter:description" content="dev,development_guide">
 
 
 
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:39:56+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:45:21+08:00">
                 2018年12月21日
               </time>
             
@@ -396,7 +396,7 @@
       
 
       
-        <p>None<br><a id="more"></a></p>
+        <p>dev,development_guide<br><a id="more"></a></p>
 <h2 id="开发指南"><a href="#开发指南" class="headerlink" title="开发指南"></a>开发指南</h2><td align="left" class="notranslate"> <a href="#introduction">Introduction</a> <br>     <a href="#code_layout">Code layout</a> <br>     <a href="#include_files">Include files</a> <br>     <a href="#integers">Integers</a> <br>     <a href="#common_return_codes">Common return codes</a> <br>     <a href="#error_handling">Error handling</a> <br> <a href="#strings">Strings</a> <br>     <a href="#overview">Overview</a> <br>     <a href="#formatting">Formatting</a> <br>     <a href="#numeric_conversion">Numeric conversion</a> <br>     <a href="#regex">Regular expressions</a> <br> <a href="#time">Time</a> <br> <a href="#containers">Containers</a> <br>     <a href="#array">Array</a> <br>     <a href="#list">List</a> <br>     <a href="#queue">Queue</a> <br>     <a href="#red_black_tree">Red-Black tree</a> <br>     <a href="#hash">Hash</a> <br> <a href="#memory_management">Memory management</a> <br>     <a href="#heap">Heap</a> <br>     <a href="#pool">Pool</a> <br>     <a href="#shared_memory">Shared memory</a> <br> <a href="#logging">Logging</a> <br> <a href="#cycle">Cycle</a> <br> <a href="#buffer">Buffer</a> <br> <a href="#networking">Networking</a> <br>     <a href="#connection">Connection</a> <br> <a href="#events">Events</a> <br>     <a href="#event">Event</a> <br>     <a href="#i_o_events">I/O events</a> <br>     <a href="#timer_events">Timer events</a> <br>     <a href="#posted_events">Posted events</a> <br>     <a href="#event_loop">Event loop</a> <br> <a href="#processes">Processes</a> <br> <a href="#threads">Threads</a> <br> <a href="#Modules">Modules</a> <br>     <a href="#adding_new_modules">Adding new modules</a> <br>     <a href="#core_modules">Core Modules</a> <br>     <a href="#config_directives">Configuration Directives</a> <br> <a href="#http">HTTP</a> <br>     <a href="#http_connection">Connection</a> <br>     <a href="#http_request">Request</a> <br>     <a href="#http_conf">Configuration</a> <br>     <a href="#http_phases">Phases</a> <br>     <a href="#http_variables">Variables</a> <br>     <a href="#http_complex_values">Complex values</a> <br>     <a href="#http_request_redirection">Request redirection</a> <br>     <a href="#http_subrequests">Subrequests</a> <br>     <a href="#http_request_finalization">Request finalization</a> <br>     <a href="#http_request_body">Request body</a> <br>     <a href="#http_response">Response</a> <br>     <a href="#http_response_body">Response body</a> <br>     <a href="#http_body_filters">Body filters</a> <br>     <a href="#http_building_filter_modules">Building filter modules</a> <br>     <a href="#http_body_buffers_reuse">Buffer reuse</a> <br>     <a href="#http_load_balancing">Load balancing</a> <br> <a href="#examples">Examples</a> <br> <a href="#code_style">Code style</a> <br>     <a href="#code_style_general_rules">General rules</a> <br>     <a href="#code_style_files">Files</a> <br>     <a href="#code_style_comments">Comments</a> <br>     <a href="#code_style_preprocessor">Preprocessor</a> <br>     <a href="#code_style_types">Types</a> <br>     <a href="#code_style_variables">Variables</a> <br>     <a href="#code_style_functions">Functions</a> <br>     <a href="#code_style_expressions">Expressions</a> <br>     <a href="#code_style_conditionals_and_loops">Conditionals and Loops</a> <br>     <a href="#code_style_labels">Labels</a> <br></td>
 
 <h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><h4 id="代码布局"><a href="#代码布局" class="headerlink" title="代码布局"></a>代码布局</h4><ul>

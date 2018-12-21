@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="None">
+<meta name="description" content="http,ngx_http_proxy_module">
 <meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="http&#x2F;ngx_http_proxy_module-nginx中文手册">
 <meta property="og:url" content="http://nginx.im/ngx/http/ngx_http_proxy_module.html">
 <meta property="og:site_name" content="IM.NGINX">
-<meta property="og:description" content="None">
+<meta property="og:description" content="http,ngx_http_proxy_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:39:15.379Z">
+<meta property="og:updated_time" content="2018-12-21T07:44:59.750Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http&#x2F;ngx_http_proxy_module-nginx中文手册">
-<meta name="twitter:description" content="None">
+<meta name="twitter:description" content="http,ngx_http_proxy_module">
 
 
 
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:39:56+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:45:21+08:00">
                 2018年12月21日
               </time>
             
@@ -396,7 +396,7 @@
       
 
       
-        <p>None<br><a id="more"></a></p>
+        <p>http,ngx_http_proxy_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-proxy-module"><a href="#Module-ngx-http-proxy-module" class="headerlink" title="Module ngx_http_proxy_module"></a>Module ngx_http_proxy_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#proxy_bind">proxy_bind</a> <br>     <a href="#proxy_buffer_size">proxy_buffer_size</a> <br>     <a href="#proxy_buffering">proxy_buffering</a> <br>     <a href="#proxy_buffers">proxy_buffers</a> <br>     <a href="#proxy_busy_buffers_size">proxy_busy_buffers_size</a> <br>     <a href="#proxy_cache">proxy_cache</a> <br>     <a href="#proxy_cache_background_update">proxy_cache_background_update</a> <br>     <a href="#proxy_cache_bypass">proxy_cache_bypass</a> <br>     <a href="#proxy_cache_convert_head">proxy_cache_convert_head</a> <br>     <a href="#proxy_cache_key">proxy_cache_key</a> <br>     <a href="#proxy_cache_lock">proxy_cache_lock</a> <br>     <a href="#proxy_cache_lock_age">proxy_cache_lock_age</a> <br>     <a href="#proxy_cache_lock_timeout">proxy_cache_lock_timeout</a> <br>     <a href="#proxy_cache_max_range_offset">proxy_cache_max_range_offset</a> <br>     <a href="#proxy_cache_methods">proxy_cache_methods</a> <br>     <a href="#proxy_cache_min_uses">proxy_cache_min_uses</a> <br>     <a href="#proxy_cache_path">proxy_cache_path</a> <br>     <a href="#proxy_cache_purge">proxy_cache_purge</a> <br>     <a href="#proxy_cache_revalidate">proxy_cache_revalidate</a> <br>     <a href="#proxy_cache_use_stale">proxy_cache_use_stale</a> <br>     <a href="#proxy_cache_valid">proxy_cache_valid</a> <br>     <a href="#proxy_connect_timeout">proxy_connect_timeout</a> <br>     <a href="#proxy_cookie_domain">proxy_cookie_domain</a> <br>     <a href="#proxy_cookie_path">proxy_cookie_path</a> <br>     <a href="#proxy_force_ranges">proxy_force_ranges</a> <br>     <a href="#proxy_headers_hash_bucket_size">proxy_headers_hash_bucket_size</a> <br>     <a href="#proxy_headers_hash_max_size">proxy_headers_hash_max_size</a> <br>     <a href="#proxy_hide_header">proxy_hide_header</a> <br>     <a href="#proxy_http_version">proxy_http_version</a> <br>     <a href="#proxy_ignore_client_abort">proxy_ignore_client_abort</a> <br>     <a href="#proxy_ignore_headers">proxy_ignore_headers</a> <br>     <a href="#proxy_intercept_errors">proxy_intercept_errors</a> <br>     <a href="#proxy_limit_rate">proxy_limit_rate</a> <br>     <a href="#proxy_max_temp_file_size">proxy_max_temp_file_size</a> <br>     <a href="#proxy_method">proxy_method</a> <br>     <a href="#proxy_next_upstream">proxy_next_upstream</a> <br>     <a href="#proxy_next_upstream_timeout">proxy_next_upstream_timeout</a> <br>     <a href="#proxy_next_upstream_tries">proxy_next_upstream_tries</a> <br>     <a href="#proxy_no_cache">proxy_no_cache</a> <br>     <a href="#proxy_pass">proxy_pass</a> <br>     <a href="#proxy_pass_header">proxy_pass_header</a> <br>     <a href="#proxy_pass_request_body">proxy_pass_request_body</a> <br>     <a href="#proxy_pass_request_headers">proxy_pass_request_headers</a> <br>     <a href="#proxy_read_timeout">proxy_read_timeout</a> <br>     <a href="#proxy_redirect">proxy_redirect</a> <br>     <a href="#proxy_request_buffering">proxy_request_buffering</a> <br>     <a href="#proxy_send_lowat">proxy_send_lowat</a> <br>     <a href="#proxy_send_timeout">proxy_send_timeout</a> <br>     <a href="#proxy_set_body">proxy_set_body</a> <br>     <a href="#proxy_set_header">proxy_set_header</a> <br>     <a href="#proxy_socket_keepalive">proxy_socket_keepalive</a> <br>     <a href="#proxy_ssl_certificate">proxy_ssl_certificate</a> <br>     <a href="#proxy_ssl_certificate_key">proxy_ssl_certificate_key</a> <br>     <a href="#proxy_ssl_ciphers">proxy_ssl_ciphers</a> <br>     <a href="#proxy_ssl_crl">proxy_ssl_crl</a> <br>     <a href="#proxy_ssl_name">proxy_ssl_name</a> <br>     <a href="#proxy_ssl_password_file">proxy_ssl_password_file</a> <br>     <a href="#proxy_ssl_protocols">proxy_ssl_protocols</a> <br>     <a href="#proxy_ssl_server_name">proxy_ssl_server_name</a> <br>     <a href="#proxy_ssl_session_reuse">proxy_ssl_session_reuse</a> <br>     <a href="#proxy_ssl_trusted_certificate">proxy_ssl_trusted_certificate</a> <br>     <a href="#proxy_ssl_verify">proxy_ssl_verify</a> <br>     <a href="#proxy_ssl_verify_depth">proxy_ssl_verify_depth</a> <br>     <a href="#proxy_store">proxy_store</a> <br>     <a href="#proxy_store_access">proxy_store_access</a> <br>     <a href="#proxy_temp_file_write_size">proxy_temp_file_write_size</a> <br>     <a href="#proxy_temp_path">proxy_temp_path</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
 
 <p>   <code>ngx_http_proxy_module</code>模块允许将请求传递到另一台服务器。 </p>

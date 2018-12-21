@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="None">
+<meta name="description" content="http,ngx_http_scgi_module">
 <meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="http&#x2F;ngx_http_scgi_module-nginx中文手册">
 <meta property="og:url" content="http://nginx.im/ngx/http/ngx_http_scgi_module.html">
 <meta property="og:site_name" content="IM.NGINX">
-<meta property="og:description" content="None">
+<meta property="og:description" content="http,ngx_http_scgi_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:39:15.671Z">
+<meta property="og:updated_time" content="2018-12-21T07:45:00.144Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http&#x2F;ngx_http_scgi_module-nginx中文手册">
-<meta name="twitter:description" content="None">
+<meta name="twitter:description" content="http,ngx_http_scgi_module">
 
 
 
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:39:56+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:45:21+08:00">
                 2018年12月21日
               </time>
             
@@ -396,7 +396,7 @@
       
 
       
-        <p>None<br><a id="more"></a></p>
+        <p>http,ngx_http_scgi_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-scgi-module"><a href="#Module-ngx-http-scgi-module" class="headerlink" title="Module ngx_http_scgi_module"></a>Module ngx_http_scgi_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#scgi_bind">scgi_bind</a> <br>     <a href="#scgi_buffer_size">scgi_buffer_size</a> <br>     <a href="#scgi_buffering">scgi_buffering</a> <br>     <a href="#scgi_buffers">scgi_buffers</a> <br>     <a href="#scgi_busy_buffers_size">scgi_busy_buffers_size</a> <br>     <a href="#scgi_cache">scgi_cache</a> <br>     <a href="#scgi_cache_background_update">scgi_cache_background_update</a> <br>     <a href="#scgi_cache_bypass">scgi_cache_bypass</a> <br>     <a href="#scgi_cache_key">scgi_cache_key</a> <br>     <a href="#scgi_cache_lock">scgi_cache_lock</a> <br>     <a href="#scgi_cache_lock_age">scgi_cache_lock_age</a> <br>     <a href="#scgi_cache_lock_timeout">scgi_cache_lock_timeout</a> <br>     <a href="#scgi_cache_max_range_offset">scgi_cache_max_range_offset</a> <br>     <a href="#scgi_cache_methods">scgi_cache_methods</a> <br>     <a href="#scgi_cache_min_uses">scgi_cache_min_uses</a> <br>     <a href="#scgi_cache_path">scgi_cache_path</a> <br>     <a href="#scgi_cache_purge">scgi_cache_purge</a> <br>     <a href="#scgi_cache_revalidate">scgi_cache_revalidate</a> <br>     <a href="#scgi_cache_use_stale">scgi_cache_use_stale</a> <br>     <a href="#scgi_cache_valid">scgi_cache_valid</a> <br>     <a href="#scgi_connect_timeout">scgi_connect_timeout</a> <br>     <a href="#scgi_force_ranges">scgi_force_ranges</a> <br>     <a href="#scgi_hide_header">scgi_hide_header</a> <br>     <a href="#scgi_ignore_client_abort">scgi_ignore_client_abort</a> <br>     <a href="#scgi_ignore_headers">scgi_ignore_headers</a> <br>     <a href="#scgi_intercept_errors">scgi_intercept_errors</a> <br>     <a href="#scgi_limit_rate">scgi_limit_rate</a> <br>     <a href="#scgi_max_temp_file_size">scgi_max_temp_file_size</a> <br>     <a href="#scgi_next_upstream">scgi_next_upstream</a> <br>     <a href="#scgi_next_upstream_timeout">scgi_next_upstream_timeout</a> <br>     <a href="#scgi_next_upstream_tries">scgi_next_upstream_tries</a> <br>     <a href="#scgi_no_cache">scgi_no_cache</a> <br>     <a href="#scgi_param">scgi_param</a> <br>     <a href="#scgi_pass">scgi_pass</a> <br>     <a href="#scgi_pass_header">scgi_pass_header</a> <br>     <a href="#scgi_pass_request_body">scgi_pass_request_body</a> <br>     <a href="#scgi_pass_request_headers">scgi_pass_request_headers</a> <br>     <a href="#scgi_read_timeout">scgi_read_timeout</a> <br>     <a href="#scgi_request_buffering">scgi_request_buffering</a> <br>     <a href="#scgi_send_timeout">scgi_send_timeout</a> <br>     <a href="#scgi_socket_keepalive">scgi_socket_keepalive</a> <br>     <a href="#scgi_store">scgi_store</a> <br>     <a href="#scgi_store_access">scgi_store_access</a> <br>     <a href="#scgi_temp_file_write_size">scgi_temp_file_write_size</a> <br>     <a href="#scgi_temp_path">scgi_temp_path</a> <br></td>
 
 <p>   <code>ngx_http_scgi_module</code>模块允许将请求传递给SCGI服务器。 </p>

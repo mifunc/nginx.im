@@ -5,7 +5,7 @@
     <entry>
       <title><![CDATA[stream/stream_processing-nginx中文手册]]></title>
       <url>/ngx/stream/stream_processing.html</url>
-      <content type="html"><![CDATA[<p>stream/stream_processing<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>stream,stream_processing<br><a id="more"></a></p>
 <h2 id="nginx如何处理TCP-UDP会话"><a href="#nginx如何处理TCP-UDP会话" class="headerlink" title="nginx如何处理TCP / UDP会话"></a>nginx如何处理TCP / UDP会话</h2><p>  来自客户端的TCP / UDP会话在称为<strong>阶段的</strong>连续步骤中处理： </p>
 ]]></content>
       
@@ -27,7 +27,7 @@
     <entry>
       <title><![CDATA[stream/ngx_stream_zone_sync_module-nginx中文手册]]></title>
       <url>/ngx/stream/ngx_stream_zone_sync_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>stream,ngx_stream_zone_sync_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-stream-zone-sync-module"><a href="#Module-ngx-stream-zone-sync-module" class="headerlink" title="Module ngx_stream_zone_sync_module"></a>Module ngx_stream_zone_sync_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#zone_sync">zone_sync</a> <br>     <a href="#zone_sync_buffers">zone_sync_buffers</a> <br>     <a href="#zone_sync_connect_retry_interval">zone_sync_connect_retry_interval</a> <br>     <a href="#zone_sync_connect_timeout">zone_sync_connect_timeout</a> <br>     <a href="#zone_sync_interval">zone_sync_interval</a> <br>     <a href="#zone_sync_recv_buffer_size">zone_sync_recv_buffer_size</a> <br>     <a href="#zone_sync_server">zone_sync_server</a> <br>     <a href="#zone_sync_ssl">zone_sync_ssl</a> <br>     <a href="#zone_sync_ssl_certificate">zone_sync_ssl_certificate</a> <br>     <a href="#zone_sync_ssl_certificate_key">zone_sync_ssl_certificate_key</a> <br>     <a href="#zone_sync_ssl_ciphers">zone_sync_ssl_ciphers</a> <br>     <a href="#zone_sync_ssl_crl">zone_sync_ssl_crl</a> <br>     <a href="#zone_sync_ssl_name">zone_sync_ssl_name</a> <br>     <a href="#zone_sync_ssl_password_file">zone_sync_ssl_password_file</a> <br>     <a href="#zone_sync_ssl_protocols">zone_sync_ssl_protocols</a> <br>     <a href="#zone_sync_ssl_server_name">zone_sync_ssl_server_name</a> <br>     <a href="#zone_sync_ssl_trusted_certificate">zone_sync_ssl_trusted_certificate</a> <br>     <a href="#zone_sync_ssl_verify">zone_sync_ssl_verify</a> <br>     <a href="#zone_sync_ssl_verify_depth">zone_sync_ssl_verify_depth</a> <br>     <a href="#zone_sync_timeout">zone_sync_timeout</a> <br> <a href="#stream_zone_sync_status">API endpoints</a> <br> <a href="#controlling_cluster_node">Starting, stopping, removing a cluster node</a> <br></td>
 
 <p>   <code>ngx_stream_zone_sync_module</code>模块（1.13.8）为在集群节点之间同步<a href="ngx_stream_upstream_module.html#zone">共享内存区域的</a>内容提供必要的支持。  要为特定区域启用同步，相应的模块必须支持此功能。  目前，可以在<a href="http/ngx_http_keyval_module.html">http</a>和<a href="stream/ngx_stream_keyval_module.html">流中</a>同步HTTP <a href="http/ngx_http_upstream_module.html#sticky">粘性</a>会话，有关<a href="http/ngx_http_limit_req_module.html">过多HTTP请求的</a>信息和键值对。 </p>
@@ -210,7 +210,7 @@ server {
     <entry>
       <title><![CDATA[stream/ngx_stream_upstream_module-nginx中文手册]]></title>
       <url>/ngx/stream/ngx_stream_upstream_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>stream,ngx_stream_upstream_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-stream-upstream-module"><a href="#Module-ngx-stream-upstream-module" class="headerlink" title="Module ngx_stream_upstream_module"></a>Module ngx_stream_upstream_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#upstream">upstream</a> <br>     <a href="#server">server</a> <br>     <a href="#zone">zone</a> <br>     <a href="#state">state</a> <br>     <a href="#hash">hash</a> <br>     <a href="#least_conn">least_conn</a> <br>     <a href="#least_time">least_time</a> <br>     <a href="#random">random</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
 
 <p>   <code>ngx_stream_upstream_module</code>模块（1.9.0）用于定义可由<a href="ngx_stream_proxy_module.html#proxy_pass">proxy_pass</a>指令引用的服务器组。 </p>
@@ -375,7 +375,7 @@ state /var/db/nginx/state/servers.conf;  # path for FreeBSD
     <entry>
       <title><![CDATA[stream/ngx_stream_upstream_hc_module-nginx中文手册]]></title>
       <url>/ngx/stream/ngx_stream_upstream_hc_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>stream,ngx_stream_upstream_hc_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-stream-upstream-hc-module"><a href="#Module-ngx-stream-upstream-hc-module" class="headerlink" title="Module ngx_stream_upstream_hc_module"></a>Module ngx_stream_upstream_hc_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#health_check">health_check</a> <br>     <a href="#health_check_timeout">health_check_timeout</a> <br>     <a href="#match">match</a> <br></td>
 
 <p>   <code>ngx_stream_upstream_hc_module</code>模块（1.9.0）允许对<a href="ngx_stream_upstream_module.html#upstream">组</a>中的服务器启用定期运行状况检查。  服务器组必须驻留在<a href="ngx_stream_upstream_module.html#zone">共享内存中</a> 。 </p>
@@ -459,7 +459,7 @@ server dns3.example.com:53;
     <entry>
       <title><![CDATA[stream/ngx_stream_ssl_preread_module-nginx中文手册]]></title>
       <url>/ngx/stream/ngx_stream_ssl_preread_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>stream,ngx_stream_ssl_preread_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-stream-ssl-preread-module"><a href="#Module-ngx-stream-ssl-preread-module" class="headerlink" title="Module ngx_stream_ssl_preread_module"></a>Module ngx_stream_ssl_preread_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#ssl_preread">ssl_preread</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
 
 <p>   <code>ngx_stream_ssl_preread_module</code>模块（1.11.5）允许从<a href="https://tools.ietf.org/html/rfc5246#section-7.4.1.2" target="_blank" rel="noopener">ClientHello</a>消息中提取信息而不终止SSL / TLS，例如，通过<a href="https://tools.ietf.org/html/rfc6066#section-3" target="_blank" rel="noopener">SNI</a>请求的服务器名称或在<a href="https://tools.ietf.org/html/rfc7301" target="_blank" rel="noopener">ALPN中</a>通告的协议。  默认情况下不构建此模块，应使用<code>--with-stream_ssl_preread_module</code>配置参数启用它。 </p>
@@ -504,7 +504,7 @@ server dns3.example.com:53;
     <entry>
       <title><![CDATA[stream/ngx_stream_ssl_module-nginx中文手册]]></title>
       <url>/ngx/stream/ngx_stream_ssl_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>stream,ngx_stream_ssl_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-stream-ssl-module"><a href="#Module-ngx-stream-ssl-module" class="headerlink" title="Module ngx_stream_ssl_module"></a>Module ngx_stream_ssl_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#ssl_certificate">ssl_certificate</a> <br>     <a href="#ssl_certificate_key">ssl_certificate_key</a> <br>     <a href="#ssl_ciphers">ssl_ciphers</a> <br>     <a href="#ssl_client_certificate">ssl_client_certificate</a> <br>     <a href="#ssl_crl">ssl_crl</a> <br>     <a href="#ssl_dhparam">ssl_dhparam</a> <br>     <a href="#ssl_ecdh_curve">ssl_ecdh_curve</a> <br>     <a href="#ssl_handshake_timeout">ssl_handshake_timeout</a> <br>     <a href="#ssl_password_file">ssl_password_file</a> <br>     <a href="#ssl_prefer_server_ciphers">ssl_prefer_server_ciphers</a> <br>     <a href="#ssl_protocols">ssl_protocols</a> <br>     <a href="#ssl_session_cache">ssl_session_cache</a> <br>     <a href="#ssl_session_ticket_key">ssl_session_ticket_key</a> <br>     <a href="#ssl_session_tickets">ssl_session_tickets</a> <br>     <a href="#ssl_session_timeout">ssl_session_timeout</a> <br>     <a href="#ssl_trusted_certificate">ssl_trusted_certificate</a> <br>     <a href="#ssl_verify_client">ssl_verify_client</a> <br>     <a href="#ssl_verify_depth">ssl_verify_depth</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
 
 <p>   <code>ngx_stream_ssl_module</code>模块（1.9.0）为流代理服务器提供必要的支持，以使用SSL / TLS协议。  默认情况下不构建此模块，应使用<code>--with-stream_ssl_module</code>配置参数启用它。 </p>
@@ -728,7 +728,7 @@ ssl_session_ticket_key previous.key;
     <entry>
       <title><![CDATA[stream/ngx_stream_split_clients_module-nginx中文手册]]></title>
       <url>/ngx/stream/ngx_stream_split_clients_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>stream,ngx_stream_split_clients_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-stream-split-clients-module"><a href="#Module-ngx-stream-split-clients-module" class="headerlink" title="Module ngx_stream_split_clients_module"></a>Module ngx_stream_split_clients_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#split_clients">split_clients</a> <br></td>
 
 <p>   <code>ngx_stream_split_clients_module</code>模块（1.11.3）创建适用于A / B测试的变量，也称为拆分测试。 </p>
@@ -776,7 +776,7 @@ ssl_session_ticket_key previous.key;
     <entry>
       <title><![CDATA[stream/ngx_stream_return_module-nginx中文手册]]></title>
       <url>/ngx/stream/ngx_stream_return_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>stream,ngx_stream_return_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-stream-return-module"><a href="#Module-ngx-stream-return-module" class="headerlink" title="Module ngx_stream_return_module"></a>Module ngx_stream_return_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#return">return</a> <br></td>
 
 <p>   <code>ngx_stream_return_module</code>模块（1.11.2）允许向客户端发送指定值，然后关闭连接。 </p>
@@ -814,7 +814,7 @@ ssl_session_ticket_key previous.key;
     <entry>
       <title><![CDATA[stream/ngx_stream_realip_module-nginx中文手册]]></title>
       <url>/ngx/stream/ngx_stream_realip_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>stream,ngx_stream_realip_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-stream-realip-module"><a href="#Module-ngx-stream-realip-module" class="headerlink" title="Module ngx_stream_realip_module"></a>Module ngx_stream_realip_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#set_real_ip_from">set_real_ip_from</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
 
 <p>   <code>ngx_stream_realip_module</code>模块用于将客户端地址和端口更改为PROXY协议头（1.11.4）中发送的端口和端口。  必须先通过在<code>listen</code>指令中设置<a href="ngx_stream_core_module.html#proxy_protocol">proxy_protocol</a>参数来启用PROXY协议。 </p>
@@ -847,7 +847,7 @@ ssl_session_ticket_key previous.key;
     <entry>
       <title><![CDATA[stream/ngx_stream_proxy_module-nginx中文手册]]></title>
       <url>/ngx/stream/ngx_stream_proxy_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>stream,ngx_stream_proxy_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-stream-proxy-module"><a href="#Module-ngx-stream-proxy-module" class="headerlink" title="Module ngx_stream_proxy_module"></a>Module ngx_stream_proxy_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#proxy_bind">proxy_bind</a> <br>     <a href="#proxy_buffer_size">proxy_buffer_size</a> <br>     <a href="#proxy_connect_timeout">proxy_connect_timeout</a> <br>     <a href="#proxy_download_rate">proxy_download_rate</a> <br>     <a href="#proxy_next_upstream">proxy_next_upstream</a> <br>     <a href="#proxy_next_upstream_timeout">proxy_next_upstream_timeout</a> <br>     <a href="#proxy_next_upstream_tries">proxy_next_upstream_tries</a> <br>     <a href="#proxy_pass">proxy_pass</a> <br>     <a href="#proxy_protocol">proxy_protocol</a> <br>     <a href="#proxy_requests">proxy_requests</a> <br>     <a href="#proxy_responses">proxy_responses</a> <br>     <a href="#proxy_socket_keepalive">proxy_socket_keepalive</a> <br>     <a href="#proxy_ssl">proxy_ssl</a> <br>     <a href="#proxy_ssl_certificate">proxy_ssl_certificate</a> <br>     <a href="#proxy_ssl_certificate_key">proxy_ssl_certificate_key</a> <br>     <a href="#proxy_ssl_ciphers">proxy_ssl_ciphers</a> <br>     <a href="#proxy_ssl_crl">proxy_ssl_crl</a> <br>     <a href="#proxy_ssl_name">proxy_ssl_name</a> <br>     <a href="#proxy_ssl_password_file">proxy_ssl_password_file</a> <br>     <a href="#proxy_ssl_protocols">proxy_ssl_protocols</a> <br>     <a href="#proxy_ssl_server_name">proxy_ssl_server_name</a> <br>     <a href="#proxy_ssl_session_reuse">proxy_ssl_session_reuse</a> <br>     <a href="#proxy_ssl_trusted_certificate">proxy_ssl_trusted_certificate</a> <br>     <a href="#proxy_ssl_verify">proxy_ssl_verify</a> <br>     <a href="#proxy_ssl_verify_depth">proxy_ssl_verify_depth</a> <br>     <a href="#proxy_timeout">proxy_timeout</a> <br>     <a href="#proxy_upload_rate">proxy_upload_rate</a> <br></td>
 
 <p>   <code>ngx_stream_proxy_module</code>模块（1.9.0）允许通过TCP，UDP（1.9.13）和UNIX域套接字代理数据流。 </p>
@@ -1025,7 +1025,7 @@ ssl_session_ticket_key previous.key;
     <entry>
       <title><![CDATA[stream/ngx_stream_map_module-nginx中文手册]]></title>
       <url>/ngx/stream/ngx_stream_map_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>stream,ngx_stream_map_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-stream-map-module"><a href="#Module-ngx-stream-map-module" class="headerlink" title="Module ngx_stream_map_module"></a>Module ngx_stream_map_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#map">map</a> <br>     <a href="#map_hash_bucket_size">map_hash_bucket_size</a> <br>     <a href="#map_hash_max_size">map_hash_max_size</a> <br></td>
 
 <p>   <code>ngx_stream_map_module</code>模块（1.11.2）创建的变量的值取决于其他变量的值。 </p>
@@ -1094,7 +1094,7 @@ example.*     1;
     <entry>
       <title><![CDATA[stream/ngx_stream_log_module-nginx中文手册]]></title>
       <url>/ngx/stream/ngx_stream_log_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>stream,ngx_stream_log_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-stream-log-module"><a href="#Module-ngx-stream-log-module" class="headerlink" title="Module ngx_stream_log_module"></a>Module ngx_stream_log_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#access_log">access_log</a> <br>     <a href="#log_format">log_format</a> <br>     <a href="#open_log_file_cache">open_log_file_cache</a> <br></td>
 
 <p>   <code>ngx_stream_log_module</code>模块（1.11.4）以指定的格式写入会话日志。 </p>
@@ -1180,7 +1180,7 @@ example.*     1;
     <entry>
       <title><![CDATA[stream/ngx_stream_limit_conn_module-nginx中文手册]]></title>
       <url>/ngx/stream/ngx_stream_limit_conn_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>stream,ngx_stream_limit_conn_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-stream-limit-conn-module"><a href="#Module-ngx-stream-limit-conn-module" class="headerlink" title="Module ngx_stream_limit_conn_module"></a>Module ngx_stream_limit_conn_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#limit_conn">limit_conn</a> <br>     <a href="#limit_conn_log_level">limit_conn_log_level</a> <br>     <a href="#limit_conn_zone">limit_conn_zone</a> <br></td>
 
 <p>   <code>ngx_stream_limit_conn_module</code>模块（1.9.3）用于限制每个定义密钥的连接数，特别是来自单个IP地址的连接数。 </p>
@@ -1242,7 +1242,7 @@ server {
     <entry>
       <title><![CDATA[stream/ngx_stream_keyval_module-nginx中文手册]]></title>
       <url>/ngx/stream/ngx_stream_keyval_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>stream,ngx_stream_keyval_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-stream-keyval-module"><a href="#Module-ngx-stream-keyval-module" class="headerlink" title="Module ngx_stream_keyval_module"></a>Module ngx_stream_keyval_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#keyval">keyval</a> <br>     <a href="#keyval_zone">keyval_zone</a> <br></td>
 
 <p>   <code>ngx_stream_keyval_module</code>模块（1.13.7）创建的变量的值取自<a href="http/ngx_http_api_module.html#stream_keyvals_">API</a>管理的键值对。 </p>
@@ -1301,7 +1301,7 @@ server {
     <entry>
       <title><![CDATA[stream/ngx_stream_js_module-nginx中文手册]]></title>
       <url>/ngx/stream/ngx_stream_js_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>stream,ngx_stream_js_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-stream-js-module"><a href="#Module-ngx-stream-js-module" class="headerlink" title="Module ngx_stream_js_module"></a>Module ngx_stream_js_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#js_access">js_access</a> <br>     <a href="#js_filter">js_filter</a> <br>     <a href="#js_include">js_include</a> <br>     <a href="#js_preread">js_preread</a> <br>     <a href="#js_set">js_set</a> <br> <a href="#properties">Session Object Properties</a> <br></td>
 
 <p>   <code>ngx_stream_js_module</code>模块用于在<a href="njs/index.html">njs中</a>实现处理程序 - 这是JavaScript语言的一个子集。 </p>
@@ -1383,7 +1383,7 @@ server {
     <entry>
       <title><![CDATA[stream/ngx_stream_geo_module-nginx中文手册]]></title>
       <url>/ngx/stream/ngx_stream_geo_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>stream,ngx_stream_geo_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-stream-geo-module"><a href="#Module-ngx-stream-geo-module" class="headerlink" title="Module ngx_stream_geo_module"></a>Module ngx_stream_geo_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#geo">geo</a> <br></td>
 
 <p>   <code>ngx_stream_geo_module</code>模块（1.11.3）使用取决于客户端IP地址的值创建变量。 </p>
@@ -1473,7 +1473,7 @@ server {
     <entry>
       <title><![CDATA[stream/ngx_stream_geoip_module-nginx中文手册]]></title>
       <url>/ngx/stream/ngx_stream_geoip_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>stream,ngx_stream_geoip_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-stream-geoip-module"><a href="#Module-ngx-stream-geoip-module" class="headerlink" title="Module ngx_stream_geoip_module"></a>Module ngx_stream_geoip_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#geoip_country">geoip_country</a> <br>     <a href="#geoip_city">geoip_city</a> <br>     <a href="#geoip_org">geoip_org</a> <br></td>
 
 <p>   <code>ngx_stream_geoip_module</code>模块（1.11.3）使用预编译的<a href="http://www.maxmind.com" target="_blank" rel="noopener">MaxMind</a>数据库创建具有取决于客户端IP地址的值的变量。 </p>
@@ -1527,7 +1527,7 @@ server {
     <entry>
       <title><![CDATA[stream/ngx_stream_core_module-nginx中文手册]]></title>
       <url>/ngx/stream/ngx_stream_core_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>stream,ngx_stream_core_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-stream-core-module"><a href="#Module-ngx-stream-core-module" class="headerlink" title="Module ngx_stream_core_module"></a>Module ngx_stream_core_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#listen">listen</a> <br>     <a href="#preread_buffer_size">preread_buffer_size</a> <br>     <a href="#preread_timeout">preread_timeout</a> <br>     <a href="#proxy_protocol_timeout">proxy_protocol_timeout</a> <br>     <a href="#resolver">resolver</a> <br>     <a href="#resolver_timeout">resolver_timeout</a> <br>     <a href="#server">server</a> <br>     <a href="#stream">stream</a> <br>     <a href="#tcp_nodelay">tcp_nodelay</a> <br>     <a href="#variables_hash_bucket_size">variables_hash_bucket_size</a> <br>     <a href="#variables_hash_max_size">variables_hash_max_size</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
 
 <p>   <code>ngx_stream_core_module</code>模块自版本1.9.0起可用。  默认情况下不构建此模块，应使用<code>--with-stream</code>配置参数启用它。 </p>
@@ -1703,7 +1703,7 @@ listen [::]:12345;
     <entry>
       <title><![CDATA[stream/ngx_stream_access_module-nginx中文手册]]></title>
       <url>/ngx/stream/ngx_stream_access_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>stream,ngx_stream_access_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-stream-access-module"><a href="#Module-ngx-stream-access-module" class="headerlink" title="Module ngx_stream_access_module"></a>Module ngx_stream_access_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#allow">allow</a> <br>     <a href="#deny">deny</a> <br></td>
 
 <p>   <code>ngx_stream_access_module</code>模块（1.9.2）允许限制对某些客户端地址的访问。 </p>
@@ -1750,7 +1750,7 @@ listen [::]:12345;
     <entry>
       <title><![CDATA[njs/install-nginx中文手册]]></title>
       <url>/ngx/njs/install.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>njs,install<br><a id="more"></a></p>
 <h2 id="下载并安装"><a href="#下载并安装" class="headerlink" title="下载并安装"></a>下载并安装</h2><td align="left" class="notranslate"> <a href="#install_package">Installing as a Linux package</a> <br> <a href="#install_sources">Building from the sources</a> <br></td>
 
 <h4 id="作为Linux软件包安装"><a href="#作为Linux软件包安装" class="headerlink" title="作为Linux软件包安装"></a>作为Linux软件包安装</h4><p>  对于Linux，可以使用njs模块<a href="linux_packages.html#dynmodules">包</a> ： </p>
@@ -1798,7 +1798,7 @@ listen [::]:12345;
     <entry>
       <title><![CDATA[njs/index-nginx中文手册]]></title>
       <url>/ngx/njs/index.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>njs,index<br><a id="more"></a></p>
 <h2 id="njs脚本语言"><a href="#njs脚本语言" class="headerlink" title="njs脚本语言"></a>njs脚本语言</h2><p>   njs是JavaScript语言的一个子集，允许扩展nginx功能。   njs是根据<a href="http://www.ecma-international.org/ecma-262/5.1/" target="_blank" rel="noopener">ECMAScript 5.1</a> （严格模式）创建的，带有一些<a href="http://www.ecma-international.org/ecma-262/6.0/" target="_blank" rel="noopener">ECMAScript 6</a>及更高版本的扩展。  合规性仍在<a href="compatibility.html">不断发展</a> 。 </p>
 <ul>
 <li><a href="install.html">下载并安装</a> -    <a href="changes.html">变化</a> -    <a href="reference.html">参考</a> -    <a href="examples.html">例子</a> -    <a href="compatibility.html">兼容性</a> -    <a href="cli.html">命令行界面</a> </li>
@@ -1859,7 +1859,7 @@ listen [::]:12345;
     <entry>
       <title><![CDATA[njs/examples-nginx中文手册]]></title>
       <url>/ngx/njs/examples.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>njs,examples<br><a id="more"></a></p>
 <h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><td align="left" class="notranslate"> <a href="#helloword">Hello World</a> <br> <a href="#urldecode">URL Decoding</a> <br> <a href="#urlencode">URL Encoding</a> <br> <a href="#redirect">Internal Redirect</a> <br> <a href="#fast_response">Returning Fastest Response from Proxy</a> <br> <a href="#jwt">Creating HS JWT</a> <br> <a href="#subrequest">Accessing API from a Subrequest</a> <br> <a href="#secure_link">Creating secure_link Hash</a> <br> <a href="#legacy">Legacy Examples</a> <br>     <a href="#legacy_stream">Injecting HTTP header using stream proxy</a> <br></td>
 
 <h4 id="你好，世界"><a href="#你好，世界" class="headerlink" title="你好，世界"></a>你好，世界</h4><p>   <code>nginx.conf</code> ： </p>
@@ -2106,7 +2106,7 @@ if (n != -1) {
     <entry>
       <title><![CDATA[mail/ngx_mail_ssl_module-nginx中文手册]]></title>
       <url>/ngx/mail/ngx_mail_ssl_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>mail,ngx_mail_ssl_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-mail-ssl-module"><a href="#Module-ngx-mail-ssl-module" class="headerlink" title="Module ngx_mail_ssl_module"></a>Module ngx_mail_ssl_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#ssl">ssl</a> <br>     <a href="#ssl_certificate">ssl_certificate</a> <br>     <a href="#ssl_certificate_key">ssl_certificate_key</a> <br>     <a href="#ssl_ciphers">ssl_ciphers</a> <br>     <a href="#ssl_client_certificate">ssl_client_certificate</a> <br>     <a href="#ssl_crl">ssl_crl</a> <br>     <a href="#ssl_dhparam">ssl_dhparam</a> <br>     <a href="#ssl_ecdh_curve">ssl_ecdh_curve</a> <br>     <a href="#ssl_password_file">ssl_password_file</a> <br>     <a href="#ssl_prefer_server_ciphers">ssl_prefer_server_ciphers</a> <br>     <a href="#ssl_protocols">ssl_protocols</a> <br>     <a href="#ssl_session_cache">ssl_session_cache</a> <br>     <a href="#ssl_session_ticket_key">ssl_session_ticket_key</a> <br>     <a href="#ssl_session_tickets">ssl_session_tickets</a> <br>     <a href="#ssl_session_timeout">ssl_session_timeout</a> <br>     <a href="#ssl_trusted_certificate">ssl_trusted_certificate</a> <br>     <a href="#ssl_verify_client">ssl_verify_client</a> <br>     <a href="#ssl_verify_depth">ssl_verify_depth</a> <br>     <a href="#starttls">starttls</a> <br></td>
 
 <p>   <code>ngx_mail_ssl_module</code>模块为邮件代理服务器提供必要的支持，以使用SSL / TLS协议。 </p>
@@ -2333,7 +2333,7 @@ ssl_session_ticket_key previous.key;
     <entry>
       <title><![CDATA[mail/ngx_mail_smtp_module-nginx中文手册]]></title>
       <url>/ngx/mail/ngx_mail_smtp_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>mail,ngx_mail_smtp_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-mail-smtp-module"><a href="#Module-ngx-mail-smtp-module" class="headerlink" title="Module ngx_mail_smtp_module"></a>Module ngx_mail_smtp_module</h2><td align="left" class="notranslate"> <a href="#directives">Directives</a> <br>     <a href="#smtp_auth">smtp_auth</a> <br>     <a href="#smtp_capabilities">smtp_capabilities</a> <br>     <a href="#smtp_client_buffer">smtp_client_buffer</a> <br>     <a href="#smtp_greeting_delay">smtp_greeting_delay</a> <br></td>
 
 <h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**smtp_auth** &lt;code class=&quot;notranslate&quot;&gt;*method*</code> …; <br>                </td></p>
@@ -2374,7 +2374,7 @@ ssl_session_ticket_key previous.key;
     <entry>
       <title><![CDATA[mail/ngx_mail_proxy_module-nginx中文手册]]></title>
       <url>/ngx/mail/ngx_mail_proxy_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>mail,ngx_mail_proxy_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-mail-proxy-module"><a href="#Module-ngx-mail-proxy-module" class="headerlink" title="Module ngx_mail_proxy_module"></a>Module ngx_mail_proxy_module</h2><td align="left" class="notranslate"> <a href="#directives">Directives</a> <br>     <a href="#proxy_buffer">proxy_buffer</a> <br>     <a href="#proxy_pass_error_message">proxy_pass_error_message</a> <br>     <a href="#proxy_timeout">proxy_timeout</a> <br>     <a href="#xclient">xclient</a> <br></td>
 
 <h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_buffer** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br>                </td></p>
@@ -2421,7 +2421,7 @@ ssl_session_ticket_key previous.key;
     <entry>
       <title><![CDATA[mail/ngx_mail_pop3_module-nginx中文手册]]></title>
       <url>/ngx/mail/ngx_mail_pop3_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>mail,ngx_mail_pop3_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-mail-pop3-module"><a href="#Module-ngx-mail-pop3-module" class="headerlink" title="Module ngx_mail_pop3_module"></a>Module ngx_mail_pop3_module</h2><td align="left" class="notranslate"> <a href="#directives">Directives</a> <br>     <a href="#pop3_auth">pop3_auth</a> <br>     <a href="#pop3_capabilities">pop3_capabilities</a> <br></td>
 
 <h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**pop3_auth** &lt;code class=&quot;notranslate&quot;&gt;*method*</code> …; <br>                </td></p>
@@ -2454,7 +2454,7 @@ ssl_session_ticket_key previous.key;
     <entry>
       <title><![CDATA[mail/ngx_mail_imap_module-nginx中文手册]]></title>
       <url>/ngx/mail/ngx_mail_imap_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>mail,ngx_mail_imap_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-mail-imap-module"><a href="#Module-ngx-mail-imap-module" class="headerlink" title="Module ngx_mail_imap_module"></a>Module ngx_mail_imap_module</h2><td align="left" class="notranslate"> <a href="#directives">Directives</a> <br>     <a href="#imap_auth">imap_auth</a> <br>     <a href="#imap_capabilities">imap_capabilities</a> <br>     <a href="#imap_client_buffer">imap_client_buffer</a> <br></td>
 
 <h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**imap_auth** &lt;code class=&quot;notranslate&quot;&gt;*method*</code> …; <br>                </td></p>
@@ -2491,7 +2491,7 @@ ssl_session_ticket_key previous.key;
     <entry>
       <title><![CDATA[mail/ngx_mail_core_module-nginx中文手册]]></title>
       <url>/ngx/mail/ngx_mail_core_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>mail,ngx_mail_core_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-mail-core-module"><a href="#Module-ngx-mail-core-module" class="headerlink" title="Module ngx_mail_core_module"></a>Module ngx_mail_core_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#listen">listen</a> <br>     <a href="#mail">mail</a> <br>     <a href="#protocol">protocol</a> <br>     <a href="#resolver">resolver</a> <br>     <a href="#resolver_timeout">resolver_timeout</a> <br>     <a href="#server">server</a> <br>     <a href="#server_name">server_name</a> <br>     <a href="#timeout">timeout</a> <br></td>
 
 <p>  默认情况下不构建此模块，应使用<code>--with-mail</code>配置参数启用它。 </p>
@@ -2645,7 +2645,7 @@ listen [::]:110;
     <entry>
       <title><![CDATA[mail/ngx_mail_auth_http_module-nginx中文手册]]></title>
       <url>/ngx/mail/ngx_mail_auth_http_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>mail,ngx_mail_auth_http_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-mail-auth-http-module"><a href="#Module-ngx-mail-auth-http-module" class="headerlink" title="Module ngx_mail_auth_http_module"></a>Module ngx_mail_auth_http_module</h2><td align="left" class="notranslate"> <a href="#directives">Directives</a> <br>     <a href="#auth_http">auth_http</a> <br>     <a href="#auth_http_header">auth_http_header</a> <br>     <a href="#auth_http_pass_client_cert">auth_http_pass_client_cert</a> <br>     <a href="#auth_http_timeout">auth_http_timeout</a> <br> <a href="#protocol">Protocol</a> <br></td>
 
 <h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**auth_http** &lt;code class=&quot;notranslate&quot;&gt;*URL*</code> ; <br>                </td></p>
@@ -2819,7 +2819,7 @@ Auth-SSL-Fingerprint: 29d6a80a123d13355ed16b4b04605e29cb55a5ad
     <entry>
       <title><![CDATA[http/websocket-nginx中文手册]]></title>
       <url>/ngx/http/websocket.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,websocket<br><a id="more"></a></p>
 <h2 id="WebSocket代理"><a href="#WebSocket代理" class="headerlink" title="WebSocket代理"></a>WebSocket代理</h2><p>  要将客户端和服务器之间的连接从HTTP / 1.1转换为WebSocket，请使用HTTP / 1.1中提供的<a href="https://tools.ietf.org/html/rfc2616#section-14.42" target="_blank" rel="noopener">协议交换</a>机制。 </p>
 <p>  然而，有一个微妙之处：由于“升级”是<a href="https://tools.ietf.org/html/rfc2616#section-13.5.1" target="_blank" rel="noopener">逐跳</a>标头，因此它不会从客户端传递到代理服务器。  使用正向代理，客户端可以使用<code>CONNECT</code>方法来规避此问题。  但是，这不适用于反向代理，因为客户端不知道任何代理服务器，并且需要在代理服务器上进行特殊处理。 </p>
 <p>  从版本1.3.13开始，nginx实现了特殊的操作模式，如果代理服务器返回带有代码101（交换协议）的响应，则允许在客户端和代理服务器之间建立隧道，并且客户端要求通过请求中的“升级”标头。 </p>
@@ -2870,7 +2870,7 @@ Auth-SSL-Fingerprint: 29d6a80a123d13355ed16b4b04605e29cb55a5ad
     <entry>
       <title><![CDATA[http/server_names-nginx中文手册]]></title>
       <url>/ngx/http/server_names.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,server_names<br><a id="more"></a></p>
 <h2 id="服务器名称"><a href="#服务器名称" class="headerlink" title="服务器名称"></a>服务器名称</h2><td align="left" class="notranslate"> <a href="#wildcard_names">Wildcard names</a> <br> <a href="#regex_names">Regular expressions names</a> <br> <a href="#miscellaneous_names">Miscellaneous names</a> <br> <a href="#idn">Internationalized names</a> <br> <a href="#optimization">Optimization</a> <br> <a href="#compatibility">Compatibility</a> <br></td>
 
 <p>  服务器名称使用<a href="ngx_http_core_module.html#server_name">server_name</a>指令定义，并确定用于给定请求的<a href="ngx_http_core_module.html#server">服务器</a>块。  另请参阅“ <a href="request_processing.html">nginx如何处理请求</a> ”。  可以使用确切名称，通配符名称或正则表达式来定义它们： </p>
@@ -3071,7 +3071,7 @@ or server_names_hash_bucket_size: 32
     <entry>
       <title><![CDATA[http/request_processing-nginx中文手册]]></title>
       <url>/ngx/http/request_processing.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,request_processing<br><a id="more"></a></p>
 <h2 id="nginx如何处理请求"><a href="#nginx如何处理请求" class="headerlink" title="nginx如何处理请求"></a>nginx如何处理请求</h2><td align="left" class="notranslate"> <a href="#how_to_prevent_undefined_server_names">How to prevent processing requests with undefined server names</a> <br> <a href="#mixed_name_ip_based_servers">Mixed name-based and IP-based virtual servers</a> <br> <a href="#simple_php_site_configuration">A simple PHP site configuration</a> <br></td>
 
 <h4 id="基于名称的虚拟服务器"><a href="#基于名称的虚拟服务器" class="headerlink" title="基于名称的虚拟服务器"></a>基于名称的虚拟服务器</h4><p>   nginx首先决定哪个<em>服务器</em>应该处理请求。  让我们从一个简单的配置开始，其中所有三个虚拟服务器都在端口*：80上侦听： </p>
@@ -3184,7 +3184,7 @@ location ~ \.php$ {
     <entry>
       <title><![CDATA[http/ngx_http_xslt_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_xslt_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_xslt_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-xslt-module"><a href="#Module-ngx-http-xslt-module" class="headerlink" title="Module ngx_http_xslt_module"></a>Module ngx_http_xslt_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#xml_entities">xml_entities</a> <br>     <a href="#xslt_last_modified">xslt_last_modified</a> <br>     <a href="#xslt_param">xslt_param</a> <br>     <a href="#xslt_string_param">xslt_string_param</a> <br>     <a href="#xslt_stylesheet">xslt_stylesheet</a> <br>     <a href="#xslt_types">xslt_types</a> <br></td>
 
 <p>   <code>ngx_http_xslt_module</code> （0.7.8+）是一个使用一个或多个XSLT样式表转换XML响应的过滤器。 </p>
@@ -3281,7 +3281,7 @@ location ~ \.php$ {
     <entry>
       <title><![CDATA[http/ngx_http_v2_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_v2_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_v2_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-v2-module"><a href="#Module-ngx-http-v2-module" class="headerlink" title="Module ngx_http_v2_module"></a>Module ngx_http_v2_module</h2><td align="left" class="notranslate"> <a href="#issues">Known Issues</a> <br> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#http2_body_preread_size">http2_body_preread_size</a> <br>     <a href="#http2_chunk_size">http2_chunk_size</a> <br>     <a href="#http2_idle_timeout">http2_idle_timeout</a> <br>     <a href="#http2_max_concurrent_pushes">http2_max_concurrent_pushes</a> <br>     <a href="#http2_max_concurrent_streams">http2_max_concurrent_streams</a> <br>     <a href="#http2_max_field_size">http2_max_field_size</a> <br>     <a href="#http2_max_header_size">http2_max_header_size</a> <br>     <a href="#http2_max_requests">http2_max_requests</a> <br>     <a href="#http2_push">http2_push</a> <br>     <a href="#http2_push_preload">http2_push_preload</a> <br>     <a href="#http2_recv_buffer_size">http2_recv_buffer_size</a> <br>     <a href="#http2_recv_timeout">http2_recv_timeout</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
 
 <p>   <code>ngx_http_v2_module</code>模块（1.9.5）提供对<a href="https://tools.ietf.org/html/rfc7540" target="_blank" rel="noopener">HTTP / 2的</a>支持并取代<a href="ngx_http_spdy_module.html">ngx_http_spdy_module</a>模块。 </p>
@@ -3376,7 +3376,7 @@ ssl_certificate_key server.key;
     <entry>
       <title><![CDATA[http/ngx_http_uwsgi_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_uwsgi_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_uwsgi_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-uwsgi-module"><a href="#Module-ngx-http-uwsgi-module" class="headerlink" title="Module ngx_http_uwsgi_module"></a>Module ngx_http_uwsgi_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#uwsgi_bind">uwsgi_bind</a> <br>     <a href="#uwsgi_buffer_size">uwsgi_buffer_size</a> <br>     <a href="#uwsgi_buffering">uwsgi_buffering</a> <br>     <a href="#uwsgi_buffers">uwsgi_buffers</a> <br>     <a href="#uwsgi_busy_buffers_size">uwsgi_busy_buffers_size</a> <br>     <a href="#uwsgi_cache">uwsgi_cache</a> <br>     <a href="#uwsgi_cache_background_update">uwsgi_cache_background_update</a> <br>     <a href="#uwsgi_cache_bypass">uwsgi_cache_bypass</a> <br>     <a href="#uwsgi_cache_key">uwsgi_cache_key</a> <br>     <a href="#uwsgi_cache_lock">uwsgi_cache_lock</a> <br>     <a href="#uwsgi_cache_lock_age">uwsgi_cache_lock_age</a> <br>     <a href="#uwsgi_cache_lock_timeout">uwsgi_cache_lock_timeout</a> <br>     <a href="#uwsgi_cache_max_range_offset">uwsgi_cache_max_range_offset</a> <br>     <a href="#uwsgi_cache_methods">uwsgi_cache_methods</a> <br>     <a href="#uwsgi_cache_min_uses">uwsgi_cache_min_uses</a> <br>     <a href="#uwsgi_cache_path">uwsgi_cache_path</a> <br>     <a href="#uwsgi_cache_purge">uwsgi_cache_purge</a> <br>     <a href="#uwsgi_cache_revalidate">uwsgi_cache_revalidate</a> <br>     <a href="#uwsgi_cache_use_stale">uwsgi_cache_use_stale</a> <br>     <a href="#uwsgi_cache_valid">uwsgi_cache_valid</a> <br>     <a href="#uwsgi_connect_timeout">uwsgi_connect_timeout</a> <br>     <a href="#uwsgi_force_ranges">uwsgi_force_ranges</a> <br>     <a href="#uwsgi_hide_header">uwsgi_hide_header</a> <br>     <a href="#uwsgi_ignore_client_abort">uwsgi_ignore_client_abort</a> <br>     <a href="#uwsgi_ignore_headers">uwsgi_ignore_headers</a> <br>     <a href="#uwsgi_intercept_errors">uwsgi_intercept_errors</a> <br>     <a href="#uwsgi_limit_rate">uwsgi_limit_rate</a> <br>     <a href="#uwsgi_max_temp_file_size">uwsgi_max_temp_file_size</a> <br>     <a href="#uwsgi_modifier1">uwsgi_modifier1</a> <br>     <a href="#uwsgi_modifier2">uwsgi_modifier2</a> <br>     <a href="#uwsgi_next_upstream">uwsgi_next_upstream</a> <br>     <a href="#uwsgi_next_upstream_timeout">uwsgi_next_upstream_timeout</a> <br>     <a href="#uwsgi_next_upstream_tries">uwsgi_next_upstream_tries</a> <br>     <a href="#uwsgi_no_cache">uwsgi_no_cache</a> <br>     <a href="#uwsgi_param">uwsgi_param</a> <br>     <a href="#uwsgi_pass">uwsgi_pass</a> <br>     <a href="#uwsgi_pass_header">uwsgi_pass_header</a> <br>     <a href="#uwsgi_pass_request_body">uwsgi_pass_request_body</a> <br>     <a href="#uwsgi_pass_request_headers">uwsgi_pass_request_headers</a> <br>     <a href="#uwsgi_read_timeout">uwsgi_read_timeout</a> <br>     <a href="#uwsgi_request_buffering">uwsgi_request_buffering</a> <br>     <a href="#uwsgi_send_timeout">uwsgi_send_timeout</a> <br>     <a href="#uwsgi_socket_keepalive">uwsgi_socket_keepalive</a> <br>     <a href="#uwsgi_ssl_certificate">uwsgi_ssl_certificate</a> <br>     <a href="#uwsgi_ssl_certificate_key">uwsgi_ssl_certificate_key</a> <br>     <a href="#uwsgi_ssl_ciphers">uwsgi_ssl_ciphers</a> <br>     <a href="#uwsgi_ssl_crl">uwsgi_ssl_crl</a> <br>     <a href="#uwsgi_ssl_name">uwsgi_ssl_name</a> <br>     <a href="#uwsgi_ssl_password_file">uwsgi_ssl_password_file</a> <br>     <a href="#uwsgi_ssl_protocols">uwsgi_ssl_protocols</a> <br>     <a href="#uwsgi_ssl_server_name">uwsgi_ssl_server_name</a> <br>     <a href="#uwsgi_ssl_session_reuse">uwsgi_ssl_session_reuse</a> <br>     <a href="#uwsgi_ssl_trusted_certificate">uwsgi_ssl_trusted_certificate</a> <br>     <a href="#uwsgi_ssl_verify">uwsgi_ssl_verify</a> <br>     <a href="#uwsgi_ssl_verify_depth">uwsgi_ssl_verify_depth</a> <br>     <a href="#uwsgi_store">uwsgi_store</a> <br>     <a href="#uwsgi_store_access">uwsgi_store_access</a> <br>     <a href="#uwsgi_temp_file_write_size">uwsgi_temp_file_write_size</a> <br>     <a href="#uwsgi_temp_path">uwsgi_temp_path</a> <br></td>
 
 <p>   <code>ngx_http_uwsgi_module</code>模块允许将请求传递给uwsgi服务器。 </p>
@@ -3863,7 +3863,7 @@ alias              /data/www/;
     <entry>
       <title><![CDATA[http/ngx_http_userid_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_userid_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_userid_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-userid-module"><a href="#Module-ngx-http-userid-module" class="headerlink" title="Module ngx_http_userid_module"></a>Module ngx_http_userid_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#userid">userid</a> <br>     <a href="#userid_domain">userid_domain</a> <br>     <a href="#userid_expires">userid_expires</a> <br>     <a href="#userid_mark">userid_mark</a> <br>     <a href="#userid_name">userid_name</a> <br>     <a href="#userid_p3p">userid_p3p</a> <br>     <a href="#userid_path">userid_path</a> <br>     <a href="#userid_service">userid_service</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
 
 <p>   <code>ngx_http_userid_module</code>模块设置适合客户端识别的cookie。  可以使用嵌入变量<a href="#var_uid_got">$ uid_got</a>和<a href="#var_uid_set">$ uid_set</a>记录已接收和设置的cookie。  该模块与Apache的<a href="http://www.lexa.ru/programs/mod-uid-eng.html" target="_blank" rel="noopener">mod_uid</a>模块兼容。 </p>
@@ -3933,7 +3933,7 @@ userid_p3p     'policyref="/w3c/p3p.xml", CP="CUR ADM OUR NOR STA NID"';
     <entry>
       <title><![CDATA[http/ngx_http_upstream_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_upstream_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_upstream_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-upstream-module"><a href="#Module-ngx-http-upstream-module" class="headerlink" title="Module ngx_http_upstream_module"></a>Module ngx_http_upstream_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#upstream">upstream</a> <br>     <a href="#server">server</a> <br>     <a href="#zone">zone</a> <br>     <a href="#state">state</a> <br>     <a href="#hash">hash</a> <br>     <a href="#ip_hash">ip_hash</a> <br>     <a href="#keepalive">keepalive</a> <br>     <a href="#keepalive_requests">keepalive_requests</a> <br>     <a href="#keepalive_timeout">keepalive_timeout</a> <br>     <a href="#ntlm">ntlm</a> <br>     <a href="#least_conn">least_conn</a> <br>     <a href="#least_time">least_time</a> <br>     <a href="#queue">queue</a> <br>     <a href="#random">random</a> <br>     <a href="#sticky">sticky</a> <br>     <a href="#sticky_cookie_insert">sticky_cookie_insert</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
 
 <p>   <code>ngx_http_upstream_module</code>模块用于定义可由<a href="ngx_http_proxy_module.html#proxy_pass">proxy_pass</a> ， <a href="ngx_http_fastcgi_module.html#fastcgi_pass">fastcgi_pass</a> ， <a href="ngx_http_uwsgi_module.html#uwsgi_pass">uwsgi_pass</a> ， <a href="ngx_http_scgi_module.html#scgi_pass">scgi_pass</a> ， <a href="ngx_http_memcached_module.html#memcached_pass">memcached_pa​​ss</a>和<a href="ngx_http_grpc_module.html#grpc_pass">grpc_pass</a>指令引用的服务器组。 </p>
@@ -4264,7 +4264,7 @@ server backend4.example.com;
     <entry>
       <title><![CDATA[http/ngx_http_upstream_hc_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_upstream_hc_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_upstream_hc_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-upstream-hc-module"><a href="#Module-ngx-http-upstream-hc-module" class="headerlink" title="Module ngx_http_upstream_hc_module"></a>Module ngx_http_upstream_hc_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#health_check">health_check</a> <br>     <a href="#match">match</a> <br></td>
 
 <p>   <code>ngx_http_upstream_hc_module</code>模块允许对周围位置中引用的<a href="ngx_http_upstream_module.html#upstream">组</a>中的服务器进行定期运行状况检查。  服务器组必须驻留在<a href="ngx_http_upstream_module.html#zone">共享内存中</a> 。 </p>
@@ -4364,7 +4364,7 @@ match server_ok {
     <entry>
       <title><![CDATA[http/ngx_http_upstream_conf_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_upstream_conf_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_upstream_conf_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-upstream-conf-module"><a href="#Module-ngx-http-upstream-conf-module" class="headerlink" title="Module ngx_http_upstream_conf_module"></a>Module ngx_http_upstream_conf_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#upstream_conf">upstream_conf</a> <br></td>
 
 <p>   <code>ngx_http_upstream_conf_module</code>模块允许通过简单的HTTP接口即时配置上游服务器组，而无需重新启动nginx。   <a href="ngx_http_upstream_module.html#zone">http</a>或<a href="stream/ngx_stream_upstream_module.html#zone">流</a>服务器组必须驻留在共享内存中。 </p>
@@ -4480,7 +4480,7 @@ match server_ok {
     <entry>
       <title><![CDATA[http/ngx_http_sub_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_sub_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_sub_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-sub-module"><a href="#Module-ngx-http-sub-module" class="headerlink" title="Module ngx_http_sub_module"></a>Module ngx_http_sub_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#sub_filter">sub_filter</a> <br>     <a href="#sub_filter_last_modified">sub_filter_last_modified</a> <br>     <a href="#sub_filter_once">sub_filter_once</a> <br>     <a href="#sub_filter_types">sub_filter_types</a> <br></td>
 
 <p>   <code>ngx_http_sub_module</code>模块是一个过滤器，它通过将一个指定的字符串替换为另一个来修改响应。 </p>
@@ -4534,7 +4534,7 @@ match server_ok {
     <entry>
       <title><![CDATA[http/ngx_http_stub_status_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_stub_status_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_stub_status_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-stub-status-module"><a href="#Module-ngx-http-stub-status-module" class="headerlink" title="Module ngx_http_stub_status_module"></a>Module ngx_http_stub_status_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#stub_status">stub_status</a> <br> <a href="#data">Data</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
 
 <p>   <code>ngx_http_stub_status_module</code>模块提供对基本状态信息的访问。 </p>
@@ -4586,7 +4586,7 @@ Reading: 6 Writing: 179 Waiting: 106
     <entry>
       <title><![CDATA[http/ngx_http_status_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_status_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_status_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-status-module"><a href="#Module-ngx-http-status-module" class="headerlink" title="Module ngx_http_status_module"></a>Module ngx_http_status_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#status">status</a> <br>     <a href="#status_format">status_format</a> <br>     <a href="#status_zone">status_zone</a> <br> <a href="#data">Data</a> <br> <a href="#compatibility">Compatibility</a> <br></td>
 
 <p>   <code>ngx_http_status_module</code>模块提供对各种状态信息的访问。 </p>
@@ -4699,7 +4699,7 @@ http://127.0.0.1/status/stream/upstreams/backend/peers/1/weight
     <entry>
       <title><![CDATA[http/ngx_http_ssl_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_ssl_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_ssl_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-ssl-module"><a href="#Module-ngx-http-ssl-module" class="headerlink" title="Module ngx_http_ssl_module"></a>Module ngx_http_ssl_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#ssl">ssl</a> <br>     <a href="#ssl_buffer_size">ssl_buffer_size</a> <br>     <a href="#ssl_certificate">ssl_certificate</a> <br>     <a href="#ssl_certificate_key">ssl_certificate_key</a> <br>     <a href="#ssl_ciphers">ssl_ciphers</a> <br>     <a href="#ssl_client_certificate">ssl_client_certificate</a> <br>     <a href="#ssl_crl">ssl_crl</a> <br>     <a href="#ssl_dhparam">ssl_dhparam</a> <br>     <a href="#ssl_early_data">ssl_early_data</a> <br>     <a href="#ssl_ecdh_curve">ssl_ecdh_curve</a> <br>     <a href="#ssl_password_file">ssl_password_file</a> <br>     <a href="#ssl_prefer_server_ciphers">ssl_prefer_server_ciphers</a> <br>     <a href="#ssl_protocols">ssl_protocols</a> <br>     <a href="#ssl_session_cache">ssl_session_cache</a> <br>     <a href="#ssl_session_ticket_key">ssl_session_ticket_key</a> <br>     <a href="#ssl_session_tickets">ssl_session_tickets</a> <br>     <a href="#ssl_session_timeout">ssl_session_timeout</a> <br>     <a href="#ssl_stapling">ssl_stapling</a> <br>     <a href="#ssl_stapling_file">ssl_stapling_file</a> <br>     <a href="#ssl_stapling_responder">ssl_stapling_responder</a> <br>     <a href="#ssl_stapling_verify">ssl_stapling_verify</a> <br>     <a href="#ssl_trusted_certificate">ssl_trusted_certificate</a> <br>     <a href="#ssl_verify_client">ssl_verify_client</a> <br>     <a href="#ssl_verify_depth">ssl_verify_depth</a> <br> <a href="#errors">Error Processing</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
 
 <p>   <code>ngx_http_ssl_module</code>模块为HTTPS提供必要的支持。 </p>
@@ -5005,7 +5005,7 @@ resolver 192.0.2.1;
     <entry>
       <title><![CDATA[http/ngx_http_ssi_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_ssi_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_ssi_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-ssi-module"><a href="#Module-ngx-http-ssi-module" class="headerlink" title="Module ngx_http_ssi_module"></a>Module ngx_http_ssi_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#ssi">ssi</a> <br>     <a href="#ssi_last_modified">ssi_last_modified</a> <br>     <a href="#ssi_min_file_chunk">ssi_min_file_chunk</a> <br>     <a href="#ssi_silent_errors">ssi_silent_errors</a> <br>     <a href="#ssi_types">ssi_types</a> <br>     <a href="#ssi_value_length">ssi_value_length</a> <br> <a href="#commands">SSI Commands</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
 
 <p>   <code>ngx_http_ssi_module</code>模块是一个过滤器，用于处理通过它的响应中的SSI（服务器端包含）命令。  目前，支持的SSI命令列表不完整。 </p>
@@ -5143,7 +5143,7 @@ stub
     <entry>
       <title><![CDATA[http/ngx_http_split_clients_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_split_clients_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_split_clients_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-split-clients-module"><a href="#Module-ngx-http-split-clients-module" class="headerlink" title="Module ngx_http_split_clients_module"></a>Module ngx_http_split_clients_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#split_clients">split_clients</a> <br></td>
 
 <p>   <code>ngx_http_split_clients_module</code>模块创建适用于A / B测试的变量，也称为拆分测试。 </p>
@@ -5190,7 +5190,7 @@ stub
     <entry>
       <title><![CDATA[http/ngx_http_spdy_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_spdy_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_spdy_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-spdy-module"><a href="#Module-ngx-http-spdy-module" class="headerlink" title="Module ngx_http_spdy_module"></a>Module ngx_http_spdy_module</h2><td align="left" class="notranslate"> <a href="#issues">Known Issues</a> <br> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#spdy_chunk_size">spdy_chunk_size</a> <br>     <a href="#spdy_headers_comp">spdy_headers_comp</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
 
 <p>   <code>ngx_http_spdy_module</code>模块为<a href="http://www.chromium.org/spdy/spdy-protocol" target="_blank" rel="noopener">SPDY</a>提供实验支持。  目前，已实施SPDY协议<a href="http://www.chromium.org/spdy/spdy-protocol/spdy-protocol-draft3-1" target="_blank" rel="noopener">草案3.1</a> 。 </p>
@@ -5245,7 +5245,7 @@ ssl_certificate_key server.key;
     <entry>
       <title><![CDATA[http/ngx_http_slice_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_slice_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_slice_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-slice-module"><a href="#Module-ngx-http-slice-module" class="headerlink" title="Module ngx_http_slice_module"></a>Module ngx_http_slice_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#slice">slice</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
 
 <p>   <code>ngx_http_slice_module</code>模块（1.9.8）是一个过滤器，它将请求拆分为子请求，每个子请求都返回一定范围的响应。  过滤器提供更有效的大响应缓存。 </p>
@@ -5289,7 +5289,7 @@ ssl_certificate_key server.key;
     <entry>
       <title><![CDATA[http/ngx_http_session_log_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_session_log_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_session_log_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-session-log-module"><a href="#Module-ngx-http-session-log-module" class="headerlink" title="Module ngx_http_session_log_module"></a>Module ngx_http_session_log_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#session_log">session_log</a> <br>     <a href="#session_log_format">session_log_format</a> <br>     <a href="#session_log_zone">session_log_zone</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
 
 <p>   <code>ngx_http_session_log_module</code>模块启用日志记录会话（即多个HTTP请求的聚合），而不是单个HTTP请求。 </p>
@@ -5340,7 +5340,7 @@ ssl_certificate_key server.key;
     <entry>
       <title><![CDATA[http/ngx_http_secure_link_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_secure_link_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_secure_link_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-secure-link-module"><a href="#Module-ngx-http-secure-link-module" class="headerlink" title="Module ngx_http_secure_link_module"></a>Module ngx_http_secure_link_module</h2><td align="left" class="notranslate"> <a href="#directives">Directives</a> <br>     <a href="#secure_link">secure_link</a> <br>     <a href="#secure_link_md5">secure_link_md5</a> <br>     <a href="#secure_link_secret">secure_link_secret</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
 
 <p>   <code>ngx_http_secure_link_module</code>模块（0.7.18）用于检查请求链路的真实性，保护资源免受未经授权的访问，并限制链路生存期。 </p>
@@ -5435,7 +5435,7 @@ rewrite ^ /secure/$secure_link;
     <entry>
       <title><![CDATA[http/ngx_http_scgi_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_scgi_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_scgi_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-scgi-module"><a href="#Module-ngx-http-scgi-module" class="headerlink" title="Module ngx_http_scgi_module"></a>Module ngx_http_scgi_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#scgi_bind">scgi_bind</a> <br>     <a href="#scgi_buffer_size">scgi_buffer_size</a> <br>     <a href="#scgi_buffering">scgi_buffering</a> <br>     <a href="#scgi_buffers">scgi_buffers</a> <br>     <a href="#scgi_busy_buffers_size">scgi_busy_buffers_size</a> <br>     <a href="#scgi_cache">scgi_cache</a> <br>     <a href="#scgi_cache_background_update">scgi_cache_background_update</a> <br>     <a href="#scgi_cache_bypass">scgi_cache_bypass</a> <br>     <a href="#scgi_cache_key">scgi_cache_key</a> <br>     <a href="#scgi_cache_lock">scgi_cache_lock</a> <br>     <a href="#scgi_cache_lock_age">scgi_cache_lock_age</a> <br>     <a href="#scgi_cache_lock_timeout">scgi_cache_lock_timeout</a> <br>     <a href="#scgi_cache_max_range_offset">scgi_cache_max_range_offset</a> <br>     <a href="#scgi_cache_methods">scgi_cache_methods</a> <br>     <a href="#scgi_cache_min_uses">scgi_cache_min_uses</a> <br>     <a href="#scgi_cache_path">scgi_cache_path</a> <br>     <a href="#scgi_cache_purge">scgi_cache_purge</a> <br>     <a href="#scgi_cache_revalidate">scgi_cache_revalidate</a> <br>     <a href="#scgi_cache_use_stale">scgi_cache_use_stale</a> <br>     <a href="#scgi_cache_valid">scgi_cache_valid</a> <br>     <a href="#scgi_connect_timeout">scgi_connect_timeout</a> <br>     <a href="#scgi_force_ranges">scgi_force_ranges</a> <br>     <a href="#scgi_hide_header">scgi_hide_header</a> <br>     <a href="#scgi_ignore_client_abort">scgi_ignore_client_abort</a> <br>     <a href="#scgi_ignore_headers">scgi_ignore_headers</a> <br>     <a href="#scgi_intercept_errors">scgi_intercept_errors</a> <br>     <a href="#scgi_limit_rate">scgi_limit_rate</a> <br>     <a href="#scgi_max_temp_file_size">scgi_max_temp_file_size</a> <br>     <a href="#scgi_next_upstream">scgi_next_upstream</a> <br>     <a href="#scgi_next_upstream_timeout">scgi_next_upstream_timeout</a> <br>     <a href="#scgi_next_upstream_tries">scgi_next_upstream_tries</a> <br>     <a href="#scgi_no_cache">scgi_no_cache</a> <br>     <a href="#scgi_param">scgi_param</a> <br>     <a href="#scgi_pass">scgi_pass</a> <br>     <a href="#scgi_pass_header">scgi_pass_header</a> <br>     <a href="#scgi_pass_request_body">scgi_pass_request_body</a> <br>     <a href="#scgi_pass_request_headers">scgi_pass_request_headers</a> <br>     <a href="#scgi_read_timeout">scgi_read_timeout</a> <br>     <a href="#scgi_request_buffering">scgi_request_buffering</a> <br>     <a href="#scgi_send_timeout">scgi_send_timeout</a> <br>     <a href="#scgi_socket_keepalive">scgi_socket_keepalive</a> <br>     <a href="#scgi_store">scgi_store</a> <br>     <a href="#scgi_store_access">scgi_store_access</a> <br>     <a href="#scgi_temp_file_write_size">scgi_temp_file_write_size</a> <br>     <a href="#scgi_temp_path">scgi_temp_path</a> <br></td>
 
 <p>   <code>ngx_http_scgi_module</code>模块允许将请求传递给SCGI服务器。 </p>
@@ -5846,7 +5846,7 @@ alias             /data/www/;
     <entry>
       <title><![CDATA[http/ngx_http_rewrite_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_rewrite_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_rewrite_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-rewrite-module"><a href="#Module-ngx-http-rewrite-module" class="headerlink" title="Module ngx_http_rewrite_module"></a>Module ngx_http_rewrite_module</h2><td align="left" class="notranslate"> <a href="#directives">Directives</a> <br>     <a href="#break">break</a> <br>     <a href="#if">if</a> <br>     <a href="#return">return</a> <br>     <a href="#rewrite">rewrite</a> <br>     <a href="#rewrite_log">rewrite_log</a> <br>     <a href="#set">set</a> <br>     <a href="#uninitialized_variable_warn">uninitialized_variable_warn</a> <br> <a href="#internals">Internal Implementation</a> <br></td>
 
 <p>   <code>ngx_http_rewrite_module</code>模块用于使用PCRE正则表达式更改请求URI，返回重定向和有条件地选择配置。 </p>
@@ -6034,7 +6034,7 @@ end of code
     <entry>
       <title><![CDATA[http/ngx_http_referer_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_referer_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_referer_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-referer-module"><a href="#Module-ngx-http-referer-module" class="headerlink" title="Module ngx_http_referer_module"></a>Module ngx_http_referer_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#referer_hash_bucket_size">referer_hash_bucket_size</a> <br>     <a href="#referer_hash_max_size">referer_hash_max_size</a> <br>     <a href="#valid_referers">valid_referers</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
 
 <p>   <code>ngx_http_referer_module</code>模块用于阻止对“Referer”头字段中具有无效值的请求访问站点。  应该记住，使用适当的“Referer”字段值来构造请求非常容易，因此本模块的预期目的不是要彻底阻止此类请求，而是阻止常规浏览器发送的请求的大量流量。  还应该考虑到，即使对于有效请求，常规浏览器也可能不发送“Referer”字段。 </p>
@@ -6087,7 +6087,7 @@ end of code
     <entry>
       <title><![CDATA[http/ngx_http_realip_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_realip_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_realip_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-realip-module"><a href="#Module-ngx-http-realip-module" class="headerlink" title="Module ngx_http_realip_module"></a>Module ngx_http_realip_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#set_real_ip_from">set_real_ip_from</a> <br>     <a href="#real_ip_header">real_ip_header</a> <br>     <a href="#real_ip_recursive">real_ip_recursive</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
 
 <p>   <code>ngx_http_realip_module</code>模块用于将客户端地址和可选端口更改为在指定的头字段中发送的端口。 </p>
@@ -6141,7 +6141,7 @@ real_ip_recursive on;
     <entry>
       <title><![CDATA[http/ngx_http_random_index_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_random_index_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_random_index_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-random-index-module"><a href="#Module-ngx-http-random-index-module" class="headerlink" title="Module ngx_http_random_index_module"></a>Module ngx_http_random_index_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#random_index">random_index</a> <br></td>
 
 <p>   <code>ngx_http_random_index_module</code>模块处理以斜杠字符（’ <code>/</code> ‘）结尾的请求，并在目录中选择一个随机文件作为索引文件。  在<a href="ngx_http_index_module.html">ngx_http_index_module</a>模块之前处理该模块。 </p>
@@ -6179,7 +6179,7 @@ real_ip_recursive on;
     <entry>
       <title><![CDATA[http/ngx_http_proxy_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_proxy_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_proxy_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-proxy-module"><a href="#Module-ngx-http-proxy-module" class="headerlink" title="Module ngx_http_proxy_module"></a>Module ngx_http_proxy_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#proxy_bind">proxy_bind</a> <br>     <a href="#proxy_buffer_size">proxy_buffer_size</a> <br>     <a href="#proxy_buffering">proxy_buffering</a> <br>     <a href="#proxy_buffers">proxy_buffers</a> <br>     <a href="#proxy_busy_buffers_size">proxy_busy_buffers_size</a> <br>     <a href="#proxy_cache">proxy_cache</a> <br>     <a href="#proxy_cache_background_update">proxy_cache_background_update</a> <br>     <a href="#proxy_cache_bypass">proxy_cache_bypass</a> <br>     <a href="#proxy_cache_convert_head">proxy_cache_convert_head</a> <br>     <a href="#proxy_cache_key">proxy_cache_key</a> <br>     <a href="#proxy_cache_lock">proxy_cache_lock</a> <br>     <a href="#proxy_cache_lock_age">proxy_cache_lock_age</a> <br>     <a href="#proxy_cache_lock_timeout">proxy_cache_lock_timeout</a> <br>     <a href="#proxy_cache_max_range_offset">proxy_cache_max_range_offset</a> <br>     <a href="#proxy_cache_methods">proxy_cache_methods</a> <br>     <a href="#proxy_cache_min_uses">proxy_cache_min_uses</a> <br>     <a href="#proxy_cache_path">proxy_cache_path</a> <br>     <a href="#proxy_cache_purge">proxy_cache_purge</a> <br>     <a href="#proxy_cache_revalidate">proxy_cache_revalidate</a> <br>     <a href="#proxy_cache_use_stale">proxy_cache_use_stale</a> <br>     <a href="#proxy_cache_valid">proxy_cache_valid</a> <br>     <a href="#proxy_connect_timeout">proxy_connect_timeout</a> <br>     <a href="#proxy_cookie_domain">proxy_cookie_domain</a> <br>     <a href="#proxy_cookie_path">proxy_cookie_path</a> <br>     <a href="#proxy_force_ranges">proxy_force_ranges</a> <br>     <a href="#proxy_headers_hash_bucket_size">proxy_headers_hash_bucket_size</a> <br>     <a href="#proxy_headers_hash_max_size">proxy_headers_hash_max_size</a> <br>     <a href="#proxy_hide_header">proxy_hide_header</a> <br>     <a href="#proxy_http_version">proxy_http_version</a> <br>     <a href="#proxy_ignore_client_abort">proxy_ignore_client_abort</a> <br>     <a href="#proxy_ignore_headers">proxy_ignore_headers</a> <br>     <a href="#proxy_intercept_errors">proxy_intercept_errors</a> <br>     <a href="#proxy_limit_rate">proxy_limit_rate</a> <br>     <a href="#proxy_max_temp_file_size">proxy_max_temp_file_size</a> <br>     <a href="#proxy_method">proxy_method</a> <br>     <a href="#proxy_next_upstream">proxy_next_upstream</a> <br>     <a href="#proxy_next_upstream_timeout">proxy_next_upstream_timeout</a> <br>     <a href="#proxy_next_upstream_tries">proxy_next_upstream_tries</a> <br>     <a href="#proxy_no_cache">proxy_no_cache</a> <br>     <a href="#proxy_pass">proxy_pass</a> <br>     <a href="#proxy_pass_header">proxy_pass_header</a> <br>     <a href="#proxy_pass_request_body">proxy_pass_request_body</a> <br>     <a href="#proxy_pass_request_headers">proxy_pass_request_headers</a> <br>     <a href="#proxy_read_timeout">proxy_read_timeout</a> <br>     <a href="#proxy_redirect">proxy_redirect</a> <br>     <a href="#proxy_request_buffering">proxy_request_buffering</a> <br>     <a href="#proxy_send_lowat">proxy_send_lowat</a> <br>     <a href="#proxy_send_timeout">proxy_send_timeout</a> <br>     <a href="#proxy_set_body">proxy_set_body</a> <br>     <a href="#proxy_set_header">proxy_set_header</a> <br>     <a href="#proxy_socket_keepalive">proxy_socket_keepalive</a> <br>     <a href="#proxy_ssl_certificate">proxy_ssl_certificate</a> <br>     <a href="#proxy_ssl_certificate_key">proxy_ssl_certificate_key</a> <br>     <a href="#proxy_ssl_ciphers">proxy_ssl_ciphers</a> <br>     <a href="#proxy_ssl_crl">proxy_ssl_crl</a> <br>     <a href="#proxy_ssl_name">proxy_ssl_name</a> <br>     <a href="#proxy_ssl_password_file">proxy_ssl_password_file</a> <br>     <a href="#proxy_ssl_protocols">proxy_ssl_protocols</a> <br>     <a href="#proxy_ssl_server_name">proxy_ssl_server_name</a> <br>     <a href="#proxy_ssl_session_reuse">proxy_ssl_session_reuse</a> <br>     <a href="#proxy_ssl_trusted_certificate">proxy_ssl_trusted_certificate</a> <br>     <a href="#proxy_ssl_verify">proxy_ssl_verify</a> <br>     <a href="#proxy_ssl_verify_depth">proxy_ssl_verify_depth</a> <br>     <a href="#proxy_store">proxy_store</a> <br>     <a href="#proxy_store_access">proxy_store_access</a> <br>     <a href="#proxy_temp_file_write_size">proxy_temp_file_write_size</a> <br>     <a href="#proxy_temp_path">proxy_temp_path</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
 
 <p>   <code>ngx_http_proxy_module</code>模块允许将请求传递到另一台服务器。 </p>
@@ -6948,7 +6948,7 @@ root               /data/www;
     <entry>
       <title><![CDATA[http/ngx_http_perl_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_perl_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_perl_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-perl-module"><a href="#Module-ngx-http-perl-module" class="headerlink" title="Module ngx_http_perl_module"></a>Module ngx_http_perl_module</h2><td align="left" class="notranslate"> <a href="#issues">Known Issues</a> <br> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#perl">perl</a> <br>     <a href="#perl_modules">perl_modules</a> <br>     <a href="#perl_require">perl_require</a> <br>     <a href="#perl_set">perl_set</a> <br> <a href="#ssi">Calling Perl from SSI</a> <br> <a href="#methods">The $r Request Object Methods</a> <br></td>
 
 <p>   <code>ngx_http_perl_module</code>模块用于在Perl中实现位置和变量处理程序，并将Perl调用插入到SSI中。 </p>
@@ -7103,7 +7103,7 @@ return OK;
     <entry>
       <title><![CDATA[http/ngx_http_mp4_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_mp4_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_mp4_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-mp4-module"><a href="#Module-ngx-http-mp4-module" class="headerlink" title="Module ngx_http_mp4_module"></a>Module ngx_http_mp4_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#mp4">mp4</a> <br>     <a href="#mp4_buffer_size">mp4_buffer_size</a> <br>     <a href="#mp4_max_buffer_size">mp4_max_buffer_size</a> <br>     <a href="#mp4_limit_rate">mp4_limit_rate</a> <br>     <a href="#mp4_limit_rate_after">mp4_limit_rate_after</a> <br></td>
 
 <p>   <code>ngx_http_mp4_module</code>模块为MP4文件提供伪流服务器端支持。  此类文件通常具有<code>.mp4</code> ， <code>.m4v</code>或<code>.m4a</code>文件扩展名。 </p>
@@ -7197,7 +7197,7 @@ return OK;
     <entry>
       <title><![CDATA[http/ngx_http_mirror_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_mirror_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_mirror_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-mirror-module"><a href="#Module-ngx-http-mirror-module" class="headerlink" title="Module ngx_http_mirror_module"></a>Module ngx_http_mirror_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#mirror">mirror</a> <br>     <a href="#mirror_request_body">mirror_request_body</a> <br></td>
 
 <p>   <code>ngx_http_mirror_module</code>模块（1.13.4）通过创建后台镜像子请求来实现原始请求的镜像。  忽略对镜像子请求的响应。 </p>
@@ -7237,7 +7237,7 @@ return OK;
     <entry>
       <title><![CDATA[http/ngx_http_memcached_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_memcached_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_memcached_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-memcached-module"><a href="#Module-ngx-http-memcached-module" class="headerlink" title="Module ngx_http_memcached_module"></a>Module ngx_http_memcached_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#memcached_bind">memcached_bind</a> <br>     <a href="#memcached_buffer_size">memcached_buffer_size</a> <br>     <a href="#memcached_connect_timeout">memcached_connect_timeout</a> <br>     <a href="#memcached_force_ranges">memcached_force_ranges</a> <br>     <a href="#memcached_gzip_flag">memcached_gzip_flag</a> <br>     <a href="#memcached_next_upstream">memcached_next_upstream</a> <br>     <a href="#memcached_next_upstream_timeout">memcached_next_upstream_timeout</a> <br>     <a href="#memcached_next_upstream_tries">memcached_next_upstream_tries</a> <br>     <a href="#memcached_pass">memcached_pass</a> <br>     <a href="#memcached_read_timeout">memcached_read_timeout</a> <br>     <a href="#memcached_send_timeout">memcached_send_timeout</a> <br>     <a href="#memcached_socket_keepalive">memcached_socket_keepalive</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
 
 <p>   <code>ngx_http_memcached_module</code>模块用于从memcached服务器获取响应。  密钥在<code>$memcached_key</code>变量中设置。  响应应该通过nginx外部的方式预先存储在memcached中。 </p>
@@ -7346,7 +7346,7 @@ return OK;
     <entry>
       <title><![CDATA[http/ngx_http_map_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_map_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_map_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-map-module"><a href="#Module-ngx-http-map-module" class="headerlink" title="Module ngx_http_map_module"></a>Module ngx_http_map_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#map">map</a> <br>     <a href="#map_hash_bucket_size">map_hash_bucket_size</a> <br>     <a href="#map_hash_max_size">map_hash_max_size</a> <br></td>
 
 <p>   <code>ngx_http_map_module</code>模块创建的变量的值取决于其他变量的值。 </p>
@@ -7425,7 +7425,7 @@ example.*     1;
     <entry>
       <title><![CDATA[http/ngx_http_log_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_log_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_log_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-log-module"><a href="#Module-ngx-http-log-module" class="headerlink" title="Module ngx_http_log_module"></a>Module ngx_http_log_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#access_log">access_log</a> <br>     <a href="#log_format">log_format</a> <br>     <a href="#open_log_file_cache">open_log_file_cache</a> <br></td>
 
 <p>   <code>ngx_http_log_module</code>模块以指定的格式写入请求日志。 </p>
@@ -7520,7 +7520,7 @@ example.*     1;
     <entry>
       <title><![CDATA[http/ngx_http_limit_req_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_limit_req_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_limit_req_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-limit-req-module"><a href="#Module-ngx-http-limit-req-module" class="headerlink" title="Module ngx_http_limit_req_module"></a>Module ngx_http_limit_req_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#limit_req">limit_req</a> <br>     <a href="#limit_req_log_level">limit_req_log_level</a> <br>     <a href="#limit_req_status">limit_req_status</a> <br>     <a href="#limit_req_zone">limit_req_zone</a> <br></td>
 
 <p>   <code>ngx_http_limit_req_module</code>模块（0.7.21）用于限制每个定义密钥的请求处理速率，特别是来自单个IP地址的请求的处理速率。  使用“漏桶”方法进行限制。 </p>
@@ -7614,7 +7614,7 @@ server {
     <entry>
       <title><![CDATA[http/ngx_http_limit_conn_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_limit_conn_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_limit_conn_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-limit-conn-module"><a href="#Module-ngx-http-limit-conn-module" class="headerlink" title="Module ngx_http_limit_conn_module"></a>Module ngx_http_limit_conn_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#limit_conn">limit_conn</a> <br>     <a href="#limit_conn_log_level">limit_conn_log_level</a> <br>     <a href="#limit_conn_status">limit_conn_status</a> <br>     <a href="#limit_conn_zone">limit_conn_zone</a> <br>     <a href="#limit_zone">limit_zone</a> <br></td>
 
 <p>   <code>ngx_http_limit_conn_module</code>模块用于限制每个定义密钥的连接数，特别是来自单个IP地址的连接数。 </p>
@@ -7701,7 +7701,7 @@ server {
     <entry>
       <title><![CDATA[http/ngx_http_keyval_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_keyval_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_keyval_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-keyval-module"><a href="#Module-ngx-http-keyval-module" class="headerlink" title="Module ngx_http_keyval_module"></a>Module ngx_http_keyval_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#keyval">keyval</a> <br>     <a href="#keyval_zone">keyval_zone</a> <br></td>
 
 <p>   <code>ngx_http_keyval_module</code>模块（1.13.3）创建的变量的值取自<a href="ngx_http_api_module.html#http_keyvals_">API</a>管理的键值对。 </p>
@@ -7756,7 +7756,7 @@ server {
     <entry>
       <title><![CDATA[http/ngx_http_js_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_js_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_js_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-js-module"><a href="#Module-ngx-http-js-module" class="headerlink" title="Module ngx_http_js_module"></a>Module ngx_http_js_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#js_content">js_content</a> <br>     <a href="#js_include">js_include</a> <br>     <a href="#js_set">js_set</a> <br> <a href="#arguments">Request Argument</a> <br></td>
 
 <p>   <code>ngx_http_js_module</code>模块用于在<a href="njs/index.html">njs中</a>实现位置和变量处理程序 - 这是JavaScript语言的一个子集。 </p>
@@ -7847,7 +7847,7 @@ return s;
     <entry>
       <title><![CDATA[http/ngx_http_index_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_index_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_index_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-index-module"><a href="#Module-ngx-http-index-module" class="headerlink" title="Module ngx_http_index_module"></a>Module ngx_http_index_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#index">index</a> <br></td>
 
 <p>   <code>ngx_http_index_module</code>模块处理以斜杠字符（’ <code>/</code> ‘）结尾的请求。  这些请求也可以由<a href="ngx_http_autoindex_module.html">ngx_http_autoindex_module</a>和<a href="ngx_http_random_index_module.html">ngx_http_random_index_module</a>模块处理。 </p>
@@ -7897,7 +7897,7 @@ return s;
     <entry>
       <title><![CDATA[http/ngx_http_image_filter_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_image_filter_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_image_filter_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-image-filter-module"><a href="#Module-ngx-http-image-filter-module" class="headerlink" title="Module ngx_http_image_filter_module"></a>Module ngx_http_image_filter_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#image_filter">image_filter</a> <br>     <a href="#image_filter_buffer">image_filter_buffer</a> <br>     <a href="#image_filter_interlace">image_filter_interlace</a> <br>     <a href="#image_filter_jpeg_quality">image_filter_jpeg_quality</a> <br>     <a href="#image_filter_sharpen">image_filter_sharpen</a> <br>     <a href="#image_filter_transparency">image_filter_transparency</a> <br>     <a href="#image_filter_webp_quality">image_filter_webp_quality</a> <br></td>
 
 <p>   <code>ngx_http_image_filter_module</code>模块（0.7.54+）是一个过滤器，可以转换JPEG，GIF，PNG和WebP格式的图像。 </p>
@@ -7969,7 +7969,7 @@ return s;
     <entry>
       <title><![CDATA[http/ngx_http_hls_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_hls_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_hls_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-hls-module"><a href="#Module-ngx-http-hls-module" class="headerlink" title="Module ngx_http_hls_module"></a>Module ngx_http_hls_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#hls">hls</a> <br>     <a href="#hls_buffers">hls_buffers</a> <br>     <a href="#hls_forward_args">hls_forward_args</a> <br>     <a href="#hls_fragment">hls_fragment</a> <br>     <a href="#hls_mp4_buffer_size">hls_mp4_buffer_size</a> <br>     <a href="#hls_mp4_max_buffer_size">hls_mp4_max_buffer_size</a> <br></td>
 
 <p>   <code>ngx_http_hls_module</code>模块为MP4和MOV媒体文件提供HTTP实时流（HLS）服务器端支持。  此类文件通常具有<code>.mp4</code> ， <code>.m4v</code> ， <code>.m4a</code> ， <code>.mov</code>或<code>.qt</code>文件扩展名。  该模块支持H.264视频编解码器，AAC和MP3音频编解码器。 </p>
@@ -8103,7 +8103,7 @@ server {
     <entry>
       <title><![CDATA[http/ngx_http_headers_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_headers_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_headers_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-headers-module"><a href="#Module-ngx-http-headers-module" class="headerlink" title="Module ngx_http_headers_module"></a>Module ngx_http_headers_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#add_header">add_header</a> <br>     <a href="#add_trailer">add_trailer</a> <br>     <a href="#expires">expires</a> <br></td>
 
 <p>   <code>ngx_http_headers_module</code>模块允许将“Expires”和“Cache-Control”头字段以及任意字段添加到响应头。 </p>
@@ -8178,7 +8178,7 @@ add_header Cache-Control private;
     <entry>
       <title><![CDATA[http/ngx_http_gzip_static_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_gzip_static_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_gzip_static_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-gzip-static-module"><a href="#Module-ngx-http-gzip-static-module" class="headerlink" title="Module ngx_http_gzip_static_module"></a>Module ngx_http_gzip_static_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#gzip_static">gzip_static</a> <br></td>
 
 <p>   <code>ngx_http_gzip_static_module</code>模块允许发送带有“ <code>.gz</code> ”文件扩展名的预压缩文件，而不是常规文件。 </p>
@@ -8217,7 +8217,7 @@ gzip_proxied expired no-cache no-store private auth;
     <entry>
       <title><![CDATA[http/ngx_http_gzip_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_gzip_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_gzip_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-gzip-module"><a href="#Module-ngx-http-gzip-module" class="headerlink" title="Module ngx_http_gzip_module"></a>Module ngx_http_gzip_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#gzip">gzip</a> <br>     <a href="#gzip_buffers">gzip_buffers</a> <br>     <a href="#gzip_comp_level">gzip_comp_level</a> <br>     <a href="#gzip_disable">gzip_disable</a> <br>     <a href="#gzip_http_version">gzip_http_version</a> <br>     <a href="#gzip_min_length">gzip_min_length</a> <br>     <a href="#gzip_proxied">gzip_proxied</a> <br>     <a href="#gzip_types">gzip_types</a> <br>     <a href="#gzip_vary">gzip_vary</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
 
 <p>   <code>ngx_http_gzip_module</code>模块是一个使用“gzip”方法压缩响应的过滤器。  这通常有助于将传输数据的大小减少一半甚至更多。 </p>
@@ -8293,7 +8293,7 @@ gzip_types      text/plain application/xml;
     <entry>
       <title><![CDATA[http/ngx_http_gunzip_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_gunzip_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_gunzip_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-gunzip-module"><a href="#Module-ngx-http-gunzip-module" class="headerlink" title="Module ngx_http_gunzip_module"></a>Module ngx_http_gunzip_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#gunzip">gunzip</a> <br>     <a href="#gunzip_buffers">gunzip_buffers</a> <br></td>
 
 <p>   <code>ngx_http_gunzip_module</code>模块是一个过滤器，它使用“ <code>Content-Encoding: gzip</code> ”解压缩响应，用于不支持“gzip”编码方法的客户端。  当需要存储压缩数据以节省空间并降低I / O成本时，该模块将非常有用。 </p>
@@ -8336,7 +8336,7 @@ gzip_types      text/plain application/xml;
     <entry>
       <title><![CDATA[http/ngx_http_grpc_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_grpc_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_grpc_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-grpc-module"><a href="#Module-ngx-http-grpc-module" class="headerlink" title="Module ngx_http_grpc_module"></a>Module ngx_http_grpc_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#grpc_bind">grpc_bind</a> <br>     <a href="#grpc_buffer_size">grpc_buffer_size</a> <br>     <a href="#grpc_connect_timeout">grpc_connect_timeout</a> <br>     <a href="#grpc_hide_header">grpc_hide_header</a> <br>     <a href="#grpc_ignore_headers">grpc_ignore_headers</a> <br>     <a href="#grpc_intercept_errors">grpc_intercept_errors</a> <br>     <a href="#grpc_next_upstream">grpc_next_upstream</a> <br>     <a href="#grpc_next_upstream_timeout">grpc_next_upstream_timeout</a> <br>     <a href="#grpc_next_upstream_tries">grpc_next_upstream_tries</a> <br>     <a href="#grpc_pass">grpc_pass</a> <br>     <a href="#grpc_pass_header">grpc_pass_header</a> <br>     <a href="#grpc_read_timeout">grpc_read_timeout</a> <br>     <a href="#grpc_send_timeout">grpc_send_timeout</a> <br>     <a href="#grpc_set_header">grpc_set_header</a> <br>     <a href="#grpc_socket_keepalive">grpc_socket_keepalive</a> <br>     <a href="#grpc_ssl_certificate">grpc_ssl_certificate</a> <br>     <a href="#grpc_ssl_certificate_key">grpc_ssl_certificate_key</a> <br>     <a href="#grpc_ssl_ciphers">grpc_ssl_ciphers</a> <br>     <a href="#grpc_ssl_crl">grpc_ssl_crl</a> <br>     <a href="#grpc_ssl_name">grpc_ssl_name</a> <br>     <a href="#grpc_ssl_password_file">grpc_ssl_password_file</a> <br>     <a href="#grpc_ssl_protocols">grpc_ssl_protocols</a> <br>     <a href="#grpc_ssl_server_name">grpc_ssl_server_name</a> <br>     <a href="#grpc_ssl_session_reuse">grpc_ssl_session_reuse</a> <br>     <a href="#grpc_ssl_trusted_certificate">grpc_ssl_trusted_certificate</a> <br>     <a href="#grpc_ssl_verify">grpc_ssl_verify</a> <br>     <a href="#grpc_ssl_verify_depth">grpc_ssl_verify_depth</a> <br></td>
 
 <p>   <code>ngx_http_grpc_module</code>模块允许将请求传递到gRPC服务器（1.13.10）。  该模块需要<a href="ngx_http_v2_module.html">ngx_http_v2_module</a>模块。 </p>
@@ -8526,7 +8526,7 @@ gzip_types      text/plain application/xml;
     <entry>
       <title><![CDATA[http/ngx_http_geo_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_geo_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_geo_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-geo-module"><a href="#Module-ngx-http-geo-module" class="headerlink" title="Module ngx_http_geo_module"></a>Module ngx_http_geo_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#geo">geo</a> <br></td>
 
 <p>   <code>ngx_http_geo_module</code>模块使用取决于客户端IP地址的值创建变量。 </p>
@@ -8622,7 +8622,7 @@ gzip_types      text/plain application/xml;
     <entry>
       <title><![CDATA[http/ngx_http_geoip_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_geoip_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_geoip_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-geoip-module"><a href="#Module-ngx-http-geoip-module" class="headerlink" title="Module ngx_http_geoip_module"></a>Module ngx_http_geoip_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#geoip_country">geoip_country</a> <br>     <a href="#geoip_city">geoip_city</a> <br>     <a href="#geoip_org">geoip_org</a> <br>     <a href="#geoip_proxy">geoip_proxy</a> <br>     <a href="#geoip_proxy_recursive">geoip_proxy_recursive</a> <br></td>
 
 <p>   <code>ngx_http_geoip_module</code>模块（0.8.6+）使用预编译的<a href="http://www.maxmind.com" target="_blank" rel="noopener">MaxMind</a>数据库创建具有取决于客户端IP地址的值的变量。 </p>
@@ -8690,7 +8690,7 @@ gzip_types      text/plain application/xml;
     <entry>
       <title><![CDATA[http/ngx_http_flv_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_flv_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_flv_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-flv-module"><a href="#Module-ngx-http-flv-module" class="headerlink" title="Module ngx_http_flv_module"></a>Module ngx_http_flv_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#flv">flv</a> <br></td>
 
 <p>   <code>ngx_http_flv_module</code>模块为Flash Video（FLV）文件提供伪流服务器端支持。 </p>
@@ -8729,7 +8729,7 @@ gzip_types      text/plain application/xml;
     <entry>
       <title><![CDATA[http/ngx_http_fastcgi_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_fastcgi_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_fastcgi_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-fastcgi-module"><a href="#Module-ngx-http-fastcgi-module" class="headerlink" title="Module ngx_http_fastcgi_module"></a>Module ngx_http_fastcgi_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#fastcgi_bind">fastcgi_bind</a> <br>     <a href="#fastcgi_buffer_size">fastcgi_buffer_size</a> <br>     <a href="#fastcgi_buffering">fastcgi_buffering</a> <br>     <a href="#fastcgi_buffers">fastcgi_buffers</a> <br>     <a href="#fastcgi_busy_buffers_size">fastcgi_busy_buffers_size</a> <br>     <a href="#fastcgi_cache">fastcgi_cache</a> <br>     <a href="#fastcgi_cache_background_update">fastcgi_cache_background_update</a> <br>     <a href="#fastcgi_cache_bypass">fastcgi_cache_bypass</a> <br>     <a href="#fastcgi_cache_key">fastcgi_cache_key</a> <br>     <a href="#fastcgi_cache_lock">fastcgi_cache_lock</a> <br>     <a href="#fastcgi_cache_lock_age">fastcgi_cache_lock_age</a> <br>     <a href="#fastcgi_cache_lock_timeout">fastcgi_cache_lock_timeout</a> <br>     <a href="#fastcgi_cache_max_range_offset">fastcgi_cache_max_range_offset</a> <br>     <a href="#fastcgi_cache_methods">fastcgi_cache_methods</a> <br>     <a href="#fastcgi_cache_min_uses">fastcgi_cache_min_uses</a> <br>     <a href="#fastcgi_cache_path">fastcgi_cache_path</a> <br>     <a href="#fastcgi_cache_purge">fastcgi_cache_purge</a> <br>     <a href="#fastcgi_cache_revalidate">fastcgi_cache_revalidate</a> <br>     <a href="#fastcgi_cache_use_stale">fastcgi_cache_use_stale</a> <br>     <a href="#fastcgi_cache_valid">fastcgi_cache_valid</a> <br>     <a href="#fastcgi_catch_stderr">fastcgi_catch_stderr</a> <br>     <a href="#fastcgi_connect_timeout">fastcgi_connect_timeout</a> <br>     <a href="#fastcgi_force_ranges">fastcgi_force_ranges</a> <br>     <a href="#fastcgi_hide_header">fastcgi_hide_header</a> <br>     <a href="#fastcgi_ignore_client_abort">fastcgi_ignore_client_abort</a> <br>     <a href="#fastcgi_ignore_headers">fastcgi_ignore_headers</a> <br>     <a href="#fastcgi_index">fastcgi_index</a> <br>     <a href="#fastcgi_intercept_errors">fastcgi_intercept_errors</a> <br>     <a href="#fastcgi_keep_conn">fastcgi_keep_conn</a> <br>     <a href="#fastcgi_limit_rate">fastcgi_limit_rate</a> <br>     <a href="#fastcgi_max_temp_file_size">fastcgi_max_temp_file_size</a> <br>     <a href="#fastcgi_next_upstream">fastcgi_next_upstream</a> <br>     <a href="#fastcgi_next_upstream_timeout">fastcgi_next_upstream_timeout</a> <br>     <a href="#fastcgi_next_upstream_tries">fastcgi_next_upstream_tries</a> <br>     <a href="#fastcgi_no_cache">fastcgi_no_cache</a> <br>     <a href="#fastcgi_param">fastcgi_param</a> <br>     <a href="#fastcgi_pass">fastcgi_pass</a> <br>     <a href="#fastcgi_pass_header">fastcgi_pass_header</a> <br>     <a href="#fastcgi_pass_request_body">fastcgi_pass_request_body</a> <br>     <a href="#fastcgi_pass_request_headers">fastcgi_pass_request_headers</a> <br>     <a href="#fastcgi_read_timeout">fastcgi_read_timeout</a> <br>     <a href="#fastcgi_request_buffering">fastcgi_request_buffering</a> <br>     <a href="#fastcgi_send_lowat">fastcgi_send_lowat</a> <br>     <a href="#fastcgi_send_timeout">fastcgi_send_timeout</a> <br>     <a href="#fastcgi_socket_keepalive">fastcgi_socket_keepalive</a> <br>     <a href="#fastcgi_split_path_info">fastcgi_split_path_info</a> <br>     <a href="#fastcgi_store">fastcgi_store</a> <br>     <a href="#fastcgi_store_access">fastcgi_store_access</a> <br>     <a href="#fastcgi_temp_file_write_size">fastcgi_temp_file_write_size</a> <br>     <a href="#fastcgi_temp_path">fastcgi_temp_path</a> <br> <a href="#parameters">Parameters Passed to a FastCGI Server</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
 
 <p>   <code>ngx_http_fastcgi_module</code>模块允许将请求传递给FastCGI服务器。 </p>
@@ -9230,7 +9230,7 @@ fastcgi_param SCRIPT_FILENAME /home/www/scripts/php$fastcgi_script_name;
     <entry>
       <title><![CDATA[http/ngx_http_f4f_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_f4f_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_f4f_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-f4f-module"><a href="#Module-ngx-http-f4f-module" class="headerlink" title="Module ngx_http_f4f_module"></a>Module ngx_http_f4f_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#f4f">f4f</a> <br>     <a href="#f4f_buffer_size">f4f_buffer_size</a> <br></td>
 
 <p>   <code>ngx_http_f4f_module</code>模块为Adobe HTTP动态流（HDS）提供服务器端支持。 </p>
@@ -9277,7 +9277,7 @@ fastcgi_param SCRIPT_FILENAME /home/www/scripts/php$fastcgi_script_name;
     <entry>
       <title><![CDATA[http/ngx_http_empty_gif_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_empty_gif_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_empty_gif_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-empty-gif-module"><a href="#Module-ngx-http-empty-gif-module" class="headerlink" title="Module ngx_http_empty_gif_module"></a>Module ngx_http_empty_gif_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#empty_gif">empty_gif</a> <br></td>
 
 <p>   <code>ngx_http_empty_gif_module</code>模块发出单像素透明GIF。 </p>
@@ -9314,7 +9314,7 @@ fastcgi_param SCRIPT_FILENAME /home/www/scripts/php$fastcgi_script_name;
     <entry>
       <title><![CDATA[http/ngx_http_dav_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_dav_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_dav_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-dav-module"><a href="#Module-ngx-http-dav-module" class="headerlink" title="Module ngx_http_dav_module"></a>Module ngx_http_dav_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#create_full_put_path">create_full_put_path</a> <br>     <a href="#dav_access">dav_access</a> <br>     <a href="#dav_methods">dav_methods</a> <br>     <a href="#min_delete_depth">min_delete_depth</a> <br></td>
 
 <p>   <code>ngx_http_dav_module</code>模块用于通过WebDAV协议进行文件管理自动化。  该模块处理HTTP和WebDAV方法PUT，DELETE，MKCOL，COPY和MOVE。 </p>
@@ -9412,7 +9412,7 @@ limit_except GET {
     <entry>
       <title><![CDATA[http/ngx_http_core_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_core_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_core_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-core-module"><a href="#Module-ngx-http-core-module" class="headerlink" title="Module ngx_http_core_module"></a>Module ngx_http_core_module</h2><td align="left" class="notranslate"> <a href="#directives">Directives</a> <br>     <a href="#absolute_redirect">absolute_redirect</a> <br>     <a href="#aio">aio</a> <br>     <a href="#aio_write">aio_write</a> <br>     <a href="#alias">alias</a> <br>     <a href="#chunked_transfer_encoding">chunked_transfer_encoding</a> <br>     <a href="#client_body_buffer_size">client_body_buffer_size</a> <br>     <a href="#client_body_in_file_only">client_body_in_file_only</a> <br>     <a href="#client_body_in_single_buffer">client_body_in_single_buffer</a> <br>     <a href="#client_body_temp_path">client_body_temp_path</a> <br>     <a href="#client_body_timeout">client_body_timeout</a> <br>     <a href="#client_header_buffer_size">client_header_buffer_size</a> <br>     <a href="#client_header_timeout">client_header_timeout</a> <br>     <a href="#client_max_body_size">client_max_body_size</a> <br>     <a href="#connection_pool_size">connection_pool_size</a> <br>     <a href="#default_type">default_type</a> <br>     <a href="#directio">directio</a> <br>     <a href="#directio_alignment">directio_alignment</a> <br>     <a href="#disable_symlinks">disable_symlinks</a> <br>     <a href="#error_page">error_page</a> <br>     <a href="#etag">etag</a> <br>     <a href="#http">http</a> <br>     <a href="#if_modified_since">if_modified_since</a> <br>     <a href="#ignore_invalid_headers">ignore_invalid_headers</a> <br>     <a href="#internal">internal</a> <br>     <a href="#keepalive_disable">keepalive_disable</a> <br>     <a href="#keepalive_requests">keepalive_requests</a> <br>     <a href="#keepalive_timeout">keepalive_timeout</a> <br>     <a href="#large_client_header_buffers">large_client_header_buffers</a> <br>     <a href="#limit_except">limit_except</a> <br>     <a href="#limit_rate">limit_rate</a> <br>     <a href="#limit_rate_after">limit_rate_after</a> <br>     <a href="#lingering_close">lingering_close</a> <br>     <a href="#lingering_time">lingering_time</a> <br>     <a href="#lingering_timeout">lingering_timeout</a> <br>     <a href="#listen">listen</a> <br>     <a href="#location">location</a> <br>     <a href="#log_not_found">log_not_found</a> <br>     <a href="#log_subrequest">log_subrequest</a> <br>     <a href="#max_ranges">max_ranges</a> <br>     <a href="#merge_slashes">merge_slashes</a> <br>     <a href="#msie_padding">msie_padding</a> <br>     <a href="#msie_refresh">msie_refresh</a> <br>     <a href="#open_file_cache">open_file_cache</a> <br>     <a href="#open_file_cache_errors">open_file_cache_errors</a> <br>     <a href="#open_file_cache_min_uses">open_file_cache_min_uses</a> <br>     <a href="#open_file_cache_valid">open_file_cache_valid</a> <br>     <a href="#output_buffers">output_buffers</a> <br>     <a href="#port_in_redirect">port_in_redirect</a> <br>     <a href="#postpone_output">postpone_output</a> <br>     <a href="#read_ahead">read_ahead</a> <br>     <a href="#recursive_error_pages">recursive_error_pages</a> <br>     <a href="#request_pool_size">request_pool_size</a> <br>     <a href="#reset_timedout_connection">reset_timedout_connection</a> <br>     <a href="#resolver">resolver</a> <br>     <a href="#resolver_timeout">resolver_timeout</a> <br>     <a href="#root">root</a> <br>     <a href="#satisfy">satisfy</a> <br>     <a href="#send_lowat">send_lowat</a> <br>     <a href="#send_timeout">send_timeout</a> <br>     <a href="#sendfile">sendfile</a> <br>     <a href="#sendfile_max_chunk">sendfile_max_chunk</a> <br>     <a href="#server">server</a> <br>     <a href="#server_name">server_name</a> <br>     <a href="#server_name_in_redirect">server_name_in_redirect</a> <br>     <a href="#server_names_hash_bucket_size">server_names_hash_bucket_size</a> <br>     <a href="#server_names_hash_max_size">server_names_hash_max_size</a> <br>     <a href="#server_tokens">server_tokens</a> <br>     <a href="#subrequest_output_buffer_size">subrequest_output_buffer_size</a> <br>     <a href="#tcp_nodelay">tcp_nodelay</a> <br>     <a href="#tcp_nopush">tcp_nopush</a> <br>     <a href="#try_files">try_files</a> <br>     <a href="#types">types</a> <br>     <a href="#types_hash_bucket_size">types_hash_bucket_size</a> <br>     <a href="#types_hash_max_size">types_hash_max_size</a> <br>     <a href="#underscores_in_headers">underscores_in_headers</a> <br>     <a href="#variables_hash_bucket_size">variables_hash_bucket_size</a> <br>     <a href="#variables_hash_max_size">variables_hash_max_size</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
 
 <h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**absolute_redirect** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
@@ -10421,7 +10421,7 @@ fastcgi_param SCRIPT_FILENAME /path/to$fastcgi_script_name;
     <entry>
       <title><![CDATA[http/ngx_http_charset_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_charset_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_charset_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-charset-module"><a href="#Module-ngx-http-charset-module" class="headerlink" title="Module ngx_http_charset_module"></a>Module ngx_http_charset_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#charset">charset</a> <br>     <a href="#charset_map">charset_map</a> <br>     <a href="#charset_types">charset_types</a> <br>     <a href="#override_charset">override_charset</a> <br>     <a href="#source_charset">source_charset</a> <br></td>
 
 <p>   <code>ngx_http_charset_module</code>模块将指定的字符集添加到“Content-Type”响应头字段。  此外，该模块可以将数据从一个字符集转换为另一个字符集，但有一些限制： </p>
@@ -10524,7 +10524,7 @@ fastcgi_param SCRIPT_FILENAME /path/to$fastcgi_script_name;
     <entry>
       <title><![CDATA[http/ngx_http_browser_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_browser_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_browser_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-browser-module"><a href="#Module-ngx-http-browser-module" class="headerlink" title="Module ngx_http_browser_module"></a>Module ngx_http_browser_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#ancient_browser">ancient_browser</a> <br>     <a href="#ancient_browser_value">ancient_browser_value</a> <br>     <a href="#modern_browser">modern_browser</a> <br>     <a href="#modern_browser_value">modern_browser_value</a> <br></td>
 
 <p>   <code>ngx_http_browser_module</code>模块创建的变量的值取决于“User-Agent”请求标头字段的值： </p>
@@ -10579,7 +10579,7 @@ fastcgi_param SCRIPT_FILENAME /path/to$fastcgi_script_name;
     <entry>
       <title><![CDATA[http/ngx_http_autoindex_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_autoindex_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_autoindex_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-autoindex-module"><a href="#Module-ngx-http-autoindex-module" class="headerlink" title="Module ngx_http_autoindex_module"></a>Module ngx_http_autoindex_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#autoindex">autoindex</a> <br>     <a href="#autoindex_exact_size">autoindex_exact_size</a> <br>     <a href="#autoindex_format">autoindex_format</a> <br>     <a href="#autoindex_localtime">autoindex_localtime</a> <br></td>
 
 <p>   <code>ngx_http_autoindex_module</code>模块处理以斜杠字符（’ <code>/</code> ‘）结尾的请求，并生成目录列表。  当<a href="ngx_http_index_module.html">ngx_http_index_module</a>模块找不到索引文件时，通常<code>ngx_http_autoindex_module</code>请求传递给<code>ngx_http_autoindex_module</code>模块。 </p>
@@ -10631,7 +10631,7 @@ fastcgi_param SCRIPT_FILENAME /path/to$fastcgi_script_name;
     <entry>
       <title><![CDATA[http/ngx_http_auth_request_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_auth_request_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_auth_request_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-auth-request-module"><a href="#Module-ngx-http-auth-request-module" class="headerlink" title="Module ngx_http_auth_request_module"></a>Module ngx_http_auth_request_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#auth_request">auth_request</a> <br>     <a href="#auth_request_set">auth_request_set</a> <br></td>
 
 <p>   <code>ngx_http_auth_request_module</code>模块（1.5.4+）基于子请求的结果实现客户端授权。  如果子请求返回2xx响应代码，则允许访问。  如果它返回401或403，则拒绝访问，并显示相应的错误代码。  子请求返回的任何其他响应代码都被视为错误。 </p>
@@ -10673,7 +10673,7 @@ fastcgi_param SCRIPT_FILENAME /path/to$fastcgi_script_name;
     <entry>
       <title><![CDATA[http/ngx_http_auth_jwt_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_auth_jwt_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_auth_jwt_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-auth-jwt-module"><a href="#Module-ngx-http-auth-jwt-module" class="headerlink" title="Module ngx_http_auth_jwt_module"></a>Module ngx_http_auth_jwt_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#auth_jwt">auth_jwt</a> <br>     <a href="#auth_jwt_claim_set">auth_jwt_claim_set</a> <br>     <a href="#auth_jwt_header_set">auth_jwt_header_set</a> <br>     <a href="#auth_jwt_key_file">auth_jwt_key_file</a> <br>     <a href="#auth_jwt_key_request">auth_jwt_key_request</a> <br>     <a href="#auth_jwt_leeway">auth_jwt_leeway</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
 
 <p>   <code>ngx_http_auth_jwt_module</code>模块（1.11.3）通过使用指定的密钥验证提供的<a href="https://tools.ietf.org/html/rfc7519" target="_blank" rel="noopener">JSON Web令牌</a> （JWT）来实现客户端授权。   JWT声明必须以<a href="https://tools.ietf.org/html/rfc7515" target="_blank" rel="noopener">JSON Web签名</a> （JWS）结构进行编码。  该模块可用于<a href="http://openid.net/specs/openid-connect-core-1_0.html" target="_blank" rel="noopener">OpenID Connect</a>身份验证。 </p>
@@ -10784,7 +10784,7 @@ location = /jwks_uri {
     <entry>
       <title><![CDATA[http/ngx_http_auth_basic_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_auth_basic_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_auth_basic_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-auth-basic-module"><a href="#Module-ngx-http-auth-basic-module" class="headerlink" title="Module ngx_http_auth_basic_module"></a>Module ngx_http_auth_basic_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#auth_basic">auth_basic</a> <br>     <a href="#auth_basic_user_file">auth_basic_user_file</a> <br></td>
 
 <p>   <code>ngx_http_auth_basic_module</code>模块允许通过使用“HTTP基本身份验证”协议验证用户名和密码来限制对资源的访问。 </p>
@@ -10840,7 +10840,7 @@ name3:password3
     <entry>
       <title><![CDATA[http/ngx_http_api_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_api_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_api_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-api-module"><a href="#Module-ngx-http-api-module" class="headerlink" title="Module ngx_http_api_module"></a>Module ngx_http_api_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#api">api</a> <br>     <a href="#status_zone">status_zone</a> <br> <a href="#compatibility">Compatibility</a> <br> <a href="#endpoints">Endpoints</a> <br>     <a href="#root">/</a> <br>     <a href="#nginx">/nginx</a> <br>     <a href="#processes">/processes</a> <br>     <a href="#connections">/connections</a> <br>     <a href="#ssl">/ssl</a> <br>     <a href="#slabs_">/slabs/</a> <br>     <a href="#slabs_slab_zone_name">/slabs/{slabZoneName}</a> <br>     <a href="#http_">/http/</a> <br>     <a href="#http_requests">/http/requests</a> <br>     <a href="#http_server_zones_">/http/server_zones/</a> <br>     <a href="#http_server_zones_http_server_zone_name">/http/server_zones/{httpServerZoneName}</a> <br>     <a href="#http_caches_">/http/caches/</a> <br>     <a href="#http_caches_http_cache_zone_name">/http/caches/{httpCacheZoneName}</a> <br>     <a href="#http_upstreams_">/http/upstreams/</a> <br>     <a href="#http_upstreams_http_upstream_name_">/http/upstreams/{httpUpstreamName}/</a> <br>     <a href="#http_upstreams_http_upstream_name_servers_">/http/upstreams/{httpUpstreamName}/servers/</a> <br>     <a href="#http_upstreams_http_upstream_name_servers_http_upstream_server_id">/http/upstreams/{httpUpstreamName}/servers/{httpUpstreamServerId}</a> <br>     <a href="#http_keyvals_">/http/keyvals/</a> <br>     <a href="#http_keyvals_http_keyval_zone_name">/http/keyvals/{httpKeyvalZoneName}</a> <br>     <a href="#stream_">/stream/</a> <br>     <a href="#stream_server_zones_">/stream/server_zones/</a> <br>     <a href="#stream_server_zones_stream_server_zone_name">/stream/server_zones/{streamServerZoneName}</a> <br>     <a href="#stream_upstreams_">/stream/upstreams/</a> <br>     <a href="#stream_upstreams_stream_upstream_name_">/stream/upstreams/{streamUpstreamName}/</a> <br>     <a href="#stream_upstreams_stream_upstream_name_servers_">/stream/upstreams/{streamUpstreamName}/servers/</a> <br>     <a href="#stream_upstreams_stream_upstream_name_servers_stream_upstream_server_id">/stream/upstreams/{streamUpstreamName}/servers/{streamUpstreamServerId}</a> <br>     <a href="#stream_keyvals_">/stream/keyvals/</a> <br>     <a href="#stream_keyvals_stream_keyval_zone_name">/stream/keyvals/{streamKeyvalZoneName}</a> <br>     <a href="#stream_zone_sync_">/stream/zone_sync/</a> <br> <a href="#definitions">Response Objects</a> <br></td>
 
 <p>   <code>ngx_http_api_module</code>模块（1.13.3）提供REST API，用于访问各种状态信息，即时配置上游服务器组以及管理<a href="ngx_http_keyval_module.html">键值对，</a>而无需重新配置nginx。 </p>
@@ -11208,7 +11208,7 @@ http://127.0.0.1/api/3/stream/upstreams/backend/servers/1
     <entry>
       <title><![CDATA[http/ngx_http_addition_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_addition_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_addition_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-addition-module"><a href="#Module-ngx-http-addition-module" class="headerlink" title="Module ngx_http_addition_module"></a>Module ngx_http_addition_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#add_before_body">add_before_body</a> <br>     <a href="#add_after_body">add_after_body</a> <br>     <a href="#addition_types">addition_types</a> <br></td>
 
 <p>   <code>ngx_http_addition_module</code>模块是一个过滤器，用于在响应之前和之后添加文本。  默认情况下不构建此模块，应使用<code>--with-http_addition_module</code>配置参数启用它。 </p>
@@ -11255,7 +11255,7 @@ http://127.0.0.1/api/3/stream/upstreams/backend/servers/1
     <entry>
       <title><![CDATA[http/ngx_http_access_module-nginx中文手册]]></title>
       <url>/ngx/http/ngx_http_access_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,ngx_http_access_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-http-access-module"><a href="#Module-ngx-http-access-module" class="headerlink" title="Module ngx_http_access_module"></a>Module ngx_http_access_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#allow">allow</a> <br>     <a href="#deny">deny</a> <br></td>
 
 <p>   <code>ngx_http_access_module</code>模块允许限制对某些客户端地址的访问。 </p>
@@ -11302,7 +11302,7 @@ http://127.0.0.1/api/3/stream/upstreams/backend/servers/1
     <entry>
       <title><![CDATA[http/load_balancing-nginx中文手册]]></title>
       <url>/ngx/http/load_balancing.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,load_balancing<br><a id="more"></a></p>
 <h2 id="使用nginx作为HTTP负载均衡器"><a href="#使用nginx作为HTTP负载均衡器" class="headerlink" title="使用nginx作为HTTP负载均衡器"></a>使用nginx作为HTTP负载均衡器</h2><td align="left" class="notranslate"> <a href="#nginx_load_balancing_methods">Load balancing methods</a> <br> <a href="#nginx_load_balancing_configuration">Default load balancing configuration</a> <br> <a href="#nginx_load_balancing_with_least_connected">Least connected load balancing</a> <br> <a href="#nginx_load_balancing_with_ip_hash">Session persistence</a> <br> <a href="#nginx_weighted_load_balancing">Weighted load balancing</a> <br> <a href="#nginx_load_balancing_health_checks">Health checks</a> <br> <a href="#nginx_load_balancing_additional_information">Further reading</a> <br></td>
 
 <h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>  跨多个应用程序实例的负载平衡是一种常用技术，用于优化资源利用率，最大化吞吐量，减少延迟并确保容错配置。 </p>
@@ -11403,7 +11403,7 @@ http://127.0.0.1/api/3/stream/upstreams/backend/servers/1
     <entry>
       <title><![CDATA[http/converting_rewrite_rules-nginx中文手册]]></title>
       <url>/ngx/http/converting_rewrite_rules.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,converting_rewrite_rules<br><a id="more"></a></p>
 <h2 id="转换重写规则"><a href="#转换重写规则" class="headerlink" title="转换重写规则"></a>转换重写规则</h2><td align="left" class="notranslate"> <a href="#converting_mongrel_rules">Converting Mongrel rules</a> <br></td>
 
 <h4 id="重定向到主站点"><a href="#重定向到主站点" class="headerlink" title="重定向到主站点"></a>重定向到主站点</h4><p>  在共享托管生活期间用于<em>仅</em>使用Apache的.htaccess文件配置<em>所有内容</em>的人通常会翻译以下规则： </p>
@@ -11490,7 +11490,7 @@ RewriteRule  (.*)          http://www.example.com$1
     <entry>
       <title><![CDATA[http/configuring_https_servers-nginx中文手册]]></title>
       <url>/ngx/http/configuring_https_servers.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>http,configuring_https_servers<br><a id="more"></a></p>
 <h2 id="配置HTTPS服务器"><a href="#配置HTTPS服务器" class="headerlink" title="配置HTTPS服务器"></a>配置HTTPS服务器</h2><td align="left" class="notranslate"> <a href="#optimization">HTTPS server optimization</a> <br> <a href="#chains">SSL certificate chains</a> <br> <a href="#single_http_https_server">A single HTTP/HTTPS server</a> <br> <a href="#name_based_https_servers">Name-based HTTPS servers</a> <br>     <a href="#certificate_with_several_names">An SSL certificate with several names</a> <br>     <a href="#sni">Server Name Indication</a> <br> <a href="#compatibility">Compatibility</a> <br></td>
 
 <p>  要配置HTTPS服务器，必须在<a href="ngx_http_core_module.html#server">服务器</a>块中的<a href="ngx_http_core_module.html#listen">侦听套接字</a>上启用<code>ssl</code>参数，并且应指定<a href="ngx_http_ssl_module.html#ssl_certificate">服务器证书</a>和<a href="ngx_http_ssl_module.html#ssl_certificate_key">私钥</a>文件的位置： </p>
@@ -11683,7 +11683,7 @@ therefore SNI is not available
     <entry>
       <title><![CDATA[dev/development_guide-nginx中文手册]]></title>
       <url>/ngx/dev/development_guide.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>dev,development_guide<br><a id="more"></a></p>
 <h2 id="开发指南"><a href="#开发指南" class="headerlink" title="开发指南"></a>开发指南</h2><td align="left" class="notranslate"> <a href="#introduction">Introduction</a> <br>     <a href="#code_layout">Code layout</a> <br>     <a href="#include_files">Include files</a> <br>     <a href="#integers">Integers</a> <br>     <a href="#common_return_codes">Common return codes</a> <br>     <a href="#error_handling">Error handling</a> <br> <a href="#strings">Strings</a> <br>     <a href="#overview">Overview</a> <br>     <a href="#formatting">Formatting</a> <br>     <a href="#numeric_conversion">Numeric conversion</a> <br>     <a href="#regex">Regular expressions</a> <br> <a href="#time">Time</a> <br> <a href="#containers">Containers</a> <br>     <a href="#array">Array</a> <br>     <a href="#list">List</a> <br>     <a href="#queue">Queue</a> <br>     <a href="#red_black_tree">Red-Black tree</a> <br>     <a href="#hash">Hash</a> <br> <a href="#memory_management">Memory management</a> <br>     <a href="#heap">Heap</a> <br>     <a href="#pool">Pool</a> <br>     <a href="#shared_memory">Shared memory</a> <br> <a href="#logging">Logging</a> <br> <a href="#cycle">Cycle</a> <br> <a href="#buffer">Buffer</a> <br> <a href="#networking">Networking</a> <br>     <a href="#connection">Connection</a> <br> <a href="#events">Events</a> <br>     <a href="#event">Event</a> <br>     <a href="#i_o_events">I/O events</a> <br>     <a href="#timer_events">Timer events</a> <br>     <a href="#posted_events">Posted events</a> <br>     <a href="#event_loop">Event loop</a> <br> <a href="#processes">Processes</a> <br> <a href="#threads">Threads</a> <br> <a href="#Modules">Modules</a> <br>     <a href="#adding_new_modules">Adding new modules</a> <br>     <a href="#core_modules">Core Modules</a> <br>     <a href="#config_directives">Configuration Directives</a> <br> <a href="#http">HTTP</a> <br>     <a href="#http_connection">Connection</a> <br>     <a href="#http_request">Request</a> <br>     <a href="#http_conf">Configuration</a> <br>     <a href="#http_phases">Phases</a> <br>     <a href="#http_variables">Variables</a> <br>     <a href="#http_complex_values">Complex values</a> <br>     <a href="#http_request_redirection">Request redirection</a> <br>     <a href="#http_subrequests">Subrequests</a> <br>     <a href="#http_request_finalization">Request finalization</a> <br>     <a href="#http_request_body">Request body</a> <br>     <a href="#http_response">Response</a> <br>     <a href="#http_response_body">Response body</a> <br>     <a href="#http_body_filters">Body filters</a> <br>     <a href="#http_building_filter_modules">Building filter modules</a> <br>     <a href="#http_body_buffers_reuse">Buffer reuse</a> <br>     <a href="#http_load_balancing">Load balancing</a> <br> <a href="#examples">Examples</a> <br> <a href="#code_style">Code style</a> <br>     <a href="#code_style_general_rules">General rules</a> <br>     <a href="#code_style_files">Files</a> <br>     <a href="#code_style_comments">Comments</a> <br>     <a href="#code_style_preprocessor">Preprocessor</a> <br>     <a href="#code_style_types">Types</a> <br>     <a href="#code_style_variables">Variables</a> <br>     <a href="#code_style_functions">Functions</a> <br>     <a href="#code_style_expressions">Expressions</a> <br>     <a href="#code_style_conditionals_and_loops">Conditionals and Loops</a> <br>     <a href="#code_style_labels">Labels</a> <br></td>
 
 <h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><h4 id="代码布局"><a href="#代码布局" class="headerlink" title="代码布局"></a>代码布局</h4><ul>
@@ -13662,7 +13662,7 @@ return NGX_ERROR;
     <entry>
       <title><![CDATA[windows-nginx中文手册]]></title>
       <url>/ngx/windows.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>windows<br><a id="more"></a></p>
 <h2 id="适用于Windows的nginx"><a href="#适用于Windows的nginx" class="headerlink" title="适用于Windows的nginx"></a>适用于Windows的nginx</h2><td align="left" class="notranslate"> <a href="#known_issues">Known issues</a> <br> <a href="#possible_future_enhancements">Possible future enhancements</a> <br></td>
 
 <p>  适用于Windows的nginx版本使用本机Win32 API（而不是Cygwin仿真层）。  目前仅使用<code>select()</code>连接处理方法，因此不应期望高性能和可伸缩性。  由于这个以及一些其他已知问题，nginx for Windows的版本被认为是<em>测试</em>版。  目前，除了XSLT过滤器，图像过滤器，GeoIP模块和嵌入式Perl语言之外，它提供的功能几乎与UNIX版本的nginx相同。 </p>
@@ -13743,7 +13743,7 @@ root         C:/web/html;
     <entry>
       <title><![CDATA[syslog-nginx中文手册]]></title>
       <url>/ngx/syslog.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>syslog<br><a id="more"></a></p>
 <h2 id="记录到syslog"><a href="#记录到syslog" class="headerlink" title="记录到syslog"></a>记录到syslog</h2><p>   <a href="ngx_core_module.html#error_log">error_log</a>和<a href="http/ngx_http_log_module.html#access_log">access_log</a>指令支持记录到syslog。  以下参数配置到syslog的日志记录： </p>
 <blockquote>
 <p>  错误消息的严重性由nginx确定，因此在<code>error_log</code>指令中忽略该参数。 </p>
@@ -13806,7 +13806,7 @@ root         C:/web/html;
     <entry>
       <title><![CDATA[switches-nginx中文手册]]></title>
       <url>/ngx/switches.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>switches<br><a id="more"></a></p>
 <h2 id="命令行参数"><a href="#命令行参数" class="headerlink" title="命令行参数"></a>命令行参数</h2><p>   nginx支持以下命令行参数： </p>
 <ul>
 <li><code>-?</code>   |   <code>-h</code> - 打印命令行参数的帮助。 -    <code>-c &lt;code class=&quot;notranslate&quot;&gt;*file*</code> - 使用备用配置<code>*file*</code>而不是默认文件。 </li><li>   <code>-g &lt;code class=&quot;notranslate&quot;&gt;*directives*</code> - 设置<a href="ngx_core_module.html">全局配置指令</a> ，例如， <blockquote class="example"><pre class="notranslate">nginx -g “pid /var/run/nginx.pid; worker_processes <code>sysctl -n hw.ncpu</code>;”<br></pre></blockquote></li>-    <code>-p &lt;code class=&quot;notranslate&quot;&gt;*prefix*</code> - 设置nginx路径前缀，即保留服务器文件的目录（默认值为<code>*/usr/local/nginx*</code> ）。 -    <code>-q</code> - 在配置测试期间禁止出现非错误消息。 -    <code>-s &lt;code class=&quot;notranslate&quot;&gt;*signal*</code> - 向主进程发送<em>信号</em> 。  参数<em>信号</em>可以是以下之一： <ul class="compact"><li>   <code>stop</code> - 快速关闭 -    <code>quit</code> - 优雅地关闭 -    <code>reload</code> - 重新加载配置，使用新配置启动新的工作进程，正常关闭旧的工作进程。 -    <code>reopen</code> - 重新打开日志文件 </li>
@@ -13831,7 +13831,7 @@ root         C:/web/html;
     <entry>
       <title><![CDATA[reference-nginx中文手册]]></title>
       <url>/ngx/reference.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>reference<br><a id="more"></a></p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><td align="left" class="notranslate"> <a href="#http_stream">nginx objects</a> <br>     <a href="#http">HTTP Request</a> <br>     <a href="#stream">Stream Session</a> <br> <a href="#core">Core</a> <br>     <a href="#string">String</a> <br>     <a href="#core_json">JSON</a> <br>     <a href="#crypto">Crypto</a> <br>     <a href="#njs_api_timers">Timers</a> <br>     <a href="#njs_api_fs">File System</a> <br></td>
 
 <p>   <a href="index.html">njs</a>提供了扩展nginx功能的对象，方法和属性。 </p>
@@ -14095,7 +14095,7 @@ undefined
     <entry>
       <title><![CDATA[ngx_google_perftools_module-nginx中文手册]]></title>
       <url>/ngx/ngx_google_perftools_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>ngx_google_perftools_module<br><a id="more"></a></p>
 <h2 id="Module-ngx-google-perftools-module"><a href="#Module-ngx-google-perftools-module" class="headerlink" title="Module ngx_google_perftools_module"></a>Module ngx_google_perftools_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#google_perftools_profiles">google_perftools_profiles</a> <br></td>
 
 <p>   <code>ngx_google_perftoos_module</code>模块（0.6.29）支持使用<a href="https://github.com/gperftools/gperftools" target="_blank" rel="noopener">Google Performance Tools</a>分析nginx工作进程。  该模块适用于nginx开发人员。 </p>
@@ -14133,7 +14133,7 @@ undefined
     <entry>
       <title><![CDATA[ngx_core_module-nginx中文手册]]></title>
       <url>/ngx/ngx_core_module.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>ngx_core_module<br><a id="more"></a></p>
 <h2 id="核心功能"><a href="#核心功能" class="headerlink" title="核心功能"></a>核心功能</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#accept_mutex">accept_mutex</a> <br>     <a href="#accept_mutex_delay">accept_mutex_delay</a> <br>     <a href="#daemon">daemon</a> <br>     <a href="#debug_connection">debug_connection</a> <br>     <a href="#debug_points">debug_points</a> <br>     <a href="#env">env</a> <br>     <a href="#error_log">error_log</a> <br>     <a href="#events">events</a> <br>     <a href="#include">include</a> <br>     <a href="#load_module">load_module</a> <br>     <a href="#lock_file">lock_file</a> <br>     <a href="#master_process">master_process</a> <br>     <a href="#multi_accept">multi_accept</a> <br>     <a href="#pcre_jit">pcre_jit</a> <br>     <a href="#pid">pid</a> <br>     <a href="#ssl_engine">ssl_engine</a> <br>     <a href="#thread_pool">thread_pool</a> <br>     <a href="#timer_resolution">timer_resolution</a> <br>     <a href="#use">use</a> <br>     <a href="#user">user</a> <br>     <a href="#worker_aio_requests">worker_aio_requests</a> <br>     <a href="#worker_connections">worker_connections</a> <br>     <a href="#worker_cpu_affinity">worker_cpu_affinity</a> <br>     <a href="#worker_priority">worker_priority</a> <br>     <a href="#worker_processes">worker_processes</a> <br>     <a href="#worker_rlimit_core">worker_rlimit_core</a> <br>     <a href="#worker_rlimit_nofile">worker_rlimit_nofile</a> <br>     <a href="#worker_shutdown_timeout">worker_shutdown_timeout</a> <br>     <a href="#working_directory">working_directory</a> <br></td>
 
 <h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><blockquote>
@@ -14408,7 +14408,7 @@ worker_cpu_affinity auto;
     <entry>
       <title><![CDATA[nginx_dtrace_pid_provider-nginx中文手册]]></title>
       <url>/ngx/nginx_dtrace_pid_provider.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>nginx_dtrace_pid_provider<br><a id="more"></a></p>
 <h2 id="使用DTrace-pid提供程序调试nginx"><a href="#使用DTrace-pid提供程序调试nginx" class="headerlink" title="使用DTrace pid提供程序调试nginx"></a>使用DTrace pid提供程序调试nginx</h2><p>  本文假设读者具有nginx内部和<a href="#see_also">DTrace</a>的一般知识。 </p>
 <p>  尽管使用<a href="debugging_log.html">–with-debug</a>选项构建的nginx已经提供了大量有关请求处理的信息，但有时需要更彻底地跟踪代码路径的特定部分，同时省略其余的调试输出。   DTrace pid提供程序（在Solaris，macOS上提供）是一个用于探索userland程序内部的有用工具，因为它不需要任何代码更改，它可以帮助完成任务。  用于跟踪和打印nginx函数调用的简单DTrace脚本可能如下所示： </p>
 <blockquote>
@@ -14474,7 +14474,7 @@ typedef ngx_http_request_body_t void;
     <entry>
       <title><![CDATA[linux_packages-nginx中文手册]]></title>
       <url>/ngx/linux_packages.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>linux_packages<br><a id="more"></a></p>
 <h2 id="nginx：Linux包"><a href="#nginx：Linux包" class="headerlink" title="nginx：Linux包"></a>nginx：Linux包</h2><p>  目前，nginx软件包可用于以下发行版和版本： </p>
 <p>   RHEL / CentOS的： </p>
 <blockquote>
@@ -14766,7 +14766,7 @@ nginx-module-xslt
     <entry>
       <title><![CDATA[howto_build_on_win32-nginx中文手册]]></title>
       <url>/ngx/howto_build_on_win32.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>howto_build_on_win32<br><a id="more"></a></p>
 <h2 id="使用Visual-C在Win32平台上构建nginx"><a href="#使用Visual-C在Win32平台上构建nginx" class="headerlink" title="使用Visual C在Win32平台上构建nginx"></a>使用Visual C在Win32平台上构建nginx</h2><td align="left" class="notranslate"> <a href="#build_steps">Build steps</a> <br> <a href="#see_also">See also</a> <br></td>
 
 <h4 id="先决条件"><a href="#先决条件" class="headerlink" title="先决条件"></a>先决条件</h4><p>  要在MicrosoftWin32®平台上构建nginx，您需要： </p>
@@ -14841,7 +14841,7 @@ tar -xzf ../../openssl-1.0.2q.tar.gz
     <entry>
       <title><![CDATA[examples-nginx中文手册]]></title>
       <url>/ngx/examples.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>examples<br><a id="more"></a></p>
 <h2 id="示例nginx配置"><a href="#示例nginx配置" class="headerlink" title="示例nginx配置"></a>示例nginx配置</h2><p>  示例站点配置，将所有请求传递给后端，但以“/ download /”开头的图像和请求除外。 </p>
 <blockquote>
 <p><pre class="notranslate">user  www www;</pre></p>
@@ -15037,7 +15037,7 @@ server {
     <entry>
       <title><![CDATA[debugging_log-nginx中文手册]]></title>
       <url>/ngx/debugging_log.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>debugging_log<br><a id="more"></a></p>
 <h2 id="调试日志"><a href="#调试日志" class="headerlink" title="调试日志"></a>调试日志</h2><td align="left" class="notranslate"> <a href="#clients">Debugging log for selected clients</a> <br> <a href="#memory">Logging to a cyclic memory buffer</a> <br></td>
 
 <p>  要启用调试日志，需要配置nginx以在构建期间支持调试： </p>
@@ -15113,7 +15113,7 @@ service nginx-debug start
     <entry>
       <title><![CDATA[control-nginx中文手册]]></title>
       <url>/ngx/control.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>control<br><a id="more"></a></p>
 <h2 id="控制nginx"><a href="#控制nginx" class="headerlink" title="控制nginx"></a>控制nginx</h2><td align="left" class="notranslate"> <a href="#reconfiguration">Changing Configuration</a> <br> <a href="#logs">Rotating Log-files</a> <br> <a href="#upgrade">Upgrading Executable on the Fly</a> <br></td>
 
 <p>   nginx可以用信号控制。  默认情况下，主进程的进程ID将写入文件<code>/usr/local/nginx/logs/nginx.pid</code> 。  此名称可以在配置时更改，也可以使用<a href="ngx_core_module.html#pid">pid</a>指令在<code>nginx.conf</code>更改。  主进程支持以下信号： </p>
@@ -15257,7 +15257,7 @@ service nginx-debug start
     <entry>
       <title><![CDATA[contributing_changes-nginx中文手册]]></title>
       <url>/ngx/contributing_changes.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>contributing_changes<br><a id="more"></a></p>
 <h2 id="贡献变化"><a href="#贡献变化" class="headerlink" title="贡献变化"></a>贡献变化</h2><td align="left" class="notranslate"> <a href="#getting_sources">Getting Sources</a> <br> <a href="#formatting_changes">Formatting Changes</a> <br> <a href="#before_submitting">Before Submitting</a> <br> <a href="#submitting_changes">Submitting Changes</a> <br> <a href="#license">License</a> <br></td>
 
 <h4 id="获取资源"><a href="#获取资源" class="headerlink" title="获取资源"></a>获取资源</h4><p>   <a href="https://www.mercurial-scm.org" target="_blank" rel="noopener">Mercurial</a>用于存储源代码。  可以使用以下命令克隆<a href="http://hg.nginx.org/nginx" target="_blank" rel="noopener">存储库</a> ： </p>
@@ -15308,7 +15308,7 @@ if (p == NULL) {
     <entry>
       <title><![CDATA[configure-nginx中文手册]]></title>
       <url>/ngx/configure.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>configure<br><a id="more"></a></p>
 <h2 id="从Sources构建nginx"><a href="#从Sources构建nginx" class="headerlink" title="从Sources构建nginx"></a>从Sources构建nginx</h2><p>  使用<code>configure</code>命令配置构建。  它定义了系统的各个方面，包括允许nginx用于连接处理的方法。  最后它创建了一个<code>Makefile</code> 。 </p>
 <p>   <code>configure</code>命令支持以下参数： </p>
 <p>  参数用法示例（所有这些都需要在一行中输入）： </p>
@@ -15494,7 +15494,7 @@ if (p == NULL) {
     <entry>
       <title><![CDATA[beginners_guide-nginx中文手册]]></title>
       <url>/ngx/beginners_guide.html</url>
-      <content type="html"><![CDATA[<p>None<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>beginners_guide<br><a id="more"></a></p>
 <h2 id="初学者指南"><a href="#初学者指南" class="headerlink" title="初学者指南"></a>初学者指南</h2><td align="left" class="notranslate"> <a href="#control">Starting, Stopping, and Reloading Configuration</a> <br> <a href="#conf_structure">Configuration File’s Structure</a> <br> <a href="#static">Serving Static Content</a> <br> <a href="#proxy">Setting Up a Simple Proxy Server</a> <br> <a href="#fastcgi">Setting Up FastCGI Proxying</a> <br></td>
 
 <p>  本指南提供了对nginx的基本介绍，并介绍了可以使用它完成的一些简单任务。  据推测，nginx已安装在阅读器的机器上。  如果不是，请参阅<a href="install.html">安装nginx</a>页面。  本指南介绍如何启动和停止nginx，重新加载其配置，解释配置文件的结构，并介绍如何设置nginx以提供静态内容，如何将nginx配置为代理服务器，以及如何将其与一个FastCGI应用程序。 </p>
@@ -16299,6 +16299,18 @@ if (p == NULL) {
     </entry>
     
     <entry>
+      <title></title>
+      <url>/nginx%E5%B8%B8%E7%94%A8%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F%E5%8F%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html</url>
+      <content type="html"><![CDATA[<p>title: nginx常用基本变量及数据结构<br>tags: [nginx]<br>categories: nginx</p>
+<a id="more"></a>
+<h1 id="nginx-常用基本变量"><a href="#nginx-常用基本变量" class="headerlink" title="nginx 常用基本变量"></a>nginx 常用基本变量</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">typedef int  ngx_fd_t;</span><br><span class="line">typedef intptr_t        ngx_int_t;</span><br><span class="line">typedef uintptr_t       ngx_uint_t;</span><br><span class="line">typedef intptr_t        ngx_flag_t;</span><br><span class="line">typedef void *          ngx_buf_tag_t;</span><br></pre></td></tr></table></figure>
+<h1 id="nginx常用数据结构"><a href="#nginx常用数据结构" class="headerlink" title="nginx常用数据结构"></a>nginx常用数据结构</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> typedef struct &#123;</span><br><span class="line">     size_t      len;</span><br><span class="line">     u_char     *data;</span><br><span class="line">&#125; ngx_str_t;</span><br><span class="line"></span><br><span class="line">typedef struct stat  ngx_file_info_t;</span><br></pre></td></tr></table></figure>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[ngx_http_conf_get_module_loc_conf 分析]]></title>
       <url>/ngx_http_conf_get_module_loc_conf.html</url>
       <content type="html"><![CDATA[<p>自定义参数处理函数中会用到ngx_http_conf_get_module_loc_conf(cf, ngx_http_core_module);<br>获取配置块</p>
@@ -16323,14 +16335,32 @@ if (p == NULL) {
     </entry>
     
     <entry>
-      <title></title>
-      <url>/nginx%E5%B8%B8%E7%94%A8%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F%E5%8F%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html</url>
-      <content type="html"><![CDATA[<p>title: nginx常用基本变量及数据结构<br>tags: [nginx]<br>categories: nginx</p>
+      <title><![CDATA[nginx-if指令与全局变量]]></title>
+      <url>/nginx-if%E6%8C%87%E4%BB%A4%E4%B8%8E%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F.html</url>
+      <content type="html"><![CDATA[<p>if判断指令<br>语法为if(condition){…}，对给定的条件condition进行判断。如果为真，大括号内的rewrite指令将被执行，if条件(conditon)可以是如下任何内容：</p>
+<blockquote>
+<p>当表达式只是一个变量时，如果值为空或任何以0开头的字符串都会当做false<br>直接比较变量和内容时，使用=或!=<br>~正则表达式匹配，~*不区分大小写的匹配，!~区分大小写的不匹配</p>
+</blockquote>
 <a id="more"></a>
-<h1 id="nginx-常用基本变量"><a href="#nginx-常用基本变量" class="headerlink" title="nginx 常用基本变量"></a>nginx 常用基本变量</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">typedef int  ngx_fd_t;</span><br><span class="line">typedef intptr_t        ngx_int_t;</span><br><span class="line">typedef uintptr_t       ngx_uint_t;</span><br><span class="line">typedef intptr_t        ngx_flag_t;</span><br><span class="line">typedef void *          ngx_buf_tag_t;</span><br></pre></td></tr></table></figure>
-<h1 id="nginx常用数据结构"><a href="#nginx常用数据结构" class="headerlink" title="nginx常用数据结构"></a>nginx常用数据结构</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> typedef struct &#123;</span><br><span class="line">     size_t      len;</span><br><span class="line">     u_char     *data;</span><br><span class="line">&#125; ngx_str_t;</span><br><span class="line"></span><br><span class="line">typedef struct stat  ngx_file_info_t;</span><br></pre></td></tr></table></figure>
+<h1 id="if-常用判断"><a href="#if-常用判断" class="headerlink" title="if 常用判断"></a>if 常用判断</h1><p>-f和!-f用来判断是否存在文件<br>-d和!-d用来判断是否存在目录<br>-e和!-e用来判断是否存在文件或目录<br>-x和!-x用来判断文件是否可执行</p>
+<h2 id="if应用"><a href="#if应用" class="headerlink" title="if应用"></a>if应用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">if ($http_user_agent ~ MSIE) &#123;</span><br><span class="line">    rewrite ^(.*)$ /msie/$1 break;</span><br><span class="line">&#125; //如果UA包含&quot;MSIE&quot;，rewrite请求到/msid/目录下</span><br><span class="line">if ($http_cookie ~* &quot;id=([^;]+)(?:;|$)&quot;) &#123;</span><br><span class="line">    set $id $1;</span><br><span class="line"> &#125; //如果cookie匹配正则，设置变量$id等于正则引用部分</span><br><span class="line">if ($request_method = POST) &#123;</span><br><span class="line">    return 405;</span><br><span class="line">&#125; //如果提交方法为POST，则返回状态405（Method not allowed）。return不能返回301,302</span><br><span class="line">if ($slow) &#123;</span><br><span class="line">    limit_rate 10k;</span><br><span class="line">&#125; //限速，$slow可以通过 set 指令设置</span><br><span class="line">if (!-f $request_filename)&#123;</span><br><span class="line">    break;</span><br><span class="line">    proxy_pass  http://127.0.0.1;</span><br><span class="line">&#125; //如果请求的文件名不存在，则反向代理到localhost 。这里的break也是停止rewrite检查</span><br><span class="line">if ($args ~ post=140)&#123;</span><br><span class="line">    rewrite ^ http://example.com/ permanent;</span><br><span class="line">&#125; //如果query string中包含&quot;post=140&quot;，永久重定向到example.com</span><br><span class="line">location ~* \.(gif|jpg|png|swf|flv)$ &#123;</span><br><span class="line">    valid_referers none blocked www.jefflei.com www.leizhenfang.com;</span><br><span class="line">    if ($invalid_referer) &#123;</span><br><span class="line">        return 404;</span><br><span class="line">    &#125; //防盗链</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="nginx-常用全局变量"><a href="#nginx-常用全局变量" class="headerlink" title="nginx 常用全局变量"></a>nginx 常用全局变量</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">$args ： #这个变量等于请求行中的参数，同$query_string</span><br><span class="line">$is_args : 如果请求带有参数, 值为 ? 否则为空字符串</span><br><span class="line">$content_length ： 请求头中的Content-length字段。</span><br><span class="line">$content_type ： 请求头中的Content-Type字段。</span><br><span class="line">$document_root ： 当前请求在root指令中指定的值。</span><br><span class="line">$host ： 请求主机头字段，否则为服务器名称。</span><br><span class="line">$http_user_agent ： 客户端agent信息</span><br><span class="line">$http_cookie ： 客户端cookie信息</span><br><span class="line">$limit_rate ： 这个变量可以限制连接速率。</span><br><span class="line">$request_method ： 客户端请求的动作，通常为GET或POST。</span><br><span class="line">$remote_addr ： 客户端的IP地址。</span><br><span class="line">$remote_port ： 客户端的端口。</span><br><span class="line">$remote_user ： 已经经过Auth Basic Module验证的用户名。</span><br><span class="line">$request_filename ： 当前请求的文件路径，由root或alias指令与URI请求生成。</span><br><span class="line">$scheme ： HTTP方法（如http，https）。</span><br><span class="line">$server_protocol ： 请求使用的协议，通常是HTTP/1.0或HTTP/1.1。</span><br><span class="line">$server_addr ： 服务器地址，在完成一次系统调用后可以确定这个值。</span><br><span class="line">$server_name ： 服务器名称。</span><br><span class="line">$server_port ： 请求到达服务器的端口号。</span><br><span class="line">$request_uri ： 包含请求参数的原始URI，不包含主机名，如：”/foo/bar.php?arg=baz”。</span><br><span class="line">$uri ： 不带请求参数的当前URI，$uri不包含主机名，如”/foo/bar.html”。</span><br><span class="line">$document_uri ： 与$uri相同。</span><br><span class="line">$nginx_version： 当前nginx版本</span><br><span class="line">$request: 原始请求 GET /one/2222 HTTP/1.1</span><br><span class="line">$status:  响应状态码</span><br><span class="line">$http_referer: url跳转来源</span><br><span class="line">$request_body : 客户端请求主体</span><br></pre></td></tr></table></figure>
 ]]></content>
       
+        <categories>
+            
+            <category> nginx </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> nginx </tag>
+            
+            <tag> if </tag>
+            
+        </tags>
         
     </entry>
     
@@ -16392,36 +16422,6 @@ if (p == NULL) {
             <tag> nginx </tag>
             
             <tag> location </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[nginx-if指令与全局变量]]></title>
-      <url>/nginx-if%E6%8C%87%E4%BB%A4%E4%B8%8E%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F.html</url>
-      <content type="html"><![CDATA[<p>if判断指令<br>语法为if(condition){…}，对给定的条件condition进行判断。如果为真，大括号内的rewrite指令将被执行，if条件(conditon)可以是如下任何内容：</p>
-<blockquote>
-<p>当表达式只是一个变量时，如果值为空或任何以0开头的字符串都会当做false<br>直接比较变量和内容时，使用=或!=<br>~正则表达式匹配，~*不区分大小写的匹配，!~区分大小写的不匹配</p>
-</blockquote>
-<a id="more"></a>
-<h1 id="if-常用判断"><a href="#if-常用判断" class="headerlink" title="if 常用判断"></a>if 常用判断</h1><p>-f和!-f用来判断是否存在文件<br>-d和!-d用来判断是否存在目录<br>-e和!-e用来判断是否存在文件或目录<br>-x和!-x用来判断文件是否可执行</p>
-<h2 id="if应用"><a href="#if应用" class="headerlink" title="if应用"></a>if应用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">if ($http_user_agent ~ MSIE) &#123;</span><br><span class="line">    rewrite ^(.*)$ /msie/$1 break;</span><br><span class="line">&#125; //如果UA包含&quot;MSIE&quot;，rewrite请求到/msid/目录下</span><br><span class="line">if ($http_cookie ~* &quot;id=([^;]+)(?:;|$)&quot;) &#123;</span><br><span class="line">    set $id $1;</span><br><span class="line"> &#125; //如果cookie匹配正则，设置变量$id等于正则引用部分</span><br><span class="line">if ($request_method = POST) &#123;</span><br><span class="line">    return 405;</span><br><span class="line">&#125; //如果提交方法为POST，则返回状态405（Method not allowed）。return不能返回301,302</span><br><span class="line">if ($slow) &#123;</span><br><span class="line">    limit_rate 10k;</span><br><span class="line">&#125; //限速，$slow可以通过 set 指令设置</span><br><span class="line">if (!-f $request_filename)&#123;</span><br><span class="line">    break;</span><br><span class="line">    proxy_pass  http://127.0.0.1;</span><br><span class="line">&#125; //如果请求的文件名不存在，则反向代理到localhost 。这里的break也是停止rewrite检查</span><br><span class="line">if ($args ~ post=140)&#123;</span><br><span class="line">    rewrite ^ http://example.com/ permanent;</span><br><span class="line">&#125; //如果query string中包含&quot;post=140&quot;，永久重定向到example.com</span><br><span class="line">location ~* \.(gif|jpg|png|swf|flv)$ &#123;</span><br><span class="line">    valid_referers none blocked www.jefflei.com www.leizhenfang.com;</span><br><span class="line">    if ($invalid_referer) &#123;</span><br><span class="line">        return 404;</span><br><span class="line">    &#125; //防盗链</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="nginx-常用全局变量"><a href="#nginx-常用全局变量" class="headerlink" title="nginx 常用全局变量"></a>nginx 常用全局变量</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">$args ： #这个变量等于请求行中的参数，同$query_string</span><br><span class="line">$is_args : 如果请求带有参数, 值为 ? 否则为空字符串</span><br><span class="line">$content_length ： 请求头中的Content-length字段。</span><br><span class="line">$content_type ： 请求头中的Content-Type字段。</span><br><span class="line">$document_root ： 当前请求在root指令中指定的值。</span><br><span class="line">$host ： 请求主机头字段，否则为服务器名称。</span><br><span class="line">$http_user_agent ： 客户端agent信息</span><br><span class="line">$http_cookie ： 客户端cookie信息</span><br><span class="line">$limit_rate ： 这个变量可以限制连接速率。</span><br><span class="line">$request_method ： 客户端请求的动作，通常为GET或POST。</span><br><span class="line">$remote_addr ： 客户端的IP地址。</span><br><span class="line">$remote_port ： 客户端的端口。</span><br><span class="line">$remote_user ： 已经经过Auth Basic Module验证的用户名。</span><br><span class="line">$request_filename ： 当前请求的文件路径，由root或alias指令与URI请求生成。</span><br><span class="line">$scheme ： HTTP方法（如http，https）。</span><br><span class="line">$server_protocol ： 请求使用的协议，通常是HTTP/1.0或HTTP/1.1。</span><br><span class="line">$server_addr ： 服务器地址，在完成一次系统调用后可以确定这个值。</span><br><span class="line">$server_name ： 服务器名称。</span><br><span class="line">$server_port ： 请求到达服务器的端口号。</span><br><span class="line">$request_uri ： 包含请求参数的原始URI，不包含主机名，如：”/foo/bar.php?arg=baz”。</span><br><span class="line">$uri ： 不带请求参数的当前URI，$uri不包含主机名，如”/foo/bar.html”。</span><br><span class="line">$document_uri ： 与$uri相同。</span><br><span class="line">$nginx_version： 当前nginx版本</span><br><span class="line">$request: 原始请求 GET /one/2222 HTTP/1.1</span><br><span class="line">$status:  响应状态码</span><br><span class="line">$http_referer: url跳转来源</span><br><span class="line">$request_body : 客户端请求主体</span><br></pre></td></tr></table></figure>
-]]></content>
-      
-        <categories>
-            
-            <category> nginx </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> nginx </tag>
-            
-            <tag> if </tag>
             
         </tags>
         
