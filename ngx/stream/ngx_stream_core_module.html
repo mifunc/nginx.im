@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="stream,ngx_stream_core_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:53:26.247Z">
+<meta property="og:updated_time" content="2018-12-21T07:56:12.100Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="stream&#x2F;ngx_stream_core_module-nginx中文手册">
 <meta name="twitter:description" content="stream,ngx_stream_core_module">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
                 2018年12月21日
               </time>
             
@@ -397,57 +397,161 @@
 
       
         <p>stream,ngx_stream_core_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-stream-core-module"><a href="#Module-ngx-stream-core-module" class="headerlink" title="Module ngx_stream_core_module"></a>Module ngx_stream_core_module</h2><p> Example Configuration<br> Directives<br> listen<br> preread_buffer_size<br> preread_timeout<br> proxy_protocol_timeout<br> resolver<br> resolver_timeout<br> server<br> stream<br> tcp_nodelay<br> variables_hash_bucket_size<br> variables_hash_max_size<br> Embedded Variables<br> ngx_stream_core_module模块自版本1.9.0起可用。 默认情况下不构建此模块，应使用–with-stream配置参数启用它。 </p>
+<h2 id="Module-ngx-stream-core-module"><a href="#Module-ngx-stream-core-module" class="headerlink" title="Module ngx_stream_core_module"></a>Module ngx_stream_core_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#listen">listen</a> <br>     <a href="#preread_buffer_size">preread_buffer_size</a> <br>     <a href="#preread_timeout">preread_timeout</a> <br>     <a href="#proxy_protocol_timeout">proxy_protocol_timeout</a> <br>     <a href="#resolver">resolver</a> <br>     <a href="#resolver_timeout">resolver_timeout</a> <br>     <a href="#server">server</a> <br>     <a href="#stream">stream</a> <br>     <a href="#tcp_nodelay">tcp_nodelay</a> <br>     <a href="#variables_hash_bucket_size">variables_hash_bucket_size</a> <br>     <a href="#variables_hash_max_size">variables_hash_max_size</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
+
+<p>   <code>ngx_stream_core_module</code>模块自版本1.9.0起可用。  默认情况下不构建此模块，应使用<code>--with-stream</code>配置参数启用它。 </p>
 <h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><blockquote>
-<p>worker_processes auto; error_log /var/log/nginx/error.log info; events { worker_connections 1024; } stream { upstream backend { hash $remote_addr consistent; server backend1.example.com:12345 weight=5; server 127.0.0.1:12345 max_fails=3 fail_timeout=30s; server unix:/tmp/backend3; } upstream dns { server 192.168.0.1:53535; server dns.example.com:53; } server { listen 12345; proxy_connect_timeout 1s; proxy_timeout 3s; proxy_pass backend; } server { listen 127.0.0.1:53 udp reuseport; proxy_timeout 20s; proxy_pass dns; } server { listen [::1]:12345; proxy_pass unix:/tmp/stream.socket; } } ####  指令</p>
+<p><pre class="notranslate">worker_processes auto;</pre></p>
 </blockquote>
-<p> Syntax:  <strong>listen</strong> <em>address</em> : <em>port</em> [ ssl ] [ udp ] [ proxy_protocol ] [ backlog = <em>number</em> ] [ rcvbuf = <em>size</em> ] [ sndbuf = <em>size</em> ] [ bind ] [ ipv6only = on | off ] [ reuseport ] [ so_keepalive = on | off |[ <em>keepidle</em> ]:[ <em>keepintvl</em> ]:[ <em>keepcnt</em> ]];<br>  Default:  —  Context:  server<br>  设置服务器将接受连接的套接字的<em>address</em>和<em>port</em> 。 可以仅指定端口。 地址也可以是主机名，例如： </p>
+<p>error_log /var/log/nginx/error.log info;</p>
+<p>events {<br>    worker_connections  1024;<br>}</p>
+<p>stream {<br>    upstream backend {<br>        hash $remote_addr consistent;</p>
+<pre><code>    server backend1.example.com:12345 weight=5;
+    server 127.0.0.1:12345            max_fails=3 fail_timeout=30s;
+    server unix:/tmp/backend3;
+}
+
+upstream dns {
+   server 192.168.0.1:53535;
+   server dns.example.com:53;
+}
+
+server {
+    listen 12345;
+    proxy_connect_timeout 1s;
+    proxy_timeout 3s;
+    proxy_pass backend;
+}
+
+server {
+    listen 127.0.0.1:53 udp reuseport;
+    proxy_timeout 20s;
+    proxy_pass dns;
+}
+
+server {
+    listen [::1]:12345;
+    proxy_pass unix:/tmp/stream.socket;
+}
+</code></pre><p>}<br></p>
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**listen**     &lt;code class=&quot;notranslate&quot;&gt;*address*</code> : <code>*port*</code>    [ <code>ssl</code> ]    [ <code>udp</code> ]    [ <code>proxy_protocol</code> ]    [ <code>backlog</code> = <code>*number*</code> ]    [ <code>rcvbuf</code> = <code>*size*</code> ]    [ <code>sndbuf</code> = <code>*size*</code> ]    [ <code>bind</code> ]    [ <code>ipv6only</code> = <code>on</code> | <code>off</code> ]    [ <code>reuseport</code> ]    [ <code>so_keepalive</code> = <code>on</code> | <code>off</code> |[ <code>*keepidle*</code> ]:[ <code>*keepintvl*</code> ]:[ <code>*keepcnt*</code> ]]; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>server</code> <br>                </td></p>
+<p>  设置服务器将接受连接的套接字的<code>*address*</code>和<code>*port*</code> 。  可以仅指定端口。  地址也可以是主机名，例如： </p>
 <blockquote>
-<p>listen 127.0.0.1:12345; listen <em>:12345; listen 12345; # same as </em>:12345 listen localhost:12345;  IPv6地址在方括号中指定： </p>
-<p>listen [::1]:12345; listen [::]:12345;  UNIX域套接字使用“ unix: ”前缀指定： </p>
-<p>listen unix:/var/run/nginx.sock;  ssl参数允许指定此端口上接受的所有连接都应在SSL模式下工作。 </p>
+<pre class="notranslate">listen 127.0.0.1:12345;
+listen *:12345;
+listen 12345;     # same as *:12345
+listen localhost:12345;
+</pre>
+
 </blockquote>
-<p> udp参数配置一个侦听套接字以处理数据报（1.9.13）。 </p>
-<p> proxy_protocol参数（1.11.4）允许指定此端口上接受的所有连接都应使用PROXY协议 。 </p>
+<p>   IPv6地址在方括号中指定： </p>
 <blockquote>
-<p> 自版本1.13.11起支持PROXY协议版本2。  listen指令可以有几个特定于与套接字相关的系统调用的附加参数。 </p>
+<pre class="notranslate">listen [::1]:12345;
+listen [::]:12345;
+</pre>
+
 </blockquote>
-<p> backlog = <em>number</em>  在listen()调用中设置backlog参数，该参数限制挂起连接队列的最大长度（1.9.2）。 默认情况下， backlog在FreeBSD，DragonFly BSD和macOS上设置为-1，在其他平台上设置为511。  rcvbuf = <em>size</em>  设置侦听套接字的接收缓冲区大小（ SO_RCVBUF选项）（1.11.13）。  sndbuf = <em>size</em>  设置侦听套接字的发送缓冲区大小（ SO_SNDBUF选项）（1.11.13）。  bind   此参数指示对给定地址：端口对进行单独的bind()调用。 事实是，如果有几个具有相同端口但不同地址的listen指令，并且其中一个listen指令侦听给定端口（ <em>: </em>port<em> ）的所有地址，则nginx将bind()仅限于</em>: <em>port</em> 。 应该注意的是，在这种情况下将进行getsockname()系统调用以确定接受连接的地址。 如果使用ipv6only或so_keepalive参数，那么对于给定的<em>address</em> ： <em>port</em>对将始终进行单独的bind()调用。  ipv6only = on | off  此参数确定（通过IPV6_V6ONLY套接字选项）侦听通配符地址[::]的IPv6套接字是仅接受IPv6连接还是仅接受IPv6和IPv4连接。 默认情况下，此参数处于启用状态。 它只能在开始时设置一次。  reuseport   此参数（1.9.1）指示为每个工作进程创建一个单独的侦听套接字（使用Linux 3.9+和DragonFly BSD上的SO_REUSEPORT套接字选项，或FreeBSD 12+上的SO_REUSEPORT_LB ），允许内核在工作进程之间分配传入连接。 目前仅适用于Linux 3.9 +，DragonFly BSD和FreeBSD 12+（1.15.1）。 </p>
+<p>   UNIX域套接字使用“ <code>unix:</code> ”前缀指定： </p>
 <blockquote>
-<p> 不恰当地使用此选项可能会产生安全隐患 。  so_keepalive = on | off | [ <em>keepidle</em> ]：[ <em>keepintvl</em> ]：[ <em>keepcnt</em> ]  此参数配置侦听套接字的“TCP keepalive”行为。 如果省略此参数，则操作系统的设置将对套接字有效。 如果将其设置为值“ on ”，则为套接字打开SO_KEEPALIVE选项。 如果将其设置为值“ off ”，则为套接字关闭SO_KEEPALIVE选项。 某些操作系统支持使用TCP_KEEPIDLE ， TCP_KEEPINTVL和TCP_KEEPCNT套接字选项在每个套接字的基础上设置TCP keepalive参数。 在这样的系统上（目前，Linux 2.4 +，NetBSD 5+和FreeBSD 9.0-STABLE），可以使用<em>keepidle</em> ， <em>keepintvl</em>和<em>keepcnt</em>参数配置它们。 可以省略一个或两个参数，在这种情况下，相应套接字选项的系统默认设置将生效。 例如，<br>so_keepalive=30m::10 将空闲超时（ TCP_KEEPIDLE ）设置为30分钟，将探测间隔（ TCP_KEEPINTVL ）保留为系统默认值，并将探测计数（ TCP_KEEPCNT ）设置为10个探测。  不同的服务器必须侦听不同的<em>address</em> ： <em>port</em>对。 </p>
+<pre class="notranslate">listen unix:/var/run/nginx.sock;
+</pre>
+
+
+
 </blockquote>
-<p> Syntax:  <strong>preread_buffer_size</strong> <em>size</em> ;<br>  Default:  preread_buffer_size 16k;  Context:  stream , server<br>  该指令出现在1.11.5版中。 </p>
-<p> 指定预读缓冲区的<em>size</em> 。 </p>
-<p> Syntax:  <strong>preread_timeout</strong> <em>timeout</em> ;<br>  Default:  preread_timeout 30s;  Context:  stream , server<br>  该指令出现在1.11.5版中。 </p>
-<p> 指定预读阶段的<em>timeout</em> 。 </p>
-<p> Syntax:  <strong>proxy_protocol_timeout</strong> <em>timeout</em> ;<br>  Default:  proxy_protocol_timeout 30s;  Context:  stream , server<br>  该指令出现在1.11.4版中。 </p>
-<p> 指定读取PROXY协议标头以完成的<em>timeout</em> 。 如果在此时间内未传输整个标头，则关闭连接。 </p>
-<p> Syntax:  <strong>resolver</strong> <em>address</em> … [ valid = <em>time</em> ] [ ipv6 = on | off ];<br>  Default:  —  Context:  stream , server<br>  该指令出现在1.11.3版中。 </p>
-<p> 将用于解析上游服务器名称的名称服务器配置到地址中，例如： </p>
+<p>   <code>ssl</code>参数允许指定此端口上接受的所有连接都应在SSL模式下工作。 </p>
+<p>   <code>udp</code>参数配置一个侦听套接字以处理数据报（1.9.13）。 </p>
+<p>   <code>proxy_protocol</code>参数（1.11.4）允许指定此端口上接受的所有连接都应使用<a href="http://www.haproxy.org/download/1.5/doc/proxy-protocol.txt" target="_blank" rel="noopener">PROXY协议</a> 。 </p>
 <blockquote>
-<p>resolver 127.0.0.1 [::1]:5353;  可以将地址指定为域名或IP地址，以及可选端口。 如果未指定端口，则使用端口53。 以循环方式查询名称服务器。 </p>
+<p>  自版本1.13.11起支持PROXY协议版本2。 </p>
 </blockquote>
-<p> 默认情况下，nginx将在解析时查找IPv4和IPv6地址。 如果不需要查找IPv6地址，可以指定ipv6=off参数。 </p>
-<p> 默认情况下，nginx使用响应的TTL值缓存答案。 可选的valid参数允许覆盖它： </p>
+<p>   <code>listen</code>指令可以有几个特定于与套接字相关的系统调用的附加参数。 </p>
 <blockquote>
-<p>resolver 127.0.0.1 [::1]:5353 valid=30s;<br> 在1.11.3版之前，该指令作为我们商业订阅的一部分提供。  Syntax:  <strong>resolver_timeout</strong> <em>time</em> ;<br>  Default:  resolver_timeout 30s;  Context:  stream , server<br>  该指令出现在1.11.3版中。 </p>
+<p>  不恰当地使用此选项可能会产生安全<a href="http://man7.org/linux/man-pages/man7/socket.7.html" target="_blank" rel="noopener">隐患</a> 。 </p>
+<pre class="notranslate">so_keepalive=30m::10</pre>
+
+
+
 </blockquote>
-<p> 设置名称解析的超时，例如： </p>
+<p>  不同的服务器必须侦听不同的<code>*address*</code> ： <code>*port*</code>对。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**preread_buffer_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">preread_buffer_size 16k;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
+<p>  该指令出现在1.11.5版中。 </p>
+<p>  指定<a href="stream_processing.html#preread_phase">预读</a>缓冲区的<code>*size*</code> 。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**preread_timeout** &lt;code class=&quot;notranslate&quot;&gt;*timeout*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">preread_timeout 30s;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
+<p>  该指令出现在1.11.5版中。 </p>
+<p>  指定<a href="stream_processing.html#preread_phase">预读</a>阶段的<code>*timeout*</code> 。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_protocol_timeout** &lt;code class=&quot;notranslate&quot;&gt;*timeout*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_protocol_timeout 30s;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
+<p>  该指令出现在1.11.4版中。 </p>
+<p>  指定读取PROXY协议标头以完成的<code>*timeout*</code> 。  如果在此时间内未传输整个标头，则关闭连接。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**resolver**     &lt;code class=&quot;notranslate&quot;&gt;*address*</code> …    [ <code>valid</code> = <code>*time*</code> ]    [ <code>ipv6</code> = <code>on</code> | <code>off</code> ]; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
+<p>  该指令出现在1.11.3版中。 </p>
+<p>  将用于解析上游服务器名称的名称服务器配置到地址中，例如： </p>
 <blockquote>
-<p>resolver_timeout 5s;<br> 在1.11.3版之前，该指令作为我们商业订阅的一部分提供。  Syntax:  <strong>server</strong> { … }<br>  Default:  —  Context:  stream<br>  设置服务器的配置。 </p>
+<pre class="notranslate">resolver 127.0.0.1 [::1]:5353;
+</pre>
+
 </blockquote>
-<p> Syntax:  <strong>stream</strong> { … }<br>  Default:  —  Context:  main<br>  提供指定流服务器指令的配置文件上下文。 </p>
-<p> Syntax:  <strong>tcp_nodelay</strong> on | off ;<br>  Default:  tcp_nodelay on;  Context:  stream , server<br>  该指令出现在1.9.4版本中。 </p>
-<p> 启用或禁用TCP_NODELAY选项的使用。 为客户端和代理服务器连接启用该选项。 </p>
-<p> Syntax:  <strong>variables_hash_bucket_size</strong> <em>size</em> ;<br>  Default:  variables_hash_bucket_size 64;  Context:  stream<br>  该指令出现在1.11.2版中。 </p>
-<p> 设置变量哈希表的桶大小。 设置哈希表的详细信息在单独的文档中提供。 </p>
-<p> Syntax:  <strong>variables_hash_max_size</strong> <em>size</em> ;<br>  Default:  variables_hash_max_size 1024;  Context:  stream<br>  该指令出现在1.11.2版中。 </p>
-<p> 设置变量哈希表的最大<em>size</em> 。 设置哈希表的详细信息在单独的文档中提供。 </p>
-<h4 id="嵌入式变量"><a href="#嵌入式变量" class="headerlink" title="嵌入式变量"></a>嵌入式变量</h4><p> ngx_stream_core_module模块支持自1.11.2以来的变量。 </p>
-<p> $binary_remote_addr   客户端地址采用二进制形式，值的长度始终为IPv4地址的4个字节或IPv6地址的16个字节  $bytes_received   从客户端收到的字节数（1.11.4）  $bytes_sent   发送到客户端的字节数  $connection   连接序列号  $hostname   主机名  $msec   以毫秒为单位的当前时间（以毫秒为单位）  $nginx_version   nginx版本  $pid   工作进程的PID  $protocol   用于与客户端通信的协议： TCP或UDP （1.11.4）  $proxy_protocol_addr   来自PROXY协议头的客户端地址，否则为空字符串（1.11.4）  必须先通过在listen指令中设置proxy_protocol参数来启用PROXY协议。 </p>
-<p> $proxy_protocol_port   来自PROXY协议头的客户端端口，否则为空字符串（1.11.4）  必须先通过在listen指令中设置proxy_protocol参数来启用PROXY协议。 </p>
-<p> $remote_addr   客户地址  $remote_port   客户端端口  $server_addr   接受连接的服务器的地址  计算此变量的值通常需要一次系统调用。 为避免系统调用， listen指令必须指定地址并使用bind参数。 </p>
-<p> $server_port   接受连接的服务器的端口  $session_time   会话持续时间（以秒为单位），分辨率为毫秒（1.11.4）;  $status   会话状态（1.11.4），可以是以下之一：  200   会话成功完成  400   无法解析客户端数据，例如PROXY协议头  403   例如，当某些客户端地址的访问受限时，禁止访问  500   内部服务器错误  502   坏网关，例如，如果无法选择或到达上游服务器。  503   服务不可用，例如，当访问受连接数限制时  $time_iso8601   当地时间采用ISO 8601标准格式  $time_local   通用日志格式的本地时间  </p>
+<p>  可以将地址指定为域名或IP地址，以及可选端口。  如果未指定端口，则使用端口53。  以循环方式查询名称服务器。 </p>
+<p>  默认情况下，nginx将在解析时查找IPv4和IPv6地址。  如果不需要查找IPv6地址，可以指定<code>ipv6=off</code>参数。 </p>
+<p>  默认情况下，nginx使用响应的TTL值缓存答案。  可选的<code>valid</code>参数允许覆盖它： </p>
+<blockquote>
+<pre class="notranslate">resolver 127.0.0.1 [::1]:5353 valid=30s;
+</pre>
+
+
+
+<p>  在1.11.3版之前，该指令作为我们<a href="http://nginx.com/products/" target="_blank" rel="noopener">商业订阅的</a>一部分提供。 </p>
+</blockquote>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**resolver_timeout** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">resolver_timeout 30s;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
+<p>  该指令出现在1.11.3版中。 </p>
+<p>  设置名称解析的超时，例如： </p>
+<blockquote>
+<pre class="notranslate">resolver_timeout 5s;
+</pre>
+
+
+
+<p>  在1.11.3版之前，该指令作为我们<a href="http://nginx.com/products/" target="_blank" rel="noopener">商业订阅的</a>一部分提供。 </p>
+</blockquote>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**server** { ... }</code> <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> <br>                </td></p>
+<p>  设置服务器的配置。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**stream** { ... }</code> <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
+<p>  提供指定流服务器指令的配置文件上下文。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**tcp_nodelay** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">tcp_nodelay on;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
+<p>  该指令出现在1.9.4版本中。 </p>
+<p>  启用或禁用<code>TCP_NODELAY</code>选项的使用。  为客户端和代理服务器连接启用该选项。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**variables_hash_bucket_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">variables_hash_bucket_size 64;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> <br>                </td></p>
+<p>  该指令出现在1.11.2版中。 </p>
+<p>  设置变量哈希表的桶大小。  设置哈希表的详细信息在单独的<a href="hash.html">文档</a>中提供。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**variables_hash_max_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">variables_hash_max_size 1024;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> <br>                </td></p>
+<p>  该指令出现在1.11.2版中。 </p>
+<p>  设置变量哈希表的最大<code>*size*</code> 。  设置哈希表的详细信息在单独的<a href="hash.html">文档</a>中提供。 </p>
+<h4 id="嵌入式变量"><a href="#嵌入式变量" class="headerlink" title="嵌入式变量"></a>嵌入式变量</h4><p>   <code>ngx_stream_core_module</code>模块支持自1.11.2以来的变量。 </p>
+<p>  必须先通过在<a href="#listen">listen</a>指令中设置<code>proxy_protocol</code>参数来启用PROXY协议。 </p>
+<p>  必须先通过在<a href="#listen">listen</a>指令中设置<code>proxy_protocol</code>参数来启用PROXY协议。 </p>
+<p>  计算此变量的值通常需要一次系统调用。  为避免系统调用， <a href="#listen">listen</a>指令必须指定地址并使用<code>bind</code>参数。 </p>
 
       
     </div>
@@ -680,7 +784,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-stream-core-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_stream_core_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌入式变量"><span class="nav-number">1.0.2.</span> <span class="nav-text">嵌入式变量</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-stream-core-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_stream_core_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌入式变量"><span class="nav-number">1.0.3.</span> <span class="nav-text">嵌入式变量</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

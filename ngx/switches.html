@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="switches">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:53:20.575Z">
+<meta property="og:updated_time" content="2018-12-21T07:56:06.364Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="switches-nginx中文手册">
 <meta name="twitter:description" content="switches">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
                 2018年12月21日
               </time>
             
@@ -397,31 +397,11 @@
 
       
         <p>switches<br><a id="more"></a></p>
-<h2 id="命令行参数"><a href="#命令行参数" class="headerlink" title=" 命令行参数"></a> 命令行参数</h2><p> nginx支持以下命令行参数： </p>
+<h2 id="命令行参数"><a href="#命令行参数" class="headerlink" title="命令行参数"></a>命令行参数</h2><p>   nginx支持以下命令行参数： </p>
 <ul>
-<li>-? | -h - 打印命令行参数的帮助。 </li>
-<li>-c <em>file</em> - 使用备用配置<em>file</em>而不是默认文件。 </li>
-<li>-g <em>directives</em> - 设置全局配置指令 ，例如， <blockquote>
-<p>nginx -g “pid /var/run/nginx.pid; worker_processes <code>sysctl -n hw.ncpu</code>;” </p>
-</blockquote>
-</li>
-<li>-p <em>prefix</em> - 设置nginx路径前缀，即保留服务器文件的目录（默认值为<em>/usr/local/nginx</em> ）。 </li>
-<li>-q - 在配置测试期间禁止出现非错误消息。 </li>
-<li><p>-s <em>signal</em> - 向主进程发送<em>信号</em> 。 参数<em>信号</em>可以是以下之一： </p>
-<ul>
-<li>stop - 快速关闭 </li>
-<li>quit - 优雅地关闭 </li>
-<li>reload - 重新加载配置，使用新配置启动新的工作进程，正常关闭旧的工作进程。 </li>
-<li>reopen - 重新打开日志文件 </li>
+<li><code>-?</code>   |   <code>-h</code> - 打印命令行参数的帮助。 -    <code>-c &lt;code class=&quot;notranslate&quot;&gt;*file*</code> - 使用备用配置<code>*file*</code>而不是默认文件。 </li><li>   <code>-g &lt;code class=&quot;notranslate&quot;&gt;*directives*</code> - 设置<a href="ngx_core_module.html">全局配置指令</a> ，例如， <blockquote class="example"><pre class="notranslate">nginx -g “pid /var/run/nginx.pid; worker_processes <code>sysctl -n hw.ncpu</code>;”<br></pre></blockquote></li>-    <code>-p &lt;code class=&quot;notranslate&quot;&gt;*prefix*</code> - 设置nginx路径前缀，即保留服务器文件的目录（默认值为<code>*/usr/local/nginx*</code> ）。 -    <code>-q</code> - 在配置测试期间禁止出现非错误消息。 -    <code>-s &lt;code class=&quot;notranslate&quot;&gt;*signal*</code> - 向主进程发送<em>信号</em> 。  参数<em>信号</em>可以是以下之一： <ul class="compact"><li>   <code>stop</code> - 快速关闭 -    <code>quit</code> - 优雅地关闭 -    <code>reload</code> - 重新加载配置，使用新配置启动新的工作进程，正常关闭旧的工作进程。 -    <code>reopen</code> - 重新打开日志文件 </li>
 </ul>
-</li>
-<li><p>-t - 测试配置文件：nginx检查配置是否有正确的语法，然后尝试打开配置中引用的文件。 </p>
-</li>
-<li>-T - 与-t相同，但另外将配置文件转储到标准输出（1.9.2）。 </li>
-<li>-v - 打印nginx版本。 </li>
-<li>-V - 打印nginx版本，编译器版本和配置参数。 </li>
 </ul>
-
       
     </div>
     
@@ -653,7 +633,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#命令行参数"><span class="nav-number">1.</span> <span class="nav-text"> 命令行参数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#命令行参数"><span class="nav-number">1.</span> <span class="nav-text">命令行参数</span></a></li></ol></div>
             
 
           </div>

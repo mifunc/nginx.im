@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="debugging_log">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:53:20.480Z">
+<meta property="og:updated_time" content="2018-12-21T07:56:06.270Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="debugging_log-nginx中文手册">
 <meta name="twitter:description" content="debugging_log">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
                 2018年12月21日
               </time>
             
@@ -397,27 +397,61 @@
 
       
         <p>debugging_log<br><a id="more"></a></p>
-<h2 id="调试日志"><a href="#调试日志" class="headerlink" title=" 调试日志"></a> 调试日志</h2><p> Debugging log for selected clients<br> Logging to a cyclic memory buffer<br> 要启用调试日志，需要配置nginx以在构建期间支持调试： </p>
+<h2 id="调试日志"><a href="#调试日志" class="headerlink" title="调试日志"></a>调试日志</h2><td align="left" class="notranslate"> <a href="#clients">Debugging log for selected clients</a> <br> <a href="#memory">Logging to a cyclic memory buffer</a> <br></td>
+
+<p>  要启用调试日志，需要配置nginx以在构建期间支持调试： </p>
 <blockquote>
-<p>./configure –with-debug …  然后应使用error_log指令设置debug级别： </p>
-<p>error_log /path/to/log debug;  要验证nginx是否配置为支持调试，请运行nginx -V命令： </p>
-<p>configure arguments: –with-debug …  预构建的Linux软件包为使用nginx-debug二进制文件（1.9.8）调试日志提供了开箱即用的支持，可以使用命令运行 </p>
-<p>service nginx stop service nginx-debug start  然后设置debug级别。 用于Windows的nginx二进制版本始终使用调试日志支持构建，因此仅设置debug级别就足够了。 </p>
+<pre class="notranslate">./configure --with-debug ...
+</pre>
+
 </blockquote>
-<p> 请注意，重新定义日志而不指定debug级别将禁用调试日志。 在下面的示例中，重新定义服务器级别上的日志会禁用此服务器的调试日志： </p>
+<p>  然后应使用<a href="ngx_core_module.html#error_log">error_log</a>指令设置<code>debug</code>级别： </p>
 <blockquote>
-<p>error_log /path/to/log debug; http { server { error_log /path/to/log; …  为避免这种情况，应重新定义重新定义日志的行，或者还应添加debug级别规范： </p>
-<p>error_log /path/to/log debug; http { server { error_log /path/to/log debug; … ####  调试所选客户端的日志</p>
+<pre class="notranslate">error_log /path/to/log debug;
+</pre>
+
 </blockquote>
-<p> 也可以仅为选定的客户端地址启用调试日志： </p>
+<p>  要验证nginx是否配置为支持调试，请运行<code>nginx -V</code>命令： </p>
 <blockquote>
-<p>error_log /path/to/log; events { debug_connection 192.168.1.1; debug_connection 192.168.10.0/24; } ####  记录到循环内存缓冲区</p>
+<pre class="notranslate">configure arguments: --with-debug ...
+</pre>
+
 </blockquote>
-<p> 调试日志可以写入循环内存缓冲区： </p>
+<p>  预构建的<a href="linux_packages.html">Linux</a>软件包为使用<code>nginx-debug</code>二进制文件（1.9.8）调试日志提供了开箱即用的支持，可以使用命令运行 </p>
 <blockquote>
-<p>error_log memory:32m debug;  即使在高负载下，在debug级别上记录到内存缓冲区也不会对性能产生重大影响。 在这种情况下，可以使用gdb脚本提取日志，如下所示： </p>
-<p>set $log = ngx_cycle-&gt;log while $log-&gt;writer != ngx_log_memory_writer set $log = $log-&gt;next end set $buf = (ngx_log_memory_buf_t *) $log-&gt;wdata dump binary memory debug_log.txt $buf-&gt;start $buf-&gt;end  </p>
+<pre class="notranslate">service nginx stop
+service nginx-debug start
+</pre>
+
 </blockquote>
+<p>  然后设置<code>debug</code>级别。  用于Windows的nginx二进制版本始终使用调试日志支持构建，因此仅设置<code>debug</code>级别就足够了。 </p>
+<p>  请注意，重新定义日志而不指定<code>debug</code>级别将禁用调试日志。  在下面的示例中，重新定义<a href="http/ngx_http_core_module.html#server">服务器</a>级别上的日志会禁用此服务器的调试日志： </p>
+<blockquote>
+<p><pre class="notranslate">error_log /path/to/log debug;</pre></p>
+</blockquote>
+<p>http {<br>    server {<br>        error_log /path/to/log;<br>        …<br></p>
+<p>  为避免这种情况，应重新定义重新定义日志的行，或者还应添加<code>debug</code>级别规范： </p>
+<blockquote>
+<p><pre class="notranslate">error_log /path/to/log debug;</pre></p>
+</blockquote>
+<p>http {<br>    server {<br>        error_log /path/to/log debug;<br>        …<br></p>
+<h4 id="调试所选客户端的日志"><a href="#调试所选客户端的日志" class="headerlink" title="调试所选客户端的日志"></a>调试所选客户端的日志</h4><p>  也可以仅为<a href="ngx_core_module.html#debug_connection">选定的客户端地址</a>启用调试日志： </p>
+<blockquote>
+<p><pre class="notranslate">error_log /path/to/log;</pre></p>
+</blockquote>
+<p>events {<br>    debug_connection 192.168.1.1;<br>    debug_connection 192.168.10.0/24;<br>}<br></p>
+<h4 id="记录到循环内存缓冲区"><a href="#记录到循环内存缓冲区" class="headerlink" title="记录到循环内存缓冲区"></a>记录到循环内存缓冲区</h4><p>  调试日志可以写入循环内存缓冲区： </p>
+<blockquote>
+<pre class="notranslate">error_log memory:32m debug;
+</pre>
+
+</blockquote>
+<p>  即使在高负载下，在<code>debug</code>级别上记录到内存缓冲区也不会对性能产生重大影响。  在这种情况下，可以使用<code>gdb</code>脚本提取日志，如下所示： </p>
+<blockquote>
+<p><pre class="notranslate">set $log = ngx_cycle-&gt;log</pre></p>
+</blockquote>
+<p>while $log-&gt;writer != ngx_log_memory_writer<br>    set $log = $log-&gt;next<br>end</p>
+<p>set $buf = (ngx_log_memory_buf_t *) $log-&gt;wdata<br>dump binary memory debug_log.txt $buf-&gt;start $buf-&gt;end<br></p>
 
       
     </div>
@@ -650,7 +684,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#调试日志"><span class="nav-number">1.</span> <span class="nav-text"> 调试日志</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#调试日志"><span class="nav-number">1.</span> <span class="nav-text">调试日志</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#调试所选客户端的日志"><span class="nav-number">1.0.1.</span> <span class="nav-text">调试所选客户端的日志</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#记录到循环内存缓冲区"><span class="nav-number">1.0.2.</span> <span class="nav-text">记录到循环内存缓冲区</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

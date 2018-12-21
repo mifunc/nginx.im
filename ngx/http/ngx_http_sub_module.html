@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="http,ngx_http_sub_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:53:24.941Z">
+<meta property="og:updated_time" content="2018-12-21T07:56:11.180Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http&#x2F;ngx_http_sub_module-nginx中文手册">
 <meta name="twitter:description" content="http,ngx_http_sub_module">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
                 2018年12月21日
               </time>
             
@@ -397,17 +397,39 @@
 
       
         <p>http,ngx_http_sub_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-http-sub-module"><a href="#Module-ngx-http-sub-module" class="headerlink" title="Module ngx_http_sub_module"></a>Module ngx_http_sub_module</h2><p> Example Configuration<br> Directives<br> sub_filter<br> sub_filter_last_modified<br> sub_filter_once<br> sub_filter_types<br> ngx_http_sub_module模块是一个过滤器，它通过将一个指定的字符串替换为另一个来修改响应。 </p>
-<p> 默认情况下不构建此模块，应使用–with-http_sub_module配置参数启用它。 </p>
+<h2 id="Module-ngx-http-sub-module"><a href="#Module-ngx-http-sub-module" class="headerlink" title="Module ngx_http_sub_module"></a>Module ngx_http_sub_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#sub_filter">sub_filter</a> <br>     <a href="#sub_filter_last_modified">sub_filter_last_modified</a> <br>     <a href="#sub_filter_once">sub_filter_once</a> <br>     <a href="#sub_filter_types">sub_filter_types</a> <br></td>
+
+<p>   <code>ngx_http_sub_module</code>模块是一个过滤器，它通过将一个指定的字符串替换为另一个来修改响应。 </p>
+<p>  默认情况下不构建此模块，应使用<code>--with-http_sub_module</code>配置参数启用它。 </p>
 <h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><blockquote>
-<p>location / { sub_filter ‘&lt;a href=”<a href="http://127.0.0.1:8080/" target="_blank" rel="noopener">http://127.0.0.1:8080/</a>‘ ‘&lt;a href=”<a href="https://$host/" target="_blank" rel="noopener">https://$host/</a>‘; sub_filter ‘&lt;img src=”<a href="http://127.0.0.1:8080/" target="_blank" rel="noopener">http://127.0.0.1:8080/</a>‘ ‘&lt;img src=”<a href="https://$host/" target="_blank" rel="noopener">https://$host/</a>‘; sub_filter_once on; } ####  指令</p>
+<pre class="notranslate">location / {
+    sub_filter '&lt;a href="http://127.0.0.1:8080/'  '&lt;a href="https://$host/';
+    sub_filter '&lt;img src="http://127.0.0.1:8080/' '&lt;img src="https://$host/';
+    sub_filter_once on;
+}
+</pre>
+
+
+
 </blockquote>
-<p> Syntax:  <strong>sub_filter</strong> <em>string</em> <em>replacement</em> ;<br>  Default:  —  Context:  http , server , location<br>  设置要替换的字符串和替换字符串。 忽略大小写匹配的字符串匹配。 要替换的字符串（1.9.4）和替换字符串可以包含变量。 可以在一个配置级别（1.9.4）上指定几个sub_filter指令。 当且仅当在当前级别上没有定义sub_filter指令时，这些指令才从前一级继承。 </p>
-<p> Syntax:  <strong>sub_filter_last_modified</strong> on | off ;<br>  Default:  sub_filter_last_modified off;  Context:  http , server , location<br>  该指令出现在1.5.1版本中。 </p>
-<p> 允许在替换期间保留原始响应中的“Last-Modified”头字段，以便于响应缓存。 </p>
-<p> 默认情况下，在处理期间修改响应的内容时，将删除标头字段。 </p>
-<p> Syntax:  <strong>sub_filter_once</strong> on | off ;<br>  Default:  sub_filter_once on;  Context:  http , server , location<br>  指示是查找要重复替换的每个字符串。 </p>
-<p> Syntax:  <strong>sub_filter_types</strong> <em>mime-type</em> …;<br>  Default:  sub_filter_types text/html;  Context:  http , server , location<br>  除了“ text/html ”之外，还在具有指定MIME类型的响应中启用字符串替换。 特殊值“ * ”匹配任何MIME类型（0.8.29）。 </p>
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**sub_filter** &lt;code class=&quot;notranslate&quot;&gt;*string*</code> <code>*replacement*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  设置要替换的字符串和替换字符串。  忽略大小写匹配的字符串匹配。  要替换的字符串（1.9.4）和替换字符串可以包含变量。  可以在一个配置级别（1.9.4）上指定几个<code>sub_filter</code>指令。  当且仅当在当前级别上没有定义<code>sub_filter</code>指令时，这些指令才从前一级继承。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**sub_filter_last_modified** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">sub_filter_last_modified off;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  该指令出现在1.5.1版本中。 </p>
+<p>  允许在替换期间保留原始响应中的“Last-Modified”头字段，以便于响应缓存。 </p>
+<p>  默认情况下，在处理期间修改响应的内容时，将删除标头字段。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**sub_filter_once** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">sub_filter_once on;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  指示是查找要重复替换的每个字符串。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**sub_filter_types** &lt;code class=&quot;notranslate&quot;&gt;*mime-type*</code> …; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">sub_filter_types text/html;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  除了“ <code>text/html</code> ”之外，还在具有指定MIME类型的响应中启用字符串替换。  特殊值“ <code>*</code> ”匹配任何MIME类型（0.8.29）。 </p>
 
       
     </div>
@@ -640,7 +662,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-sub-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_sub_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-sub-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_sub_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="http,ngx_http_js_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:53:23.463Z">
+<meta property="og:updated_time" content="2018-12-21T07:56:09.701Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http&#x2F;ngx_http_js_module-nginx中文手册">
 <meta name="twitter:description" content="http,ngx_http_js_module">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
                 2018年12月21日
               </time>
             
@@ -397,16 +397,76 @@
 
       
         <p>http,ngx_http_js_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-http-js-module"><a href="#Module-ngx-http-js-module" class="headerlink" title="Module ngx_http_js_module"></a>Module ngx_http_js_module</h2><p> Example Configuration<br> Directives<br> js_content<br> js_include<br> js_set<br> Request Argument<br> ngx_http_js_module模块用于在njs中实现位置和变量处理程序 - 这是JavaScript语言的一个子集。 </p>
-<p> 默认情况下不构建此模块。 可在此处下载和安装说明。 </p>
+<h2 id="Module-ngx-http-js-module"><a href="#Module-ngx-http-js-module" class="headerlink" title="Module ngx_http_js_module"></a>Module ngx_http_js_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#js_content">js_content</a> <br>     <a href="#js_include">js_include</a> <br>     <a href="#js_set">js_set</a> <br> <a href="#arguments">Request Argument</a> <br></td>
+
+<p>   <code>ngx_http_js_module</code>模块用于在<a href="njs/index.html">njs中</a>实现位置和变量处理程序 - 这是JavaScript语言的一个子集。 </p>
+<p>  默认情况下不构建此模块。  可<a href="njs/install.html">在此处</a>下载和安装说明。 </p>
 <h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><blockquote>
-<p>load_module modules/ngx_http_js_module.so; … http { js_include http.js; js_set $foo foo; js_set $summary summary; server { listen 8000; location / { add_header X-Foo $foo; js_content baz; } location = /summary { return 200 $summary; } location = /hello { js_content hello; } } }  http.js文件： </p>
-<p>function foo(r) { r.log(“hello from foo() handler”); return “foo”; } function summary(r) { var a, s, h; s = “JS summary\n\n”; s += “Method: “ + r.method + “\n”; s += “HTTP version: “ + r.httpVersion + “\n”; s += “Host: “ + r.headersIn.host + “\n”; s += “Remote Address: “ + r.remoteAddress + “\n”; s += “URI: “ + r.uri + “\n”; s += “Headers:\n”; for (h in r.headersIn) { s += “ header ‘“ + h + “‘ is ‘“ + r.headersIn[h] + “‘\n”; } s += “Args:\n”; for (a in r.args) { s += “ arg ‘“ + a + “‘ is ‘“ + r.args[a] + “‘\n”; } return s; } function baz(r) { r.status = 200; r.headersOut.foo = 1234; r.headersOut[‘Content-Type’] = “text/plain; charset=utf-8”; r.headersOut[‘Content-Length’] = 15; r.sendHeader(); r.send(“nginx”); r.send(“java”); r.send(“script”); r.finish(); } function hello(r) { r.return(200, “Hello world!”); } ####  指令</p>
+<p><pre class="notranslate">load_module modules/ngx_http_js_module.so;<br>…</pre></p>
 </blockquote>
-<p> Syntax:  <strong>js_content</strong> <em>function</em> ;<br>  Default:  —  Context:  location , limit_except<br>  将njs函数设置为位置内容处理程序。 </p>
-<p> Syntax:  <strong>js_include</strong> <em>file</em> ;<br>  Default:  —  Context:  http<br>  指定在njs中实现位置和变量处理程序的文件。 </p>
-<p> Syntax:  <strong>js_set</strong> <em>$variable</em> <em>function</em> ;<br>  Default:  —  Context:  http<br>  为指定的变量设置njs函数。 </p>
-<h4 id="请求参数"><a href="#请求参数" class="headerlink" title="请求参数"></a>请求参数</h4><p> 每个HTTP njs处理程序都接收一个参数，一个请求对象 。 </p>
+<p>http {<br>    js_include http.js;</p>
+<pre><code>js_set $foo     foo;
+js_set $summary summary;
+
+server {
+    listen 8000;
+
+    location / {
+        add_header X-Foo $foo;
+        js_content baz;
+    }
+
+    location = /summary {
+        return 200 $summary;
+    }
+
+    location = /hello {
+        js_content hello;
+    }
+}
+</code></pre><p>}<br></p>
+<p>   <code>http.js</code>文件： </p>
+<blockquote>
+<p><pre class="notranslate">function foo(r) {<br>    r.log(“hello from foo() handler”);<br>    return “foo”;<br>}</pre></p>
+</blockquote>
+<p>function summary(r) {<br>    var a, s, h;</p>
+<pre><code>s = &quot;JS summary\n\n&quot;;
+
+s += &quot;Method: &quot; + r.method + &quot;\n&quot;;
+s += &quot;HTTP version: &quot; + r.httpVersion + &quot;\n&quot;;
+s += &quot;Host: &quot; + r.headersIn.host + &quot;\n&quot;;
+s += &quot;Remote Address: &quot; + r.remoteAddress + &quot;\n&quot;;
+s += &quot;URI: &quot; + r.uri + &quot;\n&quot;;
+
+s += &quot;Headers:\n&quot;;
+for (h in r.headersIn) {
+    s += &quot;  header &apos;&quot; + h + &quot;&apos; is &apos;&quot; + r.headersIn[h] + &quot;&apos;\n&quot;;
+}
+
+s += &quot;Args:\n&quot;;
+for (a in r.args) {
+    s += &quot;  arg &apos;&quot; + a + &quot;&apos; is &apos;&quot; + r.args[a] + &quot;&apos;\n&quot;;
+}
+
+return s;
+</code></pre><p>}</p>
+<p>function baz(r) {<br>    r.status = 200;<br>    r.headersOut.foo = 1234;<br>    r.headersOut[‘Content-Type’] = “text/plain; charset=utf-8”;<br>    r.headersOut[‘Content-Length’] = 15;<br>    r.sendHeader();<br>    r.send(“nginx”);<br>    r.send(“java”);<br>    r.send(“script”);</p>
+<pre><code>r.finish();
+</code></pre><p>}</p>
+<p>function hello(r) {<br>    r.return(200, “Hello world!”);<br>}<br></p>
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**js_content** &lt;code class=&quot;notranslate&quot;&gt;*function*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>location</code> , <code>limit_except</code> <br>                </td></p>
+<p>  将njs函数设置为位置内容处理程序。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**js_include** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> <br>                </td></p>
+<p>  指定在njs中实现位置和变量处理程序的文件。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**js_set** &lt;code class=&quot;notranslate&quot;&gt;*$variable*</code> <code>*function*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> <br>                </td></p>
+<p>  为指定的变量设置njs函数。 </p>
+<h4 id="请求参数"><a href="#请求参数" class="headerlink" title="请求参数"></a>请求参数</h4><p>  每个HTTP njs处理程序都接收一个参数，一个请求<a href="njs/reference.html#http">对象</a> 。 </p>
 
       
     </div>
@@ -639,7 +699,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-js-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_js_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#请求参数"><span class="nav-number">1.0.2.</span> <span class="nav-text">请求参数</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-js-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_js_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#请求参数"><span class="nav-number">1.0.3.</span> <span class="nav-text">请求参数</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

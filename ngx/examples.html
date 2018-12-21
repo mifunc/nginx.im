@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="examples">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:53:27.401Z">
+<meta property="og:updated_time" content="2018-12-21T07:56:13.233Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="examples-nginx中文手册">
 <meta name="twitter:description" content="examples">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
                 2018年12月21日
               </time>
             
@@ -397,10 +397,130 @@
 
       
         <p>examples<br><a id="more"></a></p>
-<h2 id="示例nginx配置"><a href="#示例nginx配置" class="headerlink" title=" 示例nginx配置"></a> 示例nginx配置</h2><p> 示例站点配置，将所有请求传递给后端，但以“/ download /”开头的图像和请求除外。 </p>
+<h2 id="示例nginx配置"><a href="#示例nginx配置" class="headerlink" title="示例nginx配置"></a>示例nginx配置</h2><p>  示例站点配置，将所有请求传递给后端，但以“/ download /”开头的图像和请求除外。 </p>
 <blockquote>
-<p>user www www; worker_processes 2; pid /var/run/nginx.pid; # [ debug | info | notice | warn | error | crit ] error_log /var/log/nginx.error_log info; events { worker_connections 2000; # use [ kqueue | epoll | /dev/poll | select | poll ]; use kqueue; } http { include conf/mime.types; default_type application/octet-stream; log_format main ‘$remote_addr - $remote_user [$time_local] ‘ ‘“$request” $status $bytes_sent ‘ ‘“$http_referer” “$http_user_agent” ‘ ‘“$gzip_ratio”‘; log_format download ‘$remote_addr - $remote_user [$time_local] ‘ ‘“$request” $status $bytes_sent ‘ ‘“$http_referer” “$http_user_agent” ‘ ‘“$http_range” “$sent_http_content_range”‘; client_header_timeout 3m; client_body_timeout 3m; send_timeout 3m; client_header_buffer_size 1k; large_client_header_buffers 4 4k; gzip on; gzip_min_length 1100; gzip_buffers 4 8k; gzip_types text/plain; output_buffers 1 32k; postpone_output 1460; sendfile on; tcp_nopush on; tcp_nodelay on; send_lowat 12000; keepalive_timeout 75 20; #lingering_time 30; #lingering_timeout 10; #reset_timedout_connection on; server { listen one.example.com; server_name one.example.com www.one.example.com; access_log /var/log/nginx.access_log main; location / { proxy_pass <a href="http://127.0.0.1/" target="_blank" rel="noopener">http://127.0.0.1/</a>; proxy_redirect off; proxy_set_header Host $host; proxy_set_header X-Real-IP $remote_addr; #proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; client_max_body_size 10m; client_body_buffer_size 128k; client_body_temp_path /var/nginx/client_body_temp; proxy_connect_timeout 70; proxy_send_timeout 90; proxy_read_timeout 90; proxy_send_lowat 12000; proxy_buffer_size 4k; proxy_buffers 4 32k; proxy_busy_buffers_size 64k; proxy_temp_file_write_size 64k; proxy_temp_path /var/nginx/proxy_temp; charset koi8-r; } error_page 404 /404.html; location = /404.html { root /spool/www; } location /old_stuff/ { rewrite ^/old_stuff/(.<em>)$ /new_stuff/$1 permanent; } location /download/ { valid_referers none blocked server_names </em>.example.com; if ($invalid_referer) { #rewrite ^/ <a href="http://www.example.com/" target="_blank" rel="noopener">http://www.example.com/</a>; return 403; } #rewrite_log on; # rewrite /download/<em>/mp3/</em>.any_ext to /download/<em>/mp3/</em>.mp3 rewrite ^/(download/.<em>)/mp3/(.</em>)..<em>$ /$1/mp3/$2.mp3 break; root /spool/www; #autoindex on; access_log /var/log/nginx-download.access_log download; } location ~</em> .(jpg|jpeg|gif)$ { root /spool/www; access_log off; expires 30d; } } }  </p>
+<p><pre class="notranslate">user  www www;</pre></p>
 </blockquote>
+<p>worker_processes  2;</p>
+<p>pid /var/run/nginx.pid;</p>
+<h1 id="debug-info-notice-warn-error-crit"><a href="#debug-info-notice-warn-error-crit" class="headerlink" title="[ debug | info | notice | warn | error | crit ]"></a>[ debug | info | notice | warn | error | crit ]</h1><p>error_log  /var/log/nginx.error_log  info;</p>
+<p>events {<br>    worker_connections   2000;</p>
+<pre><code># use [ kqueue | epoll | /dev/poll | select | poll ];
+use kqueue;
+</code></pre><p>}</p>
+<p>http {</p>
+<pre><code>include       conf/mime.types;
+default_type  application/octet-stream;
+
+
+log_format main      &apos;$remote_addr - $remote_user [$time_local] &apos;
+                     &apos;&quot;$request&quot; $status $bytes_sent &apos;
+                     &apos;&quot;$http_referer&quot; &quot;$http_user_agent&quot; &apos;
+                     &apos;&quot;$gzip_ratio&quot;&apos;;
+
+log_format download  &apos;$remote_addr - $remote_user [$time_local] &apos;
+                     &apos;&quot;$request&quot; $status $bytes_sent &apos;
+                     &apos;&quot;$http_referer&quot; &quot;$http_user_agent&quot; &apos;
+                     &apos;&quot;$http_range&quot; &quot;$sent_http_content_range&quot;&apos;;
+
+client_header_timeout  3m;
+client_body_timeout    3m;
+send_timeout           3m;
+
+client_header_buffer_size    1k;
+large_client_header_buffers  4 4k;
+
+gzip on;
+gzip_min_length  1100;
+gzip_buffers     4 8k;
+gzip_types       text/plain;
+
+output_buffers   1 32k;
+postpone_output  1460;
+
+sendfile         on;
+tcp_nopush       on;
+tcp_nodelay      on;
+send_lowat       12000;
+
+keepalive_timeout  75 20;
+
+#lingering_time     30;
+#lingering_timeout  10;
+#reset_timedout_connection  on;
+
+
+server {
+    listen        one.example.com;
+    server_name   one.example.com  www.one.example.com;
+
+    access_log   /var/log/nginx.access_log  main;
+
+    location / {
+        proxy_pass         http://127.0.0.1/;
+        proxy_redirect     off;
+
+        proxy_set_header   Host             $host;
+        proxy_set_header   X-Real-IP        $remote_addr;
+        #proxy_set_header  X-Forwarded-For  $proxy_add_x_forwarded_for;
+
+        client_max_body_size       10m;
+        client_body_buffer_size    128k;
+
+        client_body_temp_path      /var/nginx/client_body_temp;
+
+        proxy_connect_timeout      70;
+        proxy_send_timeout         90;
+        proxy_read_timeout         90;
+        proxy_send_lowat           12000;
+
+        proxy_buffer_size          4k;
+        proxy_buffers              4 32k;
+        proxy_busy_buffers_size    64k;
+        proxy_temp_file_write_size 64k;
+
+        proxy_temp_path            /var/nginx/proxy_temp;
+
+        charset  koi8-r;
+    }
+
+    error_page  404  /404.html;
+
+    location = /404.html {
+        root  /spool/www;
+    }
+
+    location /old_stuff/ {
+        rewrite   ^/old_stuff/(.*)$  /new_stuff/$1  permanent;
+    }
+
+    location /download/ {
+
+        valid_referers  none  blocked  server_names  *.example.com;
+
+        if ($invalid_referer) {
+            #rewrite   ^/   http://www.example.com/;
+            return   403;
+        }
+
+        #rewrite_log  on;
+
+        # rewrite /download/*/mp3/*.any_ext to /download/*/mp3/*.mp3
+        rewrite ^/(download/.*)/mp3/(.*)\..*$
+                /$1/mp3/$2.mp3                   break;
+
+        root         /spool/www;
+        #autoindex    on;
+        access_log   /var/log/nginx-download.access_log  download;
+    }
+
+    location ~* \.(jpg|jpeg|gif)$ {
+        root         /spool/www;
+        access_log   off;
+        expires      30d;
+    }
+}
+</code></pre><p>}<br></p>
 
       
     </div>
@@ -633,7 +753,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#示例nginx配置"><span class="nav-number">1.</span> <span class="nav-text"> 示例nginx配置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#示例nginx配置"><span class="nav-number">1.</span> <span class="nav-text">示例nginx配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#debug-info-notice-warn-error-crit"><span class="nav-number"></span> <span class="nav-text">[ debug | info | notice | warn | error | crit ]</span></a></div>
             
 
           </div>

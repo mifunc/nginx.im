@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="http,ngx_http_slice_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:53:24.546Z">
+<meta property="og:updated_time" content="2018-12-21T07:56:10.837Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http&#x2F;ngx_http_slice_module-nginx中文手册">
 <meta name="twitter:description" content="http,ngx_http_slice_module">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
                 2018年12月21日
               </time>
             
@@ -397,15 +397,29 @@
 
       
         <p>http,ngx_http_slice_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-http-slice-module"><a href="#Module-ngx-http-slice-module" class="headerlink" title="Module ngx_http_slice_module"></a>Module ngx_http_slice_module</h2><p> Example Configuration<br> Directives<br> slice<br> Embedded Variables<br> ngx_http_slice_module模块（1.9.8）是一个过滤器，它将请求拆分为子请求，每个子请求都返回一定范围的响应。 过滤器提供更有效的大响应缓存。 </p>
-<p> 默认情况下不构建此模块，应使用–with-http_slice_module配置参数启用它。 </p>
+<h2 id="Module-ngx-http-slice-module"><a href="#Module-ngx-http-slice-module" class="headerlink" title="Module ngx_http_slice_module"></a>Module ngx_http_slice_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#slice">slice</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
+
+<p>   <code>ngx_http_slice_module</code>模块（1.9.8）是一个过滤器，它将请求拆分为子请求，每个子请求都返回一定范围的响应。  过滤器提供更有效的大响应缓存。 </p>
+<p>  默认情况下不构建此模块，应使用<code>--with-http_slice_module</code>配置参数启用它。 </p>
 <h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><blockquote>
-<p>location / { <strong>slice</strong> 1m; proxy_cache cache; proxy_cache_key $uri$is_args$args <strong>$slice_range</strong> ; proxy_set_header Range <strong>$slice_range</strong> ; proxy_cache_valid 200 206 1h; proxy_pass <a href="http://localhost:8000" target="_blank" rel="noopener">http://localhost:8000</a>; }  在此示例中，响应被拆分为1兆字节的可缓存切片。 </p>
+<pre class="notranslate">location / {
+    **slice**             1m;
+    proxy_cache       cache;
+    proxy_cache_key   $uri$is_args$args **$slice_range** ;
+    proxy_set_header  Range **$slice_range** ;
+    proxy_cache_valid 200 206 1h;
+    proxy_pass        http://localhost:8000;
+}
+</pre>
+
 </blockquote>
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p> Syntax:  <strong>slice</strong> <em>size</em> ;<br>  Default:  slice 0;  Context:  http , server , location<br>  设置切片的<em>size</em> 。 零值禁用将响应拆分为切片。 请注意，值太低可能会导致内存使用过多并打开大量文件。 </p>
-<p> 为了使子请求返回所需的范围， $slice_range变量应作为Range请求头字段传递给代理服务器。 如果启用了缓存 ，则应将$slice_range添加到缓存键，并启用具有206状态代码的响应缓存。 </p>
-<h4 id="嵌入式变量"><a href="#嵌入式变量" class="headerlink" title="嵌入式变量"></a>嵌入式变量</h4><p> ngx_http_slice_module模块支持以下嵌入变量： </p>
-<p> $slice_range   HTTP字节范围格式的当前切片范围，例如， bytes=0-1048575 。  </p>
+<p>  在此示例中，响应被拆分为1兆字节的可缓存切片。 </p>
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**slice** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">slice 0;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  设置切片的<code>*size*</code> 。  零值禁用将响应拆分为切片。  请注意，值太低可能会导致内存使用过多并打开大量文件。 </p>
+<p>  为了使子请求返回所需的范围， <code>$slice_range</code>变量应作为<code>Range</code>请求头字段<a href="ngx_http_proxy_module.html#proxy_set_header">传递</a>给代理服务器。  如果启用了<a href="ngx_http_proxy_module.html#proxy_cache">缓存</a> ，则应将<code>$slice_range</code>添加到<a href="ngx_http_proxy_module.html#proxy_cache_key">缓存键，</a>并<a href="ngx_http_proxy_module.html#proxy_cache_valid">启用</a>具有206状态代码的响应缓存。 </p>
+<h4 id="嵌入式变量"><a href="#嵌入式变量" class="headerlink" title="嵌入式变量"></a>嵌入式变量</h4><p>   <code>ngx_http_slice_module</code>模块支持以下嵌入变量： </p>
 
       
     </div>

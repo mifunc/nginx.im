@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="compatibility">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:53:27.203Z">
+<meta property="og:updated_time" content="2018-12-21T07:56:13.032Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="compatibility-nginx中文手册">
 <meta name="twitter:description" content="compatibility">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
                 2018年12月21日
               </time>
             
@@ -397,52 +397,16 @@
 
       
         <p>compatibility<br><a id="more"></a></p>
-<h2 id="兼容性"><a href="#兼容性" class="headerlink" title=" 兼容性"></a> 兼容性</h2><p> What is currently supported<br> What is not supported yet<br> njs是根据ECMAScript 5.1 （严格模式）创建的，带有一些ECMAScript 6及更高版本的扩展。 合规性仍在不断发展。 </p>
-<h4 id="目前支持什么"><a href="#目前支持什么" class="headerlink" title="目前支持什么"></a>目前支持什么</h4><ul>
-<li>布尔值，数字，字符串，对象，数组，函数和正则表达式 </li>
-<li>ES5.1运算符，ES7指数运算符 </li>
-<li>ES5.1语句： var ， if ， else ， switch ， for ， for in ， while ， do while ， break ， continue ， return ， try ， catch ， throw ， finally </li>
-<li>ES6 Number和Math属性和方法 </li>
-<li><p>String方法： </p>
-<ul>
-<li>ES5.1： fromCharCode ， concat ， slice ， substring ， substr ， charAt ， indexOf ， lastIndexOf ， toLowerCase ， toUpperCase ， trim ， search ， match ， split ， replace </li>
-<li>ES6： fromCodePoint ， codePointAt ， includes ， startsWith ， endsWith ， repeat </li>
-<li>ES8： padStart ， padEnd </li>
-<li>非标准： bytesFrom （ bytesFrom ） fromUTF8 ， toUTF8 ， fromBytes ， toBytes </li>
-</ul>
-</li>
-<li><p>Object方法： </p>
-<ul>
-<li>ES5.1： create （不带属性列表的支持）， keys ， defineProperty ， defineProperties ， getOwnPropertyDescriptor ， getPrototypeOf ， hasOwnProperty ， isPrototypeOf ， preventExtensions ， isExtensible ， freeze ， isFrozen ， seal ， isSealed </li>
-</ul>
-</li>
-<li><p>Array方法： </p>
-<ul>
-<li>ES5.1： isArray ， slice ， splice ， push ， pop ， unshift ， shift ， reverse ， sort ， join ， concat ， indexOf ， lastIndexOf ， forEach ， some ， every ， filter ， map ， reduce ， reduceRight </li>
-<li>ES6： of ， fill ， find ， findIndex </li>
-<li>ES7： includes </li>
-</ul>
-</li>
-<li><p>ES5.1 Function方法： call ， apply ， bind </p>
-</li>
-<li>ES5.1 RegExp方法： test ， exec </li>
-<li>ES5。1日期方法 </li>
-<li>ES5.1 JSON对象 </li>
-<li>ES5.1 arguments对象（0.2.5） </li>
-<li>ES5.1全局函数： isFinite ， isNaN ， parseFloat ， parseInt ， decodeURI ， decodeURIComponent ， encodeURI ， encodeURIComponent </li>
-<li>Error对象： Error ， EvalError ， InternalError ， RangeError ， ReferenceError ， SyntaxError ， TypeError ， URIError </li>
-<li>setTimeout和clearTimeout函数（0.2.0） </li>
-<li>Node.js样式 File system方法： fs.readFileSync ， fs.appendFileSync ， fs.writeFileSync </li>
-<li><p>Node.js样式 Crypto方法（0.2.0）： crypto.createHash ， crypto.createHmac </p>
-<h4 id="什么是不支持的"><a href="#什么是不支持的" class="headerlink" title="什么是不支持的"></a>什么是不支持的</h4></li>
-<li><p>ES6 let和const声明 </p>
-</li>
-<li>标签 </li>
-<li>eval功能 </li>
-<li>new Function()构造函数 </li>
-<li>setInterval ， setImmediate函数 </li>
-</ul>
+<h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><td align="left" class="notranslate"> <a href="#supported">What is currently supported</a> <br> <a href="#not_supported">What is not supported yet</a> <br></td>
 
+<p>   njs是根据<a href="http://www.ecma-international.org/ecma-262/5.1/" target="_blank" rel="noopener">ECMAScript 5.1</a> （严格模式）创建的，带有一些<a href="http://www.ecma-international.org/ecma-262/6.0/" target="_blank" rel="noopener">ECMAScript 6</a>及更高版本的扩展。  合规性仍在不断发展。 </p>
+<h4 id="目前支持什么"><a href="#目前支持什么" class="headerlink" title="目前支持什么"></a>目前支持什么</h4><ul>
+<li>布尔值，数字，字符串，对象，数组，函数和正则表达式 -    ES5.1运算符，ES7指数运算符 -    ES5.1语句： <code>var</code> ， <code>if</code> ， <code>else</code> ， <code>switch</code> ， <code>for</code> ， <code>for in</code> ， <code>while</code> ， <code>do while</code> ， <code>break</code> ， <code>continue</code> ， <code>return</code> ， <code>try</code> ， <code>catch</code> ， <code>throw</code> ， <code>finally</code> -    ES6 <code>Number</code>和<code>Math</code>属性和方法 -    <code>String</code>方法： <ul class="compact"><li>   ES5.1： <a href="reference.html#string_fromcharcode"><code>fromCharCode</code></a> ， <a href="reference.html#string_concat"><code>concat</code></a> ， <a href="reference.html#string_slice"><code>slice</code></a> ， <a href="reference.html#string_substring"><code>substring</code></a> ， <a href="reference.html#string_substr"><code>substr</code></a> ， <a href="reference.html#string_charat"><code>charAt</code></a> ， <a href="reference.html#string_indexof"><code>indexOf</code></a> ， <a href="reference.html#string_lastindexof"><code>lastIndexOf</code></a> ， <a href="reference.html#string_tolowercase"><code>toLowerCase</code></a> ， <a href="reference.html#string_touppercase"><code>toUpperCase</code></a> ， <a href="reference.html#string_trim"><code>trim</code></a> ， <a href="reference.html#string_search"><code>search</code></a> ， <a href="reference.html#string_match"><code>match</code></a> ， <a href="reference.html#string_split"><code>split</code></a> ， <a href="reference.html#string_replace"><code>replace</code></a> -    ES6： <a href="reference.html#string_fromcodepoint"><code>fromCodePoint</code></a> ， <a href="reference.html#string_codepointat"><code>codePointAt</code></a> ， <a href="reference.html#string_includes"><code>includes</code></a> ， <a href="reference.html#string_startswith"><code>startsWith</code></a> ， <a href="reference.html#string_endswith"><code>endsWith</code></a> ， <a href="reference.html#string_repeat"><code>repeat</code></a> -    ES8： <a href="reference.html#string_padstart"><code>padStart</code></a> ， <a href="reference.html#string_padend"><code>padEnd</code></a> -   非标准： <a href="reference.html#string_bytesfrom"><code>bytesFrom</code></a> （ <a href="reference.html#string_bytesfrom"><code>bytesFrom</code></a> ） <a href="reference.html#string_fromutf8"><code>fromUTF8</code></a> ， <a href="reference.html#string_toutf8"><code>toUTF8</code></a> ， <a href="reference.html#string_frombytes"><code>fromBytes</code></a> ， <a href="reference.html#string_tobytes"><code>toBytes</code></a> -    ES5.1： <code>create</code> （不带属性列表的支持）， <code>keys</code> ， <code>defineProperty</code> ， <code>defineProperties</code> ， <code>getOwnPropertyDescriptor</code> ， <code>getPrototypeOf</code> ， <code>hasOwnProperty</code> ， <code>isPrototypeOf</code> ， <code>preventExtensions</code> ， <code>isExtensible</code> ， <code>freeze</code> ， <code>isFrozen</code> ， <code>seal</code> ， <code>isSealed</code> -    ES5.1： <code>isArray</code> ， <code>slice</code> ， <code>splice</code> ， <code>push</code> ， <code>pop</code> ， <code>unshift</code> ， <code>shift</code> ， <code>reverse</code> ， <code>sort</code> ， <code>join</code> ， <code>concat</code> ， <code>indexOf</code> ， <code>lastIndexOf</code> ， <code>forEach</code> ， <code>some</code> ， <code>every</code> ， <code>filter</code> ， <code>map</code> ， <code>reduce</code> ， <code>reduceRight</code> -    ES6： <code>of</code> ， <code>fill</code> ， <code>find</code> ， <code>findIndex</code> -    ES7： <code>includes</code> </li>
+</ul>
+<h4 id="什么是不支持的"><a href="#什么是不支持的" class="headerlink" title="什么是不支持的"></a>什么是不支持的</h4><ul>
+<li>ES6 <code>let</code>和<code>const</code>声明 -   标签 -    <code>eval</code>功能 -    <code>new Function()</code>构造函数 -    <code>setInterval</code> ， <code>setImmediate</code>函数 </li>
+</ul>
+</li></ul>
       
     </div>
     
@@ -674,7 +638,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#兼容性"><span class="nav-number">1.</span> <span class="nav-text"> 兼容性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#目前支持什么"><span class="nav-number">1.0.1.</span> <span class="nav-text">目前支持什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是不支持的"><span class="nav-number">1.0.2.</span> <span class="nav-text">什么是不支持的</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#兼容性"><span class="nav-number">1.</span> <span class="nav-text">兼容性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#目前支持什么"><span class="nav-number">1.0.1.</span> <span class="nav-text">目前支持什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是不支持的"><span class="nav-number">1.0.2.</span> <span class="nav-text">什么是不支持的</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

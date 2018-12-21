@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="http,ngx_http_proxy_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:53:24.115Z">
+<meta property="og:updated_time" content="2018-12-21T07:56:10.376Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http&#x2F;ngx_http_proxy_module-nginx中文手册">
 <meta name="twitter:description" content="http,ngx_http_proxy_module">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
                 2018年12月21日
               </time>
             
@@ -397,289 +397,754 @@
 
       
         <p>http,ngx_http_proxy_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-http-proxy-module"><a href="#Module-ngx-http-proxy-module" class="headerlink" title="Module ngx_http_proxy_module"></a>Module ngx_http_proxy_module</h2><p> Example Configuration<br> Directives<br> proxy_bind<br> proxy_buffer_size<br> proxy_buffering<br> proxy_buffers<br> proxy_busy_buffers_size<br> proxy_cache<br> proxy_cache_background_update<br> proxy_cache_bypass<br> proxy_cache_convert_head<br> proxy_cache_key<br> proxy_cache_lock<br> proxy_cache_lock_age<br> proxy_cache_lock_timeout<br> proxy_cache_max_range_offset<br> proxy_cache_methods<br> proxy_cache_min_uses<br> proxy_cache_path<br> proxy_cache_purge<br> proxy_cache_revalidate<br> proxy_cache_use_stale<br> proxy_cache_valid<br> proxy_connect_timeout<br> proxy_cookie_domain<br> proxy_cookie_path<br> proxy_force_ranges<br> proxy_headers_hash_bucket_size<br> proxy_headers_hash_max_size<br> proxy_hide_header<br> proxy_http_version<br> proxy_ignore_client_abort<br> proxy_ignore_headers<br> proxy_intercept_errors<br> proxy_limit_rate<br> proxy_max_temp_file_size<br> proxy_method<br> proxy_next_upstream<br> proxy_next_upstream_timeout<br> proxy_next_upstream_tries<br> proxy_no_cache<br> proxy_pass<br> proxy_pass_header<br> proxy_pass_request_body<br> proxy_pass_request_headers<br> proxy_read_timeout<br> proxy_redirect<br> proxy_request_buffering<br> proxy_send_lowat<br> proxy_send_timeout<br> proxy_set_body<br> proxy_set_header<br> proxy_socket_keepalive<br> proxy_ssl_certificate<br> proxy_ssl_certificate_key<br> proxy_ssl_ciphers<br> proxy_ssl_crl<br> proxy_ssl_name<br> proxy_ssl_password_file<br> proxy_ssl_protocols<br> proxy_ssl_server_name<br> proxy_ssl_session_reuse<br> proxy_ssl_trusted_certificate<br> proxy_ssl_verify<br> proxy_ssl_verify_depth<br> proxy_store<br> proxy_store_access<br> proxy_temp_file_write_size<br> proxy_temp_path<br> Embedded Variables<br> ngx_http_proxy_module模块允许将请求传递到另一台服务器。 </p>
+<h2 id="Module-ngx-http-proxy-module"><a href="#Module-ngx-http-proxy-module" class="headerlink" title="Module ngx_http_proxy_module"></a>Module ngx_http_proxy_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#proxy_bind">proxy_bind</a> <br>     <a href="#proxy_buffer_size">proxy_buffer_size</a> <br>     <a href="#proxy_buffering">proxy_buffering</a> <br>     <a href="#proxy_buffers">proxy_buffers</a> <br>     <a href="#proxy_busy_buffers_size">proxy_busy_buffers_size</a> <br>     <a href="#proxy_cache">proxy_cache</a> <br>     <a href="#proxy_cache_background_update">proxy_cache_background_update</a> <br>     <a href="#proxy_cache_bypass">proxy_cache_bypass</a> <br>     <a href="#proxy_cache_convert_head">proxy_cache_convert_head</a> <br>     <a href="#proxy_cache_key">proxy_cache_key</a> <br>     <a href="#proxy_cache_lock">proxy_cache_lock</a> <br>     <a href="#proxy_cache_lock_age">proxy_cache_lock_age</a> <br>     <a href="#proxy_cache_lock_timeout">proxy_cache_lock_timeout</a> <br>     <a href="#proxy_cache_max_range_offset">proxy_cache_max_range_offset</a> <br>     <a href="#proxy_cache_methods">proxy_cache_methods</a> <br>     <a href="#proxy_cache_min_uses">proxy_cache_min_uses</a> <br>     <a href="#proxy_cache_path">proxy_cache_path</a> <br>     <a href="#proxy_cache_purge">proxy_cache_purge</a> <br>     <a href="#proxy_cache_revalidate">proxy_cache_revalidate</a> <br>     <a href="#proxy_cache_use_stale">proxy_cache_use_stale</a> <br>     <a href="#proxy_cache_valid">proxy_cache_valid</a> <br>     <a href="#proxy_connect_timeout">proxy_connect_timeout</a> <br>     <a href="#proxy_cookie_domain">proxy_cookie_domain</a> <br>     <a href="#proxy_cookie_path">proxy_cookie_path</a> <br>     <a href="#proxy_force_ranges">proxy_force_ranges</a> <br>     <a href="#proxy_headers_hash_bucket_size">proxy_headers_hash_bucket_size</a> <br>     <a href="#proxy_headers_hash_max_size">proxy_headers_hash_max_size</a> <br>     <a href="#proxy_hide_header">proxy_hide_header</a> <br>     <a href="#proxy_http_version">proxy_http_version</a> <br>     <a href="#proxy_ignore_client_abort">proxy_ignore_client_abort</a> <br>     <a href="#proxy_ignore_headers">proxy_ignore_headers</a> <br>     <a href="#proxy_intercept_errors">proxy_intercept_errors</a> <br>     <a href="#proxy_limit_rate">proxy_limit_rate</a> <br>     <a href="#proxy_max_temp_file_size">proxy_max_temp_file_size</a> <br>     <a href="#proxy_method">proxy_method</a> <br>     <a href="#proxy_next_upstream">proxy_next_upstream</a> <br>     <a href="#proxy_next_upstream_timeout">proxy_next_upstream_timeout</a> <br>     <a href="#proxy_next_upstream_tries">proxy_next_upstream_tries</a> <br>     <a href="#proxy_no_cache">proxy_no_cache</a> <br>     <a href="#proxy_pass">proxy_pass</a> <br>     <a href="#proxy_pass_header">proxy_pass_header</a> <br>     <a href="#proxy_pass_request_body">proxy_pass_request_body</a> <br>     <a href="#proxy_pass_request_headers">proxy_pass_request_headers</a> <br>     <a href="#proxy_read_timeout">proxy_read_timeout</a> <br>     <a href="#proxy_redirect">proxy_redirect</a> <br>     <a href="#proxy_request_buffering">proxy_request_buffering</a> <br>     <a href="#proxy_send_lowat">proxy_send_lowat</a> <br>     <a href="#proxy_send_timeout">proxy_send_timeout</a> <br>     <a href="#proxy_set_body">proxy_set_body</a> <br>     <a href="#proxy_set_header">proxy_set_header</a> <br>     <a href="#proxy_socket_keepalive">proxy_socket_keepalive</a> <br>     <a href="#proxy_ssl_certificate">proxy_ssl_certificate</a> <br>     <a href="#proxy_ssl_certificate_key">proxy_ssl_certificate_key</a> <br>     <a href="#proxy_ssl_ciphers">proxy_ssl_ciphers</a> <br>     <a href="#proxy_ssl_crl">proxy_ssl_crl</a> <br>     <a href="#proxy_ssl_name">proxy_ssl_name</a> <br>     <a href="#proxy_ssl_password_file">proxy_ssl_password_file</a> <br>     <a href="#proxy_ssl_protocols">proxy_ssl_protocols</a> <br>     <a href="#proxy_ssl_server_name">proxy_ssl_server_name</a> <br>     <a href="#proxy_ssl_session_reuse">proxy_ssl_session_reuse</a> <br>     <a href="#proxy_ssl_trusted_certificate">proxy_ssl_trusted_certificate</a> <br>     <a href="#proxy_ssl_verify">proxy_ssl_verify</a> <br>     <a href="#proxy_ssl_verify_depth">proxy_ssl_verify_depth</a> <br>     <a href="#proxy_store">proxy_store</a> <br>     <a href="#proxy_store_access">proxy_store_access</a> <br>     <a href="#proxy_temp_file_write_size">proxy_temp_file_write_size</a> <br>     <a href="#proxy_temp_path">proxy_temp_path</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
+
+<p>   <code>ngx_http_proxy_module</code>模块允许将请求传递到另一台服务器。 </p>
 <h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><blockquote>
-<p>location / { proxy_pass <a href="http://localhost:8000" target="_blank" rel="noopener">http://localhost:8000</a>; proxy_set_header Host $host; proxy_set_header X-Real-IP $remote_addr; } ####  指令</p>
+<pre class="notranslate">location / {
+    proxy_pass       http://localhost:8000;
+    proxy_set_header Host      $host;
+    proxy_set_header X-Real-IP $remote_addr;
+}
+</pre>
+
+
+
 </blockquote>
-<p> Syntax:  <strong>proxy_bind</strong> <em>address</em> [ transparent ] | off ;<br>  Default:  —  Context:  http , server , location<br>  该指令出现在0.8.22版本中。 </p>
-<p> 使与可选端口（1.11.2）的指定本地IP地址建立到代理服务器的传出连接。 参数值可以包含变量（1.3.12）。 特殊值off （1.3.12）取消了从先前配置级别继承的proxy_bind指令的效果，允许系统自动分配本地IP地址和端口。 </p>
-<p> transparent参数（1.11.0）允许到代理服务器的传出连接源自非本地IP地址，例如，来自客户端的真实IP地址： </p>
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_bind**     &lt;code class=&quot;notranslate&quot;&gt;*address*</code>    [ <code>transparent</code> ] |    <code>off</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  该指令出现在0.8.22版本中。 </p>
+<p>  使与可选端口（1.11.2）的指定本地IP地址建立到代理服务器的传出连接。  参数值可以包含变量（1.3.12）。  特殊值<code>off</code> （1.3.12）取消了从先前配置级别继承的<code>proxy_bind</code>指令的效果，允许系统自动分配本地IP地址和端口。 </p>
+<p>   <code>transparent</code>参数（1.11.0）允许到代理服务器的传出连接源自非本地IP地址，例如，来自客户端的真实IP地址： </p>
 <blockquote>
-<p>proxy_bind $remote_addr transparent;  为了使此参数有效，通常需要使用超级用户权限运行nginx工作进程。 在Linux上，不需要（1.13.8），就像指定了transparent参数一样，工作进程从主进程继承CAP_NET_RAW功能。 还需要配置内核路由表以拦截来自代理服务器的网络流量。 </p>
+<pre class="notranslate">proxy_bind $remote_addr transparent;
+</pre>
+
 </blockquote>
-<p> Syntax:  <strong>proxy_buffer_size</strong> <em>size</em> ;<br>  Default:  proxy_buffer_size 4k|8k;  Context:  http , server , location<br>  设置用于读取从代理服务器接收的响应的第一部分的缓冲区的<em>size</em> 。 这部分通常包含一个小的响应头。 默认情况下，缓冲区大小等于一个内存页面。 这是4K或8K，具体取决于平台。 然而，它可以做得更小。 </p>
-<p> Syntax:  <strong>proxy_buffering</strong> on | off ;<br>  Default:  proxy_buffering on;  Context:  http , server , location<br>  启用或禁用来自代理服务器的响应缓冲。 </p>
-<p> 启用缓冲后，nginx会尽快从代理服务器接收响应，并将其保存到proxy_buffer_size和proxy_buffers指令设置的缓冲区中。 如果整个响应不适合内存，则可以将其中的一部分保存到磁盘上的临时文件中 。 写入临时文件由proxy_max_temp_file_size和proxy_temp_file_write_size指令控制。 </p>
-<p> 禁用缓冲时，响应会在收到响应时立即同步传递给客户端。 nginx不会尝试从代理服务器读取整个响应。 nginx一次可以从服务器接收的数据的最大大小由proxy_buffer_size指令设置。 </p>
-<p> 也可以通过在“X-Accel-Buffering”响应头字段中传递“ yes ”或“ no ”来启用或禁用缓冲。 可以使用proxy_ignore_headers指令禁用此功能。 </p>
-<p> Syntax:  <strong>proxy_buffers</strong> <em>number</em> <em>size</em> ;<br>  Default:  proxy_buffers 8 4k|8k;  Context:  http , server , location<br>  设置用于从代理服务器读取响应的缓冲区的<em>number</em>和<em>size</em> ，用于单个连接。 默认情况下，缓冲区大小等于一个内存页面。 这是4K或8K，具体取决于平台。 </p>
-<p> Syntax:  <strong>proxy_busy_buffers_size</strong> <em>size</em> ;<br>  Default:  proxy_busy_buffers_size 8k|16k;  Context:  http , server , location<br>  当启用来自代理服务器的响应缓冲时，限制可能忙于向响应客户端发送响应的缓冲区的总<em>size</em> ，而响应尚未完全读取。 同时，其余的缓冲区可用于读取响应，并在需要时缓冲部分响应临时文件。 默认情况下， <em>size</em>由proxy_buffer_size和proxy_buffers指令设置的两个缓冲区的大小限制。 </p>
-<p> Syntax:  <strong>proxy_cache</strong> <em>zone</em> | off ;<br>  Default:  proxy_cache off;  Context:  http , server , location<br>  定义用于缓存的共享内存区域。 可以在多个地方使用相同的区域。 参数值可以包含变量（1.7.9）。 off参数禁用从先前配置级别继承的高速缓存。 </p>
-<p> Syntax:  <strong>proxy_cache_background_update</strong> on | off ;<br>  Default:  proxy_cache_background_update off;  Context:  http , server , location<br>  该指令出现在1.11.10版中。 </p>
-<p> 允许启动后台子请求以更新过期的缓存项，同时将过时的缓存响应返回给客户端。 请注意，在更新时必须允许使用陈旧的缓存响应。 </p>
-<p> Syntax:  <strong>proxy_cache_bypass</strong> <em>string</em> …;<br>  Default:  —  Context:  http , server , location<br>  定义不从缓存中获取响应的条件。 如果字符串参数的至少一个值不为空且不等于“0”，则不会从缓存中获取响应： </p>
+<p>  为了使此参数有效，通常需要使用<a href="ngx_core_module.html#user">超级用户</a>权限运行nginx工作进程。  在Linux上，不需要（1.13.8），就像指定了<code>transparent</code>参数一样，工作进程从主进程继承<code>CAP_NET_RAW</code>功能。  还需要配置内核路由表以拦截来自代理服务器的网络流量。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_buffer_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_buffer_size 4k|8k;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  设置用于读取从代理服务器接收的响应的第一部分的缓冲区的<code>*size*</code> 。  这部分通常包含一个小的响应头。  默认情况下，缓冲区大小等于一个内存页面。  这是4K或8K，具体取决于平台。  然而，它可以做得更小。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_buffering** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_buffering on;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  启用或禁用来自代理服务器的响应缓冲。 </p>
+<p>  启用缓冲后，nginx会尽快从代理服务器接收响应，并将其保存到<a href="#proxy_buffer_size">proxy_buffer_size</a>和<a href="#proxy_buffers">proxy_buffers</a>指令设置的缓冲区中。  如果整个响应不适合内存，则可以将其中的一部分保存到磁盘上的<a href="#proxy_temp_path">临时文件中</a> 。  写入临时文件由<a href="#proxy_max_temp_file_size">proxy_max_temp_file_size</a>和<a href="#proxy_temp_file_write_size">proxy_temp_file_write_size</a>指令控制。 </p>
+<p>  禁用缓冲时，响应会在收到响应时立即同步传递给客户端。   nginx不会尝试从代理服务器读取整个响应。   nginx一次可以从服务器接收的数据的最大大小由<a href="#proxy_buffer_size">proxy_buffer_size</a>指令设置。 </p>
+<p>  也可以通过在“X-Accel-Buffering”响应头字段中传递“ <code>yes</code> ”或“ <code>no</code> ”来启用或禁用缓冲。  可以使用<a href="#proxy_ignore_headers">proxy_ignore_headers</a>指令禁用此功能。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_buffers** &lt;code class=&quot;notranslate&quot;&gt;*number*</code> <code>*size*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_buffers 8 4k|8k;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  设置用于从代理服务器读取响应的缓冲区的<code>*number*</code>和<code>*size*</code> ，用于单个连接。  默认情况下，缓冲区大小等于一个内存页面。  这是4K或8K，具体取决于平台。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_busy_buffers_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_busy_buffers_size 8k|16k;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  当启用来自代理服务器的响应<a href="#proxy_buffering">缓冲</a>时，限制可能忙于向响应客户端发送响应的缓冲区的总<code>*size*</code> ，而响应尚未完全读取。  同时，其余的缓冲区可用于读取响应，并在需要时缓冲部分响应临时文件。  默认情况下， <code>*size*</code>由<a href="#proxy_buffer_size">proxy_buffer_size</a>和<a href="#proxy_buffers">proxy_buffers</a>指令设置的两个缓冲区的大小限制。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_cache** &lt;code class=&quot;notranslate&quot;&gt;*zone*</code> | <code>off</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_cache off;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  定义用于缓存的共享内存区域。  可以在多个地方使用相同的区域。  参数值可以包含变量（1.7.9）。   <code>off</code>参数禁用从先前配置级别继承的高速缓存。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_cache_background_update** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_cache_background_update off;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  该指令出现在1.11.10版中。 </p>
+<p>  允许启动后台子请求以更新过期的缓存项，同时将过时的缓存响应返回给客户端。  请注意，在更新时必须<a href="#proxy_cache_use_stale_updating">允许</a>使用陈旧的缓存响应。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_cache_bypass** &lt;code class=&quot;notranslate&quot;&gt;*string*</code> …; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  定义不从缓存中获取响应的条件。  如果字符串参数的至少一个值不为空且不等于“0”，则不会从缓存中获取响应： </p>
 <blockquote>
-<p>proxy_cache_bypass $cookie_nocache $arg_nocache$arg_comment; proxy_cache_bypass $http_pragma $http_authorization;  可以与proxy_no_cache指令一起使用。 </p>
+<pre class="notranslate">proxy_cache_bypass $cookie_nocache $arg_nocache$arg_comment;
+proxy_cache_bypass $http_pragma    $http_authorization;
+</pre>
+
 </blockquote>
-<p> Syntax:  <strong>proxy_cache_convert_head</strong> on | off ;<br>  Default:  proxy_cache_convert_head on;  Context:  http , server , location<br>  该指令出现在1.9.7版中。 </p>
-<p> 启用或禁用将“ HEAD ”方法转换为“ GET ”以进行缓存。 禁用转换时，应将缓存键配置为包含$request_method 。 </p>
-<p> Syntax:  <strong>proxy_cache_key</strong> <em>string</em> ;<br>  Default:  proxy_cache_key $scheme$proxy_host$request_uri;  Context:  http , server , location<br>  例如，定义缓存的键 </p>
+<p>  可以与<a href="#proxy_no_cache">proxy_no_cache</a>指令一起使用。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_cache_convert_head** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_cache_convert_head on;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  该指令出现在1.9.7版中。 </p>
+<p>  启用或禁用将“ <code>HEAD</code> ”方法转换为“ <code>GET</code> ”以进行缓存。  禁用转换时，应将<a href="#proxy_cache_key">缓存键</a>配置为包含<code>$request_method</code> 。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_cache_key** &lt;code class=&quot;notranslate&quot;&gt;*string*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_cache_key $scheme$proxy_host$request_uri;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  例如，定义缓存的键 </p>
 <blockquote>
-<p>proxy_cache_key “$host$request_uri $cookie_user”;  默认情况下，指令的值接近字符串 </p>
-<p>proxy_cache_key $scheme$proxy_host$uri$is_args$args;  Syntax:  <strong>proxy_cache_lock</strong> on | off ;<br>  Default:  proxy_cache_lock off;  Context:  http , server , location<br>  该指令出现在1.1.12版本中。 </p>
+<pre class="notranslate">proxy_cache_key "$host$request_uri $cookie_user";
+</pre>
+
 </blockquote>
-<p> 启用后，通过将请求传递给代理服务器，一次只允许一个请求填充根据proxy_cache_key指令标识的新缓存元素。 同一缓存元素的其他请求将等待响应出现在缓存中或缓存锁定以释放此元素，直到proxy_cache_lock_timeout指令设置的时间。 </p>
-<p> Syntax:  <strong>proxy_cache_lock_age</strong> <em>time</em> ;<br>  Default:  proxy_cache_lock_age 5s;  Context:  http , server , location<br>  该指令出现在1.7.8版本中。 </p>
-<p> 如果传递给代理服务器以填充新缓存元素的最后一个请求在指定<em>time</em>内没有完成，则可以将另一个请求传递给代理服务器。 </p>
-<p> Syntax:  <strong>proxy_cache_lock_timeout</strong> <em>time</em> ;<br>  Default:  proxy_cache_lock_timeout 5s;  Context:  http , server , location<br>  该指令出现在1.1.12版本中。 </p>
-<p> 设置proxy_cache_lock的超时。 当<em>time</em>到期时，请求将被传递给代理服务器，但是，响应将不会被缓存。 </p>
+<p>  默认情况下，指令的值接近字符串 </p>
 <blockquote>
-<p> 在1.7.8之前，可以缓存响应。  Syntax:  <strong>proxy_cache_max_range_offset</strong> <em>number</em> ;<br>  Default:  —  Context:  http , server , location<br>  该指令出现在1.11.6版中。 </p>
+<pre class="notranslate">proxy_cache_key $scheme$proxy_host$uri$is_args$args;
+</pre>
+
+
 </blockquote>
-<p> 设置字节范围请求的偏移量（以字节为单位）。 如果范围超出偏移量，则范围请求将传递到代理服务器，并且不会缓存响应。 </p>
-<p> Syntax:  <strong>proxy_cache_methods</strong> GET | HEAD | POST …;<br>  Default:  proxy_cache_methods GET HEAD;  Context:  http , server , location<br>  该指令出现在0.7.59版本中。 </p>
-<p> 如果此指令中列出了客户端请求方法，则将缓存响应。 “ GET ”和“ HEAD ”方法总是添加到列表中，但建议明确指定它们。 另请参见proxy_no_cache指令。 </p>
-<p> Syntax:  <strong>proxy_cache_min_uses</strong> <em>number</em> ;<br>  Default:  proxy_cache_min_uses 1;  Context:  http , server , location<br>  设置将缓存响应的请求<em>number</em> 。 </p>
-<p> Syntax:  <strong>proxy_cache_path</strong> <em>path</em> [ levels = <em>levels</em> ] [ use_temp_path = on | off ] keys_zone = <em>name</em> : <em>size</em> [ inactive = <em>time</em> ] [ max_size = <em>size</em> ] [ manager_files = <em>number</em> ] [ manager_sleep = <em>time</em> ] [ manager_threshold = <em>time</em> ] [ loader_files = <em>number</em> ] [ loader_sleep = <em>time</em> ] [ loader_threshold = <em>time</em> ] [ purger = on | off ] [ purger_files = <em>number</em> ] [ purger_sleep = <em>time</em> ] [ purger_threshold = <em>time</em> ];<br>  Default:  —  Context:  http<br>  设置缓存的路径和其他参数。 缓存数据存储在文件中。 缓存中的文件名是将MD5功能应用于缓存键的结果 。 levels参数定义高速缓存的层次结构级别：从1到3，每个级别接受值1或2.例如，在以下配置中 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_cache_lock** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_cache_lock off;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  该指令出现在1.1.12版本中。 </p>
+<p>  启用后，通过将请求传递给代理服务器，一次只允许一个请求填充根据<a href="#proxy_cache_key">proxy_cache_key</a>指令标识的新缓存元素。  同一缓存元素的其他请求将等待响应出现在缓存中或缓存锁定以释放此元素，直到<a href="#proxy_cache_lock_timeout">proxy_cache_lock_timeout</a>指令设置的时间。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_cache_lock_age** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_cache_lock_age 5s;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  该指令出现在1.7.8版本中。 </p>
+<p>  如果传递给代理服务器以填充新缓存元素的最后一个请求在指定<code>*time*</code>内没有完成，则可以将另一个请求传递给代理服务器。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_cache_lock_timeout** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_cache_lock_timeout 5s;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  该指令出现在1.1.12版本中。 </p>
+<p>  设置<a href="#proxy_cache_lock">proxy_cache_lock</a>的超时。  当<code>*time*</code>到期时，请求将被传递给代理服务器，但是，响应将不会被缓存。 </p>
 <blockquote>
-<p>proxy_cache_path /data/nginx/cache levels=1:2 keys_zone=one:10m;  缓存中的文件名如下所示： </p>
-<p>/data/nginx/cache/ <strong>c</strong> / <strong>29</strong> /b7f54b2df7773722d382f4809d650 <strong>29c</strong>  首先将缓存的响应写入临时文件，然后重命名该文件。 从版本0.8.9开始，临时文件和缓存可以放在不同的文件系统上。 但是，请注意，在这种情况下，文件将跨两个文件系统复制，而不是廉价的重命名操作。 因此，建议对于任何给定位置，缓存和保存临时文件的目录都放在同一文件系统上。 临时文件的目录是根据use_temp_path参数（1.7.10）设置的。 如果省略此参数或将其设置为on ，则将使用proxy_temp_path指令为给定位置设置的目录。 如果该值设置为off ，则临时文件将直接放入缓存目录中。 </p>
+<p>  在1.7.8之前，可以缓存响应。 </p>
 </blockquote>
-<p> 此外，所有活动密钥和有关数据的信息都存储在共享内存区域中，其<em>name</em>和<em>size</em>由keys_zone参数配置。 一兆字节区域可以存储大约8000个密钥。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_cache_max_range_offset** &lt;code class=&quot;notranslate&quot;&gt;*number*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  该指令出现在1.11.6版中。 </p>
+<p>  设置字节范围请求的偏移量（以字节为单位）。  如果范围超出偏移量，则范围请求将传递到代理服务器，并且不会缓存响应。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_cache_methods**     &lt;code class=&quot;notranslate&quot;&gt;GET</code> |    <code>HEAD</code> |    <code>POST</code>    …; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_cache_methods GET HEAD;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  该指令出现在0.7.59版本中。 </p>
+<p>  如果此指令中列出了客户端请求方法，则将缓存响应。   “ <code>GET</code> ”和“ <code>HEAD</code> ”方法总是添加到列表中，但建议明确指定它们。  另请参见<a href="#proxy_no_cache">proxy_no_cache</a>指令。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_cache_min_uses** &lt;code class=&quot;notranslate&quot;&gt;*number*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_cache_min_uses 1;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  设置将缓存响应的请求<code>*number*</code> 。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_cache_path**     &lt;code class=&quot;notranslate&quot;&gt;*path*</code>    [ <code>levels</code> = <code>*levels*</code> ]    [ <code>use_temp_path</code> = <code>on</code> | <code>off</code> ]    <code>keys_zone</code> = <code>*name*</code> : <code>*size*</code>    [ <code>inactive</code> = <code>*time*</code> ]    [ <code>max_size</code> = <code>*size*</code> ]    [ <code>manager_files</code> = <code>*number*</code> ]    [ <code>manager_sleep</code> = <code>*time*</code> ]    [ <code>manager_threshold</code> = <code>*time*</code> ]    [ <code>loader_files</code> = <code>*number*</code> ]    [ <code>loader_sleep</code> = <code>*time*</code> ]    [ <code>loader_threshold</code> = <code>*time*</code> ]    [ <code>purger</code> = <code>on</code> | <code>off</code> ]    [ <code>purger_files</code> = <code>*number*</code> ]    [ <code>purger_sleep</code> = <code>*time*</code> ]    [ <code>purger_threshold</code> = <code>*time*</code> ]; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> <br>                </td></p>
+<p>  设置缓存的路径和其他参数。  缓存数据存储在文件中。  缓存中的文件名是将MD5功能应用于<a href="#proxy_cache_key">缓存键的结果</a> 。   <code>levels</code>参数定义高速缓存的层次结构级别：从1到3，每个级别接受值1或2.例如，在以下配置中 </p>
 <blockquote>
-<p> 作为商业订阅的一部分，共享存储器区域还存储扩展的高速缓存信息 ，因此，需要为相同数量的密钥指定更大的区域大小。 例如，一兆字节区域可以存储大约4000个密钥。  在inactive参数指定的时间内未访问的缓存数据将从缓存中删除，无论其新鲜度如何。 默认情况下， inactive设置为10分钟。 </p>
+<pre class="notranslate">proxy_cache_path /data/nginx/cache levels=1:2 keys_zone=one:10m;
+</pre>
+
 </blockquote>
-<p> 特殊的“缓存管理器”进程监视max_size参数设置的最大缓存大小。 超过此大小时，它会删除最近最少使用的数据。 在manager_files ， manager_threshold和manager_sleep参数（1.11.5）配置的迭代中删除数据。 在一次迭代期间，不会删除manager_files项（默认情况下为100）。 一次迭代的持续时间受manager_threshold参数限制（默认情况下为200毫秒）。 在迭代之间，由manager_sleep参数（默认为50毫秒）配置的暂停。 </p>
-<p> 启动一分钟后，激活特殊的“缓存加载程序”进程。 它将有关存储在文件系统中的先前缓存数据的信息加载到缓存区。 加载也是在迭代中完成的。 在一次迭代期间，加载的loader_files项目不超过（默认情况下为100）。 此外，一次迭代的持续时间受loader_threshold参数限制（默认为200毫秒）。 在迭代之间，由loader_sleep参数（默认为50毫秒）配置暂停。 </p>
-<p> 此外，以下参数作为我们商业订阅的一部分提供： </p>
-<p> purger = on | off  指示缓存清除程序是否将从磁盘中删除与通配符密钥匹配的缓存条目（1.7.12）。 将参数设置为on （默认为off ）将激活“cache purger”进程，该进程将永久迭代所有缓存条目并删除与通配符键匹配的条目。  purger_files = <em>number</em>  设置在一次迭代（1.7.12）期间将扫描的项目数。 默认情况下， purger_files设置为10。  purger_threshold = <em>number</em>  设置一次迭代的持续时间（1.7.12）。 默认情况下， purger_threshold设置为50毫秒。  purger_sleep = <em>number</em>  设置迭代之间的暂停（1.7.12）。 默认情况下， purger_sleep设置为50毫秒。 </p>
+<p>  缓存中的文件名如下所示： </p>
 <blockquote>
-<p> 在版本1.7.3,1.7.7和1.11.10中，缓存头格式已更改。 升级到较新的nginx版本之前，缓存的响应将被视为无效。  Syntax:  <strong>proxy_cache_purge</strong> string …;<br>  Default:  —  Context:  http , server , location<br>  该指令出现在1.5.7版本中。 </p>
+<pre class="notranslate">/data/nginx/cache/ **c** / **29** /b7f54b2df7773722d382f4809d650 **29c**
+</pre>
+
+
+
 </blockquote>
-<p> 定义将请求视为缓存清除请求的条件。 如果字符串参数的至少一个值不为空并且不等于“0”，则移除具有相应高速缓存键的高速缓存条目。 通过返回204（无内容）响应来指示成功操作的结果。 </p>
-<p> 如果清除请求的缓存键以星号（“ * ”）结尾，则将从缓存中删除与通配符键匹配的所有缓存条目。 但是，这些条目将保留在磁盘上，直到它们被删除为非活动状态 ，或由缓存清除程序（1.7.12）处理，或者客户端尝试访问它们。 </p>
-<p> 配置示例： </p>
+<p>  首先将缓存的响应写入临时文件，然后重命名该文件。  从版本0.8.9开始，临时文件和缓存可以放在不同的文件系统上。  但是，请注意，在这种情况下，文件将跨两个文件系统复制，而不是廉价的重命名操作。  因此，建议对于任何给定位置，缓存和保存临时文件的目录都放在同一文件系统上。  临时文件的目录是根据<code>use_temp_path</code>参数（1.7.10）设置的。  如果省略此参数或将其设置为<code>on</code> ，则将使用<a href="#proxy_temp_path">proxy_temp_path</a>指令为给定位置设置的目录。  如果该值设置为<code>off</code> ，则临时文件将直接放入缓存目录中。 </p>
+<p>  此外，所有活动密钥和有关数据的信息都存储在共享内存区域中，其<code>*name*</code>和<code>*size*</code>由<code>keys_zone</code>参数配置。  一兆字节区域可以存储大约8000个密钥。 </p>
 <blockquote>
-<p>proxy_cache_path /data/nginx/cache keys_zone=cache_zone:10m; map $request_method $purge_method { PURGE 1; default 0; } server { … location / { proxy_pass <a href="http://backend" target="_blank" rel="noopener">http://backend</a>; proxy_cache cache_zone; proxy_cache_key $uri; proxy_cache_purge $purge_method; } }<br> 此功能作为我们商业订阅的一部分提供。  Syntax:  <strong>proxy_cache_revalidate</strong> on | off ;<br>  Default:  proxy_cache_revalidate off;  Context:  http , server , location<br>  该指令出现在1.5.7版本中。 </p>
+<p>  作为<a href="http://nginx.com/products/" target="_blank" rel="noopener">商业订阅的</a>一部分，共享存储器区域还存储扩展的高速缓存<a href="ngx_http_api_module.html#http_caches_">信息</a> ，因此，需要为相同数量的密钥指定更大的区域大小。  例如，一兆字节区域可以存储大约4000个密钥。 </p>
 </blockquote>
-<p> 使用具有“If-Modified-Since”和“If-None-Match”标头字段的条件请求启用过期缓存项的重新验证。 </p>
-<p> Syntax:  <strong>proxy_cache_use_stale</strong> error | timeout | invalid_header | updating | http_500 | http_502 | http_503 | http_504 | http_403 | http_404 | http_429 | off …;<br>  Default:  proxy_cache_use_stale off;  Context:  http , server , location<br>  确定在与代理服务器通信期间可以在哪些情况下使用过时的缓存响应。 该指令的参数与proxy_next_upstream指令的参数匹配。 </p>
-<p> 如果无法选择代理服务器来处理请求，则error参数还允许使用过时的缓存响应。 </p>
-<p> 此外，如果当前正在更新，则updating参数允许使用过时的缓存响应。 这允许在更新缓存数据时最小化对代理服务器的访问次数。 </p>
-<p> 在响应变为失效后，也可以在响应头中直接启用过时的缓存响应指定的秒数（1.11.10）。 这比使用指令参数的优先级低。 </p>
+<p>  在<code>inactive</code>参数指定的时间内未访问的缓存数据将从缓存中删除，无论其新鲜度如何。  默认情况下， <code>inactive</code>设置为10分钟。 </p>
+<p>  特殊的“缓存管理器”进程监视<code>max_size</code>参数设置的最大缓存大小。  超过此大小时，它会删除最近最少使用的数据。  在<code>manager_files</code> ， <code>manager_threshold</code>和<code>manager_sleep</code>参数（1.11.5）配置的迭代中删除数据。  在一次迭代期间，不会删除<code>manager_files</code>项（默认情况下为100）。  一次迭代的持续时间受<code>manager_threshold</code>参数限制（默认情况下为200毫秒）。  在迭代之间，由<code>manager_sleep</code>参数（默认为50毫秒）配置的暂停。 </p>
+<p>  启动一分钟后，激活特殊的“缓存加载程序”进程。  它将有关存储在文件系统中的先前缓存数据的信息加载到缓存区。  加载也是在迭代中完成的。  在一次迭代期间，加载的<code>loader_files</code>项目不超过（默认情况下为100）。  此外，一次迭代的持续时间受<code>loader_threshold</code>参数限制（默认为200毫秒）。  在迭代之间，由<code>loader_sleep</code>参数（默认为50毫秒）配置暂停。 </p>
+<p>  此外，以下参数作为我们<a href="http://nginx.com/products/" target="_blank" rel="noopener">商业订阅的</a>一部分提供： </p>
+<blockquote>
+<p>  在版本1.7.3,1.7.7和1.11.10中，缓存头格式已更改。  升级到较新的nginx版本之前，缓存的响应将被视为无效。 </p>
+</blockquote>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_cache_purge** string ...;</code> <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  该指令出现在1.5.7版本中。 </p>
+<p>  定义将请求视为缓存清除请求的条件。  如果字符串参数的至少一个值不为空并且不等于“0”，则移除具有相应<a href="#proxy_cache_key">高速缓存键</a>的高速缓存条目。  通过返回204（无内容）响应来指示成功操作的结果。 </p>
+<p>  如果清除请求的<a href="#proxy_cache_key">缓存键</a>以星号（“ <code>*</code> ”）结尾，则将从缓存中删除与通配符键匹配的所有缓存条目。  但是，这些条目将保留在磁盘上，直到它们被删除<a href="#proxy_cache_path">为非活动状态</a> ，或由<a href="#purger">缓存</a>清除程序（1.7.12）处理，或者客户端尝试访问它们。 </p>
+<p>  配置示例： </p>
+<blockquote>
+<p><pre class="notranslate">proxy_cache_path /data/nginx/cache keys_zone=cache_zone:10m;</pre></p>
+</blockquote>
+<p>map $request_method $purge_method {<br>    PURGE   1;<br>    default 0;<br>}</p>
+<p>server {<br>    …<br>    location / {<br>        proxy_pass <a href="http://backend" target="_blank" rel="noopener">http://backend</a>;<br>        proxy_cache cache_zone;<br>        proxy_cache_key $uri;<br>        proxy_cache_purge $purge_method;<br>    }<br>}<br></p>
+<blockquote>
+<p>  此功能作为我们<a href="http://nginx.com/products/" target="_blank" rel="noopener">商业订阅的</a>一部分提供。 </p>
+</blockquote>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_cache_revalidate** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_cache_revalidate off;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  该指令出现在1.5.7版本中。 </p>
+<p>  使用具有“If-Modified-Since”和“If-None-Match”标头字段的条件请求启用过期缓存项的重新验证。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_cache_use_stale**     &lt;code class=&quot;notranslate&quot;&gt;error</code> |    <code>timeout</code> |    <code>invalid_header</code> |    <code>updating</code> |    <code>http_500</code> |    <code>http_502</code> |    <code>http_503</code> |    <code>http_504</code> |    <code>http_403</code> |    <code>http_404</code> |    <code>http_429</code> |    <code>off</code>    …; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_cache_use_stale off;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  确定在与代理服务器通信期间可以在哪些情况下使用过时的缓存响应。  该指令的参数与<a href="#proxy_next_upstream">proxy_next_upstream</a>指令的参数匹配。 </p>
+<p>  如果无法选择代理服务器来处理请求，则<code>error</code>参数还允许使用过时的缓存响应。 </p>
+<p>  此外，如果当前正在更新，则<code>updating</code>参数允许使用过时的缓存响应。  这允许在更新缓存数据时最小化对代理服务器的访问次数。 </p>
+<p>  在响应变为失效后，也可以在响应头中直接启用过时的缓存响应指定的秒数（1.11.10）。  这比使用指令参数的优先级低。 </p>
 <ul>
-<li>“Cache-Control”头字段的“ stale-while-revalidate ”扩展允许使用陈旧的缓存响应（如果当前正在更新）。 </li>
-<li><p>“Cache-Control”头字段的“ stale-if-error ”扩展允许在出现错误时使用陈旧的缓存响应。<br>要在填充新缓存元素时最小化对代理服务器的访问次数，可以使用proxy_cache_lock指令。 </p>
-<p>Syntax:  <strong>proxy_cache_valid</strong> [ <em>code</em> …] <em>time</em> ;<br>Default:  —  Context:  http , server , location<br>设置不同响应代码的缓存时间。 例如，以下指令 </p>
+<li>“Cache-Control”头字段的“ <a href="https://tools.ietf.org/html/rfc5861#section-3" target="_blank" rel="noopener">stale-while-revalidate</a> ”扩展允许使用陈旧的缓存响应（如果当前正在更新）。 -    “Cache-Control”头字段的“ <a href="https://tools.ietf.org/html/rfc5861#section-4" target="_blank" rel="noopener">stale-if-error</a> ”扩展允许在出现错误时使用陈旧的缓存响应。 </li>
+</ul>
+<p>  要在填充新缓存元素时最小化对代理服务器的访问次数，可以使用<a href="#proxy_cache_lock">proxy_cache_lock</a>指令。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_cache_valid** [ &lt;code class=&quot;notranslate&quot;&gt;*code*</code> …] <code>*time*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  设置不同响应代码的缓存时间。  例如，以下指令 </p>
+<blockquote>
+<pre class="notranslate">proxy_cache_valid 200 302 10m;
+proxy_cache_valid 404      1m;
+</pre>
+
+</blockquote>
+<p>  为代码为200和302的响应设置10分钟的缓存，为代码404的响应设置1分钟。 </p>
+<p>  如果仅指定了缓存<code>*time*</code> </p>
+<blockquote>
+<pre class="notranslate">proxy_cache_valid 5m;
+</pre>
+
+</blockquote>
+<p>  然后只缓存200,301和302个响应。 </p>
+<p>  此外，可以指定<code>any</code>参数来缓存任何响应： </p>
+<blockquote>
+<pre class="notranslate">proxy_cache_valid 200 302 10m;
+proxy_cache_valid 301      1h;
+proxy_cache_valid any      1m;
+</pre>
+
+
+
+</blockquote>
+<p>  缓存的参数也可以直接在响应头中设置。  这比使用该指令设置缓存时间具有更高的优先级。 </p>
+<ul>
+<li><p>“X-Accel-Expires”标题字段以秒为单位设置响应的缓存时间。  零值禁用响应的缓存。  如果值以<code>@</code>前缀开头，则设置自Epoch以来的绝对时间（以秒为单位），响应可以高速缓存。 -   如果标题不包括“X-Accel-Expires”字段，则可以在标题字段“Expires”或“Cache-Control”中设置高速缓存的参数。 -   如果标头包含“Set-Cookie”字段，则不会缓存此类响应。 -   如果标题包含具有特殊值“ <code>*</code> ”的“Vary”字段，则不会缓存此类响应（1.7.7）。  如果标题包含具有另一个值的“Vary”字段，则将考虑相应的请求标题字段来缓存这样的响应（1.7.7）。<br>可以使用<a href="#proxy_ignore_headers">proxy_ignore_headers</a>指令禁用这些响应头字段中的一个或多个的处理。<br><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_connect_timeout** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br>                </td><br><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_connect_timeout 60s;</pre>                </td><br><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>定义与代理服务器建立连接的超时。  应该注意，此超时通常不会超过75秒。<br><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_cookie_domain** &lt;code class=&quot;notranslate&quot;&gt;off</code> ; <br> <code>**proxy_cookie_domain** &lt;code class=&quot;notranslate&quot;&gt;*domain*</code> <code>*replacement*</code> ; <br>                </td><br><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_cookie_domain off;</pre>                </td><br><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>该指令出现在1.1.15版中。 </p>
+<p>设置应在代理服务器响应的“Set-Cookie”标头字段的<code>domain</code>属性中更改的文本。  假设代理服务器返回带有“ <code>domain=localhost</code> ”属性的“Set-Cookie”头字段。  指令 </p>
 </li>
 </ul>
 <blockquote>
-<p>proxy_cache_valid 200 302 10m; proxy_cache_valid 404 1m;  为代码为200和302的响应设置10分钟的缓存，为代码404的响应设置1分钟。 </p>
+<pre class="notranslate">proxy_cookie_domain localhost example.org;
+</pre>
+
 </blockquote>
-<p> 如果仅指定了缓存<em>time</em> </p>
+<p>  将此属性重写为“ <code>domain=example.org</code> ”。 </p>
+<p>   <code>*domain*</code>开头处的点和<code>*replacement*</code>字符串以及<code>domain</code>属性将被忽略。  匹配不区分大小写。 </p>
+<p>   <code>*domain*</code>和<code>*replacement*</code>字符串可以包含变量： </p>
 <blockquote>
-<p>proxy_cache_valid 5m;  然后只缓存200,301和302个响应。 </p>
+<pre class="notranslate">proxy_cookie_domain www.$host $host;
+</pre>
+
+
+
 </blockquote>
-<p> 此外，可以指定any参数来缓存任何响应： </p>
+<p>  也可以使用正则表达式指定该指令。  在这种情况下， <code>*domain*</code>应该从“ <code>~</code> ”符号开始。  正则表达式可以包含命名和位置捕获， <code>*replacement*</code>可以引用它们： </p>
 <blockquote>
-<p>proxy_cache_valid 200 302 10m; proxy_cache_valid 301 1h; proxy_cache_valid any 1m;  缓存的参数也可以直接在响应头中设置。 这比使用该指令设置缓存时间具有更高的优先级。 </p>
+<pre class="notranslate">proxy_cookie_domain ~\.(?P&lt;sl_domain&gt;[-0-9a-z]+\.[a-z]+)$ $sl_domain;
+</pre>
+
+
+
 </blockquote>
+<p>  可能有几个<code>proxy_cookie_domain</code>指令： </p>
+<blockquote>
+<pre class="notranslate">proxy_cookie_domain localhost example.org;
+proxy_cookie_domain ~\.([a-z]+\.[a-z]+)$ $1;
+</pre>
+
+
+
+</blockquote>
+<p>   <code>off</code>参数取消所有<code>proxy_cookie_domain</code>指令对当前级别的影响： </p>
+<blockquote>
+<pre class="notranslate">proxy_cookie_domain off;
+proxy_cookie_domain localhost example.org;
+proxy_cookie_domain www.example.org example.org;
+</pre>
+
+
+</blockquote>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_cookie_path** &lt;code class=&quot;notranslate&quot;&gt;off</code> ; <br> <code>**proxy_cookie_path** &lt;code class=&quot;notranslate&quot;&gt;*path*</code> <code>*replacement*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_cookie_path off;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  该指令出现在1.1.15版中。 </p>
+<p>  设置应在代理服务器响应的“Set-Cookie”标头字段的<code>path</code>属性中更改的文本。  假设代理服务器返回带有属性“ <code>path=/two/some/uri/</code> ”的“Set-Cookie”头字段。  指令 </p>
+<blockquote>
+<pre class="notranslate">proxy_cookie_path /two/ /;
+</pre>
+
+</blockquote>
+<p>  将此属性重写为“ <code>path=/some/uri/</code> ”。 </p>
+<p>   <code>*path*</code>和<code>*replacement*</code>字符串可以包含变量： </p>
+<blockquote>
+<pre class="notranslate">proxy_cookie_path $uri /some$uri;
+</pre>
+
+
+
+</blockquote>
+<p>  也可以使用正则表达式指定该指令。  在这种情况下， <code>*path*</code>应该从用于区分大小写匹配的“ <code>~</code> ”符号开始，或者从用于区分大小写匹配的“ <code>~*</code> ”符号开始。  正则表达式可以包含命名和位置捕获， <code>*replacement*</code>可以引用它们： </p>
+<blockquote>
+<pre class="notranslate">proxy_cookie_path ~*^/user/([^/]+) /u/$1;
+</pre>
+
+
+
+</blockquote>
+<p>  可能有几个<code>proxy_cookie_path</code>指令： </p>
+<blockquote>
+<pre class="notranslate">proxy_cookie_path /one/ /;
+proxy_cookie_path / /two/;
+</pre>
+
+
+
+</blockquote>
+<p>   <code>off</code>参数取消所有<code>proxy_cookie_path</code>指令对当前级别的影响： </p>
+<blockquote>
+<pre class="notranslate">proxy_cookie_path off;
+proxy_cookie_path /two/ /;
+proxy_cookie_path ~*^/user/([^/]+) /u/$1;
+</pre>
+
+
+</blockquote>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_force_ranges** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_force_ranges off;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  该指令出现在1.7.7版本中。 </p>
+<p>  无论代理服务器中的“Accept-Ranges”字段如何，都可以对代理服务器的缓存和未缓存响应启用字节范围支持。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_headers_hash_bucket_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_headers_hash_bucket_size 64;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  设置<a href="#proxy_hide_header">proxy_hide_header</a>和<a href="#proxy_set_header">proxy_set_header</a>指令使用的哈希表的桶<code>*size*</code> 。  设置哈希表的详细信息在单独的<a href="hash.html">文档</a>中提供。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_headers_hash_max_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_headers_hash_max_size 512;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  设置<a href="#proxy_hide_header">proxy_hide_header</a>和<a href="#proxy_set_header">proxy_set_header</a>指令使用的哈希表的最大<code>*size*</code> 。  设置哈希表的详细信息在单独的<a href="hash.html">文档</a>中提供。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_hide_header** &lt;code class=&quot;notranslate&quot;&gt;*field*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  默认情况下，nginx不会从代理服务器对客户端的响应中传递标题字段“Date”，“Server”，“X-Pad”和“X-Accel -…”。   <code>proxy_hide_header</code>指令设置不会传递的其他字段。  相反，如果需要允许传递字段，则可以使用<a href="#proxy_pass_header">proxy_pass_header</a>指令。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_http_version** &lt;code class=&quot;notranslate&quot;&gt;1.0</code> | <code>1.1</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_http_version 1.0;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  该指令出现在1.1.4版中。 </p>
+<p>  设置代理的HTTP协议版本。  默认情况下，使用版本1.0。  建议将1.1版与<a href="ngx_http_upstream_module.html#keepalive">keepalive</a>连接和<a href="ngx_http_upstream_module.html#ntlm">NTLM身份验证配合使用</a> 。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_ignore_client_abort** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_ignore_client_abort off;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  确定在客户端关闭连接而不等待响应时是否应关闭与代理服务器的连接。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_ignore_headers** &lt;code class=&quot;notranslate&quot;&gt;*field*</code> …; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  禁用从代理服务器处理某些响应头字段。  可以忽略以下字段：“X-Accel-Redirect”，“X-Accel-Expires”，“X-Accel-Limit-Rate”（1.1.6），“X-Accel-Buffering”（1.1.6） ，“X-Accel-Charset”（1.1.6），“Expires”，“Cache-Control”，“Set-Cookie”（0.8.44）和“Vary”（1.7.7）。 </p>
+<p>  如果未禁用，则处理这些标头字段会产生以下影响： </p>
 <ul>
-<li>“X-Accel-Expires”标题字段以秒为单位设置响应的缓存时间。 零值禁用响应的缓存。 如果值以@前缀开头，则设置自Epoch以来的绝对时间（以秒为单位），响应可以高速缓存。 </li>
-<li>如果标题不包括“X-Accel-Expires”字段，则可以在标题字段“Expires”或“Cache-Control”中设置高速缓存的参数。 </li>
-<li>如果标头包含“Set-Cookie”字段，则不会缓存此类响应。 </li>
-<li><p>如果标题包含具有特殊值“ * ”的“Vary”字段，则不会缓存此类响应（1.7.7）。 如果标题包含具有另一个值的“Vary”字段，则将考虑相应的请求标题字段来缓存这样的响应（1.7.7）。<br>可以使用proxy_ignore_headers指令禁用这些响应头字段中的一个或多个的处理。 </p>
-<p>Syntax:  <strong>proxy_connect_timeout</strong> <em>time</em> ;<br>Default:  proxy_connect_timeout 60s;  Context:  http , server , location<br>定义与代理服务器建立连接的超时。 应该注意，此超时通常不会超过75秒。 </p>
-<p>Syntax:  <strong>proxy_cookie_domain</strong> off ;<br><strong>proxy_cookie_domain</strong> <em>domain</em> <em>replacement</em> ;<br>Default:  proxy_cookie_domain off;  Context:  http , server , location<br>该指令出现在1.1.15版中。 </p>
-<p>设置应在代理服务器响应的“Set-Cookie”标头字段的domain属性中更改的文本。 假设代理服务器返回带有“ domain=localhost ”属性的“Set-Cookie”头字段。 指令 </p>
-</li>
+<li>“X-Accel-Expires”，“Expires”，“Cache-Control”，“Set-Cookie”和“Vary”设置响应<a href="#proxy_cache_valid">缓存</a>的参数; -    “X-Accel-Redirect”执行<a href="ngx_http_core_module.html#internal">内部重定向</a>到指定的URI; -    “X-Accel-Limit-Rate”设置向客户端传输响应的<a href="ngx_http_core_module.html#limit_rate">速率限制</a> ; -    “X-Accel-Buffering”启用或禁用<a href="#proxy_buffering">缓冲</a>响应; -    “X-Accel-Charset”设置了所需的响应<a href="ngx_http_charset_module.html#charset">字符集</a> 。 </li>
 </ul>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_intercept_errors** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_intercept_errors off;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  确定代码大于或等于300的代理响应是应该传递给客户端还是被拦截并重定向到nginx以便使用<a href="ngx_http_core_module.html#error_page">error_page</a>指令进行处理。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_limit_rate** &lt;code class=&quot;notranslate&quot;&gt;*rate*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_limit_rate 0;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  该指令出现在1.7.7版本中。 </p>
+<p>  限制从代理服务器读取响应的速度。   <code>*rate*</code>以每秒字节数指定。  零值禁用速率限制。  根据请求设置限制，因此如果nginx同时打开到代理服务器的两个连接，则总速率将是指定限制的两倍。  仅当启用了代理服务器的响应<a href="#proxy_buffering">缓冲时</a> ，此限制才有效。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_max_temp_file_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_max_temp_file_size 1024m;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  当启用来自代理服务器的响应<a href="#proxy_buffering">缓冲</a> ，并且整个响应不适合<a href="#proxy_buffer_size">proxy_buffer_size</a>和<a href="#proxy_buffers">proxy_buffers</a>指令设置的缓冲区时，响应的一部分可以保存到临时文件中。  该指令设置临时文件的最大<code>*size*</code> 。  一次写入临时文件的数据大小由<a href="#proxy_temp_file_write_size">proxy_temp_file_write_size</a>指令设置。 </p>
+<p>  零值禁用缓冲对临时文件的响应。 </p>
 <blockquote>
-<p>proxy_cookie_domain localhost example.org;  将此属性重写为“ domain=example.org ”。 </p>
+<p>  此限制不适用于将<a href="#proxy_cache">缓存</a>或<a href="#proxy_store">存储</a>在磁盘上的响应。 </p>
 </blockquote>
-<p> <em>domain</em>开头处的点和<em>replacement</em>字符串以及domain属性将被忽略。 匹配不区分大小写。 </p>
-<p> <em>domain</em>和<em>replacement</em>字符串可以包含变量： </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_method** &lt;code class=&quot;notranslate&quot;&gt;*method*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  指定在转发到代理服务器的请求中使用的HTTP <code>*method*</code> ，而不是客户端请求中的方法。  参数值可以包含变量（1.11.6）。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_next_upstream**     &lt;code class=&quot;notranslate&quot;&gt;error</code> |    <code>timeout</code> |    <code>invalid_header</code> |    <code>http_500</code> |    <code>http_502</code> |    <code>http_503</code> |    <code>http_504</code> |    <code>http_403</code> |    <code>http_404</code> |    <code>http_429</code> |    <code>non_idempotent</code> |    <code>off</code>    …; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_next_upstream error timeout;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  指定应将请求传递到下一个服务器的情况： </p>
+<p>  应该记住，只有在尚未向客户端发送任何内容的情况下，才能将请求传递给下一个服务器。  也就是说，如果在传输响应的过程中发生错误或超时，则无法修复此问题。 </p>
+<p>  该指令还定义了与服务器通信的<a href="ngx_http_upstream_module.html#max_fails">不成功尝试</a> 。   <code>error</code> ， <code>timeout</code>和<code>invalid_header</code>情况始终被视为不成功的尝试，即使它们未在指令中指定。   <code>http_500</code> ， <code>http_502</code> ， <code>http_503</code> ， <code>http_504</code>和<code>http_429</code>情况仅在指令中指定<code>http_429</code>被视为不成功尝试。   <code>http_403</code>和<code>http_404</code>情况从未被视为不成功的尝试。 </p>
+<p>  将请求传递到下一个服务器可能会受到<a href="#proxy_next_upstream_tries">尝试次数</a>和<a href="#proxy_next_upstream_timeout">时间的限制</a> 。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_next_upstream_timeout** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_next_upstream_timeout 0;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  该指令出现在1.7.5版本中。 </p>
+<p>  限制请求可以传递到<a href="#proxy_next_upstream">下一个服务器的时间</a> 。   <code>0</code>值关闭此限制。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_next_upstream_tries** &lt;code class=&quot;notranslate&quot;&gt;*number*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_next_upstream_tries 0;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  该指令出现在1.7.5版本中。 </p>
+<p>  限制将请求传递到<a href="#proxy_next_upstream">下一个服务器</a>的可能尝试次数。   <code>0</code>值关闭此限制。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_no_cache** &lt;code class=&quot;notranslate&quot;&gt;*string*</code> …; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  定义不将响应保存到缓存的条件。  如果字符串参数的至少一个值不为空且不等于“0”，则不会保存响应： </p>
 <blockquote>
-<p>proxy_cookie_domain www.$host $host;  也可以使用正则表达式指定该指令。 在这种情况下， <em>domain</em>应该从“ ~ ”符号开始。 正则表达式可以包含命名和位置捕获， <em>replacement</em>可以引用它们： </p>
-<p>proxy_cookie_domain ~.(?P<sl\_domain>[-0-9a-z]+.[a-z]+)$ $sl_domain;  可能有几个proxy_cookie_domain指令： </sl\_domain></p>
-<p>proxy_cookie_domain localhost example.org; proxy_cookie_domain ~.([a-z]+.[a-z]+)$ $1;  off参数取消所有proxy_cookie_domain指令对当前级别的影响： </p>
-<p>proxy_cookie_domain off; proxy_cookie_domain localhost example.org; proxy_cookie_domain www.example.org example.org;  Syntax:  <strong>proxy_cookie_path</strong> off ;<br> <strong>proxy_cookie_path</strong> <em>path</em> <em>replacement</em> ;<br>  Default:  proxy_cookie_path off;  Context:  http , server , location<br>  该指令出现在1.1.15版中。 </p>
+<pre class="notranslate">proxy_no_cache $cookie_nocache $arg_nocache$arg_comment;
+proxy_no_cache $http_pragma    $http_authorization;
+</pre>
+
 </blockquote>
-<p> 设置应在代理服务器响应的“Set-Cookie”标头字段的path属性中更改的文本。 假设代理服务器返回带有属性“ path=/two/some/uri/ ”的“Set-Cookie”头字段。 指令 </p>
+<p>  可以与<a href="#proxy_cache_bypass">proxy_cache_bypass</a>指令一起使用。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_pass** &lt;code class=&quot;notranslate&quot;&gt;*URL*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>location</code> , <code>if in location</code> , <code>limit_except</code> <br>                </td></p>
+<p>  设置代理服务器的协议和地址以及应映射位置的可选URI。  作为协议，可以指定“ <code>http</code> ”或“ <code>https</code> ”。  可以将地址指定为域名或IP地址，以及可选端口： </p>
 <blockquote>
-<p>proxy_cookie_path /two/ /;  将此属性重写为“ path=/some/uri/ ”。 </p>
+<pre class="notranslate">proxy_pass http://localhost:8000/uri/;
+</pre>
+
 </blockquote>
-<p> <em>path</em>和<em>replacement</em>字符串可以包含变量： </p>
+<p>  或者作为在单词“ <code>unix</code> ”之后指定并用冒号括起来的UNIX域套接字路径： </p>
 <blockquote>
-<p>proxy_cookie_path $uri /some$uri;  也可以使用正则表达式指定该指令。 在这种情况下， <em>path</em>应该从用于区分大小写匹配的“ ~ ”符号开始，或者从用于区分大小写匹配的“ ~<em> ”符号开始。 正则表达式可以包含命名和位置捕获， </em>replacement*可以引用它们： </p>
-<p>proxy_cookie_path ~*^/user/([^/]+) /u/$1;  可能有几个proxy_cookie_path指令： </p>
-<p>proxy_cookie_path /one/ /; proxy_cookie_path / /two/;  off参数取消所有proxy_cookie_path指令对当前级别的影响： </p>
-<p>proxy_cookie_path off; proxy_cookie_path /two/ /; proxy_cookie_path ~<em>^/user/([^/]+) /u/$1;  Syntax:  <em>*proxy_force_ranges</em></em> on | off ;<br>  Default:  proxy_force_ranges off;  Context:  http , server , location<br>  该指令出现在1.7.7版本中。 </p>
+<pre class="notranslate">proxy_pass http://unix:/tmp/backend.socket:/uri/;
+</pre>
+
+
+
 </blockquote>
-<p> 无论代理服务器中的“Accept-Ranges”字段如何，都可以对代理服务器的缓存和未缓存响应启用字节范围支持。 </p>
-<p> Syntax:  <strong>proxy_headers_hash_bucket_size</strong> <em>size</em> ;<br>  Default:  proxy_headers_hash_bucket_size 64;  Context:  http , server , location<br>  设置proxy_hide_header和proxy_set_header指令使用的哈希表的桶<em>size</em> 。 设置哈希表的详细信息在单独的文档中提供。 </p>
-<p> Syntax:  <strong>proxy_headers_hash_max_size</strong> <em>size</em> ;<br>  Default:  proxy_headers_hash_max_size 512;  Context:  http , server , location<br>  设置proxy_hide_header和proxy_set_header指令使用的哈希表的最大<em>size</em> 。 设置哈希表的详细信息在单独的文档中提供。 </p>
-<p> Syntax:  <strong>proxy_hide_header</strong> <em>field</em> ;<br>  Default:  —  Context:  http , server , location<br>  默认情况下，nginx不会从代理服务器对客户端的响应中传递标题字段“Date”，“Server”，“X-Pad”和“X-Accel -…”。 proxy_hide_header指令设置不会传递的其他字段。 相反，如果需要允许传递字段，则可以使用proxy_pass_header指令。 </p>
-<p> Syntax:  <strong>proxy_http_version</strong> 1.0 | 1.1 ;<br>  Default:  proxy_http_version 1.0;  Context:  http , server , location<br>  该指令出现在1.1.4版中。 </p>
-<p> 设置代理的HTTP协议版本。 默认情况下，使用版本1.0。 建议将1.1版与keepalive连接和NTLM身份验证配合使用 。 </p>
-<p> Syntax:  <strong>proxy_ignore_client_abort</strong> on | off ;<br>  Default:  proxy_ignore_client_abort off;  Context:  http , server , location<br>  确定在客户端关闭连接而不等待响应时是否应关闭与代理服务器的连接。 </p>
-<p> Syntax:  <strong>proxy_ignore_headers</strong> <em>field</em> …;<br>  Default:  —  Context:  http , server , location<br>  禁用从代理服务器处理某些响应头字段。 可以忽略以下字段：“X-Accel-Redirect”，“X-Accel-Expires”，“X-Accel-Limit-Rate”（1.1.6），“X-Accel-Buffering”（1.1.6） ，“X-Accel-Charset”（1.1.6），“Expires”，“Cache-Control”，“Set-Cookie”（0.8.44）和“Vary”（1.7.7）。 </p>
-<p> 如果未禁用，则处理这些标头字段会产生以下影响： </p>
+<p>  如果域名解析为多个地址，则所有这些地址都将以循环方式使用。  此外，可以将地址指定为<a href="ngx_http_upstream_module.html">服务器组</a> 。 </p>
+<p>  参数值可以包含变量。  在这种情况下，如果将地址指定为域名，则在所描述的服务器组中搜索名称，如果未找到，则使用<a href="ngx_http_core_module.html#resolver">解析器</a>确定。 </p>
+<p>  请求URI按如下方式传递给服务器： </p>
+<p><li>  如果使用URI指定了<code>proxy_pass</code>指令，那么当请求传递给服务器时，与该位置匹配的<a href="ngx_http_core_module.html#location">规范化</a>请求URI的一部分将被指令中指定的URI替换： <blockquote class="example"><pre class="notranslate">location /name/ {<br>    proxy_pass <a href="http://127.0.0.1/remote/" target="_blank" rel="noopener">http://127.0.0.1/remote/</a>;<br>}<br></pre></blockquote></li><li>  如果指定了<code>proxy_pass</code>而没有URI，则请求URI将以与处理原始请求时客户端发送的格式相同的形式传递给服务器，或者在处理更改的URI时传递完整的规范化请求URI： <blockquote class="example"><pre class="notranslate">location /some/path/ {<br>    proxy_pass <a href="http://127.0.0.1" target="_blank" rel="noopener">http://127.0.0.1</a>;<br>}<br></pre></blockquote><blockquote class="note">  在版本1.1.12之前，如果指定了<code>proxy_pass</code>而没有URI，则在某些情况下可能会传递原始请求URI而不是更改的URI。 </blockquote></li></p>
+<blockquote>
+<pre class="notranslate">location /some/path/ {
+    proxy_pass http://127.0.0.1;
+}
+</pre>
+
+
+
+</blockquote>
+<p>  在某些情况下，无法确定要替换的请求URI的部分： </p>
 <ul>
-<li>“X-Accel-Expires”，“Expires”，“Cache-Control”，“Set-Cookie”和“Vary”设置响应缓存的参数; </li>
-<li>“X-Accel-Redirect”执行内部重定向到指定的URI; </li>
-<li>“X-Accel-Limit-Rate”设置向客户端传输响应的速率限制 ; </li>
-<li>“X-Accel-Buffering”启用或禁用缓冲响应; </li>
-<li><p>“X-Accel-Charset”设置了所需的响应字符集 。<br>Syntax:  <strong>proxy_intercept_errors</strong> on | off ;<br>Default:  proxy_intercept_errors off;  Context:  http , server , location<br>确定代码大于或等于300的代理响应是应该传递给客户端还是被拦截并重定向到nginx以便使用error_page指令进行处理。 </p>
-<p>Syntax:  <strong>proxy_limit_rate</strong> <em>rate</em> ;<br>Default:  proxy_limit_rate 0;  Context:  http , server , location<br>该指令出现在1.7.7版本中。 </p>
-<p>限制从代理服务器读取响应的速度。 <em>rate</em>以每秒字节数指定。 零值禁用速率限制。 根据请求设置限制，因此如果nginx同时打开到代理服务器的两个连接，则总速率将是指定限制的两倍。 仅当启用了代理服务器的响应缓冲时 ，此限制才有效。 </p>
-<p>Syntax:  <strong>proxy_max_temp_file_size</strong> <em>size</em> ;<br>Default:  proxy_max_temp_file_size 1024m;  Context:  http , server , location<br>当启用来自代理服务器的响应缓冲 ，并且整个响应不适合proxy_buffer_size和proxy_buffers指令设置的缓冲区时，响应的一部分可以保存到临时文件中。 该指令设置临时文件的最大<em>size</em> 。 一次写入临时文件的数据大小由proxy_temp_file_write_size指令设置。 </p>
-<p>零值禁用缓冲对临时文件的响应。 </p>
-</li>
+<li>使用正则表达式指定位置时，以及在命名位置内指定位置。   在这些情况下，应指定<code>proxy_pass</code>而不使用URI。 </li><li>  使用<a href="ngx_http_rewrite_module.html#rewrite">rewrite</a>指令在代理位置内更改URI时，将使用相同的配置来处理请求（ <code>break</code> ）： <blockquote class="example"><pre class="notranslate">location /name/ {<br>rewrite    /name/([^/]+) /users?name=$1 break;<br>proxy_pass <a href="http://127.0.0.1" target="_blank" rel="noopener">http://127.0.0.1</a>;<br>}<br></pre></blockquote>  在这种情况下，将忽略指令中指定的URI，并将完整更改的请求URI传递给服务器。 </li><li>  在<code>proxy_pass</code>中使用变量时： <blockquote class="example"><pre class="notranslate">location /name/ {<br>proxy_pass <a href="http://127.0.0.1$request_uri" target="_blank" rel="noopener">http://127.0.0.1$request_uri</a>;<br>}<br></pre></blockquote>  在这种情况下，如果在指令中指定了URI，则将其原样传递给服务器，替换原始请求URI。 </li><blockquote>
+<pre class="notranslate">location /name/ {
+proxy_pass http://127.0.0.1$request_uri;
+}
+</pre>
+
+
+
+</blockquote>
+
 </ul>
+<p>   <a href="websocket.html">WebSocket</a>代理需要特殊配置，从版本1.3.13开始支持。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_pass_header** &lt;code class=&quot;notranslate&quot;&gt;*field*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  允许将已<a href="#proxy_hide_header">禁用的</a>头字段从代理服务器传递到客户端。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_pass_request_body** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_pass_request_body on;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  指示是否将原始请求正文传递给代理服务器。 </p>
 <blockquote>
-<p> 此限制不适用于将缓存或存储在磁盘上的响应。  Syntax:  <strong>proxy_method</strong> <em>method</em> ;<br>  Default:  —  Context:  http , server , location<br>  指定在转发到代理服务器的请求中使用的HTTP <em>method</em> ，而不是客户端请求中的方法。 参数值可以包含变量（1.11.6）。 </p>
+<p><pre class="notranslate">location /x-accel-redirect-here/ {<br>    proxy_method GET;<br>    proxy_pass_request_body off;<br>    proxy_set_header Content-Length “”;</pre></p>
 </blockquote>
-<p> Syntax:  <strong>proxy_next_upstream</strong> error | timeout | invalid_header | http_500 | http_502 | http_503 | http_504 | http_403 | http_404 | http_429 | non_idempotent | off …;<br>  Default:  proxy_next_upstream error timeout;  Context:  http , server , location<br>  指定应将请求传递到下一个服务器的情况： </p>
-<p> error   与服务器建立连接，向其传递请求或读取响应头时发生错误;  timeout   在与服务器建立连接，向其传递请求或读取响应头时发生超时;  invalid_header   服务器返回空或无效响应;  http_500   服务器返回代码为500的响应;  http_502   服务器返回代码为502的响应;  http_503   服务器返回代码为503的响应;  http_504   服务器返回代码504的响应;  http_403   服务器返回代码为403的响应;  http_404   服务器返回代码为404的响应;  http_429   服务器返回代码为429的响应（1.11.13）;  non_idempotent   通常，如果请求已发送到上游服务器，则使用非幂等方法（ POST ， LOCK ， PATCH ）的请求不会传递给下一个服务器（1.9.13）; 启用此选项显式允许重试此类请求;  off   禁用将请求传递给下一个服务器。  应该记住，只有在尚未向客户端发送任何内容的情况下，才能将请求传递给下一个服务器。 也就是说，如果在传输响应的过程中发生错误或超时，则无法修复此问题。 </p>
-<p> 该指令还定义了与服务器通信的不成功尝试 。 error ， timeout和invalid_header情况始终被视为不成功的尝试，即使它们未在指令中指定。 http_500 ， http_502 ， http_503 ， http_504和http_429情况仅在指令中指定http_429被视为不成功尝试。 http_403和http_404情况从未被视为不成功的尝试。 </p>
-<p> 将请求传递到下一个服务器可能会受到尝试次数和时间的限制 。 </p>
-<p> Syntax:  <strong>proxy_next_upstream_timeout</strong> <em>time</em> ;<br>  Default:  proxy_next_upstream_timeout 0;  Context:  http , server , location<br>  该指令出现在1.7.5版本中。 </p>
-<p> 限制请求可以传递到下一个服务器的时间 。 0值关闭此限制。 </p>
-<p> Syntax:  <strong>proxy_next_upstream_tries</strong> <em>number</em> ;<br>  Default:  proxy_next_upstream_tries 0;  Context:  http , server , location<br>  该指令出现在1.7.5版本中。 </p>
-<p> 限制将请求传递到下一个服务器的可能尝试次数。 0值关闭此限制。 </p>
-<p> Syntax:  <strong>proxy_no_cache</strong> <em>string</em> …;<br>  Default:  —  Context:  http , server , location<br>  定义不将响应保存到缓存的条件。 如果字符串参数的至少一个值不为空且不等于“0”，则不会保存响应： </p>
+<pre><code>proxy_pass ...
+</code></pre><p>}<br></p>
+<p>  另请参阅<a href="#proxy_set_header">proxy_set_header</a>和<a href="#proxy_pass_request_headers">proxy_pass_request_headers</a>指令。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_pass_request_headers** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_pass_request_headers on;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  指示是否将原始请求的标头字段传递给代理服务器。 </p>
 <blockquote>
-<p>proxy_no_cache $cookie_nocache $arg_nocache$arg_comment; proxy_no_cache $http_pragma $http_authorization;  可以与proxy_cache_bypass指令一起使用。 </p>
+<p><pre class="notranslate">location /x-accel-redirect-here/ {<br>    proxy_method GET;<br>    proxy_pass_request_headers off;<br>    proxy_pass_request_body off;</pre></p>
 </blockquote>
-<p> Syntax:  <strong>proxy_pass</strong> <em>URL</em> ;<br>  Default:  —  Context:  location , if in location , limit_except<br>  设置代理服务器的协议和地址以及应映射位置的可选URI。 作为协议，可以指定“ http ”或“ https ”。 可以将地址指定为域名或IP地址，以及可选端口： </p>
+<pre><code>proxy_pass ...
+</code></pre><p>}<br></p>
+<p>  另请参阅<a href="#proxy_set_header">proxy_set_header</a>和<a href="#proxy_pass_request_body">proxy_pass_request_body</a>指令。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_read_timeout** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_read_timeout 60s;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  定义从代理服务器读取响应的超时。  仅在两个连续的读操作之间设置超时，而不是为整个响应的传输。  如果代理服务器在此时间内未传输任何内容，则关闭连接。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_redirect** &lt;code class=&quot;notranslate&quot;&gt;default</code> ; <br> <code>**proxy_redirect** &lt;code class=&quot;notranslate&quot;&gt;off</code> ; <br> <code>**proxy_redirect** &lt;code class=&quot;notranslate&quot;&gt;*redirect*</code> <code>*replacement*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_redirect default;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  设置应在代理服务器响应的“位置”和“刷新”标头字段中更改的文本。  假设代理服务器返回标题字段“ <code>Location: http://localhost:8000/two/some/uri/</code> ”。  指令 </p>
 <blockquote>
-<p>proxy_pass <a href="http://localhost:8000/uri/" target="_blank" rel="noopener">http://localhost:8000/uri/</a>;  或者作为在单词“ unix ”之后指定并用冒号括起来的UNIX域套接字路径： </p>
-<p>proxy_pass <a href="http://unix:/tmp/backend.socket:/uri/" target="_blank" rel="noopener">http://unix:/tmp/backend.socket:/uri/</a>;  如果域名解析为多个地址，则所有这些地址都将以循环方式使用。 此外，可以将地址指定为服务器组 。 </p>
+<pre class="notranslate">proxy_redirect http://localhost:8000/two/ http://frontend/one/;
+</pre>
+
 </blockquote>
-<p> 参数值可以包含变量。 在这种情况下，如果将地址指定为域名，则在所描述的服务器组中搜索名称，如果未找到，则使用解析器确定。 </p>
-<p> 请求URI按如下方式传递给服务器： </p>
-<ul>
-<li>如果使用URI指定了proxy_pass指令，那么当请求传递给服务器时，与该位置匹配的规范化请求URI的一部分将被指令中指定的URI替换： <blockquote>
-<p>location /name/ { proxy_pass <a href="http://127.0.0.1/remote/" target="_blank" rel="noopener">http://127.0.0.1/remote/</a>; } </p>
-</blockquote>
-</li>
-<li><p>如果指定了proxy_pass而没有URI，则请求URI将以与处理原始请求时客户端发送的格式相同的形式传递给服务器，或者在处理更改的URI时传递完整的规范化请求URI： </p>
+<p>  将此字符串重写为“ <code>Location: http://frontend/one/some/uri/</code> ”。 </p>
+<p>   <code>*replacement*</code>字符串中可能省略了服务器名称： </p>
 <blockquote>
-<p>location /some/path/ { proxy_pass <a href="http://127.0.0.1" target="_blank" rel="noopener">http://127.0.0.1</a>; }<br> 在版本1.1.12之前，如果指定了proxy_pass而没有URI，则在某些情况下可能会传递原始请求URI而不是更改的URI。<br>在某些情况下，无法确定要替换的请求URI的部分： </p>
+<pre class="notranslate">proxy_redirect http://localhost:8000/two/ /;
+</pre>
+
 </blockquote>
-</li>
-<li><p>使用正则表达式指定位置时，以及在命名位置内指定位置。  在这些情况下，应指定proxy_pass而不使用URI。 </p>
-</li>
-</ul>
-<ul>
-<li>使用rewrite指令在代理位置内更改URI时，将使用相同的配置来处理请求（ break ）： <blockquote>
-<p>location /name/ { rewrite /name/([^/]+) /users?name=$1 break; proxy_pass <a href="http://127.0.0.1" target="_blank" rel="noopener">http://127.0.0.1</a>; }  在这种情况下，将忽略指令中指定的URI，并将完整更改的请求URI传递给服务器。 </p>
-</blockquote>
-</li>
-</ul>
-<ul>
-<li><p>在proxy_pass中使用变量时： </p>
+<p>  然后将插入主服务器的名称和端口（如果与80不同）。 </p>
+<p>   <code>default</code>参数指定的默认替换使用<a href="ngx_http_core_module.html#location">location</a>和<a href="#proxy_pass">proxy_pass</a>指令的参数。  因此，以下两种配置是等效的： </p>
 <blockquote>
-<p>location /name/ { proxy_pass <a href="http://127.0.0.1$request\_uri" target="_blank" rel="noopener">http://127.0.0.1$request\_uri</a>; }  在这种情况下，如果在指令中指定了URI，则将其原样传递给服务器，替换原始请求URI。<br>WebSocket代理需要特殊配置，从版本1.3.13开始支持。 </p>
+<pre class="notranslate">location /one/ {
+    proxy_pass     http://upstream:port/two/;
+    proxy_redirect default;
+</pre>
+
+
+
+<pre class="notranslate">location /one/ {
+    proxy_pass     http://upstream:port/two/;
+    proxy_redirect http://upstream:port/two/ /one/;
+</pre>
+
 </blockquote>
-<p>Syntax:  <strong>proxy_pass_header</strong> <em>field</em> ;<br>Default:  —  Context:  http , server , location<br>允许将已禁用的头字段从代理服务器传递到客户端。 </p>
-<p>Syntax:  <strong>proxy_pass_request_body</strong> on | off ;<br>Default:  proxy_pass_request_body on;  Context:  http , server , location<br>指示是否将原始请求正文传递给代理服务器。 </p>
-</li>
-</ul>
+<p>  如果使用变量指定<a href="#proxy_pass">proxy_pass，</a>则不允许使用<code>default</code>参数。 </p>
+<p>   <code>*replacement*</code>字符串可以包含变量： </p>
 <blockquote>
-<p>location /x-accel-redirect-here/ { proxy_method GET; proxy_pass_request_body off; proxy_set_header Content-Length “”; proxy_pass … }  另请参阅proxy_set_header和proxy_pass_request_headers指令。 </p>
+<pre class="notranslate">proxy_redirect http://localhost:8000/ http://$host:$server_port/;
+</pre>
+
+
+
 </blockquote>
-<p> Syntax:  <strong>proxy_pass_request_headers</strong> on | off ;<br>  Default:  proxy_pass_request_headers on;  Context:  http , server , location<br>  指示是否将原始请求的标头字段传递给代理服务器。 </p>
+<p>   <code>*redirect*</code>还可以包含（1.1.11）变量： </p>
 <blockquote>
-<p>location /x-accel-redirect-here/ { proxy_method GET; proxy_pass_request_headers off; proxy_pass_request_body off; proxy_pass … }  另请参阅proxy_set_header和proxy_pass_request_body指令。 </p>
+<pre class="notranslate">proxy_redirect http://$proxy_host:8000/ /;
+</pre>
+
+
+
 </blockquote>
-<p> Syntax:  <strong>proxy_read_timeout</strong> <em>time</em> ;<br>  Default:  proxy_read_timeout 60s;  Context:  http , server , location<br>  定义从代理服务器读取响应的超时。 仅在两个连续的读操作之间设置超时，而不是为整个响应的传输。 如果代理服务器在此时间内未传输任何内容，则关闭连接。 </p>
-<p> Syntax:  <strong>proxy_redirect</strong> default ;<br> <strong>proxy_redirect</strong> off ;<br> <strong>proxy_redirect</strong> <em>redirect</em> <em>replacement</em> ;<br>  Default:  proxy_redirect default;  Context:  http , server , location<br>  设置应在代理服务器响应的“位置”和“刷新”标头字段中更改的文本。 假设代理服务器返回标题字段“ Location: <a href="http://localhost:8000/two/some/uri/" target="_blank" rel="noopener">http://localhost:8000/two/some/uri/</a> ”。 指令 </p>
+<p>  可以使用正则表达式指定（1.1.11）指令。  在这种情况下， <code>*redirect*</code>应该以“ <code>~</code> ”符号开头，以区分大小写的匹配，或者使用“ <code>~*</code> ”符号以区分大小写匹配。  正则表达式可以包含命名和位置捕获， <code>*replacement*</code>可以引用它们： </p>
 <blockquote>
-<p>proxy_redirect <a href="http://localhost:8000/two/" target="_blank" rel="noopener">http://localhost:8000/two/</a> <a href="http://frontend/one/" target="_blank" rel="noopener">http://frontend/one/</a>;  将此字符串重写为“ Location: <a href="http://frontend/one/some/uri/" target="_blank" rel="noopener">http://frontend/one/some/uri/</a> ”。 </p>
+<pre class="notranslate">proxy_redirect ~^(http://[^:]+):\d+(/.+)$ $1$2;
+proxy_redirect ~*/user/([^/]+)/(.+)$      http://$1.example.com/$2;
+</pre>
+
+
+
 </blockquote>
-<p> <em>replacement</em>字符串中可能省略了服务器名称： </p>
+<p>  可能有几个<code>proxy_redirect</code>指令： </p>
 <blockquote>
-<p>proxy_redirect <a href="http://localhost:8000/two/" target="_blank" rel="noopener">http://localhost:8000/two/</a> /;  然后将插入主服务器的名称和端口（如果与80不同）。 </p>
+<pre class="notranslate">proxy_redirect default;
+proxy_redirect http://localhost:8000/  /;
+proxy_redirect http://www.example.com/ /;
+</pre>
+
+
+
 </blockquote>
-<p> default参数指定的默认替换使用location和proxy_pass指令的参数。 因此，以下两种配置是等效的： </p>
+<p>   <code>off</code>参数取消所有<code>proxy_redirect</code>指令对当前级别的影响： </p>
 <blockquote>
-<p>location /one/ { proxy_pass <a href="http://upstream:port/two/" target="_blank" rel="noopener">http://upstream:port/two/</a>; proxy_redirect default;<br>location /one/ { proxy_pass <a href="http://upstream:port/two/" target="_blank" rel="noopener">http://upstream:port/two/</a>; proxy_redirect <a href="http://upstream:port/two/" target="_blank" rel="noopener">http://upstream:port/two/</a> /one/;  如果使用变量指定proxy_pass，则不允许使用default参数。 </p>
+<pre class="notranslate">proxy_redirect off;
+proxy_redirect default;
+proxy_redirect http://localhost:8000/  /;
+proxy_redirect http://www.example.com/ /;
+</pre>
+
+
+
 </blockquote>
-<p> <em>replacement</em>字符串可以包含变量： </p>
+<p>  使用此指令，还可以将主机名添加到代理服务器发出的相对重定向： </p>
 <blockquote>
-<p>proxy_redirect <a href="http://localhost:8000/" target="_blank" rel="noopener">http://localhost:8000/</a> <a href="http://$host:$server\_port/" target="_blank" rel="noopener">http://$host:$server\_port/</a>;  <em>redirect</em>还可以包含（1.1.11）变量： </p>
-<p>proxy_redirect <a href="http://$proxy\_host:8000/" target="_blank" rel="noopener">http://$proxy\_host:8000/</a> /;  可以使用正则表达式指定（1.1.11）指令。 在这种情况下， <em>redirect</em>应该以“ ~ ”符号开头，以区分大小写的匹配，或者使用“ ~<em> ”符号以区分大小写匹配。 正则表达式可以包含命名和位置捕获， </em>replacement*可以引用它们： </p>
-<p>proxy_redirect ~^(<a href="http://[^:]+):\d+(/.+)$" target="_blank" rel="noopener">http://[^:]+):\d+(/.+)$</a> $1$2; proxy_redirect ~*/user/([^/]+)/(.+)$ <a href="http://$1.example.com/$2" target="_blank" rel="noopener">http://$1.example.com/$2</a>;  可能有几个proxy_redirect指令： </p>
-<p>proxy_redirect default; proxy_redirect <a href="http://localhost:8000/" target="_blank" rel="noopener">http://localhost:8000/</a> /; proxy_redirect <a href="http://www.example.com/" target="_blank" rel="noopener">http://www.example.com/</a> /;  off参数取消所有proxy_redirect指令对当前级别的影响： </p>
-<p>proxy_redirect off; proxy_redirect default; proxy_redirect <a href="http://localhost:8000/" target="_blank" rel="noopener">http://localhost:8000/</a> /; proxy_redirect <a href="http://www.example.com/" target="_blank" rel="noopener">http://www.example.com/</a> /;  使用此指令，还可以将主机名添加到代理服务器发出的相对重定向： </p>
-<p>proxy_redirect / /;  Syntax:  <strong>proxy_request_buffering</strong> on | off ;<br>  Default:  proxy_request_buffering on;  Context:  http , server , location<br>  该指令出现在1.7.11版本中。 </p>
+<pre class="notranslate">proxy_redirect / /;
+</pre>
+
+
 </blockquote>
-<p> 启用或禁用客户端请求正文的缓冲。 </p>
-<p> 启用缓冲后，在将请求发送到代理服务器之前，将从客户端读取整个请求正文。 </p>
-<p> 禁用缓冲时，请求主体在收到时立即发送到代理服务器。 在这种情况下，如果nginx已经开始发送请求主体，则无法将请求传递给下一个服务器 。 </p>
-<p> 当使用HTTP / 1.1分块传输编码发送原始请求主体时，无论指令值如何，都将缓冲请求主体，除非为代理启用了HTTP / 1.1。 </p>
-<p> Syntax:  <strong>proxy_send_lowat</strong> <em>size</em> ;<br>  Default:  proxy_send_lowat 0;  Context:  http , server , location<br>  如果指令设置为非零值，则nginx将尝试通过使用kqueue方法的NOTE_LOWAT标志或具有指定<em>size</em>的SO_SNDLOWAT套接字选项来最小化到代理服务器的传出连接上的发送操作数。 </p>
-<p> 在Linux，Solaris和Windows上忽略此指令。 </p>
-<p> Syntax:  <strong>proxy_send_timeout</strong> <em>time</em> ;<br>  Default:  proxy_send_timeout 60s;  Context:  http , server , location<br>  设置将请求传输到代理服务器的超时。 仅在两个连续的写操作之间设置超时，而不是为整个请求的传输。 如果代理服务器在此时间内未收到任何内容，则关闭连接。 </p>
-<p> Syntax:  <strong>proxy_set_body</strong> <em>value</em> ;<br>  Default:  —  Context:  http , server , location<br>  允许重新定义传递给代理服务器的请求正文。 该<em>value</em>可以包含文本，变量及其组合。 </p>
-<p> Syntax:  <strong>proxy_set_header</strong> <em>field</em> <em>value</em> ;<br>  Default:  proxy_set_header Host $proxy_host;proxy_set_header Connection close;  Context:  http , server , location<br>  允许将字段重新定义或附加到传递给代理服务器的请求标头。 该<em>value</em>可以包含文本，变量及其组合。 当且仅当在当前级别上没有定义proxy_set_header指令时，这些指令才从先前级别继承。 默认情况下，只重新定义了两个字段： </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_request_buffering** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_request_buffering on;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  该指令出现在1.7.11版本中。 </p>
+<p>  启用或禁用客户端请求正文的缓冲。 </p>
+<p>  启用缓冲后，在将请求发送到代理服务器之前，将从客户端<a href="ngx_http_core_module.html#client_body_buffer_size">读取</a>整个请求正文。 </p>
+<p>  禁用缓冲时，请求主体在收到时立即发送到代理服务器。  在这种情况下，如果nginx已经开始发送请求主体，则无法将请求传递给<a href="#proxy_next_upstream">下一个服务器</a> 。 </p>
+<p>  当使用HTTP / 1.1分块传输编码发送原始请求主体时，无论指令值如何，都将缓冲请求主体，除非为代理<a href="#proxy_http_version">启用</a>了HTTP / 1.1。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_send_lowat** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_send_lowat 0;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  如果指令设置为非零值，则nginx将尝试通过使用<a href="events.html#kqueue">kqueue</a>方法的<code>NOTE_LOWAT</code>标志或具有指定<code>*size*</code>的<code>SO_SNDLOWAT</code>套接字选项来最小化到代理服务器的传出连接上的发送操作数。 </p>
+<p>  在Linux，Solaris和Windows上忽略此指令。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_send_timeout** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_send_timeout 60s;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  设置将请求传输到代理服务器的超时。  仅在两个连续的写操作之间设置超时，而不是为整个请求的传输。  如果代理服务器在此时间内未收到任何内容，则关闭连接。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_set_body** &lt;code class=&quot;notranslate&quot;&gt;*value*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  允许重新定义传递给代理服务器的请求正文。  该<code>*value*</code>可以包含文本，变量及其组合。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_set_header** &lt;code class=&quot;notranslate&quot;&gt;*field*</code> <code>*value*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_set_header Host $proxy_host;</pre><pre class="notranslate">proxy_set_header Connection close;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  允许将字段重新定义或附加到<a href="#proxy_pass_request_headers">传递</a>给代理服务器的请求标头。  该<code>*value*</code>可以包含文本，变量及其组合。  当且仅当在当前级别上没有定义<code>proxy_set_header</code>指令时，这些指令才从先前级别继承。  默认情况下，只重新定义了两个字段： </p>
 <blockquote>
-<p>proxy_set_header Host $proxy_host; proxy_set_header Connection close;  如果启用了缓存，则标题字段为“If-Modified-Since”，“If-Unmodified-Since”，“If-None-Match”，“If-Match”，“Range”和“If-Range”来自原始请求不会传递给代理服务器。 </p>
+<pre class="notranslate">proxy_set_header Host       $proxy_host;
+proxy_set_header Connection close;
+</pre>
+
 </blockquote>
-<p> 未更改的“主机”请求标头字段可以像这样传递： </p>
+<p>  如果启用了缓存，则标题字段为“If-Modified-Since”，“If-Unmodified-Since”，“If-None-Match”，“If-Match”，“Range”和“If-Range”来自原始请求不会传递给代理服务器。 </p>
+<p>  未更改的“主机”请求标头字段可以像这样传递： </p>
 <blockquote>
-<p>proxy_set_header Host $http_host;  但是，如果客户端请求标头中不存在此字段，则不会传递任何内容。 在这种情况下，最好使用$host变量 - 它的值等于“Host”请求头字段中的服务器名称，或者如果此字段不存在则等于主服务器名称： </p>
-<p>proxy_set_header Host $host;  此外，服务器名称可以与代理服务器的端口一起传递： </p>
-<p>proxy_set_header Host $host:$proxy_port;  如果标头字段的值为空字符串，则此字段将不会传递给代理服务器： </p>
-<p>proxy_set_header Accept-Encoding “”;  Syntax:  <strong>proxy_socket_keepalive</strong> on | off ;<br>  Default:  proxy_socket_keepalive off;  Context:  http , server , location<br>  该指令出现在1.15.6版中。 </p>
+<pre class="notranslate">proxy_set_header Host       $http_host;
+</pre>
+
+
+
 </blockquote>
-<p> 配置到代理服务器的传出连接的“TCP keepalive”行为。 默认情况下，操作系统的设置对套接字有效。 如果指令设置为值“ on ”，则为套接字打开SO_KEEPALIVE套接字选项。 </p>
-<p> Syntax:  <strong>proxy_ssl_certificate</strong> <em>file</em> ;<br>  Default:  —  Context:  http , server , location<br>  该指令出现在1.7.8版本中。 </p>
-<p> 指定具有PEM格式的证书的<em>file</em> ，该证书用于对代理的HTTPS服务器进行身份验证。 </p>
-<p> Syntax:  <strong>proxy_ssl_certificate_key</strong> <em>file</em> ;<br>  Default:  —  Context:  http , server , location<br>  该指令出现在1.7.8版本中。 </p>
-<p> 指定具有PEM格式的密钥的<em>file</em> ，用于对代理的HTTPS服务器进行身份验证。 </p>
-<p> 可以指定value engine ： <em>name</em> ： <em>id</em>而不是<em>file</em> （1.7.9），该<em>file</em>从OpenSSL引擎<em>name</em>加载具有指定<em>id</em>密钥。 </p>
-<p> Syntax:  <strong>proxy_ssl_ciphers</strong> <em>ciphers</em> ;<br>  Default:  proxy_ssl_ciphers DEFAULT;  Context:  http , server , location<br>  该指令出现在1.5.6版本中。 </p>
-<p> 指定对代理HTTPS服务器的请求的已启用密码。 密码以OpenSSL库理解的格式指定。 </p>
-<p> 可以使用“ openssl ciphers ”命令查看完整列表。 </p>
-<p> Syntax:  <strong>proxy_ssl_crl</strong> <em>file</em> ;<br>  Default:  —  Context:  http , server , location<br>  该指令出现在1.7.0版本中。 </p>
-<p> 指定具有PEM格式的已吊销证书（CRL）的<em>file</em> ，用于验证代理HTTPS服务器的证书。 </p>
-<p> Syntax:  <strong>proxy_ssl_name</strong> <em>name</em> ;<br>  Default:  proxy_ssl_name $proxy_host;  Context:  http , server , location<br>  该指令出现在1.7.0版本中。 </p>
-<p> 允许覆盖用于验证代理HTTPS服务器证书的服务器名称，并在与代理HTTPS服务器建立连接时通过SNI传递 。 </p>
-<p> 默认情况下，使用proxy_pass URL的主机部分。 </p>
-<p> Syntax:  <strong>proxy_ssl_password_file</strong> <em>file</em> ;<br>  Default:  —  Context:  http , server , location<br>  该指令出现在1.7.8版本中。 </p>
-<p> 指定具有密钥密码的<em>file</em> ，其中每个密码在单独的行上指定。 在加载密钥时依次尝试密码短语。 </p>
-<p> Syntax:  <strong>proxy_ssl_protocols</strong> [ SSLv2 ] [ SSLv3 ] [ TLSv1 ] [ TLSv1.1 ] [ TLSv1.2 ] [ TLSv1.3 ];<br>  Default:  proxy_ssl_protocols TLSv1 TLSv1.1 TLSv1.2;  Context:  http , server , location<br>  该指令出现在1.5.6版本中。 </p>
-<p> 为代理HTTPS服务器的请求启用指定的协议。 </p>
-<p> Syntax:  <strong>proxy_ssl_server_name</strong> on | off ;<br>  Default:  proxy_ssl_server_name off;  Context:  http , server , location<br>  该指令出现在1.7.0版本中。 </p>
-<p> 在与代理的HTTPS服务器建立连接时，启用或禁用通过TLS服务器名称指示扩展 （SNI，RFC 6066）传递服务器名称。 </p>
-<p> Syntax:  <strong>proxy_ssl_session_reuse</strong> on | off ;<br>  Default:  proxy_ssl_session_reuse on;  Context:  http , server , location<br>  确定在使用代理服务器时是否可以重用SSL会话。 如果日志中出现“ SSL3_GET_FINISHED:digest check failed ”错误，请尝试禁用会话重用。 </p>
-<p> Syntax:  <strong>proxy_ssl_trusted_certificate</strong> <em>file</em> ;<br>  Default:  —  Context:  http , server , location<br>  该指令出现在1.7.0版本中。 </p>
-<p> 指定具有PEM格式的可信CA证书的<em>file</em> ，用于验证代理HTTPS服务器的证书。 </p>
-<p> Syntax:  <strong>proxy_ssl_verify</strong> on | off ;<br>  Default:  proxy_ssl_verify off;  Context:  http , server , location<br>  该指令出现在1.7.0版本中。 </p>
-<p> 启用或禁用代理HTTPS服务器证书的验证。 </p>
-<p> Syntax:  <strong>proxy_ssl_verify_depth</strong> <em>number</em> ;<br>  Default:  proxy_ssl_verify_depth 1;  Context:  http , server , location<br>  该指令出现在1.7.0版本中。 </p>
-<p> 在代理的HTTPS服务器证书链中设置验证深度。 </p>
-<p> Syntax:  <strong>proxy_store</strong> on | off | <em>string</em> ;<br>  Default:  proxy_store off;  Context:  http , server , location<br>  允许将文件保存到磁盘。 on参数使用与指令别名或root对应的路径保存文件。 off参数禁用文件保存。 此外，可以使用带变量的<em>string</em>显式设置文件名： </p>
+<p>  但是，如果客户端请求标头中不存在此字段，则不会传递任何内容。  在这种情况下，最好使用<code>$host</code>变量 - 它的值等于“Host”请求头字段中的服务器名称，或者如果此字段不存在则等于主服务器名称： </p>
 <blockquote>
-<p>proxy_store /data/www$original_uri;  根据接收到的“Last-Modified”响应头字段设置文件的修改时间。 首先将响应写入临时文件，然后重命名该文件。 从版本0.8.9开始，临时文件和持久性存储可以放在不同的文件系统上。 但是，请注意，在这种情况下，文件将跨两个文件系统复制，而不是廉价的重命名操作。 因此，建议对于任何给定位置，由proxy_temp_path指令设置的保存文件和保存临时文件的目录都放在同一文件系统上。 </p>
+<pre class="notranslate">proxy_set_header Host       $host;
+</pre>
+
+
+
 </blockquote>
-<p> 该指令可用于创建静态不可更改文件的本地副本，例如： </p>
+<p>  此外，服务器名称可以与代理服务器的端口一起传递： </p>
 <blockquote>
-<p>location /images/ { root /data/www; error_page 404 = /fetch$uri; } location /fetch/ { internal; proxy_pass <a href="http://backend/" target="_blank" rel="noopener">http://backend/</a>; proxy_store on; proxy_store_access user:rw group:rw all:r; proxy_temp_path /data/temp; alias /data/www/; }  或者像这样： </p>
-<p>location /images/ { root /data/www; error_page 404 = @fetch; } location @fetch { internal; proxy_pass <a href="http://backend" target="_blank" rel="noopener">http://backend</a>; proxy_store on; proxy_store_access user:rw group:rw all:r; proxy_temp_path /data/temp; root /data/www; }  Syntax:  <strong>proxy_store_access</strong> <em>users</em> : <em>permissions</em> …;<br>  Default:  proxy_store_access user:rw;  Context:  http , server , location<br>  为新创建的文件和目录设置访问权限，例如： </p>
-<p>proxy_store_access user:rw group:rw all:r;  如果指定了任何group或all访问权限，则可以省略user权限： </p>
-<p>proxy_store_access group:rw all:r;  Syntax:  <strong>proxy_temp_file_write_size</strong> <em>size</em> ;<br>  Default:  proxy_temp_file_write_size 8k|16k;  Context:  http , server , location<br>  当启用从代理服务器到临时文件的响应缓冲时，限制一次写入临时文件的数据<em>size</em> 。 默认情况下， <em>size</em>由proxy_buffer_size和proxy_buffers指令设置的两个缓冲区限制。 临时文件的最大大小由proxy_max_temp_file_size指令设置。 </p>
+<pre class="notranslate">proxy_set_header Host       $host:$proxy_port;
+</pre>
+
+
+
 </blockquote>
-<p> Syntax:  <strong>proxy_temp_path</strong> <em>path</em> [ <em>level1</em> [ <em>level2</em> [ <em>level3</em> ]]];<br>  Default:  proxy_temp_path proxy_temp;  Context:  http , server , location<br>  定义用于存储临时文件的目录，其中包含从代理服务器接收的数据。 在指定目录下最多可以使用三级子目录层次结构。 例如，在以下配置中 </p>
+<p>  如果标头字段的值为空字符串，则此字段将不会传递给代理服务器： </p>
 <blockquote>
-<p>proxy_temp_path /spool/nginx/proxy_temp 1 2;  临时文件可能如下所示： </p>
-<p>/spool/nginx/proxy_temp/ <strong>7</strong> / <strong>45</strong> /00000123 <strong>457</strong>  另请参阅proxy_cache_path指令的use_temp_path参数。 </p>
+<pre class="notranslate">proxy_set_header Accept-Encoding "";
+</pre>
+
+
 </blockquote>
-<h4 id="嵌入式变量"><a href="#嵌入式变量" class="headerlink" title="嵌入式变量"></a>嵌入式变量</h4><p> ngx_http_proxy_module模块支持嵌入式变量，这些变量可用于使用proxy_set_header指令组合头： </p>
-<p> $proxy_host   proxy_pass指令中指定的代理服务器的名称和端口;  $proxy_port   proxy_pass指令中指定的代理服务器的端口，或协议的默认端口;  $proxy_add_x_forwarded_for   “X-Forwarded-For”客户端请求头字段，其中附加了$remote_addr变量，以逗号分隔。 如果客户端请求标头中不存在“X-Forwarded-For”字段，则$proxy_add_x_forwarded_for变量等于$remote_addr变量。  </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_socket_keepalive** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_socket_keepalive off;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  该指令出现在1.15.6版中。 </p>
+<p>  配置到代理服务器的传出连接的“TCP keepalive”行为。  默认情况下，操作系统的设置对套接字有效。  如果指令设置为值“ <code>on</code> ”，则为套接字打开<code>SO_KEEPALIVE</code>套接字选项。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_ssl_certificate** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  该指令出现在1.7.8版本中。 </p>
+<p>  指定具有PEM格式的证书的<code>*file*</code> ，该证书用于对代理的HTTPS服务器进行身份验证。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_ssl_certificate_key** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  该指令出现在1.7.8版本中。 </p>
+<p>  指定具有PEM格式的密钥的<code>*file*</code> ，用于对代理的HTTPS服务器进行身份验证。 </p>
+<p>  可以指定value <code>engine</code> ： <code>*name*</code> ： <code>*id*</code>而不是<code>*file*</code> （1.7.9），该<code>*file*</code>从OpenSSL引擎<code>*name*</code>加载具有指定<code>*id*</code>密钥。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_ssl_ciphers** &lt;code class=&quot;notranslate&quot;&gt;*ciphers*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_ssl_ciphers DEFAULT;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  该指令出现在1.5.6版本中。 </p>
+<p>  指定对代理HTTPS服务器的请求的已启用密码。  密码以OpenSSL库理解的格式指定。 </p>
+<p>  可以使用“ <code>openssl ciphers</code> ”命令查看完整列表。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_ssl_crl** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  该指令出现在1.7.0版本中。 </p>
+<p>  指定具有PEM格式的已吊销证书（CRL）的<code>*file*</code> ，用于<a href="#proxy_ssl_verify">验证</a>代理HTTPS服务器的证书。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_ssl_name** &lt;code class=&quot;notranslate&quot;&gt;*name*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_ssl_name $proxy_host;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  该指令出现在1.7.0版本中。 </p>
+<p>  允许覆盖用于<a href="#proxy_ssl_verify">验证</a>代理HTTPS服务器证书的服务器名称，并在与代理HTTPS服务器建立连接时<a href="#proxy_ssl_server_name">通过SNI传递</a> 。 </p>
+<p>  默认情况下，使用<a href="#proxy_pass">proxy_pass</a> URL的主机部分。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_ssl_password_file** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  该指令出现在1.7.8版本中。 </p>
+<p>  指定具有密钥密码的<code>*file*</code> ，其中每个密码在单独的行上指定。  在加载密钥时依次尝试密码短语。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_ssl_protocols**     [ &lt;code class=&quot;notranslate&quot;&gt;SSLv2</code> ]    [ <code>SSLv3</code> ]    [ <code>TLSv1</code> ]    [ <code>TLSv1.1</code> ]    [ <code>TLSv1.2</code> ]    [ <code>TLSv1.3</code> ]; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  该指令出现在1.5.6版本中。 </p>
+<p>  为代理HTTPS服务器的请求启用指定的协议。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_ssl_server_name** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_ssl_server_name off;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  该指令出现在1.7.0版本中。 </p>
+<p>  在与代理的HTTPS服务器建立连接时，启用或禁用通过<a href="http://en.wikipedia.org/wiki/Server_Name_Indication" target="_blank" rel="noopener">TLS服务器名称指示扩展</a> （SNI，RFC 6066）传递服务器名称。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_ssl_session_reuse** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_ssl_session_reuse on;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  确定在使用代理服务器时是否可以重用SSL会话。  如果日志中出现“ <code>SSL3_GET_FINISHED:digest check failed</code> ”错误，请尝试禁用会话重用。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_ssl_trusted_certificate** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  该指令出现在1.7.0版本中。 </p>
+<p>  指定具有PEM格式的可信CA证书的<code>*file*</code> ，用于<a href="#proxy_ssl_verify">验证</a>代理HTTPS服务器的证书。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_ssl_verify** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_ssl_verify off;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  该指令出现在1.7.0版本中。 </p>
+<p>  启用或禁用代理HTTPS服务器证书的验证。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_ssl_verify_depth** &lt;code class=&quot;notranslate&quot;&gt;*number*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_ssl_verify_depth 1;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  该指令出现在1.7.0版本中。 </p>
+<p>  在代理的HTTPS服务器证书链中设置验证深度。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_store**     &lt;code class=&quot;notranslate&quot;&gt;on</code> |    <code>off</code> |    <code>*string*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_store off;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  允许将文件保存到磁盘。   <code>on</code>参数使用与指令<a href="ngx_http_core_module.html#alias">别名</a>或<a href="ngx_http_core_module.html#root">root</a>对应的路径保存文件。   <code>off</code>参数禁用文件保存。  此外，可以使用带变量的<code>*string*</code>显式设置文件名： </p>
+<blockquote>
+<pre class="notranslate">proxy_store /data/www$original_uri;
+</pre>
+
+
+
+</blockquote>
+<p>  根据接收到的“Last-Modified”响应头字段设置文件的修改时间。  首先将响应写入临时文件，然后重命名该文件。  从版本0.8.9开始，临时文件和持久性存储可以放在不同的文件系统上。  但是，请注意，在这种情况下，文件将跨两个文件系统复制，而不是廉价的重命名操作。  因此，建议对于任何给定位置，由<a href="#proxy_temp_path">proxy_temp_path</a>指令设置的保存文件和保存临时文件的目录都放在同一文件系统上。 </p>
+<p>  该指令可用于创建静态不可更改文件的本地副本，例如： </p>
+<blockquote>
+<p><pre class="notranslate">location /images/ {<br>    root               /data/www;<br>    error_page         404 = /fetch$uri;<br>}</pre></p>
+</blockquote>
+<p>location /fetch/ {<br>    internal;</p>
+<pre><code>proxy_pass         http://backend/;
+proxy_store        on;
+proxy_store_access user:rw group:rw all:r;
+proxy_temp_path    /data/temp;
+
+alias              /data/www/;
+</code></pre><p>}<br></p>
+<p>  或者像这样： </p>
+<blockquote>
+<p><pre class="notranslate">location /images/ {<br>    root               /data/www;<br>    error_page         404 = @fetch;<br>}</pre></p>
+</blockquote>
+<p>location @fetch {<br>    internal;</p>
+<pre><code>proxy_pass         http://backend;
+proxy_store        on;
+proxy_store_access user:rw group:rw all:r;
+proxy_temp_path    /data/temp;
+
+root               /data/www;
+</code></pre><p>}<br></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_store_access** &lt;code class=&quot;notranslate&quot;&gt;*users*</code> : <code>*permissions*</code> …; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_store_access user:rw;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  为新创建的文件和目录设置访问权限，例如： </p>
+<blockquote>
+<pre class="notranslate">proxy_store_access user:rw group:rw all:r;
+</pre>
+
+
+
+</blockquote>
+<p>  如果指定了任何<code>group</code>或<code>all</code>访问权限，则可以省略<code>user</code>权限： </p>
+<blockquote>
+<pre class="notranslate">proxy_store_access group:rw all:r;
+</pre>
+
+
+</blockquote>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_temp_file_write_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_temp_file_write_size 8k|16k;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  当启用从代理服务器到临时文件的响应缓冲时，限制一次写入临时文件的数据<code>*size*</code> 。  默认情况下， <code>*size*</code>由<a href="#proxy_buffer_size">proxy_buffer_size</a>和<a href="#proxy_buffers">proxy_buffers</a>指令设置的两个缓冲区限制。  临时文件的最大大小由<a href="#proxy_max_temp_file_size">proxy_max_temp_file_size</a>指令设置。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_temp_path**     &lt;code class=&quot;notranslate&quot;&gt;*path*</code>    [ <code>*level1*</code>    [ <code>*level2*</code>    [ <code>*level3*</code> ]]]; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_temp_path proxy_temp;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  定义用于存储临时文件的目录，其中包含从代理服务器接收的数据。  在指定目录下最多可以使用三级子目录层次结构。  例如，在以下配置中 </p>
+<blockquote>
+<pre class="notranslate">proxy_temp_path /spool/nginx/proxy_temp 1 2;
+</pre>
+
+</blockquote>
+<p>  临时文件可能如下所示： </p>
+<blockquote>
+<pre class="notranslate">/spool/nginx/proxy_temp/ **7** / **45** /00000123 **457**
+</pre>
+
+
+
+</blockquote>
+<p>  另请参阅<a href="#proxy_cache_path">proxy_cache_path</a>指令的<code>use_temp_path</code>参数。 </p>
+<h4 id="嵌入式变量"><a href="#嵌入式变量" class="headerlink" title="嵌入式变量"></a>嵌入式变量</h4><p>   <code>ngx_http_proxy_module</code>模块支持嵌入式变量，这些变量可用于使用<a href="#proxy_set_header">proxy_set_header</a>指令组合头： </p>
 
       
     </div>
@@ -912,7 +1377,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-proxy-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_proxy_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌入式变量"><span class="nav-number">1.0.2.</span> <span class="nav-text">嵌入式变量</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-proxy-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_proxy_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌入式变量"><span class="nav-number">1.0.3.</span> <span class="nav-text">嵌入式变量</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

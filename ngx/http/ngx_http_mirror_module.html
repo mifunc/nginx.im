@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="http,ngx_http_mirror_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:53:23.780Z">
+<meta property="og:updated_time" content="2018-12-21T07:56:10.023Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http&#x2F;ngx_http_mirror_module-nginx中文手册">
 <meta name="twitter:description" content="http,ngx_http_mirror_module">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
                 2018年12月21日
               </time>
             
@@ -397,15 +397,25 @@
 
       
         <p>http,ngx_http_mirror_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-http-mirror-module"><a href="#Module-ngx-http-mirror-module" class="headerlink" title="Module ngx_http_mirror_module"></a>Module ngx_http_mirror_module</h2><p> Example Configuration<br> Directives<br> mirror<br> mirror_request_body<br> ngx_http_mirror_module模块（1.13.4）通过创建后台镜像子请求来实现原始请求的镜像。 忽略对镜像子请求的响应。 </p>
+<h2 id="Module-ngx-http-mirror-module"><a href="#Module-ngx-http-mirror-module" class="headerlink" title="Module ngx_http_mirror_module"></a>Module ngx_http_mirror_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#mirror">mirror</a> <br>     <a href="#mirror_request_body">mirror_request_body</a> <br></td>
+
+<p>   <code>ngx_http_mirror_module</code>模块（1.13.4）通过创建后台镜像子请求来实现原始请求的镜像。  忽略对镜像子请求的响应。 </p>
 <h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><blockquote>
-<p>location / { mirror /mirror; proxy_pass <a href="http://backend" target="_blank" rel="noopener">http://backend</a>; } location = /mirror { internal; proxy_pass <a href="http://test\_backend$request\_uri" target="_blank" rel="noopener">http://test\_backend$request\_uri</a>; } ####  指令</p>
+<p><pre class="notranslate">location / {<br>    mirror /mirror;<br>    proxy_pass <a href="http://backend" target="_blank" rel="noopener">http://backend</a>;<br>}</pre></p>
 </blockquote>
-<p> Syntax:  <strong>mirror</strong> <em>uri</em> | off ;<br>  Default:  mirror off;  Context:  http , server , location<br>  设置将镜像原始请求的URI。 可以在同一级别指定多个镜像。 </p>
-<p> Syntax:  <strong>mirror_request_body</strong> on | off ;<br>  Default:  mirror_request_body on;  Context:  http , server , location<br>  指示是否镜像客户端请求正文。 启用后，将在创建镜像子请求之前读取客户端请求正文。 在这种情况下，将禁用由proxy_request_buffering ， fastcgi_request_buffering ， scgi_request_buffering和uwsgi_request_buffering指令设置的无缓冲客户机请求正文代理。 </p>
+<p>location = /mirror {<br>    internal;<br>    proxy_pass <a href="http://test_backend$request_uri" target="_blank" rel="noopener">http://test_backend$request_uri</a>;<br>}<br></p>
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**mirror** &lt;code class=&quot;notranslate&quot;&gt;*uri*</code> | <code>off</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">mirror off;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  设置将镜像原始请求的URI。  可以在同一级别指定多个镜像。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**mirror_request_body** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">mirror_request_body on;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  指示是否镜像客户端请求正文。  启用后，将在创建镜像子请求之前读取客户端请求正文。  在这种情况下，将禁用由<a href="ngx_http_proxy_module.html#proxy_request_buffering">proxy_request_buffering</a> ， <a href="ngx_http_fastcgi_module.html#fastcgi_request_buffering">fastcgi_request_buffering</a> ， <a href="ngx_http_scgi_module.html#scgi_request_buffering">scgi_request_buffering</a>和<a href="ngx_http_uwsgi_module.html#uwsgi_request_buffering">uwsgi_request_buffering</a>指令设置的无缓冲客户机请求正文代理。 </p>
 <blockquote>
-<p>location / { mirror /mirror; mirror_request_body off; proxy_pass <a href="http://backend" target="_blank" rel="noopener">http://backend</a>; } location = /mirror { internal; proxy_pass <a href="http://log\_backend" target="_blank" rel="noopener">http://log\_backend</a>; proxy_pass_request_body off; proxy_set_header Content-Length “”; proxy_set_header X-Original-URI $request_uri; }  </p>
+<p><pre class="notranslate">location / {<br>    mirror /mirror;<br>    mirror_request_body off;<br>    proxy_pass <a href="http://backend" target="_blank" rel="noopener">http://backend</a>;<br>}</pre></p>
 </blockquote>
+<p>location = /mirror {<br>    internal;<br>    proxy_pass <a href="http://log_backend" target="_blank" rel="noopener">http://log_backend</a>;<br>    proxy_pass_request_body off;<br>    proxy_set_header Content-Length “”;<br>    proxy_set_header X-Original-URI $request_uri;<br>}<br></p>
 
       
     </div>
@@ -638,7 +648,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-mirror-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_mirror_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-mirror-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_mirror_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

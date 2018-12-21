@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="http,converting_rewrite_rules">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:53:21.002Z">
+<meta property="og:updated_time" content="2018-12-21T07:56:06.809Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http&#x2F;converting_rewrite_rules-nginx中文手册">
 <meta name="twitter:description" content="http,converting_rewrite_rules">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
                 2018年12月21日
               </time>
             
@@ -397,26 +397,72 @@
 
       
         <p>http,converting_rewrite_rules<br><a id="more"></a></p>
-<h2 id="转换重写规则"><a href="#转换重写规则" class="headerlink" title=" 转换重写规则"></a> 转换重写规则</h2><p> Converting Mongrel rules   </p>
-<h4 id="重定向到主站点"><a href="#重定向到主站点" class="headerlink" title="重定向到主站点"></a>重定向到主站点</h4><p> 在共享托管生活期间用于<em>仅</em>使用Apache的.htaccess文件配置<em>所有内容</em>的人通常会翻译以下规则： </p>
+<h2 id="转换重写规则"><a href="#转换重写规则" class="headerlink" title="转换重写规则"></a>转换重写规则</h2><td align="left" class="notranslate"> <a href="#converting_mongrel_rules">Converting Mongrel rules</a> <br></td>
+
+<h4 id="重定向到主站点"><a href="#重定向到主站点" class="headerlink" title="重定向到主站点"></a>重定向到主站点</h4><p>  在共享托管生活期间用于<em>仅</em>使用Apache的.htaccess文件配置<em>所有内容</em>的人通常会翻译以下规则： </p>
 <blockquote>
-<p>RewriteCond %{HTTP_HOST} example.org RewriteRule (.*) <a href="http://www.example.org$1" target="_blank" rel="noopener">http://www.example.org$1</a>  这样的事情： </p>
-<p>server { listen 80; server_name www.example.org example.org; if ($http_host = example.org) { rewrite (.*) <a href="http://www.example.org$1" target="_blank" rel="noopener">http://www.example.org$1</a>; } … }  这是一种错误，繁琐且无效的方式。 正确的方法是为example.org定义一个单独的服务器： </p>
-<p>server { listen 80; server_name example.org; return 301 <a href="http://www.example.org$request\_uri" target="_blank" rel="noopener">http://www.example.org$request\_uri</a>; } server { listen 80; server_name www.example.org; … }<br> 在0.9.1之前的版本上，重定向可以使用： </p>
+<pre class="notranslate">RewriteCond  %{HTTP_HOST}  example.org
+RewriteRule  (.*)          http://www.example.org$1
+</pre>
+
+</blockquote>
+<p>  这样的事情： </p>
 <blockquote>
-<p> rewrite ^ <a href="http://www.example.org$request\_uri?" target="_blank" rel="noopener">http://www.example.org$request\_uri?</a>;  另一个例子。 而不是“倒置”逻辑“所有不是example.com而不是www.example.com ”： </p>
+<pre class="notranslate">server {
+    listen       80;
+    server_name  www.example.org  example.org;
+    if ($http_host = example.org) {
+        rewrite  (.*)  http://www.example.org$1;
+    }
+    ...
+}
+</pre>
+
+
+
 </blockquote>
-<p>RewriteCond %{HTTP_HOST} !example.com RewriteCond %{HTTP_HOST} !www.example.com RewriteRule (.*) <a href="http://www.example.com$1" target="_blank" rel="noopener">http://www.example.com$1</a>  一个人应该简单地定义example.com ， www.example.com和“其他一切”： </p>
-<p>server { listen 80; server_name example.com www.example.com; … } server { listen 80 default_server; server_name _; return 301 <a href="http://example.com$request\_uri" target="_blank" rel="noopener">http://example.com$request\_uri</a>; }<br> 在0.9.1之前的版本上，重定向可以使用： </p>
+<p>  这是一种错误，繁琐且无效的方式。  正确的方法是为<code>example.org</code>定义一个单独的服务器： </p>
 <blockquote>
-<p> rewrite ^ <a href="http://example.com$request\_uri?" target="_blank" rel="noopener">http://example.com$request\_uri?</a>; ####  转换Mongrel规则</p>
+<p><pre class="notranslate">server {<br>    listen       80;<br>    server_name  example.org;<br>    return       301 <a href="http://www.example.org$request_uri" target="_blank" rel="noopener">http://www.example.org$request_uri</a>;<br>}</pre></p>
 </blockquote>
-</blockquote>
-<p> 典型的Mongrel规则： </p>
+<p>server {<br>    listen       80;<br>    server_name  www.example.org;<br>    …<br>}<br></p>
 <blockquote>
-<p>DocumentRoot /var/www/myapp.com/current/public RewriteCond %{DOCUMENT_ROOT}/system/maintenance.html -f RewriteCond %{SCRIPT_FILENAME} !maintenance.html RewriteRule ^.<em>$ %{DOCUMENT_ROOT}/system/maintenance.html [L] RewriteCond %{REQUEST_FILENAME} -f RewriteRule ^(.</em>)$ $1 [QSA,L] RewriteCond %{REQUEST_FILENAME}/index.html -f RewriteRule ^(.<em>)$ $1/index.html [QSA,L] RewriteCond %{REQUEST_FILENAME}.html -f RewriteRule ^(.</em>)$ $1.html [QSA,L] RewriteRule ^/(.*)$ balancer://mongrel_cluster%{REQUEST_URI} [P,QSA,L]  应转换为 </p>
-<p>location / { root /var/www/myapp.com/current/public; try_files /system/maintenance.html $uri $uri/index.html $uri.html @mongrel; } location @mongrel { proxy_pass <a href="http://mongrel" target="_blank" rel="noopener">http://mongrel</a>; }  </p>
+<p>  在0.9.1之前的版本上，重定向可以使用： <blockquote class="example"><pre class="notranslate">    rewrite      ^ <a href="http://www.example.org$request_uri?" target="_blank" rel="noopener">http://www.example.org$request_uri?</a>;<br></pre></blockquote></p>
 </blockquote>
+<p>  另一个例子。  而不是“倒置”逻辑“所有不是<code>example.com</code>而不是<code>www.example.com</code> ”： </p>
+<blockquote>
+<pre class="notranslate">RewriteCond  %{HTTP_HOST}  !example.com
+RewriteCond  %{HTTP_HOST}  !www.example.com
+RewriteRule  (.*)          http://www.example.com$1
+</pre>
+
+</blockquote>
+<p>  一个人应该简单地定义<code>example.com</code> ， <code>www.example.com</code>和“其他一切”： </p>
+<blockquote>
+<p><pre class="notranslate">server {<br>    listen       80;<br>    server_name  example.com www.example.com;<br>    …<br>}</pre></p>
+</blockquote>
+<p>server {<br>    listen       80 default_server;<br>    server<em>name  </em>;<br>    return       301 <a href="http://example.com$request_uri" target="_blank" rel="noopener">http://example.com$request_uri</a>;<br>}<br></p>
+<blockquote>
+<p>  在0.9.1之前的版本上，重定向可以使用： <blockquote class="example"><pre class="notranslate">    rewrite      ^ <a href="http://example.com$request_uri?" target="_blank" rel="noopener">http://example.com$request_uri?</a>;<br></pre></blockquote></p>
+</blockquote>
+<h4 id="转换Mongrel规则"><a href="#转换Mongrel规则" class="headerlink" title="转换Mongrel规则"></a>转换Mongrel规则</h4><p>  典型的Mongrel规则： </p>
+<blockquote>
+<p><pre class="notranslate">DocumentRoot /var/www/myapp.com/current/public</pre></p>
+</blockquote>
+<p>RewriteCond %{DOCUMENT_ROOT}/system/maintenance.html -f<br>RewriteCond %{SCRIPT_FILENAME} !maintenance.html<br>RewriteRule ^.*$ %{DOCUMENT_ROOT}/system/maintenance.html [L]</p>
+<p>RewriteCond %{REQUEST_FILENAME} -f<br>RewriteRule ^(.*)$ $1 [QSA,L]</p>
+<p>RewriteCond %{REQUEST_FILENAME}/index.html -f<br>RewriteRule ^(.*)$ $1/index.html [QSA,L]</p>
+<p>RewriteCond %{REQUEST_FILENAME}.html -f<br>RewriteRule ^(.*)$ $1.html [QSA,L]</p>
+<p>RewriteRule ^/(.*)$ balancer://mongrel_cluster%{REQUEST_URI} [P,QSA,L]<br></p>
+<p>  应转换为 </p>
+<blockquote>
+<p><pre class="notranslate">location / {<br>    root       /var/www/myapp.com/current/public;</pre></p>
+</blockquote>
+<pre><code>try_files  /system/maintenance.html
+           $uri  $uri/index.html $uri.html
+           @mongrel;
+</code></pre><p>}</p>
+<p>location @mongrel {<br>    proxy_pass  <a href="http://mongrel" target="_blank" rel="noopener">http://mongrel</a>;<br>}<br></p>
 
       
     </div>
@@ -649,7 +695,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#转换重写规则"><span class="nav-number">1.</span> <span class="nav-text"> 转换重写规则</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#重定向到主站点"><span class="nav-number">1.0.1.</span> <span class="nav-text">重定向到主站点</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#转换重写规则"><span class="nav-number">1.</span> <span class="nav-text">转换重写规则</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#重定向到主站点"><span class="nav-number">1.0.1.</span> <span class="nav-text">重定向到主站点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转换Mongrel规则"><span class="nav-number">1.0.2.</span> <span class="nav-text">转换Mongrel规则</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

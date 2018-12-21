@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="stream,ngx_stream_geoip_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:53:26.353Z">
+<meta property="og:updated_time" content="2018-12-21T07:56:12.222Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="stream&#x2F;ngx_stream_geoip_module-nginx中文手册">
 <meta name="twitter:description" content="stream,ngx_stream_geoip_module">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
                 2018年12月21日
               </time>
             
@@ -397,20 +397,39 @@
 
       
         <p>stream,ngx_stream_geoip_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-stream-geoip-module"><a href="#Module-ngx-stream-geoip-module" class="headerlink" title="Module ngx_stream_geoip_module"></a>Module ngx_stream_geoip_module</h2><p> Example Configuration<br> Directives<br> geoip_country<br> geoip_city<br> geoip_org<br> ngx_stream_geoip_module模块（1.11.3）使用预编译的MaxMind数据库创建具有取决于客户端IP地址的值的变量。 </p>
-<p> 使用支持IPv6的数据库时，IPv4地址将被查找为IPv4映射的IPv6地址。 </p>
-<p> 默认情况下不构建此模块，应使用–with-stream_geoip_module配置参数启用它。 </p>
+<h2 id="Module-ngx-stream-geoip-module"><a href="#Module-ngx-stream-geoip-module" class="headerlink" title="Module ngx_stream_geoip_module"></a>Module ngx_stream_geoip_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#geoip_country">geoip_country</a> <br>     <a href="#geoip_city">geoip_city</a> <br>     <a href="#geoip_org">geoip_org</a> <br></td>
+
+<p>   <code>ngx_stream_geoip_module</code>模块（1.11.3）使用预编译的<a href="http://www.maxmind.com" target="_blank" rel="noopener">MaxMind</a>数据库创建具有取决于客户端IP地址的值的变量。 </p>
+<p>  使用支持IPv6的数据库时，IPv4地址将被查找为IPv4映射的IPv6地址。 </p>
+<p>  默认情况下不构建此模块，应使用<code>--with-stream_geoip_module</code>配置参数启用它。 </p>
 <blockquote>
-<p> 该模块需要MaxMind GeoIP库。 ####  示例配置</p>
-<p>stream { geoip_country GeoIP.dat; geoip_city GeoLiteCity.dat; map $geoip_city_continent_code $nearest_server { default example.com; EU eu.example.com; NA na.example.com; AS as.example.com; } … } ####  指令</p>
+<p>  该模块需要<a href="http://www.maxmind.com/app/c" target="_blank" rel="noopener">MaxMind GeoIP</a>库。 </p>
 </blockquote>
-<p> Syntax:  <strong>geoip_country</strong> <em>file</em> ;<br>  Default:  —  Context:  stream<br>  指定用于根据客户端IP地址确定国家/地区的数据库。 使用此数据库时，以下变量可用： </p>
-<p> $geoip_country_code   两个字母的国家/地区代码，例如“ RU ”，“ US ”。  $geoip_country_code3   三个字母的国家/地区代码，例如“ RUS ”，“ USA ”。  $geoip_country_name   国名，例如“ Russian Federation ”，“ United States ”。  Syntax:  <strong>geoip_city</strong> <em>file</em> ;<br>  Default:  —  Context:  stream<br>  指定用于根据客户端IP地址确定国家，地区和城市的数据库。 使用此数据库时，以下变量可用： </p>
-<p> $geoip_area_code   电话区号（仅限美国）。 </p>
+<h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><blockquote>
+<p><pre class="notranslate">stream {<br>    geoip_country         GeoIP.dat;<br>    geoip_city            GeoLiteCity.dat;</pre></p>
+</blockquote>
+<pre><code>map $geoip_city_continent_code $nearest_server {
+    default        example.com;
+    EU          eu.example.com;
+    NA          na.example.com;
+    AS          as.example.com;
+}
+</code></pre><p>   …<br>}<br></p>
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**geoip_country** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> <br>                </td></p>
+<p>  指定用于根据客户端IP地址确定国家/地区的数据库。  使用此数据库时，以下变量可用： </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**geoip_city** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> <br>                </td></p>
+<p>  指定用于根据客户端IP地址确定国家，地区和城市的数据库。  使用此数据库时，以下变量可用： </p>
 <blockquote>
-<p> 此变量可能包含过时的信息，因为不推荐使用相应的数据库字段。  $geoip_city_continent_code   两个字母的大陆代码，例如“ EU ”，“ NA ”。  $geoip_city_country_code   两个字母的国家/地区代码，例如“ RU ”，“ US ”。  $geoip_city_country_code3   三个字母的国家/地区代码，例如“ RUS ”，“ USA ”。  $geoip_city_country_name   国名，例如“ Russian Federation ”，“ United States ”。  $geoip_dma_code   根据Google AdWords API中的地理位置定位 ，美国的DMA区域代码（也称为“都市代码”）。  $geoip_latitude   纬度。  $geoip_longitude   经度。  $geoip_region   双符号国家区域代码（地区，领土，州，省，联邦土地等），例如“ 48 ”，“ DC ”。  $geoip_region_name   国家地区名称（地区，领土，州，省，联邦土地等），例如“ Moscow City ”，“ District of Columbia ”。  $geoip_city   城市名称，例如“ Moscow ”，“ Washington ”。  $geoip_postal_code   邮政编码。  Syntax:  <strong>geoip_org</strong> <em>file</em> ;<br>  Default:  —  Context:  stream<br>  指定用于根据客户端IP地址确定组织的数据库。 使用此数据库时，以下变量可用： </p>
+<p>  此变量可能包含过时的信息，因为不推荐使用相应的数据库字段。 </p>
 </blockquote>
-<p> $geoip_org   组织名称，例如“墨尔本大学”。  </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**geoip_org** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> <br>                </td></p>
+<p>  指定用于根据客户端IP地址确定组织的数据库。  使用此数据库时，以下变量可用： </p>
 
       
     </div>
@@ -643,7 +662,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-stream-geoip-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_stream_geoip_module</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-stream-geoip-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_stream_geoip_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

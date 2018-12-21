@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="beginners_guide">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:53:20.308Z">
+<meta property="og:updated_time" content="2018-12-21T07:56:05.983Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="beginners_guide-nginx中文手册">
 <meta name="twitter:description" content="beginners_guide">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
                 2018年12月21日
               </time>
             
@@ -397,76 +397,153 @@
 
       
         <p>beginners_guide<br><a id="more"></a></p>
-<h2 id="初学者指南"><a href="#初学者指南" class="headerlink" title=" 初学者指南"></a> 初学者指南</h2><p> Starting, Stopping, and Reloading Configuration<br> Configuration File’s Structure<br> Serving Static Content<br> Setting Up a Simple Proxy Server<br> Setting Up FastCGI Proxying<br> 本指南提供了对nginx的基本介绍，并介绍了可以使用它完成的一些简单任务。 据推测，nginx已安装在阅读器的机器上。 如果不是，请参阅安装nginx页面。 本指南介绍如何启动和停止nginx，重新加载其配置，解释配置文件的结构，并介绍如何设置nginx以提供静态内容，如何将nginx配置为代理服务器，以及如何将其与一个FastCGI应用程序。 </p>
-<p> nginx有一个主进程和几个工作进程。 主进程的主要目的是读取和评估配置，并维护工作进程。 工作进程会对请求进行实际处理。 nginx使用基于事件的模型和依赖于操作系统的机制来有效地在工作进程之间分发请求。 工作进程数在配置文件中定义，可以针对给定配置进行修复，也可以自动调整为可用CPU内核数（请参阅worker_processes ）。 </p>
-<p> nginx及其模块的工作方式在配置文件中确定。 默认情况下，配置文件名为nginx.conf并放在目录/usr/local/nginx/conf ， /etc/nginx或/usr/local/etc/nginx 。 </p>
-<h4 id="启动，停止和重新加载配置"><a href="#启动，停止和重新加载配置" class="headerlink" title="启动，停止和重新加载配置"></a>启动，停止和重新加载配置</h4><p> 要启动nginx，请运行可执行文件。 启动nginx后，可以通过使用-s参数调用可执行文件来控制它。 使用以下语法： </p>
+<h2 id="初学者指南"><a href="#初学者指南" class="headerlink" title="初学者指南"></a>初学者指南</h2><td align="left" class="notranslate"> <a href="#control">Starting, Stopping, and Reloading Configuration</a> <br> <a href="#conf_structure">Configuration File’s Structure</a> <br> <a href="#static">Serving Static Content</a> <br> <a href="#proxy">Setting Up a Simple Proxy Server</a> <br> <a href="#fastcgi">Setting Up FastCGI Proxying</a> <br></td>
+
+<p>  本指南提供了对nginx的基本介绍，并介绍了可以使用它完成的一些简单任务。  据推测，nginx已安装在阅读器的机器上。  如果不是，请参阅<a href="install.html">安装nginx</a>页面。  本指南介绍如何启动和停止nginx，重新加载其配置，解释配置文件的结构，并介绍如何设置nginx以提供静态内容，如何将nginx配置为代理服务器，以及如何将其与一个FastCGI应用程序。 </p>
+<p>   nginx有一个主进程和几个工作进程。  主进程的主要目的是读取和评估配置，并维护工作进程。  工作进程会对请求进行实际处理。   nginx使用基于事件的模型和依赖于操作系统的机制来有效地在工作进程之间分发请求。  工作进程数在配置文件中定义，可以针对给定配置进行修复，也可以自动调整为可用CPU内核数（请参阅<a href="ngx_core_module.html#worker_processes">worker_processes</a> ）。 </p>
+<p>   nginx及其模块的工作方式在配置文件中确定。  默认情况下，配置文件名为<code>nginx.conf</code>并放在目录<code>/usr/local/nginx/conf</code> ， <code>/etc/nginx</code>或<code>/usr/local/etc/nginx</code> 。 </p>
+<h4 id="启动，停止和重新加载配置"><a href="#启动，停止和重新加载配置" class="headerlink" title="启动，停止和重新加载配置"></a>启动，停止和重新加载配置</h4><p>  要启动nginx，请运行可执行文件。  启动nginx后，可以通过使用<code>-s</code>参数调用可执行文件来控制它。  使用以下语法： </p>
 <blockquote>
-<p>nginx -s <em>signal</em>  <em>信号</em>可能是以下之一： </p>
+<pre class="notranslate">nginx -s *signal*
+</pre>
+
 </blockquote>
+<p>   <em>信号</em>可能是以下之一： </p>
 <ul>
-<li>stop - 快速关机 </li>
-<li>quit - 正常关机 </li>
-<li>reload - 重新加载配置文件 </li>
-<li>reopen - 重新打开日志文件<br>例如，要在等待工作进程完成当前请求的服务时停止nginx进程，可以执行以下命令： </li>
+<li><code>stop</code> - 快速关机 -    <code>quit</code> - 正常关机 -    <code>reload</code> - 重新加载配置文件 -    <code>reopen</code> - 重新打开日志文件<br>例如，要在等待工作进程完成当前请求的服务时停止nginx进程，可以执行以下命令： </li>
 </ul>
 <blockquote>
-<p>nginx -s quit<br> 此命令应在启动nginx的同一用户下执行。  在将重新加载配置的命令发送到nginx或重新启动之前，将不会应用配置文件中所做的更改。 要重新加载配置，请执行： </p>
-<p>nginx -s reload  一旦主进程收到重新加载配置的信号，它将检查新配置文件的语法有效性并尝试应用其中提供的配置。 如果成功，主进程将启动新的工作进程并向旧工作进程发送消息，请求它们关闭。 否则，主进程将回滚更改并继续使用旧配置。 旧工作进程，接收命令关闭，停止接受新连接并继续为当前请求提供服务，直到所有此类请求都得到服务。 之后，旧工作进程退出。 </p>
+<pre class="notranslate">nginx -s quit
+</pre>
+
+
+
+<p>  此命令应在启动nginx的同一用户下执行。 </p>
 </blockquote>
-<p> 也可以借助Unix工具（如kill实用程序）将信号发送到nginx进程。 在这种情况下，信号直接发送到具有给定进程ID的进程。 默认情况下，nginx主进程的进程ID写入目录/usr/local/nginx/logs或/var/run的nginx.pid 。 例如，如果主进程ID是1628，要发送导致nginx正常关闭的QUIT信号，请执行： </p>
+<p>  在将重新加载配置的命令发送到nginx或重新启动之前，将不会应用配置文件中所做的更改。  要重新加载配置，请执行： </p>
 <blockquote>
-<p>kill -s QUIT 1628  要获取所有正在运行的nginx进程的列表，可以使用ps实用程序，例如，通过以下方式： </p>
-<p>ps -ax | grep nginx  有关向nginx发送信号的更多信息，请参阅控制nginx 。 </p>
+<pre class="notranslate">nginx -s reload
+</pre>
+
+
+
 </blockquote>
-<h4 id="配置文件的结构"><a href="#配置文件的结构" class="headerlink" title="配置文件的结构"></a>配置文件的结构</h4><p> nginx由模块组成，这些模块由配置文件中指定的指令控制。 指令分为简单指令和块指令。 一个简单的指令包括由空格分隔的名称和参数，以分号（ ; ）结尾。 块指令与简单指令具有相同的结构，但它不是以分号结尾，而是以大括号（ {和} ）包围的一组附加指令结束。 如果块指令可以在大括号内包含其他指令，则称为上下文（示例： events ， http ， server和location ）。 </p>
-<p> 放置在任何上下文之外的配置文件中的指令被认为是在主上下文中。 events和http指令驻留在main上下文中， server位于http ，位于server 。 </p>
-<p> #符号后面的其余部分被视为评论。 </p>
-<h4 id="提供静态内容"><a href="#提供静态内容" class="headerlink" title="提供静态内容"></a>提供静态内容</h4><p> 一个重要的Web服务器任务是提供文件（例如图像或静态HTML页面）。 您将实现一个示例，根据请求，将从不同的本地目录提供文件： /data/www （可能包含HTML文件）和/data/images （包含图像）。 这将需要编辑配置文件并在http块内设置具有两个位置块的服务器块。 </p>
-<p> 首先，创建/data/www目录并将包含任何文本内容的index.html文件放入其中，然后创建/data/images目录并在其中放置一些图像。 </p>
-<p> 接下来，打开配置文件。 默认配置文件已包含几个server块的示例，主要是注释掉的。 现在注释掉所有这些块并启动一个新的server块： </p>
+<p>  一旦主进程收到重新加载配置的信号，它将检查新配置文件的语法有效性并尝试应用其中提供的配置。  如果成功，主进程将启动新的工作进程并向旧工作进程发送消息，请求它们关闭。  否则，主进程将回滚更改并继续使用旧配置。  旧工作进程，接收命令关闭，停止接受新连接并继续为当前请求提供服务，直到所有此类请求都得到服务。  之后，旧工作进程退出。 </p>
+<p>  也可以借助Unix工具（如<code>kill</code>实用程序）将信号发送到nginx进程。  在这种情况下，信号直接发送到具有给定进程ID的进程。  默认情况下，nginx主进程的进程ID写入目录<code>/usr/local/nginx/logs</code>或<code>/var/run</code>的<code>nginx.pid</code> 。  例如，如果主进程ID是1628，要发送导致nginx正常关闭的QUIT信号，请执行： </p>
 <blockquote>
-<p>http { server { } }  通常，配置文件可以包括由它们监听的端口和服务器名称 区分的多个server块。 一旦nginx决定哪个server处理请求，它就会根据server块内定义的location指令的参数测试请求头中指定的URI。 </p>
+<pre class="notranslate">kill -s QUIT 1628
+</pre>
+
 </blockquote>
-<p> 将以下location块添加到server块： </p>
+<p>  要获取所有正在运行的nginx进程的列表，可以使用<code>ps</code>实用程序，例如，通过以下方式： </p>
 <blockquote>
-<p>location / { root /data/www; }  此location块指定与请求中的URI进行比较的“ / ”前缀。 对于匹配请求，URI将添加到根指令中指定的路径，即/data/www ，以形成本地文件系统上所请求文件的路径。 如果存在多个匹配的location块，则nginx选择具有最长前缀的location块。 上面的location块提供长度为1的最短前缀，因此仅当所有其他location块无法提供匹配时，才会使用此块。 </p>
+<pre class="notranslate">ps -ax | grep nginx
+</pre>
+
 </blockquote>
-<p> 接下来，添加第二个location块： </p>
+<p>  有关向nginx发送信号的更多信息，请参阅<a href="control.html">控制nginx</a> 。 </p>
+<h4 id="配置文件的结构"><a href="#配置文件的结构" class="headerlink" title="配置文件的结构"></a>配置文件的结构</h4><p>   nginx由模块组成，这些模块由配置文件中指定的指令控制。  指令分为简单指令和块指令。  一个简单的指令包括由空格分隔的名称和参数，以分号（ <code>;</code> ）结尾。  块指令与简单指令具有相同的结构，但它不是以分号结尾，而是以大括号（ <code>{</code>和<code>}</code> ）包围的一组附加指令结束。  如果块指令可以在大括号内包含其他指令，则称为上下文（示例： <a href="ngx_core_module.html#events">events</a> ， <a href="http/ngx_http_core_module.html#http">http</a> ， <a href="http/ngx_http_core_module.html#server">server</a>和<a href="http/ngx_http_core_module.html#location">location</a> ）。 </p>
+<p>  放置在任何上下文之外的配置文件中的指令被认为是在<a href="ngx_core_module.html">主</a>上下文中。   <code>events</code>和<code>http</code>指令驻留在<code>main</code>上下文中， <code>server</code>位于<code>http</code> ，位于<code>server</code> 。 </p>
+<p>   <code>#</code>符号后面的其余部分被视为评论。 </p>
+<h4 id="提供静态内容"><a href="#提供静态内容" class="headerlink" title="提供静态内容"></a>提供静态内容</h4><p>  一个重要的Web服务器任务是提供文件（例如图像或静态HTML页面）。  您将实现一个示例，根据请求，将从不同的本地目录提供文件： <code>/data/www</code> （可能包含HTML文件）和<code>/data/images</code> （包含图像）。  这将需要编辑配置文件并在<a href="http/ngx_http_core_module.html#http">http</a>块内设置具有两个<a href="http/ngx_http_core_module.html#location">位置</a>块的<a href="http/ngx_http_core_module.html#server">服务器</a>块。 </p>
+<p>  首先，创建<code>/data/www</code>目录并将包含任何文本内容的<code>index.html</code>文件放入其中，然后创建<code>/data/images</code>目录并在其中放置一些图像。 </p>
+<p>  接下来，打开配置文件。  默认配置文件已包含几个<code>server</code>块的示例，主要是注释掉的。  现在注释掉所有这些块并启动一个新的<code>server</code>块： </p>
 <blockquote>
-<p>location /images/ { root /data; }  它将匹配以/images/开头的请求（ location /也匹配此类请求，但前缀较短）。 </p>
+<pre class="notranslate">http {
+    server {
+    }
+}
+</pre>
+
 </blockquote>
-<p> 生成的server块配置应如下所示： </p>
+<p>  通常，配置文件可以包括由它们<a href="http/ngx_http_core_module.html#listen">监听</a>的端口和<a href="http/server_names.html">服务器名称</a> <a href="http/request_processing.html">区分</a>的多个<code>server</code>块。  一旦nginx决定哪个<code>server</code>处理请求，它就会根据<code>server</code>块内定义的<code>location</code>指令的参数测试请求头中指定的URI。 </p>
+<p>  将以下<code>location</code>块添加到<code>server</code>块： </p>
 <blockquote>
-<p>server { location / { root /data/www; } location /images/ { root /data; } }  这已经是服务器的工作配置，它可以侦听标准端口80，并且可以在本地计算机上访问<a href="http://localhost/" target="_blank" rel="noopener">http://localhost/</a> 。 响应具有以/images/开头的URI的请求，服务器将从/data/images目录发送文件。 例如，响应<a href="http://localhost/images/example.png请求，nginx将发送/data/images/example.png文件。" target="_blank" rel="noopener">http://localhost/images/example.png请求，nginx将发送/data/images/example.png文件。</a> 如果此类文件不存在，nginx将发送指示404错误的响应。 URI不以/images/开头的请求将映射到/data/www目录。 例如，响应<a href="http://localhost/some/example.html请求，nginx将发送/data/www/some/example.html文件。" target="_blank" rel="noopener">http://localhost/some/example.html请求，nginx将发送/data/www/some/example.html文件。</a> </p>
+<pre class="notranslate">location / {
+    root /data/www;
+}
+</pre>
+
 </blockquote>
-<p> 要应用新配置，请启动nginx（如果尚未启动）或通过执行以下命令将reload信号发送到nginx的主进程： </p>
+<p>  此<code>location</code>块指定与请求中的URI进行比较的“ <code>/</code> ”前缀。  对于匹配请求，URI将添加到<a href="http/ngx_http_core_module.html#root">根</a>指令中指定的路径，即<code>/data/www</code> ，以形成本地文件系统上所请求文件的路径。  如果存在多个匹配的<code>location</code>块，则nginx选择具有最长前缀的<code>location</code>块。  上面的<code>location</code>块提供长度为1的最短前缀，因此仅当所有其他<code>location</code>块无法提供匹配时，才会使用此块。 </p>
+<p>  接下来，添加第二个<code>location</code>块： </p>
 <blockquote>
-<p>nginx -s reload<br> 如果某些内容无法按预期工作，您可以尝试在目录/usr/local/nginx/logs或/var/log/nginx中的access.log和error.log文件中找出原因。 ####  设置简单的代理服务器</p>
+<pre class="notranslate">location /images/ {
+    root /data;
+}
+</pre>
+
 </blockquote>
-<p> nginx的一个常见用途是将其设置为代理服务器，这意味着服务器接收请求，将它们传递给代理服务器，从中检索响应，然后将它们发送给客户端。 </p>
-<p> 我们将配置一个基本代理服务器，它使用来自本地目录的文件处理图像请求，并将所有其他请求发送到代理服务器。 在此示例中，将在单个nginx实例上定义两个服务器。 </p>
-<p> 首先，通过向nginx的配置文件添加一个以上的server块来定义代理服务器，其中包含以下内容： </p>
+<p>  它将匹配以<code>/images/</code>开头的请求（ <code>location /</code>也匹配此类请求，但前缀较短）。 </p>
+<p>  生成的<code>server</code>块配置应如下所示： </p>
 <blockquote>
-<p>server { listen 8080; root /data/up1; location / { } }  这将是一个侦听端口8080的简单服务器（之前，自使用标准端口80以来尚未指定listen指令）并将所有请求映射到本地文件系统上的/data/up1目录。 创建此目录并将index.html文件放入其中。 请注意， root指令放在server上下文中。 当选择用于提供请求的location块不包括自己的root指令时，使用这样的root指令。 </p>
+<p><pre class="notranslate">server {<br>    location / {<br>        root /data/www;<br>    }</pre></p>
 </blockquote>
-<p> 接下来，使用上一节中的服务器配置并对其进行修改以使其成为代理服务器配置。 在第一个location块中，将proxy_pass指令与参数中指定的代理服务器的协议，名称和端口放在一起（在我们的示例中，它是<a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a> ）： </p>
+<pre><code>location /images/ {
+    root /data;
+}
+</code></pre><p>}<br></p>
+<p>  这已经是服务器的工作配置，它可以侦听标准端口80，并且可以在本地计算机上访问<code>http://localhost/</code> 。  响应具有以<code>/images/</code>开头的URI的请求，服务器将从<code>/data/images</code>目录发送文件。  例如，响应<code>http://localhost/images/example.png</code>请求，nginx将发送<code>/data/images/example.png</code>文件。  如果此类文件不存在，nginx将发送指示404错误的响应。   URI不以<code>/images/</code>开头的请求将映射到<code>/data/www</code>目录。  例如，响应<code>http://localhost/some/example.html</code>请求，nginx将发送<code>/data/www/some/example.html</code>文件。 </p>
+<p>  要应用新配置，请启动nginx（如果尚未启动）或通过执行以下命令将<code>reload</code>信号发送到nginx的主进程： </p>
 <blockquote>
-<p>server { location / { proxy_pass <a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a>; } location /images/ { root /data; } }  我们将修改第二个location块，该块当前将带有/images/前缀的请求映射到/data/images目录下的文件，以使其与具有典型文件扩展名的图像请求相匹配。 修改后的location块如下所示： </p>
-<p>location ~ .(gif|jpg|png)$ { root /data/images; }  该参数是一个正则表达式，匹配以.gif ， .jpg或.png结尾的所有URI。 正则表达式应该以~ 。 相应的请求将映射到/data/images目录。 </p>
+<pre class="notranslate">nginx -s reload
+</pre>
+
+
+
+
+
+<p>  如果某些内容无法按预期工作，您可以尝试在目录<code>/usr/local/nginx/logs</code>或<code>/var/log/nginx</code>中的<code>access.log</code>和<code>error.log</code>文件中找出原因。 </p>
 </blockquote>
-<p> 当nginx选择一个location块来提供请求时，它首先检查指定前缀的位置指令，记住具有最长前缀的location ，然后检查正则表达式。 如果与正则表达式匹配，则nginx选择此location ，否则，它会选择之前记住的那个。 </p>
-<p> 生成的代理服务器配置如下所示： </p>
+<h4 id="设置简单的代理服务器"><a href="#设置简单的代理服务器" class="headerlink" title="设置简单的代理服务器"></a>设置简单的代理服务器</h4><p>   nginx的一个常见用途是将其设置为代理服务器，这意味着服务器接收请求，将它们传递给代理服务器，从中检索响应，然后将它们发送给客户端。 </p>
+<p>  我们将配置一个基本代理服务器，它使用来自本地目录的文件处理图像请求，并将所有其他请求发送到代理服务器。  在此示例中，将在单个nginx实例上定义两个服务器。 </p>
+<p>  首先，通过向nginx的配置文件添加一个以上的<code>server</code>块来定义代理服务器，其中包含以下内容： </p>
 <blockquote>
-<p>server { location / { proxy_pass <a href="http://localhost:8080/" target="_blank" rel="noopener">http://localhost:8080/</a>; } location ~ .(gif|jpg|png)$ { root /data/images; } }  此服务器将过滤以.gif ， .jpg或.png结尾的请求，并将它们映射到/data/images目录（通过将URI添加到root指令的参数），并将所有其他请求传递给上面配置的代理服务器。 </p>
+<p><pre class="notranslate">server {<br>    listen 8080;<br>    root /data/up1;</pre></p>
 </blockquote>
-<p> 要应用新配置，请将reload信号发送到nginx，如前面部分所述。 </p>
-<p> 可以使用更多指令来进一步配置代理连接。 </p>
-<h4 id="设置FastCGI代理"><a href="#设置FastCGI代理" class="headerlink" title="设置FastCGI代理"></a>设置FastCGI代理</h4><p> nginx可用于将请求路由到FastCGI服务器，这些服务器运行使用各种框架和编程语言（如PHP）构建的应用程序。 </p>
-<p> 使用FastCGI服务器的最基本的nginx配置包括使用fastcgi_pass指令而不是proxy_pass指令，以及fastcgi_param指令来设置传递给FastCGI服务器的参数。 假设可以在localhost:9000上访问FastCGI服务器。 以上一节中的代理配置为基础，将proxy_pass指令替换为fastcgi_pass指令，并将参数更改为localhost:9000 。 在PHP中， SCRIPT_FILENAME参数用于确定脚本名称， QUERY_STRING参数用于传递请求参数。 结果配置为： </p>
+<pre><code>location / {
+}
+</code></pre><p>}<br></p>
+<p>  这将是一个侦听端口8080的简单服务器（之前，自使用标准端口80以来尚未指定<code>listen</code>指令）并将所有请求映射到本地文件系统上的<code>/data/up1</code>目录。  创建此目录并将<code>index.html</code>文件放入其中。  请注意， <code>root</code>指令放在<code>server</code>上下文中。  当选择用于提供请求的<code>location</code>块不包括自己的<code>root</code>指令时，使用这样的<code>root</code>指令。 </p>
+<p>  接下来，使用上一节中的服务器配置并对其进行修改以使其成为代理服务器配置。  在第一个<code>location</code>块中，将<a href="http/ngx_http_proxy_module.html#proxy_pass">proxy_pass</a>指令与参数中指定的代理服务器的协议，名称和端口放在一起（在我们的示例中，它是<code>http://localhost:8080</code> ）： </p>
 <blockquote>
-<p>server { location / { fastcgi_pass localhost:9000; fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name; fastcgi_param QUERY_STRING $query_string; } location ~ .(gif|jpg|png)$ { root /data/images; } }  这将设置一个服务器，该服务器将除静态图像请求之外的所有请求路由到通过FastCGI协议在localhost:9000上运行的代理服务器。 </p>
+<p><pre class="notranslate">server {<br>    location / {<br>        proxy_pass <a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a>;<br>    }</pre></p>
 </blockquote>
+<pre><code>location /images/ {
+    root /data;
+}
+</code></pre><p>}<br></p>
+<p>  我们将修改第二个<code>location</code>块，该块当前将带有<code>/images/</code>前缀的请求映射到<code>/data/images</code>目录下的文件，以使其与具有典型文件扩展名的图像请求相匹配。  修改后的<code>location</code>块如下所示： </p>
+<blockquote>
+<pre class="notranslate">location ~ \.(gif|jpg|png)$ {
+    root /data/images;
+}
+</pre>
+
+</blockquote>
+<p>  该参数是一个正则表达式，匹配以<code>.gif</code> ， <code>.jpg</code>或<code>.png</code>结尾的所有URI。  正则表达式应该以<code>~</code> 。  相应的请求将映射到<code>/data/images</code>目录。 </p>
+<p>  当nginx选择一个<code>location</code>块来提供请求时，它首先检查指定前缀的<a href="http/ngx_http_core_module.html#location">位置</a>指令，记住具有最长前缀的<code>location</code> ，然后检查正则表达式。  如果与正则表达式匹配，则nginx选择此<code>location</code> ，否则，它会选择之前记住的那个。 </p>
+<p>  生成的代理服务器配置如下所示： </p>
+<blockquote>
+<p><pre class="notranslate">server {<br>    location / {<br>        proxy_pass <a href="http://localhost:8080/" target="_blank" rel="noopener">http://localhost:8080/</a>;<br>    }</pre></p>
+</blockquote>
+<pre><code>location ~ \.(gif|jpg|png)$ {
+    root /data/images;
+}
+</code></pre><p>}<br></p>
+<p>  此服务器将过滤以<code>.gif</code> ， <code>.jpg</code>或<code>.png</code>结尾的请求，并将它们映射到<code>/data/images</code>目录（通过将URI添加到<code>root</code>指令的参数），并将所有其他请求传递给上面配置的代理服务器。 </p>
+<p>  要应用新配置，请将<code>reload</code>信号发送到nginx，如前面部分所述。 </p>
+<p>  可以使用<a href="http/ngx_http_proxy_module.html">更多</a>指令来进一步配置代理连接。 </p>
+<h4 id="设置FastCGI代理"><a href="#设置FastCGI代理" class="headerlink" title="设置FastCGI代理"></a>设置FastCGI代理</h4><p>   nginx可用于将请求路由到FastCGI服务器，这些服务器运行使用各种框架和编程语言（如PHP）构建的应用程序。 </p>
+<p>  使用FastCGI服务器的最基本的nginx配置包括使用<a href="http/ngx_http_fastcgi_module.html#fastcgi_pass">fastcgi_pass</a>指令而不是<code>proxy_pass</code>指令，以及<a href="http/ngx_http_fastcgi_module.html#fastcgi_param">fastcgi_param</a>指令来设置传递给FastCGI服务器的参数。  假设可以在<code>localhost:9000</code>上访问FastCGI服务器。  以上一节中的代理配置为基础，将<code>proxy_pass</code>指令替换为<code>fastcgi_pass</code>指令，并将参数更改为<code>localhost:9000</code> 。  在PHP中， <code>SCRIPT_FILENAME</code>参数用于确定脚本名称， <code>QUERY_STRING</code>参数用于传递请求参数。  结果配置为： </p>
+<blockquote>
+<p><pre class="notranslate">server {<br>    location / {<br>        fastcgi_pass  localhost:9000;<br>        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;<br>        fastcgi_param QUERY_STRING    $query_string;<br>    }</pre></p>
+</blockquote>
+<pre><code>location ~ \.(gif|jpg|png)$ {
+    root /data/images;
+}
+</code></pre><p>}<br></p>
+<p>  这将设置一个服务器，该服务器将除静态图像请求之外的所有请求路由到通过FastCGI协议在<code>localhost:9000</code>上运行的代理服务器。 </p>
 
       
     </div>
@@ -699,7 +776,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#初学者指南"><span class="nav-number">1.</span> <span class="nav-text"> 初学者指南</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#启动，停止和重新加载配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">启动，停止和重新加载配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置文件的结构"><span class="nav-number">1.0.2.</span> <span class="nav-text">配置文件的结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#提供静态内容"><span class="nav-number">1.0.3.</span> <span class="nav-text">提供静态内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置FastCGI代理"><span class="nav-number">1.0.4.</span> <span class="nav-text">设置FastCGI代理</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#初学者指南"><span class="nav-number">1.</span> <span class="nav-text">初学者指南</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#启动，停止和重新加载配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">启动，停止和重新加载配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置文件的结构"><span class="nav-number">1.0.2.</span> <span class="nav-text">配置文件的结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#提供静态内容"><span class="nav-number">1.0.3.</span> <span class="nav-text">提供静态内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置简单的代理服务器"><span class="nav-number">1.0.4.</span> <span class="nav-text">设置简单的代理服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置FastCGI代理"><span class="nav-number">1.0.5.</span> <span class="nav-text">设置FastCGI代理</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

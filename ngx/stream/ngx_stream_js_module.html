@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="stream,ngx_stream_js_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:53:26.399Z">
+<meta property="og:updated_time" content="2018-12-21T07:56:12.264Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="stream&#x2F;ngx_stream_js_module-nginx中文手册">
 <meta name="twitter:description" content="stream,ngx_stream_js_module">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
                 2018年12月21日
               </time>
             
@@ -397,18 +397,67 @@
 
       
         <p>stream,ngx_stream_js_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-stream-js-module"><a href="#Module-ngx-stream-js-module" class="headerlink" title="Module ngx_stream_js_module"></a>Module ngx_stream_js_module</h2><p> Example Configuration<br> Directives<br> js_access<br> js_filter<br> js_include<br> js_preread<br> js_set<br> Session Object Properties<br> ngx_stream_js_module模块用于在njs中实现处理程序 - 这是JavaScript语言的一个子集。 </p>
-<p> 默认情况下不构建此模块。 可在此处下载和安装说明。 </p>
+<h2 id="Module-ngx-stream-js-module"><a href="#Module-ngx-stream-js-module" class="headerlink" title="Module ngx_stream_js_module"></a>Module ngx_stream_js_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#js_access">js_access</a> <br>     <a href="#js_filter">js_filter</a> <br>     <a href="#js_include">js_include</a> <br>     <a href="#js_preread">js_preread</a> <br>     <a href="#js_set">js_set</a> <br> <a href="#properties">Session Object Properties</a> <br></td>
+
+<p>   <code>ngx_stream_js_module</code>模块用于在<a href="njs/index.html">njs中</a>实现处理程序 - 这是JavaScript语言的一个子集。 </p>
+<p>  默认情况下不构建此模块。  可<a href="njs/install.html">在此处</a>下载和安装说明。 </p>
 <h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><blockquote>
-<p> 此示例适用于njs 0.2.4及更高版本。 对于njs 0.2.3及更早版本，请使用此示例。<br>load_module modules/ngx_stream_js_module.so; … stream { js_include stream.js; js_set $bar bar; js_set $req_line req_line; server { listen 12345; js_preread preread; return $req_line; } server { listen 12346; js_access access; proxy_pass 127.0.0.1:8000; js_filter header_inject; } } http { server { listen 8000; location / { return 200 $http_foo\n; } } }  stream.js文件： </p>
-<p>var line = ‘’; function bar(s) { var v = s.variables; s.log(“hello from bar() handler!”); return “bar-var” + v.remote_port + “; pid=” + v.pid; } function preread(s) { s.on(‘upload’, function (data, flags) { var n = data.indexOf(‘\n’); if (n != -1) { line = data.substr(0, n); s.done(); } }); } function req_line(s) { return line; } // Read HTTP request line. // Collect bytes in ‘req’ until // request line is read. // Injects HTTP header into a client’s request var my_header = ‘Foo: foo’; function header_inject(s) { var req = ‘’; s.on(‘upload’, function(data, flags) { req += data; var n = req.search(‘\n’); if (n != -1) { var rest = req.substr(n + 1); req = req.substr(0, n + 1); s.send(req + my_header + ‘\r\n’ + rest, flags); s.off(‘upload’); } }); } function access(s) { if (s.remoteAddress.match(‘^192.*’)) { s.abort(); return; } s.allow(); } ####  指令</p>
+<p>  此示例适用于njs <a href="njs/changes.html#njs0.2.4">0.2.4</a>及更高版本。  对于njs 0.2.3及更早版本，请使用<a href="njs/examples.html#legacy">此</a>示例。 </p>
+<p><pre class="notranslate">load_module modules/ngx_stream_js_module.so;<br>…</pre></p>
 </blockquote>
-<p> Syntax:  <strong>js_access</strong> <em>function</em> ;<br>  Default:  —  Context:  stream , server<br>  设置将在访问阶段调用的njs函数。 </p>
-<p> Syntax:  <strong>js_filter</strong> <em>function</em> ;<br>  Default:  —  Context:  stream , server<br>  设置数据过滤器。 </p>
-<p> Syntax:  <strong>js_include</strong> <em>file</em> ;<br>  Default:  —  Context:  stream<br>  指定在njs中实现服务器和变量处理程序的文件。 </p>
-<p> Syntax:  <strong>js_preread</strong> <em>function</em> ;<br>  Default:  —  Context:  stream , server<br>  设置将在预读阶段调用的njs函数。 </p>
-<p> Syntax:  <strong>js_set</strong> <em>$variable</em> <em>function</em> ;<br>  Default:  —  Context:  stream<br>  为指定的变量设置njs函数。 </p>
-<h4 id="会话对象属性"><a href="#会话对象属性" class="headerlink" title="会话对象属性"></a>会话对象属性</h4><p> 每个流njs处理程序接收一个参数，即流会话对象 。 </p>
+<p>stream {<br>    js_include stream.js;</p>
+<pre><code>js_set $bar bar;
+js_set $req_line req_line;
+
+server {
+    listen 12345;
+
+    js_preread preread;
+    return     $req_line;
+}
+
+server {
+    listen 12346;
+
+    js_access  access;
+    proxy_pass 127.0.0.1:8000;
+    js_filter  header_inject;
+}
+</code></pre><p>}</p>
+<p>http {<br>    server {<br>        listen 8000;<br>        location / {<br>            return 200 $http_foo\n;<br>        }<br>    }<br>}<br></p>
+<p>   <code>stream.js</code>文件： </p>
+<blockquote>
+<p><pre class="notranslate">var line = ‘’;</pre></p>
+</blockquote>
+<p>function bar(s) {<br>    var v = s.variables;<br>    s.log(“hello from bar() handler!”);<br>    return “bar-var” + v.remote_port + “; pid=” + v.pid;<br>}</p>
+<p>function preread(s) {<br>    s.on(‘upload’, function (data, flags) {<br>        var n = data.indexOf(‘\n’);<br>        if (n != -1) {<br>            line = data.substr(0, n);<br>            s.done();<br>        }<br>    });<br>}</p>
+<p>function req_line(s) {<br>    return line;<br>}</p>
+<p>// Read HTTP request line.<br>// Collect bytes in ‘req’ until<br>// request line is read.<br>// Injects HTTP header into a client’s request</p>
+<p>var my_header =  ‘Foo: foo’;<br>function header_inject(s) {<br>    var req = ‘’;<br>    s.on(‘upload’, function(data, flags) {<br>        req += data;<br>        var n = req.search(‘\n’);<br>        if (n != -1) {<br>            var rest = req.substr(n + 1);<br>            req = req.substr(0, n + 1);<br>            s.send(req + my_header + ‘\r\n’ + rest, flags);<br>            s.off(‘upload’);<br>        }<br>    });<br>}</p>
+<p>function access(s) {<br>    if (s.remoteAddress.match(‘^192.*’)) {<br>        s.abort();<br>        return;<br>    }</p>
+<pre><code>s.allow();
+</code></pre><p>}<br></p>
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**js_access** &lt;code class=&quot;notranslate&quot;&gt;*function*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
+<p>  设置将在<a href="stream_processing.html#access_phase">访问</a>阶段调用的njs函数。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**js_filter** &lt;code class=&quot;notranslate&quot;&gt;*function*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
+<p>  设置数据过滤器。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**js_include** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> <br>                </td></p>
+<p>  指定在njs中实现服务器和变量处理程序的文件。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**js_preread** &lt;code class=&quot;notranslate&quot;&gt;*function*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
+<p>  设置将在<a href="stream_processing.html#preread_phase">预读</a>阶段调用的njs函数。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**js_set** &lt;code class=&quot;notranslate&quot;&gt;*$variable*</code> <code>*function*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> <br>                </td></p>
+<p>  为指定的变量设置njs函数。 </p>
+<h4 id="会话对象属性"><a href="#会话对象属性" class="headerlink" title="会话对象属性"></a>会话对象属性</h4><p>  每个流njs处理程序接收一个参数，即流会话<a href="njs/reference.html#stream">对象</a> 。 </p>
 
       
     </div>
@@ -641,7 +690,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-stream-js-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_stream_js_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#会话对象属性"><span class="nav-number">1.0.2.</span> <span class="nav-text">会话对象属性</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-stream-js-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_stream_js_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#会话对象属性"><span class="nav-number">1.0.3.</span> <span class="nav-text">会话对象属性</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

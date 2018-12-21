@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="http,ngx_http_secure_link_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:53:24.470Z">
+<meta property="og:updated_time" content="2018-12-21T07:56:10.759Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http&#x2F;ngx_http_secure_link_module-nginx中文手册">
 <meta name="twitter:description" content="http,ngx_http_secure_link_module">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:56:29+08:00">
                 2018年12月21日
               </time>
             
@@ -397,40 +397,81 @@
 
       
         <p>http,ngx_http_secure_link_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-http-secure-link-module"><a href="#Module-ngx-http-secure-link-module" class="headerlink" title="Module ngx_http_secure_link_module"></a>Module ngx_http_secure_link_module</h2><p> Directives<br> secure_link<br> secure_link_md5<br> secure_link_secret<br> Embedded Variables<br> ngx_http_secure_link_module模块（0.7.18）用于检查请求链路的真实性，保护资源免受未经授权的访问，并限制链路生存期。 </p>
-<p> 通过将请求中传递的校验和值与为请求计算的值进行比较来验证所请求链接的真实性。 如果链接的生命周期有限且时间已过，则该链接将被视为过时。 这些检查的状态在$secure_link变量中可用。 </p>
-<p> 该模块提供两种备选操作模式。 第一种模式由secure_link_secret指令启用，用于检查请求链接的真实性以及保护资源免受未经授权的访问。 第二种模式（0.8.50）由secure_link和secure_link_md5指令启用，也用于限制链接的生命周期。 </p>
-<p> 默认情况下不构建此模块，应使用–with-http_secure_link_module配置参数启用它。 </p>
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p> Syntax:  <strong>secure_link</strong> <em>expression</em> ;<br>  Default:  —  Context:  http , server , location<br>  定义一个包含变量的字符串，从中提取链接的校验和值和生命周期。 </p>
-<p> <em>expression</em>中使用的变量通常与请求相关联; 见下面的例子 。 </p>
-<p> 将从字符串中提取的校验和值与secure_link_md5指令定义的表达式的MD5哈希值进行比较。 如果校验和不同，则$secure_link变量设置为空字符串。 如果校验和相同，则检查链路生存期。 如果链接的生命周期有限且时间已过，则$secure_link变量设置为“ 0 ”。 否则，它被设置为“ 1 ”。 请求中传递的MD5哈希值在base64url中编码。 </p>
-<p> 如果链接的生命周期有限，则到期时间设置为自Epoch（Thu，1970年1月1日1970:00 00:00:00 GMT）以来的秒数。 该值在MD5哈希之后的表达式中指定，并以逗号分隔。 请求中传递的到期时间可通过$secure_link_expires变量获得，以便在secure_link_md5指令中使用。 如果未指定到期时间，则链接具有无限生存期。 </p>
-<p> Syntax:  <strong>secure_link_md5</strong> <em>expression</em> ;<br>  Default:  —  Context:  http , server , location<br>  定义将为其计算MD5哈希值并与请求中传递的值进行比较的表达式。 </p>
-<p> 表达式应包含链接（资源）和秘密成分的安全部分。 如果链接的生命周期有限，则表达式还应包含$secure_link_expires 。 </p>
-<p> 为防止未经授权的访问，表达式可能包含有关客户端的一些信息，例如其地址和浏览器版本。 </p>
-<p> 例： </p>
-<blockquote>
-<p>location /s/ { secure_link $arg_md5,$arg_expires; secure_link_md5 “$secure_link_expires$uri$remote_addr secret”; if ($secure_link = “”) { return 403; } if ($secure_link = “0”) { return 410; } … }  “ /s/link?md5=_e4Nc3iduzkWRm01TBBNYw&amp;expires=2147483647 ”链接限制对IP地址为127.0.0.1的客户端的“ /s/link ”访问。 该链接的使用寿命有限，直到2038年1月19日（GMT）。 </p>
-</blockquote>
-<p> 在UNIX上， <em>md5</em>请求参数值可以获取为： </p>
-<blockquote>
-<p>echo -n ‘2147483647/s/link127.0.0.1 secret’ | \ openssl md5 -binary | openssl base64 | tr +/ -_ | tr -d =  Syntax:  <strong>secure_link_secret</strong> <em>word</em> ;<br>  Default:  —  Context:  location<br>  定义用于检查所请求链接的真实性的密码。 </p>
-</blockquote>
-<p> 请求链接的完整URI如下所示： </p>
-<blockquote>
-<p>/ <em>prefix</em> / <em>hash</em> / <em>link</em>  <em>hash</em>是为链接和秘密字的串联计算的MD5哈希的十六进制表示，而<em>prefix</em>是没有斜杠的任意字符串。 </p>
-</blockquote>
-<p> 如果请求的链接通过了真实性检查，则$secure_link变量将设置为从请求URI中提取的链接。 否则， $secure_link变量设置为空字符串。 </p>
-<p> 例： </p>
-<blockquote>
-<p>location /p/ { secure_link_secret secret; if ($secure_link = “”) { return 403; } rewrite ^ /secure/$secure_link; } location /secure/ { internal; }  “ /p/5e814704a28d9bc1914ff19fa0c4a00a/link ”的请求将在内部重定向到“ /secure/link ”。 </p>
-</blockquote>
-<p> 在UNIX上，此示例的哈希值可以获得为： </p>
-<blockquote>
-<p>echo -n ‘linksecret’ | openssl md5 -hex ####  嵌入式变量</p>
-</blockquote>
-<p> $secure_link   链接检查的状态。 具体值取决于所选的操作模式。  $secure_link_expires   请求中传递的链接的生命周期; 仅用于secure_link_md5指令。  </p>
+<h2 id="Module-ngx-http-secure-link-module"><a href="#Module-ngx-http-secure-link-module" class="headerlink" title="Module ngx_http_secure_link_module"></a>Module ngx_http_secure_link_module</h2><td align="left" class="notranslate"> <a href="#directives">Directives</a> <br>     <a href="#secure_link">secure_link</a> <br>     <a href="#secure_link_md5">secure_link_md5</a> <br>     <a href="#secure_link_secret">secure_link_secret</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
 
+<p>   <code>ngx_http_secure_link_module</code>模块（0.7.18）用于检查请求链路的真实性，保护资源免受未经授权的访问，并限制链路生存期。 </p>
+<p>  通过将请求中传递的校验和值与为请求计算的值进行比较来验证所请求链接的真实性。  如果链接的生命周期有限且时间已过，则该链接将被视为过时。  这些检查的状态在<code>$secure_link</code>变量中可用。 </p>
+<p>  该模块提供两种备选操作模式。  第一种模式由<a href="#secure_link_secret">secure_link_secret</a>指令启用，用于检查请求链接的真实性以及保护资源免受未经授权的访问。  第二种模式（0.8.50）由<a href="#secure_link">secure_link</a>和<a href="#secure_link_md5">secure_link_md5</a>指令启用，也用于限制链接的生命周期。 </p>
+<p>  默认情况下不构建此模块，应使用<code>--with-http_secure_link_module</code>配置参数启用它。 </p>
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**secure_link** &lt;code class=&quot;notranslate&quot;&gt;*expression*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  定义一个包含变量的字符串，从中提取链接的校验和值和生命周期。 </p>
+<p>   <code>*expression*</code>中使用的变量通常与请求相关联;  见下面的<a href="#secure_link_md5">例子</a> 。 </p>
+<p>  将从字符串中提取的校验和值与<a href="#secure_link_md5">secure_link_md5</a>指令定义的表达式的MD5哈希值进行比较。  如果校验和不同，则<code>$secure_link</code>变量设置为空字符串。  如果校验和相同，则检查链路生存期。  如果链接的生命周期有限且时间已过，则<code>$secure_link</code>变量设置为“ <code>0</code> ”。  否则，它被设置为“ <code>1</code> ”。  请求中传递的MD5哈希值在<a href="https://tools.ietf.org/html/rfc4648#section-5" target="_blank" rel="noopener">base64url中</a>编码。 </p>
+<p>  如果链接的生命周期有限，则到期时间设置为自Epoch（Thu，1970年1月1日1970:00 00:00:00 GMT）以来的秒数。  该值在MD5哈希之后的表达式中指定，并以逗号分隔。  请求中传递的到期时间可通过<code>$secure_link_expires</code>变量获得，以便在<a href="#secure_link_md5">secure_link_md5</a>指令中使用。  如果未指定到期时间，则链接具有无限生存期。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**secure_link_md5** &lt;code class=&quot;notranslate&quot;&gt;*expression*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  定义将为其计算MD5哈希值并与请求中传递的值进行比较的表达式。 </p>
+<p>  表达式应包含链接（资源）和秘密成分的安全部分。  如果链接的生命周期有限，则表达式还应包含<code>$secure_link_expires</code> 。 </p>
+<p>  为防止未经授权的访问，表达式可能包含有关客户端的一些信息，例如其地址和浏览器版本。 </p>
+<p>  例： </p>
+<blockquote>
+<p><pre class="notranslate">location /s/ {<br>    secure_link $arg_md5,$arg_expires;<br>    secure_link_md5 “$secure_link_expires$uri$remote_addr secret”;</pre></p>
+</blockquote>
+<pre><code>if ($secure_link = &quot;&quot;) {
+    return 403;
+}
+
+if ($secure_link = &quot;0&quot;) {
+    return 410;
+}
+
+...
+</code></pre><p>}<br></p>
+<p>   “ <code>/s/link?md5=_e4Nc3iduzkWRm01TBBNYw&amp;amp;expires=2147483647</code> ”链接限制对IP地址为127.0.0.1的客户端的“ <code>/s/link</code> ”访问。  该链接的使用寿命有限，直到2038年1月19日（GMT）。 </p>
+<p>  在UNIX上， <code>*md5*</code>请求参数值可以获取为： </p>
+<blockquote>
+<pre class="notranslate">echo -n '2147483647/s/link127.0.0.1 secret' | \
+    openssl md5 -binary | openssl base64 | tr +/ -_ | tr -d =
+</pre>
+
+
+</blockquote>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**secure_link_secret** &lt;code class=&quot;notranslate&quot;&gt;*word*</code> ; <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>location</code> <br>                </td></p>
+<p>  定义用于检查所请求链接的真实性的密码。 </p>
+<p>  请求链接的完整URI如下所示： </p>
+<blockquote>
+<pre class="notranslate">/ `*prefix*` / `*hash*` / `*link*`
+</pre>
+
+</blockquote>
+<p>   <code>*hash*</code>是为链接和秘密字的串联计算的MD5哈希的十六进制表示，而<code>*prefix*</code>是没有斜杠的任意字符串。 </p>
+<p>  如果请求的链接通过了真实性检查，则<code>$secure_link</code>变量将设置为从请求URI中提取的链接。  否则， <code>$secure_link</code>变量设置为空字符串。 </p>
+<p>  例： </p>
+<blockquote>
+<p><pre class="notranslate">location /p/ {<br>    secure_link_secret secret;</pre></p>
+</blockquote>
+<pre><code>if ($secure_link = &quot;&quot;) {
+    return 403;
+}
+
+rewrite ^ /secure/$secure_link;
+</code></pre><p>}</p>
+<p>location /secure/ {<br>    internal;<br>}<br></p>
+<p>   “ <code>/p/5e814704a28d9bc1914ff19fa0c4a00a/link</code> ”的请求将在内部重定向到“ <code>/secure/link</code> ”。 </p>
+<p>  在UNIX上，此示例的哈希值可以获得为： </p>
+<blockquote>
+<pre class="notranslate">echo -n 'linksecret' | openssl md5 -hex
+</pre>
+
+
+
+</blockquote>
+<h4 id="嵌入式变量"><a href="#嵌入式变量" class="headerlink" title="嵌入式变量"></a>嵌入式变量</h4>
       
     </div>
     
@@ -662,7 +703,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-secure-link-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_secure_link_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.1.</span> <span class="nav-text">指令</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-secure-link-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_secure_link_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.1.</span> <span class="nav-text">指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌入式变量"><span class="nav-number">1.0.2.</span> <span class="nav-text">嵌入式变量</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
