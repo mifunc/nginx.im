@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="http,ngx_http_rewrite_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T08:16:21.401Z">
+<meta property="og:updated_time" content="2018-12-21T08:31:23.847Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http&#x2F;ngx_http_rewrite_module-nginx中文手册">
 <meta name="twitter:description" content="http,ngx_http_rewrite_module">
@@ -326,7 +326,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:16:01+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:31:57+08:00">
                 2018年12月21日
               </time>
             
@@ -454,7 +454,7 @@ if ($invalid_referer) {
 <p>  在版本1.13.0之前，代码308不被视为重定向。 </p>
 </blockquote>
 <p>  另请参见<a href="ngx_http_core_module.html#error_page">error_page</a>指令。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**rewrite**     &lt;code class=&quot;notranslate&quot;&gt;*regex*</code>    <code>*replacement*</code>    [ <code>*flag*</code> ];<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**rewrite**  *regex*</code>    <code>*replacement*</code>    [ <code>*flag*</code> ];<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>server</code> , <code>location</code> , <code>if</code> <br>                </td></p>
 <p>  如果指定的正则表达式与请求URI匹配，则URI将根据<code>*replacement*</code>字符串中的指定进行更改。   <code>rewrite</code>指令按照它们在配置文件中的出现顺序依次执行。  可以使用标志终止对指令的进一步处理。  如果替换字符串以“ <code>http://</code> ”，“ <code>https://</code> ”或“ <code>$scheme</code> ”开头，则处理停止并将重定向返回给客户端。 </p>

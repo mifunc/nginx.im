@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="http,ngx_http_userid_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T08:16:21.368Z">
+<meta property="og:updated_time" content="2018-12-21T08:31:24.363Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http&#x2F;ngx_http_userid_module-nginx中文手册">
 <meta name="twitter:description" content="http,ngx_http_userid_module">
@@ -326,7 +326,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:16:01+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:31:57+08:00">
                 2018年12月21日
               </time>
             
@@ -412,7 +412,7 @@ userid_p3p     'policyref="/w3c/p3p.xml", CP="CUR ADM OUR NOR STA NID"';
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">userid_expires off;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  设置浏览器保留cookie的时间。  参数<code>max</code>将导致cookie在“ <code>31 Dec 2037 23:55:55 GMT</code> ”到期。  参数<code>off</code>将导致cookie在浏览器会话结束时到期。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**userid_mark**     &lt;code class=&quot;notranslate&quot;&gt;*letter*</code> | <code>*digit*</code> |    <code>=</code> |    <code>off</code> ;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**userid_mark**  *letter*</code> | <code>*digit*</code> |    <code>=</code> |    <code>off</code> ;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">userid_mark off;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  如果参数未<code>off</code> ，则启用cookie标记机制并设置用作标记的字符。  此机制用于在保留客户端标识符的同时添加或更改<a href="#userid_p3p">userid_p3p</a>和/或cookie过期时间。  标记可以是英文字母（区分大小写），数字或“ <code>=</code> ”字符的任何字母。 </p>

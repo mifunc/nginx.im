@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="http,ngx_http_session_log_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T08:16:21.360Z">
+<meta property="og:updated_time" content="2018-12-21T08:31:23.972Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http&#x2F;ngx_http_session_log_module-nginx中文手册">
 <meta name="twitter:description" content="http,ngx_http_session_log_module">
@@ -326,7 +326,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:16:01+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:31:57+08:00">
                 2018年12月21日
               </time>
             
@@ -409,11 +409,11 @@
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">session_log off;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  允许使用指定的会话日志。  特殊值<code>off</code>取消从先前配置级别继承的所有<code>session_log</code>指令。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**session_log_format**     &lt;code class=&quot;notranslate&quot;&gt;*name*</code>    <code>*string*</code> …;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**session_log_format**  *name*</code>    <code>*string*</code> …;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">session_log_format combined “…”;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> <br>                </td></p>
 <p>  指定日志的输出格​​式。   <code>$body_bytes_sent</code>变量的值在会话中的所有请求中聚合。  可用于记录的所有其他变量的值对应于会话中的第一个请求。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**session_log_zone**     &lt;code class=&quot;notranslate&quot;&gt;*path*</code>    <code>zone</code> = <code>*name*</code> : <code>*size*</code>    [ <code>format</code> = <code>*format*</code> ]    [ <code>timeout</code> = <code>*time*</code> ]    [ <code>id</code> = <code>*id*</code> ]    [ <code>md5</code> = <code>*md5*</code> ];<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**session_log_zone**  *path*</code>    <code>zone</code> = <code>*name*</code> : <code>*size*</code>    [ <code>format</code> = <code>*format*</code> ]    [ <code>timeout</code> = <code>*time*</code> ]    [ <code>id</code> = <code>*id*</code> ]    [ <code>md5</code> = <code>*md5*</code> ];<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> <br>                </td></p>
 <p>  设置日志文件的路径，并配置用于存储当前活动会话的共享内存区域。 </p>

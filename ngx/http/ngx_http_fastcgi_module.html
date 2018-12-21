@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="http,ngx_http_fastcgi_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T08:16:21.419Z">
+<meta property="og:updated_time" content="2018-12-21T08:31:23.122Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http&#x2F;ngx_http_fastcgi_module-nginx中文手册">
 <meta name="twitter:description" content="http,ngx_http_fastcgi_module">
@@ -326,7 +326,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:16:01+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:31:57+08:00">
                 2018年12月21日
               </time>
             
@@ -404,7 +404,7 @@
 
 
 
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_bind**     &lt;code class=&quot;notranslate&quot;&gt;*address*</code>    [ <code>transparent</code> ] |    <code>off</code> ;<br>                </td></p>
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_bind**  *address*</code>    [ <code>transparent</code> ] |    <code>off</code> ;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  该指令出现在0.8.22版本中。 </p>
@@ -492,7 +492,7 @@ fastcgi_cache_bypass $http_pragma    $http_authorization;
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_cache_min_uses 1;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  设置将缓存响应的请求<code>*number*</code> 。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_cache_path**     &lt;code class=&quot;notranslate&quot;&gt;*path*</code>    [ <code>levels</code> = <code>*levels*</code> ]    [ <code>use_temp_path</code> = <code>on</code> | <code>off</code> ]    <code>keys_zone</code> = <code>*name*</code> : <code>*size*</code>    [ <code>inactive</code> = <code>*time*</code> ]    [ <code>max_size</code> = <code>*size*</code> ]    [ <code>manager_files</code> = <code>*number*</code> ]    [ <code>manager_sleep</code> = <code>*time*</code> ]    [ <code>manager_threshold</code> = <code>*time*</code> ]    [ <code>loader_files</code> = <code>*number*</code> ]    [ <code>loader_sleep</code> = <code>*time*</code> ]    [ <code>loader_threshold</code> = <code>*time*</code> ]    [ <code>purger</code> = <code>on</code> | <code>off</code> ]    [ <code>purger_files</code> = <code>*number*</code> ]    [ <code>purger_sleep</code> = <code>*time*</code> ]    [ <code>purger_threshold</code> = <code>*time*</code> ];<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_cache_path**  *path*</code>    [ <code>levels</code> = <code>*levels*</code> ]    [ <code>use_temp_path</code> = <code>on</code> | <code>off</code> ]    <code>keys_zone</code> = <code>*name*</code> : <code>*size*</code>    [ <code>inactive</code> = <code>*time*</code> ]    [ <code>max_size</code> = <code>*size*</code> ]    [ <code>manager_files</code> = <code>*number*</code> ]    [ <code>manager_sleep</code> = <code>*time*</code> ]    [ <code>manager_threshold</code> = <code>*time*</code> ]    [ <code>loader_files</code> = <code>*number*</code> ]    [ <code>loader_sleep</code> = <code>*time*</code> ]    [ <code>loader_threshold</code> = <code>*time*</code> ]    [ <code>purger</code> = <code>on</code> | <code>off</code> ]    [ <code>purger_files</code> = <code>*number*</code> ]    [ <code>purger_sleep</code> = <code>*time*</code> ]    [ <code>purger_threshold</code> = <code>*time*</code> ];<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> <br>                </td></p>
 <p>  设置缓存的路径和其他参数。  缓存数据存储在文件中。  缓存中的密钥和文件名都是将MD5功能应用于代理URL的结果。   <code>levels</code>参数定义高速缓存的层次结构级别：从1到3，每个级别接受值1或2.例如，在以下配置中 </p>
@@ -682,7 +682,7 @@ fastcgi_no_cache $http_pragma    $http_authorization;
 </pre>
 
 <p>  可以与<a href="#fastcgi_cache_bypass">fastcgi_cache_bypass</a>指令一起使用。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_param**     &lt;code class=&quot;notranslate&quot;&gt;*parameter*</code> <code>*value*</code>    [ <code>if_not_empty</code> ];<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_param**  *parameter*</code> <code>*value*</code>    [ <code>if_not_empty</code> ];<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  设置应传递给FastCGI服务器的参数。  该<code>*value*</code>可以包含文本，变量及其组合。  当且仅当在当前级别上没有定义<code>fastcgi_param</code>指令时，这些指令才从前一级继承。 </p>
@@ -825,7 +825,7 @@ location /fetch/ {
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_temp_file_write_size 8k|16k;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  当启用从FastCGI服务器到临时文件的响应缓冲时，限制一次写入临时文件的数据<code>*size*</code> 。  默认情况下， <code>*size*</code>由<a href="#fastcgi_buffer_size">fastcgi_buffer_size</a>和<a href="#fastcgi_buffers">fastcgi_buffers</a>指令设置的两个缓冲区限制。  临时文件的最大大小由<a href="#fastcgi_max_temp_file_size">fastcgi_max_temp_file_size</a>指令设置。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_temp_path**     &lt;code class=&quot;notranslate&quot;&gt;*path*</code>    [ <code>*level1*</code>    [ <code>*level2*</code>    [ <code>*level3*</code> ]]];<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_temp_path**  *path*</code>    [ <code>*level1*</code>    [ <code>*level2*</code>    [ <code>*level3*</code> ]]];<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_temp_path fastcgi_temp;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  定义用于存储临时文件的目录，其中包含从FastCGI服务器接收的数据。  在指定目录下最多可以使用三级子目录层次结构。  例如，在以下配置中 </p>

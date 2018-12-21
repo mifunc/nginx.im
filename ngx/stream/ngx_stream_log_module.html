@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="stream,ngx_stream_log_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T08:16:21.387Z">
+<meta property="og:updated_time" content="2018-12-21T08:31:25.021Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="stream&#x2F;ngx_stream_log_module-nginx中文手册">
 <meta name="twitter:description" content="stream,ngx_stream_log_module">
@@ -326,7 +326,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:16:01+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:31:57+08:00">
                 2018年12月21日
               </time>
             
@@ -399,7 +399,7 @@ access_log /spool/logs/nginx-access.log basic buffer=32k;
 
 
 
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**access_log**     &lt;code class=&quot;notranslate&quot;&gt;*path*</code>    <code>*format*</code>    [ <code>buffer</code> = <code>*size*</code> ]    [ <code>gzip[= &lt;code class=&quot;notranslate&quot;&gt;*level*</code> ] ]    [ <code>flush</code> = <code>*time*</code> ]    [ <code>if</code> = <code>*condition*</code> ]; <br> <code>**access_logoff</code> ;<br>                </td></p>
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**access_log**  *path*</code>    <code>*format*</code>    [ <code>buffer</code> = <code>*size*</code> ]    [ <code>gzip[= &lt;code class=&quot;notranslate&quot;&gt;*level*</code> ] ]    [ <code>flush</code> = <code>*time*</code> ]    [ <code>if</code> = <code>*condition*</code> ]; <br> <code>**access_logoff</code> ;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">access_log off;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
 <p>  设置缓冲日志写入的路径， <a href="#log_format">格式</a>和配置。  可以在同一级别指定多个日志。  可以通过在第一个参数中指定“ <code>syslog:</code> ”前缀来配置记录到<a href="syslog.html">syslog</a> 。  特殊值<code>off</code>取消当前级别的所有<code>access_log</code>指令。 </p>
@@ -428,7 +428,7 @@ access_log /spool/logs/nginx-access.log basic buffer=32k;
 <li>工作进程使用其凭据的<a href="ngx_core_module.html#user">用户</a>应具有在具有此类日志的目录中创建文件的权限; -   缓冲写入不起作用; -   每个日志写入都会打开和关闭该文件。  但是，由于常用文件的描述符可以存储在<a href="#open_log_file_cache">缓存中</a> ，因此写入旧文件可以在<a href="#open_log_file_cache">open_log_file_cache</a>指令的<code>valid</code>参数指定的时间内继续写入 </li>
 </ul>
 <p>   <code>if</code>参数启用条件记录。  如果<code>*condition*</code>计算为“0”或空字符串，则不会记录会话。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**log_format**     &lt;code class=&quot;notranslate&quot;&gt;*name*</code>    [ <code>escape</code> = <code>default</code> | <code>json</code> | <code>none</code> ]    <code>*string*</code> …;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**log_format**  *name*</code>    [ <code>escape</code> = <code>default</code> | <code>json</code> | <code>none</code> ]    <code>*string*</code> …;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> <br>                </td></p>
 <p>  指定日志格式，例如： </p>

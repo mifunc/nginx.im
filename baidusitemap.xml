@@ -4,767 +4,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx%E5%B8%B8%E7%94%A8%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F%E5%8F%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html</loc>
-    <lastmod>2018-12-21T08:21:40.333Z</lastmod>
+    <loc>http://nginx.im/ngx/njs/examples.html</loc>
+    <lastmod>2018-12-21T08:31:25.522Z</lastmod>
     <data>
         <display>
-        <title></title>
-        <pubTime>2018-03-05T04:58:45.364Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/mail/ngx_mail_core_module.html</loc>
-    <lastmod>2018-12-21T08:20:44.199Z</lastmod>
-    <data>
-        <display>
-        <title>mail/ngx_mail_core_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.760Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/dev/development_guide.html</loc>
-    <lastmod>2018-12-21T08:16:21.429Z</lastmod>
-    <data>
-        <display>
-        <title>dev/development_guide-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.585Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_core_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.425Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_core_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.624Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_proxy_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.423Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_proxy_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.686Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_api_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.421Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_api_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.604Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_uwsgi_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.420Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_uwsgi_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.737Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_fastcgi_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.419Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_fastcgi_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.633Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_scgi_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.418Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_scgi_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.699Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/dirindex.html</loc>
-    <lastmod>2018-12-21T08:16:21.417Z</lastmod>
-    <data>
-        <display>
-        <title>dirindex-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.535Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_upstream_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.416Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_upstream_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.732Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/stream/ngx_stream_zone_sync_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.415Z</lastmod>
-    <data>
-        <display>
-        <title>stream/ngx_stream_zone_sync_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.826Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/stream/ngx_stream_ssl_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.414Z</lastmod>
-    <data>
-        <display>
-        <title>stream/ngx_stream_ssl_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.817Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/stream/ngx_stream_proxy_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.413Z</lastmod>
-    <data>
-        <display>
-        <title>stream/ngx_stream_proxy_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.807Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/mail/ngx_mail_ssl_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.412Z</lastmod>
-    <data>
-        <display>
-        <title>mail/ngx_mail_ssl_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.770Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_ssl_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.411Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_ssl_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.718Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_grpc_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.409Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_grpc_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.643Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/stream/ngx_stream_upstream_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.407Z</lastmod>
-    <data>
-        <display>
-        <title>stream/ngx_stream_upstream_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.823Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/stream/ngx_stream_core_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.405Z</lastmod>
-    <data>
-        <display>
-        <title>stream/ngx_stream_core_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.789Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/server_names.html</loc>
-    <lastmod>2018-12-21T08:16:21.402Z</lastmod>
-    <data>
-        <display>
-        <title>http/server_names-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.746Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_v2_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.402Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_v2_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.739Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_rewrite_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.401Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_rewrite_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.697Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_memcached_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.398Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_memcached_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.678Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/configuring_https_servers.html</loc>
-    <lastmod>2018-12-21T08:16:21.397Z</lastmod>
-    <data>
-        <display>
-        <title>http/configuring_https_servers-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.593Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/ngx_core_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.396Z</lastmod>
-    <data>
-        <display>
-        <title>ngx_core_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.559Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/stream/stream_processing.html</loc>
-    <lastmod>2018-12-21T08:16:21.395Z</lastmod>
-    <data>
-        <display>
-        <title>stream/stream_processing-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.828Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/stream/ngx_stream_upstream_hc_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.394Z</lastmod>
-    <data>
-        <display>
-        <title>stream/ngx_stream_upstream_hc_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.821Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/stream/ngx_stream_ssl_preread_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.393Z</lastmod>
-    <data>
-        <display>
-        <title>stream/ngx_stream_ssl_preread_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.819Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/stream/ngx_stream_split_clients_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.392Z</lastmod>
-    <data>
-        <display>
-        <title>stream/ngx_stream_split_clients_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.815Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/stream/ngx_stream_return_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.390Z</lastmod>
-    <data>
-        <display>
-        <title>stream/ngx_stream_return_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.813Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/stream/ngx_stream_realip_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.389Z</lastmod>
-    <data>
-        <display>
-        <title>stream/ngx_stream_realip_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.810Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/stream/ngx_stream_map_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.388Z</lastmod>
-    <data>
-        <display>
-        <title>stream/ngx_stream_map_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.805Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/stream/ngx_stream_log_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.387Z</lastmod>
-    <data>
-        <display>
-        <title>stream/ngx_stream_log_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.803Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/stream/ngx_stream_js_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.386Z</lastmod>
-    <data>
-        <display>
-        <title>stream/ngx_stream_js_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.796Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/stream/ngx_stream_limit_conn_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.386Z</lastmod>
-    <data>
-        <display>
-        <title>stream/ngx_stream_limit_conn_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.801Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/stream/ngx_stream_keyval_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.385Z</lastmod>
-    <data>
-        <display>
-        <title>stream/ngx_stream_keyval_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.799Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/stream/ngx_stream_geoip_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.384Z</lastmod>
-    <data>
-        <display>
-        <title>stream/ngx_stream_geoip_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.792Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/stream/ngx_stream_geo_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.382Z</lastmod>
-    <data>
-        <display>
-        <title>stream/ngx_stream_geo_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.794Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/stream/ngx_stream_access_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.381Z</lastmod>
-    <data>
-        <display>
-        <title>stream/ngx_stream_access_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.787Z</pubTime>
+        <title>njs/examples-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.242Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -780,1391 +25,11 @@
     
   <url>
     <loc>http://nginx.im/ngx/njs/install.html</loc>
-    <lastmod>2018-12-21T08:16:21.380Z</lastmod>
+    <lastmod>2018-12-21T08:31:25.497Z</lastmod>
     <data>
         <display>
         <title>njs/install-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.780Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/njs/index.html</loc>
-    <lastmod>2018-12-21T08:16:21.379Z</lastmod>
-    <data>
-        <display>
-        <title>njs/index-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.779Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/njs/examples.html</loc>
-    <lastmod>2018-12-21T08:16:21.378Z</lastmod>
-    <data>
-        <display>
-        <title>njs/examples-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.777Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/mail/ngx_mail_smtp_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.376Z</lastmod>
-    <data>
-        <display>
-        <title>mail/ngx_mail_smtp_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.768Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/mail/ngx_mail_proxy_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.375Z</lastmod>
-    <data>
-        <display>
-        <title>mail/ngx_mail_proxy_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.766Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/mail/ngx_mail_imap_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.374Z</lastmod>
-    <data>
-        <display>
-        <title>mail/ngx_mail_imap_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.761Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/mail/ngx_mail_pop3_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.373Z</lastmod>
-    <data>
-        <display>
-        <title>mail/ngx_mail_pop3_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.763Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/mail/ngx_mail_auth_http_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.372Z</lastmod>
-    <data>
-        <display>
-        <title>mail/ngx_mail_auth_http_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.757Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/websocket.html</loc>
-    <lastmod>2018-12-21T08:16:21.371Z</lastmod>
-    <data>
-        <display>
-        <title>http/websocket-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.748Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/request_processing.html</loc>
-    <lastmod>2018-12-21T08:16:21.370Z</lastmod>
-    <data>
-        <display>
-        <title>http/request_processing-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.744Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_xslt_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.369Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_xslt_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.742Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_userid_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.368Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_userid_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.734Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_upstream_conf_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.367Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_upstream_conf_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.728Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_upstream_hc_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.367Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_upstream_hc_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.729Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_sub_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.366Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_sub_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.726Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_status_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.365Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_status_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.721Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_stub_status_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.365Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_stub_status_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.723Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_ssi_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.364Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_ssi_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.716Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_split_clients_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.363Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_split_clients_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.713Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_spdy_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.362Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_spdy_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.711Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_slice_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.361Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_slice_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.709Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_session_log_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.360Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_session_log_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.705Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_secure_link_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.359Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_secure_link_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.701Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_referer_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.358Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_referer_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.695Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_realip_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.356Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_realip_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.692Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_random_index_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.354Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_random_index_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.689Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_mp4_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.353Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_mp4_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.682Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_perl_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.352Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_perl_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.683Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_mirror_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.351Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_mirror_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.680Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_map_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.350Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_map_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.676Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_log_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.347Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_log_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.673Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_limit_req_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.347Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_limit_req_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.669Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_limit_conn_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.346Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_limit_conn_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.667Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_keyval_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.345Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_keyval_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.664Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_image_filter_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.344Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_image_filter_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.657Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_js_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.342Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_js_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.662Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_index_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.340Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_index_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.659Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_hls_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.339Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_hls_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.653Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_headers_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.338Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_headers_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.651Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_gunzip_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.336Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_gunzip_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.645Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_gzip_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.335Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_gzip_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.647Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_gzip_static_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.334Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_gzip_static_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.649Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_geoip_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.333Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_geoip_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.637Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_flv_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.332Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_flv_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.635Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_geo_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.330Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_geo_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.640Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_f4f_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.330Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_f4f_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.632Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_empty_gif_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.329Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_empty_gif_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.630Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_dav_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.327Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_dav_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.627Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_charset_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.326Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_charset_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.621Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_browser_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.325Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_browser_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.619Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_autoindex_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.324Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_autoindex_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.617Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_auth_jwt_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.323Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_auth_jwt_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.611Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_auth_request_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.321Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_auth_request_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.614Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_access_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.320Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_access_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.600Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_addition_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.320Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_addition_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.602Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_auth_basic_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.319Z</lastmod>
-    <data>
-        <display>
-        <title>http/ngx_http_auth_basic_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.608Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/converting_rewrite_rules.html</loc>
-    <lastmod>2018-12-21T08:16:21.318Z</lastmod>
-    <data>
-        <display>
-        <title>http/converting_rewrite_rules-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.596Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/http/load_balancing.html</loc>
-    <lastmod>2018-12-21T08:16:21.317Z</lastmod>
-    <data>
-        <display>
-        <title>http/load_balancing-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.598Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/varindex.html</loc>
-    <lastmod>2018-12-21T08:16:21.316Z</lastmod>
-    <data>
-        <display>
-        <title>varindex-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.575Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/reference.html</loc>
-    <lastmod>2018-12-21T08:16:21.315Z</lastmod>
-    <data>
-        <display>
-        <title>reference-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.564Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/changes.html</loc>
-    <lastmod>2018-12-21T08:16:21.314Z</lastmod>
-    <data>
-        <display>
-        <title>changes-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.517Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/linux_packages.html</loc>
-    <lastmod>2018-12-21T08:16:21.314Z</lastmod>
-    <data>
-        <display>
-        <title>linux_packages-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.553Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/control.html</loc>
-    <lastmod>2018-12-21T08:16:21.313Z</lastmod>
-    <data>
-        <display>
-        <title>control-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.527Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/beginners_guide.html</loc>
-    <lastmod>2018-12-21T08:16:21.311Z</lastmod>
-    <data>
-        <display>
-        <title>beginners_guide-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.514Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/syslog.html</loc>
-    <lastmod>2018-12-21T08:16:21.310Z</lastmod>
-    <data>
-        <display>
-        <title>syslog-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.571Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/windows.html</loc>
-    <lastmod>2018-12-21T08:16:21.310Z</lastmod>
-    <data>
-        <display>
-        <title>windows-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.578Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/syntax.html</loc>
-    <lastmod>2018-12-21T08:16:21.309Z</lastmod>
-    <data>
-        <display>
-        <title>syntax-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.569Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/switches.html</loc>
-    <lastmod>2018-12-21T08:16:21.308Z</lastmod>
-    <data>
-        <display>
-        <title>switches-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.566Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/ngx_google_perftools_module.html</loc>
-    <lastmod>2018-12-21T08:16:21.306Z</lastmod>
-    <data>
-        <display>
-        <title>ngx_google_perftools_module-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.561Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/nginx_dtrace_pid_provider.html</loc>
-    <lastmod>2018-12-21T08:16:21.305Z</lastmod>
-    <data>
-        <display>
-        <title>nginx_dtrace_pid_provider-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.556Z</pubTime>
+        <pubTime>2018-12-21T08:31:57.246Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -2180,51 +45,11 @@
     
   <url>
     <loc>http://nginx.im/ngx/index.html</loc>
-    <lastmod>2018-12-21T08:16:21.304Z</lastmod>
+    <lastmod>2018-12-21T08:31:25.472Z</lastmod>
     <data>
         <display>
         <title>index-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.549Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/hash.html</loc>
-    <lastmod>2018-12-21T08:16:21.304Z</lastmod>
-    <data>
-        <display>
-        <title>hash-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.544Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/install.html</loc>
-    <lastmod>2018-12-21T08:16:21.303Z</lastmod>
-    <data>
-        <display>
-        <title>install-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.551Z</pubTime>
+        <pubTime>2018-12-21T08:31:57.034Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -2240,11 +65,11 @@
     
   <url>
     <loc>http://nginx.im/ngx/examples.html</loc>
-    <lastmod>2018-12-21T08:16:21.302Z</lastmod>
+    <lastmod>2018-12-21T08:31:25.448Z</lastmod>
     <data>
         <display>
         <title>examples-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.541Z</pubTime>
+        <pubTime>2018-12-21T08:31:57.019Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -2259,12 +84,12 @@
 
     
   <url>
-    <loc>http://nginx.im/ngx/howto_build_on_win32.html</loc>
-    <lastmod>2018-12-21T08:16:21.302Z</lastmod>
+    <loc>http://nginx.im/ngx/reference.html</loc>
+    <lastmod>2018-12-21T08:31:25.415Z</lastmod>
     <data>
         <display>
-        <title>howto_build_on_win32-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.546Z</pubTime>
+        <title>reference-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.046Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -2279,72 +104,12 @@
 
     
   <url>
-    <loc>http://nginx.im/ngx/events.html</loc>
-    <lastmod>2018-12-21T08:16:21.301Z</lastmod>
+    <loc>http://nginx.im/ngx/changes.html</loc>
+    <lastmod>2018-12-21T08:31:25.381Z</lastmod>
     <data>
         <display>
-        <title>events-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.538Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/debugging_log.html</loc>
-    <lastmod>2018-12-21T08:16:21.300Z</lastmod>
-    <data>
-        <display>
-        <title>debugging_log-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.530Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/contributing_changes.html</loc>
-    <lastmod>2018-12-21T08:16:21.300Z</lastmod>
-    <data>
-        <display>
-        <title>contributing_changes-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.524Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/ngx/configure.html</loc>
-    <lastmod>2018-12-21T08:16:21.299Z</lastmod>
-    <data>
-        <display>
-        <title>configure-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.522Z</pubTime>
+        <title>changes-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.003Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -2360,11 +125,11 @@
     
   <url>
     <loc>http://nginx.im/ngx/compatibility.html</loc>
-    <lastmod>2018-12-21T08:16:21.298Z</lastmod>
+    <lastmod>2018-12-21T08:31:25.351Z</lastmod>
     <data>
         <display>
         <title>compatibility-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.519Z</pubTime>
+        <pubTime>2018-12-21T08:31:57.004Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -2373,6 +138,2241 @@
              
               <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/linux_packages.html</loc>
+    <lastmod>2018-12-21T08:31:25.322Z</lastmod>
+    <data>
+        <display>
+        <title>linux_packages-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.039Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/ngx_google_perftools_module.html</loc>
+    <lastmod>2018-12-21T08:31:25.297Z</lastmod>
+    <data>
+        <display>
+        <title>ngx_google_perftools_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.044Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/stream/ngx_stream_zone_sync_module.html</loc>
+    <lastmod>2018-12-21T08:31:25.272Z</lastmod>
+    <data>
+        <display>
+        <title>stream/ngx_stream_zone_sync_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.286Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/stream/ngx_stream_upstream_hc_module.html</loc>
+    <lastmod>2018-12-21T08:31:25.247Z</lastmod>
+    <data>
+        <display>
+        <title>stream/ngx_stream_upstream_hc_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.283Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/stream/ngx_stream_upstream_module.html</loc>
+    <lastmod>2018-12-21T08:31:25.222Z</lastmod>
+    <data>
+        <display>
+        <title>stream/ngx_stream_upstream_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.284Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/stream/ngx_stream_ssl_preread_module.html</loc>
+    <lastmod>2018-12-21T08:31:25.199Z</lastmod>
+    <data>
+        <display>
+        <title>stream/ngx_stream_ssl_preread_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.279Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/stream/ngx_stream_ssl_module.html</loc>
+    <lastmod>2018-12-21T08:31:25.173Z</lastmod>
+    <data>
+        <display>
+        <title>stream/ngx_stream_ssl_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.277Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/stream/ngx_stream_split_clients_module.html</loc>
+    <lastmod>2018-12-21T08:31:25.147Z</lastmod>
+    <data>
+        <display>
+        <title>stream/ngx_stream_split_clients_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.275Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/stream/ngx_stream_return_module.html</loc>
+    <lastmod>2018-12-21T08:31:25.121Z</lastmod>
+    <data>
+        <display>
+        <title>stream/ngx_stream_return_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.273Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/stream/ngx_stream_realip_module.html</loc>
+    <lastmod>2018-12-21T08:31:25.097Z</lastmod>
+    <data>
+        <display>
+        <title>stream/ngx_stream_realip_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.271Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/stream/ngx_stream_proxy_module.html</loc>
+    <lastmod>2018-12-21T08:31:25.072Z</lastmod>
+    <data>
+        <display>
+        <title>stream/ngx_stream_proxy_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.270Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/stream/ngx_stream_map_module.html</loc>
+    <lastmod>2018-12-21T08:31:25.046Z</lastmod>
+    <data>
+        <display>
+        <title>stream/ngx_stream_map_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.268Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/stream/ngx_stream_log_module.html</loc>
+    <lastmod>2018-12-21T08:31:25.021Z</lastmod>
+    <data>
+        <display>
+        <title>stream/ngx_stream_log_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.267Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/stream/ngx_stream_limit_conn_module.html</loc>
+    <lastmod>2018-12-21T08:31:24.996Z</lastmod>
+    <data>
+        <display>
+        <title>stream/ngx_stream_limit_conn_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.264Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/stream/ngx_stream_keyval_module.html</loc>
+    <lastmod>2018-12-21T08:31:24.971Z</lastmod>
+    <data>
+        <display>
+        <title>stream/ngx_stream_keyval_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.262Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/stream/ngx_stream_js_module.html</loc>
+    <lastmod>2018-12-21T08:31:24.938Z</lastmod>
+    <data>
+        <display>
+        <title>stream/ngx_stream_js_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.260Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/stream/ngx_stream_geoip_module.html</loc>
+    <lastmod>2018-12-21T08:31:24.912Z</lastmod>
+    <data>
+        <display>
+        <title>stream/ngx_stream_geoip_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.256Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/stream/ngx_stream_geo_module.html</loc>
+    <lastmod>2018-12-21T08:31:24.888Z</lastmod>
+    <data>
+        <display>
+        <title>stream/ngx_stream_geo_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.258Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/stream/ngx_stream_access_module.html</loc>
+    <lastmod>2018-12-21T08:31:24.864Z</lastmod>
+    <data>
+        <display>
+        <title>stream/ngx_stream_access_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.252Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/stream/ngx_stream_core_module.html</loc>
+    <lastmod>2018-12-21T08:31:24.838Z</lastmod>
+    <data>
+        <display>
+        <title>stream/ngx_stream_core_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.254Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/mail/ngx_mail_smtp_module.html</loc>
+    <lastmod>2018-12-21T08:31:24.807Z</lastmod>
+    <data>
+        <display>
+        <title>mail/ngx_mail_smtp_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.230Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/mail/ngx_mail_pop3_module.html</loc>
+    <lastmod>2018-12-21T08:31:24.771Z</lastmod>
+    <data>
+        <display>
+        <title>mail/ngx_mail_pop3_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.226Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/mail/ngx_mail_imap_module.html</loc>
+    <lastmod>2018-12-21T08:31:24.747Z</lastmod>
+    <data>
+        <display>
+        <title>mail/ngx_mail_imap_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.224Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/mail/ngx_mail_ssl_module.html</loc>
+    <lastmod>2018-12-21T08:31:24.717Z</lastmod>
+    <data>
+        <display>
+        <title>mail/ngx_mail_ssl_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.233Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/mail/ngx_mail_proxy_module.html</loc>
+    <lastmod>2018-12-21T08:31:24.673Z</lastmod>
+    <data>
+        <display>
+        <title>mail/ngx_mail_proxy_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.228Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/mail/ngx_mail_auth_http_module.html</loc>
+    <lastmod>2018-12-21T08:31:24.565Z</lastmod>
+    <data>
+        <display>
+        <title>mail/ngx_mail_auth_http_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.219Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/mail/ngx_mail_core_module.html</loc>
+    <lastmod>2018-12-21T08:31:24.525Z</lastmod>
+    <data>
+        <display>
+        <title>mail/ngx_mail_core_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.221Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_xslt_module.html</loc>
+    <lastmod>2018-12-21T08:31:24.471Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_xslt_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.205Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_v2_module.html</loc>
+    <lastmod>2018-12-21T08:31:24.413Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_v2_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.201Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_uwsgi_module.html</loc>
+    <lastmod>2018-12-21T08:31:24.389Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_uwsgi_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.199Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_userid_module.html</loc>
+    <lastmod>2018-12-21T08:31:24.363Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_userid_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.198Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_upstream_hc_module.html</loc>
+    <lastmod>2018-12-21T08:31:24.317Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_upstream_hc_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.194Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_upstream_conf_module.html</loc>
+    <lastmod>2018-12-21T08:31:24.272Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_upstream_conf_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.192Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_upstream_module.html</loc>
+    <lastmod>2018-12-21T08:31:24.246Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_upstream_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.196Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_sub_module.html</loc>
+    <lastmod>2018-12-21T08:31:24.221Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_sub_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.190Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_stub_status_module.html</loc>
+    <lastmod>2018-12-21T08:31:24.196Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_stub_status_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.185Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_status_module.html</loc>
+    <lastmod>2018-12-21T08:31:24.171Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_status_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.183Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_ssl_module.html</loc>
+    <lastmod>2018-12-21T08:31:24.147Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_ssl_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.181Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_ssi_module.html</loc>
+    <lastmod>2018-12-21T08:31:24.121Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_ssi_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.180Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_split_clients_module.html</loc>
+    <lastmod>2018-12-21T08:31:24.097Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_split_clients_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.177Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_spdy_module.html</loc>
+    <lastmod>2018-12-21T08:31:24.068Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_spdy_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.176Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_slice_module.html</loc>
+    <lastmod>2018-12-21T08:31:23.996Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_slice_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.174Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_session_log_module.html</loc>
+    <lastmod>2018-12-21T08:31:23.972Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_session_log_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.171Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_secure_link_module.html</loc>
+    <lastmod>2018-12-21T08:31:23.946Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_secure_link_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.168Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_scgi_module.html</loc>
+    <lastmod>2018-12-21T08:31:23.915Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_scgi_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.167Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_rewrite_module.html</loc>
+    <lastmod>2018-12-21T08:31:23.847Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_rewrite_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.165Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_referer_module.html</loc>
+    <lastmod>2018-12-21T08:31:23.821Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_referer_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.163Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_realip_module.html</loc>
+    <lastmod>2018-12-21T08:31:23.795Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_realip_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.161Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_random_index_module.html</loc>
+    <lastmod>2018-12-21T08:31:23.772Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_random_index_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.159Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_proxy_module.html</loc>
+    <lastmod>2018-12-21T08:31:23.747Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_proxy_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.154Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_perl_module.html</loc>
+    <lastmod>2018-12-21T08:31:23.722Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_perl_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.152Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_mp4_module.html</loc>
+    <lastmod>2018-12-21T08:31:23.696Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_mp4_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.149Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_mirror_module.html</loc>
+    <lastmod>2018-12-21T08:31:23.671Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_mirror_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.148Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_memcached_module.html</loc>
+    <lastmod>2018-12-21T08:31:23.647Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_memcached_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.145Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_map_module.html</loc>
+    <lastmod>2018-12-21T08:31:23.621Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_map_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.142Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_log_module.html</loc>
+    <lastmod>2018-12-21T08:31:23.596Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_log_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.139Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_limit_req_module.html</loc>
+    <lastmod>2018-12-21T08:31:23.571Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_limit_req_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.137Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_limit_conn_module.html</loc>
+    <lastmod>2018-12-21T08:31:23.546Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_limit_conn_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.135Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_keyval_module.html</loc>
+    <lastmod>2018-12-21T08:31:23.522Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_keyval_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.132Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_js_module.html</loc>
+    <lastmod>2018-12-21T08:31:23.483Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_js_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.131Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_index_module.html</loc>
+    <lastmod>2018-12-21T08:31:23.438Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_index_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.129Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_image_filter_module.html</loc>
+    <lastmod>2018-12-21T08:31:23.413Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_image_filter_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.126Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_hls_module.html</loc>
+    <lastmod>2018-12-21T08:31:23.388Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_hls_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.123Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_headers_module.html</loc>
+    <lastmod>2018-12-21T08:31:23.356Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_headers_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.121Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_gzip_static_module.html</loc>
+    <lastmod>2018-12-21T08:31:23.329Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_gzip_static_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.119Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_gzip_module.html</loc>
+    <lastmod>2018-12-21T08:31:23.305Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_gzip_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.117Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_gunzip_module.html</loc>
+    <lastmod>2018-12-21T08:31:23.280Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_gunzip_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.115Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_grpc_module.html</loc>
+    <lastmod>2018-12-21T08:31:23.247Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_grpc_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.113Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_geoip_module.html</loc>
+    <lastmod>2018-12-21T08:31:23.206Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_geoip_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.109Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_geo_module.html</loc>
+    <lastmod>2018-12-21T08:31:23.179Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_geo_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.112Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_flv_module.html</loc>
+    <lastmod>2018-12-21T08:31:23.154Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_flv_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.106Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_fastcgi_module.html</loc>
+    <lastmod>2018-12-21T08:31:23.122Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_fastcgi_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.104Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_f4f_module.html</loc>
+    <lastmod>2018-12-21T08:31:23.096Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_f4f_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.102Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_empty_gif_module.html</loc>
+    <lastmod>2018-12-21T08:31:23.071Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_empty_gif_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.101Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_dav_module.html</loc>
+    <lastmod>2018-12-21T08:31:23.046Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_dav_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.099Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_charset_module.html</loc>
+    <lastmod>2018-12-21T08:31:23.021Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_charset_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.096Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_browser_module.html</loc>
+    <lastmod>2018-12-21T08:31:22.995Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_browser_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.093Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_autoindex_module.html</loc>
+    <lastmod>2018-12-21T08:31:22.971Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_autoindex_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.091Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_auth_request_module.html</loc>
+    <lastmod>2018-12-21T08:31:22.941Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_auth_request_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.089Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_auth_jwt_module.html</loc>
+    <lastmod>2018-12-21T08:31:22.896Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_auth_jwt_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.087Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_auth_basic_module.html</loc>
+    <lastmod>2018-12-21T08:31:22.871Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_auth_basic_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.085Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_api_module.html</loc>
+    <lastmod>2018-12-21T08:31:22.847Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_api_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.083Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_addition_module.html</loc>
+    <lastmod>2018-12-21T08:31:22.821Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_addition_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.081Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_access_module.html</loc>
+    <lastmod>2018-12-21T08:31:22.771Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_access_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.076Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_core_module.html</loc>
+    <lastmod>2018-12-21T08:31:22.722Z</lastmod>
+    <data>
+        <display>
+        <title>http/ngx_http_core_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.097Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/ngx_core_module.html</loc>
+    <lastmod>2018-12-21T08:31:22.695Z</lastmod>
+    <data>
+        <display>
+        <title>ngx_core_module-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.042Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/varindex.html</loc>
+    <lastmod>2018-12-21T08:31:22.670Z</lastmod>
+    <data>
+        <display>
+        <title>varindex-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.054Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/dirindex.html</loc>
+    <lastmod>2018-12-21T08:31:22.640Z</lastmod>
+    <data>
+        <display>
+        <title>dirindex-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.014Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/dev/development_guide.html</loc>
+    <lastmod>2018-12-21T08:31:22.606Z</lastmod>
+    <data>
+        <display>
+        <title>dev/development_guide-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.063Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/contributing_changes.html</loc>
+    <lastmod>2018-12-21T08:31:22.568Z</lastmod>
+    <data>
+        <display>
+        <title>contributing_changes-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.008Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/websocket.html</loc>
+    <lastmod>2018-12-21T08:31:22.529Z</lastmod>
+    <data>
+        <display>
+        <title>http/websocket-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.211Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/converting_rewrite_rules.html</loc>
+    <lastmod>2018-12-21T08:31:22.504Z</lastmod>
+    <data>
+        <display>
+        <title>http/converting_rewrite_rules-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.071Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/nginx_dtrace_pid_provider.html</loc>
+    <lastmod>2018-12-21T08:31:22.479Z</lastmod>
+    <data>
+        <display>
+        <title>nginx_dtrace_pid_provider-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.041Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/howto_build_on_win32.html</loc>
+    <lastmod>2018-12-21T08:31:22.454Z</lastmod>
+    <data>
+        <display>
+        <title>howto_build_on_win32-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.031Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/njs/index.html</loc>
+    <lastmod>2018-12-21T08:31:22.429Z</lastmod>
+    <data>
+        <display>
+        <title>njs/index-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.244Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/stream/stream_processing.html</loc>
+    <lastmod>2018-12-21T08:31:22.404Z</lastmod>
+    <data>
+        <display>
+        <title>stream/stream_processing-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.288Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/configuring_https_servers.html</loc>
+    <lastmod>2018-12-21T08:31:22.378Z</lastmod>
+    <data>
+        <display>
+        <title>http/configuring_https_servers-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.069Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/load_balancing.html</loc>
+    <lastmod>2018-12-21T08:31:22.353Z</lastmod>
+    <data>
+        <display>
+        <title>http/load_balancing-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.074Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/server_names.html</loc>
+    <lastmod>2018-12-21T08:31:22.329Z</lastmod>
+    <data>
+        <display>
+        <title>http/server_names-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.210Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/http/request_processing.html</loc>
+    <lastmod>2018-12-21T08:31:22.297Z</lastmod>
+    <data>
+        <display>
+        <title>http/request_processing-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.207Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/windows.html</loc>
+    <lastmod>2018-12-21T08:31:22.262Z</lastmod>
+    <data>
+        <display>
+        <title>windows-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.056Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/switches.html</loc>
+    <lastmod>2018-12-21T08:31:22.231Z</lastmod>
+    <data>
+        <display>
+        <title>switches-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.049Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/syntax.html</loc>
+    <lastmod>2018-12-21T08:31:22.203Z</lastmod>
+    <data>
+        <display>
+        <title>syntax-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.051Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/syslog.html</loc>
+    <lastmod>2018-12-21T08:31:22.178Z</lastmod>
+    <data>
+        <display>
+        <title>syslog-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.053Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/debugging_log.html</loc>
+    <lastmod>2018-12-21T08:31:22.153Z</lastmod>
+    <data>
+        <display>
+        <title>debugging_log-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.012Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/hash.html</loc>
+    <lastmod>2018-12-21T08:31:22.128Z</lastmod>
+    <data>
+        <display>
+        <title>hash-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.021Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/events.html</loc>
+    <lastmod>2018-12-21T08:31:22.103Z</lastmod>
+    <data>
+        <display>
+        <title>events-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.017Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/control.html</loc>
+    <lastmod>2018-12-21T08:31:22.080Z</lastmod>
+    <data>
+        <display>
+        <title>control-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.010Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/beginners_guide.html</loc>
+    <lastmod>2018-12-21T08:31:22.055Z</lastmod>
+    <data>
+        <display>
+        <title>beginners_guide-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:56.999Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/configure.html</loc>
+    <lastmod>2018-12-21T08:31:22.029Z</lastmod>
+    <data>
+        <display>
+        <title>configure-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.006Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/ngx/install.html</loc>
+    <lastmod>2018-12-21T08:31:21.997Z</lastmod>
+    <data>
+        <display>
+        <title>install-nginx中文手册</title>
+        <pubTime>2018-12-21T08:31:57.037Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx%E5%B8%B8%E7%94%A8%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F%E5%8F%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html</loc>
+    <lastmod>2018-12-21T08:24:48.273Z</lastmod>
+    <data>
+        <display>
+        <title></title>
+        <pubTime>2018-03-05T04:58:45.364Z</pubTime>
+        
+         
+           
         </display>
     </data>
     </url>
@@ -2715,6 +2715,26 @@
 
     
   <url>
+    <loc>http://nginx.im/spring-boot/spring-boot-Access-Control-Allow-Origin.html</loc>
+    <lastmod>2018-03-05T04:58:45.369Z</lastmod>
+    <data>
+        <display>
+        <title>springboot-Access-Control-Allow-Origin</title>
+        <pubTime>2018-03-05T04:58:45.369Z</pubTime>
+        
+        <tag>springboot</tag>
+         
+         
+           
+             
+              <breadCrumb title="springboot" url="http://nginx.im/categories/springboot/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://nginx.im/spring-boot/spring-token.html</loc>
     <lastmod>2018-03-05T04:58:45.369Z</lastmod>
     <data>
@@ -2730,26 +2750,6 @@
            
              
               <breadCrumb title="token" url="http://nginx.im/categories/token/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/spring-boot/spring-boot-Access-Control-Allow-Origin.html</loc>
-    <lastmod>2018-03-05T04:58:45.369Z</lastmod>
-    <data>
-        <display>
-        <title>springboot-Access-Control-Allow-Origin</title>
-        <pubTime>2018-03-05T04:58:45.369Z</pubTime>
-        
-        <tag>springboot</tag>
-         
-         
-           
-             
-              <breadCrumb title="springboot" url="http://nginx.im/categories/springboot/"/>
           
         </display>
     </data>
@@ -2799,22 +2799,16 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx-args-query-string-uri%E8%AF%A6%E8%A7%A3.html</loc>
+    <loc>http://nginx.im/nginx-if%E6%8C%87%E4%BB%A4%E4%B8%8E%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F.html</loc>
     <lastmod>2018-03-05T04:58:45.363Z</lastmod>
     <data>
         <display>
-        <title>nginx-args-query-string-uri详解</title>
+        <title>nginx-if指令与全局变量</title>
         <pubTime>2018-03-05T04:58:45.363Z</pubTime>
         
         <tag>nginx</tag>
          
-        <tag>uri</tag>
-         
-        <tag>query_string</tag>
-         
-        <tag>request_uri</tag>
-         
-        <tag>document_uri</tag>
+        <tag>if</tag>
          
          
            
@@ -2849,16 +2843,22 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx-if%E6%8C%87%E4%BB%A4%E4%B8%8E%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F.html</loc>
+    <loc>http://nginx.im/nginx-args-query-string-uri%E8%AF%A6%E8%A7%A3.html</loc>
     <lastmod>2018-03-05T04:58:45.363Z</lastmod>
     <data>
         <display>
-        <title>nginx-if指令与全局变量</title>
+        <title>nginx-args-query-string-uri详解</title>
         <pubTime>2018-03-05T04:58:45.363Z</pubTime>
         
         <tag>nginx</tag>
          
-        <tag>if</tag>
+        <tag>uri</tag>
+         
+        <tag>query_string</tag>
+         
+        <tag>request_uri</tag>
+         
+        <tag>document_uri</tag>
          
          
            
@@ -3007,28 +3007,6 @@
 
     
   <url>
-    <loc>http://nginx.im/Failed%20to%20start%20component.html</loc>
-    <lastmod>2018-03-05T04:58:45.346Z</lastmod>
-    <data>
-        <display>
-        <title>Faile- to-star- component-Unable-to-register-MBean</title>
-        <pubTime>2018-03-05T04:58:45.345Z</pubTime>
-        
-        <tag>tomcat</tag>
-         
-        <tag>springboot</tag>
-         
-         
-           
-             
-              <breadCrumb title="springboot" url="http://nginx.im/categories/springboot/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://nginx.im/centos7-rc-local%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E4%BF%AE%E5%A4%8D.html</loc>
     <lastmod>2018-03-05T04:58:45.346Z</lastmod>
     <data>
@@ -3044,6 +3022,28 @@
            
              
               <breadCrumb title="centos7" url="http://nginx.im/categories/centos7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/Failed%20to%20start%20component.html</loc>
+    <lastmod>2018-03-05T04:58:45.346Z</lastmod>
+    <data>
+        <display>
+        <title>Faile- to-star- component-Unable-to-register-MBean</title>
+        <pubTime>2018-03-05T04:58:45.345Z</pubTime>
+        
+        <tag>tomcat</tag>
+         
+        <tag>springboot</tag>
+         
+         
+           
+             
+              <breadCrumb title="springboot" url="http://nginx.im/categories/springboot/"/>
           
         </display>
     </data>
