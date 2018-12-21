@@ -17469,35 +17469,6 @@ diff -r 822b82191940 -r 2220de0521ca src/mail/ngx_mail_auth_http_module.c
     </entry>
     
     <entry>
-      <title><![CDATA[spring-boot-feign伪rpc集成]]></title>
-      <url>/spring-boot-feign%E4%BC%AArpc%E9%9B%86%E6%88%90.html</url>
-      <content type="html"><![CDATA[<p>Feign使得 Java HTTP 客户端编写更方便。Feign 灵感来源于Retrofit、JAXRS-2.0和WebSocket。Feign最初是为了降低统一绑定Denominator到HTTP API的复杂度，不区分是否支持Restful。Feign旨在通过最少的资源和代码来实现和HTTP API的连接。通过可定制的解码器和错误处理，可以编写任意的HTTP API。可以认为是一种伪RPC。<br><a id="more"></a></p>
-<h1 id="和springboot整合"><a href="#和springboot整合" class="headerlink" title="和springboot整合"></a>和springboot整合</h1><blockquote>
-<p>pom.xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">       &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">       &lt;artifactId&gt;spring-cloud-starter-feign&lt;/artifactId&gt;</span><br><span class="line">       &lt;version&gt;1.3.2.RELEASE&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h1 id="配置application-properties-文件"><a href="#配置application-properties-文件" class="headerlink" title="配置application.properties 文件"></a>配置application.properties 文件</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">feign.name=feignName</span><br><span class="line">feign.url=http://localhost:88</span><br><span class="line">feign.client.config.default.loggerLevel = full</span><br><span class="line">feign.connectTimeoutMillis=1000   #连接超时,单位毫秒</span><br><span class="line">feign.readTimeoutMillis=15000     #读超时,单位毫秒</span><br></pre></td></tr></table></figure>
-<h1 id="编写feign的-interface"><a href="#编写feign的-interface" class="headerlink" title="编写feign的 interface"></a>编写feign的 interface</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@Component</span><br><span class="line">@FeignClient(url = &quot;$&#123;feign.url&#125;&quot;, name = &quot;feign.name&quot;)</span><br><span class="line">public interface testfeign &#123;</span><br><span class="line">	@RequestMapping(value = &quot;/version&quot;, method = RequestMethod.GET)</span><br><span class="line">	public String version();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="在controller-注入上面的-interface"><a href="#在controller-注入上面的-interface" class="headerlink" title="在controller 注入上面的 interface"></a>在controller 注入上面的 interface</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@Autowired</span><br><span class="line">private testfeign stestfeign;</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">@RequestMapping(&quot;testfeign&quot;)</span><br><span class="line">	private String pub() &#123;</span><br><span class="line">		return stestfeign.version();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="配置项目启动文件"><a href="#配置项目启动文件" class="headerlink" title="配置项目启动文件"></a>配置项目启动文件</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">@EnableFeignClients(basePackages = &quot;im.nginx.test&quot;)</span><br><span class="line">#im.nginx.test 为feign interface 文件所在的包</span><br><span class="line">public class Application &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws Exception &#123;</span><br><span class="line">		SpringApplication.run(Application.class, args);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-        <categories>
-            
-            <category> feign </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> springboot </tag>
-            
-            <tag> feign </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[spring-boot-mybatis-druid整合]]></title>
       <url>/spring-boot-mybatis-druid%E6%95%B4%E5%90%88.html</url>
       <content type="html"><![CDATA[<p>springboot mybatis  druid简单整合</p>
@@ -17534,6 +17505,47 @@ diff -r 822b82191940 -r 2220de0521ca src/mail/ngx_mail_auth_http_module.c
     </entry>
     
     <entry>
+      <title><![CDATA[spring-boot-feign伪rpc集成]]></title>
+      <url>/spring-boot-feign%E4%BC%AArpc%E9%9B%86%E6%88%90.html</url>
+      <content type="html"><![CDATA[<p>Feign使得 Java HTTP 客户端编写更方便。Feign 灵感来源于Retrofit、JAXRS-2.0和WebSocket。Feign最初是为了降低统一绑定Denominator到HTTP API的复杂度，不区分是否支持Restful。Feign旨在通过最少的资源和代码来实现和HTTP API的连接。通过可定制的解码器和错误处理，可以编写任意的HTTP API。可以认为是一种伪RPC。<br><a id="more"></a></p>
+<h1 id="和springboot整合"><a href="#和springboot整合" class="headerlink" title="和springboot整合"></a>和springboot整合</h1><blockquote>
+<p>pom.xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">       &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">       &lt;artifactId&gt;spring-cloud-starter-feign&lt;/artifactId&gt;</span><br><span class="line">       &lt;version&gt;1.3.2.RELEASE&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h1 id="配置application-properties-文件"><a href="#配置application-properties-文件" class="headerlink" title="配置application.properties 文件"></a>配置application.properties 文件</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">feign.name=feignName</span><br><span class="line">feign.url=http://localhost:88</span><br><span class="line">feign.client.config.default.loggerLevel = full</span><br><span class="line">feign.connectTimeoutMillis=1000   #连接超时,单位毫秒</span><br><span class="line">feign.readTimeoutMillis=15000     #读超时,单位毫秒</span><br></pre></td></tr></table></figure>
+<h1 id="编写feign的-interface"><a href="#编写feign的-interface" class="headerlink" title="编写feign的 interface"></a>编写feign的 interface</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@Component</span><br><span class="line">@FeignClient(url = &quot;$&#123;feign.url&#125;&quot;, name = &quot;feign.name&quot;)</span><br><span class="line">public interface testfeign &#123;</span><br><span class="line">	@RequestMapping(value = &quot;/version&quot;, method = RequestMethod.GET)</span><br><span class="line">	public String version();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="在controller-注入上面的-interface"><a href="#在controller-注入上面的-interface" class="headerlink" title="在controller 注入上面的 interface"></a>在controller 注入上面的 interface</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@Autowired</span><br><span class="line">private testfeign stestfeign;</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">@RequestMapping(&quot;testfeign&quot;)</span><br><span class="line">	private String pub() &#123;</span><br><span class="line">		return stestfeign.version();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="配置项目启动文件"><a href="#配置项目启动文件" class="headerlink" title="配置项目启动文件"></a>配置项目启动文件</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">@EnableFeignClients(basePackages = &quot;im.nginx.test&quot;)</span><br><span class="line">#im.nginx.test 为feign interface 文件所在的包</span><br><span class="line">public class Application &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws Exception &#123;</span><br><span class="line">		SpringApplication.run(Application.class, args);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+        <categories>
+            
+            <category> feign </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> springboot </tag>
+            
+            <tag> feign </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/nginx%E5%B8%B8%E7%94%A8%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F%E5%8F%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html</url>
+      <content type="html"><![CDATA[<p>title: nginx常用基本变量及数据结构<br>tags: [nginx]<br>categories: nginx</p>
+<a id="more"></a>
+<h1 id="nginx-常用基本变量"><a href="#nginx-常用基本变量" class="headerlink" title="nginx 常用基本变量"></a>nginx 常用基本变量</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">typedef int  ngx_fd_t;</span><br><span class="line">typedef intptr_t        ngx_int_t;</span><br><span class="line">typedef uintptr_t       ngx_uint_t;</span><br><span class="line">typedef intptr_t        ngx_flag_t;</span><br><span class="line">typedef void *          ngx_buf_tag_t;</span><br></pre></td></tr></table></figure>
+<h1 id="nginx常用数据结构"><a href="#nginx常用数据结构" class="headerlink" title="nginx常用数据结构"></a>nginx常用数据结构</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> typedef struct &#123;</span><br><span class="line">     size_t      len;</span><br><span class="line">     u_char     *data;</span><br><span class="line">&#125; ngx_str_t;</span><br><span class="line"></span><br><span class="line">typedef struct stat  ngx_file_info_t;</span><br></pre></td></tr></table></figure>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[ngx_http_conf_get_module_loc_conf 分析]]></title>
       <url>/ngx_http_conf_get_module_loc_conf.html</url>
       <content type="html"><![CDATA[<p>自定义参数处理函数中会用到ngx_http_conf_get_module_loc_conf(cf, ngx_http_core_module);<br>获取配置块</p>
@@ -17554,18 +17566,6 @@ diff -r 822b82191940 -r 2220de0521ca src/mail/ngx_mail_auth_http_module.c
             <tag> nginx </tag>
             
         </tags>
-        
-    </entry>
-    
-    <entry>
-      <title></title>
-      <url>/nginx%E5%B8%B8%E7%94%A8%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F%E5%8F%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html</url>
-      <content type="html"><![CDATA[<p>title: nginx常用基本变量及数据结构<br>tags: [nginx]<br>categories: nginx</p>
-<a id="more"></a>
-<h1 id="nginx-常用基本变量"><a href="#nginx-常用基本变量" class="headerlink" title="nginx 常用基本变量"></a>nginx 常用基本变量</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">typedef int  ngx_fd_t;</span><br><span class="line">typedef intptr_t        ngx_int_t;</span><br><span class="line">typedef uintptr_t       ngx_uint_t;</span><br><span class="line">typedef intptr_t        ngx_flag_t;</span><br><span class="line">typedef void *          ngx_buf_tag_t;</span><br></pre></td></tr></table></figure>
-<h1 id="nginx常用数据结构"><a href="#nginx常用数据结构" class="headerlink" title="nginx常用数据结构"></a>nginx常用数据结构</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> typedef struct &#123;</span><br><span class="line">     size_t      len;</span><br><span class="line">     u_char     *data;</span><br><span class="line">&#125; ngx_str_t;</span><br><span class="line"></span><br><span class="line">typedef struct stat  ngx_file_info_t;</span><br></pre></td></tr></table></figure>
-]]></content>
-      
         
     </entry>
     
@@ -17592,36 +17592,6 @@ diff -r 822b82191940 -r 2220de0521ca src/mail/ngx_mail_auth_http_module.c
             <tag> nginx </tag>
             
             <tag> location </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[nginx-if指令与全局变量]]></title>
-      <url>/nginx-if%E6%8C%87%E4%BB%A4%E4%B8%8E%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F.html</url>
-      <content type="html"><![CDATA[<p>if判断指令<br>语法为if(condition){…}，对给定的条件condition进行判断。如果为真，大括号内的rewrite指令将被执行，if条件(conditon)可以是如下任何内容：</p>
-<blockquote>
-<p>当表达式只是一个变量时，如果值为空或任何以0开头的字符串都会当做false<br>直接比较变量和内容时，使用=或!=<br>~正则表达式匹配，~*不区分大小写的匹配，!~区分大小写的不匹配</p>
-</blockquote>
-<a id="more"></a>
-<h1 id="if-常用判断"><a href="#if-常用判断" class="headerlink" title="if 常用判断"></a>if 常用判断</h1><p>-f和!-f用来判断是否存在文件<br>-d和!-d用来判断是否存在目录<br>-e和!-e用来判断是否存在文件或目录<br>-x和!-x用来判断文件是否可执行</p>
-<h2 id="if应用"><a href="#if应用" class="headerlink" title="if应用"></a>if应用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">if ($http_user_agent ~ MSIE) &#123;</span><br><span class="line">    rewrite ^(.*)$ /msie/$1 break;</span><br><span class="line">&#125; //如果UA包含&quot;MSIE&quot;，rewrite请求到/msid/目录下</span><br><span class="line">if ($http_cookie ~* &quot;id=([^;]+)(?:;|$)&quot;) &#123;</span><br><span class="line">    set $id $1;</span><br><span class="line"> &#125; //如果cookie匹配正则，设置变量$id等于正则引用部分</span><br><span class="line">if ($request_method = POST) &#123;</span><br><span class="line">    return 405;</span><br><span class="line">&#125; //如果提交方法为POST，则返回状态405（Method not allowed）。return不能返回301,302</span><br><span class="line">if ($slow) &#123;</span><br><span class="line">    limit_rate 10k;</span><br><span class="line">&#125; //限速，$slow可以通过 set 指令设置</span><br><span class="line">if (!-f $request_filename)&#123;</span><br><span class="line">    break;</span><br><span class="line">    proxy_pass  http://127.0.0.1;</span><br><span class="line">&#125; //如果请求的文件名不存在，则反向代理到localhost 。这里的break也是停止rewrite检查</span><br><span class="line">if ($args ~ post=140)&#123;</span><br><span class="line">    rewrite ^ http://example.com/ permanent;</span><br><span class="line">&#125; //如果query string中包含&quot;post=140&quot;，永久重定向到example.com</span><br><span class="line">location ~* \.(gif|jpg|png|swf|flv)$ &#123;</span><br><span class="line">    valid_referers none blocked www.jefflei.com www.leizhenfang.com;</span><br><span class="line">    if ($invalid_referer) &#123;</span><br><span class="line">        return 404;</span><br><span class="line">    &#125; //防盗链</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="nginx-常用全局变量"><a href="#nginx-常用全局变量" class="headerlink" title="nginx 常用全局变量"></a>nginx 常用全局变量</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">$args ： #这个变量等于请求行中的参数，同$query_string</span><br><span class="line">$is_args : 如果请求带有参数, 值为 ? 否则为空字符串</span><br><span class="line">$content_length ： 请求头中的Content-length字段。</span><br><span class="line">$content_type ： 请求头中的Content-Type字段。</span><br><span class="line">$document_root ： 当前请求在root指令中指定的值。</span><br><span class="line">$host ： 请求主机头字段，否则为服务器名称。</span><br><span class="line">$http_user_agent ： 客户端agent信息</span><br><span class="line">$http_cookie ： 客户端cookie信息</span><br><span class="line">$limit_rate ： 这个变量可以限制连接速率。</span><br><span class="line">$request_method ： 客户端请求的动作，通常为GET或POST。</span><br><span class="line">$remote_addr ： 客户端的IP地址。</span><br><span class="line">$remote_port ： 客户端的端口。</span><br><span class="line">$remote_user ： 已经经过Auth Basic Module验证的用户名。</span><br><span class="line">$request_filename ： 当前请求的文件路径，由root或alias指令与URI请求生成。</span><br><span class="line">$scheme ： HTTP方法（如http，https）。</span><br><span class="line">$server_protocol ： 请求使用的协议，通常是HTTP/1.0或HTTP/1.1。</span><br><span class="line">$server_addr ： 服务器地址，在完成一次系统调用后可以确定这个值。</span><br><span class="line">$server_name ： 服务器名称。</span><br><span class="line">$server_port ： 请求到达服务器的端口号。</span><br><span class="line">$request_uri ： 包含请求参数的原始URI，不包含主机名，如：”/foo/bar.php?arg=baz”。</span><br><span class="line">$uri ： 不带请求参数的当前URI，$uri不包含主机名，如”/foo/bar.html”。</span><br><span class="line">$document_uri ： 与$uri相同。</span><br><span class="line">$nginx_version： 当前nginx版本</span><br><span class="line">$request: 原始请求 GET /one/2222 HTTP/1.1</span><br><span class="line">$status:  响应状态码</span><br><span class="line">$http_referer: url跳转来源</span><br><span class="line">$request_body : 客户端请求主体</span><br></pre></td></tr></table></figure>
-]]></content>
-      
-        <categories>
-            
-            <category> nginx </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> nginx </tag>
-            
-            <tag> if </tag>
             
         </tags>
         
@@ -17663,6 +17633,36 @@ diff -r 822b82191940 -r 2220de0521ca src/mail/ngx_mail_auth_http_module.c
     </entry>
     
     <entry>
+      <title><![CDATA[nginx-if指令与全局变量]]></title>
+      <url>/nginx-if%E6%8C%87%E4%BB%A4%E4%B8%8E%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F.html</url>
+      <content type="html"><![CDATA[<p>if判断指令<br>语法为if(condition){…}，对给定的条件condition进行判断。如果为真，大括号内的rewrite指令将被执行，if条件(conditon)可以是如下任何内容：</p>
+<blockquote>
+<p>当表达式只是一个变量时，如果值为空或任何以0开头的字符串都会当做false<br>直接比较变量和内容时，使用=或!=<br>~正则表达式匹配，~*不区分大小写的匹配，!~区分大小写的不匹配</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="if-常用判断"><a href="#if-常用判断" class="headerlink" title="if 常用判断"></a>if 常用判断</h1><p>-f和!-f用来判断是否存在文件<br>-d和!-d用来判断是否存在目录<br>-e和!-e用来判断是否存在文件或目录<br>-x和!-x用来判断文件是否可执行</p>
+<h2 id="if应用"><a href="#if应用" class="headerlink" title="if应用"></a>if应用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">if ($http_user_agent ~ MSIE) &#123;</span><br><span class="line">    rewrite ^(.*)$ /msie/$1 break;</span><br><span class="line">&#125; //如果UA包含&quot;MSIE&quot;，rewrite请求到/msid/目录下</span><br><span class="line">if ($http_cookie ~* &quot;id=([^;]+)(?:;|$)&quot;) &#123;</span><br><span class="line">    set $id $1;</span><br><span class="line"> &#125; //如果cookie匹配正则，设置变量$id等于正则引用部分</span><br><span class="line">if ($request_method = POST) &#123;</span><br><span class="line">    return 405;</span><br><span class="line">&#125; //如果提交方法为POST，则返回状态405（Method not allowed）。return不能返回301,302</span><br><span class="line">if ($slow) &#123;</span><br><span class="line">    limit_rate 10k;</span><br><span class="line">&#125; //限速，$slow可以通过 set 指令设置</span><br><span class="line">if (!-f $request_filename)&#123;</span><br><span class="line">    break;</span><br><span class="line">    proxy_pass  http://127.0.0.1;</span><br><span class="line">&#125; //如果请求的文件名不存在，则反向代理到localhost 。这里的break也是停止rewrite检查</span><br><span class="line">if ($args ~ post=140)&#123;</span><br><span class="line">    rewrite ^ http://example.com/ permanent;</span><br><span class="line">&#125; //如果query string中包含&quot;post=140&quot;，永久重定向到example.com</span><br><span class="line">location ~* \.(gif|jpg|png|swf|flv)$ &#123;</span><br><span class="line">    valid_referers none blocked www.jefflei.com www.leizhenfang.com;</span><br><span class="line">    if ($invalid_referer) &#123;</span><br><span class="line">        return 404;</span><br><span class="line">    &#125; //防盗链</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="nginx-常用全局变量"><a href="#nginx-常用全局变量" class="headerlink" title="nginx 常用全局变量"></a>nginx 常用全局变量</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">$args ： #这个变量等于请求行中的参数，同$query_string</span><br><span class="line">$is_args : 如果请求带有参数, 值为 ? 否则为空字符串</span><br><span class="line">$content_length ： 请求头中的Content-length字段。</span><br><span class="line">$content_type ： 请求头中的Content-Type字段。</span><br><span class="line">$document_root ： 当前请求在root指令中指定的值。</span><br><span class="line">$host ： 请求主机头字段，否则为服务器名称。</span><br><span class="line">$http_user_agent ： 客户端agent信息</span><br><span class="line">$http_cookie ： 客户端cookie信息</span><br><span class="line">$limit_rate ： 这个变量可以限制连接速率。</span><br><span class="line">$request_method ： 客户端请求的动作，通常为GET或POST。</span><br><span class="line">$remote_addr ： 客户端的IP地址。</span><br><span class="line">$remote_port ： 客户端的端口。</span><br><span class="line">$remote_user ： 已经经过Auth Basic Module验证的用户名。</span><br><span class="line">$request_filename ： 当前请求的文件路径，由root或alias指令与URI请求生成。</span><br><span class="line">$scheme ： HTTP方法（如http，https）。</span><br><span class="line">$server_protocol ： 请求使用的协议，通常是HTTP/1.0或HTTP/1.1。</span><br><span class="line">$server_addr ： 服务器地址，在完成一次系统调用后可以确定这个值。</span><br><span class="line">$server_name ： 服务器名称。</span><br><span class="line">$server_port ： 请求到达服务器的端口号。</span><br><span class="line">$request_uri ： 包含请求参数的原始URI，不包含主机名，如：”/foo/bar.php?arg=baz”。</span><br><span class="line">$uri ： 不带请求参数的当前URI，$uri不包含主机名，如”/foo/bar.html”。</span><br><span class="line">$document_uri ： 与$uri相同。</span><br><span class="line">$nginx_version： 当前nginx版本</span><br><span class="line">$request: 原始请求 GET /one/2222 HTTP/1.1</span><br><span class="line">$status:  响应状态码</span><br><span class="line">$http_referer: url跳转来源</span><br><span class="line">$request_body : 客户端请求主体</span><br></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> nginx </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> nginx </tag>
+            
+            <tag> if </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[JSON字符串转换为Map]]></title>
       <url>/json/fastjson.html</url>
       <content type="html"><![CDATA[<p>JSON字符串转换为Map<br><a id="more"></a></p>
@@ -17680,34 +17680,6 @@ diff -r 822b82191940 -r 2220de0521ca src/mail/ngx_mail_auth_http_module.c
             <tag> fastjson </tag>
             
             <tag> json </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[java排列组合随机字符串应用]]></title>
-      <url>/java%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88%E5%BA%94%E7%94%A8.html</url>
-      <content type="html"><![CDATA[<p>已知固定长度的字符串字典</p>
-<blockquote>
-<p>ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
-</blockquote>
-<p>按字典序输出固定随机字符串</p>
-<a id="more"></a>
-<h1 id="直接上代码"><a href="#直接上代码" class="headerlink" title="直接上代码"></a>直接上代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">public static String randomChar(String dict, String pre, Integer len) &#123;</span><br><span class="line"></span><br><span class="line">		Integer dictLen = dict.length() - 1;</span><br><span class="line">		char[] preChar = pre.toCharArray();</span><br><span class="line">		char[] chArray = new char[len];</span><br><span class="line">		char achar = preChar[len - 1];</span><br><span class="line">		Integer preCharIndex = dict.indexOf(achar);</span><br><span class="line">		if ((preCharIndex + 1) &gt; dictLen) &#123;</span><br><span class="line">			chArray[len - 1] = dict.charAt(0);</span><br><span class="line">		&#125; else &#123;</span><br><span class="line">			chArray[len - 1] = dict.charAt(preCharIndex + 1);</span><br><span class="line">		&#125;</span><br><span class="line">		for (int i = len - 2; i &gt;= 0; i--) &#123;</span><br><span class="line">			Integer preCharIndex1 = dict.indexOf(preChar[i + 1]); // 25</span><br><span class="line">			Integer preCharIndex2 = dict.indexOf(chArray[i + 1]); // 0</span><br><span class="line">			Integer preCharIndex3 = dict.indexOf(preChar[i]); //</span><br><span class="line">			if (Math.abs(preCharIndex1 - preCharIndex2) &gt; 1) &#123;</span><br><span class="line">				if (preCharIndex3 + 1 &gt; dictLen) &#123;</span><br><span class="line">					chArray[i] = dict.charAt(0);</span><br><span class="line">					continue;</span><br><span class="line">				&#125;</span><br><span class="line">				chArray[i] = dict.charAt(preCharIndex3 + 1);</span><br><span class="line">			&#125; else &#123;</span><br><span class="line">				chArray[i] = preChar[i];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return new String(chArray);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-        <categories>
-            
-            <category> java </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> java </tag>
-            
-            <tag> 随机字符串 </tag>
             
         </tags>
         
@@ -17740,6 +17712,34 @@ diff -r 822b82191940 -r 2220de0521ca src/mail/ngx_mail_auth_http_module.c
             <tag> java </tag>
             
             <tag> java常用代码 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[java排列组合随机字符串应用]]></title>
+      <url>/java%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88%E5%BA%94%E7%94%A8.html</url>
+      <content type="html"><![CDATA[<p>已知固定长度的字符串字典</p>
+<blockquote>
+<p>ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+</blockquote>
+<p>按字典序输出固定随机字符串</p>
+<a id="more"></a>
+<h1 id="直接上代码"><a href="#直接上代码" class="headerlink" title="直接上代码"></a>直接上代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">public static String randomChar(String dict, String pre, Integer len) &#123;</span><br><span class="line"></span><br><span class="line">		Integer dictLen = dict.length() - 1;</span><br><span class="line">		char[] preChar = pre.toCharArray();</span><br><span class="line">		char[] chArray = new char[len];</span><br><span class="line">		char achar = preChar[len - 1];</span><br><span class="line">		Integer preCharIndex = dict.indexOf(achar);</span><br><span class="line">		if ((preCharIndex + 1) &gt; dictLen) &#123;</span><br><span class="line">			chArray[len - 1] = dict.charAt(0);</span><br><span class="line">		&#125; else &#123;</span><br><span class="line">			chArray[len - 1] = dict.charAt(preCharIndex + 1);</span><br><span class="line">		&#125;</span><br><span class="line">		for (int i = len - 2; i &gt;= 0; i--) &#123;</span><br><span class="line">			Integer preCharIndex1 = dict.indexOf(preChar[i + 1]); // 25</span><br><span class="line">			Integer preCharIndex2 = dict.indexOf(chArray[i + 1]); // 0</span><br><span class="line">			Integer preCharIndex3 = dict.indexOf(preChar[i]); //</span><br><span class="line">			if (Math.abs(preCharIndex1 - preCharIndex2) &gt; 1) &#123;</span><br><span class="line">				if (preCharIndex3 + 1 &gt; dictLen) &#123;</span><br><span class="line">					chArray[i] = dict.charAt(0);</span><br><span class="line">					continue;</span><br><span class="line">				&#125;</span><br><span class="line">				chArray[i] = dict.charAt(preCharIndex3 + 1);</span><br><span class="line">			&#125; else &#123;</span><br><span class="line">				chArray[i] = preChar[i];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return new String(chArray);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+        <categories>
+            
+            <category> java </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> java </tag>
+            
+            <tag> 随机字符串 </tag>
             
         </tags>
         
@@ -17917,6 +17917,36 @@ diff -r 822b82191940 -r 2220de0521ca src/mail/ngx_mail_auth_http_module.c
     </entry>
     
     <entry>
+      <title><![CDATA[Faile- to-star- component-Unable-to-register-MBean]]></title>
+      <url>/Failed%20to%20start%20component.html</url>
+      <content type="html"><![CDATA[<p>部署springboot war包到 tomcat出现以下错误<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">org.apache.catalina.LifecycleException: Failed to start component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[]]</span><br><span class="line">Caused by: org.springframework.jmx.export.UnableToRegisterMBeanException: Unable to register MBean</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h1 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h1><blockquote>
+<p>需要为每个项目配置JMX的域，  修改application.properties中的属性spring.jmx.default-domain=applicationname</p>
+</blockquote>
+<h1 id="spring-jmx-default-domain"><a href="#spring-jmx-default-domain" class="headerlink" title="spring.jmx.default-domain"></a>spring.jmx.default-domain</h1><blockquote>
+<p>解决tomcat同时部署两个SpringBoot应用提示InstanceAlreadyExistsException</p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> springboot </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> tomcat </tag>
+            
+            <tag> springboot </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[C语言结构体研究]]></title>
       <url>/C%E8%AF%AD%E8%A8%80%E7%BB%93%E6%9E%84%E4%BD%93%E7%A0%94%E7%A9%B6.html</url>
       <content type="html"><![CDATA[<p>总结一些C语言结构体中常用的知识点</p>
@@ -17942,36 +17972,6 @@ diff -r 822b82191940 -r 2220de0521ca src/mail/ngx_mail_auth_http_module.c
             <tag> struct </tag>
             
             <tag> c </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Faile- to-star- component-Unable-to-register-MBean]]></title>
-      <url>/Failed%20to%20start%20component.html</url>
-      <content type="html"><![CDATA[<p>部署springboot war包到 tomcat出现以下错误<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">org.apache.catalina.LifecycleException: Failed to start component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[]]</span><br><span class="line">Caused by: org.springframework.jmx.export.UnableToRegisterMBeanException: Unable to register MBean</span><br></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<h1 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h1><blockquote>
-<p>需要为每个项目配置JMX的域，  修改application.properties中的属性spring.jmx.default-domain=applicationname</p>
-</blockquote>
-<h1 id="spring-jmx-default-domain"><a href="#spring-jmx-default-domain" class="headerlink" title="spring.jmx.default-domain"></a>spring.jmx.default-domain</h1><blockquote>
-<p>解决tomcat同时部署两个SpringBoot应用提示InstanceAlreadyExistsException</p>
-</blockquote>
-]]></content>
-      
-        <categories>
-            
-            <category> springboot </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> tomcat </tag>
-            
-            <tag> springboot </tag>
             
         </tags>
         

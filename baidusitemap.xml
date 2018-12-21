@@ -4,6 +4,21 @@
 
     
   <url>
+    <loc>http://nginx.im/nginx%E5%B8%B8%E7%94%A8%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F%E5%8F%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html</loc>
+    <lastmod>2018-12-21T08:21:40.333Z</lastmod>
+    <data>
+        <display>
+        <title></title>
+        <pubTime>2018-03-05T04:58:45.364Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://nginx.im/ngx/mail/ngx_mail_core_module.html</loc>
     <lastmod>2018-12-21T08:20:44.199Z</lastmod>
     <data>
@@ -2224,12 +2239,12 @@
 
     
   <url>
-    <loc>http://nginx.im/ngx/howto_build_on_win32.html</loc>
+    <loc>http://nginx.im/ngx/examples.html</loc>
     <lastmod>2018-12-21T08:16:21.302Z</lastmod>
     <data>
         <display>
-        <title>howto_build_on_win32-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.546Z</pubTime>
+        <title>examples-nginx中文手册</title>
+        <pubTime>2018-12-21T08:16:01.541Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -2244,12 +2259,12 @@
 
     
   <url>
-    <loc>http://nginx.im/ngx/examples.html</loc>
+    <loc>http://nginx.im/ngx/howto_build_on_win32.html</loc>
     <lastmod>2018-12-21T08:16:21.302Z</lastmod>
     <data>
         <display>
-        <title>examples-nginx中文手册</title>
-        <pubTime>2018-12-21T08:16:01.541Z</pubTime>
+        <title>howto_build_on_win32-nginx中文手册</title>
+        <pubTime>2018-12-21T08:16:01.546Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -2358,21 +2373,6 @@
              
               <breadCrumb title="nginx中文手册" url="http://nginx.im/categories/nginx%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx%E5%B8%B8%E7%94%A8%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F%E5%8F%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html</loc>
-    <lastmod>2018-12-21T08:16:21.296Z</lastmod>
-    <data>
-        <display>
-        <title></title>
-        <pubTime>2018-03-05T04:58:45.364Z</pubTime>
-        
-         
-           
         </display>
     </data>
     </url>
@@ -2691,26 +2691,6 @@
 
     
   <url>
-    <loc>http://nginx.im/spring-boot/spring-boot-Access-Control-Allow-Origin.html</loc>
-    <lastmod>2018-03-05T04:58:45.369Z</lastmod>
-    <data>
-        <display>
-        <title>springboot-Access-Control-Allow-Origin</title>
-        <pubTime>2018-03-05T04:58:45.369Z</pubTime>
-        
-        <tag>springboot</tag>
-         
-         
-           
-             
-              <breadCrumb title="springboot" url="http://nginx.im/categories/springboot/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://nginx.im/spring-boot-mybatis-druid%E6%95%B4%E5%90%88.html</loc>
     <lastmod>2018-03-05T04:58:45.369Z</lastmod>
     <data>
@@ -2750,6 +2730,26 @@
            
              
               <breadCrumb title="token" url="http://nginx.im/categories/token/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/spring-boot/spring-boot-Access-Control-Allow-Origin.html</loc>
+    <lastmod>2018-03-05T04:58:45.369Z</lastmod>
+    <data>
+        <display>
+        <title>springboot-Access-Control-Allow-Origin</title>
+        <pubTime>2018-03-05T04:58:45.369Z</pubTime>
+        
+        <tag>springboot</tag>
+         
+         
+           
+             
+              <breadCrumb title="springboot" url="http://nginx.im/categories/springboot/"/>
           
         </display>
     </data>
@@ -2799,16 +2799,22 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx-if%E6%8C%87%E4%BB%A4%E4%B8%8E%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F.html</loc>
+    <loc>http://nginx.im/nginx-args-query-string-uri%E8%AF%A6%E8%A7%A3.html</loc>
     <lastmod>2018-03-05T04:58:45.363Z</lastmod>
     <data>
         <display>
-        <title>nginx-if指令与全局变量</title>
+        <title>nginx-args-query-string-uri详解</title>
         <pubTime>2018-03-05T04:58:45.363Z</pubTime>
         
         <tag>nginx</tag>
          
-        <tag>if</tag>
+        <tag>uri</tag>
+         
+        <tag>query_string</tag>
+         
+        <tag>request_uri</tag>
+         
+        <tag>document_uri</tag>
          
          
            
@@ -2843,22 +2849,16 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx-args-query-string-uri%E8%AF%A6%E8%A7%A3.html</loc>
+    <loc>http://nginx.im/nginx-if%E6%8C%87%E4%BB%A4%E4%B8%8E%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F.html</loc>
     <lastmod>2018-03-05T04:58:45.363Z</lastmod>
     <data>
         <display>
-        <title>nginx-args-query-string-uri详解</title>
+        <title>nginx-if指令与全局变量</title>
         <pubTime>2018-03-05T04:58:45.363Z</pubTime>
         
         <tag>nginx</tag>
          
-        <tag>uri</tag>
-         
-        <tag>query_string</tag>
-         
-        <tag>request_uri</tag>
-         
-        <tag>document_uri</tag>
+        <tag>if</tag>
          
          
            
@@ -3007,28 +3007,6 @@
 
     
   <url>
-    <loc>http://nginx.im/centos7-rc-local%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E4%BF%AE%E5%A4%8D.html</loc>
-    <lastmod>2018-03-05T04:58:45.346Z</lastmod>
-    <data>
-        <display>
-        <title>centos7-rc-local不起作用修复</title>
-        <pubTime>2018-03-05T04:58:45.346Z</pubTime>
-        
-        <tag>centos7</tag>
-         
-        <tag>rc.local</tag>
-         
-         
-           
-             
-              <breadCrumb title="centos7" url="http://nginx.im/categories/centos7/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://nginx.im/Failed%20to%20start%20component.html</loc>
     <lastmod>2018-03-05T04:58:45.346Z</lastmod>
     <data>
@@ -3044,6 +3022,28 @@
            
              
               <breadCrumb title="springboot" url="http://nginx.im/categories/springboot/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/centos7-rc-local%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E4%BF%AE%E5%A4%8D.html</loc>
+    <lastmod>2018-03-05T04:58:45.346Z</lastmod>
+    <data>
+        <display>
+        <title>centos7-rc-local不起作用修复</title>
+        <pubTime>2018-03-05T04:58:45.346Z</pubTime>
+        
+        <tag>centos7</tag>
+         
+        <tag>rc.local</tag>
+         
+         
+           
+             
+              <breadCrumb title="centos7" url="http://nginx.im/categories/centos7/"/>
           
         </display>
     </data>

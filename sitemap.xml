@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://nginx.im/nginx%E5%B8%B8%E7%94%A8%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F%E5%8F%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html</loc>
+    
+    <lastmod>2018-12-21T08:21:40.333Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://nginx.im/ngx/mail/ngx_mail_core_module.html</loc>
     
     <lastmod>2018-12-21T08:20:44.199Z</lastmod>
@@ -779,14 +786,14 @@
   </url>
   
   <url>
-    <loc>http://nginx.im/ngx/howto_build_on_win32.html</loc>
+    <loc>http://nginx.im/ngx/examples.html</loc>
     
     <lastmod>2018-12-21T08:16:21.302Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://nginx.im/ngx/examples.html</loc>
+    <loc>http://nginx.im/ngx/howto_build_on_win32.html</loc>
     
     <lastmod>2018-12-21T08:16:21.302Z</lastmod>
     
@@ -824,13 +831,6 @@
     <loc>http://nginx.im/ngx/compatibility.html</loc>
     
     <lastmod>2018-12-21T08:16:21.298Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/nginx%E5%B8%B8%E7%94%A8%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F%E5%8F%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html</loc>
-    
-    <lastmod>2018-12-21T08:16:21.296Z</lastmod>
     
   </url>
   
@@ -954,13 +954,6 @@
   </url>
   
   <url>
-    <loc>http://nginx.im/spring-boot/spring-boot-Access-Control-Allow-Origin.html</loc>
-    
-    <lastmod>2018-03-05T04:58:45.369Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://nginx.im/spring-boot-mybatis-druid%E6%95%B4%E5%90%88.html</loc>
     
     <lastmod>2018-03-05T04:58:45.369Z</lastmod>
@@ -969,6 +962,13 @@
   
   <url>
     <loc>http://nginx.im/spring-boot/spring-token.html</loc>
+    
+    <lastmod>2018-03-05T04:58:45.369Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/spring-boot/spring-boot-Access-Control-Allow-Origin.html</loc>
     
     <lastmod>2018-03-05T04:58:45.369Z</lastmod>
     
@@ -989,7 +989,7 @@
   </url>
   
   <url>
-    <loc>http://nginx.im/nginx-if%E6%8C%87%E4%BB%A4%E4%B8%8E%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F.html</loc>
+    <loc>http://nginx.im/nginx-args-query-string-uri%E8%AF%A6%E8%A7%A3.html</loc>
     
     <lastmod>2018-03-05T04:58:45.363Z</lastmod>
     
@@ -1003,7 +1003,7 @@
   </url>
   
   <url>
-    <loc>http://nginx.im/nginx-args-query-string-uri%E8%AF%A6%E8%A7%A3.html</loc>
+    <loc>http://nginx.im/nginx-if%E6%8C%87%E4%BB%A4%E4%B8%8E%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F.html</loc>
     
     <lastmod>2018-03-05T04:58:45.363Z</lastmod>
     
@@ -1052,14 +1052,14 @@
   </url>
   
   <url>
-    <loc>http://nginx.im/centos7-rc-local%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E4%BF%AE%E5%A4%8D.html</loc>
+    <loc>http://nginx.im/Failed%20to%20start%20component.html</loc>
     
     <lastmod>2018-03-05T04:58:45.346Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://nginx.im/Failed%20to%20start%20component.html</loc>
+    <loc>http://nginx.im/centos7-rc-local%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E4%BF%AE%E5%A4%8D.html</loc>
     
     <lastmod>2018-03-05T04:58:45.346Z</lastmod>
     
