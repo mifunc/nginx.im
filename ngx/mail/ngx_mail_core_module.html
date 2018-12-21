@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="mail,ngx_mail_core_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T08:15:38.232Z">
+<meta property="og:updated_time" content="2018-12-21T08:20:44.199Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mail&#x2F;ngx_mail_core_module-nginx中文手册">
 <meta name="twitter:description" content="mail,ngx_mail_core_module">
@@ -443,7 +443,7 @@ mail {
 
 
 
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**listen**     &lt;code class=&quot;notranslate&quot;&gt;*address*</code> : <code>*port*</code>    [ <code>ssl</code> ]    [ <code>backlog</code> = <code>*number*</code> ]    [ <code>rcvbuf</code> = <code>*size*</code> ]    [ <code>sndbuf</code> = <code>*size*</code> ]    [ <code>bind</code> ]    [ <code>ipv6only</code> = <code>on</code> | <code>off</code> ]    [ <code>so_keepalive</code> = <code>on</code> | <code>off</code> |[ <code>*keepidle*</code> ]:[ <code>*keepintvl*</code> ]:[ <code>*keepcnt*</code> ]];<br>                </td></p>
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**listen**  *address*</code> : <code>*port*</code>    [ <code>ssl</code> ]    [ <code>backlog</code> = <code>*number*</code> ]    [ <code>rcvbuf</code> = <code>*size*</code> ]    [ <code>sndbuf</code> = <code>*size*</code> ]    [ <code>bind</code> ]    [ <code>ipv6only</code> = <code>on</code> | <code>off</code> ]    [ <code>so_keepalive</code> = <code>on</code> | <code>off</code> |[ <code>*keepidle*</code> ]:[ <code>*keepintvl*</code> ]:[ <code>*keepcnt*</code> ]];<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>server</code> <br>                </td></p>
 <p>  设置服务器将接受请求的套接字的<code>*address*</code>和<code>*port*</code> 。  可以仅指定端口。  地址也可以是主机名，例如： </p>
@@ -474,7 +474,7 @@ listen [::]:110;
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
 <p>  提供指定邮件服务器指令的配置文件上下文。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**protocol**   &lt;code class=&quot;notranslate&quot;&gt;imap</code> |  <code>pop3</code> |  <code>smtp</code> ;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**protocol** imap</code> |  <code>pop3</code> |  <code>smtp</code> ;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>server</code> <br>                </td></p>
 <p>  设置代理服务器的协议。  支持的协议是<a href="ngx_mail_imap_module.html">IMAP</a> ， <a href="ngx_mail_pop3_module.html">POP3</a>和<a href="ngx_mail_smtp_module.html">SMTP</a> 。 </p>
