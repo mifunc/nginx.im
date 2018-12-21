@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="http,ngx_http_session_log_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:45:00.270Z">
+<meta property="og:updated_time" content="2018-12-21T07:53:24.509Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http&#x2F;ngx_http_session_log_module-nginx中文手册">
 <meta name="twitter:description" content="http,ngx_http_session_log_module">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:45:21+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
                 2018年12月21日
               </time>
             
@@ -397,36 +397,22 @@
 
       
         <p>http,ngx_http_session_log_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-http-session-log-module"><a href="#Module-ngx-http-session-log-module" class="headerlink" title="Module ngx_http_session_log_module"></a>Module ngx_http_session_log_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#session_log">session_log</a> <br>     <a href="#session_log_format">session_log_format</a> <br>     <a href="#session_log_zone">session_log_zone</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
-
-<p>   <code>ngx_http_session_log_module</code>模块启用日志记录会话（即多个HTTP请求的聚合），而不是单个HTTP请求。 </p>
+<h2 id="Module-ngx-http-session-log-module"><a href="#Module-ngx-http-session-log-module" class="headerlink" title="Module ngx_http_session_log_module"></a>Module ngx_http_session_log_module</h2><p> Example Configuration<br> Directives<br> session_log<br> session_log_format<br> session_log_zone<br> Embedded Variables<br> ngx_http_session_log_module模块启用日志记录会话（即多个HTTP请求的聚合），而不是单个HTTP请求。 </p>
 <blockquote>
-<p>  该模块作为我们<a href="http://nginx.com/products/" target="_blank" rel="noopener">商业订阅的</a>一部分提供。 </p>
+<p> 该模块作为我们商业订阅的一部分提供。 ####  示例配置</p>
 </blockquote>
-<h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><p>  以下配置根据请求客户端地址和“User-Agent”请求标头字段设置会话日志并将请求映射到会话： </p>
+<p> 以下配置根据请求客户端地址和“User-Agent”请求标头字段设置会话日志并将请求映射到会话： </p>
 <blockquote>
-<p><pre class="notranslate">    session_log_zone /path/to/log format=combined<br>                     zone=one:1m timeout=30s<br>                     md5=$binary_remote_addr$http_user_agent;</pre></p>
+<p> session_log_zone /path/to/log format=combined zone=one:1m timeout=30s md5=$binary_remote_addr$http_user_agent; location /media/ { session_log one; } ####  指令</p>
 </blockquote>
-<pre><code>location /media/ {
-    session_log one;
-}
-</code></pre><p></p>
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**session_log** &lt;code class=&quot;notranslate&quot;&gt;*name*</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">session_log off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  允许使用指定的会话日志。  特殊值<code>off</code>取消从先前配置级别继承的所有<code>session_log</code>指令。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**session_log_format**     &lt;code class=&quot;notranslate&quot;&gt;*name*</code>    <code>*string*</code> …; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">session_log_format combined “…”;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> <br>                </td></p>
-<p>  指定日志的输出格​​式。   <code>$body_bytes_sent</code>变量的值在会话中的所有请求中聚合。  可用于记录的所有其他变量的值对应于会话中的第一个请求。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**session_log_zone**     &lt;code class=&quot;notranslate&quot;&gt;*path*</code>    <code>zone</code> = <code>*name*</code> : <code>*size*</code>    [ <code>format</code> = <code>*format*</code> ]    [ <code>timeout</code> = <code>*time*</code> ]    [ <code>id</code> = <code>*id*</code> ]    [ <code>md5</code> = <code>*md5*</code> ]; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> <br>                </td></p>
-<p>  设置日志文件的路径，并配置用于存储当前活动会话的共享内存区域。 </p>
-<p>  只要会话中的最后一个请求自指定<code>timeout</code> （默认为30秒）以来经过的时间，会话就被视为活动状态。  会话不再处于活动状态时，会将其写入日志。 </p>
-<p>   <code>id</code>参数标识请求映射到的会话。   <code>id</code>参数设置为MD5哈希的十六进制表示（例如，使用变量从cookie获取）。  如果未指定此参数或不表示有效的MD5哈希，则nginx将根据<code>md5</code>参数的值计算MD5哈希，并使用此哈希创建新会话。   <code>id</code>和<code>md5</code>参数都可以包含变量。 </p>
-<p>   <code>format</code>参数设置<a href="#session_log_format">session_log_format</a>指令配置的自定义会话日志格式。  如果未指定format，则使用预定义的“ <code>combined</code> ”格式。 </p>
-<h4 id="嵌入式变量"><a href="#嵌入式变量" class="headerlink" title="嵌入式变量"></a>嵌入式变量</h4><p>   <code>ngx_http_session_log_module</code>模块支持两个嵌入变量： </p>
+<p> Syntax:  <strong>session_log</strong> <em>name</em> | off ;<br>  Default:  session_log off;  Context:  http , server , location<br>  允许使用指定的会话日志。 特殊值off取消从先前配置级别继承的所有session_log指令。 </p>
+<p> Syntax:  <strong>session_log_format</strong> <em>name</em> <em>string</em> …;<br>  Default:  session_log_format combined “…”;  Context:  http<br>  指定日志的输出格​​式。 $body_bytes_sent变量的值在会话中的所有请求中聚合。 可用于记录的所有其他变量的值对应于会话中的第一个请求。 </p>
+<p> Syntax:  <strong>session_log_zone</strong> <em>path</em> zone = <em>name</em> : <em>size</em> [ format = <em>format</em> ] [ timeout = <em>time</em> ] [ id = <em>id</em> ] [ md5 = <em>md5</em> ] ;<br>  Default:  —  Context:  http<br>  设置日志文件的路径，并配置用于存储当前活动会话的共享内存区域。 </p>
+<p> 只要会话中的最后一个请求自指定timeout （默认为30秒）以来经过的时间，会话就被视为活动状态。 会话不再处于活动状态时，会将其写入日志。 </p>
+<p> id参数标识请求映射到的会话。 id参数设置为MD5哈希的十六进制表示（例如，使用变量从cookie获取）。 如果未指定此参数或不表示有效的MD5哈希，则nginx将根据md5参数的值计算MD5哈希，并使用此哈希创建新会话。 id和md5参数都可以包含变量。 </p>
+<p> format参数设置session_log_format指令配置的自定义会话日志格式。 如果未指定format，则使用预定义的“ combined ”格式。 </p>
+<h4 id="嵌入式变量"><a href="#嵌入式变量" class="headerlink" title="嵌入式变量"></a>嵌入式变量</h4><p> ngx_http_session_log_module模块支持两个嵌入变量： </p>
+<p> $session_log_id   当前会话ID;  $session_log_binary_id   二进制形式的当前会话ID（16字节）。  </p>
 
       
     </div>
@@ -659,7 +645,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-session-log-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_session_log_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌入式变量"><span class="nav-number">1.0.3.</span> <span class="nav-text">嵌入式变量</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-session-log-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_session_log_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌入式变量"><span class="nav-number">1.0.1.</span> <span class="nav-text">嵌入式变量</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

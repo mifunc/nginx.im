@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="mail,ngx_mail_imap_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:45:01.467Z">
+<meta property="og:updated_time" content="2018-12-21T07:53:26.108Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mail&#x2F;ngx_mail_imap_module-nginx中文手册">
 <meta name="twitter:description" content="mail,ngx_mail_imap_module">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:45:21+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
                 2018年12月21日
               </time>
             
@@ -397,22 +397,12 @@
 
       
         <p>mail,ngx_mail_imap_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-mail-imap-module"><a href="#Module-ngx-mail-imap-module" class="headerlink" title="Module ngx_mail_imap_module"></a>Module ngx_mail_imap_module</h2><td align="left" class="notranslate"> <a href="#directives">Directives</a> <br>     <a href="#imap_auth">imap_auth</a> <br>     <a href="#imap_capabilities">imap_capabilities</a> <br>     <a href="#imap_client_buffer">imap_client_buffer</a> <br></td>
-
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**imap_auth** &lt;code class=&quot;notranslate&quot;&gt;*method*</code> …; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">imap_auth plain;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>mail</code> , <code>server</code> <br>                </td></p>
-<p>  为IMAP客户端设置允许的身份验证方法。  支持的方法是： </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**imap_capabilities** &lt;code class=&quot;notranslate&quot;&gt;*extension*</code> …; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">imap_capabilities IMAP4 IMAP4rev1 UIDPLUS;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>mail</code> , <code>server</code> <br>                </td></p>
-<p>  设置传递给客户端以响应<code>CAPABILITY</code>命令的<a href="https://tools.ietf.org/html/rfc3501" target="_blank" rel="noopener">IMAP协议</a>扩展列表。   <a href="#imap_auth">imap_auth</a>指令和<a href="https://tools.ietf.org/html/rfc2595" target="_blank" rel="noopener">STARTTLS</a>中指定的身份验证方法会根据<a href="ngx_mail_ssl_module.html#starttls">starttls</a>指令值自动添加到此列表中。 </p>
-<p>  指定客户端所代理的IMAP后端支持的扩展是有意义的（如果这些扩展与身份验证后使用的命令相关，当nginx透明地代理客户端连接到后端时）。 </p>
-<p>  目前的标准化扩展列表发布在<a href="http://www.iana.org/assignments/imap4-capabilities" target="_blank" rel="noopener">www.iana.org</a> 。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**imap_client_buffer** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">imap_client_buffer 4k|8k;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>mail</code> , <code>server</code> <br>                </td></p>
-<p>  设置用于读取IMAP命令的缓冲区的<code>*size*</code> 。  默认情况下，缓冲区大小等于一个内存页面。  这是4K或8K，具体取决于平台。 </p>
+<h2 id="Module-ngx-mail-imap-module"><a href="#Module-ngx-mail-imap-module" class="headerlink" title="Module ngx_mail_imap_module"></a>Module ngx_mail_imap_module</h2><p> Directives<br> imap_auth<br> imap_capabilities<br> imap_client_buffer   </p>
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p> Syntax:  <strong>imap_auth</strong> <em>method</em> …;<br>  Default:  imap_auth plain;  Context:  mail , server<br>  为IMAP客户端设置允许的身份验证方法。 支持的方法是： </p>
+<p> login   AUTH = LOGIN  plain   AUTH =普通  cram-md5   AUTH = CRAM-MD5 。 为了使此方法有效，密码必须以未加密的方式存储。  external   AUTH = EXTERNAL （1.11.6）。  Syntax:  <strong>imap_capabilities</strong> <em>extension</em> …;<br>  Default:  imap_capabilities IMAP4 IMAP4rev1 UIDPLUS;  Context:  mail , server<br>  设置传递给客户端以响应CAPABILITY命令的IMAP协议扩展列表。 imap_auth指令和STARTTLS中指定的身份验证方法会根据starttls指令值自动添加到此列表中。 </p>
+<p> 指定客户端所代理的IMAP后端支持的扩展是有意义的（如果这些扩展与身份验证后使用的命令相关，当nginx透明地代理客户端连接到后端时）。 </p>
+<p> 目前的标准化扩展列表发布在www.iana.org 。 </p>
+<p> Syntax:  <strong>imap_client_buffer</strong> <em>size</em> ;<br>  Default:  imap_client_buffer 4k|8k;  Context:  mail , server<br>  设置用于读取IMAP命令的缓冲区的<em>size</em> 。 默认情况下，缓冲区大小等于一个内存页面。 这是4K或8K，具体取决于平台。 </p>
 
       
     </div>

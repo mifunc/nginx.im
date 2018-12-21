@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="stream,ngx_stream_split_clients_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:45:02.155Z">
+<meta property="og:updated_time" content="2018-12-21T07:53:26.741Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="stream&#x2F;ngx_stream_split_clients_module-nginx中文手册">
 <meta name="twitter:description" content="stream,ngx_stream_split_clients_module">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:45:21+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
                 2018年12月21日
               </time>
             
@@ -397,33 +397,14 @@
 
       
         <p>stream,ngx_stream_split_clients_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-stream-split-clients-module"><a href="#Module-ngx-stream-split-clients-module" class="headerlink" title="Module ngx_stream_split_clients_module"></a>Module ngx_stream_split_clients_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#split_clients">split_clients</a> <br></td>
-
-<p>   <code>ngx_stream_split_clients_module</code>模块（1.11.3）创建适用于A / B测试的变量，也称为拆分测试。 </p>
+<h2 id="Module-ngx-stream-split-clients-module"><a href="#Module-ngx-stream-split-clients-module" class="headerlink" title="Module ngx_stream_split_clients_module"></a>Module ngx_stream_split_clients_module</h2><p> Example Configuration<br> Directives<br> split_clients<br> ngx_stream_split_clients_module模块（1.11.3）创建适用于A / B测试的变量，也称为拆分测试。 </p>
 <h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><blockquote>
-<p><pre class="notranslate">stream {<br>    …<br>    split_clients “${remote_addr}AAA” $upstream {<br>                  0.5%                feature_test1;<br>                  2.0%                feature_test2;</pre></p>
-<pre><code>              *                   production;
-}
-</code></pre></blockquote>
-<pre><code>server {
-    ...
-    proxy_pass $upstream;
-}
-</code></pre><p>}<br></p>
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**split_clients**     &lt;code class=&quot;notranslate&quot;&gt;*string*</code>    <code>*$variable*</code> { … } <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> <br>                </td></p>
-<p>  为A / B测试创建变量，例如： </p>
-<blockquote>
-<pre class="notranslate">split_clients "${remote_addr}AAA" $variant {
-               0.5%               .one;
-               2.0%               .two;
-               *                  "";
-}
-</pre>
-
+<p>stream { … split_clients “${remote_addr}AAA” $upstream { 0.5% feature_test1; 2.0% feature_test2; * production; } server { … proxy_pass $upstream; } } ####  指令</p>
 </blockquote>
-<p>  使用MurmurHash2对原始字符串的值进行哈希处理。  在给出的示例中，从0到21474835（0.5％）的哈希值对应于<code>$variant</code>变量的值<code>&quot;.one&quot;</code> ，从21474836到107374180（2％）的哈希值对应于值<code>&quot;.two&quot;</code>和哈希值从107374181到4294967295的值对应于值<code>&quot;&quot;</code> （空字符串）。 </p>
+<p> Syntax:  <strong>split_clients</strong> <em>string</em> <em>$variable</em> { … }<br>  Default:  —  Context:  stream<br>  为A / B测试创建变量，例如： </p>
+<blockquote>
+<p>split_clients “${remote_addr}AAA” $variant { 0.5% .one; 2.0% .two; * “”; }  使用MurmurHash2对原始字符串的值进行哈希处理。 在给出的示例中，从0到21474835（0.5％）的哈希值对应于$variant变量的值”.one” ，从21474836到107374180（2％）的哈希值对应于值”.two”和哈希值从107374181到4294967295的值对应于值”” （空字符串）。 </p>
+</blockquote>
 
       
     </div>
@@ -656,7 +637,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-stream-split-clients-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_stream_split_clients_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-stream-split-clients-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_stream_split_clients_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

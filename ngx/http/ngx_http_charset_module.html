@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="http,ngx_http_charset_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:44:58.196Z">
+<meta property="og:updated_time" content="2018-12-21T07:53:22.668Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http&#x2F;ngx_http_charset_module-nginx中文手册">
 <meta name="twitter:description" content="http,ngx_http_charset_module">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:45:21+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
                 2018年12月21日
               </time>
             
@@ -397,88 +397,34 @@
 
       
         <p>http,ngx_http_charset_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-http-charset-module"><a href="#Module-ngx-http-charset-module" class="headerlink" title="Module ngx_http_charset_module"></a>Module ngx_http_charset_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#charset">charset</a> <br>     <a href="#charset_map">charset_map</a> <br>     <a href="#charset_types">charset_types</a> <br>     <a href="#override_charset">override_charset</a> <br>     <a href="#source_charset">source_charset</a> <br></td>
-
-<p>   <code>ngx_http_charset_module</code>模块将指定的字符集添加到“Content-Type”响应头字段。  此外，该模块可以将数据从一个字符集转换为另一个字符集，但有一些限制： </p>
+<h2 id="Module-ngx-http-charset-module"><a href="#Module-ngx-http-charset-module" class="headerlink" title="Module ngx_http_charset_module"></a>Module ngx_http_charset_module</h2><p> Example Configuration<br> Directives<br> charset<br> charset_map<br> charset_types<br> override_charset<br> source_charset<br> ngx_http_charset_module模块将指定的字符集添加到“Content-Type”响应头字段。 此外，该模块可以将数据从一个字符集转换为另一个字符集，但有一些限制： </p>
 <ul>
-<li>转换是以一种方式执行的 - 从服务器到客户端， -   只能转换单字节字符集 -   或者来自UTF-8的单字节字符集。 </li>
+<li>转换是以一种方式执行的 - 从服务器到客户端， </li>
+<li>只能转换单字节字符集 </li>
+<li>或者来自UTF-8的单字节字符集。 <h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4></li>
 </ul>
-<h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><blockquote>
-<p><pre class="notranslate">include        conf/koi-win;</pre></p>
-</blockquote>
-<p>charset        windows-1251;<br>source_charset koi8-r;<br></p>
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**charset** &lt;code class=&quot;notranslate&quot;&gt;*charset*</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">charset off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> , <code>if in location</code> <br>                </td></p>
-<p>  将指定的charset添加到“Content-Type”响应头字段。  如果此charset与<a href="#source_charset">source_charset</a>指令中指定的charset不同，则执行转换。 </p>
-<p>  参数<code>off</code>取消将charset添加到“Content-Type”响应头字段。 </p>
-<p>  可以使用变量定义charset： </p>
 <blockquote>
-<pre class="notranslate">charset $charset;
-</pre>
-
+<p>include conf/koi-win; charset windows-1251; source_charset koi8-r; ####  指令</p>
 </blockquote>
-<p>  在这种情况下，变量的所有可能值需要以<a href="#charset_map">charset_map</a> ， <a href="#charset">charset</a>或<a href="#source_charset">source_charset</a>指令的形式存在于配置中至少一次。  对于<code>utf-8</code> ， <code>windows-1251</code>和<code>koi8-r</code> charsets，将文件<code>conf/koi-win</code> ， <code>conf/koi-utf</code>和<code>conf/win-utf</code>包含在<code>conf/koi-win</code>就足够了。  对于其他字符集，只需制作虚构的转换表即可，例如： </p>
+<p> Syntax:  <strong>charset</strong> <em>charset</em> | off ;<br>  Default:  charset off;  Context:  http , server , location , if in location<br>  将指定的charset添加到“Content-Type”响应头字段。 如果此charset与source_charset指令中指定的charset不同，则执行转换。 </p>
+<p> 参数off取消将charset添加到“Content-Type”响应头字段。 </p>
+<p> 可以使用变量定义charset： </p>
 <blockquote>
-<pre class="notranslate">charset_map iso-8859-5 _ { }
-</pre>
-
-
-
+<p>charset $charset;  在这种情况下，变量的所有可能值需要以charset_map ， charset或source_charset指令的形式存在于配置中至少一次。 对于utf-8 ， windows-1251和koi8-r charsets，将文件conf/koi-win ， conf/koi-utf和conf/win-utf包含在conf/koi-win就足够了。 对于其他字符集，只需制作虚构的转换表即可，例如： </p>
+<p>charset_map iso-8859-5 _ { }  此外，可以在“X-Accel-Charset”响应头字段中设置字符集。 可以使用proxy_ignore_headers ， fastcgi_ignore_headers ， uwsgi_ignore_headers ， scgi_ignore_headers和grpc_ignore_headers指令禁用此功能。 </p>
 </blockquote>
-<p>  此外，可以在“X-Accel-Charset”响应头字段中设置字符集。  可以使用<a href="ngx_http_proxy_module.html#proxy_ignore_headers">proxy_ignore_headers</a> ， <a href="ngx_http_fastcgi_module.html#fastcgi_ignore_headers">fastcgi_ignore_headers</a> ， <a href="ngx_http_uwsgi_module.html#uwsgi_ignore_headers">uwsgi_ignore_headers</a> ， <a href="ngx_http_scgi_module.html#scgi_ignore_headers">scgi_ignore_headers</a>和<a href="ngx_http_grpc_module.html#grpc_ignore_headers">grpc_ignore_headers</a>指令禁用此功能。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**charset_map** &lt;code class=&quot;notranslate&quot;&gt;*charset1*</code> <code>*charset2*</code> { … } <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> <br>                </td></p>
-<p>  描述从一个字符集到另一个字符集的转换表。  使用相同的数据构建反向转换表。  字符代码以十六进制给出。   80-FF范围内的缺失字符被替换为“ <code>?</code>   ”。  从UTF-8转换时，单字节字符集中缺少的字符将替换为“ <code>&amp;amp;#XXXX;</code>   ”。 </p>
-<p>  例： </p>
+<p> Syntax:  <strong>charset_map</strong> <em>charset1</em> <em>charset2</em> { … }<br>  Default:  —  Context:  http<br>  描述从一个字符集到另一个字符集的转换表。 使用相同的数据构建反向转换表。 字符代码以十六进制给出。 80-FF范围内的缺失字符被替换为“ ? ”。 从UTF-8转换时，单字节字符集中缺少的字符将替换为“ &#XXXX; ”。 </p>
+<p> 例： </p>
 <blockquote>
-<pre class="notranslate">charset_map koi8-r windows-1251 {
-    C0 FE ; # small yu
-    C1 E0 ; # small a
-    C2 E1 ; # small b
-    C3 F6 ; # small ts
-    ...
-}
-</pre>
-
-
-
+<p>charset_map koi8-r windows-1251 { C0 FE ; # small yu C1 E0 ; # small a C2 E1 ; # small b C3 F6 ; # small ts … }  在将转换表描述为UTF-8时，应在第二列中给出UTF-8字符集的代码，例如： </p>
+<p>charset_map koi8-r utf-8 { C0 D18E ; # small yu C1 D0B0 ; # small a C2 D0B1 ; # small b C3 D186 ; # small ts … }  在分配文件conf/koi-win ， conf/koi-utf和conf/win-utf中提供了从koi8-r到windows-1251 ，从koi8-r和windows-1251到utf-8完整转换表。 </p>
 </blockquote>
-<p>  在将转换表描述为UTF-8时，应在第二列中给出UTF-8字符集的代码，例如： </p>
+<p> Syntax:  <strong>charset_types</strong> <em>mime-type</em> …;<br>  Default:  charset_types text/html text/xml text/plain text/vnd.wap.wml application/javascript application/rss+xml;  Context:  http , server , location<br>  该指令出现在0.7.9版本中。 </p>
+<p> 除了“ text/html ”之外，还可以在具有指定MIME类型的响应中启用模块处理。 特殊值“ * ”匹配任何MIME类型（0.8.29）。 </p>
 <blockquote>
-<pre class="notranslate">charset_map koi8-r utf-8 {
-    C0 D18E ; # small yu
-    C1 D0B0 ; # small a
-    C2 D0B1 ; # small b
-    C3 D186 ; # small ts
-    ...
-}
-</pre>
-
-
-
+<p> 在版本1.5.4之前，“ application/x-javascript ”被用作默认MIME类型而不是“ application/javascript ”。  Syntax:  <strong>override_charset</strong> on | off ;<br>  Default:  override_charset off;  Context:  http , server , location , if in location<br>  确定当答案已在“Content-Type”响应头字段中携带字符集时，是否应对从代理或FastCGI / uwsgi / SCGI / gRPC服务器接收的答案执行转换。 如果启用了转换，则将接收到的响应中指定的字符集用作源字符集。 </p>
+<p> 应当注意，如果在子请求中接收到响应，则始终执行从响应字符集到主请求字符集的转换，而不管override_charset指令设置如何。  Syntax:  <strong>source_charset</strong> <em>charset</em> ;<br>  Default:  —  Context:  http , server , location , if in location<br>  定义响应的源字符集。 如果此charset与charset指令中指定的charset不同，则执行转换。 </p>
 </blockquote>
-<p>  在分配文件<code>conf/koi-win</code> ， <code>conf/koi-utf</code>和<code>conf/win-utf</code>中提供了从<code>koi8-r</code>到<code>windows-1251</code> ，从<code>koi8-r</code>和<code>windows-1251</code>到<code>utf-8</code>完整转换表。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**charset_types** &lt;code class=&quot;notranslate&quot;&gt;*mime-type*</code> …; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">charset_types text/html text/xml text/plain text/vnd.wap.wmlapplication/javascript application/rss+xml;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  该指令出现在0.7.9版本中。 </p>
-<p>  除了“ <code>text/html</code> ”之外，还可以在具有指定MIME类型的响应中启用模块处理。  特殊值“ <code>*</code> ”匹配任何MIME类型（0.8.29）。 </p>
-<blockquote>
-<p>  在版本1.5.4之前，“ <code>application/x-javascript</code> ”被用作默认MIME类型而不是“ <code>application/javascript</code> ”。 </p>
-</blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**override_charset** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">override_charset off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> , <code>if in location</code> <br>                </td></p>
-<p>  确定当答案已在“Content-Type”响应头字段中携带字符集时，是否应对从代理或FastCGI / uwsgi / SCGI / gRPC服务器接收的答案执行转换。  如果启用了转换，则将接收到的响应中指定的字符集用作源字符集。 </p>
-<blockquote>
-<p>  应当注意，如果在子请求中接收到响应，则始终执行从响应字符集到主请求字符集的转换，而不管<code>override_charset</code>指令设置如何。 </p>
-</blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**source_charset** &lt;code class=&quot;notranslate&quot;&gt;*charset*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> , <code>if in location</code> <br>                </td></p>
-<p>  定义响应的源字符集。  如果此charset与<a href="#charset">charset</a>指令中指定的<a href="#charset">charset</a>不同，则执行转换。 </p>
 
       
     </div>
@@ -711,7 +657,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-charset-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_charset_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-charset-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_charset_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

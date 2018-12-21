@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="http,ngx_http_auth_jwt_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:44:58.027Z">
+<meta property="og:updated_time" content="2018-12-21T07:53:22.492Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http&#x2F;ngx_http_auth_jwt_module-nginx中文手册">
 <meta name="twitter:description" content="http,ngx_http_auth_jwt_module">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:45:21+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
                 2018年12月21日
               </time>
             
@@ -397,96 +397,41 @@
 
       
         <p>http,ngx_http_auth_jwt_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-http-auth-jwt-module"><a href="#Module-ngx-http-auth-jwt-module" class="headerlink" title="Module ngx_http_auth_jwt_module"></a>Module ngx_http_auth_jwt_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#auth_jwt">auth_jwt</a> <br>     <a href="#auth_jwt_claim_set">auth_jwt_claim_set</a> <br>     <a href="#auth_jwt_header_set">auth_jwt_header_set</a> <br>     <a href="#auth_jwt_key_file">auth_jwt_key_file</a> <br>     <a href="#auth_jwt_key_request">auth_jwt_key_request</a> <br>     <a href="#auth_jwt_leeway">auth_jwt_leeway</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
-
-<p>   <code>ngx_http_auth_jwt_module</code>模块（1.11.3）通过使用指定的密钥验证提供的<a href="https://tools.ietf.org/html/rfc7519" target="_blank" rel="noopener">JSON Web令牌</a> （JWT）来实现客户端授权。   JWT声明必须以<a href="https://tools.ietf.org/html/rfc7515" target="_blank" rel="noopener">JSON Web签名</a> （JWS）结构进行编码。  该模块可用于<a href="http://openid.net/specs/openid-connect-core-1_0.html" target="_blank" rel="noopener">OpenID Connect</a>身份验证。 </p>
-<p>  该模块可以通过<a href="ngx_http_core_module.html#satisfy">满足</a>指令与其他访问模块组合，例如<a href="ngx_http_access_module.html">ngx_http_access_module</a> ， <a href="ngx_http_auth_basic_module.html">ngx_http_auth_basic_module</a>和<a href="ngx_http_auth_request_module.html">ngx_http_auth_request_module</a> 。 </p>
-<p>  该模块支持以下加密<a href="https://www.iana.org/assignments/jose/jose.xhtml#web-signature-encryption-algorithms" target="_blank" rel="noopener">算法</a> ： </p>
+<h2 id="Module-ngx-http-auth-jwt-module"><a href="#Module-ngx-http-auth-jwt-module" class="headerlink" title="Module ngx_http_auth_jwt_module"></a>Module ngx_http_auth_jwt_module</h2><p> Example Configuration<br> Directives<br> auth_jwt<br> auth_jwt_claim_set<br> auth_jwt_header_set<br> auth_jwt_key_file<br> auth_jwt_key_request<br> auth_jwt_leeway<br> Embedded Variables<br> ngx_http_auth_jwt_module模块（1.11.3）通过使用指定的密钥验证提供的JSON Web令牌 （JWT）来实现客户端授权。 JWT声明必须以JSON Web签名 （JWS）结构进行编码。 该模块可用于OpenID Connect身份验证。 </p>
+<p> 该模块可以通过满足指令与其他访问模块组合，例如ngx_http_access_module ， ngx_http_auth_basic_module和ngx_http_auth_request_module 。 </p>
+<p> 该模块支持以下加密算法 ： </p>
 <ul>
-<li>HS256，HS384，HS512 -    RS256，RS384，RS512 -    ES256，ES384，ES512 -    EdDSA（Ed25519和Ed448签名）（1.15.7）<br>在1.13.7版之前，仅支持HS256，RS256，ES256算法。 </li>
+<li>HS256，HS384，HS512 </li>
+<li>RS256，RS384，RS512 </li>
+<li>ES256，ES384，ES512 </li>
+<li>EdDSA（Ed25519和Ed448签名）（1.15.7）<br>在1.13.7版之前，仅支持HS256，RS256，ES256算法。 </li>
 </ul>
 <blockquote>
-<p>  该模块作为我们<a href="http://nginx.com/products/" target="_blank" rel="noopener">商业订阅的</a>一部分提供。 </p>
+<p> 该模块作为我们商业订阅的一部分提供。 ####  示例配置</p>
+<p>location / { auth_jwt “closed site”; auth_jwt_key_file conf/keys.json; } ####  指令</p>
 </blockquote>
-<h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><blockquote>
-<pre class="notranslate">location / {
-    auth_jwt          "closed site";
-    auth_jwt_key_file conf/keys.json;
-}
-</pre>
-
-
-
-</blockquote>
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**auth_jwt**     &lt;code class=&quot;notranslate&quot;&gt;*string*</code>    [ <code>token=</code> <code>*$variable*</code> ] |    <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">auth_jwt off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> , <code>limit_except</code> <br>                </td></p>
-<p>  启用JSON Web Token的验证。  指定的<code>*string*</code>用作域。  参数值可以包含变量。 </p>
-<p>  可选的<code>token</code>参数指定包含JSON Web Token的变量。  默认情况下，JWT作为<a href="https://tools.ietf.org/html/rfc6750" target="_blank" rel="noopener">承载令牌</a>在“授权”标头中传递。   JWT也可以作为cookie或查询字符串的一部分传递： </p>
+<p> Syntax:  <strong>auth_jwt</strong> <em>string</em> [ token= <em>$variable</em> ] | off ;<br>  Default:  auth_jwt off;  Context:  http , server , location , limit_except<br>  启用JSON Web Token的验证。 指定的<em>string</em>用作域。 参数值可以包含变量。 </p>
+<p> 可选的token参数指定包含JSON Web Token的变量。 默认情况下，JWT作为承载令牌在“授权”标头中传递。 JWT也可以作为cookie或查询字符串的一部分传递： </p>
 <blockquote>
-<pre class="notranslate">auth_jwt "closed site" token=$cookie_auth_token;
-</pre>
-
-
-
+<p>auth_jwt “closed site” token=$cookie_auth_token;  特殊值off取消了从先前配置级别继承的auth_jwt伪指令的效果。 </p>
 </blockquote>
-<p>  特殊值<code>off</code>取消了从先前配置级别继承的<code>auth_jwt</code>伪指令的效果。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**auth_jwt_claim_set** &lt;code class=&quot;notranslate&quot;&gt;*$variable*</code> <code>*name*</code> …; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> <br>                </td></p>
-<p>  该指令出现在1.11.10版中。 </p>
-<p>  将<code>*variable*</code>设置为由键名标识的JWT声明参数。  名称匹配从JSON树的顶级开始。  对于数组，变量保留由逗号分隔的数组元素列表。 </p>
+<p> Syntax:  <strong>auth_jwt_claim_set</strong> <em>$variable</em> <em>name</em> …;<br>  Default:  —  Context:  http<br>  该指令出现在1.11.10版中。 </p>
+<p> 将<em>variable</em>设置为由键名标识的JWT声明参数。 名称匹配从JSON树的顶级开始。 对于数组，变量保留由逗号分隔的数组元素列表。 </p>
 <blockquote>
-<pre class="notranslate">location / {
-    auth_jwt           "closed site";
-    auth_jwt_key_file  conf/keys.json;
-    auth_jwt_claim_set $email info e-mail;
-    auth_jwt_claim_set $job info "job title";
-}
-</pre>
-
-
-
-<p>  在1.13.7版之前，只能指定一个键名，并且数组的结果未定义。 </p>
+<p>location / { auth_jwt “closed site”; auth_jwt_key_file conf/keys.json; auth_jwt_claim_set $email info e-mail; auth_jwt_claim_set $job info “job title”; }<br> 在1.13.7版之前，只能指定一个键名，并且数组的结果未定义。  Syntax:  <strong>auth_jwt_header_set</strong> <em>$variable</em> <em>name</em> …;<br>  Default:  —  Context:  http<br>  该指令出现在1.11.10版中。 </p>
 </blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**auth_jwt_header_set** &lt;code class=&quot;notranslate&quot;&gt;*$variable*</code> <code>*name*</code> …; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> <br>                </td></p>
-<p>  该指令出现在1.11.10版中。 </p>
-<p>  将<code>*variable*</code>设置为由键名标识的JOSE标头参数。  名称匹配从JSON树的顶级开始。  对于数组，变量保留由逗号分隔的数组元素列表。 </p>
+<p> 将<em>variable</em>设置为由键名标识的JOSE标头参数。 名称匹配从JSON树的顶级开始。 对于数组，变量保留由逗号分隔的数组元素列表。 </p>
 <blockquote>
-<p>  在1.13.7版之前，只能指定一个键名，并且数组的结果未定义。 </p>
+<p> 在1.13.7版之前，只能指定一个键名，并且数组的结果未定义。  Syntax:  <strong>auth_jwt_key_file</strong> <em>file</em> ;<br>  Default:  —  Context:  http , server , location , limit_except<br>  指定JSON Web Key Set格式的<em>file</em> ，用于验证JWT签名。 参数值可以包含变量。 </p>
 </blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**auth_jwt_key_file** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> , <code>limit_except</code> <br>                </td></p>
-<p>  指定<a href="https://tools.ietf.org/html/rfc7517#section-5" target="_blank" rel="noopener">JSON Web Key Set</a>格式的<code>*file*</code> ，用于验证JWT签名。  参数值可以包含变量。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**auth_jwt_key_request** &lt;code class=&quot;notranslate&quot;&gt;*uri*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> , <code>limit_except</code> <br>                </td></p>
-<p>  该指令出现在1.15.6版中。 </p>
-<p>  允许从子请求中检索<a href="https://tools.ietf.org/html/rfc7517#section-5" target="_blank" rel="noopener">JSON Web Key Set</a>文件以验证JWT签名，并设置子请求将发送到的URI。  为避免验证开销，建议缓存密钥文件： </p>
+<p> Syntax:  <strong>auth_jwt_key_request</strong> <em>uri</em> ;<br>  Default:  —  Context:  http , server , location , limit_except<br>  该指令出现在1.15.6版中。 </p>
+<p> 允许从子请求中检索JSON Web Key Set文件以验证JWT签名，并设置子请求将发送到的URI。 为避免验证开销，建议缓存密钥文件： </p>
 <blockquote>
-<p><pre class="notranslate">proxy_cache_path /data/nginx/cache levels=1 keys_zone=foo:10m;</pre></p>
+<p>proxy_cache_path /data/nginx/cache levels=1 keys_zone=foo:10m; server { … location / { auth_jwt “closed site”; auth_jwt_key_request /jwks_uri; } location = /jwks_uri { internal; proxy_cache foo; proxy_pass <a href="http://idp.example.com/keys" target="_blank" rel="noopener">http://idp.example.com/keys</a>; } }  Syntax:  <strong>auth_jwt_leeway</strong> <em>time</em> ;<br>  Default:  auth_jwt_leeway 0s;  Context:  http , server , location<br>  该指令出现在1.13.10版本中。 </p>
 </blockquote>
-<p>server {<br>    …</p>
-<pre><code>location / {
-    auth_jwt             &quot;closed site&quot;;
-    auth_jwt_key_request /jwks_uri;
-}
-
-location = /jwks_uri {
-    internal;
-    proxy_cache foo;
-    proxy_pass  http://idp.example.com/keys;
-}
-</code></pre><p>}<br></p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**auth_jwt_leeway** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">auth_jwt_leeway 0s;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  该指令出现在1.13.10版本中。 </p>
-<p>  设置最大允许余地，以在验证<a href="https://tools.ietf.org/html/rfc7519#section-4.1.4" target="_blank" rel="noopener">exp</a>和<a href="https://tools.ietf.org/html/rfc7519#section-4.1.5" target="_blank" rel="noopener">nbf</a> JWT声明时补偿时钟偏差。 </p>
-<h4 id="嵌入式变量"><a href="#嵌入式变量" class="headerlink" title="嵌入式变量"></a>嵌入式变量</h4><p>   <code>ngx_http_auth_jwt_module</code>模块支持嵌入变量： </p>
+<p> 设置最大允许余地，以在验证exp和nbf JWT声明时补偿时钟偏差。 </p>
+<h4 id="嵌入式变量"><a href="#嵌入式变量" class="headerlink" title="嵌入式变量"></a>嵌入式变量</h4><p> ngx_http_auth_jwt_module模块支持嵌入变量： </p>
+<p> $jwt_header_ <em>name</em>  返回指定JOSE标头的值  $jwt_claim_ <em>name</em>  返回指定JWT声明的值  </p>
 
       
     </div>
@@ -719,7 +664,7 @@ location = /jwks_uri {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-auth-jwt-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_auth_jwt_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌入式变量"><span class="nav-number">1.0.3.</span> <span class="nav-text">嵌入式变量</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-auth-jwt-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_auth_jwt_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌入式变量"><span class="nav-number">1.0.1.</span> <span class="nav-text">嵌入式变量</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

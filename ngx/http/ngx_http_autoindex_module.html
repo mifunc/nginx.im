@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="http,ngx_http_autoindex_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:44:58.103Z">
+<meta property="og:updated_time" content="2018-12-21T07:53:22.588Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http&#x2F;ngx_http_autoindex_module-nginx中文手册">
 <meta name="twitter:description" content="http,ngx_http_autoindex_module">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:45:21+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
                 2018年12月21日
               </time>
             
@@ -397,37 +397,17 @@
 
       
         <p>http,ngx_http_autoindex_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-http-autoindex-module"><a href="#Module-ngx-http-autoindex-module" class="headerlink" title="Module ngx_http_autoindex_module"></a>Module ngx_http_autoindex_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#autoindex">autoindex</a> <br>     <a href="#autoindex_exact_size">autoindex_exact_size</a> <br>     <a href="#autoindex_format">autoindex_format</a> <br>     <a href="#autoindex_localtime">autoindex_localtime</a> <br></td>
-
-<p>   <code>ngx_http_autoindex_module</code>模块处理以斜杠字符（’ <code>/</code> ‘）结尾的请求，并生成目录列表。  当<a href="ngx_http_index_module.html">ngx_http_index_module</a>模块找不到索引文件时，通常<code>ngx_http_autoindex_module</code>请求传递给<code>ngx_http_autoindex_module</code>模块。 </p>
+<h2 id="Module-ngx-http-autoindex-module"><a href="#Module-ngx-http-autoindex-module" class="headerlink" title="Module ngx_http_autoindex_module"></a>Module ngx_http_autoindex_module</h2><p> Example Configuration<br> Directives<br> autoindex<br> autoindex_exact_size<br> autoindex_format<br> autoindex_localtime<br> ngx_http_autoindex_module模块处理以斜杠字符（’ / ‘）结尾的请求，并生成目录列表。 当ngx_http_index_module模块找不到索引文件时，通常ngx_http_autoindex_module请求传递给ngx_http_autoindex_module模块。 </p>
 <h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><blockquote>
-<pre class="notranslate">location / {
-    autoindex on;
-}
-</pre>
-
-
-
+<p>location / { autoindex on; } ####  指令</p>
 </blockquote>
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**autoindex** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">autoindex off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  启用或禁用目录列表输出。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**autoindex_exact_size** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">autoindex_exact_size on;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  对于HTML <a href="#autoindex_format">格式</a> ，指定是否应在目录列表中输出确切的文件大小，或者更确切地舍入为千字节，兆字节和千兆字节。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**autoindex_format**     &lt;code class=&quot;notranslate&quot;&gt;html</code> |    <code>xml</code> |    <code>json</code> |    <code>jsonp</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">autoindex_format html;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  该指令出现在1.7.9版本中。 </p>
-<p>  设置目录列表的格式。 </p>
-<p>  使用JSONP格式时，使用<code>callback</code>请求参数设置回调函数的名称。  如果参数缺失或具有空值，则使用JSON格式。 </p>
-<p>  可以使用<a href="ngx_http_xslt_module.html">ngx_http_xslt_module</a>模块转换XML输出。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**autoindex_localtime** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">autoindex_localtime off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  对于HTML <a href="#autoindex_format">格式</a> ，指定目录列表中的时间是应以本地时区还是UTC输出。 </p>
+<p> Syntax:  <strong>autoindex</strong> on | off ;<br>  Default:  autoindex off;  Context:  http , server , location<br>  启用或禁用目录列表输出。 </p>
+<p> Syntax:  <strong>autoindex_exact_size</strong> on | off ;<br>  Default:  autoindex_exact_size on;  Context:  http , server , location<br>  对于HTML 格式 ，指定是否应在目录列表中输出确切的文件大小，或者更确切地舍入为千字节，兆字节和千兆字节。 </p>
+<p> Syntax:  <strong>autoindex_format</strong> html | xml | json | jsonp ;<br>  Default:  autoindex_format html;  Context:  http , server , location<br>  该指令出现在1.7.9版本中。 </p>
+<p> 设置目录列表的格式。 </p>
+<p> 使用JSONP格式时，使用callback请求参数设置回调函数的名称。 如果参数缺失或具有空值，则使用JSON格式。 </p>
+<p> 可以使用ngx_http_xslt_module模块转换XML输出。 </p>
+<p> Syntax:  <strong>autoindex_localtime</strong> on | off ;<br>  Default:  autoindex_localtime off;  Context:  http , server , location<br>  对于HTML 格式 ，指定目录列表中的时间是应以本地时区还是UTC输出。 </p>
 
       
     </div>
@@ -660,7 +640,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-autoindex-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_autoindex_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-autoindex-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_autoindex_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

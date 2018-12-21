@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="http,ngx_http_f4f_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:44:58.307Z">
+<meta property="og:updated_time" content="2018-12-21T07:53:22.777Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http&#x2F;ngx_http_f4f_module-nginx中文手册">
 <meta name="twitter:description" content="http,ngx_http_f4f_module">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:45:21+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
                 2018年12月21日
               </time>
             
@@ -397,32 +397,15 @@
 
       
         <p>http,ngx_http_f4f_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-http-f4f-module"><a href="#Module-ngx-http-f4f-module" class="headerlink" title="Module ngx_http_f4f_module"></a>Module ngx_http_f4f_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#f4f">f4f</a> <br>     <a href="#f4f_buffer_size">f4f_buffer_size</a> <br></td>
-
-<p>   <code>ngx_http_f4f_module</code>模块为Adobe HTTP动态流（HDS）提供服务器端支持。 </p>
-<p>  该模块以“ <code>/videoSeg1-Frag1</code> ”形式实现HTTP动态流式处理请求的处理 - 使用<code>videoSeg1.f4x</code>索引文件从<code>videoSeg1.f4f</code>文件中提取所需的片段。  该模块是Apache的Adobe f4f模块（HTTP Origin Module）的替代品。 </p>
-<p>  需要使用Adobe的f4fpackager进行常规预处理，有关详细信息，请参阅相关文档。 </p>
+<h2 id="Module-ngx-http-f4f-module"><a href="#Module-ngx-http-f4f-module" class="headerlink" title="Module ngx_http_f4f_module"></a>Module ngx_http_f4f_module</h2><p> Example Configuration<br> Directives<br> f4f<br> f4f_buffer_size<br> ngx_http_f4f_module模块为Adobe HTTP动态流（HDS）提供服务器端支持。 </p>
+<p> 该模块以“ /videoSeg1-Frag1 ”形式实现HTTP动态流式处理请求的处理 - 使用videoSeg1.f4x索引文件从videoSeg1.f4f文件中提取所需的片段。 该模块是Apache的Adobe f4f模块（HTTP Origin Module）的替代品。 </p>
+<p> 需要使用Adobe的f4fpackager进行常规预处理，有关详细信息，请参阅相关文档。 </p>
 <blockquote>
-<p>  该模块作为我们<a href="http://nginx.com/products/" target="_blank" rel="noopener">商业订阅的</a>一部分提供。 </p>
+<p> 该模块作为我们商业订阅的一部分提供。 ####  示例配置</p>
+<p>location /video/ { f4f; … } ####  指令</p>
 </blockquote>
-<h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><blockquote>
-<pre class="notranslate">location /video/ {
-    f4f;
-    ...
-}
-</pre>
-
-
-
-</blockquote>
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**f4f** ;</code> <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>location</code> <br>                </td></p>
-<p>  打开周围位置的模块处理。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**f4f_buffer_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">f4f_buffer_size 512k;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  设置用于读取<code>.f4x</code>索引文件的缓冲区的<code>*size*</code> 。 </p>
+<p> Syntax:  <strong>f4f</strong> ;<br>  Default:  —  Context:  location<br>  打开周围位置的模块处理。 </p>
+<p> Syntax:  <strong>f4f_buffer_size</strong> <em>size</em> ;<br>  Default:  f4f_buffer_size 512k;  Context:  http , server , location<br>  设置用于读取.f4x索引文件的缓冲区的<em>size</em> 。 </p>
 
       
     </div>
@@ -655,7 +638,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-f4f-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_f4f_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-f4f-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_f4f_module</span></a></li></ol></div>
             
 
           </div>

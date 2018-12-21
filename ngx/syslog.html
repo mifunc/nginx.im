@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="syslog">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:44:55.627Z">
+<meta property="og:updated_time" content="2018-12-21T07:53:20.511Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="syslog-nginx中文手册">
 <meta name="twitter:description" content="syslog">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:45:21+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
                 2018年12月21日
               </time>
             
@@ -397,17 +397,11 @@
 
       
         <p>syslog<br><a id="more"></a></p>
-<h2 id="记录到syslog"><a href="#记录到syslog" class="headerlink" title="记录到syslog"></a>记录到syslog</h2><p>   <a href="ngx_core_module.html#error_log">error_log</a>和<a href="http/ngx_http_log_module.html#access_log">access_log</a>指令支持记录到syslog。  以下参数配置到syslog的日志记录： </p>
+<h2 id="记录到syslog"><a href="#记录到syslog" class="headerlink" title=" 记录到syslog"></a> 记录到syslog</h2><p> error_log和access_log指令支持记录到syslog。 以下参数配置到syslog的日志记录： </p>
+<p> server= <em>address</em>  定义syslog服务器的地址。 可以将地址指定为域名或IP地址，带有可选端口，或者指定为“ unix: ”前缀后指定的UNIX域套接字路径。 如果未指定端口，则使用UDP端口514。 如果域名解析为多个IP地址，则使用第一个解析的地址。  facility= <em>string</em>  设置syslog消息的工具，如RFC 3164中所定义。 设施可以是“ kern ”，“ user ”，“ mail ”，“ daemon ”，“ auth ”，“ intern ”，“ lpr ”，“ news ”，“ uucp ”，“ clock ”，“ authpriv ”，“ ftp “，” ntp “，” audit “，” alert “，” cron “，” local0 “..” local7 “。 默认为“ local7 ”。  severity= <em>string</em>  设置access_log的syslog消息的严重性，如RFC 3164中所定义。 可能的值与error_log指令的第二个参数（级别）相同。 默认为“ info ”。 </p>
 <blockquote>
-<p>  错误消息的严重性由nginx确定，因此在<code>error_log</code>指令中忽略该参数。 </p>
-</blockquote>
-<p>   syslog配置示例： </p>
-<blockquote>
-<p><pre class="notranslate">error_log syslog:server=192.168.1.1 debug;</pre></p>
-</blockquote>
-<p>access_log syslog:server=unix:/var/log/nginx.sock,nohostname;<br>access_log syslog:server=[2001:db8::1]:12345,facility=local7,tag=nginx,severity=info combined;<br></p>
-<blockquote>
-<p>  从版本1.7.1开始，可以登录到syslog。  作为我们<a href="http://nginx.com/products/" target="_blank" rel="noopener">商业订阅的</a>一部分，从1.5.3版开始，可以使用日志记录到syslog。 </p>
+<p> 错误消息的严重性由nginx确定，因此在error_log指令中忽略该参数。  tag= <em>string</em>  设置syslog消息的标记。 默认为“ nginx ”。  nohostname   禁用将“hostname”字段添加到syslog消息头（1.9.7）中。  syslog配置示例： </p>
+<p>error_log syslog:server=192.168.1.1 debug; access_log syslog:server=unix:/var/log/nginx.sock,nohostname; access_log syslog:server=[2001:db8::1]:12345,facility=local7,tag=nginx,severity=info combined;<br> 从版本1.7.1开始，可以登录到syslog。 作为我们商业订阅的一部分，从1.5.3版开始，可以使用日志记录到syslog。  </p>
 </blockquote>
 
       
@@ -641,7 +635,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#记录到syslog"><span class="nav-number">1.</span> <span class="nav-text">记录到syslog</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#记录到syslog"><span class="nav-number">1.</span> <span class="nav-text"> 记录到syslog</span></a></li></ol></div>
             
 
           </div>

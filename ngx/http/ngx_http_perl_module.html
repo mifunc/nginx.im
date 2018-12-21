@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="http,ngx_http_perl_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:44:59.445Z">
+<meta property="og:updated_time" content="2018-12-21T07:53:23.886Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http&#x2F;ngx_http_perl_module-nginx中文手册">
 <meta name="twitter:description" content="http,ngx_http_perl_module">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:45:21+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
                 2018年12月21日
               </time>
             
@@ -397,140 +397,34 @@
 
       
         <p>http,ngx_http_perl_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-http-perl-module"><a href="#Module-ngx-http-perl-module" class="headerlink" title="Module ngx_http_perl_module"></a>Module ngx_http_perl_module</h2><td align="left" class="notranslate"> <a href="#issues">Known Issues</a> <br> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#perl">perl</a> <br>     <a href="#perl_modules">perl_modules</a> <br>     <a href="#perl_require">perl_require</a> <br>     <a href="#perl_set">perl_set</a> <br> <a href="#ssi">Calling Perl from SSI</a> <br> <a href="#methods">The $r Request Object Methods</a> <br></td>
-
-<p>   <code>ngx_http_perl_module</code>模块用于在Perl中实现位置和变量处理程序，并将Perl调用插入到SSI中。 </p>
-<p>  默认情况下不构建此模块，应使用<code>--with-http_perl_module</code>配置参数启用它。 </p>
+<h2 id="Module-ngx-http-perl-module"><a href="#Module-ngx-http-perl-module" class="headerlink" title="Module ngx_http_perl_module"></a>Module ngx_http_perl_module</h2><p> Known Issues<br> Example Configuration<br> Directives<br> perl<br> perl_modules<br> perl_require<br> perl_set<br> Calling Perl from SSI<br> The $r Request Object Methods<br> ngx_http_perl_module模块用于在Perl中实现位置和变量处理程序，并将Perl调用插入到SSI中。 </p>
+<p> 默认情况下不构建此模块，应使用–with-http_perl_module配置参数启用它。 </p>
 <blockquote>
-<p>  此模块需要<a href="https://www.perl.org/get.html" target="_blank" rel="noopener">Perl</a> 5.6.1或更高版本。   C编译器应该与用于构建Perl的编译器兼容。 </p>
+<p> 此模块需要Perl 5.6.1或更高版本。 C编译器应该与用于构建Perl的编译器兼容。 ####  已知的问题</p>
 </blockquote>
-<h4 id="已知的问题"><a href="#已知的问题" class="headerlink" title="已知的问题"></a>已知的问题</h4><p>  该模块是实验性的，需要注意的是经纪人。 </p>
-<p>  为了让Perl在重新配置期间重新编译已修改的模块，它应该使用<code>-Dusemultiplicity=yes</code>或<code>-Dusethreads=yes</code>参数<code>-Dusethreads=yes</code> 。  另外，为了使Perl在运行时泄漏更少的内存，应该使用<code>-Dusemymalloc=no</code>参数构建它。  要在已构建的Perl中检查这些参数的值（在示例中指定了首选值），请运行： </p>
+<p> 该模块是实验性的，需要注意的是经纪人。 </p>
+<p> 为了让Perl在重新配置期间重新编译已修改的模块，它应该使用-Dusemultiplicity=yes或-Dusethreads=yes参数-Dusethreads=yes 。 另外，为了使Perl在运行时泄漏更少的内存，应该使用-Dusemymalloc=no参数构建它。 要在已构建的Perl中检查这些参数的值（在示例中指定了首选值），请运行： </p>
 <blockquote>
-<pre class="notranslate">$ perl -V:usemultiplicity -V:usemymalloc
-usemultiplicity='define';
-usemymalloc='n';
-</pre>
-
-
-
+<p>$ perl -V:usemultiplicity -V:usemymalloc usemultiplicity=’define’; usemymalloc=’n’;  请注意，在使用新的-Dusemultiplicity=yes或-Dusethreads=yes参数重建Perl之后，还必须重建所有二进制Perl模块 - 它们将停止使用新的Perl。 </p>
 </blockquote>
-<p>  请注意，在使用新的<code>-Dusemultiplicity=yes</code>或<code>-Dusethreads=yes</code>参数重建Perl之后，还必须重建所有二进制Perl模块 - 它们将停止使用新的Perl。 </p>
-<p>  每次重新配置后，主进程和工作进程都有可能增大。  如果主进程增长到不可接受的大小，则可以在不更改可执行文件的情况下应用<a href="control.html#upgrade">实时升级</a>过程。 </p>
-<p>  当Perl模块执行长时间运行的操作（例如解析域名，连接到另一个服务器或查询数据库）时，将不会处理分配给当前工作进程的其他请求。  因此，建议仅执行具有可预测和短执行时间的此类操作，例如访问本地文件系统。 </p>
+<p> 每次重新配置后，主进程和工作进程都有可能增大。 如果主进程增长到不可接受的大小，则可以在不更改可执行文件的情况下应用实时升级过程。 </p>
+<p> 当Perl模块执行长时间运行的操作（例如解析域名，连接到另一个服务器或查询数据库）时，将不会处理分配给当前工作进程的其他请求。 因此，建议仅执行具有可预测和短执行时间的此类操作，例如访问本地文件系统。 </p>
 <h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><blockquote>
-<p><pre class="notranslate">http {</pre></p>
+<p>http { perl_modules perl/lib; perl_require hello.pm; perl_set $msie6 ‘ sub { my $r = shift; my $ua = $r-&gt;header_in(“User-Agent”); return “” if $ua =~ /Opera/; return “1” if $ua =~ / MSIE [6-9].\d+/; return “”; } ‘; server { location / { perl hello::handler; } }  perl/lib/hello.pm模块： </p>
+<p>package hello; use nginx; sub handler { my $r = shift; $r-&gt;send_http_header(“text/html”); return OK if $r-&gt;header_only; $r-&gt;print(“hello!\n<br>“); if (-f $r-&gt;filename or -d _) { $r-&gt;print($r-&gt;uri, “ exists!\n”); } return OK; } 1; __END__ ####  指令</p>
 </blockquote>
-<pre><code>perl_modules perl/lib;
-perl_require hello.pm;
-
-perl_set $msie6 &apos;
-
-    sub {
-        my $r = shift;
-        my $ua = $r-&amp;gt;header_in(&quot;User-Agent&quot;);
-
-        return &quot;&quot; if $ua =~ /Opera/;
-        return &quot;1&quot; if $ua =~ / MSIE [6-9]\.\d+/;
-        return &quot;&quot;;
-    }
-
-&apos;;
-
-server {
-    location / {
-        perl hello::handler;
-    }
-}
-</code></pre><p></p>
-<p>   <code>perl/lib/hello.pm</code>模块： </p>
+<p> Syntax:  <strong>perl</strong> <em>module</em> :: <em>function</em> |’sub { … }’;<br>  Default:  —  Context:  location , limit_except<br>  为给定位置设置Perl处理程序。 </p>
+<p> Syntax:  <strong>perl_modules</strong> <em>path</em> ;<br>  Default:  —  Context:  http<br>  为Perl模块设置其他路径。 </p>
+<p> Syntax:  <strong>perl_require</strong> <em>module</em> ;<br>  Default:  —  Context:  http<br>  定义将在每次重新配置期间加载的模块的名称。 可以存在几个perl_require指令。 </p>
+<p> Syntax:  <strong>perl_set</strong> <em>$variable</em> <em>module</em> :: <em>function</em> |’sub { … }’;<br>  Default:  —  Context:  http<br>  为指定的变量安装Perl处理程序。 </p>
+<h4 id="从SSI调用Perl"><a href="#从SSI调用Perl" class="headerlink" title="从SSI调用Perl"></a>从SSI调用Perl</h4><p> 调用Perl的SSI命令具有以下格式： </p>
 <blockquote>
-<p><pre class="notranslate">package hello;</pre></p>
+<p><!--# perl sub=" *module* :: *function* " arg=" *parameter1* " arg=" *parameter2* " ... --> ####  $ r请求对象方法</p>
 </blockquote>
-<p>use nginx;</p>
-<p>sub handler {<br>    my $r = shift;</p>
-<pre><code>$r-&amp;gt;send_http_header(&quot;text/html&quot;);
-return OK if $r-&amp;gt;header_only;
-
-$r-&amp;gt;print(&quot;hello!\n&amp;lt;br/&amp;gt;&quot;);
-
-if (-f $r-&amp;gt;filename or -d _) {
-    $r-&amp;gt;print($r-&amp;gt;uri, &quot; exists!\n&quot;);
-}
-
-return OK;
-</code></pre><p>}</p>
-<p>1;<br><strong>END</strong><br></p>
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**perl** &lt;code class=&quot;notranslate&quot;&gt;*module*</code> :: <code>*function*</code> |’sub { … }’; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>location</code> , <code>limit_except</code> <br>                </td></p>
-<p>  为给定位置设置Perl处理程序。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**perl_modules** &lt;code class=&quot;notranslate&quot;&gt;*path*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> <br>                </td></p>
-<p>  为Perl模块设置其他路径。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**perl_require** &lt;code class=&quot;notranslate&quot;&gt;*module*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> <br>                </td></p>
-<p>  定义将在每次重新配置期间加载的模块的名称。  可以存在几个<code>perl_require</code>指令。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**perl_set**     &lt;code class=&quot;notranslate&quot;&gt;*$variable*</code>    <code>*module*</code> :: <code>*function*</code> |’sub { … }’; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> <br>                </td></p>
-<p>  为指定的变量安装Perl处理程序。 </p>
-<h4 id="从SSI调用Perl"><a href="#从SSI调用Perl" class="headerlink" title="从SSI调用Perl"></a>从SSI调用Perl</h4><p>  调用Perl的SSI命令具有以下格式： </p>
+<p> $r-&gt;args   返回请求参数。  $r-&gt;filename   返回与请求URI对应的文件名。  $r-&gt;has_request_body( <em>handler</em> )   如果请求中没有正文，则返回0。 如果有正文，则为请求设置指定的处理程序，并返回1。 在读取请求主体后，nginx将调用指定的处理程序。 请注意，处理函数应该通过引用传递。 例： </p>
 <blockquote>
-<pre class="notranslate">&lt;!--# perl sub=" `*module*` :: `*function*` " arg=" `*parameter1*` " arg=" `*parameter2*` " ...
---&gt;
-</pre>
-
-
-
+<p>package hello; use nginx; sub handler { my $r = shift; if ($r-&gt;request_method ne “POST”) { return DECLINED; } if ($r-&gt;has_request_body( <strong>\&amp;post</strong> )) { return OK; } return HTTP_BAD_REQUEST; } sub <strong>post</strong> { my $r = shift; $r-&gt;send_http_header; $r-&gt;print(“request_body: \””, $r-&gt;request_body, “\”<br>“); $r-&gt;print(“request_body_file: \””, $r-&gt;request_body_file, “\”<br>\n”); return OK; } 1; __END__  $r-&gt;allow_ranges   在发送响应时允许使用字节范围。  $r-&gt;discard_request_body   指示nginx丢弃请求正文。  $r-&gt;header_in( <em>field</em> )   返回指定的客户端请求标头字段的值。  $r-&gt;header_only   确定是应将整个响应还是仅应将其标头发送给客户端。  $r-&gt;header_out( <em>field</em> , <em>value</em> )   为指定的响应头字段设置一个值。  $r-&gt;internal_redirect( <em>uri</em> )   内部重定向到指定的<em>uri</em> 。 Perl处理程序执行完成后发生实际重定向。<br> 目前不支持重定向到命名位置。  $r-&gt;log_error( <em>errno</em> , <em>message</em> )   将指定的<em>message</em>写入error_log 。 如果<em>errno</em>不为零，则错误代码及其描述将附加到消息中。  $r-&gt;print( <em>text</em> , …)   将数据传递给客户端。  $r-&gt;request_body   如果客户端请求正文尚未写入临时文件，则返回该请求正文。 要确保客户端请求正文在内存中，其大小应受client_max_body_size限制，并且应使用client_body_buffer_size设置足够的缓冲区大小。  $r-&gt;request_body_file   返回客户端请求正文的文件名。 处理完毕后，应删除该文件。 要始终将请求主体写入文件，应启用client_body_in_file_only 。  $r-&gt;request_method   返回客户端请求HTTP方法。  $r-&gt;remote_addr   返回客户端IP地址。  $r-&gt;flush   立即将数据发送到客户端。  $r-&gt;sendfile( <em>name</em> [, <em>offset</em> [, <em>length</em> ]])   将指定的文件内容发送给客户端。 可选参数指定要传输的数据的初始偏移量和长度。 实际的数据传输发生在Perl处理程序完成之后。  $r-&gt;send_http_header([ <em>type</em> ])   将响应头发送给客户端。 可选的<em>type</em>参数设置“Content-Type”响应头字段的值。 如果该值为空字符串，则不会发送“Content-Type”标头字段。  $r-&gt;status( <em>code</em> )   设置响应代码。  $r-&gt;sleep( <em>milliseconds</em> , <em>handler</em> )   设置指定的处理程序并停止指定时间的请求处理。 与此同时，nginx继续处理其他请求。 经过指定的时间后，nginx将调用已安装的处理程序。 请注意，处理函数应该通过引用传递。 为了在处理程序之间传递数据，应该使用$r-&gt;variable() 。 例：<br>package hello; use nginx; sub handler { my $r = shift; $r-&gt;discard_request_body; $r-&gt;variable(“var”, “OK”); $r-&gt;sleep(1000, <strong>\&amp;next</strong> ); return OK; } sub <strong>next</strong> { my $r = shift; $r-&gt;send_http_header; $r-&gt;print($r-&gt;variable(“var”)); return OK; } 1; __END__  $r-&gt;unescape( <em>text</em> )   解码以“％XX”形式编码的文本。  $r-&gt;uri   返回请求URI。  $r-&gt;variable( <em>name</em> [, <em>value</em> ])   返回或设置指定变量的值。 变量是每个请求的本地变量。  </p>
 </blockquote>
-<h4 id="r请求对象方法"><a href="#r请求对象方法" class="headerlink" title="$ r请求对象方法"></a>$ r请求对象方法</h4><blockquote>
-<p><pre class="notranslate">package hello;</pre></p>
-</blockquote>
-<p>use nginx;</p>
-<p>sub handler {<br>    my $r = shift;</p>
-<pre><code>if ($r-&amp;gt;request_method ne &quot;POST&quot;) {
-    return DECLINED;
-}
-
-if ($r-&amp;gt;has_request_body( **\&amp;amp;post** )) {
-    return OK;
-}
-
-return HTTP_BAD_REQUEST;
-</code></pre><p>}</p>
-<p>sub <strong>post</strong> {<br>    my $r = shift;</p>
-<pre><code>$r-&amp;gt;send_http_header;
-
-$r-&amp;gt;print(&quot;request_body: \&quot;&quot;, $r-&amp;gt;request_body, &quot;\&quot;&amp;lt;br/&amp;gt;&quot;);
-$r-&amp;gt;print(&quot;request_body_file: \&quot;&quot;, $r-&amp;gt;request_body_file, &quot;\&quot;&amp;lt;br/&amp;gt;\n&quot;);
-
-return OK;
-</code></pre><p>}</p>
-<p>1;</p>
-<p><strong>END</strong><br></p>
-<blockquote>
-<p>  目前不支持重定向到命名位置。 </p>
-<p><pre class="notranslate">package hello;</pre></p>
-</blockquote>
-<p>use nginx;</p>
-<p>sub handler {<br>    my $r = shift;</p>
-<pre><code>$r-&amp;gt;discard_request_body;
-$r-&amp;gt;variable(&quot;var&quot;, &quot;OK&quot;);
-$r-&amp;gt;sleep(1000, **\&amp;amp;next** );
-
-return OK;
-</code></pre><p>}</p>
-<p>sub <strong>next</strong> {<br>    my $r = shift;</p>
-<pre><code>$r-&amp;gt;send_http_header;
-$r-&amp;gt;print($r-&amp;gt;variable(&quot;var&quot;));
-
-return OK;
-</code></pre><p>}</p>
-<p>1;</p>
-<p><strong>END</strong><br></p>
 
       
     </div>
@@ -763,7 +657,7 @@ return OK;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-perl-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_perl_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#已知的问题"><span class="nav-number">1.0.1.</span> <span class="nav-text">已知的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.2.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.3.</span> <span class="nav-text">指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从SSI调用Perl"><span class="nav-number">1.0.4.</span> <span class="nav-text">从SSI调用Perl</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#r请求对象方法"><span class="nav-number">1.0.5.</span> <span class="nav-text">$ r请求对象方法</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-perl-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_perl_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从SSI调用Perl"><span class="nav-number">1.0.2.</span> <span class="nav-text">从SSI调用Perl</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

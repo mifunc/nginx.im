@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="http,ngx_http_realip_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:44:59.848Z">
+<meta property="og:updated_time" content="2018-12-21T07:53:24.188Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http&#x2F;ngx_http_realip_module-nginx中文手册">
 <meta name="twitter:description" content="http,ngx_http_realip_module">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:45:21+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
                 2018年12月21日
               </time>
             
@@ -397,40 +397,21 @@
 
       
         <p>http,ngx_http_realip_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-http-realip-module"><a href="#Module-ngx-http-realip-module" class="headerlink" title="Module ngx_http_realip_module"></a>Module ngx_http_realip_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#set_real_ip_from">set_real_ip_from</a> <br>     <a href="#real_ip_header">real_ip_header</a> <br>     <a href="#real_ip_recursive">real_ip_recursive</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
-
-<p>   <code>ngx_http_realip_module</code>模块用于将客户端地址和可选端口更改为在指定的头字段中发送的端口。 </p>
-<p>  默认情况下不构建此模块，应使用<code>--with-http_realip_module</code>配置参数启用它。 </p>
+<h2 id="Module-ngx-http-realip-module"><a href="#Module-ngx-http-realip-module" class="headerlink" title="Module ngx_http_realip_module"></a>Module ngx_http_realip_module</h2><p> Example Configuration<br> Directives<br> set_real_ip_from<br> real_ip_header<br> real_ip_recursive<br> Embedded Variables<br> ngx_http_realip_module模块用于将客户端地址和可选端口更改为在指定的头字段中发送的端口。 </p>
+<p> 默认情况下不构建此模块，应使用–with-http_realip_module配置参数启用它。 </p>
 <h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><blockquote>
-<pre class="notranslate">set_real_ip_from  192.168.1.0/24;
-set_real_ip_from  192.168.2.1;
-set_real_ip_from  2001:0db8::/32;
-real_ip_header    X-Forwarded-For;
-real_ip_recursive on;
-</pre>
-
-
-
+<p>set_real_ip_from 192.168.1.0/24; set_real_ip_from 192.168.2.1; set_real_ip_from 2001:0db8::/32; real_ip_header X-Forwarded-For; real_ip_recursive on; ####  指令</p>
 </blockquote>
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**set_real_ip_from**     &lt;code class=&quot;notranslate&quot;&gt;*address*</code> |    <code>*CIDR*</code> |    <code>unix:</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  定义已知可发送正确替换地址的可信地址。  如果指定了特殊值<code>unix:</code>则所有UNIX域套接字都将受信任。  也可以使用主机名（1.13.1）指定可信地址。 </p>
+<p> Syntax:  <strong>set_real_ip_from</strong> <em>address</em> | <em>CIDR</em> | unix: ;<br>  Default:  —  Context:  http , server , location<br>  定义已知可发送正确替换地址的可信地址。 如果指定了特殊值unix:则所有UNIX域套接字都将受信任。 也可以使用主机名（1.13.1）指定可信地址。 </p>
 <blockquote>
-<p>  从版本1.3.0和1.2.1开始支持IPv6地址。 </p>
+<p> 从版本1.3.0和1.2.1开始支持IPv6地址。  Syntax:  <strong>real_ip_header</strong> <em>field</em> | X-Real-IP | X-Forwarded-For | proxy_protocol ;<br>  Default:  real_ip_header X-Real-IP;  Context:  http , server , location<br>  定义请求标头字段，其值将用于替换客户端地址。 </p>
 </blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**real_ip_header**     &lt;code class=&quot;notranslate&quot;&gt;*field*</code> |    <code>X-Real-IP</code> |    <code>X-Forwarded-For</code> |    <code>proxy_protocol</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">real_ip_header X-Real-IP;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  定义请求标头字段，其值将用于替换客户端地址。 </p>
-<p>  包含可选端口的请求标头字段值也用于替换客户端端口（1.11.0）。  应根据<a href="https://tools.ietf.org/html/rfc3986" target="_blank" rel="noopener">RFC 3986</a>指定地址和端口。 </p>
-<p>   <code>proxy_protocol</code>参数（1.5.12）将客户端地址更改为PROXY协议头中的地址。  必须先通过在<a href="ngx_http_core_module.html#listen">listen</a>指令中设置<code>proxy_protocol</code>参数来启用PROXY协议。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**real_ip_recursive** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">real_ip_recursive off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  该指令出现在1.3.0和1.2.1版本中。 </p>
-<p>  如果禁用递归搜索，则匹配其中一个可信地址的原始客户端地址将替换为<a href="#real_ip_header">real_ip_header</a>指令定义的请求头字段中发送的最后一个地址。  如果启用了递归搜索，则匹配其中一个可信地址的原始客户端地址将替换为请求头字段中发送的最后一个非受信任地址。 </p>
-<h4 id="嵌入式变量"><a href="#嵌入式变量" class="headerlink" title="嵌入式变量"></a>嵌入式变量</h4>
+<p> 包含可选端口的请求标头字段值也用于替换客户端端口（1.11.0）。 应根据RFC 3986指定地址和端口。 </p>
+<p> proxy_protocol参数（1.5.12）将客户端地址更改为PROXY协议头中的地址。 必须先通过在listen指令中设置proxy_protocol参数来启用PROXY协议。 </p>
+<p> Syntax:  <strong>real_ip_recursive</strong> on | off ;<br>  Default:  real_ip_recursive off;  Context:  http , server , location<br>  该指令出现在1.3.0和1.2.1版本中。 </p>
+<p> 如果禁用递归搜索，则匹配其中一个可信地址的原始客户端地址将替换为real_ip_header指令定义的请求头字段中发送的最后一个地址。 如果启用了递归搜索，则匹配其中一个可信地址的原始客户端地址将替换为请求头字段中发送的最后一个非受信任地址。 </p>
+<h4 id="嵌入式变量"><a href="#嵌入式变量" class="headerlink" title="嵌入式变量"></a>嵌入式变量</h4><p> $realip_remote_addr   保留原始客户地址（1.9.7）  $realip_remote_port   保留原始客户端端口（1.11.0）  </p>
+
       
     </div>
     
@@ -662,7 +643,7 @@ real_ip_recursive on;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-realip-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_realip_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌入式变量"><span class="nav-number">1.0.3.</span> <span class="nav-text">嵌入式变量</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-realip-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_realip_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌入式变量"><span class="nav-number">1.0.2.</span> <span class="nav-text">嵌入式变量</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="reference">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:45:02.771Z">
+<meta property="og:updated_time" content="2018-12-21T07:53:27.358Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="reference-nginx中文手册">
 <meta name="twitter:description" content="reference">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:45:21+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
                 2018年12月21日
               </time>
             
@@ -397,248 +397,100 @@
 
       
         <p>reference<br><a id="more"></a></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><td align="left" class="notranslate"> <a href="#http_stream">nginx objects</a> <br>     <a href="#http">HTTP Request</a> <br>     <a href="#stream">Stream Session</a> <br> <a href="#core">Core</a> <br>     <a href="#string">String</a> <br>     <a href="#core_json">JSON</a> <br>     <a href="#crypto">Crypto</a> <br>     <a href="#njs_api_timers">Timers</a> <br>     <a href="#njs_api_fs">File System</a> <br></td>
-
-<p>   <a href="index.html">njs</a>提供了扩展nginx功能的对象，方法和属性。 </p>
-<h4 id="nginx对象"><a href="#nginx对象" class="headerlink" title="nginx对象"></a>nginx对象</h4><h4 id="HTTP请求"><a href="#HTTP请求" class="headerlink" title="HTTP请求"></a>HTTP请求</h4><p>   HTTP请求对象仅在<a href="http/ngx_http_js_module.html">ngx_http_js_module</a>模块中可用。  对象的所有字符串属性都是<a href="#string">字节字符串</a> 。 </p>
-<p>  例如，可以使用语法<code>headersIn.foo</code>或<code>headersIn[&#39;Foo&#39;]</code>访问<code>Foo</code>标头 </p>
-<p>  例如，可以使用语法<code>headersOut.foo</code>或<code>headersOut[&#39;Foo&#39;]</code>访问<code>Foo</code>标头 </p>
-<p>  可以指定重定向URL（对于代码301,302,303,307和308）或响应正文文本（对于其他代码）作为第二个参数 </p>
-<p>  如果<code>options</code>是一个字符串，那么它包含子请求参数字符串。  否则， <code>options</code>应该是具有以下键的对象： </p>
-<p>  完成<code>callback</code>接收子请求响应对象，其方法和属性与父请求对象相同。 </p>
-<h4 id="流会话"><a href="#流会话" class="headerlink" title="流会话"></a>流会话</h4><p>  流会话对象仅在<a href="stream/ngx_stream_js_module.html">ngx_stream_js_module</a>模块中可用。  对象的所有字符串属性都是<a href="#string">字节字符串</a> 。 </p>
+<h2 id="参考"><a href="#参考" class="headerlink" title=" 参考"></a> 参考</h2><p> nginx objects<br> HTTP Request<br> Stream Session<br> Core<br> String<br> JSON<br> Crypto<br> Timers<br> File System<br> njs提供了扩展nginx功能的对象，方法和属性。 </p>
+<h4 id="nginx对象"><a href="#nginx对象" class="headerlink" title="nginx对象"></a>nginx对象</h4><h4 id="HTTP请求"><a href="#HTTP请求" class="headerlink" title="HTTP请求"></a>HTTP请求</h4><p> HTTP请求对象仅在ngx_http_js_module模块中可用。 对象的所有字符串属性都是字节字符串 。 </p>
+<p> r.args{}   请求参数对象，只读  r.error( <em>string</em> )   在记录的error级别上将string写入错误日志  r.finish()   完成向客户发送回复  r.headersIn{}   传入头对象，只读。  例如，可以使用语法headersIn.foo或headersIn[‘Foo’]访问Foo标头 </p>
+<p> r.headersOut{}   传出头对象，可写。  例如，可以使用语法headersOut.foo或headersOut[‘Foo’]访问Foo标头 </p>
+<p> r.httpVersion   HTTP版本，只读  r.log( <em>string</em> )   将string写入日志info级别的错误日志  r.internalRedirect( <em>uri</em> )   执行内部重定向到指定的uri 。 如果uri以“ @ ”前缀开头，则将其视为命名位置。  r.method   HTTP方法，只读  r.parent   引用父请求对象  r.remoteAddress   客户端地址，只读  r.requestBody   如果客户端请求正文尚未写入临时文件，则返回该请求正文。 要确保客户端请求正文在内存中，其大小应受client_max_body_size限制，并且应使用client_body_buffer_size设置足够的缓冲区大小。  r.responseBody   拥有子请求响应主体，只读。 r.responseBody的大小受r.responseBody指令的限制。  r.return(status[, string])   将具有指定status的整个响应发送到客户端  可以指定重定向URL（对于代码301,302,303,307和308）或响应正文文本（对于其他代码）作为第二个参数 </p>
+<p> r.send( <em>string</em> )   将响应主体的一部分发送给客户端  r.sendHeader()   将HTTP标头发送到客户端  r.status   地位，可写  r.variables{}   nginx变量对象，只读  r.warn( <em>string</em> )   在记录的warning级别上将string写入错误日志  r.uri   当前URI，只读  r.subrequest( <em>uri</em> [, <em>options</em> [, <em>callback</em> ]])   使用给定的uri和options创建子请求，并安装可选的完成callback 。  如果options是一个字符串，那么它包含子请求参数字符串。 否则， options应该是具有以下键的对象： </p>
+<p> args   参数字符串  body   请求机构  method   HTTP方法  完成callback接收子请求响应对象，其方法和属性与父请求对象相同。 </p>
+<h4 id="流会话"><a href="#流会话" class="headerlink" title="流会话"></a>流会话</h4><p> 流会话对象仅在ngx_stream_js_module模块中可用。 对象的所有字符串属性都是字节字符串 。 </p>
 <blockquote>
-<p>  在njs <a href="njs/changes.html#njs0.2.4">0.2.4</a>之前，流会话对象具有一些当前<a href="#stream_obsolete">被删除的</a>属性。 </p>
+<p> 在njs 0.2.4之前，流会话对象具有一些当前被删除的属性。  s.allow()   成功完成阶段处理程序（ 0.2.4 ）  s.decline()   完成阶段处理程序并将控制权传递给下一个处理程序（ 0.2.4 ）  s.deny()   使用访问错误代码（ 0.2.4 ）完成阶段处理程序  s.done （ <em>[code]</em> ）  成功完成当前阶段处理程序或使用指定的数字代码（ 0.2.4 ）完成它。  s.error( <em>string</em> )   在发送的error级别上将发送的string写入错误日志  s.log( <em>string</em> )   将发送的<em>string</em>写入日志记录info级别的错误日志  s.off( <em>eventName</em> )   取消注册s.on（）方法设置的回调（ 0.2.4 ）  s.on( <em>event</em> , <em>callback</em> )   为指定event注册callback （ 0.2.4 ）。  event可以是以下字符串之一： </p>
 </blockquote>
-<p>   <code>event</code>可以是以下字符串之一： </p>
-<p>  完成回调具有以下原型： <code>callback(data, flags)</code> ，其中<code>data</code>是字符串， <code>flags</code>是具有以下属性的对象： </p>
-<h4 id="过时的属性"><a href="#过时的属性" class="headerlink" title="过时的属性"></a>过时的属性</h4><p>  这些属性已在njs <a href="njs/changes.html#njs0.2.4">0.2.4中</a>删除，并且与现有的njs代码不向后兼容。 </p>
+<p> upload   来自客户的新数据  download   给客户的新数据  完成回调具有以下原型： callback(data, flags) ，其中data是字符串， flags是具有以下属性的对象： </p>
+<p> last   布尔值，如果数据是最后一个缓冲区，则为true。  s.remoteAddress   客户端地址，只读  s.send( <em>data</em> [, <em>options</em> ])   将数据发送到客户端（ 0.2.4 ）。 options是一个对象，用于覆盖从传入数据块缓冲区派生的nginx缓冲区标志。 可以使用以下标志覆盖标志：  last   boolean，如果缓冲区是最后一个缓冲区，则为true  flush   boolean，如果缓冲区应该具有flush标志，则为true  每次回调调用可以多次调用该方法。  s.variables{}   nginx变量对象，只读  s.warn( <em>string</em> )   在日志记录的warning级别将发送的string写入错误日志 ####  过时的属性</p>
+<p> 这些属性已在njs 0.2.4中删除，并且与现有的njs代码不向后兼容。 </p>
+<p> s.ABORT   ABORT返回码 </p>
 <blockquote>
-<p>  从njs <a href="njs/changes.html#njs0.2.4">0.2.4</a>开始，应该使用<a href="#s_deny">s.deny（）</a>方法。 </p>
-<p>  从njs <a href="njs/changes.html#njs0.2.4">0.2.4</a>开始，如果没有<a href="#s_allow">调用s.allow（）</a> ， <a href="#s_deny">s.deny（）</a> ， <a href="#s_decline">s.decline（）</a> ， <a href="#s_done">s.done（）</a>并且注册了回调， <a href="#s_deny">则会</a>实现相应的行为。 </p>
-<p>  从<a href="njs/changes.html#njs0.2.4">0.2.4</a>开始，应该使用<a href="#s_send">s.send（）</a>方法进行编写。  对于读取，当前缓冲区可用作<code>event</code>回调的第一个参数。 </p>
-<p>  从njs <a href="njs/changes.html#njs0.2.4">0.2.4</a>开始，应该使用<a href="#s_decline">s.decline（）</a>方法。 </p>
-<p>  从<a href="njs/changes.html#njs0.2.4">0.2.4</a>开始，应该使用<a href="#s_on_callback_last">flags.last</a>属性。 </p>
-<p>  从njs <a href="njs/changes.html#njs0.2.4">0.2.4</a>开始，可以抛出适当的异常来报告错误。 </p>
-<p>  从<a href="njs/changes.html#njs0.2.4">0.2.4</a>开始，应使用相应的<a href="#s_on">事件</a> （ <code>upload</code>或<code>download</code> ）来处理来自客户端的数据。 </p>
-<p>  从njs <a href="njs/changes.html#njs0.2.4">0.2.4</a>开始，应该使用<a href="#s_allow">s.allow（）</a>方法。 </p>
+<p> 从njs 0.2.4开始，应该使用s.deny（）方法。  s.AGAIN   AGAIN返回代码<br> 从njs 0.2.4开始，如果没有调用s.allow（） ， s.deny（） ， s.decline（） ， s.done（）并且注册了回调， 则会实现相应的行为。  s.buffer   当前缓冲区，可写<br> 从0.2.4开始，应该使用s.send（）方法进行编写。 对于读取，当前缓冲区可用作event回调的第一个参数。  s.DECLINED   DECLINED返回码<br> 从njs 0.2.4开始，应该使用s.decline（）方法。  s.eof   布尔值只读属性，如果当前缓冲区是最后一个缓冲区，则为true<br> 从0.2.4开始，应该使用flags.last属性。  s.ERROR   ERROR返回码<br> 从njs 0.2.4开始，可以抛出适当的异常来报告错误。  s.fromUpstream   布尔值只读属性，如果当前缓冲区是从上游服务器到客户端，则为true<br> 从0.2.4开始，应使用相应的事件 （ upload或download ）来处理来自客户端的数据。  s.OK   OK返回码<br> 从njs 0.2.4开始，应该使用s.allow（）方法。 ####  核心</p>
 </blockquote>
-<h4 id="核心"><a href="#核心" class="headerlink" title="核心"></a>核心</h4><h4 id="串"><a href="#串" class="headerlink" title="串"></a>串</h4><p>  有两种类型的字符串： <code>Unicode string</code> （默认）和<code>byte string</code> 。 </p>
-<p>   <code>Unicode string</code>对应于包含Unicode字符的ECMAScript字符串。 </p>
-<p>   <code>Byte strings</code>包含一系列字节。  它们用于将Unicode字符串序列化为外部数据，并从外部源反序列化。  例如， <a href="#string_toutf8">toUTF8（）</a>方法使用UTF8编码将Unicode字符串序列化为字节字符串： </p>
+<h4 id="串"><a href="#串" class="headerlink" title="串"></a>串</h4><p> 有两种类型的字符串： Unicode string （默认）和byte string 。 </p>
+<p> Unicode string对应于包含Unicode字符的ECMAScript字符串。 </p>
+<p> Byte strings包含一系列字节。 它们用于将Unicode字符串序列化为外部数据，并从外部源反序列化。 例如， toUTF8（）方法使用UTF8编码将Unicode字符串序列化为字节字符串： </p>
 <blockquote>
-<pre class="notranslate">&gt;&gt; '£'.toUTF8().toString('hex')
-'c2a3'  /* C2 A3 is the UTF8 representation of 00A3 ('£') code point */
-</pre>
-
-</blockquote>
-<p>   <a href="#string_tobytes">toBytes（）</a>方法将代码点最多为255的Unicode字符串序列化为字节字符串，否则返回<code>null</code> ： </p>
 <blockquote>
-<pre class="notranslate">&gt;&gt; '£'.toBytes().toString('hex')
-'a3'  /* a3 is a byte equal to 00A3 ('£') code point  */
-</pre>
-
-</blockquote>
-<p>  只有字节字符串可以转换为不同的编码。  例如，字符串不能直接编码为<code>hex</code> ： </p>
 <blockquote>
-<pre class="notranslate">&gt;&gt; 'αβγδ'.toString('base64')
-TypeError: argument must be a byte string
-    at String.prototype.toString (native)
-    at main (native)
-</pre>
-
+<p>‘£’.toUTF8().toString(‘hex’) ‘c2a3’ /<em> C2 A3 is the UTF8 representation of 00A3 (‘£’) code point </em>/  toBytes（）方法将代码点最多为255的Unicode字符串序列化为字节字符串，否则返回null ： </p>
+<p>‘£’.toBytes().toString(‘hex’) ‘a3’ /<em> a3 is a byte equal to 00A3 (‘£’) code point </em>/  只有字节字符串可以转换为不同的编码。 例如，字符串不能直接编码为hex ： </p>
+<p>‘αβγδ’.toString(‘base64’) TypeError: argument must be a byte string at String.prototype.toString (native) at main (native)  要将Unicode字符串转换为十六进制，首先应将其转换为字节字符串，然后转换为十六进制： </p>
+<p>‘αβγδ’.toUTF8().toString(‘base64’) ‘zrHOss6zzrQ=’  String.bytesFrom( <em>array</em> | <em>string</em> , <em>encoding</em> )   （njs specific）从包含八位字节的数组或从编码字符串（0.2.3）创建字节字符串。 编码可以是hex ， base64和base64url 。<br>String.bytesFrom([0x62, 0x75, 0x66, 0x66, 0x65, 0x72]) ‘buffer’ &gt;&gt; String.bytesFrom(‘YnVmZmVy’, ‘base64’) ‘buffer’  String.fromCharCode( <em>CharCode1</em> [, …[, <em>CharCodeN</em> ]])   从一个或多个Unicode代码点返回一个字符串。<br>String.fromCharCode(97, 98, 99, 100) ‘abcd’  String.fromCodePoint( <em>codePoint1</em> [, …[, <em>codePoint2</em> ]])   从一个或多个Unicode代码点返回一个字符串。<br>String.fromCodePoint(97, 98, 99, 100) ‘abcd’  String.prototype.charAt( <em>index</em> )   返回表示指定index处的一个Unicode代码单元的字符串; 如果索引超出范围，则为空字符串。 index可以是0到1之间的整数 - 小于字符串的长度。 如果未提供索引，则默认值为0 ，因此将返回字符串中的第一个字符。  String.prototype.CodePointAt( <em>position</em> )   返回一个数字，表示给定索引处字符的代码点值; 如果位置没有元素，则为undefined 。<br>‘ABCD’.codePointAt(3); 68  String.prototype.concat( <em>string1</em> [, …, <em>stringN</em> ])   返回包含指定strings串联的strings 。<br>“a”.concat(“b”, “c”) ‘abc’  String.prototype.endsWith( <em>searchString</em> [, <em>length</em> ])   如果字符串以指定字符串的字符结尾，则返回true ，否则返回false 。 可选的length参数是字符串的长度。 如果省略，则默认值为字符串的长度。<br>‘abc’.endsWith(‘abc’) true &gt;&gt; ‘abca’.endsWith(‘abc’) false  String.prototype.fromBytes( <em>start</em> [, <em>end</em> ])   （njs specific）从字节字符串返回一个新的Unicode字符串，其中每个字节都替换为相应的Unicode代码点。  String.prototype.fromUTF8( <em>start</em> [, <em>end</em> ])   （特定于njs）将包含有效UTF8字符串的字节字符串转换为Unicode字符串，否则返回null 。  String.prototype.includes( <em>searchString</em> [, <em>position</em> ]))   如果在另一个字符串中找到字符串，则返回true ，否则返回false 。 可选的position参数是字符串中开始搜索searchString 。 默认值为0。<br>‘abc’.includes(‘bc’) true  String.prototype.indexOf( <em>searchString</em> [, <em>fromIndex</em> ])   返回searchString第一次出现的位置搜索从fromIndex开始。 如果未找到该值，则返回<em>-1</em> 。 fromIndex是一个整数，默认值为0.如果fromIndex小于0或大于String.prototype.length  ，搜索从索引<em>0</em>和<em>String.prototype.length</em> 。<br>‘abcdef’.indexOf(‘de’, 2) 3  String.prototype.lastIndexOf( <em>searchString</em> [, <em>fromIndex</em> ])   返回searchString最后一次出现的位置，从fromIndex向后搜索。 如果未找到该值，则返回<em>-1</em> 。 如果searchString为空，则返回fromIndex 。<br>“nginx”.lastIndexOf(“gi”) 1  String.prototype.length   返回字符串的长度。<br>‘αβγδ’.length 4  String.prototype.match([ <em>regexp</em> ])   匹配正则regexp的字符串。<br>‘nginx’.match( /ng/i ) ‘ng’  String.prototype.padEnd( <em>length</em> [, <em>string</em> ])   返回指定length的string ，其中pad string应用于指定字符串的末尾（0.2.3）。<br>‘1234’.padEnd(8, ‘abcd’) ‘1234abcd’  String.prototype.padStart( <em>length</em> [, <em>string</em> ])   返回指定length的string ，其中pad string应用于指定字符串的开头（0.2.3）。<br>‘1234’.padStart(8, ‘abcd’) ‘abcd1234’  String.prototype.repeat( <em>number</em> )   返回具有指定字符串副本数的字符串。<br>‘abc’.repeat(3) ‘abcabcabc’  String.prototype.replace([ <em>regexp</em> | <em>string</em> [, <em>string</em> | <em>function</em> ]])   返回一个新字符串，其中包含由string或function替换的模式（ string或正则regexp ）的string 。<br>‘abcdefgh’.replace(‘d’, 1) ‘abc1efgh’  String.prototype.search([ <em>regexp</em> ])   使用正则regexp搜索字符串<br>‘abcdefgh’.search(‘def’) 3  String.prototype.slice( <em>start</em> [, <em>end</em> ])   返回一个新字符串，其中包含start和end之间或从字符串start到end之间的原始字符串的一部分。<br>‘abcdefghijklmno’.slice(NaN, 5) ‘abcde’  String.prototype.split(([ <em>string</em> | <em>regexp</em> [, <em>limit</em> ]]))   返回字符串与正则regexp匹配。 可选的limit参数是一个整数，指定要查找的拆分数限制。<br>‘abc’.split(‘’) [ ‘a’, ‘b’, ‘c’ ]  String.prototype.startsWith( <em>searchString</em> [, <em>position</em> ])   如果字符串以指定字符串的字符开头，则返回true ，否则返回false 。 可选的position参数是此字符串中开始搜索searchString 。 默认值为0。<br>‘abc’.startsWith(‘abc’) true &gt; ‘aabc’.startsWith(‘abc’) false  String.prototype.substr( <em>start</em> [, <em>length</em> ])   返回从字符串的start或start到结尾的指定length的字符串部分。<br>‘abcdefghijklmno’.substr(3, 5) ‘defgh’  String.prototype.substring( <em>start</em> [, <em>end</em> ])   返回字符串中字符串的start和end之间或从start到结尾的部分。<br>‘abcdefghijklmno’.substring(3, 5) ‘de’  String.prototype.toBytes(start[, end])   （特定于njs）将Unicode字符串序列化为字节字符串。 如果在字符串中找到大于255的字符，则返回null 。  String.prototype.toLowerCase()   将字符串转换为小写。 该方法仅支持简单的Unicode折叠。<br>‘ΑΒΓΔ’.toLowerCase() ‘αβγδ’  String.prototype.toString([ <em>encoding</em> ])   如果未指定encoding ，则返回ECMAScript中指定的Unicode字符串或字节字符串。 </p>
 </blockquote>
-<p>  要将Unicode字符串转换为十六进制，首先应将其转换为字节字符串，然后转换为十六进制： </p>
+</blockquote>
+</blockquote>
+<p> （特定于njs）如果指定了encoding ，则将字节字符串编码为hex ， base64或base64url 。 </p>
 <blockquote>
-<pre class="notranslate">&gt;&gt; 'αβγδ'.toUTF8().toString('base64')
-'zrHOss6zzrQ='
-</pre>
-
-
-
-<p><pre class="notranslate">&gt;&gt; String.bytesFrom([0x62, 0x75, 0x66, 0x66, 0x65, 0x72])<br>‘buffer’</pre></p>
-</blockquote>
-<p>&gt;&gt; String.bytesFrom(‘YnVmZmVy’, ‘base64’)<br>‘buffer’<br></p>
 <blockquote>
-<pre class="notranslate">&gt;&gt; String.fromCharCode(97, 98, 99, 100)
-'abcd'
-</pre>
-
-<pre class="notranslate">&gt;&gt; String.fromCodePoint(97, 98, 99, 100)
-'abcd'
-</pre>
-
-<pre class="notranslate">&gt;&gt; 'ABCD'.codePointAt(3);
-68
-</pre>
-
-<pre class="notranslate">&gt;&gt; "a".concat("b", "c")
-'abc'
-</pre>
-
-<pre class="notranslate">&gt;&gt; 'abc'.endsWith('abc')
-true
-&gt;&gt; 'abca'.endsWith('abc')
-false
-</pre>
-
-<pre class="notranslate">&gt;&gt; 'abc'.includes('bc')
-true
-</pre>
-
-<pre class="notranslate">&gt;&gt; 'abcdef'.indexOf('de', 2)
-3
-</pre>
-
-<pre class="notranslate">&gt;&gt; "nginx".lastIndexOf("gi")
-1
-</pre>
-
-<pre class="notranslate">&gt;&gt; 'αβγδ'.length
-4
-</pre>
-
-<pre class="notranslate">&gt;&gt; 'nginx'.match( /ng/i )
-'ng'
-</pre>
-
-<pre class="notranslate">&gt;&gt; '1234'.padEnd(8, 'abcd')
-'1234abcd'
-</pre>
-
-<pre class="notranslate">&gt;&gt; '1234'.padStart(8, 'abcd')
-'abcd1234'
-</pre>
-
-<pre class="notranslate">&gt;&gt; 'abc'.repeat(3)
-'abcabcabc'
-</pre>
-
-<pre class="notranslate">&gt;&gt; 'abcdefgh'.replace('d', 1)
-'abc1efgh'
-</pre>
-
-<pre class="notranslate">&gt;&gt; 'abcdefgh'.search('def')
-3
-</pre>
-
-<pre class="notranslate">&gt;&gt; 'abcdefghijklmno'.slice(NaN, 5)
-'abcde'
-</pre>
-
-<pre class="notranslate">&gt;&gt; 'abc'.split('')
-[
- 'a',
- 'b',
- 'c'
-]
-</pre>
-
-<pre class="notranslate">&gt;&gt; 'abc'.startsWith('abc')
-true
-&gt; 'aabc'.startsWith('abc')
-false
-</pre>
-
-<pre class="notranslate">&gt;&gt;  'abcdefghijklmno'.substr(3, 5)
-'defgh'
-</pre>
-
-<pre class="notranslate">&gt;&gt; 'abcdefghijklmno'.substring(3, 5)
-'de'
-</pre>
-
-<pre class="notranslate">&gt;&gt; 'ΑΒΓΔ'.toLowerCase()
-'αβγδ'
-</pre>
-
-</blockquote>
-<p>  如果未指定<code>encoding</code> ，则返回ECMAScript中指定的Unicode字符串或字节字符串。 </p>
-<p>   （特定于njs）如果指定了<code>encoding</code> ，则将<a href="#string_tobytes">字节字符串</a>编码为<code>hex</code> ， <code>base64</code>或<code>base64url</code> 。 </p>
 <blockquote>
-<pre class="notranslate">&gt;&gt;  'αβγδ'.toUTF8().toString('base64url')
-'zrHOss6zzrQ'
-</pre>
-
-<pre class="notranslate">&gt;&gt; 'αβγδ'.toUpperCase()
-'ΑΒΓΔ'
-</pre>
-
-<pre class="notranslate">&gt;&gt; 'αβγδ'.toUTF8().length
-8
-&gt;&gt; 'αβγδ'.length
-4
-</pre>
-
-<pre class="notranslate">&gt;&gt; '   abc  '.trim()
-'abc'
-</pre>
-
-<pre class="notranslate">&gt;&gt; encodeURI('012αβγδ')
-'012%CE%B1%CE%B2%CE%B3%CE%B4'
-</pre>
-
-<pre class="notranslate">&gt;&gt; encodeURIComponent('[@?=')
-'%5B%40%3F%3D'
-</pre>
-
-<pre class="notranslate">&gt;&gt; decodeURI('012%CE%B1%CE%B2%CE%B3%CE%B4')
-'012αβγδ'
-</pre>
-
-<pre class="notranslate">&gt;&gt; decodeURIComponent('%5B%40%3F%3D')
-'[@?='
-</pre>
-
-
-
+<p>‘αβγδ’.toUTF8().toString(‘base64url’) ‘zrHOss6zzrQ’  String.prototype.toUpperCase()   将字符串转换为大写。 该方法仅支持简单的Unicode折叠。<br>‘αβγδ’.toUpperCase() ‘ΑΒΓΔ’  String.prototype.toUTF8( <em>start</em> [, <em>end</em> ])   （特定于njs）使用UTF8编码将Unicode字符串序列化为字节字符串。<br>‘αβγδ’.toUTF8().length 8 &gt;&gt; ‘αβγδ’.length 4  String.prototype.trim()   从字符串的两端删除空格。<br>‘ abc ‘.trim() ‘abc’  encodeURI( <em>URI</em> )   通过将某些字符的每个实例替换为表示字符的UTF-8编码的一个，两个，三个或四个转义序列来对URI进行编码<br>encodeURI(‘012αβγδ’) ‘012%CE%B1%CE%B2%CE%B3%CE%B4’  encodeURIComponent( <em>encodedURIString</em> )   通过将某些字符的每个实例替换为表示字符的UTF-8编码的一个，两个，三个或四个转义序列来对URI进行编码。<br>encodeURIComponent(‘[@?=’) ‘%5B%40%3F%3D’  decodeURI( <em>encodedURI</em> )   解码先前编码的 URI。<br>decodeURI(‘012%CE%B1%CE%B2%CE%B3%CE%B4’) ‘012αβγδ’  decodeURIComponent( <em>decodedURIString</em> )   解码先前编码的URI的编码组件。<br>decodeURIComponent(‘%5B%40%3F%3D’) ‘[@?=’ ####  JSON</p>
 </blockquote>
-<h4 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h4><p>   <code>JSON</code>对象（ES 5.1）提供了将njs值转换为JSON格式和从JSON格式转换的函数。 </p>
+</blockquote>
+</blockquote>
+<p> JSON对象（ES 5.1）提供了将njs值转换为JSON格式和从JSON格式转换的函数。 </p>
+<p> JSON.parse( <em>string</em> [, <em>reviver</em> ])   将表示JSON数据的string转换为njs对象（ {…} ）或数组（ […] ）。 可选的reviver参数是一个函数（键，值），它将为每个（键，值）对调用，并可以转换该值。  JSON.stringify( <em>value</em> [, <em>replacer</em> ] [, <em>space</em> ])   将njs对象转换回JSON。 必需value参数通常是要转换的JSON object或array 。 如果值具有toJSON()方法，则它定义对象的序列化方式。 可选的replacer参数是转换结果的function或array 。 可选的space参数是string或number 。 如果是number ，则表示结果前的空白数（不超过10）。 如果是string ，则将其用作空格（或前10个字符）。 如果省略或为null ，则不使用空格。 </p>
 <blockquote>
-<p><pre class="notranslate">&gt;&gt; var json = JSON.parse(‘{“a”:1, “b”:true}’)<br>&gt;&gt; json.a<br>1</pre></p>
-</blockquote>
-<p>&gt;&gt; JSON.stringify(json)<br>‘{“a”:1,”b”:true}’</p>
-<p>&gt;&gt; JSON.stringify(json, undefined, 1)<br>‘{\n “a”: 1,\n “b”: true\n}’</p>
-<p>&gt;&gt; JSON.stringify({ x: [10, undefined, function(){}] })<br>‘{“x”:[10,null,null]}’</p>
-<p>&gt;&gt; JSON.stringify({“a”:1, “toJSON”: function() {return “xxx”}})<br>‘“xxx”‘</p>
-<h1 id="Example-with-function-replacer"><a href="#Example-with-function-replacer" class="headerlink" title="Example with function replacer"></a>Example with function replacer</h1><p>&gt;&gt; function replacer(key, value) {return (typeof value === ‘string’) ? undefined : value}<br>&gt;&gt;JSON.stringify({a:1, b:”b”, c:true}, replacer)<br>‘{“a”:1,”c”:true}’<br></p>
-<h4 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h4><p>   Crypto模块提供加密功能支持。   <code>require(&#39;crypto&#39;)</code>返回Crypto模块对象。 </p>
-<h4 id="哈希"><a href="#哈希" class="headerlink" title="哈希"></a>哈希</h4><blockquote>
-<p><pre class="notranslate">&gt;&gt; var cr = require(‘crypto’)<br>undefined</pre></p>
-</blockquote>
-<p>&gt;&gt; cr.createHash(‘sha1’).update(‘A’).update(‘B’).digest(‘base64url’)<br>‘BtlFlCqiamG-GMPiK_GbvKjdK10’<br></p>
-<h4 id="HMAC"><a href="#HMAC" class="headerlink" title="HMAC"></a>HMAC</h4><blockquote>
-<p><pre class="notranslate">&gt;&gt; var cr = require(‘crypto’)<br>undefined</pre></p>
-</blockquote>
-<p>&gt;&gt; cr.createHmac(‘sha1’, ‘secret.key’).update(‘AB’).digest(‘base64url’)<br>‘Oglm93xn23_MkiaEq_e9u8zk374’<br></p>
-<h4 id="计时器"><a href="#计时器" class="headerlink" title="计时器"></a>计时器</h4><blockquote>
-<p><pre class="notranslate">function handler(v)<br>{<br>    // …<br>}</pre></p>
-</blockquote>
-<p>t = setTimeout(handler, 12);</p>
-<p>// …</p>
-<p>clearTimeout(t);<br></p>
-<h4 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h4><p>  文件系统模块提供文件操作。   <code>require(&#39;fs&#39;)</code>返回模块对象。 </p>
 <blockquote>
-<pre class="notranslate">&gt;&gt; var fs = require('fs')
-undefined
-&gt;&gt; var file = fs.readFileSync('/file/path.tar.gz')
-undefined
-&gt;&gt; var gzipped = /^\x1f\x8b/.test(file); gzipped
-true
-</pre>
-
-<pre class="notranslate">&gt;&gt; var fs = require('fs')
-undefined
-&gt;&gt; var file = fs.writeFileSync('hello.txt', 'Hello world')
-undefined
-</pre>
-
-
-
+<blockquote>
+<p>var json = JSON.parse(‘{“a”:1, “b”:true}’) &gt;&gt; json.a 1 &gt;&gt; JSON.stringify(json) ‘{“a”:1,”b”:true}’ &gt;&gt; JSON.stringify(json, undefined, 1) ‘{\n “a”: 1,\n “b”: true\n}’ &gt;&gt; JSON.stringify({ x: [10, undefined, function(){}] }) ‘{“x”:[10,null,null]}’ &gt;&gt; JSON.stringify({“a”:1, “toJSON”: function() {return “xxx”}}) ‘“xxx”‘ # Example with function replacer &gt;&gt; function replacer(key, value) {return (typeof value === ‘string’) ? undefined : value} &gt;&gt;JSON.stringify({a:1, b:”b”, c:true}, replacer) ‘{“a”:1,”c”:true}’ ####  加密</p>
 </blockquote>
-<h4 id="文件系统标志"><a href="#文件系统标志" class="headerlink" title="文件系统标志"></a>文件系统标志</h4><p>   <code>flag</code>选项可以接受以下值： </p>
+</blockquote>
+</blockquote>
+<p> Crypto模块提供加密功能支持。 require(‘crypto’)返回Crypto模块对象。 </p>
+<p> crypto.createHash( <em>algorithm</em> )   创建并返回一个Hash对象，该对象可用于使用给定<em>algorithm</em>生成散列摘要。 算法可以是md5 ， sha1和sha256 。  crypto.createHmac( <em>algorithm</em> , <em>secret key</em> )   创建并返回使用给定<em>algorithm</em>和<em>secret key</em>的HMAC对象。 算法可以是md5 ， sha1和sha256 。 ####  哈希</p>
+<p> hash.update( <em>data</em> )   使用给定<em>data</em>更新哈希内容。  hash.digest([ <em>encoding</em> ])   计算使用hash.update()传递的所有数据的摘要。 编码可以是hex ， base64和base64url 。 如果未提供编码，则返回字节字符串。 </p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>var cr = require(‘crypto’) undefined &gt;&gt; cr.createHash(‘sha1’).update(‘A’).update(‘B’).digest(‘base64url’) ‘BtlFlCqiamG-GMPiK_GbvKjdK10’ ####  HMAC</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p> hmac.update( <em>data</em> )   使用给定<em>data</em>更新HMAC内容。  hmac.digest([ <em>encoding</em> ])   计算使用hmac.update()传递的所有数据的HMAC摘要。 编码可以是hex ， base64和base64url 。 如果未提供编码，则返回字节字符串。 </p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>var cr = require(‘crypto’) undefined &gt;&gt; cr.createHmac(‘sha1’, ‘secret.key’).update(‘AB’).digest(‘base64url’) ‘Oglm93xn23_MkiaEq_e9u8zk374’ ####  计时器</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p> clearTimeout( <em>timeout</em> )   取消由setTimeout（）创建的timeout对象。  setTimeout( <em>function</em> , <em>ms</em> [, <em>arg1</em> , <em>argN</em> ])   在指定的milliseconds数后调用function 。 可以将一个或多个可选arguments传递给指定的函数。 返回timeout对象。 </p>
+<blockquote>
+<p>function handler(v) { // … } t = setTimeout(handler, 12); // … clearTimeout(t); ####  文件系统</p>
+</blockquote>
+<p> 文件系统模块提供文件操作。 require(‘fs’)返回模块对象。 </p>
+<p> appendFileSync( <em>filename</em> , <em>data</em> [, <em>options</em> ])   同步将指定data附加到具有提供的filename 。 如果该文件不存在，则将创建该文件。 options参数应该是具有以下键的对象：  mode   mode选项，默认为0o666  flag   文件系统标志 ，默认为  readFileSync( <em>filename</em> [, <em>options</em> ])   使用提供的filename同步返回文件的内容。 options参数包含指定编码的string 。 如果未指定，则返回字节字符串 。 如果指定了utf8编码，则返回Unicode字符串。 否则， options应该是具有以下键的对象：  encoding   默认情况下，未指定编码。 编码可以是utf8  flag   文件系统标志 ，默认为r </p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>var fs = require(‘fs’) undefined &gt;&gt; var file = fs.readFileSync(‘/file/path.tar.gz’) undefined &gt;&gt; var gzipped = /^\x1f\x8b/.test(file); gzipped true  writeFileSync( <em>filename</em> , <em>data</em> [, <em>options</em> ])   同步将data写入具有提供的filename 。 如果该文件不存在，则将创建该文件，如果该文件存在，则将替换该文件。 options参数应该是具有以下键的对象：  mode   mode选项，默认为0o666  flag   文件系统标志 ，默认为w<br>var fs = require(‘fs’) undefined &gt;&gt; var file = fs.writeFileSync(‘hello.txt’, ‘Hello world’) undefined ####  文件系统标志</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p> flag选项可以接受以下值： </p>
 <ul>
-<li><code>a</code> - 打开要追加的文件。  如果文件不存在，则创建该文件 -    <code>ax</code> - 与<code>a</code>相同但如果文件已存在则失败 -    <code>a+</code> - 打开一个文件进行阅读和追加。  如果该文件不存在，则将创建该文件 -    <code>ax+</code> - 与<code>a+</code>相同但如果文件已经存在则失败 -    <code>as</code> - 打开一个文件以便以同步模式追加。  如果该文件不存在，则将创建该文件 -    <code>as+</code> - 打开一个文件以便以同步模式读取和追加。  如果该文件不存在，则将创建该文件 -    <code>r</code> - 打开文件进行阅读。  如果文件不存在，则会发生异常 -    <code>r+</code> - 打开一个文件进行读写。  如果文件不存在，则会发生异常 -    <code>rs+</code> - 打开一个文件，以同步模式读写。  指示操作系统绕过本地文件系统缓存 -    <code>w</code> - 打开文件进行写作。  如果该文件不存在，则将创建该文件。  如果文件存在，则将替换它 -    <code>wx</code> - 与<code>w</code>相同但如果文件已存在则失败 -    <code>w+</code> - 打开一个文件进行读写。  如果该文件不存在，则将创建该文件。  如果文件存在，则将替换它 -    <code>wx+</code> - 与<code>w+</code>相同但如果文件已存在则失败 </li>
+<li>a - 打开要追加的文件。 如果文件不存在，则创建该文件 </li>
+<li>ax - 与a相同但如果文件已存在则失败 </li>
+<li>a+ - 打开一个文件进行阅读和追加。 如果该文件不存在，则将创建该文件 </li>
+<li>ax+ - 与a+相同但如果文件已经存在则失败 </li>
+<li>as - 打开一个文件以便以同步模式追加。 如果该文件不存在，则将创建该文件 </li>
+<li>as+ - 打开一个文件以便以同步模式读取和追加。 如果该文件不存在，则将创建该文件 </li>
+<li>r - 打开文件进行阅读。 如果文件不存在，则会发生异常 </li>
+<li>r+ - 打开一个文件进行读写。 如果文件不存在，则会发生异常 </li>
+<li>rs+ - 打开一个文件，以同步模式读写。 指示操作系统绕过本地文件系统缓存 </li>
+<li>w - 打开文件进行写作。 如果该文件不存在，则将创建该文件。 如果文件存在，则将替换它 </li>
+<li>wx - 与w相同但如果文件已存在则失败 </li>
+<li>w+ - 打开一个文件进行读写。 如果该文件不存在，则将创建该文件。 如果文件存在，则将替换它 </li>
+<li>wx+ - 与w+相同但如果文件已存在则失败 </li>
 </ul>
 
       
@@ -872,7 +724,7 @@ undefined
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">1.</span> <span class="nav-text">参考</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#nginx对象"><span class="nav-number">1.0.1.</span> <span class="nav-text">nginx对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP请求"><span class="nav-number">1.0.2.</span> <span class="nav-text">HTTP请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#流会话"><span class="nav-number">1.0.3.</span> <span class="nav-text">流会话</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#过时的属性"><span class="nav-number">1.0.4.</span> <span class="nav-text">过时的属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#核心"><span class="nav-number">1.0.5.</span> <span class="nav-text">核心</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#串"><span class="nav-number">1.0.6.</span> <span class="nav-text">串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON"><span class="nav-number">1.0.7.</span> <span class="nav-text">JSON</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Example-with-function-replacer"><span class="nav-number"></span> <span class="nav-text">Example with function replacer</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#加密"><span class="nav-number">0.0.1.</span> <span class="nav-text">加密</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#哈希"><span class="nav-number">0.0.2.</span> <span class="nav-text">哈希</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HMAC"><span class="nav-number">0.0.3.</span> <span class="nav-text">HMAC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计时器"><span class="nav-number">0.0.4.</span> <span class="nav-text">计时器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件系统"><span class="nav-number">0.0.5.</span> <span class="nav-text">文件系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件系统标志"><span class="nav-number">0.0.6.</span> <span class="nav-text">文件系统标志</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">1.</span> <span class="nav-text"> 参考</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#nginx对象"><span class="nav-number">1.0.1.</span> <span class="nav-text">nginx对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP请求"><span class="nav-number">1.0.2.</span> <span class="nav-text">HTTP请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#流会话"><span class="nav-number">1.0.3.</span> <span class="nav-text">流会话</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#串"><span class="nav-number">1.0.4.</span> <span class="nav-text">串</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

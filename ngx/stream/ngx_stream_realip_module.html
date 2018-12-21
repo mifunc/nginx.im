@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="stream,ngx_stream_realip_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:45:02.088Z">
+<meta property="og:updated_time" content="2018-12-21T07:53:26.671Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="stream&#x2F;ngx_stream_realip_module-nginx中文手册">
 <meta name="twitter:description" content="stream,ngx_stream_realip_module">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:45:21+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
                 2018年12月21日
               </time>
             
@@ -397,19 +397,14 @@
 
       
         <p>stream,ngx_stream_realip_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-stream-realip-module"><a href="#Module-ngx-stream-realip-module" class="headerlink" title="Module ngx_stream_realip_module"></a>Module ngx_stream_realip_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#set_real_ip_from">set_real_ip_from</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
-
-<p>   <code>ngx_stream_realip_module</code>模块用于将客户端地址和端口更改为PROXY协议头（1.11.4）中发送的端口和端口。  必须先通过在<code>listen</code>指令中设置<a href="ngx_stream_core_module.html#proxy_protocol">proxy_protocol</a>参数来启用PROXY协议。 </p>
-<p>  默认情况下不构建此模块，应使用<code>--with-stream_realip_module</code>配置参数启用它。 </p>
+<h2 id="Module-ngx-stream-realip-module"><a href="#Module-ngx-stream-realip-module" class="headerlink" title="Module ngx_stream_realip_module"></a>Module ngx_stream_realip_module</h2><p> Example Configuration<br> Directives<br> set_real_ip_from<br> Embedded Variables<br> ngx_stream_realip_module模块用于将客户端地址和端口更改为PROXY协议头（1.11.4）中发送的端口和端口。 必须先通过在listen指令中设置proxy_protocol参数来启用PROXY协议。 </p>
+<p> 默认情况下不构建此模块，应使用–with-stream_realip_module配置参数启用它。 </p>
 <h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><blockquote>
-<p><pre class="notranslate">listen 12345 proxy_protocol;</pre></p>
+<p>listen 12345 proxy_protocol; set_real_ip_from 192.168.1.0/24; set_real_ip_from 192.168.2.1; set_real_ip_from 2001:0db8::/32; ####  指令</p>
 </blockquote>
-<p>set_real_ip_from  192.168.1.0/24;<br>set_real_ip_from  192.168.2.1;<br>set_real_ip_from  2001:0db8::/32;<br></p>
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**set_real_ip_from**     &lt;code class=&quot;notranslate&quot;&gt;*address*</code> |    <code>*CIDR*</code> |    <code>unix:</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  定义已知可发送正确替换地址的可信地址。  如果指定了特殊值<code>unix:</code>则所有UNIX域套接字都将受信任。 </p>
-<h4 id="嵌入式变量"><a href="#嵌入式变量" class="headerlink" title="嵌入式变量"></a>嵌入式变量</h4>
+<p> Syntax:  <strong>set_real_ip_from</strong> <em>address</em> | <em>CIDR</em> | unix: ;<br>  Default:  —  Context:  stream , server<br>  定义已知可发送正确替换地址的可信地址。 如果指定了特殊值unix:则所有UNIX域套接字都将受信任。 </p>
+<h4 id="嵌入式变量"><a href="#嵌入式变量" class="headerlink" title="嵌入式变量"></a>嵌入式变量</h4><p> $realip_remote_addr   保留原始客户端地址  $realip_remote_port   保留原始客户端端口  </p>
+
       
     </div>
     
@@ -641,7 +636,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-stream-realip-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_stream_realip_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌入式变量"><span class="nav-number">1.0.3.</span> <span class="nav-text">嵌入式变量</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-stream-realip-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_stream_realip_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌入式变量"><span class="nav-number">1.0.2.</span> <span class="nav-text">嵌入式变量</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

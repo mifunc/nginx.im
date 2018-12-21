@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="http,ngx_http_log_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:44:59.223Z">
+<meta property="og:updated_time" content="2018-12-21T07:53:23.635Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http&#x2F;ngx_http_log_module-nginx中文手册">
 <meta name="twitter:description" content="http,ngx_http_log_module">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:45:21+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
                 2018年12月21日
               </time>
             
@@ -397,79 +397,51 @@
 
       
         <p>http,ngx_http_log_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-http-log-module"><a href="#Module-ngx-http-log-module" class="headerlink" title="Module ngx_http_log_module"></a>Module ngx_http_log_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#access_log">access_log</a> <br>     <a href="#log_format">log_format</a> <br>     <a href="#open_log_file_cache">open_log_file_cache</a> <br></td>
-
-<p>   <code>ngx_http_log_module</code>模块以指定的格式写入请求日志。 </p>
-<p>  请求记录在处理结束的位置的上下文中。  如果在请求处理期间发生<a href="ngx_http_core_module.html#internal">内部重定向</a> ，则它可能与原始位置不同。 </p>
+<h2 id="Module-ngx-http-log-module"><a href="#Module-ngx-http-log-module" class="headerlink" title="Module ngx_http_log_module"></a>Module ngx_http_log_module</h2><p> Example Configuration<br> Directives<br> access_log<br> log_format<br> open_log_file_cache<br> ngx_http_log_module模块以指定的格式写入请求日志。 </p>
+<p> 请求记录在处理结束的位置的上下文中。 如果在请求处理期间发生内部重定向 ，则它可能与原始位置不同。 </p>
 <h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><blockquote>
-<p><pre class="notranslate">log_format compression ‘$remote_addr - $remote_user [$time_local] ‘<br>                       ‘“$request” $status $bytes_sent ‘<br>                       ‘“$http_referer” “$http_user_agent” “$gzip_ratio”‘;</pre></p>
+<p>log_format compression ‘$remote_addr - $remote_user [$time_local] ‘ ‘“$request” $status $bytes_sent ‘ ‘“$http_referer” “$http_user_agent” “$gzip_ratio”‘; access_log /spool/logs/nginx-access.log compression buffer=32k; ####  指令</p>
 </blockquote>
-<p>access_log /spool/logs/nginx-access.log compression buffer=32k;<br></p>
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**access_log**     &lt;code class=&quot;notranslate&quot;&gt;*path*</code>    [ <code>*format*</code>    [ <code>buffer</code> = <code>*size*</code> ]    [ <code>gzip[= &lt;code class=&quot;notranslate&quot;&gt;*level*</code> ] ]    [ <code>flush</code> = <code>*time*</code> ]    [ <code>if</code> = <code>*condition*</code> ]]; <br> <code>**access_log** &lt;code class=&quot;notranslate&quot;&gt;off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">access_log logs/access.log combined;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> , <code>if in location</code> , <code>limit_except</code> <br>                </td></p>
-<p>  设置缓冲日志写入的路径，格式和配置。  可以在同一级别指定多个日志。  可以通过在第一个参数中指定“ <code>syslog:</code> ”前缀来配置记录到<a href="syslog.html">syslog</a> 。  特殊值<code>off</code>取消当前级别的所有<code>access_log</code>指令。  如果未指定格式，则使用预定义的“ <code>combined</code> ”格式。 </p>
-<p>  如果使用<code>buffer</code>或<code>gzip</code> （1.3.10,1.2.7）参数，则将缓冲写入日志。 </p>
+<p> Syntax:  <strong>access_log</strong> <em>path</em> [ <em>format</em> [ buffer = <em>size</em> ] [ gzip[= <em>level</em> ] ] [ flush = <em>time</em> ] [ if = <em>condition</em> ]];<br> <strong>access_log</strong> off ;<br>  Default:  access_log logs/access.log combined;  Context:  http , server , location , if in location , limit_except<br>  设置缓冲日志写入的路径，格式和配置。 可以在同一级别指定多个日志。 可以通过在第一个参数中指定“ syslog: ”前缀来配置记录到syslog 。 特殊值off取消当前级别的所有access_log指令。 如果未指定格式，则使用预定义的“ combined ”格式。 </p>
+<p> 如果使用buffer或gzip （1.3.10,1.2.7）参数，则将缓冲写入日志。 </p>
 <blockquote>
-<p>  缓冲区大小不得超过磁盘文件的原子写入大小。  对于FreeBSD，这个大小是无限的。 </p>
+<p> 缓冲区大小不得超过磁盘文件的原子写入大小。 对于FreeBSD，这个大小是无限的。  启用缓冲后，数据将写入文件： </p>
 </blockquote>
-<p>  启用缓冲后，数据将写入文件： </p>
 <ul>
-<li>如果下一个日志行不适合缓冲区; -   如果缓冲的数据早于<code>flush</code>参数（1.3.10,1.2.7）指定的数据; -   当工作进程<a href="control.html">重新打开</a>日志文件或正在关闭时。 </li>
+<li>如果下一个日志行不适合缓冲区; </li>
+<li>如果缓冲的数据早于flush参数（1.3.10,1.2.7）指定的数据; </li>
+<li><p>当工作进程重新打开日志文件或正在关闭时。<br>如果使用gzip参数，则在写入文件之前将压缩缓冲的数据。 压缩级别可以设置为1（最快，压缩较少）和9（最慢，最佳压缩）。 默认情况下，缓冲区大小等于64K字节，压缩级别设置为1.由于数据是以原子块压缩的，因此日志文件可以随时通过“ zcat ”解压缩或读取。 </p>
+<p>例： </p>
+</li>
 </ul>
-<p>  如果使用<code>gzip</code>参数，则在写入文件之前将压缩缓冲的数据。  压缩级别可以设置为1（最快，压缩较少）和9（最慢，最佳压缩）。  默认情况下，缓冲区大小等于64K字节，压缩级别设置为1.由于数据是以原子块压缩的，因此日志文件可以随时通过“ <code>zcat</code> ”解压缩或读取。 </p>
-<p>  例： </p>
 <blockquote>
-<pre class="notranslate">access_log /path/to/log.gz combined gzip flush=5m;
-</pre>
-
-
-
-
-
-<p>  要使gzip压缩起作用，必须使用zlib库构建nginx。 </p>
+<p>access_log /path/to/log.gz combined gzip flush=5m;<br> 要使gzip压缩起作用，必须使用zlib库构建nginx。  文件路径可以包含变量（0.7.6+），但是这样的日志有一些约束： </p>
 </blockquote>
-<p>  文件路径可以包含变量（0.7.6+），但是这样的日志有一些约束： </p>
 <ul>
-<li>工作进程使用其凭据的<a href="ngx_core_module.html#user">用户</a>应具有在具有此类日志的目录中创建文件的权限; -   缓冲写入不起作用; -   每个日志写入都会打开和关闭该文件。  但是，由于常用文件的描述符可以存储在<a href="#open_log_file_cache">缓存中</a> ，因此写入旧文件可以在<a href="#open_log_file_cache">open_log_file_cache</a>指令的<code>valid</code>参数指定的时间内继续写入 </li><li>  在每个日志写入期间，检查是否存在请求的<a href="ngx_http_core_module.html#root">根目录</a> ，如果它不存在，则不会创建日志。  因此，在同一级别指定<a href="ngx_http_core_module.html#root">root</a>和<code>access_log</code>是个好主意： <blockquote class="example"><pre class="notranslate">server {<br>root       /spool/vhost/data/$host;<br>access_log /spool/vhost/logs/$host;<br>…<br></pre></blockquote></li>
+<li>工作进程使用其凭据的用户应具有在具有此类日志的目录中创建文件的权限; </li>
+<li>缓冲写入不起作用; </li>
+<li>每个日志写入都会打开和关闭该文件。 但是，由于常用文件的描述符可以存储在缓存中 ，因此写入旧文件可以在open_log_file_cache指令的valid参数指定的时间内继续写入 </li>
+<li>在每个日志写入期间，检查是否存在请求的根目录 ，如果它不存在，则不会创建日志。 因此，在同一级别指定root和access_log是个好主意： <blockquote>
+<p>server { root /spool/vhost/data/$host; access_log /spool/vhost/logs/$host; …<br>if参数（1.7.0）启用条件记录。 如果<em>condition</em>评估为“0”或空字符串，则不会记录请求。 在以下示例中，将不记录响应代码为2xx和3xx的请求： </p>
+</blockquote>
+</li>
 </ul>
-<p>   <code>if</code>参数（1.7.0）启用条件记录。  如果<code>*condition*</code>评估为“0”或空字符串，则不会记录请求。  在以下示例中，将不记录响应代码为2xx和3xx的请求： </p>
 <blockquote>
-<p><pre class="notranslate">map $status $loggable {<br>    ~^[23]  0;<br>    default 1;<br>}</pre></p>
+<p>map $status $loggable { ~^[23] 0; default 1; } access_log /path/to/access.log combined if=$loggable;  Syntax:  <strong>log_format</strong> <em>name</em> [ escape = default | json | none ] <em>string</em> …;<br>  Default:  log_format combined “…”;  Context:  http<br>  指定日志格式。 </p>
 </blockquote>
-<p>access_log /path/to/access.log combined if=$loggable;<br></p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**log_format**     &lt;code class=&quot;notranslate&quot;&gt;*name*</code>    [ <code>escape</code> = <code>default</code> | <code>json</code> | <code>none</code> ]    <code>*string*</code> …; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">log_format combined “…”;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> <br>                </td></p>
-<p>  指定日志格式。 </p>
-<p>   <code>escape</code>参数（1.11.8）允许设置在变量中转义的<code>json</code>或<code>default</code>字符，默认情况下，使用<code>default</code>转义。   <code>none</code>值（1.13.10）禁用转义。 </p>
-<p>  日志格式可以包含公共变量，以及仅在日志写入时存在的变量： </p>
+<p> escape参数（1.11.8）允许设置在变量中转义的json或default字符，默认情况下，使用default转义。 none值（1.13.10）禁用转义。 </p>
+<p> 日志格式可以包含公共变量，以及仅在日志写入时存在的变量： </p>
+<p> $bytes_sent   发送到客户端的字节数  $connection   连接序列号  $connection_requests   通过连接发出的当前请求数（1.1.18）  $msec   以秒为单位的时间，日志写入时的分辨率为毫秒  $pipe   “ p ”如果请求是流水线的，“ . “ 除此以外  $request_length   请求长度（包括请求行，标题和请求正文）  $request_time   以毫秒为单位请求处理时间（以秒为单位）; 从客户端读取第一个字节之间经过的时间，并将最后一个字节发送到客户端后的日志写入  $status   回应状态  $time_iso8601   当地时间采用ISO 8601标准格式  $time_local   通用日志格式的本地时间 </p>
 <blockquote>
-<p>  在现代nginx版本变量<a href="ngx_http_core_module.html#var_status">$ status</a> （ <a href="ngx_http_core_module.html#var_bytes_sent">1.3.2,1.2.2</a> ）， <a href="ngx_http_core_module.html#var_bytes_sent">$ bytes_sent</a> （ <a href="ngx_http_core_module.html#var_bytes_sent">1.3.8,1.2.5</a> ）， <a href="ngx_http_core_module.html#var_connection">$ connection</a> （ <a href="ngx_http_core_module.html#var_bytes_sent">1.3.8,1.2.5</a> ）， <a href="ngx_http_core_module.html#var_connection">$ connection_requests</a> （ <a href="ngx_http_core_module.html#var_bytes_sent">1.3.8,1.2</a> ） .5）， <a href="ngx_http_core_module.html#var_msec">$ msec</a> （1.3.9,1.2.6）， <a href="ngx_http_core_module.html#var_request_time">$ request_time</a> （1.3.9,1.2.6）， <a href="ngx_http_core_module.html#var_pipe">$ pipe</a> （1.3.12,1.2.7）， <a href="ngx_http_core_module.html#var_request_length">$ request_length</a> （1.3.12,1.2.7） ）， <a href="ngx_http_core_module.html#var_time_iso8601">$ time_iso8601</a> （ <a href="ngx_http_core_module.html#var_time_iso8601">1.3.12,1.2.7</a> ）和<a href="ngx_http_core_module.html#var_time_local">$ time_local</a> （1.3.12,1.2.7）也可用作公共变量。 </p>
+<p> 在现代nginx版本变量$ status （ 1.3.2,1.2.2 ）， $ bytes_sent （ 1.3.8,1.2.5 ）， $ connection （ 1.3.8,1.2.5 ）， $ connection_requests （ 1.3.8,1.2 ） .5）， $ msec （1.3.9,1.2.6）， $ request_time （1.3.9,1.2.6）， $ pipe （1.3.12,1.2.7）， $ request_length （1.3.12,1.2.7） ）， $ time_iso8601 （ 1.3.12,1.2.7 ）和$ time_local （1.3.12,1.2.7）也可用作公共变量。  发送到客户端的标题行具有前缀“ sent_http_ ”，例如$sent_http_content_range 。 </p>
 </blockquote>
-<p>  发送到客户端的标题行具有前缀“ <code>sent_http_</code> ”，例如<code>$sent_http_content_range</code> 。 </p>
-<p>  配置始终包含预定义的“ <code>combined</code> ”格式： </p>
+<p> 配置始终包含预定义的“ combined ”格式： </p>
 <blockquote>
-<pre class="notranslate">log_format combined '$remote_addr - $remote_user [$time_local] '
-                    '"$request" $status $body_bytes_sent '
-                    '"$http_referer" "$http_user_agent"';
-</pre>
-
-
+<p>log_format combined ‘$remote_addr - $remote_user [$time_local] ‘ ‘“$request” $status $body_bytes_sent ‘ ‘“$http_referer” “$http_user_agent”‘;  Syntax:  <strong>open_log_file_cache</strong> max = <em>N</em> [ inactive = <em>time</em> ] [ min_uses = <em>N</em> ] [ valid = <em>time</em> ];<br> <strong>open_log_file_cache</strong> off ;<br>  Default:  open_log_file_cache off;  Context:  http , server , location<br>  定义一个缓存，用于存储名称中包含变量的常用日志的文件描述符。 该指令具有以下参数： </p>
 </blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**open_log_file_cache** &lt;code class=&quot;notranslate&quot;&gt;max</code> = <code>*N*</code>[ <code>inactive</code> = <code>*time*</code> ][ <code>min_uses</code> = <code>*N*</code> ][ <code>valid</code> = <code>*time*</code> ]; <br> <code>**open_log_file_cache** &lt;code class=&quot;notranslate&quot;&gt;off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">open_log_file_cache off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  定义一个缓存，用于存储名称中包含变量的常用日志的文件描述符。  该指令具有以下参数： </p>
-<p>  用法示例： </p>
+<p> max   设置缓存中的最大描述符数; 如果缓存变满，则最近最少使用（LRU）描述符将被关闭  inactive   如果在此期间没有访问权限，则设置关闭缓存描述符的时间; 默认情况下，10秒  min_uses   设置在inactive参数定义的时间内使文件使用的最小数量，以使描述符在缓存中保持打开状态; 默认情况下，1  valid   设置应该检查文件是否仍然存在同名的时间; 默认情况下，60秒  off   禁用缓存  用法示例： </p>
 <blockquote>
-<pre class="notranslate">open_log_file_cache max=1000 inactive=20s valid=1m min_uses=2;
-</pre>
-
-
-
-
-
+<p>open_log_file_cache max=1000 inactive=20s valid=1m min_uses=2;  </p>
 </blockquote>
 
       
@@ -703,7 +675,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-log-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_log_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-log-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_log_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

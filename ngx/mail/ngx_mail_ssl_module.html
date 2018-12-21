@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="mail,ngx_mail_ssl_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:45:01.424Z">
+<meta property="og:updated_time" content="2018-12-21T07:53:26.061Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mail&#x2F;ngx_mail_ssl_module-nginx中文手册">
 <meta name="twitter:description" content="mail,ngx_mail_ssl_module">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:45:21+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
                 2018年12月21日
               </time>
             
@@ -397,212 +397,82 @@
 
       
         <p>mail,ngx_mail_ssl_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-mail-ssl-module"><a href="#Module-ngx-mail-ssl-module" class="headerlink" title="Module ngx_mail_ssl_module"></a>Module ngx_mail_ssl_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#ssl">ssl</a> <br>     <a href="#ssl_certificate">ssl_certificate</a> <br>     <a href="#ssl_certificate_key">ssl_certificate_key</a> <br>     <a href="#ssl_ciphers">ssl_ciphers</a> <br>     <a href="#ssl_client_certificate">ssl_client_certificate</a> <br>     <a href="#ssl_crl">ssl_crl</a> <br>     <a href="#ssl_dhparam">ssl_dhparam</a> <br>     <a href="#ssl_ecdh_curve">ssl_ecdh_curve</a> <br>     <a href="#ssl_password_file">ssl_password_file</a> <br>     <a href="#ssl_prefer_server_ciphers">ssl_prefer_server_ciphers</a> <br>     <a href="#ssl_protocols">ssl_protocols</a> <br>     <a href="#ssl_session_cache">ssl_session_cache</a> <br>     <a href="#ssl_session_ticket_key">ssl_session_ticket_key</a> <br>     <a href="#ssl_session_tickets">ssl_session_tickets</a> <br>     <a href="#ssl_session_timeout">ssl_session_timeout</a> <br>     <a href="#ssl_trusted_certificate">ssl_trusted_certificate</a> <br>     <a href="#ssl_verify_client">ssl_verify_client</a> <br>     <a href="#ssl_verify_depth">ssl_verify_depth</a> <br>     <a href="#starttls">starttls</a> <br></td>
-
-<p>   <code>ngx_mail_ssl_module</code>模块为邮件代理服务器提供必要的支持，以使用SSL / TLS协议。 </p>
-<p>  默认情况下不构建此模块，应使用<code>--with-mail_ssl_module</code>配置参数启用它。 </p>
+<h2 id="Module-ngx-mail-ssl-module"><a href="#Module-ngx-mail-ssl-module" class="headerlink" title="Module ngx_mail_ssl_module"></a>Module ngx_mail_ssl_module</h2><p> Example Configuration<br> Directives<br> ssl<br> ssl_certificate<br> ssl_certificate_key<br> ssl_ciphers<br> ssl_client_certificate<br> ssl_crl<br> ssl_dhparam<br> ssl_ecdh_curve<br> ssl_password_file<br> ssl_prefer_server_ciphers<br> ssl_protocols<br> ssl_session_cache<br> ssl_session_ticket_key<br> ssl_session_tickets<br> ssl_session_timeout<br> ssl_trusted_certificate<br> ssl_verify_client<br> ssl_verify_depth<br> starttls<br> ngx_mail_ssl_module模块为邮件代理服务器提供必要的支持，以使用SSL / TLS协议。 </p>
+<p> 默认情况下不构建此模块，应使用–with-mail_ssl_module配置参数启用它。 </p>
 <blockquote>
-<p>  该模块需要<a href="http://www.openssl.org" target="_blank" rel="noopener">OpenSSL</a>库。 </p>
+<p> 该模块需要OpenSSL库。 ####  示例配置</p>
 </blockquote>
-<h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><p>  为减少处理器负载，建议使用 </p>
+<p> 为减少处理器负载，建议使用 </p>
 <ul>
-<li>设置<a href="ngx_core_module.html#worker_processes">工作进程数</a>等于处理器数， -   启用<a href="#ssl_session_cache_shared">共享</a>会话缓存， -   禁用<a href="#ssl_session_cache_builtin">内置</a>会话缓存， -   并可能增加会话<a href="#ssl_session_timeout">生命周期</a> （默认为5分钟）： </li>
+<li>设置工作进程数等于处理器数， </li>
+<li>启用共享会话缓存， </li>
+<li>禁用内置会话缓存， </li>
+<li>并可能增加会话生命周期 （默认为5分钟）： </li>
 </ul>
 <blockquote>
-<p><pre class="notranslate"> <strong>worker_processes auto;</strong></pre></p>
+<p> <strong>worker_processes auto;</strong> mail { … server { listen 993 ssl; ssl_protocols TLSv1 TLSv1.1 TLSv1.2; ssl_ciphers AES128-SHA:AES256-SHA:RC4-SHA:DES-CBC3-SHA:RC4-MD5; ssl_certificate /usr/local/nginx/conf/cert.pem; ssl_certificate_key /usr/local/nginx/conf/cert.key; <strong>ssl_session_cache shared:SSL:10m;</strong> <strong>ssl_session_timeout 10m;</strong> … } ####  指令</p>
 </blockquote>
-<p>mail {</p>
-<pre><code>...
-
-server {
-    listen              993 ssl;
-
-    ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;
-    ssl_ciphers         AES128-SHA:AES256-SHA:RC4-SHA:DES-CBC3-SHA:RC4-MD5;
-    ssl_certificate     /usr/local/nginx/conf/cert.pem;
-    ssl_certificate_key /usr/local/nginx/conf/cert.key;
-    **ssl_session_cache   shared:SSL:10m;**
-    **ssl_session_timeout 10m;**
-
-    ...
-}
-</code></pre><p></p>
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">ssl off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>mail</code> , <code>server</code> <br>                </td></p>
-<p>  该指令在1.15.0版本中已过时。  应该使用<a href="ngx_mail_core_module.html#listen">listen</a>指令的<code>ssl</code>参数。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_certificate** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>mail</code> , <code>server</code> <br>                </td></p>
-<p>  指定具有给定服务器的PEM格式的证书的<code>*file*</code> 。  如果除了主证书之外还应指定中间证书，则应按以下顺序在同一文件中指定它们：首先是主证书，然后是中间证书。   PEM格式的密钥可以放在同一文件中。 </p>
-<p>  从版本1.11.0开始，可以多次指定此指令以加载不同类型的证书，例如，RSA和ECDSA： </p>
+<p> Syntax:  <strong>ssl</strong> on | off ;<br>  Default:  ssl off;  Context:  mail , server<br>  该指令在1.15.0版本中已过时。 应该使用listen指令的ssl参数。 </p>
+<p> Syntax:  <strong>ssl_certificate</strong> <em>file</em> ;<br>  Default:  —  Context:  mail , server<br>  指定具有给定服务器的PEM格式的证书的<em>file</em> 。 如果除了主证书之外还应指定中间证书，则应按以下顺序在同一文件中指定它们：首先是主证书，然后是中间证书。 PEM格式的密钥可以放在同一文件中。 </p>
+<p> 从版本1.11.0开始，可以多次指定此指令以加载不同类型的证书，例如，RSA和ECDSA： </p>
 <blockquote>
-<p><pre class="notranslate">server {<br>    listen              993 ssl;</pre></p>
+<p>server { listen 993 ssl; ssl_certificate example.com.rsa.crt; ssl_certificate_key example.com.rsa.key; ssl_certificate example.com.ecdsa.crt; ssl_certificate_key example.com.ecdsa.key; … }<br> 只有OpenSSL 1.0.2或更高版本支持不同证书的单独证书链。 对于旧版本，只能使用一个证书链。  Syntax:  <strong>ssl_certificate_key</strong> <em>file</em> ;<br>  Default:  —  Context:  mail , server<br>  指定具有给定服务器的PEM格式的密钥的<em>file</em> 。 </p>
 </blockquote>
-<pre><code>ssl_certificate     example.com.rsa.crt;
-ssl_certificate_key example.com.rsa.key;
-
-ssl_certificate     example.com.ecdsa.crt;
-ssl_certificate_key example.com.ecdsa.key;
-
-...
-</code></pre><p>}<br></p>
+<p> 可以指定value engine ： <em>name</em> ： <em>id</em>而不是<em>file</em> （1.7.9），该<em>file</em>从OpenSSL引擎<em>name</em>加载具有指定<em>id</em>密钥。 </p>
+<p> Syntax:  <strong>ssl_ciphers</strong> <em>ciphers</em> ;<br>  Default:  ssl_ciphers HIGH:!aNULL:!MD5;  Context:  mail , server<br>  指定启用的密码。 密码以OpenSSL库理解的格式指定，例如： </p>
 <blockquote>
-<p>  只有OpenSSL 1.0.2或更高版本支持不同证书的单独证书链。  对于旧版本，只能使用一个证书链。 </p>
+<p>ssl_ciphers ALL:!aNULL:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP;  可以使用“ openssl ciphers ”命令查看完整列表。 </p>
+<p> 以前版本的nginx默认使用不同的密码。  Syntax:  <strong>ssl_client_certificate</strong> <em>file</em> ;<br>  Default:  —  Context:  mail , server<br>  该指令出现在1.7.11版本中。 </p>
 </blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_certificate_key** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>mail</code> , <code>server</code> <br>                </td></p>
-<p>  指定具有给定服务器的PEM格式的密钥的<code>*file*</code> 。 </p>
-<p>  可以指定value <code>engine</code> ： <code>*name*</code> ： <code>*id*</code>而不是<code>*file*</code> （1.7.9），该<code>*file*</code>从OpenSSL引擎<code>*name*</code>加载具有指定<code>*id*</code>密钥。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_ciphers** &lt;code class=&quot;notranslate&quot;&gt;*ciphers*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">ssl_ciphers HIGH:!aNULL:!MD5;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>mail</code> , <code>server</code> <br>                </td></p>
-<p>  指定启用的密码。  密码以OpenSSL库理解的格式指定，例如： </p>
+<p> 指定具有PEM格式的可信CA证书的<em>file</em> ，用于验证客户端证书。 </p>
+<p> 证书列表将发送给客户。 如果不需要，可以使用ssl_trusted_certificate指令。 </p>
+<p> Syntax:  <strong>ssl_crl</strong> <em>file</em> ;<br>  Default:  —  Context:  mail , server<br>  该指令出现在1.7.11版本中。 </p>
+<p> 指定具有PEM格式的已吊销证书（CRL）的<em>file</em> ，用于验证客户端证书。 </p>
+<p> Syntax:  <strong>ssl_dhparam</strong> <em>file</em> ;<br>  Default:  —  Context:  mail , server<br>  该指令出现在0.7.2版本中。 </p>
+<p> 为DHE密码指定具有DH参数的<em>file</em> 。 </p>
+<p> 默认情况下，不设置任何参数，因此不会使用DHE密码。 </p>
 <blockquote>
-<pre class="notranslate">ssl_ciphers ALL:!aNULL:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP;
-</pre>
-
-
-
+<p> 在1.11.0版之前，默认使用内置参数。  Syntax:  <strong>ssl_ecdh_curve</strong> <em>curve</em> ;<br>  Default:  ssl_ecdh_curve auto;  Context:  mail , server<br>  该指令出现在1.1.0和1.0.6版本中。 </p>
 </blockquote>
-<p>  可以使用“ <code>openssl ciphers</code> ”命令查看完整列表。 </p>
+<p> 指定ECDHE密码的<em>curve</em> 。 </p>
+<p> 使用OpenSSL 1.0.2或更高版本时，可以指定多条曲线（1.11.0），例如： </p>
 <blockquote>
-<p>  以前版本的nginx默认使用<a href="http/configuring_https_servers.html#compatibility">不同的</a>密码。 </p>
+<p>ssl_ecdh_curve prime256v1:secp384r1;  特殊值auto （1.11.0）指示nginx在使用OpenSSL 1.0.2或更高版本时使用内置在OpenSSL库中的列表，或者使用旧版本的prime256v1 。 </p>
+<p> 在版本1.11.0之前，默认使用prime256v1曲线。  Syntax:  <strong>ssl_password_file</strong> <em>file</em> ;<br>  Default:  —  Context:  mail , server<br>  该指令出现在1.7.3版本中。 </p>
 </blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_client_certificate** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>mail</code> , <code>server</code> <br>                </td></p>
-<p>  该指令出现在1.7.11版本中。 </p>
-<p>  指定具有PEM格式的可信CA证书的<code>*file*</code> ，用于<a href="#ssl_verify_client">验证</a>客户端证书。 </p>
-<p>  证书列表将发送给客户。  如果不需要，可以使用<a href="#ssl_trusted_certificate">ssl_trusted_certificate</a>指令。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_crl** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>mail</code> , <code>server</code> <br>                </td></p>
-<p>  该指令出现在1.7.11版本中。 </p>
-<p>  指定具有PEM格式的已吊销证书（CRL）的<code>*file*</code> ，用于<a href="#ssl_verify_client">验证</a>客户端证书。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_dhparam** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>mail</code> , <code>server</code> <br>                </td></p>
-<p>  该指令出现在0.7.2版本中。 </p>
-<p>  为DHE密码指定具有DH参数的<code>*file*</code> 。 </p>
-<p>  默认情况下，不设置任何参数，因此不会使用DHE密码。 </p>
+<p> 指定具有密钥密码的<em>file</em> ，其中每个密码在单独的行上指定。 在加载密钥时依次尝试密码短语。 </p>
+<p> 例： </p>
 <blockquote>
-<p>  在1.11.0版之前，默认使用内置参数。 </p>
+<p>mail { ssl_password_file /etc/keys/global.pass; … server { server_name mail1.example.com; ssl_certificate_key /etc/keys/first.key; } server { server_name mail2.example.com; # named pipe can also be used instead of a file ssl_password_file /etc/keys/fifo; ssl_certificate_key /etc/keys/second.key; } }  Syntax:  <strong>ssl_prefer_server_ciphers</strong> on | off ;<br>  Default:  ssl_prefer_server_ciphers off;  Context:  mail , server<br>  指定在使用SSLv3和TLS协议时，服务器密码应优先于客户端密码。 </p>
 </blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_ecdh_curve** &lt;code class=&quot;notranslate&quot;&gt;*curve*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">ssl_ecdh_curve auto;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>mail</code> , <code>server</code> <br>                </td></p>
-<p>  该指令出现在1.1.0和1.0.6版本中。 </p>
-<p>  指定ECDHE密码的<code>*curve*</code> 。 </p>
-<p>  使用OpenSSL 1.0.2或更高版本时，可以指定多条曲线（1.11.0），例如： </p>
+<p> Syntax:  <strong>ssl_protocols</strong> [ SSLv2 ] [ SSLv3 ] [ TLSv1 ] [ TLSv1.1 ] [ TLSv1.2 ] [ TLSv1.3 ];<br>  Default:  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;  Context:  mail , server<br>  启用指定的协议。 </p>
 <blockquote>
-<pre class="notranslate">ssl_ecdh_curve prime256v1:secp384r1;
-</pre>
-
-
-
+<p> TLSv1.1和TLSv1.2参数（ TLSv1.2 ）仅在使用OpenSSL 1.0.1或更高版本时有效。<br> 仅当使用使用TLSv1.3支持构建的OpenSSL 1.1.1时， TLSv1.3参数（1.13.0）才有效。  Syntax:  <strong>ssl_session_cache</strong> off | none | [ builtin [: <em>size</em> ]] [ shared : <em>name</em> : <em>size</em> ];<br>  Default:  ssl_session_cache none;  Context:  mail , server<br>  设置存储会话参数的缓存的类型和大小。 缓存可以是以下任何类型： </p>
 </blockquote>
-<p>  特殊值<code>auto</code> （1.11.0）指示nginx在使用OpenSSL 1.0.2或更高版本时使用内置在OpenSSL库中的列表，或者使用旧版本的<code>prime256v1</code> 。 </p>
+<p> off   严格禁止使用会话缓存：nginx明确告诉客户端会话可能不会被重用。  none   轻轻地禁止使用会话缓存：nginx告诉客户端会话可以重用，但实际上并不会将会话参数存储在缓存中。  builtin   一个用OpenSSL构建的缓存; 仅由一个工作进程使用。 缓存大小在会话中指定。 如果未给出大小，则等于20480个会话。 使用内置缓存可能会导致内存碎片。  shared   所有工作进程之间共享的缓存。 高速缓存大小以字节为单位指定; 一兆字节可以存储大约4000个会话。 每个共享缓存都应具有任意名称。 可以在多个服务器中使用具有相同名称的缓存。  两种缓存类型可以同时使用，例如： </p>
 <blockquote>
-<p>  在版本1.11.0之前，默认使用<code>prime256v1</code>曲线。 </p>
+<p>ssl_session_cache builtin:1000 shared:SSL:10m;  但只使用没有内置缓存的共享缓存应该更有效。 </p>
 </blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_password_file** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>mail</code> , <code>server</code> <br>                </td></p>
-<p>  该指令出现在1.7.3版本中。 </p>
-<p>  指定具有密钥密码的<code>*file*</code> ，其中每个密码在单独的行上指定。  在加载密钥时依次尝试密码短语。 </p>
-<p>  例： </p>
+<p> Syntax:  <strong>ssl_session_ticket_key</strong> <em>file</em> ;<br>  Default:  —  Context:  mail , server<br>  该指令出现在1.5.7版本中。 </p>
+<p> 设置具有用于加密和解密TLS会话票证的密钥的<em>file</em> 。 如果必须在多个服务器之间共享相同的密钥，则该指令是必需的。 默认情况下，使用随机生成的密钥。 </p>
+<p> 如果指定了多个密钥，则仅使用第一个密钥来加密TLS会话票证。 这允许配置键旋转，例如： </p>
 <blockquote>
-<p><pre class="notranslate">mail {<br>    ssl_password_file /etc/keys/global.pass;<br>    …</pre></p>
+<p>ssl_session_ticket_key current.key; ssl_session_ticket_key previous.key;  该<em>file</em>必须包含80或48个字节的随机数据，并且可以使用以下命令创建： </p>
+<p>openssl rand 80 &gt; ticket.key  根据文件大小，AES256（对于80字节密钥，1.11.8）或AES128（对于48字节密钥）用于加密。 </p>
 </blockquote>
-<pre><code>server {
-    server_name mail1.example.com;
-    ssl_certificate_key /etc/keys/first.key;
-}
-
-server {
-    server_name mail2.example.com;
-
-    # named pipe can also be used instead of a file
-    ssl_password_file /etc/keys/fifo;
-    ssl_certificate_key /etc/keys/second.key;
-}
-</code></pre><p>}<br></p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_prefer_server_ciphers** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">ssl_prefer_server_ciphers off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>mail</code> , <code>server</code> <br>                </td></p>
-<p>  指定在使用SSLv3和TLS协议时，服务器密码应优先于客户端密码。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_protocols**     [ &lt;code class=&quot;notranslate&quot;&gt;SSLv2</code> ]    [ <code>SSLv3</code> ]    [ <code>TLSv1</code> ]    [ <code>TLSv1.1</code> ]    [ <code>TLSv1.2</code> ]    [ <code>TLSv1.3</code> ]; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>mail</code> , <code>server</code> <br>                </td></p>
-<p>  启用指定的协议。 </p>
-<blockquote>
-<p>   <code>TLSv1.1</code>和<code>TLSv1.2</code>参数（ <code>TLSv1.2</code> ）仅在使用OpenSSL 1.0.1或更高版本时有效。 </p>
-<p>  仅当使用使用TLSv1.3支持构建的OpenSSL 1.1.1时， <code>TLSv1.3</code>参数（1.13.0）才有效。 </p>
-</blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_session_cache**     &lt;code class=&quot;notranslate&quot;&gt;off</code> |    <code>none</code> |    [ <code>builtin</code> [: <code>*size*</code> ]]    [ <code>shared</code> : <code>*name*</code> : <code>*size*</code> ]; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">ssl_session_cache none;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>mail</code> , <code>server</code> <br>                </td></p>
-<p>  设置存储会话参数的缓存的类型和大小。  缓存可以是以下任何类型： </p>
-<p>  两种缓存类型可以同时使用，例如： </p>
-<blockquote>
-<pre class="notranslate">ssl_session_cache builtin:1000 shared:SSL:10m;
-</pre>
-
-</blockquote>
-<p>  但只使用没有内置缓存的共享缓存应该更有效。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_session_ticket_key** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>mail</code> , <code>server</code> <br>                </td></p>
-<p>  该指令出现在1.5.7版本中。 </p>
-<p>  设置具有用于加密和解密TLS会话票证的密钥的<code>*file*</code> 。  如果必须在多个服务器之间共享相同的密钥，则该指令是必需的。  默认情况下，使用随机生成的密钥。 </p>
-<p>  如果指定了多个密钥，则仅使用第一个密钥来加密TLS会话票证。  这允许配置键旋转，例如： </p>
-<blockquote>
-<pre class="notranslate">ssl_session_ticket_key current.key;
-ssl_session_ticket_key previous.key;
-</pre>
-
-
-
-</blockquote>
-<p>  该<code>*file*</code>必须包含80或48个字节的随机数据，并且可以使用以下命令创建： </p>
-<blockquote>
-<pre class="notranslate">openssl rand 80 &gt; ticket.key
-</pre>
-
-</blockquote>
-<p>  根据文件大小，AES256（对于80字节密钥，1.11.8）或AES128（对于48字节密钥）用于加密。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_session_tickets** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">ssl_session_tickets on;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>mail</code> , <code>server</code> <br>                </td></p>
-<p>  该指令出现在1.5.9版本中。 </p>
-<p>  通过<a href="https://tools.ietf.org/html/rfc5077" target="_blank" rel="noopener">TLS会话票证</a>启用或禁用会话恢复。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_session_timeout** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">ssl_session_timeout 5m;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>mail</code> , <code>server</code> <br>                </td></p>
-<p>  指定客户端可以重用会话参数的时间。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_trusted_certificate** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>mail</code> , <code>server</code> <br>                </td></p>
-<p>  该指令出现在1.7.11版本中。 </p>
-<p>  指定具有PEM格式的可信CA证书的<code>*file*</code> ，用于<a href="#ssl_verify_client">验证</a>客户端证书。 </p>
-<p>  与<a href="#ssl_client_certificate">ssl_client_certificate</a>设置的证书<a href="#ssl_client_certificate">不同</a> ，这些证书的列表不会发送给客户端。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_verify_client**     &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> |    <code>optional</code> | <code>optional_no_ca</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">ssl_verify_client off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>mail</code> , <code>server</code> <br>                </td></p>
-<p>  该指令出现在1.7.11版本中。 </p>
-<p>  启用客户端证书验证。  验证结果在<a href="ngx_mail_auth_http_module.html#auth_http">验证</a>请求的“Auth-SSL-Verify”标头中传递。 </p>
-<p>   <code>optional</code>参数请求客户端证书，并在证书存在时验证它。 </p>
-<p>   <code>optional_no_ca</code>参数请求客户端证书，但不要求它由可信CA证书签名。  这适用于nginx外部的服务执行实际证书验证的情况。  可以通过<a href="ngx_mail_auth_http_module.html#auth_http_pass_client_cert">发送</a>到身份验证服务器的请求访问证书的内容。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_verify_depth** &lt;code class=&quot;notranslate&quot;&gt;*number*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">ssl_verify_depth 1;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>mail</code> , <code>server</code> <br>                </td></p>
-<p>  该指令出现在1.7.11版本中。 </p>
-<p>  设置客户端证书链中的验证深度。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**starttls**   &lt;code class=&quot;notranslate&quot;&gt;on</code> |  <code>off</code> |  <code>only</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">starttls off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>mail</code> , <code>server</code> <br>                </td></p>
+<p> Syntax:  <strong>ssl_session_tickets</strong> on | off ;<br>  Default:  ssl_session_tickets on;  Context:  mail , server<br>  该指令出现在1.5.9版本中。 </p>
+<p> 通过TLS会话票证启用或禁用会话恢复。 </p>
+<p> Syntax:  <strong>ssl_session_timeout</strong> <em>time</em> ;<br>  Default:  ssl_session_timeout 5m;  Context:  mail , server<br>  指定客户端可以重用会话参数的时间。 </p>
+<p> Syntax:  <strong>ssl_trusted_certificate</strong> <em>file</em> ;<br>  Default:  —  Context:  mail , server<br>  该指令出现在1.7.11版本中。 </p>
+<p> 指定具有PEM格式的可信CA证书的<em>file</em> ，用于验证客户端证书。 </p>
+<p> 与ssl_client_certificate设置的证书不同 ，这些证书的列表不会发送给客户端。 </p>
+<p> Syntax:  <strong>ssl_verify_client</strong> on | off | optional | optional_no_ca ;<br>  Default:  ssl_verify_client off;  Context:  mail , server<br>  该指令出现在1.7.11版本中。 </p>
+<p> 启用客户端证书验证。 验证结果在验证请求的“Auth-SSL-Verify”标头中传递。 </p>
+<p> optional参数请求客户端证书，并在证书存在时验证它。 </p>
+<p> optional_no_ca参数请求客户端证书，但不要求它由可信CA证书签名。 这适用于nginx外部的服务执行实际证书验证的情况。 可以通过发送到身份验证服务器的请求访问证书的内容。 </p>
+<p> Syntax:  <strong>ssl_verify_depth</strong> <em>number</em> ;<br>  Default:  ssl_verify_depth 1;  Context:  mail , server<br>  该指令出现在1.7.11版本中。 </p>
+<p> 设置客户端证书链中的验证深度。 </p>
+<p> Syntax:  <strong>starttls</strong> on | off | only ;<br>  Default:  starttls off;  Context:  mail , server<br>  on   允许使用POP3的STLS命令和IMAP和SMTP的STARTTLS命令;  off   拒绝使用STLS和STARTTLS命令;  only   需要初步的TLS过渡。  </p>
 
       
     </div>
@@ -835,7 +705,7 @@ ssl_session_ticket_key previous.key;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-mail-ssl-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_mail_ssl_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-mail-ssl-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_mail_ssl_module</span></a></li></ol></div>
             
 
           </div>

@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="ngx_core_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:44:57.313Z">
+<meta property="og:updated_time" content="2018-12-21T07:53:21.886Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ngx_core_module-nginx中文手册">
 <meta name="twitter:description" content="ngx_core_module">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:45:21+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
                 2018年12月21日
               </time>
             
@@ -397,260 +397,100 @@
 
       
         <p>ngx_core_module<br><a id="more"></a></p>
-<h2 id="核心功能"><a href="#核心功能" class="headerlink" title="核心功能"></a>核心功能</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#accept_mutex">accept_mutex</a> <br>     <a href="#accept_mutex_delay">accept_mutex_delay</a> <br>     <a href="#daemon">daemon</a> <br>     <a href="#debug_connection">debug_connection</a> <br>     <a href="#debug_points">debug_points</a> <br>     <a href="#env">env</a> <br>     <a href="#error_log">error_log</a> <br>     <a href="#events">events</a> <br>     <a href="#include">include</a> <br>     <a href="#load_module">load_module</a> <br>     <a href="#lock_file">lock_file</a> <br>     <a href="#master_process">master_process</a> <br>     <a href="#multi_accept">multi_accept</a> <br>     <a href="#pcre_jit">pcre_jit</a> <br>     <a href="#pid">pid</a> <br>     <a href="#ssl_engine">ssl_engine</a> <br>     <a href="#thread_pool">thread_pool</a> <br>     <a href="#timer_resolution">timer_resolution</a> <br>     <a href="#use">use</a> <br>     <a href="#user">user</a> <br>     <a href="#worker_aio_requests">worker_aio_requests</a> <br>     <a href="#worker_connections">worker_connections</a> <br>     <a href="#worker_cpu_affinity">worker_cpu_affinity</a> <br>     <a href="#worker_priority">worker_priority</a> <br>     <a href="#worker_processes">worker_processes</a> <br>     <a href="#worker_rlimit_core">worker_rlimit_core</a> <br>     <a href="#worker_rlimit_nofile">worker_rlimit_nofile</a> <br>     <a href="#worker_shutdown_timeout">worker_shutdown_timeout</a> <br>     <a href="#working_directory">working_directory</a> <br></td>
-
+<h2 id="核心功能"><a href="#核心功能" class="headerlink" title=" 核心功能"></a> 核心功能</h2><p> Example Configuration<br> Directives<br> accept_mutex<br> accept_mutex_delay<br> daemon<br> debug_connection<br> debug_points<br> env<br> error_log<br> events<br> include<br> load_module<br> lock_file<br> master_process<br> multi_accept<br> pcre_jit<br> pid<br> ssl_engine<br> thread_pool<br> timer_resolution<br> use<br> user<br> worker_aio_requests<br> worker_connections<br> worker_cpu_affinity<br> worker_priority<br> worker_processes<br> worker_rlimit_core<br> worker_rlimit_nofile<br> worker_shutdown_timeout<br> working_directory   </p>
 <h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><blockquote>
-<p><pre class="notranslate">user www www;<br>worker_processes 2;</pre></p>
+<p>user www www; worker_processes 2; error_log /var/log/nginx-error.log info; events { use kqueue; worker_connections 2048; } … ####  指令</p>
 </blockquote>
-<p>error_log /var/log/nginx-error.log info;</p>
-<p>events {<br>    use kqueue;<br>    worker_connections 2048;<br>}</p>
-<p>…<br></p>
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**accept_mutex** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">accept_mutex off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>events</code> <br>                </td></p>
-<p>  如果启用了<code>accept_mutex</code> ，则工作进程将依次接受新连接。  否则，将通知所有工作进程有关新连接的信息，如果新连接的数量很少，则某些工作进程可能只是浪费系统资源。 </p>
+<p> Syntax:  <strong>accept_mutex</strong> on | off ;<br>  Default:  accept_mutex off;  Context:  events<br>  如果启用了accept_mutex ，则工作进程将依次接受新连接。 否则，将通知所有工作进程有关新连接的信息，如果新连接的数量很少，则某些工作进程可能只是浪费系统资源。 </p>
 <blockquote>
-<p>  无需在支持<a href="events.html#epoll">EPOLLEXCLUSIVE</a>标志（1.11.3）的系统上或使用<a href="http/ngx_http_core_module.html#reuseport">reuseport</a>时<a href="http/ngx_http_core_module.html#reuseport">启用accept_mutex</a> 。 </p>
-<p>  在1.11.3版之前，默认值为<code>on</code> 。 </p>
+<p> 无需在支持EPOLLEXCLUSIVE标志（1.11.3）的系统上或使用reuseport时启用accept_mutex 。<br> 在1.11.3版之前，默认值为on 。  Syntax:  <strong>accept_mutex_delay</strong> <em>time</em> ;<br>  Default:  accept_mutex_delay 500ms;  Context:  events<br>  如果启用了accept_mutex ，则指定当另一个工作进程当前正在接受新连接时，工作进程将尝试重新启动接受新连接的最长时间。 </p>
 </blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**accept_mutex_delay** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">accept_mutex_delay 500ms;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>events</code> <br>                </td></p>
-<p>  如果启用了<a href="#accept_mutex">accept_mutex</a> ，则指定当另一个工作进程当前正在接受新连接时，工作进程将尝试重新启动接受新连接的最长时间。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**daemon** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">daemon on;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
-<p>  确定nginx是否应该成为守护进程。  主要用于开发过程中。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**debug_connection**     &lt;code class=&quot;notranslate&quot;&gt;*address*</code> |    <code>*CIDR*</code> |    <code>unix:</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>events</code> <br>                </td></p>
-<p>  为选定的客户端连接启用调试日志。  其他连接将使用<a href="#error_log">error_log</a>指令设置的日志记录级别。  调试连接由IPv4或IPv6（1.3.0,1.2.1）地址或网络指定。  也可以使用主机名指定连接。  对于使用UNIX域套接字（1.3.0,1.2.1）的连接，调试日志由“ <code>unix:</code> ”参数启用。 </p>
+<p> Syntax:  <strong>daemon</strong> on | off ;<br>  Default:  daemon on;  Context:  main<br>  确定nginx是否应该成为守护进程。 主要用于开发过程中。 </p>
+<p> Syntax:  <strong>debug_connection</strong> <em>address</em> | <em>CIDR</em> | unix: ;<br>  Default:  —  Context:  events<br>  为选定的客户端连接启用调试日志。 其他连接将使用error_log指令设置的日志记录级别。 调试连接由IPv4或IPv6（1.3.0,1.2.1）地址或网络指定。 也可以使用主机名指定连接。 对于使用UNIX域套接字（1.3.0,1.2.1）的连接，调试日志由“ unix: ”参数启用。 </p>
 <blockquote>
-<pre class="notranslate">events {
-    debug_connection 127.0.0.1;
-    debug_connection localhost;
-    debug_connection 192.0.2.0/24;
-    debug_connection ::1;
-    debug_connection 2001:0db8::/32;
-    debug_connection unix:;
-    ...
-}
-</pre>
-
-
-
-<p>  要使此指令起作用，需要使用<code>--with-debug</code>构建nginx，请参阅“ <a href="debugging_log.html">调试日志</a> ”。 </p>
+<p>events { debug_connection 127.0.0.1; debug_connection localhost; debug_connection 192.0.2.0/24; debug_connection ::1; debug_connection 2001:0db8::/32; debug_connection unix:; … }<br> 要使此指令起作用，需要使用–with-debug构建nginx，请参阅“ 调试日志 ”。  Syntax:  <strong>debug_points</strong> abort | stop ;<br>  Default:  —  Context:  main<br>  该指令用于调试。 </p>
 </blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**debug_points** &lt;code class=&quot;notranslate&quot;&gt;abort</code> | <code>stop</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
-<p>  该指令用于调试。 </p>
-<p>  当检测到内部错误时，例如在重新启动工作进程时套接字泄漏，启用<code>debug_points</code>会导致核心文件创建（ <code>abort</code> ）或停止进程（ <code>stop</code> ）以使用系统调试器进行进一步分析。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**env** &lt;code class=&quot;notranslate&quot;&gt;*variable*</code> [= <code>*value*</code> ]; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">env TZ;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
-<p>  默认情况下，nginx会删除从其父进程继承的所有环境变量，但TZ变量除外。  该指令允许保留一些继承的变量，更改其值或创建新的环境变量。  那么这些变量是： </p>
+<p> 当检测到内部错误时，例如在重新启动工作进程时套接字泄漏，启用debug_points会导致核心文件创建（ abort ）或停止进程（ stop ）以使用系统调试器进行进一步分析。 </p>
+<p> Syntax:  <strong>env</strong> <em>variable</em> [= <em>value</em> ];<br>  Default:  env TZ;  Context:  main<br>  默认情况下，nginx会删除从其父进程继承的所有环境变量，但TZ变量除外。 该指令允许保留一些继承的变量，更改其值或创建新的环境变量。 那么这些变量是： </p>
 <ul>
-<li>在可执行文件的<a href="control.html#upgrade">实时升级</a>期间继承; -   由<a href="http/ngx_http_perl_module.html">ngx_http_perl_module</a>模块使用; -   由工作进程使用。  应该记住，以这种方式控制系统库并不总是可行的，因为库只在初始化期间检查变量是常见的，远在它们可以使用该指令设置之前。  一个例外是上面提到的可执行文件的<a href="control.html#upgrade">实时升级</a> 。 </li>
+<li>在可执行文件的实时升级期间继承; </li>
+<li>由ngx_http_perl_module模块使用; </li>
+<li><p>由工作进程使用。 应该记住，以这种方式控制系统库并不总是可行的，因为库只在初始化期间检查变量是常见的，远在它们可以使用该指令设置之前。 一个例外是上面提到的可执行文件的实时升级 。<br>除非明确配置，否则TZ变量始终继承并可供ngx_http_perl_module模块使用。 </p>
+<p>用法示例： </p>
+</li>
 </ul>
-<p>  除非明确配置，否则TZ变量始终继承并可供<a href="http/ngx_http_perl_module.html">ngx_http_perl_module</a>模块使用。 </p>
-<p>  用法示例： </p>
 <blockquote>
-<pre class="notranslate">env MALLOC_OPTIONS;
-env PERL5LIB=/data/site/modules;
-env OPENSSL_ALLOW_PROXY_CERTS=1;
-</pre>
-
-
-
-
-
-<p>   NGINX环境变量由nginx在内部使用，不应由用户直接设置。 </p>
+<p>env MALLOC_OPTIONS; env PERL5LIB=/data/site/modules; env OPENSSL_ALLOW_PROXY_CERTS=1;<br> NGINX环境变量由nginx在内部使用，不应由用户直接设置。  Syntax:  <strong>error_log</strong> <em>file</em> [ <em>level</em> ];<br>  Default:  error_log logs/error.log error;  Context:  main , http , mail , stream , server , location<br>  配置日志记录。 可以在同一级别指定多个日志（1.5.2）。 如果在main配置级别上未明确定义将日志写入文件，则将使用默认文件。 </p>
 </blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**error_log** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> [ <code>*level*</code> ]; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">error_log logs/error.log error;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> , <code>http</code> , <code>mail</code> , <code>stream</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  配置日志记录。  可以在同一级别指定多个日志（1.5.2）。  如果在<code>main</code>配置级别上未明确定义将日志写入文件，则将使用默认文件。 </p>
-<p>  第一个参数定义将存储日志的<code>*file*</code> 。  特殊值<code>stderr</code>选择标准错误文件。  可以通过指定“ <code>syslog:</code> ”前缀来配置记录到<a href="syslog.html">syslog</a> 。  可以通过指定“ <code>memory:</code> ”前缀和缓冲区<code>*size*</code>来配置记录到<a href="debugging_log.html#memory">循环内存缓冲区</a> ，通常用于调试（1.7.11）。 </p>
-<p>  第二个参数确定日志记录<code>*level*</code> ，可以是以下之一： <code>debug</code> ， <code>info</code> ， <code>notice</code> ， <code>warn</code> ， <code>error</code> ， <code>crit</code> ， <code>alert</code>或<code>emerg</code> 。  上面的日志级别按严重性增加的顺序列出。  设置某个日志级别将导致记录指定和更严重日志级别的所有消息。  例如，默认级别<code>error</code>将导致记录<code>error</code> ， <code>crit</code> ， <code>alert</code>和<code>emerg</code>消息。  如果省略此参数，则使用<code>error</code> 。 </p>
+<p> 第一个参数定义将存储日志的<em>file</em> 。 特殊值stderr选择标准错误文件。 可以通过指定“ syslog: ”前缀来配置记录到syslog 。 可以通过指定“ memory: ”前缀和缓冲区<em>size</em>来配置记录到循环内存缓冲区 ，通常用于调试（1.7.11）。 </p>
+<p> 第二个参数确定日志记录<em>level</em> ，可以是以下之一： debug ， info ， notice ， warn ， error ， crit ， alert或emerg 。 上面的日志级别按严重性增加的顺序列出。 设置某个日志级别将导致记录指定和更严重日志级别的所有消息。 例如，默认级别error将导致记录error ， crit ， alert和emerg消息。 如果省略此参数，则使用error 。 </p>
 <blockquote>
-<p>  要使<code>debug</code>日志记录正常工作，需要使用<code>--with-debug</code>构建nginx，请参阅“ <a href="debugging_log.html">调试日志</a> ”。 </p>
-<p>  该指令可以在从1.7.11版本开始的<code>stream</code>级别上指定，也可以在从1.9.0版本开始的<code>mail</code>级别上指定。 </p>
+<p> 要使debug日志记录正常工作，需要使用–with-debug构建nginx，请参阅“ 调试日志 ”。<br> 该指令可以在从1.7.11版本开始的stream级别上指定，也可以在从1.9.0版本开始的mail级别上指定。  Syntax:  <strong>events</strong> { … }<br>  Default:  —  Context:  main<br>  提供配置文件上下文，其中指定了影响连接处理的指令。 </p>
 </blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**events** { ... }</code> <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
-<p>  提供配置文件上下文，其中指定了影响连接处理的指令。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**include** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> | <code>*mask*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>any</code> <br>                </td></p>
-<p>  包含另一个<code>*file*</code>或与指定<code>*mask*</code>匹配的文件到配置中。  包含的文件应包含语法正确的指令和块。 </p>
-<p>  用法示例： </p>
+<p> Syntax:  <strong>include</strong> <em>file</em> | <em>mask</em> ;<br>  Default:  —  Context:  any<br>  包含另一个<em>file</em>或与指定<em>mask</em>匹配的文件到配置中。 包含的文件应包含语法正确的指令和块。 </p>
+<p> 用法示例： </p>
 <blockquote>
-<pre class="notranslate">include mime.types;
-include vhosts/*.conf;
-</pre>
-
-
+<p>include mime.types; include vhosts/<em>.conf;  Syntax:  <strong>load_module</strong> </em>file* ;<br>  Default:  —  Context:  main<br>  该指令出现在1.9.11版中。 </p>
 </blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**load_module** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
-<p>  该指令出现在1.9.11版中。 </p>
-<p>  加载动态模块。 </p>
-<p>  例： </p>
+<p> 加载动态模块。 </p>
+<p> 例： </p>
 <blockquote>
-<pre class="notranslate">load_module modules/ngx_mail_module.so;
-</pre>
-
-
+<p>load_module modules/ngx_mail_module.so;  Syntax:  <strong>lock_file</strong> <em>file</em> ;<br>  Default:  lock_file logs/nginx.lock;  Context:  main<br>  nginx使用锁定机制来实现accept_mutex并序列化对共享内存的访问。 在大多数系统上，锁是使用原子操作实现的，并且忽略该指令。 在其他系统上，使用“锁定文件”机制。 该指令指定锁文件名称的前缀。 </p>
 </blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**lock_file** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">lock_file logs/nginx.lock;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
-<p>   nginx使用锁定机制来实现<a href="#accept_mutex">accept_mutex</a>并序列化对共享内存的访问。  在大多数系统上，锁是使用原子操作实现的，并且忽略该指令。  在其他系统上，使用“锁定文件”机制。  该指令指定锁文件名称的前缀。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**master_process** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">master_process on;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
-<p>  确定是否已启动工作进程。  该指令适用于nginx开发人员。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**multi_accept** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">multi_accept off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>events</code> <br>                </td></p>
-<p>  如果禁用<code>multi_accept</code>则工作进程将一次接受一个新连接。  否则，工作进程将一次接受所有新连接。 </p>
+<p> Syntax:  <strong>master_process</strong> on | off ;<br>  Default:  master_process on;  Context:  main<br>  确定是否已启动工作进程。 该指令适用于nginx开发人员。 </p>
+<p> Syntax:  <strong>multi_accept</strong> on | off ;<br>  Default:  multi_accept off;  Context:  events<br>  如果禁用multi_accept则工作进程将一次接受一个新连接。 否则，工作进程将一次接受所有新连接。 </p>
 <blockquote>
-<p>  如果使用<a href="events.html#kqueue">kqueue</a>连接处理方法，则忽略该指令，因为它报告了等待接受的新连接的数量。 </p>
+<p> 如果使用kqueue连接处理方法，则忽略该指令，因为它报告了等待接受的新连接的数量。  Syntax:  <strong>pcre_jit</strong> on | off ;<br>  Default:  pcre_jit off;  Context:  main<br>  该指令出现在1.1.12版本中。 </p>
 </blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**pcre_jit** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">pcre_jit off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
-<p>  该指令出现在1.1.12版本中。 </p>
-<p>  启用或禁用对配置解析时已知的正则表达式使用“即时编译”（PCRE JIT）。 </p>
-<p>   PCRE JIT可以显着加快正则表达式的处理速度。 </p>
+<p> 启用或禁用对配置解析时已知的正则表达式使用“即时编译”（PCRE JIT）。 </p>
+<p> PCRE JIT可以显着加快正则表达式的处理速度。 </p>
 <blockquote>
-<p>  从使用<code>--enable-jit</code>配置参数构建的8.20版开始，JIT在PCRE库中可用。  当使用nginx（– <code>--with-pcre=</code> ）构建PCRE库时，通过<code>--with-pcre-jit</code>配置参数启用JIT支持。 </p>
+<p> 从使用–enable-jit配置参数构建的8.20版开始，JIT在PCRE库中可用。 当使用nginx（– –with-pcre= ）构建PCRE库时，通过–with-pcre-jit配置参数启用JIT支持。  Syntax:  <strong>pid</strong> <em>file</em> ;<br>  Default:  pid logs/nginx.pid;  Context:  main<br>  定义将存储主进程的进程ID的<em>file</em> 。 </p>
 </blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**pid** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">pid logs/nginx.pid;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
-<p>  定义将存储主进程的进程ID的<code>*file*</code> 。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_engine** &lt;code class=&quot;notranslate&quot;&gt;*device*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
-<p>  定义硬件SSL加速器的名称。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**thread_pool**     &lt;code class=&quot;notranslate&quot;&gt;*name*</code>    <code>threads</code> = <code>*number*</code>    [ <code>max_queue</code> = <code>*number*</code> ]; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">thread_pool default threads=32 max_queue=65536;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
-<p>  该指令出现在1.7.11版本中。 </p>
-<p>  定义用于多线程读取和发送文件<a href="http/ngx_http_core_module.html#aio">而不阻塞</a>工作进程的命名线程池。 </p>
-<p>   <code>threads</code>参数定义池中的线程数。 </p>
-<p>  如果池中的所有线程都忙，则新任务将在队列中等待。   <code>max_queue</code>参数限制允许在队列中等待的任务数。  默认情况下，队列中最多可以等待65536个任务。  当队列溢出时，任务完成并出现错误。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**timer_resolution** &lt;code class=&quot;notranslate&quot;&gt;*interval*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
-<p>  减少工作进程中的计时器分辨率，从而减少<code>gettimeofday()</code>系统调用的次数。  默认情况下，每次收到内核事件时都会调用<code>gettimeofday()</code> 。  在降低分辨率的情况下， <code>gettimeofday()</code>仅在每个指定的<code>*interval*</code>调用一次。 </p>
-<p>  例： </p>
+<p> Syntax:  <strong>ssl_engine</strong> <em>device</em> ;<br>  Default:  —  Context:  main<br>  定义硬件SSL加速器的名称。 </p>
+<p> Syntax:  <strong>thread_pool</strong> <em>name</em> threads = <em>number</em> [ max_queue = <em>number</em> ];<br>  Default:  thread_pool default threads=32 max_queue=65536;  Context:  main<br>  该指令出现在1.7.11版本中。 </p>
+<p> 定义用于多线程读取和发送文件而不阻塞工作进程的命名线程池。 </p>
+<p> threads参数定义池中的线程数。 </p>
+<p> 如果池中的所有线程都忙，则新任务将在队列中等待。 max_queue参数限制允许在队列中等待的任务数。 默认情况下，队列中最多可以等待65536个任务。 当队列溢出时，任务完成并出现错误。 </p>
+<p> Syntax:  <strong>timer_resolution</strong> <em>interval</em> ;<br>  Default:  —  Context:  main<br>  减少工作进程中的计时器分辨率，从而减少gettimeofday()系统调用的次数。 默认情况下，每次收到内核事件时都会调用gettimeofday() 。 在降低分辨率的情况下， gettimeofday()仅在每个指定的<em>interval</em>调用一次。 </p>
+<p> 例： </p>
 <blockquote>
-<pre class="notranslate">timer_resolution 100ms;
-</pre>
-
-
-
+<p>timer_resolution 100ms;  间隔的内部实现取决于使用的方法： </p>
 </blockquote>
-<p>  间隔的内部实现取决于使用的方法： </p>
 <ul>
-<li>如果使用<code>kqueue</code> ， <code>EVFILT_TIMER</code>过滤器; -    <code>timer_create()</code>如果使用了<code>eventport</code> ; -    <code>setitimer()</code>否则。 </li>
+<li>如果使用kqueue ， EVFILT_TIMER过滤器; </li>
+<li>timer_create()如果使用了eventport ; </li>
+<li><p>setitimer()否则。<br>Syntax:  <strong>use</strong> <em>method</em> ;<br>Default:  —  Context:  events<br>指定要使用的连接处理 <em>method</em> 。 通常不需要明确指定它，因为nginx默认使用最有效的方法。 </p>
+<p>Syntax:  <strong>user</strong> <em>user</em> [ <em>group</em> ];<br>Default:  user nobody nobody;  Context:  main<br>定义工作进程使用的<em>user</em>和<em>group</em>凭据。 如果省略group，则使用名称等于<em>user</em>的组。 </p>
+<p>Syntax:  <strong>worker_aio_requests</strong> <em>number</em> ;<br>Default:  worker_aio_requests 32;  Context:  events<br>该指令出现在1.1.4和1.0.7版本中。 </p>
+<p>将aio与epoll连接处理方法一起使用时，设置单个工作进程的未完成异步I / O操作的最大<em>number</em> 。 </p>
+<p>Syntax:  <strong>worker_connections</strong> <em>number</em> ;<br>Default:  worker_connections 512;  Context:  events<br>设置工作进程可以打开的最大并发连接数。 </p>
+<p>应该记住，这个数字包括所有连接（例如与代理服务器的连接等），而不仅仅是与客户端的连接。 另一个考虑因素是实际的并发连接数不能超过最大打开文件数的当前限制，可以通过worker_rlimit_nofile更改。 </p>
+<p>Syntax:  <strong>worker_cpu_affinity</strong> <em>cpumask</em> …;<br><strong>worker_cpu_affinity</strong> auto [ <em>cpumask</em> ];<br>Default:  —  Context:  main<br>将工作进程绑定到CPU组。 每个CPU集由允许的CPU的位掩码表示。 应该为每个工作进程定义一个单独的集合。 默认情况下，工作进程不绑定到任何特定的CPU。 </p>
+<p>例如， </p>
+</li>
 </ul>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**use** &lt;code class=&quot;notranslate&quot;&gt;*method*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>events</code> <br>                </td></p>
-<p>  指定要使用的<a href="events.html">连接处理</a> <code>*method*</code> 。  通常不需要明确指定它，因为nginx默认使用最有效的方法。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**user** &lt;code class=&quot;notranslate&quot;&gt;*user*</code> [ <code>*group*</code> ]; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">user nobody nobody;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
-<p>  定义工作进程使用的<code>*user*</code>和<code>*group*</code>凭据。  如果省略group，则使用名称等于<code>*user*</code>的组。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**worker_aio_requests** &lt;code class=&quot;notranslate&quot;&gt;*number*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">worker_aio_requests 32;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>events</code> <br>                </td></p>
-<p>  该指令出现在1.1.4和1.0.7版本中。 </p>
-<p>  将<a href="http/ngx_http_core_module.html#aio">aio</a>与<a href="events.html#epoll">epoll</a>连接处理方法一起使用时，设置单个工作进程的未完成异步I / O操作的最大<code>*number*</code> 。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**worker_connections** &lt;code class=&quot;notranslate&quot;&gt;*number*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">worker_connections 512;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>events</code> <br>                </td></p>
-<p>  设置工作进程可以打开的最大并发连接数。 </p>
-<p>  应该记住，这个数字包括所有连接（例如与代理服务器的连接等），而不仅仅是与客户端的连接。  另一个考虑因素是实际的并发连接数不能超过最大打开文件数的当前限制，可以通过<a href="#worker_rlimit_nofile">worker_rlimit_nofile</a>更改。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**worker_cpu_affinity** &lt;code class=&quot;notranslate&quot;&gt;*cpumask*</code> …; <br> <code>**worker_cpu_affinity** &lt;code class=&quot;notranslate&quot;&gt;auto</code> [ <code>*cpumask*</code> ]; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
-<p>  将工作进程绑定到CPU组。  每个CPU集由允许的CPU的位掩码表示。  应该为每个工作进程定义一个单独的集合。  默认情况下，工作进程不绑定到任何特定的CPU。 </p>
-<p>  例如， </p>
 <blockquote>
-<pre class="notranslate">worker_processes    4;
-worker_cpu_affinity 0001 0010 0100 1000;
-</pre>
-
+<p>worker_processes 4; worker_cpu_affinity 0001 0010 0100 1000;  将每个工作进程绑定到一个单独的CPU，同时 </p>
+<p>worker_processes 2; worker_cpu_affinity 0101 1010;  将第一个工作进程绑定到CPU0 / CPU2，将第二个工作进程绑定到CPU1 / CPU3。 第二个例子适用于超线程。 </p>
 </blockquote>
-<p>  将每个工作进程绑定到一个单独的CPU，同时 </p>
+<p> 特殊值auto （1.9.10）允许将工作进程自动绑定到可用的CPU： </p>
 <blockquote>
-<pre class="notranslate">worker_processes    2;
-worker_cpu_affinity 0101 1010;
-</pre>
-
+<p>worker_processes auto; worker_cpu_affinity auto;  可选的mask参数可用于限制可用于自动绑定的CPU： </p>
+<p>worker_cpu_affinity auto 01010101;<br> 该指令仅适用于FreeBSD和Linux。  Syntax:  <strong>worker_priority</strong> <em>number</em> ;<br>  Default:  worker_priority 0;  Context:  main<br>  定义工作进程的调度优先级，就像使用nice命令一样：负数表示更高的优先级。 允许范围通常在-20到20之间变化。 </p>
 </blockquote>
-<p>  将第一个工作进程绑定到CPU0 / CPU2，将第二个工作进程绑定到CPU1 / CPU3。  第二个例子适用于超线程。 </p>
-<p>  特殊值<code>auto</code> （1.9.10）允许将工作进程自动绑定到可用的CPU： </p>
+<p> 例： </p>
 <blockquote>
-<pre class="notranslate">worker_processes auto;
-worker_cpu_affinity auto;
-</pre>
-
+<p>worker_priority -10;  Syntax:  <strong>worker_processes</strong> <em>number</em> | auto ;<br>  Default:  worker_processes 1;  Context:  main<br>  定义工作进程的数量。 </p>
 </blockquote>
-<p>  可选的mask参数可用于限制可用于自动绑定的CPU： </p>
+<p> 最佳值取决于许多因素，包括（但不限于）CPU核心数，存储数据的硬盘驱动器数和负载模式。 如果有疑问，将其设置为可用CPU核心数将是一个良好的开端（值“ auto ”将尝试自动检测它）。 </p>
 <blockquote>
-<pre class="notranslate">worker_cpu_affinity auto 01010101;
-</pre>
-
-
-
-
-
-<p>  该指令仅适用于FreeBSD和Linux。 </p>
+<p> 从版本1.3.8和1.2.5开始支持auto参数。  Syntax:  <strong>worker_rlimit_core</strong> <em>size</em> ;<br>  Default:  —  Context:  main<br>  更改工作进程的核心文件（ RLIMIT_CORE ）的最大大小限制。 用于在不重新启动主进程的情况下增加限制。 </p>
 </blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**worker_priority** &lt;code class=&quot;notranslate&quot;&gt;*number*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">worker_priority 0;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
-<p>  定义工作进程的调度优先级，就像使用<code>nice</code>命令一样：负数表示更高的优先级。  允许范围通常在-20到20之间变化。 </p>
-<p>  例： </p>
-<blockquote>
-<pre class="notranslate">worker_priority -10;
-</pre>
-
-
-</blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**worker_processes** &lt;code class=&quot;notranslate&quot;&gt;*number*</code> | <code>auto</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">worker_processes 1;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
-<p>  定义工作进程的数量。 </p>
-<p>  最佳值取决于许多因素，包括（但不限于）CPU核心数，存储数据的硬盘驱动器数和负载模式。  如果有疑问，将其设置为可用CPU核心数将是一个良好的开端（值“ <code>auto</code> ”将尝试自动检测它）。 </p>
-<blockquote>
-<p>  从版本1.3.8和1.2.5开始支持<code>auto</code>参数。 </p>
-</blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**worker_rlimit_core** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
-<p>  更改工作进程的核心文件（ <code>RLIMIT_CORE</code> ）的最大大小限制。  用于在不重新启动主进程的情况下增加限制。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**worker_rlimit_nofile** &lt;code class=&quot;notranslate&quot;&gt;*number*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
-<p>  更改工作进程的最大打开文件数（ <code>RLIMIT_NOFILE</code> ）限制。  用于在不重新启动主进程的情况下增加限制。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**worker_shutdown_timeout** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
-<p>  该指令出现在1.11.11版中。 </p>
-<p>  配置正常关闭工作进程的超时。  当<code>*time*</code>到期时，nginx将尝试关闭当前打开的所有连接以方便关闭。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**working_directory** &lt;code class=&quot;notranslate&quot;&gt;*directory*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
-<p>  定义工作进程的当前工作目录。  它主要在编写核心文件时使用，在这种情况下，工作进程应具有指定目录的写入权限。 </p>
+<p> Syntax:  <strong>worker_rlimit_nofile</strong> <em>number</em> ;<br>  Default:  —  Context:  main<br>  更改工作进程的最大打开文件数（ RLIMIT_NOFILE ）限制。 用于在不重新启动主进程的情况下增加限制。 </p>
+<p> Syntax:  <strong>worker_shutdown_timeout</strong> <em>time</em> ;<br>  Default:  —  Context:  main<br>  该指令出现在1.11.11版中。 </p>
+<p> 配置正常关闭工作进程的超时。 当<em>time</em>到期时，nginx将尝试关闭当前打开的所有连接以方便关闭。 </p>
+<p> Syntax:  <strong>working_directory</strong> <em>directory</em> ;<br>  Default:  —  Context:  main<br>  定义工作进程的当前工作目录。 它主要在编写核心文件时使用，在这种情况下，工作进程应具有指定目录的写入权限。 </p>
 
       
     </div>
@@ -883,7 +723,7 @@ worker_cpu_affinity auto;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#核心功能"><span class="nav-number">1.</span> <span class="nav-text">核心功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#核心功能"><span class="nav-number">1.</span> <span class="nav-text"> 核心功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

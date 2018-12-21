@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="ngx_google_perftools_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:45:02.543Z">
+<meta property="og:updated_time" content="2018-12-21T07:53:27.113Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ngx_google_perftools_module-nginx中文手册">
 <meta name="twitter:description" content="ngx_google_perftools_module">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:45:21+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
                 2018年12月21日
               </time>
             
@@ -397,23 +397,13 @@
 
       
         <p>ngx_google_perftools_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-google-perftools-module"><a href="#Module-ngx-google-perftools-module" class="headerlink" title="Module ngx_google_perftools_module"></a>Module ngx_google_perftools_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#google_perftools_profiles">google_perftools_profiles</a> <br></td>
-
-<p>   <code>ngx_google_perftoos_module</code>模块（0.6.29）支持使用<a href="https://github.com/gperftools/gperftools" target="_blank" rel="noopener">Google Performance Tools</a>分析nginx工作进程。  该模块适用于nginx开发人员。 </p>
-<p>  默认情况下不会构建此模块，应使用<code>--with-google_perftools_module</code>配置参数启用它。 </p>
+<h2 id="Module-ngx-google-perftools-module"><a href="#Module-ngx-google-perftools-module" class="headerlink" title="Module ngx_google_perftools_module"></a>Module ngx_google_perftools_module</h2><p> Example Configuration<br> Directives<br> google_perftools_profiles<br> ngx_google_perftoos_module模块（0.6.29）支持使用Google Performance Tools分析nginx工作进程。 该模块适用于nginx开发人员。 </p>
+<p> 默认情况下不会构建此模块，应使用–with-google_perftools_module配置参数启用它。 </p>
 <blockquote>
-<p>  该模块需要<a href="https://github.com/gperftools/gperftools" target="_blank" rel="noopener">gperftools</a>库。 </p>
+<p> 该模块需要gperftools库。 ####  示例配置</p>
+<p>google_perftools_profiles /path/to/profile;  配置文件将存储为/path/to/profile.<worker\_pid> 。 </worker\_pid></p>
 </blockquote>
-<h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><blockquote>
-<pre class="notranslate">google_perftools_profiles /path/to/profile;
-</pre>
-
-</blockquote>
-<p>  配置文件将存储为<code>/path/to/profile.&amp;lt;worker_pid&amp;gt;</code> 。 </p>
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**google_perftools_profiles** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>main</code> <br>                </td></p>
-<p>  设置一个文件名，用于保存nginx工作进程的分析信息。  工作进程的ID始终是文件名的一部分，并在点后面附加到文件名的末尾。 </p>
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p> Syntax:  <strong>google_perftools_profiles</strong> <em>file</em> ;<br>  Default:  —  Context:  main<br>  设置一个文件名，用于保存nginx工作进程的分析信息。 工作进程的ID始终是文件名的一部分，并在点后面附加到文件名的末尾。 </p>
 
       
     </div>
@@ -646,7 +636,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-google-perftools-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_google_perftools_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-google-perftools-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_google_perftools_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.1.</span> <span class="nav-text">指令</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

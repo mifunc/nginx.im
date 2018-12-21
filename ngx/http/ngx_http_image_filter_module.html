@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="http,ngx_http_image_filter_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:44:58.912Z">
+<meta property="og:updated_time" content="2018-12-21T07:53:23.374Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http&#x2F;ngx_http_image_filter_module-nginx中文手册">
 <meta name="twitter:description" content="http,ngx_http_image_filter_module">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:45:21+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
                 2018年12月21日
               </time>
             
@@ -397,57 +397,24 @@
 
       
         <p>http,ngx_http_image_filter_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-http-image-filter-module"><a href="#Module-ngx-http-image-filter-module" class="headerlink" title="Module ngx_http_image_filter_module"></a>Module ngx_http_image_filter_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#image_filter">image_filter</a> <br>     <a href="#image_filter_buffer">image_filter_buffer</a> <br>     <a href="#image_filter_interlace">image_filter_interlace</a> <br>     <a href="#image_filter_jpeg_quality">image_filter_jpeg_quality</a> <br>     <a href="#image_filter_sharpen">image_filter_sharpen</a> <br>     <a href="#image_filter_transparency">image_filter_transparency</a> <br>     <a href="#image_filter_webp_quality">image_filter_webp_quality</a> <br></td>
-
-<p>   <code>ngx_http_image_filter_module</code>模块（0.7.54+）是一个过滤器，可以转换JPEG，GIF，PNG和WebP格式的图像。 </p>
-<p>  默认情况下不构建此模块，应使用<code>--with-http_image_filter_module</code>配置参数启用它。 </p>
+<h2 id="Module-ngx-http-image-filter-module"><a href="#Module-ngx-http-image-filter-module" class="headerlink" title="Module ngx_http_image_filter_module"></a>Module ngx_http_image_filter_module</h2><p> Example Configuration<br> Directives<br> image_filter<br> image_filter_buffer<br> image_filter_interlace<br> image_filter_jpeg_quality<br> image_filter_sharpen<br> image_filter_transparency<br> image_filter_webp_quality<br> ngx_http_image_filter_module模块（0.7.54+）是一个过滤器，可以转换JPEG，GIF，PNG和WebP格式的图像。 </p>
+<p> 默认情况下不构建此模块，应使用–with-http_image_filter_module配置参数启用它。 </p>
 <blockquote>
-<p>  该模块使用<a href="http://libgd.org" target="_blank" rel="noopener">libgd</a>库。  建议使用最新版本的库。 </p>
-<p>   WebP格式支持出现在1.11.6版中。  要以此格式转换图像，必须使用WebP支持编译<code>libgd</code>库。 </p>
+<p> 该模块使用libgd库。 建议使用最新版本的库。<br> WebP格式支持出现在1.11.6版中。 要以此格式转换图像，必须使用WebP支持编译libgd库。 ####  示例配置</p>
+<p>location /img/ { proxy_pass <a href="http://backend" target="_blank" rel="noopener">http://backend</a>; image_filter resize 150 100; image_filter rotate 90; error_page 415 = /empty; } location = /empty { empty_gif; } ####  指令</p>
 </blockquote>
-<h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><blockquote>
-<p><pre class="notranslate">location /img/ {<br>    proxy_pass   <a href="http://backend" target="_blank" rel="noopener">http://backend</a>;<br>    image_filter resize 150 100;<br>    image_filter rotate 90;<br>    error_page   415 = /empty;<br>}</pre></p>
-</blockquote>
-<p>location = /empty {<br>    empty_gif;<br>}<br></p>
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**image_filter** &lt;code class=&quot;notranslate&quot;&gt;off</code> ; <br> <code>**image_filter** &lt;code class=&quot;notranslate&quot;&gt;test</code> ; <br> <code>**image_filter** &lt;code class=&quot;notranslate&quot;&gt;size</code> ; <br> <code>**image_filter**     &lt;code class=&quot;notranslate&quot;&gt;rotate</code>    <code>90</code> | <code>180</code> |    <code>270</code> ; <br> <code>**image_filter**     &lt;code class=&quot;notranslate&quot;&gt;resize</code>    <code>*width*</code>    <code>*height*</code> ; <br> <code>**image_filter**     &lt;code class=&quot;notranslate&quot;&gt;crop</code>    <code>*width*</code>    <code>*height*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">image_filter off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>location</code> <br>                </td></p>
-<p>  设置要对图像执行的转换类型： </p>
+<p> Syntax:  <strong>image_filter</strong> off ;<br> <strong>image_filter</strong> test ;<br> <strong>image_filter</strong> size ;<br> <strong>image_filter</strong> rotate 90 | 180 | 270 ;<br> <strong>image_filter</strong> resize <em>width</em> <em>height</em> ;<br> <strong>image_filter</strong> crop <em>width</em> <em>height</em> ;<br>  Default:  image_filter off;  Context:  location<br>  设置要对图像执行的转换类型： </p>
+<p> off   关闭周围位置的模块处理。  test   确保响应是JPEG，GIF，PNG或WebP格式的图像。 否则，将返回415（不支持的媒体类型）错误。  size   以JSON格式输出有关图像的信息，例如： </p>
 <blockquote>
-<pre class="notranslate">{ "img" : { "width": 100, "height": 100, "type": "gif" } }
-</pre>
-
-<pre class="notranslate">{}
-</pre>
-
-
+<p>{ “img” : { “width”: 100, “height”: 100, “type”: “gif” } }  如果出现错误，输出如下：<br>{}  rotate 90 | 180 | 270  逆时针旋转图像指定的度数。 参数值可以包含变量。 此模式既可以单独使用，也可以与resize和crop变换一起使用。  resize <em>width</em> <em>height</em>  按比例将图像缩小到指定的大小。 要仅减少一个维度，可以将另一个维度指定为“ - ”。 如果出现错误，服务器将返回代码415（不支持的介质类型）。 参数值可以包含变量。 与rotate参数一起使用时，旋转会<strong>在</strong>缩小<strong>后</strong>发生。  crop <em>width</em> <em>height</em>  按比例将图像缩小到较大的边尺寸，并通过另一面裁剪外部边缘。 要仅减少一个维度，可以将另一个维度指定为“ - ”。 如果出现错误，服务器将返回代码415（不支持的介质类型）。 参数值可以包含变量。 与rotate参数一起使用时， rotate <strong>在</strong>缩小<strong>之前</strong>发生。  Syntax:  <strong>image_filter_buffer</strong> <em>size</em> ;<br>  Default:  image_filter_buffer 1M;  Context:  http , server , location<br>  设置用于读取图像的缓冲区的最大大小。 超出大小时，服务器返回错误415（不支持的介质类型）。 </p>
 </blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**image_filter_buffer** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">image_filter_buffer 1M;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  设置用于读取图像的缓冲区的最大大小。  超出大小时，服务器返回错误415（不支持的介质类型）。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**image_filter_interlace** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">image_filter_interlace off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  该指令出现在1.3.15版本中。 </p>
-<p>  如果启用，最终图像将被隔行扫描。  对于JPEG，最终图像将采用“渐进式JPEG”格式。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**image_filter_jpeg_quality** &lt;code class=&quot;notranslate&quot;&gt;*quality*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">image_filter_jpeg_quality 75;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  设置变换后的JPEG图像的所需<code>*quality*</code> 。  可接受的值在1到100的范围内。较小的值通常意味着较低的图像质量和较少的传输数据。  建议的最大值为95.参数值可以包含变量。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**image_filter_sharpen** &lt;code class=&quot;notranslate&quot;&gt;*percent*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">image_filter_sharpen 0;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  增加最终图像的清晰度。  锐度百分比可以超过100.零值禁用锐化。  参数值可以包含变量。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**image_filter_transparency** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">image_filter_transparency on;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  定义在使用调色板指定的颜色转换GIF图像或PNG图像时是否应保留透明度。  透明度的丧失导致图像质量更好。  始终保留PNG中的Alpha通道透明度。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**image_filter_webp_quality** &lt;code class=&quot;notranslate&quot;&gt;*quality*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">image_filter_webp_quality 80;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  该指令出现在1.11.6版中。 </p>
-<p>  设置转换的WebP图像的所需<code>*quality*</code> 。  可接受的值在1到100的范围内。较小的值通常意味着较低的图像质量和较少的传输数据。  参数值可以包含变量。 </p>
+<p> Syntax:  <strong>image_filter_interlace</strong> on | off ;<br>  Default:  image_filter_interlace off;  Context:  http , server , location<br>  该指令出现在1.3.15版本中。 </p>
+<p> 如果启用，最终图像将被隔行扫描。 对于JPEG，最终图像将采用“渐进式JPEG”格式。 </p>
+<p> Syntax:  <strong>image_filter_jpeg_quality</strong> <em>quality</em> ;<br>  Default:  image_filter_jpeg_quality 75;  Context:  http , server , location<br>  设置变换后的JPEG图像的所需<em>quality</em> 。 可接受的值在1到100的范围内。较小的值通常意味着较低的图像质量和较少的传输数据。 建议的最大值为95.参数值可以包含变量。 </p>
+<p> Syntax:  <strong>image_filter_sharpen</strong> <em>percent</em> ;<br>  Default:  image_filter_sharpen 0;  Context:  http , server , location<br>  增加最终图像的清晰度。 锐度百分比可以超过100.零值禁用锐化。 参数值可以包含变量。 </p>
+<p> Syntax:  <strong>image_filter_transparency</strong> on | off ;<br>  Default:  image_filter_transparency on;  Context:  http , server , location<br>  定义在使用调色板指定的颜色转换GIF图像或PNG图像时是否应保留透明度。 透明度的丧失导致图像质量更好。 始终保留PNG中的Alpha通道透明度。 </p>
+<p> Syntax:  <strong>image_filter_webp_quality</strong> <em>quality</em> ;<br>  Default:  image_filter_webp_quality 80;  Context:  http , server , location<br>  该指令出现在1.11.6版中。 </p>
+<p> 设置转换的WebP图像的所需<em>quality</em> 。 可接受的值在1到100的范围内。较小的值通常意味着较低的图像质量和较少的传输数据。 参数值可以包含变量。 </p>
 
       
     </div>
@@ -680,7 +647,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-image-filter-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_image_filter_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-image-filter-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_image_filter_module</span></a></li></ol></div>
             
 
           </div>

@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="http,ngx_http_core_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:44:57.695Z">
+<meta property="og:updated_time" content="2018-12-21T07:53:22.141Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http&#x2F;ngx_http_core_module-nginx中文手册">
 <meta name="twitter:description" content="http,ngx_http_core_module">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:45:21+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
                 2018年12月21日
               </time>
             
@@ -397,994 +397,304 @@
 
       
         <p>http,ngx_http_core_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-http-core-module"><a href="#Module-ngx-http-core-module" class="headerlink" title="Module ngx_http_core_module"></a>Module ngx_http_core_module</h2><td align="left" class="notranslate"> <a href="#directives">Directives</a> <br>     <a href="#absolute_redirect">absolute_redirect</a> <br>     <a href="#aio">aio</a> <br>     <a href="#aio_write">aio_write</a> <br>     <a href="#alias">alias</a> <br>     <a href="#chunked_transfer_encoding">chunked_transfer_encoding</a> <br>     <a href="#client_body_buffer_size">client_body_buffer_size</a> <br>     <a href="#client_body_in_file_only">client_body_in_file_only</a> <br>     <a href="#client_body_in_single_buffer">client_body_in_single_buffer</a> <br>     <a href="#client_body_temp_path">client_body_temp_path</a> <br>     <a href="#client_body_timeout">client_body_timeout</a> <br>     <a href="#client_header_buffer_size">client_header_buffer_size</a> <br>     <a href="#client_header_timeout">client_header_timeout</a> <br>     <a href="#client_max_body_size">client_max_body_size</a> <br>     <a href="#connection_pool_size">connection_pool_size</a> <br>     <a href="#default_type">default_type</a> <br>     <a href="#directio">directio</a> <br>     <a href="#directio_alignment">directio_alignment</a> <br>     <a href="#disable_symlinks">disable_symlinks</a> <br>     <a href="#error_page">error_page</a> <br>     <a href="#etag">etag</a> <br>     <a href="#http">http</a> <br>     <a href="#if_modified_since">if_modified_since</a> <br>     <a href="#ignore_invalid_headers">ignore_invalid_headers</a> <br>     <a href="#internal">internal</a> <br>     <a href="#keepalive_disable">keepalive_disable</a> <br>     <a href="#keepalive_requests">keepalive_requests</a> <br>     <a href="#keepalive_timeout">keepalive_timeout</a> <br>     <a href="#large_client_header_buffers">large_client_header_buffers</a> <br>     <a href="#limit_except">limit_except</a> <br>     <a href="#limit_rate">limit_rate</a> <br>     <a href="#limit_rate_after">limit_rate_after</a> <br>     <a href="#lingering_close">lingering_close</a> <br>     <a href="#lingering_time">lingering_time</a> <br>     <a href="#lingering_timeout">lingering_timeout</a> <br>     <a href="#listen">listen</a> <br>     <a href="#location">location</a> <br>     <a href="#log_not_found">log_not_found</a> <br>     <a href="#log_subrequest">log_subrequest</a> <br>     <a href="#max_ranges">max_ranges</a> <br>     <a href="#merge_slashes">merge_slashes</a> <br>     <a href="#msie_padding">msie_padding</a> <br>     <a href="#msie_refresh">msie_refresh</a> <br>     <a href="#open_file_cache">open_file_cache</a> <br>     <a href="#open_file_cache_errors">open_file_cache_errors</a> <br>     <a href="#open_file_cache_min_uses">open_file_cache_min_uses</a> <br>     <a href="#open_file_cache_valid">open_file_cache_valid</a> <br>     <a href="#output_buffers">output_buffers</a> <br>     <a href="#port_in_redirect">port_in_redirect</a> <br>     <a href="#postpone_output">postpone_output</a> <br>     <a href="#read_ahead">read_ahead</a> <br>     <a href="#recursive_error_pages">recursive_error_pages</a> <br>     <a href="#request_pool_size">request_pool_size</a> <br>     <a href="#reset_timedout_connection">reset_timedout_connection</a> <br>     <a href="#resolver">resolver</a> <br>     <a href="#resolver_timeout">resolver_timeout</a> <br>     <a href="#root">root</a> <br>     <a href="#satisfy">satisfy</a> <br>     <a href="#send_lowat">send_lowat</a> <br>     <a href="#send_timeout">send_timeout</a> <br>     <a href="#sendfile">sendfile</a> <br>     <a href="#sendfile_max_chunk">sendfile_max_chunk</a> <br>     <a href="#server">server</a> <br>     <a href="#server_name">server_name</a> <br>     <a href="#server_name_in_redirect">server_name_in_redirect</a> <br>     <a href="#server_names_hash_bucket_size">server_names_hash_bucket_size</a> <br>     <a href="#server_names_hash_max_size">server_names_hash_max_size</a> <br>     <a href="#server_tokens">server_tokens</a> <br>     <a href="#subrequest_output_buffer_size">subrequest_output_buffer_size</a> <br>     <a href="#tcp_nodelay">tcp_nodelay</a> <br>     <a href="#tcp_nopush">tcp_nopush</a> <br>     <a href="#try_files">try_files</a> <br>     <a href="#types">types</a> <br>     <a href="#types_hash_bucket_size">types_hash_bucket_size</a> <br>     <a href="#types_hash_max_size">types_hash_max_size</a> <br>     <a href="#underscores_in_headers">underscores_in_headers</a> <br>     <a href="#variables_hash_bucket_size">variables_hash_bucket_size</a> <br>     <a href="#variables_hash_max_size">variables_hash_max_size</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
-
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**absolute_redirect** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">absolute_redirect on;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  该指令出现在1.11.8版中。 </p>
-<p>  如果禁用，nginx发出的重定向将是相对的。 </p>
-<p>  另请参见<a href="#server_name_in_redirect">server_name_in_redirect</a>和<a href="#port_in_redirect">port_in_redirect</a>指令。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**aio** 
-    &lt;code class=&quot;notranslate&quot;&gt;on</code> |<br>    <code>off</code> |<br>    <code>threads</code> [ <code>=</code> <code>*pool*</code> ]; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">aio off;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  该指令出现在0.8.11版本中。 </p>
-<p>  启用或禁用在FreeBSD和Linux上使用异步文件I / O（AIO）： </p>
+<h2 id="Module-ngx-http-core-module"><a href="#Module-ngx-http-core-module" class="headerlink" title="Module ngx_http_core_module"></a>Module ngx_http_core_module</h2><p> Directives<br> absolute_redirect<br> aio<br> aio_write<br> alias<br> chunked_transfer_encoding<br> client_body_buffer_size<br> client_body_in_file_only<br> client_body_in_single_buffer<br> client_body_temp_path<br> client_body_timeout<br> client_header_buffer_size<br> client_header_timeout<br> client_max_body_size<br> connection_pool_size<br> default_type<br> directio<br> directio_alignment<br> disable_symlinks<br> error_page<br> etag<br> http<br> if_modified_since<br> ignore_invalid_headers<br> internal<br> keepalive_disable<br> keepalive_requests<br> keepalive_timeout<br> large_client_header_buffers<br> limit_except<br> limit_rate<br> limit_rate_after<br> lingering_close<br> lingering_time<br> lingering_timeout<br> listen<br> location<br> log_not_found<br> log_subrequest<br> max_ranges<br> merge_slashes<br> msie_padding<br> msie_refresh<br> open_file_cache<br> open_file_cache_errors<br> open_file_cache_min_uses<br> open_file_cache_valid<br> output_buffers<br> port_in_redirect<br> postpone_output<br> read_ahead<br> recursive_error_pages<br> request_pool_size<br> reset_timedout_connection<br> resolver<br> resolver_timeout<br> root<br> satisfy<br> send_lowat<br> send_timeout<br> sendfile<br> sendfile_max_chunk<br> server<br> server_name<br> server_name_in_redirect<br> server_names_hash_bucket_size<br> server_names_hash_max_size<br> server_tokens<br> subrequest_output_buffer_size<br> tcp_nodelay<br> tcp_nopush<br> try_files<br> types<br> types_hash_bucket_size<br> types_hash_max_size<br> underscores_in_headers<br> variables_hash_bucket_size<br> variables_hash_max_size<br> Embedded Variables   </p>
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p> Syntax:  <strong>absolute_redirect</strong> on | off ;<br>  Default:  absolute_redirect on;  Context:  http , server , location<br>  该指令出现在1.11.8版中。 </p>
+<p> 如果禁用，nginx发出的重定向将是相对的。 </p>
+<p> 另请参见server_name_in_redirect和port_in_redirect指令。 </p>
+<p> Syntax:  <strong>aio</strong> on | off | threads [ = <em>pool</em> ];<br>  Default:  aio off;  Context:  http , server , location<br>  该指令出现在0.8.11版本中。 </p>
+<p> 启用或禁用在FreeBSD和Linux上使用异步文件I / O（AIO）： </p>
 <blockquote>
-<pre class="notranslate">location /video/ {
-    aio            on;
-    output_buffers 1 64k;
-}
-</pre>
-
-
-
+<p>location /video/ { aio on; output_buffers 1 64k; }  在FreeBSD上，可以从FreeBSD 4.3开始使用AIO。 在FreeBSD 11.0之前，AIO可以静态链接到内核： </p>
+<p>options VFS_AIO  或作为内核可加载模块动态加载： </p>
+<p>kldload aio  在Linux上，可以从内核版本2.6.22开始使用AIO。 此外，有必要启用directio ，否则读取将被阻止： </p>
+<p>location /video/ { aio on; directio 512; output_buffers 1 128k; }  在Linux上， directio只能用于读取在512字节边界（或XFS为4K）上对齐的块。 在阻塞模式下读取文件的未对齐结束。 对于字节范围请求和不是从文件开头的FLV请求也是如此：在文件开头和结尾读取未对齐数据将被阻塞。 </p>
 </blockquote>
-<p>  在FreeBSD上，可以从FreeBSD 4.3开始使用AIO。  在FreeBSD 11.0之前，AIO可以静态链接到内核： </p>
+<p> 当在Linux上启用AIO和sendfile时 ，AIO用于大于或等于directio指令中指定大小的文件，而sendfile用于较小大小的文件或禁用directio时。 </p>
 <blockquote>
-<pre class="notranslate">options VFS_AIO
-</pre>
-
+<p>location /video/ { sendfile on; aio on; directio 8m; }  最后，可以使用多线程（1.7.11）读取和发送文件，而不会阻止工作进程： </p>
+<p>location /video/ { sendfile on; aio threads; }  读取和发送文件操作被卸载到指定池的线程。 如果省略池名称，则使用名称为“ default ”的池。 池名称也可以使用变量设置： </p>
+<p>aio threads=pool$disk;  默认情况下，禁用多线程，应使用–with-threads配置参数启用它。 目前，多线程仅与epoll ， kqueue和eventport方法兼容。 只在Linux上支持多线程文件发送。 </p>
 </blockquote>
-<p>  或作为内核可加载模块动态加载： </p>
+<p> 另请参见sendfile指令。 </p>
+<p> Syntax:  <strong>aio_write</strong> on | off ;<br>  Default:  aio_write off;  Context:  http , server , location<br>  该指令出现在1.9.13版本中。 </p>
+<p> 如果启用了aio ，则指定是否用于写入文件。 目前，这仅在使用aio threads ，并且仅限于使用从代理服务器接收的数据编写临时文件。 </p>
+<p> Syntax:  <strong>alias</strong> <em>path</em> ;<br>  Default:  —  Context:  location<br>  定义指定位置的替换。 例如，使用以下配置 </p>
 <blockquote>
-<pre class="notranslate">kldload aio
-</pre>
-
-
-
+<p>location /i/ { alias /data/w3/images/; }  根据“ /i/top.gif ”的请求，将发送文件/data/w3/images/top.gif 。 </p>
 </blockquote>
-<p>  在Linux上，可以从内核版本2.6.22开始使用AIO。  此外，有必要启用<a href="#directio">directio</a> ，否则读取将被阻止： </p>
+<p> <em>path</em>值可以包含变量， $document_root和$realpath_root除外。 </p>
+<p> 如果在使用正则表达式定义的位置内使用alias则此类正则表达式应包含捕获，而alias应引用这些捕获（0.7.40），例如： </p>
 <blockquote>
-<pre class="notranslate">location /video/ {
-    aio            on;
-    directio       512;
-    output_buffers 1 128k;
-}
-</pre>
-
-
-
+<p>location ~ ^/users/(.+.(?:gif|jpe?g|png))$ { alias /data/w3/images/$1; }  当location匹配指令值的最后一部分时： </p>
+<p>location /images/ { alias /data/w3/images/; }  最好使用root指令： </p>
+<p>location /images/ { root /data/w3; }  Syntax:  <strong>chunked_transfer_encoding</strong> on | off ;<br>  Default:  chunked_transfer_encoding on;  Context:  http , server , location<br>  允许在HTTP / 1.1中禁用分块传输编码。 尽管符合标准要求，但在使用软件无法支持分块编码时，它可能会派上用场。 </p>
 </blockquote>
-<p>  在Linux上， <a href="#directio">directio</a>只能用于读取在512字节边界（或XFS为4K）上对齐的块。  在阻塞模式下读取文件的未对齐结束。  对于字节范围请求和不是从文件开头的FLV请求也是如此：在文件开头和结尾读取未对齐数据将被阻塞。 </p>
-<p>  当在Linux上启用AIO和<a href="#sendfile">sendfile时</a> ，AIO用于大于或等于<a href="#directio">directio</a>指令中指定大小的文件，而<a href="#sendfile">sendfile</a>用于较小大小的文件或禁用<a href="#directio">directio</a>时。 </p>
+<p> Syntax:  <strong>client_body_buffer_size</strong> <em>size</em> ;<br>  Default:  client_body_buffer_size 8k|16k;  Context:  http , server , location<br>  设置读取客户端请求正文的缓冲区大小。 如果请求主体大于缓冲区，则整个主体或仅其部分被写入临时文件 。 默认情况下，缓冲区大小等于两个内存页。 这是x86上的8K，其他32位平台和x86-64。 在其他64位平台上通常为16K。 </p>
+<p> Syntax:  <strong>client_body_in_file_only</strong> on | clean | off ;<br>  Default:  client_body_in_file_only off;  Context:  http , server , location<br>  确定nginx是否应将整个客户端请求主体保存到文件中。 该指令可以在调试期间使用，或者在使用$request_body_file变量或模块ngx_http_perl_module的$ r-&gt; request_body_file方法时使用。 </p>
+<p> 设置为打开值on ，请求处理后不会删除临时文件。 </p>
+<p> 值clean将导致删除请求处理后留下的临时文件。 </p>
+<p> Syntax:  <strong>client_body_in_single_buffer</strong> on | off ;<br>  Default:  client_body_in_single_buffer off;  Context:  http , server , location<br>  确定nginx是否应将整个客户端请求主体保存在单个缓冲区中。 使用$request_body变量时，建议使用该指令，以保存所涉及的复制操作数。 </p>
+<p> Syntax:  <strong>client_body_temp_path</strong> <em>path</em> [ <em>level1</em> [ <em>level2</em> [ <em>level3</em> ]]];<br>  Default:  client_body_temp_path client_body_temp;  Context:  http , server , location<br>  定义用于存储包含客户端请求主体的临时文件的目录。 在指定目录下最多可以使用三级子目录层次结构。 例如，在以下配置中 </p>
 <blockquote>
-<pre class="notranslate">location /video/ {
-    sendfile       on;
-    aio            on;
-    directio       8m;
-}
-</pre>
-
-
-
+<p>client_body_temp_path /spool/nginx/client_temp 1 2;  临时文件的路径可能如下所示： </p>
+<p>/spool/nginx/client_temp/7/45/00000123457  Syntax:  <strong>client_body_timeout</strong> <em>time</em> ;<br>  Default:  client_body_timeout 60s;  Context:  http , server , location<br>  定义读取客户端请求正文的超时。 超时仅设置为两个连续读取操作之间的时间段，而不是整个请求主体的传输。 如果客户端在此时间内未传输任何内容，请求将以408（请求超时）错误终止。 </p>
 </blockquote>
-<p>  最后，可以使用多线程（1.7.11）读取和<a href="#sendfile">发送</a>文件，而不会阻止工作进程： </p>
+<p> Syntax:  <strong>client_header_buffer_size</strong> <em>size</em> ;<br>  Default:  client_header_buffer_size 1k;  Context:  http , server<br>  设置缓冲区大小以读取客户端请求标头。 对于大多数请求，1K字节的缓冲区就足够了。 但是，如果请求包含长cookie或来自WAP客户端，则可能不适合1K。 如果请求行或请求头字段不适合此缓冲区，则分配由large_client_header_buffers指令配置的较大缓冲区。 </p>
+<p> Syntax:  <strong>client_header_timeout</strong> <em>time</em> ;<br>  Default:  client_header_timeout 60s;  Context:  http , server<br>  定义读取客户端请求标头的超时。 如果客户端在此时间内未传输整个标头，请求将以408（请求超时）错误终止。 </p>
+<p> Syntax:  <strong>client_max_body_size</strong> <em>size</em> ;<br>  Default:  client_max_body_size 1m;  Context:  http , server , location<br>  设置客户端请求正文的最大允许大小，在“Content-Length”请求标头字段中指定。 如果请求中的大小超过配置的值，则会将413（请求实体太大）错误返回给客户端。 请注意，浏览器无法正确显示此错误。 将<em>size</em>设置为0将禁用检查客户端请求正文大小。 </p>
+<p> Syntax:  <strong>connection_pool_size</strong> <em>size</em> ;<br>  Default:  connection_pool_size 256|512;  Context:  http , server<br>  允许精确调整每个连接的内存分配。 该指令对性能的影响最小，通常不应使用。 默认情况下，大小在32位平台上等于256字节，在64位平台上等于512字节。 </p>
 <blockquote>
-<pre class="notranslate">location /video/ {
-    sendfile       on;
-    aio            threads;
-}
-</pre>
-
+<p> 在1.9.8版之前，所有平台上的默认值均为256。  Syntax:  <strong>default_type</strong> <em>mime-type</em> ;<br>  Default:  default_type text/plain;  Context:  http , server , location<br>  定义响应的默认MIME类型。 可以使用types指令设置文件扩展名到MIME类型的映射。 </p>
 </blockquote>
-<p>  读取和发送文件操作被卸载到指定<a href="ngx_core_module.html#thread_pool">池的</a>线程。  如果省略池名称，则使用名称为“ <code>default</code> ”的池。  池名称也可以使用变量设置： </p>
+<p> Syntax:  <strong>directio</strong> <em>size</em> | off ;<br>  Default:  directio off;  Context:  http , server , location<br>  该指令出现在0.7.7版本中。 </p>
+<p> 在读取大于或等于指定<em>size</em>文件时，允许使用O_DIRECT标志（FreeBSD，Linux）， F_NOCACHE标志（macOS）或directio()函数（Solaris）。 该指令自动禁用（0.7.15）对给定请求使用sendfile 。 它对于提供大型文件非常有用： </p>
 <blockquote>
-<pre class="notranslate">aio threads=pool$disk;
-</pre>
-
+<p>directio 4m;  或者在Linux上使用aio时。 </p>
 </blockquote>
-<p>  默认情况下，禁用多线程，应使用<code>--with-threads</code>配置参数启用它。  目前，多线程仅与<a href="events.html#epoll">epoll</a> ， <a href="events.html#kqueue">kqueue</a>和<a href="events.html#eventport">eventport</a>方法兼容。  只在Linux上支持多线程文件发送。 </p>
-<p>  另请参见<a href="#sendfile">sendfile</a>指令。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**aio_write** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">aio_write off;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  该指令出现在1.9.13版本中。 </p>
-<p>  如果启用了<a href="#aio">aio</a> ，则指定是否用于写入文件。  目前，这仅在使用<code>aio threads</code> ，并且仅限于使用从代理服务器接收的数据编写临时文件。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**alias** &lt;code class=&quot;notranslate&quot;&gt;*path*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"></td></p>
-<pre><code>—
-
-    &lt;/td&gt;
-</code></pre><p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>location</code> <br><br>                </td></p>
-<p>  定义指定位置的替换。  例如，使用以下配置 </p>
+<p> Syntax:  <strong>directio_alignment</strong> <em>size</em> ;<br>  Default:  directio_alignment 512;  Context:  http , server , location<br>  该指令出现在0.8.11版本中。 </p>
+<p> 设置directio的对齐方式。 在大多数情况下，512字节对齐就足够了。 但是，在Linux下使用XFS时，需要将其增加到4K。 </p>
+<p> Syntax:  <strong>disable_symlinks</strong> off ;<br> <strong>disable_symlinks</strong> on | if_not_owner [ from = <em>part</em> ];<br>  Default:  disable_symlinks off;  Context:  http , server , location<br>  该指令出现在1.1.15版中。 </p>
+<p> 确定打开文件时应如何处理符号链接： </p>
+<p> off   路径名中的符号链接是允许的，不会被选中。 这是默认行为。  on   如果路径名的任何组件是符号链接，则拒绝访问文件。  if_not_owner   如果路径名的任何组件是符号链接，并且链接指向的链接和对象具有不同的所有者，则拒绝访问文件。  from = <em>part</em>  检查符号链接（参数on和if_not_owner ）时，通常会检查路径名的所有组件。 通过另外指定from = <em>part</em>参数，可以避免检查路径名的初始部分中的符号链接。 在这种情况下，仅从指定的初始部分后面的路径名组件检查符号链接。 如果该值不是检查的路径名的初始部分，则检查整个路径名，就好像根本没有指定此参数一样。 如果值与整个文件名匹配，则不检查符号链接。 参数值可以包含变量。  例： </p>
 <blockquote>
-<pre class="notranslate">location /i/ {
-    alias /data/w3/images/;
-}
-</pre>
-
+<p>disable_symlinks on from=$document_root;  该指令仅适用于具有openat()和fstatat()接口的系统。 这些系统包括FreeBSD，Linux和Solaris的现代版本。 </p>
 </blockquote>
-<p>  根据“ <code>/i/top.gif</code> ”的请求，将发送文件<code>/data/w3/images/top.gif</code> 。 </p>
-<p>   <code>*path*</code>值可以包含变量， <code>$document_root</code>和<code>$realpath_root</code>除外。 </p>
-<p>  如果在使用正则表达式定义的位置内使用<code>alias</code>则此类正则表达式应包含捕获，而<code>alias</code>应引用这些捕获（0.7.40），例如： </p>
+<p> 参数on和if_not_owner添加了处理开销。 </p>
 <blockquote>
-<pre class="notranslate">location ~ ^/users/(.+\.(?:gif|jpe?g|png))$ {
-    alias /data/w3/images/$1;
-}
-</pre>
-
-
-
+<p> 在不支持仅为搜索打开目录的系统上，要使用这些参数，需要工作进程对所有正在检查的目录具有读取权限。<br> ngx_http_autoindex_module ， ngx_http_random_index_module和ngx_http_dav_module模块当前忽略此指令。  Syntax:  <strong>error_page</strong> <em>code</em> … [ = [ <em>response</em> ]] <em>uri</em> ;<br>  Default:  —  Context:  http , server , location , if in location<br>  定义将为指定错误显示的URI。 <em>uri</em>值可以包含变量。 </p>
 </blockquote>
-<p>  当location匹配指令值的最后一部分时： </p>
+<p> 例： </p>
 <blockquote>
-<pre class="notranslate">location /images/ {
-    alias /data/w3/images/;
-}
-</pre>
-
+<p>error_page 404 /404.html; error_page 500 502 503 504 /50x.html;  这导致内部重定向到指定的<em>uri</em> ，客户端请求方法更改为“ GET ”（对于“ GET ”和“ HEAD ”以外的所有方法）。 </p>
 </blockquote>
-<p>  最好使用<a href="#root">root</a>指令： </p>
+<p> 此外，可以使用“ = <em>response</em> ”语法将响应代码更改为另一个，例如： </p>
 <blockquote>
-<pre class="notranslate">location /images/ {
-    root /data/w3;
-}
-</pre>
-
-
+<p>error_page 404 =200 /empty.gif;  如果代理服务器或FastCGI / uwsgi / SCGI / gRPC服务器处理错误响应，并且服务器可能返回不同的响应代码（例如，200,302,401或404），则可以使用代码进行响应收益： </p>
+<p>error_page 404 = /404.php;  如果在内部重定向期间无需更改URI和方法，则可以将错误处理传递到命名位置： </p>
+<p>location / { error_page 404 = @fallback; } location @fallback { proxy_pass <a href="http://backend" target="_blank" rel="noopener">http://backend</a>; }<br> 如果<em>uri</em>处理导致错误，则将上次发生的错误的状态代码返回给客户端。  也可以使用URL重定向进行错误处理： </p>
+<p>error_page 403 <a href="http://example.com/forbidden.html" target="_blank" rel="noopener">http://example.com/forbidden.html</a>; error_page 404 =301 <a href="http://example.com/notfound.html" target="_blank" rel="noopener">http://example.com/notfound.html</a>;  在这种情况下，默认情况下，响应代码302返回给客户端。 它只能更改为重定向状态代码之一（301,302,303,307和308）。 </p>
+<p> 在版本1.1.16和1.0.13之前，代码307不被视为重定向。<br> 在版本1.13.0之前，代码308不被视为重定向。  当且仅当在当前级别上没有定义error_page指令时，这些指令才从前一级继承。 </p>
 </blockquote>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**chunked_transfer_encoding** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">chunked_transfer_encoding on;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  允许在HTTP / 1.1中禁用分块传输编码。  尽管符合标准要求，但在使用软件无法支持分块编码时，它可能会派上用场。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**client_body_buffer_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">client_body_buffer_size 8k|16k;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  设置读取客户端请求正文的缓冲区大小。  如果请求主体大于缓冲区，则整个主体或仅其部分被写入<a href="#client_body_temp_path">临时文件</a> 。  默认情况下，缓冲区大小等于两个内存页。  这是x86上的8K，其他32位平台和x86-64。  在其他64位平台上通常为16K。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**client_body_in_file_only** 
-    &lt;code class=&quot;notranslate&quot;&gt;on</code> |<br>    <code>clean</code> |<br>    <code>off</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">client_body_in_file_only off;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  确定nginx是否应将整个客户端请求主体保存到文件中。  该指令可以在调试期间使用，或者在使用<code>$request_body_file</code>变量或模块<a href="ngx_http_perl_module.html">ngx_http_perl_module</a>的<a href="ngx_http_perl_module.html#methods">$ r-&gt; request_body_file</a>方法时使用。 </p>
-<p>  设置为打开值<code>on</code> ，请求处理后不会删除临时文件。 </p>
-<p>  值<code>clean</code>将导致删除请求处理后留下的临时文件。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**client_body_in_single_buffer** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">client_body_in_single_buffer off;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  确定nginx是否应将整个客户端请求主体保存在单个缓冲区中。  使用<code>$request_body</code>变量时，建议使用该指令，以保存所涉及的复制操作数。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**client_body_temp_path** 
-    &lt;code class=&quot;notranslate&quot;&gt;*path*</code><br>    [ <code>*level1*</code><br>    [ <code>*level2*</code><br>    [ <code>*level3*</code> ]]]; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">client_body_temp_path client_body_temp;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  定义用于存储包含客户端请求主体的临时文件的目录。  在指定目录下最多可以使用三级子目录层次结构。  例如，在以下配置中 </p>
-<blockquote>
-<pre class="notranslate">client_body_temp_path /spool/nginx/client_temp 1 2;
-</pre>
-
-</blockquote>
-<p>  临时文件的路径可能如下所示： </p>
-<blockquote>
-<pre class="notranslate">/spool/nginx/client_temp/7/45/00000123457
-</pre>
-
-
-</blockquote>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**client_body_timeout** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">client_body_timeout 60s;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  定义读取客户端请求正文的超时。  超时仅设置为两个连续读取操作之间的时间段，而不是整个请求主体的传输。  如果客户端在此时间内未传输任何内容，请求将以408（请求超时）错误终止。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**client_header_buffer_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">client_header_buffer_size 1k;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> <br><br>                </td></p>
-<p>  设置缓冲区大小以读取客户端请求标头。  对于大多数请求，1K字节的缓冲区就足够了。  但是，如果请求包含长cookie或来自WAP客户端，则可能不适合1K。  如果请求行或请求头字段不适合此缓冲区，则分配由<a href="#large_client_header_buffers">large_client_header_buffers</a>指令配置的较大缓冲区。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**client_header_timeout** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">client_header_timeout 60s;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> <br><br>                </td></p>
-<p>  定义读取客户端请求标头的超时。  如果客户端在此时间内未传输整个标头，请求将以408（请求超时）错误终止。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**client_max_body_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">client_max_body_size 1m;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  设置客户端请求正文的最大允许大小，在“Content-Length”请求标头字段中指定。  如果请求中的大小超过配置的值，则会将413（请求实体太大）错误返回给客户端。  请注意，浏览器无法正确显示此错误。  将<code>*size*</code>设置为0将禁用检查客户端请求正文大小。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**connection_pool_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">connection_pool_size 256|512;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> <br><br>                </td></p>
-<p>  允许精确调整每个连接的内存分配。  该指令对性能的影响最小，通常不应使用。  默认情况下，大小在32位平台上等于256字节，在64位平台上等于512字节。 </p>
-<blockquote>
-<p>  在1.9.8版之前，所有平台上的默认值均为256。 </p>
-</blockquote>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**default_type** &lt;code class=&quot;notranslate&quot;&gt;*mime-type*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">default_type text/plain;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  定义响应的默认MIME类型。  可以使用<a href="#types">types</a>指令设置文件扩展名到MIME类型的映射。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**directio** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> | <code>off</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">directio off;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  该指令出现在0.7.7版本中。 </p>
-<p>  在读取大于或等于指定<code>*size*</code>文件时，允许使用<code>O_DIRECT</code>标志（FreeBSD，Linux）， <code>F_NOCACHE</code>标志（macOS）或<code>directio()</code>函数（Solaris）。  该指令自动禁用（0.7.15）对给定请求使用<a href="#sendfile">sendfile</a> 。  它对于提供大型文件非常有用： </p>
-<blockquote>
-<pre class="notranslate">directio 4m;
-</pre>
-
-</blockquote>
-<p>  或者在Linux上使用<a href="#aio">aio</a>时。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**directio_alignment** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">directio_alignment 512;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  该指令出现在0.8.11版本中。 </p>
-<p>  设置<a href="#directio">directio</a>的对齐方式。  在大多数情况下，512字节对齐就足够了。  但是，在Linux下使用XFS时，需要将其增加到4K。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**disable_symlinks** &lt;code class=&quot;notranslate&quot;&gt;off</code> ; <br> <code>**disable_symlinks** 
-    &lt;code class=&quot;notranslate&quot;&gt;on</code> |<br>    <code>if_not_owner</code><br>    [ <code>from</code> = <code>*part*</code> ]; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">disable_symlinks off;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  该指令出现在1.1.15版中。 </p>
-<p>  确定打开文件时应如何处理符号链接： </p>
-<p>  例： </p>
-<blockquote>
-<pre class="notranslate">disable_symlinks on from=$document_root;
-</pre>
-
-
-
-</blockquote>
-<p>  该指令仅适用于具有<code>openat()</code>和<code>fstatat()</code>接口的系统。  这些系统包括FreeBSD，Linux和Solaris的现代版本。 </p>
-<p>  参数<code>on</code>和<code>if_not_owner</code>添加了处理开销。 </p>
-<blockquote>
-<p>  在不支持仅为搜索打开目录的系统上，要使用这些参数，需要工作进程对所有正在检查的目录具有读取权限。 </p>
-<p>   <a href="ngx_http_autoindex_module.html">ngx_http_autoindex_module</a> ， <a href="ngx_http_random_index_module.html">ngx_http_random_index_module</a>和<a href="ngx_http_dav_module.html">ngx_http_dav_module</a>模块当前忽略此指令。 </p>
-</blockquote>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**error_page** 
-    &lt;code class=&quot;notranslate&quot;&gt;*code*</code> …<br>    [ <code>=</code> [ <code>*response*</code> ]]<br>    <code>*uri*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"></td></p>
-<pre><code>—
-
-    &lt;/td&gt;
-</code></pre><p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> , <code>if in location</code> <br><br>                </td></p>
-<p>  定义将为指定错误显示的URI。   <code>*uri*</code>值可以包含变量。 </p>
-<p>  例： </p>
-<blockquote>
-<pre class="notranslate">error_page 404             /404.html;
-error_page 500 502 503 504 /50x.html;
-</pre>
-
-
-
-</blockquote>
-<p>  这导致内部重定向到指定的<code>*uri*</code> ，客户端请求方法更改为“ <code>GET</code> ”（对于“ <code>GET</code> ”和“ <code>HEAD</code> ”以外的所有方法）。 </p>
-<p>  此外，可以使用“ <code>=</code> <code>*response*</code> ”语法将响应代码更改为另一个，例如： </p>
-<blockquote>
-<pre class="notranslate">error_page 404 =200 /empty.gif;
-</pre>
-
-
-
-</blockquote>
-<p>  如果代理服务器或FastCGI / uwsgi / SCGI / gRPC服务器处理错误响应，并且服务器可能返回不同的响应代码（例如，200,302,401或404），则可以使用代码进行响应收益： </p>
-<blockquote>
-<pre class="notranslate">error_page 404 = /404.php;
-</pre>
-
-
-
-</blockquote>
-<p>  如果在内部重定向期间无需更改URI和方法，则可以将错误处理传递到命名位置： </p>
-<blockquote>
-<p><pre class="notranslate">location / {<br>    error_page 404 = @fallback;<br>}</pre></p>
-</blockquote>
-<p>location @fallback {<br>    proxy_pass <a href="http://backend" target="_blank" rel="noopener">http://backend</a>;<br>}<br></p>
-<blockquote>
-<p>  如果<code>*uri*</code>处理导致错误，则将上次发生的错误的状态代码返回给客户端。 </p>
-</blockquote>
-<p>  也可以使用URL重定向进行错误处理： </p>
-<blockquote>
-<pre class="notranslate">error_page 403      http://example.com/forbidden.html;
-error_page 404 =301 http://example.com/notfound.html;
-</pre>
-
-</blockquote>
-<p>  在这种情况下，默认情况下，响应代码302返回给客户端。  它只能更改为重定向状态代码之一（301,302,303,307和308）。 </p>
-<blockquote>
-<p>  在版本1.1.16和1.0.13之前，代码307不被视为重定向。 </p>
-<p>  在版本1.13.0之前，代码308不被视为重定向。 </p>
-</blockquote>
-<p>  当且仅当在当前级别上没有定义<code>error_page</code>指令时，这些指令才从前一级继承。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**etag** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">etag on;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  该指令出现在1.3.3版本中。 </p>
-<p>  启用或禁用自动生成静态资源的“ETag”响应头字段。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**http** { ... }</code> <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"></td></p>
-<pre><code>—
-
-    &lt;/td&gt;
-</code></pre><p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>main</code> <br><br>                </td></p>
-<p>  提供指定HTTP服务器指令的配置文件上下文。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**if_modified_since** 
-    &lt;code class=&quot;notranslate&quot;&gt;off</code> |<br>    <code>exact</code> |<br>    <code>before</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">if_modified_since exact;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  该指令出现在0.7.24版本中。 </p>
-<p>  指定如何将响应的修改时间与“If-Modified-Since”请求标头字段中的时间进行比较： </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**ignore_invalid_headers** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">ignore_invalid_headers on;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> <br><br>                </td></p>
-<p>  控制是否应忽略具有无效名称的标头字段。  有效名称由英文字母，数字，连字符和可能的下划线组成（由<a href="#underscores_in_headers">underscores_in_headers</a>指令控制）。 </p>
-<p>  如果在<a href="#server">服务器</a>级别指定了该指令，则仅在服务器是默认服务器时使用其值。  指定的值也适用于侦听同一地址和端口的所有虚拟服务器。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**internal** ;</code> <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"></td></p>
-<pre><code>—
-
-    &lt;/td&gt;
-</code></pre><p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>location</code> <br><br>                </td></p>
-<p>  指定给定位置只能用于内部请求。  对于外部请求，返回客户端错误404（未找到）。  内部请求如下： </p>
+<p> Syntax:  <strong>etag</strong> on | off ;<br>  Default:  etag on;  Context:  http , server , location<br>  该指令出现在1.3.3版本中。 </p>
+<p> 启用或禁用自动生成静态资源的“ETag”响应头字段。 </p>
+<p> Syntax:  <strong>http</strong> { … }<br>  Default:  —  Context:  main<br>  提供指定HTTP服务器指令的配置文件上下文。 </p>
+<p> Syntax:  <strong>if_modified_since</strong> off | exact | before ;<br>  Default:  if_modified_since exact;  Context:  http , server , location<br>  该指令出现在0.7.24版本中。 </p>
+<p> 指定如何将响应的修改时间与“If-Modified-Since”请求标头字段中的时间进行比较： </p>
+<p> off   忽略“If-Modified-Since”请求头字段（0.7.34）;  exact   完全符合;  before   响应的修改时间小于或等于“If-Modified-Since”请求头字段中的时间。  Syntax:  <strong>ignore_invalid_headers</strong> on | off ;<br>  Default:  ignore_invalid_headers on;  Context:  http , server<br>  控制是否应忽略具有无效名称的标头字段。 有效名称由英文字母，数字，连字符和可能的下划线组成（由underscores_in_headers指令控制）。 </p>
+<p> 如果在服务器级别指定了该指令，则仅在服务器是默认服务器时使用其值。 指定的值也适用于侦听同一地址和端口的所有虚拟服务器。 </p>
+<p> Syntax:  <strong>internal</strong> ;<br>  Default:  —  Context:  location<br>  指定给定位置只能用于内部请求。 对于外部请求，返回客户端错误404（未找到）。 内部请求如下： </p>
 <ul>
-<li>由<a href="#error_page">error_page</a> ， <a href="ngx_http_index_module.html#index">index</a> ， <a href="ngx_http_random_index_module.html#random_index">random_index</a>和<a href="#try_files">try_files</a>指令重定向的请求; -   来自上游服务器的“X-Accel-Redirect”响应头字段重定向的请求; -   由<a href="ngx_http_ssi_module.html">ngx_http_ssi_module</a>模块的“ <code>include virtual</code> ”命令， <a href="ngx_http_addition_module.html">ngx_http_addition_module</a>模块指令以及<a href="ngx_http_auth_request_module.html#auth_request">auth_request</a>和<a href="ngx_http_mirror_module.html#mirror">mirror</a>指令形成的子请求; -   请求由<a href="ngx_http_rewrite_module.html#rewrite">重写</a>指令更改。 </li>
+<li>由error_page ， index ， random_index和try_files指令重定向的请求; </li>
+<li>来自上游服务器的“X-Accel-Redirect”响应头字段重定向的请求; </li>
+<li>由ngx_http_ssi_module模块的“ include virtual ”命令， ngx_http_addition_module模块指令以及auth_request和mirror指令形成的子请求; </li>
+<li>请求由重写指令更改。<br>例： </li>
 </ul>
-<p>  例： </p>
 <blockquote>
-<p><pre class="notranslate">error_page 404 /404.html;</pre></p>
+<p>error_page 404 /404.html; location = /404.html { internal; }<br> 每个请求最多有10个内部重定向，以防止在错误配置中发生的请求处理周期。 如果达到此限制，则返回错误500（内部服务器错误）。 在这种情况下，可以在错误日志中看到“重写或内部重定向周期”消息。  Syntax:  <strong>keepalive_disable</strong> none | <em>browser</em> …;<br>  Default:  keepalive_disable msie6;  Context:  http , server , location<br>  禁用与行为不当的浏览器保持连接状态。 <em>browser</em>参数指定将受影响的浏览器。 一旦收到POST请求，值msie6将禁用与旧版本MSIE的保持活动连接。 值safari禁用与macOS和类似macOS的操作系统上的Safari和类似Safari的浏览器的保持活动连接。 值none与所有浏览器保持连接。 </p>
+<p> 在版本1.1.18之前，值safari与所有操作系统上的所有Safari和类似Safari的浏览器相匹配，默认情况下禁用与它们保持连接的连接。  Syntax:  <strong>keepalive_requests</strong> <em>number</em> ;<br>  Default:  keepalive_requests 100;  Context:  http , server , location<br>  该指令出现在0.8.0版本中。 </p>
 </blockquote>
-<p>location = /404.html {<br>    internal;<br>}<br></p>
+<p> 设置可通过一个保持活动连接提供的最大请求数。 在发出最大请求数后，将关闭连接。 </p>
+<p> Syntax:  <strong>keepalive_timeout</strong> <em>timeout</em> [ <em>header_timeout</em> ];<br>  Default:  keepalive_timeout 75s;  Context:  http , server , location<br>  第一个参数设置一个超时，在此期间保持活动的客户端连接将在服务器端保持打开状态。 零值禁用保持活动的客户端连接。 可选的第二个参数在“Keep-Alive：timeout = <em>time</em> ”响应头字段中设置一个值。 两个参数可能不同。 </p>
+<p> Mozilla和Konqueror识别“Keep-Alive：timeout = <em>time</em> ”标题字段。 MSIE在大约60秒内自行关闭保持连接。 </p>
+<p> Syntax:  <strong>large_client_header_buffers</strong> <em>number</em> <em>size</em> ;<br>  Default:  large_client_header_buffers 4 8k;  Context:  http , server<br>  设置用于读取大客户机请求标头的缓冲区的最大<em>number</em>和<em>size</em> 。 请求行不能超过一个缓冲区的大小，否则会将414（Request-URI Too Large）错误返回给客户端。 请求头字段也不能超过一个缓冲区的大小，或者400（错误请求）错误返回给客户端。 缓冲区仅按需分配。 默认情况下，缓冲区大小等于8K字节。 如果在请求处理结束后连接转换为保持活动状态，则释放这些缓冲区。 </p>
+<p> Syntax:  <strong>limit_except</strong> <em>method</em> … { … }<br>  Default:  —  Context:  location<br>  限制允许位置内的HTTP方法。 <em>method</em>参数可以是以下之一： GET ， HEAD ， POST ， PUT ， DELETE ， MKCOL ， COPY ， MOVE ， OPTIONS ， PROPFIND ， PROPPATCH ， LOCK ， UNLOCK或PATCH 。 允许GET方法也允许使用HEAD方法。 使用ngx_http_access_module ， ngx_http_auth_basic_module和ngx_http_auth_jwt_module （1.13.10）模块指令可以限制对其他方法的访问： </p>
 <blockquote>
-<p>  每个请求最多有10个内部重定向，以防止在错误配置中发生的请求处理周期。  如果达到此限制，则返回错误500（内部服务器错误）。  在这种情况下，可以在错误日志中看到“重写或内部重定向周期”消息。 </p>
+<p>limit_except GET { allow 192.168.1.0/32; deny all; }  请注意，这将限制对<strong>除</strong> GET和HEAD <strong>之外的</strong>所有方法的访问。 </p>
 </blockquote>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**keepalive_disable** &lt;code class=&quot;notranslate&quot;&gt;none</code> | <code>*browser*</code> …; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">keepalive_disable msie6;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  禁用与行为不当的浏览器保持连接状态。   <code>*browser*</code>参数指定将受影响的浏览器。  一旦收到POST请求，值<code>msie6</code>将禁用与旧版本MSIE的保持活动连接。  值<code>safari</code>禁用与macOS和类似macOS的操作系统上的Safari和类似Safari的浏览器的保持活动连接。  值<code>none</code>与所有浏览器保持连接。 </p>
+<p> Syntax:  <strong>limit_rate</strong> <em>rate</em> ;<br>  Default:  limit_rate 0;  Context:  http , server , location , if in location<br>  限制向客户端传输的响应速率。 <em>rate</em>以每秒字节数指定。 零值禁用速率限制。 根据请求设置限制，因此如果客户端同时打开两个连接，则总速率将是指定限制的两倍。 </p>
+<p> 也可以在$limit_rate变量中设置速率限制。 在根据特定条件限制费率的情况下，它可能很有用： </p>
 <blockquote>
-<p>  在版本1.1.18之前，值<code>safari</code>与所有操作系统上的所有Safari和类似Safari的浏览器相匹配，默认情况下禁用与它们保持连接的连接。 </p>
+<p>server { if ($slow) { set $limit_rate 4k; } … }  还可以在代理服务器响应的“X-Accel-Limit-Rate”头字段中设置速率限制。 可以使用proxy_ignore_headers ， fastcgi_ignore_headers ， uwsgi_ignore_headers和scgi_ignore_headers指令禁用此功能。 </p>
 </blockquote>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**keepalive_requests** &lt;code class=&quot;notranslate&quot;&gt;*number*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">keepalive_requests 100;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  该指令出现在0.8.0版本中。 </p>
-<p>  设置可通过一个保持活动连接提供的最大请求数。  在发出最大请求数后，将关闭连接。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**keepalive_timeout** 
-    &lt;code class=&quot;notranslate&quot;&gt;*timeout*</code><br>    [ <code>*header_timeout*</code> ]; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">keepalive_timeout 75s;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  第一个参数设置一个超时，在此期间保持活动的客户端连接将在服务器端保持打开状态。  零值禁用保持活动的客户端连接。  可选的第二个参数在“Keep-Alive：timeout = <code>*time*</code> ”响应头字段中设置一个值。  两个参数可能不同。 </p>
-<p>   Mozilla和Konqueror识别“Keep-Alive：timeout = <code>*time*</code> ”标题字段。   MSIE在大约60秒内自行关闭保持连接。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**large_client_header_buffers** &lt;code class=&quot;notranslate&quot;&gt;*number*</code> <code>*size*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">large_client_header_buffers 4 8k;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> <br><br>                </td></p>
-<p>  设置用于读取大客户机请求标头的缓冲区的最大<code>*number*</code>和<code>*size*</code> 。  请求行不能超过一个缓冲区的大小，否则会将414（Request-URI Too Large）错误返回给客户端。  请求头字段也不能超过一个缓冲区的大小，或者400（错误请求）错误返回给客户端。  缓冲区仅按需分配。  默认情况下，缓冲区大小等于8K字节。  如果在请求处理结束后连接转换为保持活动状态，则释放这些缓冲区。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**limit_except** &lt;code class=&quot;notranslate&quot;&gt;*method*</code> … { … } <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"></td></p>
-<pre><code>—
-
-    &lt;/td&gt;
-</code></pre><p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>location</code> <br><br>                </td></p>
-<p>  限制允许位置内的HTTP方法。   <code>*method*</code>参数可以是以下之一： <code>GET</code> ， <code>HEAD</code> ， <code>POST</code> ， <code>PUT</code> ， <code>DELETE</code> ， <code>MKCOL</code> ， <code>COPY</code> ， <code>MOVE</code> ， <code>OPTIONS</code> ， <code>PROPFIND</code> ， <code>PROPPATCH</code> ， <code>LOCK</code> ， <code>UNLOCK</code>或<code>PATCH</code> 。  允许<code>GET</code>方法也允许使用<code>HEAD</code>方法。  使用<a href="ngx_http_access_module.html">ngx_http_access_module</a> ， <a href="ngx_http_auth_basic_module.html">ngx_http_auth_basic_module</a>和<a href="ngx_http_auth_jwt_module.html">ngx_http_auth_jwt_module</a> （1.13.10）模块指令可以限制对其他方法的访问： </p>
+<p> Syntax:  <strong>limit_rate_after</strong> <em>size</em> ;<br>  Default:  limit_rate_after 0;  Context:  http , server , location , if in location<br>  该指令出现在0.8.0版本中。 </p>
+<p> 设置初始量，在此之后，对客户端的响应的进一步传输将受到速率限制。 </p>
+<p> 例： </p>
 <blockquote>
-<pre class="notranslate">limit_except GET {
-    allow 192.168.1.0/32;
-    deny  all;
-}
-</pre>
-
+<p>location /flv/ { flv; limit_rate_after 500k; limit_rate 50k; }  Syntax:  <strong>lingering_close</strong> off | on | always ;<br>  Default:  lingering_close on;  Context:  http , server , location<br>  该指令出现在1.1.0和1.0.6版本中。 </p>
 </blockquote>
-<p>  请注意，这将限制对<strong>除</strong> GET和HEAD <strong>之外的</strong>所有方法的访问。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**limit_rate** &lt;code class=&quot;notranslate&quot;&gt;*rate*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">limit_rate 0;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> , <code>if in location</code> <br><br>                </td></p>
-<p>  限制向客户端传输的响应速率。   <code>*rate*</code>以每秒字节数指定。  零值禁用速率限制。  根据请求设置限制，因此如果客户端同时打开两个连接，则总速率将是指定限制的两倍。 </p>
-<p>  也可以在<code>$limit_rate</code>变量中设置速率限制。  在根据特定条件限制费率的情况下，它可能很有用： </p>
+<p> 控制nginx如何关闭客户端连接。 </p>
+<p> 默认值“ on ”指示nginx在完全关闭连接之前等待并处理来自客户端的其他数据，但仅当启发式表明客户端可能正在发送更多数据时。 </p>
+<p> 值“ always ”将导致nginx无条件地等待并处理其他客户端数据。 </p>
+<p> 值“ off ”告诉nginx永远不要等待更多数据并立即关闭连接。 此行为会破坏协议，不应在正常情况下使用。 </p>
+<p> Syntax:  <strong>lingering_time</strong> <em>time</em> ;<br>  Default:  lingering_time 30s;  Context:  http , server , location<br>  当lingering_close生效时，此指令指定nginx处理（读取和忽略）来自客户端的其他数据的最长时间。 之后，即使有更多数据，连接也将关闭。 </p>
+<p> Syntax:  <strong>lingering_timeout</strong> <em>time</em> ;<br>  Default:  lingering_timeout 5s;  Context:  http , server , location<br>  当lingering_close生效时，此指令指定更多客户端数据到达的最长等待时间。 如果在此期间未收到数据，则关闭连接。 否则，将读取并忽略数据，并且nginx会再次开始等待更多数据。 重复“wait-read-ignore”循环，但不会超过lingering_time指令指定的循环。 </p>
+<p> Syntax:  <strong>listen</strong> <em>address</em> [: <em>port</em> ] [ default_server ] [ ssl ] [ http2 | spdy ] [ proxy_protocol ] [ setfib = <em>number</em> ] [ fastopen = <em>number</em> ] [ backlog = <em>number</em> ] [ rcvbuf = <em>size</em> ] [ sndbuf = <em>size</em> ] [ accept_filter = <em>filter</em> ] [ deferred ] [ bind ] [ ipv6only = on | off ] [ reuseport ] [ so_keepalive = on | off |[ <em>keepidle</em> ]:[ <em>keepintvl</em> ]:[ <em>keepcnt</em> ]];<br> <strong>listen</strong> <em>port</em> [ default_server ] [ ssl ] [ http2 | spdy ] [ proxy_protocol ] [ setfib = <em>number</em> ] [ fastopen = <em>number</em> ] [ backlog = <em>number</em> ] [ rcvbuf = <em>size</em> ] [ sndbuf = <em>size</em> ] [ accept_filter = <em>filter</em> ] [ deferred ] [ bind ] [ ipv6only = on | off ] [ reuseport ] [ so_keepalive = on | off |[ <em>keepidle</em> ]:[ <em>keepintvl</em> ]:[ <em>keepcnt</em> ]];<br> <strong>listen</strong> unix: <em>path</em> [ default_server ] [ ssl ] [ http2 | spdy ] [ proxy_protocol ] [ backlog = <em>number</em> ] [ rcvbuf = <em>size</em> ] [ sndbuf = <em>size</em> ] [ accept_filter = <em>filter</em> ] [ deferred ] [ bind ] [ so_keepalive = on | off |[ <em>keepidle</em> ]:[ <em>keepintvl</em> ]:[ <em>keepcnt</em> ]];<br>  Default:  listen <em>:80 | </em>:8000;  Context:  server<br>  设置IP的<em>address</em>和<em>port</em> ，或服务器将接受请求的UNIX域套接字的<em>path</em> 。 可以指定<em>address</em>和<em>port</em> ，或仅指定<em>address</em>或仅<em>port</em> 。 <em>address</em>也可以是主机名，例如： </p>
 <blockquote>
-<p><pre class="notranslate">server {</pre></p>
+<p>listen 127.0.0.1:8000; listen 127.0.0.1; listen 8000; listen *:8000; listen localhost:8000;  IPv6地址（0.7.36）在方括号中指定： </p>
+<p>listen [::]:8000; listen [::1];  UNIX域套接字（0.8.21）使用“ unix: ”前缀指定： </p>
+<p>listen unix:/var/run/nginx.sock;  如果仅给出<em>address</em> ，则使用端口80。 </p>
 </blockquote>
-<pre><code>if ($slow) {
-    set $limit_rate 4k;
-}
-
-...
-</code></pre><p>}<br></p>
-<p>  还可以在代理服务器响应的“X-Accel-Limit-Rate”头字段中设置速率限制。  可以使用<a href="ngx_http_proxy_module.html#proxy_ignore_headers">proxy_ignore_headers</a> ， <a href="ngx_http_fastcgi_module.html#fastcgi_ignore_headers">fastcgi_ignore_headers</a> ， <a href="ngx_http_uwsgi_module.html#uwsgi_ignore_headers">uwsgi_ignore_headers</a>和<a href="ngx_http_scgi_module.html#scgi_ignore_headers">scgi_ignore_headers</a>指令禁用此功能。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**limit_rate_after** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">limit_rate_after 0;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> , <code>if in location</code> <br><br>                </td></p>
-<p>  该指令出现在0.8.0版本中。 </p>
-<p>  设置初始量，在此之后，对客户端的响应的进一步传输将受到速率限制。 </p>
-<p>  例： </p>
+<p> 如果指令不存在，那么如果nginx以超级用户权限运行，则使用<em>:80 ，否则使用</em>:8000 。 </p>
+<p> default_server参数（如果存在）将使服务器成为指定<em>address</em> ： <em>port</em>对的默认服务器。 如果没有任何指令具有default_server参数，则具有<em>address</em> ： <em>port</em>对的第一个服务器将成为该对的默认服务器。 </p>
 <blockquote>
-<pre class="notranslate">location /flv/ {
-    flv;
-    limit_rate_after 500k;
-    limit_rate       50k;
-}
-</pre>
-
-
+<p> 在0.8.21之前的版本中，此参数仅命名为default 。  ssl参数（0.7.14）允许指定此端口上接受的所有连接都应在SSL模式下工作。 这样可以为处理HTTP和HTTPS请求的服务器提供更紧凑的配置 。 </p>
 </blockquote>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**lingering_close** 
-    &lt;code class=&quot;notranslate&quot;&gt;off</code> |<br>    <code>on</code> |<br>    <code>always</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">lingering_close on;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  该指令出现在1.1.0和1.0.6版本中。 </p>
-<p>  控制nginx如何关闭客户端连接。 </p>
-<p>  默认值“ <code>on</code> ”指示nginx在完全关闭连接之前<a href="#lingering_timeout">等待</a>并<a href="#lingering_time">处理</a>来自客户端的其他数据，但仅当启发式表明客户端可能正在发送更多数据时。 </p>
-<p>  值“ <code>always</code> ”将导致nginx无条件地等待并处理其他客户端数据。 </p>
-<p>  值“ <code>off</code> ”告诉nginx永远不要等待更多数据并立即关闭连接。  此行为会破坏协议，不应在正常情况下使用。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**lingering_time** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">lingering_time 30s;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  当<a href="#lingering_close">lingering_close</a>生效时，此指令指定nginx处理（读取和忽略）来自客户端的其他数据的最长时间。  之后，即使有更多数据，连接也将关闭。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**lingering_timeout** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">lingering_timeout 5s;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  当<a href="#lingering_close">lingering_close</a>生效时，此指令指定更多客户端数据到达的最长等待时间。  如果在此期间未收到数据，则关闭连接。  否则，将读取并忽略数据，并且nginx会再次开始等待更多数据。  重复“wait-read-ignore”循环，但不会超过<a href="#lingering_time">lingering_time</a>指令指定的循环。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**listen** 
-    &lt;code class=&quot;notranslate&quot;&gt;*address*</code> [: <code>*port*</code> ]<br>    [ <code>default_server</code> ]<br>    [ <code>ssl</code> ]<br>    [ <code>http2</code> | <code>spdy</code> ]<br>    [ <code>proxy_protocol</code> ]<br>    [ <code>setfib</code> = <code>*number*</code> ]<br>    [ <code>fastopen</code> = <code>*number*</code> ]<br>    [ <code>backlog</code> = <code>*number*</code> ]<br>    [ <code>rcvbuf</code> = <code>*size*</code> ]<br>    [ <code>sndbuf</code> = <code>*size*</code> ]<br>    [ <code>accept_filter</code> = <code>*filter*</code> ]<br>    [ <code>deferred</code> ]<br>    [ <code>bind</code> ]<br>    [ <code>ipv6only</code> = <code>on</code> | <code>off</code> ]<br>    [ <code>reuseport</code> ]<br>    [ <code>so_keepalive</code> = <code>on</code> | <code>off</code> |[ <code>*keepidle*</code> ]:[ <code>*keepintvl*</code> ]:[ <code>*keepcnt*</code> ]]; <br> <code>**listen** 
-    &lt;code class=&quot;notranslate&quot;&gt;*port*</code><br>    [ <code>default_server</code> ]<br>    [ <code>ssl</code> ]<br>    [ <code>http2</code> | <code>spdy</code> ]<br>    [ <code>proxy_protocol</code> ]<br>    [ <code>setfib</code> = <code>*number*</code> ]<br>    [ <code>fastopen</code> = <code>*number*</code> ]<br>    [ <code>backlog</code> = <code>*number*</code> ]<br>    [ <code>rcvbuf</code> = <code>*size*</code> ]<br>    [ <code>sndbuf</code> = <code>*size*</code> ]<br>    [ <code>accept_filter</code> = <code>*filter*</code> ]<br>    [ <code>deferred</code> ]<br>    [ <code>bind</code> ]<br>    [ <code>ipv6only</code> = <code>on</code> | <code>off</code> ]<br>    [ <code>reuseport</code> ]<br>    [ <code>so_keepalive</code> = <code>on</code> | <code>off</code> |[ <code>*keepidle*</code> ]:[ <code>*keepintvl*</code> ]:[ <code>*keepcnt*</code> ]]; <br> <code>**listen** 
-    &lt;code class=&quot;notranslate&quot;&gt;unix:</code> <code>*path*</code><br>    [ <code>default_server</code> ]<br>    [ <code>ssl</code> ]<br>    [ <code>http2</code> | <code>spdy</code> ]<br>    [ <code>proxy_protocol</code> ]<br>    [ <code>backlog</code> = <code>*number*</code> ]<br>    [ <code>rcvbuf</code> = <code>*size*</code> ]<br>    [ <code>sndbuf</code> = <code>*size*</code> ]<br>    [ <code>accept_filter</code> = <code>*filter*</code> ]<br>    [ <code>deferred</code> ]<br>    [ <code>bind</code> ]<br>    [ <code>so_keepalive</code> = <code>on</code> | <code>off</code> |[ <code>*keepidle*</code> ]:[ <code>*keepintvl*</code> ]:[ <code>*keepcnt*</code> ]]; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">listen <em>:80 | </em>:8000;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>server</code> <br><br>                </td></p>
-<p>  设置IP的<code>*address*</code>和<code>*port*</code> ，或服务器将接受请求的UNIX域套接字的<code>*path*</code> 。  可以指定<code>*address*</code>和<code>*port*</code> ，或仅指定<code>*address*</code>或仅<code>*port*</code> 。   <code>*address*</code>也可以是主机名，例如： </p>
+<p> http2参数（1.9.5）将端口配置为接受HTTP / 2连接。 通常，为了使其工作，也应该指定ssl参数，但是也可以将nginx配置为接受没有SSL的HTTP / 2连接。 </p>
+<p> spdy参数（1.3.15-1.9.4）允许接受此端口上的SPDY连接。 通常，为了使其工作，还应指定ssl参数，但也可以将nginx配置为接受不带SSL的SPDY连接。 </p>
+<p> proxy_protocol参数（1.5.12）允许指定此端口上接受的所有连接都应使用PROXY协议 。 </p>
 <blockquote>
-<pre class="notranslate">listen 127.0.0.1:8000;
-listen 127.0.0.1;
-listen 8000;
-listen *:8000;
-listen localhost:8000;
-</pre>
-
+<p> 自版本1.13.11起支持PROXY协议版本2。  listen指令可以有几个特定于与套接字相关的系统调用的附加参数。 这些参数可以在任何listen指令中指定，但对于给定的<em>address</em>只能指定一次： <em>port</em>对。 </p>
+<p> 在0.8.21之前的版本中，它们只能在listen指令中与default参数一起指定。  setfib = <em>number</em>  此参数（0.8.44）设置侦听套接字的关联路由表FIB（ SO_SETFIB选项）。 这目前仅适用于FreeBSD。  fastopen = <em>number</em>  为侦听套接字启用“ TCP Fast Open ”（1.5.8）并限制尚未完成三次握手的连接队列的最大长度。<br> 除非服务器可以处理多次使用数据的同一SYN数据包，否则不要启用此功能。  backlog = <em>number</em>  在listen()调用中设置backlog参数，该参数限制挂起连接队列的最大长度。 默认情况下， backlog在FreeBSD，DragonFly BSD和macOS上设置为-1，在其他平台上设置为511。  rcvbuf = <em>size</em>  设置侦听套接字的接收缓冲区大小（ SO_RCVBUF选项）。  sndbuf = <em>size</em>  设置侦听套接字的发送缓冲区大小（ SO_SNDBUF选项）。  accept_filter = <em>filter</em>  为侦听套接字设置接受过滤器的名称（ SO_ACCEPTFILTER选项），该套接字在将传入连接传递给accept()之前对其进行过滤。 这仅适用于FreeBSD和NetBSD 5.0+。 可能的值是dataready和httpready 。  deferred   指示在Linux上使用延迟的accept() （ TCP_DEFER_ACCEPT套接字选项）。  bind   指示对给定<em>address</em>进行单独的bind()调用： <em>port</em>对。 这很有用，因为如果有几个具有相同端口但不同地址的listen指令，并且其中一个listen指令侦听给定端口（ <em>: </em>port<em> ）的所有地址，则nginx将bind()仅限于</em>: <em>port</em> 。 应该注意的是，在这种情况下将进行getsockname()系统调用以确定接受连接的地址。 如果使用setfib ， backlog ， rcvbuf ， sndbuf ， accept_filter ， deferred ， ipv6only或so_keepalive参数，那么对于给定的<em>address</em> ： <em>port</em>对将始终进行单独的bind()调用。  ipv6only = on | off  此参数（0.7.42）确定（通过IPV6_V6ONLY套接字选项）侦听通配符地址[::]的IPv6套接字是仅接受IPv6连接还是仅接受IPv6和IPv4连接。 默认情况下，此参数处于启用状态。 它只能在开始时设置一次。<br> 在1.3.4版之前，如果省略此参数，则操作系统的设置对套接字有效。  reuseport   此参数（1.9.1）指示为每个工作进程创建一个单独的侦听套接字（使用Linux 3.9+和DragonFly BSD上的SO_REUSEPORT套接字选项，或FreeBSD 12+上的SO_REUSEPORT_LB ），允许内核在工作进程之间分配传入连接。 目前仅适用于Linux 3.9 +，DragonFly BSD和FreeBSD 12+（1.15.1）。<br> 不恰当地使用此选项可能会产生安全隐患 。  so_keepalive = on | off | [ <em>keepidle</em> ]：[ <em>keepintvl</em> ]：[ <em>keepcnt</em> ]  此参数（1.1.11）配置侦听套接字的“TCP keepalive”行为。 如果省略此参数，则操作系统的设置将对套接字有效。 如果将其设置为值“ on ”，则为套接字打开SO_KEEPALIVE选项。 如果将其设置为值“ off ”，则为套接字关闭SO_KEEPALIVE选项。 某些操作系统支持使用TCP_KEEPIDLE ， TCP_KEEPINTVL和TCP_KEEPCNT套接字选项在每个套接字的基础上设置TCP keepalive参数。 在这样的系统上（目前，Linux 2.4 +，NetBSD 5+和FreeBSD 9.0-STABLE），可以使用<em>keepidle</em> ， <em>keepintvl</em>和<em>keepcnt</em>参数配置它们。 可以省略一个或两个参数，在这种情况下，相应套接字选项的系统默认设置将生效。 例如，<br>so_keepalive=30m::10 将空闲超时（ TCP_KEEPIDLE ）设置为30分钟，将探测间隔（ TCP_KEEPINTVL ）保留为系统默认值，并将探测计数（ TCP_KEEPCNT ）设置为10个探测。  例： </p>
+<p>listen 127.0.0.1 default_server accept_filter=dataready backlog=1024;  Syntax:  <strong>location</strong> [ = | ~ | ~<em> | ^~ ] </em>uri<em> { … }<br> <strong>location</strong> @ </em>name* { … }<br>  Default:  —  Context:  server , location<br>  根据请求URI设置配置。 </p>
 </blockquote>
-<p>   IPv6地址（0.7.36）在方括号中指定： </p>
+<p> 在解码以“ %XX ”形式编码的文本，解析对相对路径分量的引用之后，针对规范化的URI执行匹配. “和” .. “，并且可能将两个或多个相邻斜线压缩成单个斜线。 </p>
+<p> 位置可以由前缀字符串或正则表达式定义。 正则表达式使用前面的“ ~* ”修饰符（用于不区分大小写的匹配）或“ ~ ”修饰符（用于区分大小写的匹配）指定。 为了找到与给定请求匹配的位置，nginx首先检查使用前缀字符串（前缀位置）定义的位置。 其中，选择并记住具有最长匹配前缀的位置。 然后按照它们在配置文件中的出现顺序检查正则表达式。 正则表达式的搜索在第一个匹配时终止，并使用相应的配置。 如果未找到与正则表达式的匹配，则使用先前记住的前缀位置的配置。 </p>
+<p> 可以嵌套location块，但下面提到了一些例外情况。 </p>
+<p> 对于不区分大小写的操作系统（如macOS和Cygwin），与前缀字符串匹配会忽略大小写（0.7.7）。 但是，比较仅限于一个字节的区域设置。 </p>
+<p> 正则表达式可以包含稍后可以在其他指令中使用的捕获（0.7.40）。 </p>
+<p> 如果最长匹配前缀位置具有“ ^~ ”修饰符，则不检查正则表达式。 </p>
+<p> 此外，使用“ = ”修饰符可以定义URI和位置的精确匹配。 如果找到完全匹配，则搜索终止。 例如，如果频繁发生“ / ”请求，则定义“ location = / ”将加速这些请求的处理，因为搜索在第一次比较之后立即终止。 这样的位置显然不能包含嵌套位置。 </p>
 <blockquote>
-<pre class="notranslate">listen [::]:8000;
-listen [::1];
-</pre>
-
+<p> 在0.7.1到0.8.41的版本中，如果请求与前缀位置匹配而没有“ = ”和“ ^~ ”修饰符，则搜索也会终止，并且不会检查正则表达式。  让我们通过一个例子来说明以上内容： </p>
+<p>location = / { [ configuration A ] } location / { [ configuration B ] } location /documents/ { [ configuration C ] } location ^~ /images/ { [ configuration D ] } location ~* .(gif|jpg|jpeg)$ { [ configuration E ] }  “ / ”请求将匹配配置A，“/ /index.html ”请求将匹配配置B，“/ /documents/document.html ”请求将匹配配置C，“/ /images/1.gif ”请求将匹配配置D，“/ /documents/1.jpg ”请求将匹配配置E. </p>
 </blockquote>
-<p>   UNIX域套接字（0.8.21）使用“ <code>unix:</code> ”前缀指定： </p>
+<p> “ @ ”前缀定义了命名位置。 这样的位置不用于常规请求处理，而是用于请求重定向。 它们不能嵌套，也不能包含嵌套位置。 </p>
+<p> 如果位置由以斜杠字符结尾的前缀字符串定义，并且请求由proxy_pass ， fastcgi_pass ， uwsgi_pass ， scgi_pass ， memcached_pa​​ss或grpc_pass之一处理，则执行特殊处理。 为了响应URI等于此字符串但没有尾部斜杠的请求，带有代码301的永久重定向将返回到请求的URI，并附加斜杠。 如果不需要，可以像下面这样定义URI和位置的完全匹配： </p>
 <blockquote>
-<pre class="notranslate">listen unix:/var/run/nginx.sock;
-</pre>
-
-
-
+<p>location /user/ { proxy_pass <a href="http://user.example.com" target="_blank" rel="noopener">http://user.example.com</a>; } location = /user { proxy_pass <a href="http://login.example.com" target="_blank" rel="noopener">http://login.example.com</a>; }  Syntax:  <strong>log_not_found</strong> on | off ;<br>  Default:  log_not_found on;  Context:  http , server , location<br>  启用或禁用将未找到的文件的错误记录到error_log中 。 </p>
 </blockquote>
-<p>  如果仅给出<code>*address*</code> ，则使用端口80。 </p>
-<p>  如果指令不存在，那么如果nginx以超级用户权限运行，则使用<code>*:80</code> ，否则使用<code>*:8000</code> 。 </p>
-<p>   <code>default_server</code>参数（如果存在）将使服务器成为指定<code>*address*</code> ： <code>*port*</code>对的默认服务器。  如果没有任何指令具有<code>default_server</code>参数，则具有<code>*address*</code> ： <code>*port*</code>对的第一个服务器将成为该对的默认服务器。 </p>
+<p> Syntax:  <strong>log_subrequest</strong> on | off ;<br>  Default:  log_subrequest off;  Context:  http , server , location<br>  启用或禁用将子请求记录到access_log中 。 </p>
+<p> Syntax:  <strong>max_ranges</strong> <em>number</em> ;<br>  Default:  —  Context:  http , server , location<br>  该指令出现在1.1.2版中。 </p>
+<p> 限制字节范围请求中允许的最大范围数。 超出限制的请求将被处理，就像没有指定字节范围一样。 默认情况下，范围数量不受限制。 零值完全禁用字节范围支持。 </p>
+<p> Syntax:  <strong>merge_slashes</strong> on | off ;<br>  Default:  merge_slashes on;  Context:  http , server<br>  启用或禁用将URI中的两个或多个相邻斜杠压缩为单个斜杠。 </p>
+<p> 请注意，压缩对于正确匹配前缀字符串和正则表达式位置至关重要。 没有它，“ //scripts/one.php ”请求将不匹配 </p>
 <blockquote>
-<p>  在0.8.21之前的版本中，此参数仅命名为<code>default</code> 。 </p>
+<p>location /scripts/ { … }  并且可能被处理为静态文件。 所以它被转换为“ /scripts/one.php ”。 </p>
 </blockquote>
-<p>   <code>ssl</code>参数（0.7.14）允许指定此端口上接受的所有连接都应在SSL模式下工作。  这样可以为处理HTTP和HTTPS请求的服务器提供更紧凑的<a href="configuring_https_servers.html#single_http_https_server">配置</a> 。 </p>
-<p>   <code>http2</code>参数（1.9.5）将端口配置为接受<a href="ngx_http_v2_module.html">HTTP / 2</a>连接。  通常，为了使其工作，也应该指定<code>ssl</code>参数，但是也可以将nginx配置为接受没有SSL的HTTP / 2连接。 </p>
-<p>   <code>spdy</code>参数（1.3.15-1.9.4）允许接受此端口上的<a href="ngx_http_spdy_module.html">SPDY</a>连接。  通常，为了使其工作，还应指定<code>ssl</code>参数，但也可以将nginx配置为接受不带SSL的SPDY连接。 </p>
-<p>   <code>proxy_protocol</code>参数（1.5.12）允许指定此端口上接受的所有连接都应使用<a href="http://www.haproxy.org/download/1.5/doc/proxy-protocol.txt" target="_blank" rel="noopener">PROXY协议</a> 。 </p>
-<blockquote>
-<p>  自版本1.13.11起支持PROXY协议版本2。 </p>
-</blockquote>
-<p>   <code>listen</code>指令可以有几个特定于与套接字相关的系统调用的附加参数。  这些参数可以在任何<code>listen</code>指令中指定，但对于给定的<code>*address*</code>只能指定一次： <code>*port*</code>对。 </p>
-<blockquote>
-<p>  在0.8.21之前的版本中，它们只能在<code>listen</code>指令中与<code>default</code>参数一起指定。 </p>
-<p>  除非服务器可以处理多次<a href="https://tools.ietf.org/html/rfc7413#section-6.1" target="_blank" rel="noopener">使用数据</a>的<a href="https://tools.ietf.org/html/rfc7413#section-6.1" target="_blank" rel="noopener">同一SYN数据包，</a>否则不要启用此功能。 </p>
-<p>  在1.3.4版之前，如果省略此参数，则操作系统的设置对套接字有效。 </p>
-<p>  不恰当地使用此选项可能会产生安全<a href="http://man7.org/linux/man-pages/man7/socket.7.html" target="_blank" rel="noopener">隐患</a> 。 </p>
-<pre class="notranslate">so_keepalive=30m::10</pre>
-
-
-
-</blockquote>
-<p>  例： </p>
-<blockquote>
-<pre class="notranslate">listen 127.0.0.1 default_server accept_filter=dataready backlog=1024;
-</pre>
-
-
-</blockquote>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**location** [
-    &lt;code class=&quot;notranslate&quot;&gt;=</code> |<br>    <code>~</code> |<br>    <code>~*</code> |<br>    <code>^~</code><br>    ] <code>*uri*</code> { … } <br> <code>**location** &lt;code class=&quot;notranslate&quot;&gt;@</code> <code>*name*</code> { … } <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"></td></p>
-<pre><code>—
-
-    &lt;/td&gt;
-</code></pre><p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  根据请求URI设置配置。 </p>
-<p>  在解码以“ <code>%XX</code> ”形式编码的文本，解析对相对路径分量的引用之后，针对规范化的URI执行匹配<code>.</code>   “和” <code>..</code> “，并且可能<a href="#merge_slashes">将</a>两个或多个相邻斜线<a href="#merge_slashes">压缩</a>成单个斜线。 </p>
-<p>  位置可以由前缀字符串或正则表达式定义。  正则表达式使用前面的“ <code>~*</code> ”修饰符（用于不区分大小写的匹配）或“ <code>~</code> ”修饰符（用于区分大小写的匹配）指定。  为了找到与给定请求匹配的位置，nginx首先检查使用前缀字符串（前缀位置）定义的位置。  其中，选择并记住具有最长匹配前缀的位置。  然后按照它们在配置文件中的出现顺序检查正则表达式。  正则表达式的搜索在第一个匹配时终止，并使用相应的配置。  如果未找到与正则表达式的匹配，则使用先前记住的前缀位置的配置。 </p>
-<p>  可以嵌套<code>location</code>块，但下面提到了一些例外情况。 </p>
-<p>  对于不区分大小写的操作系统（如macOS和Cygwin），与前缀字符串匹配会忽略大小写（0.7.7）。  但是，比较仅限于一个字节的区域设置。 </p>
-<p>  正则表达式可以包含稍后可以在其他指令中使用的捕获（0.7.40）。 </p>
-<p>  如果最长匹配前缀位置具有“ <code>^~</code> ”修饰符，则不检查正则表达式。 </p>
-<p>  此外，使用“ <code>=</code> ”修饰符可以定义URI和位置的精确匹配。  如果找到完全匹配，则搜索终止。  例如，如果频繁发生“ <code>/</code> ”请求，则定义“ <code>location = /</code> ”将加速这些请求的处理，因为搜索在第一次比较之后立即终止。  这样的位置显然不能包含嵌套位置。 </p>
-<blockquote>
-<p>  在0.7.1到0.8.41的版本中，如果请求与前缀位置匹配而没有“ <code>=</code> ”和“ <code>^~</code> ”修饰符，则搜索也会终止，并且不会检查正则表达式。 </p>
-</blockquote>
-<p>  让我们通过一个例子来说明以上内容： </p>
-<blockquote>
-<p><pre class="notranslate">location = / {<br>    [ configuration A ]<br>}</pre></p>
-</blockquote>
-<p>location / {<br>    [ configuration B ]<br>}</p>
-<p>location /documents/ {<br>    [ configuration C ]<br>}</p>
-<p>location ^~ /images/ {<br>    [ configuration D ]<br>}</p>
-<p>location ~* .(gif|jpg|jpeg)$ {<br>    [ configuration E ]<br>}<br></p>
-<p>   “ <code>/</code> ”请求将匹配配置A，“/ <code>/index.html</code> ”请求将匹配配置B，“/ <code>/documents/document.html</code> ”请求将匹配配置C，“/ <code>/images/1.gif</code> ”请求将匹配配置D，“/ <code>/documents/1.jpg</code> ”请求将匹配配置E. </p>
-<p>   “ <code>@</code> ”前缀定义了命名位置。  这样的位置不用于常规请求处理，而是用于请求重定向。  它们不能嵌套，也不能包含嵌套位置。 </p>
-<p>  如果位置由以斜杠字符结尾的前缀字符串定义，并且请求由<a href="ngx_http_proxy_module.html#proxy_pass">proxy_pass</a> ， <a href="ngx_http_fastcgi_module.html#fastcgi_pass">fastcgi_pass</a> ， <a href="ngx_http_uwsgi_module.html#uwsgi_pass">uwsgi_pass</a> ， <a href="ngx_http_scgi_module.html#scgi_pass">scgi_pass</a> ， <a href="ngx_http_memcached_module.html#memcached_pass">memcached_pa​​ss</a>或<a href="ngx_http_grpc_module.html#grpc_pass">grpc_pass之一</a>处理，则执行特殊处理。  为了响应URI等于此字符串但没有尾部斜杠的请求，带有代码301的永久重定向将返回到请求的URI，并附加斜杠。  如果不需要，可以像下面这样定义URI和位置的完全匹配： </p>
-<blockquote>
-<p><pre class="notranslate">location /user/ {<br>    proxy_pass <a href="http://user.example.com" target="_blank" rel="noopener">http://user.example.com</a>;<br>}</pre></p>
-</blockquote>
-<p>location = /user {<br>    proxy_pass <a href="http://login.example.com" target="_blank" rel="noopener">http://login.example.com</a>;<br>}<br></p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**log_not_found** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">log_not_found on;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  启用或禁用将未找到的文件的错误记录到<a href="ngx_core_module.html#error_log">error_log中</a> 。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**log_subrequest** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">log_subrequest off;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  启用或禁用将子请求记录到<a href="ngx_http_log_module.html#access_log">access_log中</a> 。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**max_ranges** &lt;code class=&quot;notranslate&quot;&gt;*number*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"></td></p>
-<pre><code>—
-
-    &lt;/td&gt;
-</code></pre><p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  该指令出现在1.1.2版中。 </p>
-<p>  限制字节范围请求中允许的最大范围数。  超出限制的请求将被处理，就像没有指定字节范围一样。  默认情况下，范围数量不受限制。  零值完全禁用字节范围支持。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**merge_slashes** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">merge_slashes on;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> <br><br>                </td></p>
-<p>  启用或禁用将URI中的两个或多个相邻斜杠压缩为单个斜杠。 </p>
-<p>  请注意，压缩对于正确匹配前缀字符串和正则表达式位置至关重要。  没有它，“ <code>//scripts/one.php</code> ”请求将不匹配 </p>
-<blockquote>
-<pre class="notranslate">location /scripts/ {
-    ...
-}
-</pre>
-
-</blockquote>
-<p>  并且可能被处理为静态文件。  所以它被转换为“ <code>/scripts/one.php</code> ”。 </p>
-<p>  如果URI包含base64编码的名称，则必须<code>off</code>压缩，因为base64在内部使用“ <code>/</code> ”字符。  但是，出于安全考虑，最好避免关闭压缩。 </p>
-<p>  如果在<a href="#server">服务器</a>级别指定了该指令，则仅在服务器是默认服务器时使用其值。  指定的值也适用于侦听同一地址和端口的所有虚拟服务器。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**msie_padding** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">msie_padding on;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  启用或禁用向状态大于400的MSIE客户端的响应添加注释，以将响应大小增加到512字节。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**msie_refresh** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">msie_refresh off;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  启用或禁用发布刷新而不是MSIE客户端的重定向。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**open_file_cache** &lt;code class=&quot;notranslate&quot;&gt;off</code> ; <br> <code>**open_file_cache** 
-&lt;code class=&quot;notranslate&quot;&gt;max</code> = <code>*N*</code><br>[ <code>inactive</code> = <code>*time*</code> ]; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">open_file_cache off;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  配置可以存储的缓存： </p>
+<p> 如果URI包含base64编码的名称，则必须off压缩，因为base64在内部使用“ / ”字符。 但是，出于安全考虑，最好避免关闭压缩。 </p>
+<p> 如果在服务器级别指定了该指令，则仅在服务器是默认服务器时使用其值。 指定的值也适用于侦听同一地址和端口的所有虚拟服务器。 </p>
+<p> Syntax:  <strong>msie_padding</strong> on | off ;<br>  Default:  msie_padding on;  Context:  http , server , location<br>  启用或禁用向状态大于400的MSIE客户端的响应添加注释，以将响应大小增加到512字节。 </p>
+<p> Syntax:  <strong>msie_refresh</strong> on | off ;<br>  Default:  msie_refresh off;  Context:  http , server , location<br>  启用或禁用发布刷新而不是MSIE客户端的重定向。 </p>
+<p> Syntax:  <strong>open_file_cache</strong> off ;<br> <strong>open_file_cache</strong> max = <em>N</em> [ inactive = <em>time</em> ];<br>  Default:  open_file_cache off;  Context:  http , server , location<br>  配置可以存储的缓存： </p>
 <ul>
-<li>打开文件描述符，它们的大小和修改时间; -   关于目录存在的信息; -   文件查找错误，例如“找不到文件”，“没有读取权限”等。 <blockquote class="note">  应该通过<a href="#open_file_cache_errors">open_file_cache_errors</a>指令单独启用缓存错误。 </blockquote></li>
+<li>打开文件描述符，它们的大小和修改时间; </li>
+<li>关于目录存在的信息; </li>
+<li><p>文件查找错误，例如“找不到文件”，“没有读取权限”等。 </p>
+<blockquote>
+<p> 应该通过open_file_cache_errors指令单独启用缓存错误。<br>该指令具有以下参数： </p>
+</blockquote>
+<p>max   设置缓存中的最大元素数; 在缓存溢出时，删除最近最少使用（LRU）的元素;  inactive   定义一个时间，如果在此期间未访问该元素，则从该缓存中删除该元素; 默认情况下，它是60秒;  off   禁用缓存。  例： </p>
+</li>
 </ul>
-<p>  该指令具有以下参数： </p>
-<p>  例： </p>
 <blockquote>
-<pre class="notranslate">open_file_cache          max=1000 inactive=20s;
-open_file_cache_valid    30s;
-open_file_cache_min_uses 2;
-open_file_cache_errors   on;
-</pre>
-
-
+<p>open_file_cache max=1000 inactive=20s; open_file_cache_valid 30s; open_file_cache_min_uses 2; open_file_cache_errors on;  Syntax:  <strong>open_file_cache_errors</strong> on | off ;<br>  Default:  open_file_cache_errors off;  Context:  http , server , location<br>  通过open_file_cache启用或禁用文件查找错误的缓存。 </p>
 </blockquote>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**open_file_cache_errors** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">open_file_cache_errors off;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  通过<a href="#open_file_cache">open_file_cache</a>启用或禁用文件查找错误的缓存。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**open_file_cache_min_uses** &lt;code class=&quot;notranslate&quot;&gt;*number*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">open_file_cache_min_uses 1;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  设置在<a href="#open_file_cache">open_file_cache</a>指令的<code>inactive</code>参数配置的时间段内文件访问的最小<code>*number*</code> ，这是文件描述符在缓存中保持打开所必需的。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**open_file_cache_valid** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">open_file_cache_valid 60s;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  设置应验证<a href="#open_file_cache">open_file_cache</a>元素的时间。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**output_buffers** &lt;code class=&quot;notranslate&quot;&gt;*number*</code> <code>*size*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">output_buffers 2 32k;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  设置用于从磁盘读取响应的缓冲区的<code>*number*</code>和<code>*size*</code> 。 </p>
+<p> Syntax:  <strong>open_file_cache_min_uses</strong> <em>number</em> ;<br>  Default:  open_file_cache_min_uses 1;  Context:  http , server , location<br>  设置在open_file_cache指令的inactive参数配置的时间段内文件访问的最小<em>number</em> ，这是文件描述符在缓存中保持打开所必需的。 </p>
+<p> Syntax:  <strong>open_file_cache_valid</strong> <em>time</em> ;<br>  Default:  open_file_cache_valid 60s;  Context:  http , server , location<br>  设置应验证open_file_cache元素的时间。 </p>
+<p> Syntax:  <strong>output_buffers</strong> <em>number</em> <em>size</em> ;<br>  Default:  output_buffers 2 32k;  Context:  http , server , location<br>  设置用于从磁盘读取响应的缓冲区的<em>number</em>和<em>size</em> 。 </p>
 <blockquote>
-<p>  在1.9.5版之前，默认值为1 32k。 </p>
+<p> 在1.9.5版之前，默认值为1 32k。  Syntax:  <strong>port_in_redirect</strong> on | off ;<br>  Default:  port_in_redirect on;  Context:  http , server , location<br>  启用或禁用在nginx发出的绝对重定向中指定端口。 </p>
 </blockquote>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**port_in_redirect** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">port_in_redirect on;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  启用或禁用在nginx发出的<a href="#absolute_redirect">绝对</a>重定向中指定端口。 </p>
-<p>  在重定向中使用主服务器名称由<a href="#server_name_in_redirect">server_name_in_redirect</a>指令控制。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**postpone_output** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">postpone_output 1460;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  如果可能，客户端数据的传输将被推迟，直到nginx至少要发送<code>*size*</code>字节的数据。  零值禁用推迟数据传输。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**read_ahead** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">read_ahead 0;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  设置使用文件时内核的预读取量。 </p>
-<p>  在Linux上，使用<code>posix_fadvise(0, 0, 0, POSIX_FADV_SEQUENTIAL)</code>系统调用，因此忽略<code>*size*</code>参数。 </p>
-<p>  在FreeBSD上，使用了自FreeBSD 9.0-CURRENT以来支持的<code>fcntl(O_READAHEAD,</code> <code>*size*</code> <code>)</code>系统调用。   FreeBSD 7必须<a href="http://sysoev.ru/freebsd/patch.readahead.txt" target="_blank" rel="noopener">打补丁</a> 。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**recursive_error_pages** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">recursive_error_pages off;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  使用<a href="#error_page">error_page</a>指令启用或禁用多个重定向。  此类重定向的数量<a href="#internal">有限</a> 。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**request_pool_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">request_pool_size 4k;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> <br><br>                </td></p>
-<p>  允许精确调整每个请求的内存分配。  该指令对性能的影响最小，通常不应使用。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**reset_timedout_connection** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">reset_timedout_connection off;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  启用或禁用重置超时连接。  重置如下进行。  在关闭套接字之前，在其上设置<code>SO_LINGER</code>选项，超时值为0.当套接字关闭时，TCP RST将发送到客户端，并释放此套接字占用的所有内存。  这有助于避免将已填充缓冲区的已关闭套接字保持在FIN_WAIT1状态很长时间。 </p>
-<p>  应该注意，超时保持连接正常关闭。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**resolver** 
-    &lt;code class=&quot;notranslate&quot;&gt;*address*</code> …<br>    [ <code>valid</code> = <code>*time*</code> ]<br>    [ <code>ipv6</code> = <code>on</code> | <code>off</code> ]; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"></td></p>
-<pre><code>—
-
-    &lt;/td&gt;
-</code></pre><p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  将用于解析上游服务器名称的名称服务器配置到地址中，例如： </p>
+<p> 在重定向中使用主服务器名称由server_name_in_redirect指令控制。 </p>
+<p> Syntax:  <strong>postpone_output</strong> <em>size</em> ;<br>  Default:  postpone_output 1460;  Context:  http , server , location<br>  如果可能，客户端数据的传输将被推迟，直到nginx至少要发送<em>size</em>字节的数据。 零值禁用推迟数据传输。 </p>
+<p> Syntax:  <strong>read_ahead</strong> <em>size</em> ;<br>  Default:  read_ahead 0;  Context:  http , server , location<br>  设置使用文件时内核的预读取量。 </p>
+<p> 在Linux上，使用posix_fadvise(0, 0, 0, POSIX_FADV_SEQUENTIAL)系统调用，因此忽略<em>size</em>参数。 </p>
+<p> 在FreeBSD上，使用了自FreeBSD 9.0-CURRENT以来支持的fcntl(O_READAHEAD, <em>size</em> )系统调用。 FreeBSD 7必须打补丁 。 </p>
+<p> Syntax:  <strong>recursive_error_pages</strong> on | off ;<br>  Default:  recursive_error_pages off;  Context:  http , server , location<br>  使用error_page指令启用或禁用多个重定向。 此类重定向的数量有限 。 </p>
+<p> Syntax:  <strong>request_pool_size</strong> <em>size</em> ;<br>  Default:  request_pool_size 4k;  Context:  http , server<br>  允许精确调整每个请求的内存分配。 该指令对性能的影响最小，通常不应使用。 </p>
+<p> Syntax:  <strong>reset_timedout_connection</strong> on | off ;<br>  Default:  reset_timedout_connection off;  Context:  http , server , location<br>  启用或禁用重置超时连接。 重置如下进行。 在关闭套接字之前，在其上设置SO_LINGER选项，超时值为0.当套接字关闭时，TCP RST将发送到客户端，并释放此套接字占用的所有内存。 这有助于避免将已填充缓冲区的已关闭套接字保持在FIN_WAIT1状态很长时间。 </p>
+<p> 应该注意，超时保持连接正常关闭。 </p>
+<p> Syntax:  <strong>resolver</strong> <em>address</em> … [ valid = <em>time</em> ] [ ipv6 = on | off ];<br>  Default:  —  Context:  http , server , location<br>  将用于解析上游服务器名称的名称服务器配置到地址中，例如： </p>
 <blockquote>
-<pre class="notranslate">resolver 127.0.0.1 [::1]:5353;
-</pre>
-
+<p>resolver 127.0.0.1 [::1]:5353;  可以将地址指定为域名或IP地址，以及可选端口（1.3.1,1.2.2）。 如果未指定端口，则使用端口53。 以循环方式查询名称服务器。 </p>
+<p> 在1.1.7版之前，只能配置一个名称服务器。 从版本1.3.1和1.2.2开始支持使用IPv6地址指定名称服务器。  默认情况下，nginx将在解析时查找IPv4和IPv6地址。 如果不需要查找IPv6地址，可以指定ipv6=off参数。 </p>
+<p> 从版本1.5.8开始支持将名称解析为IPv6地址。  默认情况下，nginx使用响应的TTL值缓存答案。 可选的valid参数允许覆盖它： </p>
+<p>resolver 127.0.0.1 [::1]:5353 valid=30s;<br> 在版本1.1.9之前，无法调整缓存时间，并且nginx始终缓存5分钟的持续时间。<br> 为防止DNS欺骗，建议在正确安全的受信任本地网络中配置DNS服务器。  Syntax:  <strong>resolver_timeout</strong> <em>time</em> ;<br>  Default:  resolver_timeout 30s;  Context:  http , server , location<br>  设置名称解析的超时，例如： </p>
+<p>resolver_timeout 5s;  Syntax:  <strong>root</strong> <em>path</em> ;<br>  Default:  root html;  Context:  http , server , location , if in location<br>  设置请求的根目录。 例如，使用以下配置 </p>
+<p>location /i/ { root /data/w3; }  将发送/data/w3/i/top.gif文件以响应“ /i/top.gif ”请求。 </p>
 </blockquote>
-<p>  可以将地址指定为域名或IP地址，以及可选端口（1.3.1,1.2.2）。  如果未指定端口，则使用端口53。  以循环方式查询名称服务器。 </p>
+<p> <em>path</em>值可以包含变量， $document_root和$realpath_root除外。 </p>
+<p> 仅通过向root指令的值添加URI来构造文件的路径。 如果必须修改URI，则应使用别名指令。 </p>
+<p> Syntax:  <strong>satisfy</strong> all | any ;<br>  Default:  satisfy all;  Context:  http , server , location<br>  如果所有（ all ）或至少一个（ any ） ngx_http_access_module ， ngx_http_auth_basic_module ， ngx_http_auth_request_module或ngx_http_auth_jwt_module模块允许访问，则允许访问。 </p>
+<p> 例： </p>
 <blockquote>
-<p>  在1.1.7版之前，只能配置一个名称服务器。  从版本1.3.1和1.2.2开始支持使用IPv6地址指定名称服务器。 </p>
+<p>location / { satisfy any; allow 192.168.1.0/32; deny all; auth_basic “closed site”; auth_basic_user_file conf/htpasswd; }  Syntax:  <strong>send_lowat</strong> <em>size</em> ;<br>  Default:  send_lowat 0;  Context:  http , server , location<br>  如果指令设置为非零值，nginx将尝试通过使用kqueue方法的NOTE_LOWAT标志或SO_SNDLOWAT套接字选项来最小化客户端套接字上的发送操作数。 在这两种情况下都使用指定的<em>size</em> 。 </p>
 </blockquote>
-<p>  默认情况下，nginx将在解析时查找IPv4和IPv6地址。  如果不需要查找IPv6地址，可以指定<code>ipv6=off</code>参数。 </p>
+<p> 在Linux，Solaris和Windows上忽略此指令。 </p>
+<p> Syntax:  <strong>send_timeout</strong> <em>time</em> ;<br>  Default:  send_timeout 60s;  Context:  http , server , location<br>  设置将响应传输到客户端的超时。 仅在两次连续写操作之间设置超时，而不是整个响应的传输。 如果客户端在此时间内未收到任何内容，则会关闭连接。 </p>
+<p> Syntax:  <strong>sendfile</strong> on | off ;<br>  Default:  sendfile off;  Context:  http , server , location , if in location<br>  启用或禁用sendfile()的使用。 </p>
+<p> 从nginx 0.8.12和FreeBSD 5.2.1开始， aio可用于预加载sendfile()数据： </p>
 <blockquote>
-<p>  从版本1.5.8开始支持将名称解析为IPv6地址。 </p>
+<p>location /video/ { sendfile on; tcp_nopush on; aio on; }  在此配置中，使用SF_NODISKIO标志调用sendfile() ，这会导致它不阻塞磁盘I / O，而是报告数据不在内存中。 然后，nginx通过读取一个字节来启动异步数据加载。 在第一次读取时，FreeBSD内核将文件的前128K字节加载到内存中，尽管下一次读取只会以16K块的形式加载数据。 可以使用read_ahead指令更改此设置 。 </p>
+<p> 在1.7.11版之前，可以使用aio sendfile;启用预加载aio sendfile; 。  Syntax:  <strong>sendfile_max_chunk</strong> <em>size</em> ;<br>  Default:  sendfile_max_chunk 0;  Context:  http , server , location<br>  设置为非零值时，限制可在单个sendfile()调用中传输的数据量。 没有限制，一个快速连接可能完全占用工作进程。 </p>
 </blockquote>
-<p>  默认情况下，nginx使用响应的TTL值缓存答案。  可选的<code>valid</code>参数允许覆盖它： </p>
+<p> Syntax:  <strong>server</strong> { … }<br>  Default:  —  Context:  http<br>  设置虚拟服务器的配置。 基于IP（基于IP地址）和基于名称（基于“主机”请求标头字段）的虚拟服务器之间没有明确的区别。 相反， listen指令描述了应该接受服务器连接的所有地址和端口， server_name指令列出了所有服务器名称。 “ 如何nginx处理请求 ”文档中提供了示例配置。 </p>
+<p> Syntax:  <strong>server_name</strong> <em>name</em> …;<br>  Default:  server_name “”;  Context:  server<br>  设置虚拟服务器的名称，例如： </p>
 <blockquote>
-<pre class="notranslate">resolver 127.0.0.1 [::1]:5353 valid=30s;
-</pre>
-
-
-
-<p>  在版本1.1.9之前，无法调整缓存时间，并且nginx始终缓存5分钟的持续时间。 </p>
-<p>  为防止DNS欺骗，建议在正确安全的受信任本地网络中配置DNS服务器。 </p>
+<p>server { server_name example.com www.example.com; }  第一个名称成为主服务器名称。 </p>
 </blockquote>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**resolver_timeout** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">resolver_timeout 30s;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  设置名称解析的超时，例如： </p>
+<p> 服务器名称可以包含替换名称的第一个或最后一个部分的星号（“ * ”）： </p>
 <blockquote>
-<pre class="notranslate">resolver_timeout 5s;
-</pre>
-
-
+<p>server { server_name example.com <em>.example.com www.example.</em>; }  这些名称称为通配符名称。 </p>
 </blockquote>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**root** &lt;code class=&quot;notranslate&quot;&gt;*path*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">root html;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> , <code>if in location</code> <br><br>                </td></p>
-<p>  设置请求的根目录。  例如，使用以下配置 </p>
+<p> 上面提到的前两个名称可以合二为一： </p>
 <blockquote>
-<pre class="notranslate">location /i/ {
-    root /data/w3;
-}
-</pre>
-
+<p>server { server_name .example.com; }  也可以在服务器名称中使用正则表达式，在名称前面加上波浪号（“ ~ ”）： </p>
+<p>server { server_name www.example.com ~^www\d+.example.com$; }  正则表达式可以包含以后可以在其他指令中使用的捕获（0.7.40）： </p>
+<p>server { server_name ~^(www.)?(.+)$; location / { root /sites/$2; } } server { server_name _; location / { root /sites/default; } }  正则表达式中的命名捕获创建变量（0.8.25），以后可以在其他指令中使用它们： </p>
+<p>server { server_name ~^(www.)?(?<domain>.+)$; location / { root /sites/$domain; } } server { server_name _; location / { root /sites/default; } }  如果指令的参数设置为“ $hostname ”（0.9.4），则插入机器的主机名。 </domain></p>
 </blockquote>
-<p>  将发送<code>/data/w3/i/top.gif</code>文件以响应“ <code>/i/top.gif</code> ”请求。 </p>
-<p>   <code>*path*</code>值可以包含变量， <code>$document_root</code>和<code>$realpath_root</code>除外。 </p>
-<p>  仅通过向<code>root</code>指令的值添加URI来构造文件的路径。  如果必须修改URI，则应使用<a href="#alias">别名</a>指令。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**satisfy** &lt;code class=&quot;notranslate&quot;&gt;all</code> | <code>any</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">satisfy all;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  如果所有（ <code>all</code> ）或至少一个（ <code>any</code> ） <a href="ngx_http_access_module.html">ngx_http_access_module</a> ， <a href="ngx_http_auth_basic_module.html">ngx_http_auth_basic_module</a> ， <a href="ngx_http_auth_request_module.html">ngx_http_auth_request_module</a>或<a href="ngx_http_auth_jwt_module.html">ngx_http_auth_jwt_module</a>模块允许访问，则允许访问。 </p>
-<p>  例： </p>
+<p> 也可以指定一个空的服务器名称（0.7.11）： </p>
 <blockquote>
-<p><pre class="notranslate">location / {<br>    satisfy any;</pre></p>
+<p>server { server_name www.example.com “”; }  它允许此服务器处理请求而不使用“Host”头字段 - 而不是默认服务器 - 用于给定地址：端口对。 这是默认设置。 </p>
+<p> 在0.8.48之前，默认使用机器的主机名。  在按名称搜索虚拟服务器期间，如果名称与多个指定的变体匹配（例如，通配符名称和正则表达式匹配），将按以下优先级顺序选择第一个匹配的变体： </p>
 </blockquote>
-<pre><code>allow 192.168.1.0/32;
-deny  all;
-
-auth_basic           &quot;closed site&quot;;
-auth_basic_user_file conf/htpasswd;
-</code></pre><p>}<br></p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**send_lowat** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">send_lowat 0;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  如果指令设置为非零值，nginx将尝试通过使用<a href="events.html#kqueue">kqueue</a>方法的<code>NOTE_LOWAT</code>标志或<code>SO_SNDLOWAT</code>套接字选项来最小化客户端套接字上的发送操作数。  在这两种情况下都使用指定的<code>*size*</code> 。 </p>
-<p>  在Linux，Solaris和Windows上忽略此指令。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**send_timeout** &lt;code class=&quot;notranslate&quot;&gt;*time*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">send_timeout 60s;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  设置将响应传输到客户端的超时。  仅在两次连续写操作之间设置超时，而不是整个响应的传输。  如果客户端在此时间内未收到任何内容，则会关闭连接。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**sendfile** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">sendfile off;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> , <code>if in location</code> <br><br>                </td></p>
-<p>  启用或禁用<code>sendfile()</code>的使用。 </p>
-<p>  从nginx 0.8.12和FreeBSD 5.2.1开始， <a href="#aio">aio</a>可用于预加载<code>sendfile()</code>数据： </p>
-<blockquote>
-<pre class="notranslate">location /video/ {
-    sendfile       on;
-    tcp_nopush     on;
-    aio            on;
-}
-</pre>
-
-</blockquote>
-<p>  在此配置中，使用<code>SF_NODISKIO</code>标志调用<code>sendfile()</code> ，这会导致它不阻塞磁盘I / O，而是报告数据不在内存中。  然后，nginx通过读取一个字节来启动异步数据加载。  在第一次读取时，FreeBSD内核将文件的前128K字节加载到内存中，尽管下一次读取只会以16K块的形式加载数据。  可以使用<a href="#read_ahead">read_ahead</a>指令更改此<a href="#read_ahead">设置</a> 。 </p>
-<blockquote>
-<p>  在1.7.11版之前，可以使用<code>aio sendfile;</code>启用预加载<code>aio sendfile;</code>   。 </p>
-</blockquote>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**sendfile_max_chunk** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">sendfile_max_chunk 0;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  设置为非零值时，限制可在单个<code>sendfile()</code>调用中传输的数据量。  没有限制，一个快速连接可能完全占用工作进程。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**server** { ... }</code> <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"></td></p>
-<pre><code>—
-
-    &lt;/td&gt;
-</code></pre><p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> <br><br>                </td></p>
-<p>  设置虚拟服务器的配置。  基于IP（基于IP地址）和基于名称（基于“主机”请求标头字段）的虚拟服务器之间没有明确的区别。  相反， <a href="#listen">listen</a>指令描述了应该接受服务器连接的所有地址和端口， <a href="#server_name">server_name</a>指令列出了所有服务器名称。   “ <a href="request_processing.html">如何nginx处理请求</a> ”文档中提供了示例配置。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**server_name** &lt;code class=&quot;notranslate&quot;&gt;*name*</code> …; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">server_name “”;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>server</code> <br><br>                </td></p>
-<p>  设置虚拟服务器的名称，例如： </p>
-<blockquote>
-<pre class="notranslate">server {
-    server_name example.com www.example.com;
-}
-</pre>
-
-
-
-</blockquote>
-<p>  第一个名称成为主服务器名称。 </p>
-<p>  服务器名称可以包含替换名称的第一个或最后一个部分的星号（“ <code>*</code> ”）： </p>
-<blockquote>
-<pre class="notranslate">server {
-    server_name example.com *.example.com www.example.*;
-}
-</pre>
-
-</blockquote>
-<p>  这些名称称为通配符名称。 </p>
-<p>  上面提到的前两个名称可以合二为一： </p>
-<blockquote>
-<pre class="notranslate">server {
-    server_name .example.com;
-}
-</pre>
-
-
-
-</blockquote>
-<p>  也可以在服务器名称中使用正则表达式，在名称前面加上波浪号（“ <code>~</code> ”）： </p>
-<blockquote>
-<pre class="notranslate">server {
-    server_name www.example.com ~^www\d+\.example\.com$;
-}
-</pre>
-
-
-
-</blockquote>
-<p>  正则表达式可以包含以后可以在其他指令中使用的捕获（0.7.40）： </p>
-<blockquote>
-<p><pre class="notranslate">server {<br>    server_name ~^(www.)?(.+)$;</pre></p>
-</blockquote>
-<pre><code>location / {
-    root /sites/$2;
-}
-</code></pre><p>}</p>
-<p>server {<br>    server<em>name </em>;</p>
-<pre><code>location / {
-    root /sites/default;
-}
-</code></pre><p>}<br></p>
-<p>  正则表达式中的命名捕获创建变量（0.8.25），以后可以在其他指令中使用它们： </p>
-<blockquote>
-<p><pre class="notranslate">server {<br>    server_name ~^(www.)?(?&lt;domain&gt;.+)$;</pre></p>
-</blockquote>
-<pre><code>location / {
-    root /sites/$domain;
-}
-</code></pre><p>}</p>
-<p>server {<br>    server<em>name </em>;</p>
-<pre><code>location / {
-    root /sites/default;
-}
-</code></pre><p>}<br></p>
-<p>  如果指令的参数设置为“ <code>$hostname</code> ”（0.9.4），则插入机器的主机名。 </p>
-<p>  也可以指定一个空的服务器名称（0.7.11）： </p>
-<blockquote>
-<pre class="notranslate">server {
-    server_name www.example.com "";
-}
-</pre>
-
-</blockquote>
-<p>  它允许此服务器处理请求而不使用“Host”头字段 - 而不是默认服务器 - 用于给定地址：端口对。  这是默认设置。 </p>
-<blockquote>
-<p>  在0.8.48之前，默认使用机器的主机名。 </p>
-</blockquote>
-<p>  在按名称搜索虚拟服务器期间，如果名称与多个指定的变体匹配（例如，通配符名称和正则表达式匹配），将按以下优先级顺序选择第一个匹配的变体： </p>
 <ol>
-<li>确切的名字 1.   以星号开头的最长通配符名称，例如“ <code>*.example.com</code> ” 1.   最长的通配符名称以星号结尾，例如“ <code>mail.*</code> ” 1.   第一个匹配的正则表达式（按配置文件中的出现顺序） </li>
+<li>确切的名字 </li>
+<li>以星号开头的最长通配符名称，例如“ *.example.com ” </li>
+<li>最长的通配符名称以星号结尾，例如“ mail.* ” </li>
+<li><p>第一个匹配的正则表达式（按配置文件中的出现顺序）<br>服务器名称的详细描述在单独的服务器名称文档中提供。 </p>
+<p>Syntax:  <strong>server_name_in_redirect</strong> on | off ;<br>Default:  server_name_in_redirect off;  Context:  http , server , location<br>在nginx发出的绝对重定向中启用或禁用server_name指令指定的主服务器名称。 禁用主服务器名称时，将使用“主机”请求标头字段中的名称。 如果此字段不存在，则使用服务器的IP地址。 </p>
+<p>在重定向中使用端口由port_in_redirect指令控制。 </p>
+<p>Syntax:  <strong>server_names_hash_bucket_size</strong> <em>size</em> ;<br>Default:  server_names_hash_bucket_size 32|64|128;  Context:  http<br>设置服务器名称哈希表的存储桶大小。 默认值取决于处理器缓存行的大小。 设置哈希表的详细信息在单独的文档中提供。 </p>
+<p>Syntax:  <strong>server_names_hash_max_size</strong> <em>size</em> ;<br>Default:  server_names_hash_max_size 512;  Context:  http<br>设置服务器名称哈希表的最大<em>size</em> 。 设置哈希表的详细信息在单独的文档中提供。 </p>
+<p>Syntax:  <strong>server_tokens</strong> on | off | build | <em>string</em> ;<br>Default:  server_tokens on;  Context:  http , server , location<br>启用或禁用在错误页面和“服务器”响应头字段中发出nginx版本。 </p>
+<p>build参数（1.11.10）允许发出构建名称和nginx版本。 </p>
+<p>此外，作为商业订阅的一部分，从版本1.9.13开始，错误页面上的签名和“服务器”响应头字段值可以使用带变量的<em>string</em>显式设置。 空字符串禁用“服务器”字段的发射。 </p>
+<p>Syntax:  <strong>subrequest_output_buffer_size</strong> <em>size</em> ;<br>Default:  subrequest_output_buffer_size 4k|8k;  Context:  http , server , location<br>该指令出现在1.13.10版本中。 </p>
+<p>Sets the <em>size</em> of the buffer used for storing the response body of a subrequest. 默认情况下，缓冲区大小等于一个内存页面。 这是4K或8K，具体取决于平台。 然而，它可以做得更小。 </p>
+<p>The directive is applicable only for subrequests with response bodies saved into memory. For example, such subrequests are created by SSI . </p>
+<p>Syntax:  <strong>tcp_nodelay</strong> on | off ;<br>Default:  tcp_nodelay on;  Context:  http , server , location<br>启用或禁用TCP_NODELAY选项的使用。 The option is enabled when a connection is transitioned into the keep-alive state. Additionally, it is enabled on SSL connections, for unbuffered proxying, and for WebSocket proxying. </p>
+<p>Syntax:  <strong>tcp_nopush</strong> on | off ;<br>Default:  tcp_nopush off;  Context:  http , server , location<br>Enables or disables the use of the TCP_NOPUSH socket option on FreeBSD or the TCP_CORK socket option on Linux. The options are enabled only when sendfile is used. Enabling the option allows </p>
+</li>
 </ol>
-<p>  服务器名称的详细描述在单独的<a href="server_names.html">服务器名称</a>文档中提供。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**server_name_in_redirect** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">server_name_in_redirect off;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  在nginx发出的<a href="#absolute_redirect">绝对</a>重定向中启用或禁用<a href="#server_name">server_name</a>指令指定的主服务器名称。  禁用主服务器名称时，将使用“主机”请求标头字段中的名称。  如果此字段不存在，则使用服务器的IP地址。 </p>
-<p>  在重定向中使用端口由<a href="#port_in_redirect">port_in_redirect</a>指令控制。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**server_names_hash_bucket_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">server_names_hash_bucket_size 32|64|128;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> <br><br>                </td></p>
-<p>  设置服务器名称哈希表的存储桶大小。  默认值取决于处理器缓存行的大小。  设置哈希表的详细信息在单独的<a href="hash.html">文档</a>中提供。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**server_names_hash_max_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">server_names_hash_max_size 512;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> <br><br>                </td></p>
-<p>  设置服务器名称哈希表的最大<code>*size*</code> 。  设置哈希表的详细信息在单独的<a href="hash.html">文档</a>中提供。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**server_tokens** 
-    &lt;code class=&quot;notranslate&quot;&gt;on</code> |<br>    <code>off</code> |<br>    <code>build</code> |<br>    <code>*string*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">server_tokens on;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  启用或禁用在错误页面和“服务器”响应头字段中发出nginx版本。 </p>
-<p>   <code>build</code>参数（1.11.10）允许发出<a href="configure.html#build">构建名称</a>和nginx版本。 </p>
-<p>  此外，作为<a href="http://nginx.com/products/" target="_blank" rel="noopener">商业订阅的</a>一部分，从版本1.9.13开始，错误页面上的签名和“服务器”响应头字段值可以使用带变量的<code>*string*</code>显式设置。  空字符串禁用“服务器”字段的发射。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**subrequest_output_buffer_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">subrequest_output_buffer_size 4k|8k;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  该指令出现在1.13.10版本中。 </p>
-<p> Sets the <code>*size*</code> of the buffer used for storing the response body of a subrequest.  默认情况下，缓冲区大小等于一个内存页面。  这是4K或8K，具体取决于平台。  然而，它可以做得更小。 </p>
-<p> The directive is applicable only for subrequests with response bodies saved into memory. For example, such subrequests are created by <a href="ngx_http_ssi_module.html#ssi_include_set">SSI</a> . </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**tcp_nodelay** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">tcp_nodelay on;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p>  启用或禁用<code>TCP_NODELAY</code>选项的使用。 The option is enabled when a connection is transitioned into the keep-alive state. Additionally, it is enabled on SSL connections, for unbuffered proxying, and for <a href="websocket.html">WebSocket</a> proxying. </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**tcp_nopush** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">tcp_nopush off;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p> Enables or disables the use of the <code>TCP_NOPUSH</code> socket option on FreeBSD or the <code>TCP_CORK</code> socket option on Linux. The options are enabled only when <a href="#sendfile">sendfile</a> is used. Enabling the option allows </p>
 <ul>
-<li>sending the response header and the beginning of a file in one packet, on Linux and FreeBSD 4.*; -  sending a file in full packets. </li>
+<li>sending the response header and the beginning of a file in one packet, on Linux and FreeBSD 4.*; </li>
+<li>sending a file in full packets.<br>Syntax:  <strong>try_files</strong> <em>file</em> … <em>uri</em> ;<br><strong>try_files</strong> <em>file</em> … = <em>code</em> ;<br>Default:  —  Context:  server , location<br>Checks the existence of files in the specified order and uses the first found file for request processing; the processing is performed in the current context. The path to a file is constructed from the <em>file</em> parameter according to the root and alias directives. It is possible to check directory’s existence by specifying a slash at the end of a name, eg “ $uri/ ”. If none of the files were found, an internal redirect to the <em>uri</em> specified in the last parameter is made. 例如： </li>
 </ul>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**try_files** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> … <code>*uri*</code> ; <br> <code>**try_files** &lt;code class=&quot;notranslate&quot;&gt;*file*</code> … = <code>*code*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"></td></p>
-<pre><code>—
-
-    &lt;/td&gt;
-</code></pre><p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p> Checks the existence of files in the specified order and uses the first found file for request processing; the processing is performed in the current context. The path to a file is constructed from the <code>*file*</code> parameter according to the <a href="#root">root</a> and <a href="#alias">alias</a> directives. It is possible to check directory’s existence by specifying a slash at the end of a name, eg “ <code>$uri/</code> ”. If none of the files were found, an internal redirect to the <code>*uri*</code> specified in the last parameter is made.  例如： </p>
 <blockquote>
-<p><pre class="notranslate">location /images/ {<br>    try_files $uri /images/default.gif;<br>}</pre></p>
+<p>location /images/ { try_files $uri /images/default.gif; } location = /images/default.gif { expires 30s; }  The last parameter can also point to a named location, as shown in examples below. Starting from version 0.7.51, the last parameter can also be a <em>code</em> : </p>
+<p>location / { try_files $uri $uri/index.html $uri.html =404; }  Example in proxying Mongrel: </p>
+<p>location / { try_files /system/maintenance.html $uri $uri/index.html $uri.html @mongrel; } location @mongrel { proxy_pass <a href="http://mongrel" target="_blank" rel="noopener">http://mongrel</a>; }  Example for Drupal/FastCGI: </p>
+<p>location / { try_files $uri $uri/ @drupal; } location ~ .php$ { try_files $uri @drupal; fastcgi_pass …; fastcgi_param SCRIPT_FILENAME /path/to$fastcgi_script_name; fastcgi_param SCRIPT_NAME $fastcgi_script_name; fastcgi_param QUERY_STRING $args; … other fastcgi_param’s } location @drupal { fastcgi_pass …; fastcgi_param SCRIPT_FILENAME /path/to/index.php; fastcgi_param SCRIPT_NAME /index.php; fastcgi_param QUERY_STRING q=$uri&amp;$args; … other fastcgi_param’s }  In the following example, </p>
+<p>location / { try_files $uri $uri/ @drupal; }  the try_files directive is equivalent to </p>
+<p>location / { error_page 404 = @drupal; log_not_found off; }  And here, </p>
+<p>location ~ .php$ { try_files $uri @drupal; fastcgi_pass …; fastcgi_param SCRIPT_FILENAME /path/to$fastcgi_script_name; … }  try_files checks the existence of the PHP file before passing the request to the FastCGI server. </p>
 </blockquote>
-<p>location = /images/default.gif {<br>    expires 30s;<br>}<br></p>
-<p> The last parameter can also point to a named location, as shown in examples below. Starting from version 0.7.51, the last parameter can also be a <code>*code*</code> : </p>
-<blockquote>
-<pre class="notranslate">location / {
-    try_files $uri $uri/index.html $uri.html =404;
-}
-</pre>
-
-
-
-</blockquote>
-<p> Example in proxying Mongrel: </p>
-<blockquote>
-<p><pre class="notranslate">location / {<br>    try_files /system/maintenance.html<br>              $uri $uri/index.html $uri.html<br>              @mongrel;<br>}</pre></p>
-</blockquote>
-<p>location @mongrel {<br>    proxy_pass <a href="http://mongrel" target="_blank" rel="noopener">http://mongrel</a>;<br>}<br></p>
-<p> Example for Drupal/FastCGI: </p>
-<blockquote>
-<p><pre class="notranslate">location / {<br>    try_files $uri $uri/ @drupal;<br>}</pre></p>
-</blockquote>
-<p>location ~ .php$ {<br>    try_files $uri @drupal;</p>
-<pre><code>fastcgi_pass ...;
-
-fastcgi_param SCRIPT_FILENAME /path/to$fastcgi_script_name;
-fastcgi_param SCRIPT_NAME     $fastcgi_script_name;
-fastcgi_param QUERY_STRING    $args;
-
-... other fastcgi_param&apos;s
-</code></pre><p>}</p>
-<p>location @drupal {<br>    fastcgi_pass …;</p>
-<pre><code>fastcgi_param SCRIPT_FILENAME /path/to/index.php;
-fastcgi_param SCRIPT_NAME     /index.php;
-fastcgi_param QUERY_STRING    q=$uri&amp;amp;$args;
-
-... other fastcgi_param&apos;s
-</code></pre><p>}<br></p>
-<p> In the following example, </p>
-<blockquote>
-<pre class="notranslate">location / {
-    try_files $uri $uri/ @drupal;
-}
-</pre>
-
-</blockquote>
-<p> the <code>try_files</code> directive is equivalent to </p>
-<blockquote>
-<pre class="notranslate">location / {
-    error_page 404 = @drupal;
-    log_not_found off;
-}
-</pre>
-
-</blockquote>
-<p> And here, </p>
-<blockquote>
-<p><pre class="notranslate">location ~ .php$ {<br>    try_files $uri @drupal;</pre></p>
-</blockquote>
-<pre><code>fastcgi_pass ...;
-
-fastcgi_param SCRIPT_FILENAME /path/to$fastcgi_script_name;
-
-...
-</code></pre><p>}<br></p>
-<p> <code>try_files</code> checks the existence of the PHP file before passing the request to the FastCGI server. </p>
 <p> Example for Wordpress and Joomla: </p>
 <blockquote>
-<p><pre class="notranslate">location / {<br>    try_files $uri $uri/ @wordpress;<br>}</pre></p>
+<p>location / { try_files $uri $uri/ @wordpress; } location ~ .php$ { try_files $uri @wordpress; fastcgi_pass …; fastcgi_param SCRIPT_FILENAME /path/to$fastcgi_script_name; … other fastcgi_param’s } location @wordpress { fastcgi_pass …; fastcgi_param SCRIPT_FILENAME /path/to/index.php; … other fastcgi_param’s }  Syntax:  <strong>types</strong> { … }<br>  Default:  types { text/html html; image/gif gif; image/jpeg jpg; }  Context:  http , server , location<br>  Maps file name extensions to MIME types of responses. Extensions are case-insensitive. Several extensions can be mapped to one type, for example: </p>
+<p>types { application/octet-stream bin exe dll; application/octet-stream deb; application/octet-stream dmg; }  A sufficiently full mapping table is distributed with nginx in the conf/mime.types file. </p>
 </blockquote>
-<p>location ~ .php$ {<br>    try_files $uri @wordpress;</p>
-<pre><code>fastcgi_pass ...;
-
-fastcgi_param SCRIPT_FILENAME /path/to$fastcgi_script_name;
-... other fastcgi_param&apos;s
-</code></pre><p>}</p>
-<p>location @wordpress {<br>    fastcgi_pass …;</p>
-<pre><code>fastcgi_param SCRIPT_FILENAME /path/to/index.php;
-... other fastcgi_param&apos;s
-</code></pre><p>}<br></p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**types** { ... }</code> <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">types {<br>    text/html  html;<br>    image/gif  gif;<br>    image/jpeg jpg;<br>}</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p> Maps file name extensions to MIME types of responses. Extensions are case-insensitive. Several extensions can be mapped to one type, for example: </p>
+<p> To make a particular location emit the “ application/octet-stream ” MIME type for all requests, the following configuration can be used: </p>
 <blockquote>
-<pre class="notranslate">types {
-    application/octet-stream bin exe dll;
-    application/octet-stream deb;
-    application/octet-stream dmg;
-}
-</pre>
-
-
-
+<p>location /download/ { types { } default_type application/octet-stream; }  Syntax:  <strong>types_hash_bucket_size</strong> <em>size</em> ;<br>  Default:  types_hash_bucket_size 64;  Context:  http , server , location<br>  Sets the bucket size for the types hash tables. 设置哈希表的详细信息在单独的文档中提供。 </p>
+<p> Prior to version 1.5.13, the default value depended on the size of the processor’s cache line.  Syntax:  <strong>types_hash_max_size</strong> <em>size</em> ;<br>  Default:  types_hash_max_size 1024;  Context:  http , server , location<br>  Sets the maximum <em>size</em> of the types hash tables. 设置哈希表的详细信息在单独的文档中提供。 </p>
 </blockquote>
-<p> A sufficiently full mapping table is distributed with nginx in the <code>conf/mime.types</code> file. </p>
-<p> To make a particular location emit the “ <code>application/octet-stream</code> ” MIME type for all requests, the following configuration can be used: </p>
+<p> Syntax:  <strong>underscores_in_headers</strong> on | off ;<br>  Default:  underscores_in_headers off;  Context:  http , server<br>  Enables or disables the use of underscores in client request header fields. When the use of underscores is disabled, request header fields whose names contain underscores are marked as invalid and become subject to the ignore_invalid_headers directive. </p>
+<p> If the directive is specified on the server level, its value is only used if a server is a default one. The value specified also applies to all virtual servers listening on the same address and port. </p>
+<p> Syntax:  <strong>variables_hash_bucket_size</strong> <em>size</em> ;<br>  Default:  variables_hash_bucket_size 64;  Context:  http<br>  设置变量哈希表的桶大小。 设置哈希表的详细信息在单独的文档中提供。 </p>
+<p> Syntax:  <strong>variables_hash_max_size</strong> <em>size</em> ;<br>  Default:  variables_hash_max_size 1024;  Context:  http<br>  设置变量哈希表的最大<em>size</em> 。 设置哈希表的详细信息在单独的文档中提供。 </p>
 <blockquote>
-<pre class="notranslate">location /download/ {
-    types        { }
-    default_type application/octet-stream;
-}
-</pre>
-
-
+<p> Prior to version 1.5.13, the default value was 512. ####  嵌入式变量</p>
 </blockquote>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**types_hash_bucket_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">types_hash_bucket_size 64;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p> Sets the bucket size for the types hash tables.  设置哈希表的详细信息在单独的<a href="hash.html">文档</a>中提供。 </p>
-<blockquote>
-<p> Prior to version 1.5.13, the default value depended on the size of the processor’s cache line. </p>
-</blockquote>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**types_hash_max_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">types_hash_max_size 1024;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> , <code>location</code> <br><br>                </td></p>
-<p> Sets the maximum <code>*size*</code> of the types hash tables.  设置哈希表的详细信息在单独的<a href="hash.html">文档</a>中提供。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**underscores_in_headers** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">underscores_in_headers off;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> , <code>server</code> <br><br>                </td></p>
-<p> Enables or disables the use of underscores in client request header fields. When the use of underscores is disabled, request header fields whose names contain underscores are marked as invalid and become subject to the <a href="#ignore_invalid_headers">ignore_invalid_headers</a> directive. </p>
-<p> If the directive is specified on the <a href="#server">server</a> level, its value is only used if a server is a default one. The value specified also applies to all virtual servers listening on the same address and port. </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**variables_hash_bucket_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">variables_hash_bucket_size 64;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> <br><br>                </td></p>
-<p>  设置变量哈希表的桶大小。  设置哈希表的详细信息在单独的<a href="hash.html">文档</a>中提供。 </p>
-<p><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code>**variables_hash_max_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br><br>                </td></p>
-<p><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">variables_hash_max_size 1024;</pre><br>                </td></p>
-<p><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code>http</code> <br><br>                </td></p>
-<p>  设置变量哈希表的最大<code>*size*</code> 。  设置哈希表的详细信息在单独的<a href="hash.html">文档</a>中提供。 </p>
-<blockquote>
-<p> Prior to version 1.5.13, the default value was 512. </p>
-</blockquote>
-<h4 id="嵌入式变量"><a href="#嵌入式变量" class="headerlink" title="嵌入式变量"></a>嵌入式变量</h4><p> The <code>ngx_http_core_module</code> module supports embedded variables with names matching the Apache Server variables. First of all, these are variables representing client request header fields, such as <code>$http_user_agent</code> , <code>$http_cookie</code> , and so on. Also there are other variables: </p>
-<p>  必须先通过在<a href="#listen">listen</a>指令中设置<code>proxy_protocol</code>参数来启用PROXY协议。 </p>
-<p>  必须先通过在<a href="#listen">listen</a>指令中设置<code>proxy_protocol</code>参数来启用PROXY协议。 </p>
-<p> The variable’s value is made available in locations processed by the <a href="ngx_http_proxy_module.html#proxy_pass">proxy_pass</a> , <a href="ngx_http_fastcgi_module.html#fastcgi_pass">fastcgi_pass</a> , <a href="ngx_http_uwsgi_module.html#uwsgi_pass">uwsgi_pass</a> , and <a href="ngx_http_scgi_module.html#scgi_pass">scgi_pass</a> directives when the request body was read to a <a href="#client_body_buffer_size">memory buffer</a> . </p>
-<p> At the end of processing, the file needs to be removed. To always write the request body to a file, <a href="#client_body_in_file_only">client_body_in_file_only</a> needs to be enabled. When the name of a temporary file is passed in a proxied request or in a request to a FastCGI/uwsgi/SCGI server, passing the request body should be disabled by the <a href="ngx_http_proxy_module.html#proxy_pass_request_body">proxy_pass_request_body off</a> , <a href="ngx_http_fastcgi_module.html#fastcgi_pass_request_body">fastcgi_pass_request_body off</a> , <a href="ngx_http_uwsgi_module.html#uwsgi_pass_request_body">uwsgi_pass_request_body off</a> , or <a href="ngx_http_scgi_module.html#scgi_pass_request_body">scgi_pass_request_body off</a> directives, respectively. </p>
-<p>  计算此变量的值通常需要一次系统调用。  为避免系统调用， <a href="#listen">listen</a>指令必须指定地址并使用<code>bind</code>参数。 </p>
-<p> The value of <code>$uri</code> may change during request processing, eg when doing internal redirects, or when using index files. </p>
+<p> The ngx_http_core_module module supports embedded variables with names matching the Apache Server variables. First of all, these are variables representing client request header fields, such as $http_user_agent , $http_cookie , and so on. Also there are other variables: </p>
+<p> $arg_ <em>name</em>  argument <em>name</em> in the request line  $args   arguments in the request line  $binary_remote_addr   客户端地址采用二进制形式，值的长度始终为IPv4地址的4个字节或IPv6地址的16个字节  $body_bytes_sent   number of bytes sent to a client, not counting the response header; this variable is compatible with the “ %B ” parameter of the mod_log_config Apache module  $bytes_sent   number of bytes sent to a client (1.3.8, 1.2.5)  $connection   connection serial number (1.3.8, 1.2.5)  $connection_requests   current number of requests made through a connection (1.3.8, 1.2.5)  $content_length   “Content-Length” request header field  $content_type   “Content-Type” request header field  $cookie_ <em>name</em>  the <em>name</em> cookie  $document_root   root or alias directive’s value for the current request  $document_uri   same as $uri  $host   in this order of precedence: host name from the request line, or host name from the “Host” request header field, or the server name matching a request  $hostname   主机名  $http_ <em>name</em>  arbitrary request header field; the last part of a variable name is the field name converted to lower case with dashes replaced by underscores  $https   “ on ” if connection operates in SSL mode, or an empty string otherwise  $is_args   “ ? ” if a request line has arguments, or an empty string otherwise  $limit_rate   setting this variable enables response rate limiting; see limit_rate  $msec   current time in seconds with the milliseconds resolution (1.3.9, 1.2.6)  $nginx_version   nginx版本  $pid   工作进程的PID  $pipe   “ p ”如果请求是流水线的，“ . ” otherwise (1.3.12, 1.2.7)  $proxy_protocol_addr   client address from the PROXY protocol header, or an empty string otherwise (1.5.12)  必须先通过在listen指令中设置proxy_protocol参数来启用PROXY协议。 </p>
+<p> $proxy_protocol_port   client port from the PROXY protocol header, or an empty string otherwise (1.11.0)  必须先通过在listen指令中设置proxy_protocol参数来启用PROXY协议。 </p>
+<p> $query_string   same as $args  $realpath_root   an absolute pathname corresponding to the root or alias directive’s value for the current request, with all symbolic links resolved to real paths  $remote_addr   客户地址  $remote_port   客户端端口  $remote_user   user name supplied with the Basic authentication  $request   full original request line  $request_body   请求机构  The variable’s value is made available in locations processed by the proxy_pass , fastcgi_pass , uwsgi_pass , and scgi_pass directives when the request body was read to a memory buffer . </p>
+<p> $request_body_file   name of a temporary file with the request body  At the end of processing, the file needs to be removed. To always write the request body to a file, client_body_in_file_only needs to be enabled. When the name of a temporary file is passed in a proxied request or in a request to a FastCGI/uwsgi/SCGI server, passing the request body should be disabled by the proxy_pass_request_body off , fastcgi_pass_request_body off , uwsgi_pass_request_body off , or scgi_pass_request_body off directives, respectively. </p>
+<p> $request_completion   “ OK ” if a request has completed, or an empty string otherwise  $request_filename   file path for the current request, based on the root or alias directives, and the request URI  $request_id   unique request identifier generated from 16 random bytes, in hexadecimal (1.11.0)  $request_length   request length (including request line, header, and request body) (1.3.12, 1.2.7)  $request_method   request method, usually “ GET ” or “ POST ”  $request_time   request processing time in seconds with a milliseconds resolution (1.3.9, 1.2.6); time elapsed since the first bytes were read from the client  $request_uri   full original request URI (with arguments)  $scheme   request scheme, “ http ” or “ https ”  $sent_http_ <em>name</em>  arbitrary response header field; the last part of a variable name is the field name converted to lower case with dashes replaced by underscores  $sent_trailer_ <em>name</em>  arbitrary field sent at the end of the response (1.13.2); the last part of a variable name is the field name converted to lower case with dashes replaced by underscores  $server_addr   an address of the server which accepted a request  计算此变量的值通常需要一次系统调用。 为避免系统调用， listen指令必须指定地址并使用bind参数。 </p>
+<p> $server_name   name of the server which accepted a request  $server_port   port of the server which accepted a request  $server_protocol   request protocol, usually “ HTTP/1.0 ”, “ HTTP/1.1 ”, or “ HTTP/2.0 ”  $status   response status (1.3.2, 1.2.2)  $tcpinfo_rtt , $tcpinfo_rttvar , $tcpinfo_snd_cwnd , $tcpinfo_rcv_space  information about the client TCP connection; available on systems that support the TCP_INFO socket option  $time_iso8601   local time in the ISO 8601 standard format (1.3.12, 1.2.7)  $time_local   local time in the Common Log Format (1.3.12, 1.2.7)  $uri   current URI in request, normalized  The value of $uri may change during request processing, eg when doing internal redirects, or when using index files. </p>
 
       
     </div>
@@ -1617,7 +927,7 @@ fastcgi_param SCRIPT_FILENAME /path/to$fastcgi_script_name;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-core-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_core_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.1.</span> <span class="nav-text">指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌入式变量"><span class="nav-number">1.0.2.</span> <span class="nav-text">嵌入式变量</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-core-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_core_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.1.</span> <span class="nav-text">指令</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

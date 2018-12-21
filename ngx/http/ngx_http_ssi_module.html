@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="http,ngx_http_ssi_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:45:00.477Z">
+<meta property="og:updated_time" content="2018-12-21T07:53:24.665Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http&#x2F;ngx_http_ssi_module-nginx中文手册">
 <meta name="twitter:description" content="http,ngx_http_ssi_module">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:45:21+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
                 2018年12月21日
               </time>
             
@@ -397,123 +397,33 @@
 
       
         <p>http,ngx_http_ssi_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-http-ssi-module"><a href="#Module-ngx-http-ssi-module" class="headerlink" title="Module ngx_http_ssi_module"></a>Module ngx_http_ssi_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#ssi">ssi</a> <br>     <a href="#ssi_last_modified">ssi_last_modified</a> <br>     <a href="#ssi_min_file_chunk">ssi_min_file_chunk</a> <br>     <a href="#ssi_silent_errors">ssi_silent_errors</a> <br>     <a href="#ssi_types">ssi_types</a> <br>     <a href="#ssi_value_length">ssi_value_length</a> <br> <a href="#commands">SSI Commands</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
-
-<p>   <code>ngx_http_ssi_module</code>模块是一个过滤器，用于处理通过它的响应中的SSI（服务器端包含）命令。  目前，支持的SSI命令列表不完整。 </p>
+<h2 id="Module-ngx-http-ssi-module"><a href="#Module-ngx-http-ssi-module" class="headerlink" title="Module ngx_http_ssi_module"></a>Module ngx_http_ssi_module</h2><p> Example Configuration<br> Directives<br> ssi<br> ssi_last_modified<br> ssi_min_file_chunk<br> ssi_silent_errors<br> ssi_types<br> ssi_value_length<br> SSI Commands<br> Embedded Variables<br> ngx_http_ssi_module模块是一个过滤器，用于处理通过它的响应中的SSI（服务器端包含）命令。 目前，支持的SSI命令列表不完整。 </p>
 <h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><blockquote>
-<pre class="notranslate">location / {
-    ssi on;
-    ...
-}
-</pre>
-
-
-
+<p>location / { ssi on; … } ####  指令</p>
 </blockquote>
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssi** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">ssi off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> , <code>if in location</code> <br>                </td></p>
-<p>  启用或禁用响应中SSI命令的处理。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssi_last_modified** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">ssi_last_modified off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  该指令出现在1.5.1版本中。 </p>
-<p>  允许在SSI处理期间保留原始响应中的“Last-Modified”头字段，以便于响应缓存。 </p>
-<p>  默认情况下，在处理过程中修改响应内容时会删除标题字段，并且可能包含动态生成的元素或与原始响应无关的部分。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssi_min_file_chunk** &lt;code class=&quot;notranslate&quot;&gt;size</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">ssi_min_file_chunk 1k;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  设置存储在磁盘上的响应部分的最小<code>*size*</code> ，从使用<a href="ngx_http_core_module.html#sendfile">sendfile</a>发送它们开始是有意义的。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssi_silent_errors** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">ssi_silent_errors off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  如果启用，则在SSI处理期间发生<code>[an error occurred while processing the directive]</code> ，禁止输出“ <code>[an error occurred while processing the directive]</code> ”字符串。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssi_types** &lt;code class=&quot;notranslate&quot;&gt;*mime-type*</code> …; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">ssi_types text/html;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  除了“ <code>text/html</code> ”之外，还可以在具有指定MIME类型的响应中处理SSI命令。  特殊值“ <code>*</code> ”匹配任何MIME类型（0.8.29）。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssi_value_length** &lt;code class=&quot;notranslate&quot;&gt;*length*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">ssi_value_length 256;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  设置SSI命令中参数值的最大长度。 </p>
-<h4 id="SSI命令"><a href="#SSI命令" class="headerlink" title="SSI命令"></a>SSI命令</h4><p>   SSI命令具有以下通用格式： </p>
+<p> Syntax:  <strong>ssi</strong> on | off ;<br>  Default:  ssi off;  Context:  http , server , location , if in location<br>  启用或禁用响应中SSI命令的处理。 </p>
+<p> Syntax:  <strong>ssi_last_modified</strong> on | off ;<br>  Default:  ssi_last_modified off;  Context:  http , server , location<br>  该指令出现在1.5.1版本中。 </p>
+<p> 允许在SSI处理期间保留原始响应中的“Last-Modified”头字段，以便于响应缓存。 </p>
+<p> 默认情况下，在处理过程中修改响应内容时会删除标题字段，并且可能包含动态生成的元素或与原始响应无关的部分。 </p>
+<p> Syntax:  <strong>ssi_min_file_chunk</strong> size ;<br>  Default:  ssi_min_file_chunk 1k;  Context:  http , server , location<br>  设置存储在磁盘上的响应部分的最小<em>size</em> ，从使用sendfile发送它们开始是有意义的。 </p>
+<p> Syntax:  <strong>ssi_silent_errors</strong> on | off ;<br>  Default:  ssi_silent_errors off;  Context:  http , server , location<br>  如果启用，则在SSI处理期间发生[an error occurred while processing the directive] ，禁止输出“ [an error occurred while processing the directive] ”字符串。 </p>
+<p> Syntax:  <strong>ssi_types</strong> <em>mime-type</em> …;<br>  Default:  ssi_types text/html;  Context:  http , server , location<br>  除了“ text/html ”之外，还可以在具有指定MIME类型的响应中处理SSI命令。 特殊值“ * ”匹配任何MIME类型（0.8.29）。 </p>
+<p> Syntax:  <strong>ssi_value_length</strong> <em>length</em> ;<br>  Default:  ssi_value_length 256;  Context:  http , server , location<br>  设置SSI命令中参数值的最大长度。 </p>
+<h4 id="SSI命令"><a href="#SSI命令" class="headerlink" title="SSI命令"></a>SSI命令</h4><p> SSI命令具有以下通用格式： </p>
 <blockquote>
-<pre class="notranslate">&lt;!--# command parameter1=value1 parameter2=value2 ... --&gt;
-</pre>
-
-
-
+<p><!--# command parameter1=value1 parameter2=value2 ... -->  支持以下命令： </p>
 </blockquote>
-<p>  支持以下命令： </p>
+<p> block   定义可在include命令中用作存根的块。 该块可以包含其他SSI命令。 该命令具有以下参数：  name   块名称。  例： </p>
 <blockquote>
-<pre class="notranslate">&lt;!--# block name="one" --&gt;
-stub
-&lt;!--# endblock --&gt;
-</pre>
-
-<pre class="notranslate">[an error occurred while processing the directive]
-</pre>
-
-<pre class="notranslate">"%A, %d-%b-%Y %H:%M:%S %Z"
-</pre>
-
-<pre class="notranslate">&lt;!--# echo var="name" default=" **no** " --&gt;
-</pre>
-
-<pre class="notranslate">&lt;!--# if expr="$name" --&gt;&lt;!--# echo var="name" --&gt;&lt;!--#
-       else --&gt; **no** &lt;!--# endif --&gt;
-</pre>
-
-<pre class="notranslate">&lt;!--# if expr="..." --&gt;
-...
-&lt;!--# elif expr="..." --&gt;
-...
-&lt;!--# else --&gt;
-...
-&lt;!--# endif --&gt;
-</pre>
-<li>  变量存在检查： <blockquote class="example"><pre class="notranslate">&lt;!--# if expr="$name" --&gt;
-</pre></blockquote></li><li>  变量与文本的比较： <blockquote class="example"><pre class="notranslate">&lt;!--# if expr="$name = `*text*` " --&gt;
-&lt;!--# if expr="$name != `*text*` " --&gt;
-</pre></blockquote></li><li>  变量与正则表达式的比较： <blockquote class="example"><pre class="notranslate">&lt;!--# if expr="$name = / `*text*` /" --&gt;
-&lt;!--# if expr="$name != / `*text*` /" --&gt;
-</pre></blockquote></li>
-<pre class="notranslate">&lt;!--# if expr="$name = `*text*` " --&gt;
-&lt;!--# if expr="$name != `*text*` " --&gt;
-</pre>
-
-<pre class="notranslate">&lt;!--# if expr="$name = /(.+)@(?P&lt;domain&gt;.+)/" --&gt;
-    &lt;!--# echo var="1" --&gt;
-    &lt;!--# echo var="domain" --&gt;
-&lt;!--# endif --&gt;
-</pre>
-
-<pre class="notranslate">&lt;!--# include file="footer.html" --&gt;
-</pre>
-
-<pre class="notranslate">&lt;!--# include virtual="/remote/body.php?argument=value" --&gt;
-</pre>
-
-<pre class="notranslate">&lt;!--# block name="one" --&gt;&amp;nbsp;&lt;!--# endblock --&gt;
-&lt;!--# include virtual="/remote/body.php?argument=value" stub="one" --&gt;
-</pre>
-
-<pre class="notranslate">&lt;!--# include virtual="/remote/body.php?argument=value" wait="yes" --&gt;
-</pre>
-
-<pre class="notranslate">&lt;!--# include virtual="/remote/body.php?argument=value" set="one" --&gt;
-</pre>
-
-<pre class="notranslate">location /remote/ {
-    subrequest_output_buffer_size 64k;
-    ...
-}
-</pre>
-
-
-
+<!--# block name="one" --> stub <!--# endblock -->  config   设置SSI处理期间使用的一些参数，即：  errmsg   在SSI处理期间发生错误时输出的字符串。 默认情况下，输出以下字符串：<br>[an error occurred while processing the directive]  timefmt   传递给strftime()函数的格式字符串，用于输出日期和时间。 默认情况下，使用以下格式：<br>“%A, %d-%b-%Y %H:%M:%S %Z”  “ %s ”格式适合以秒为单位输出时间。  echo   输出变量的值。 该命令具有以下参数：  var   变量名称。  encoding   编码方法。 可能的值包括none ， url和entity 。 默认情况下，使用entity 。  default   一个非标准参数，如果未定义变量，则设置要输出的字符串。 默认情况下，输出“ (none) ”。 命令<br><!--# echo var="name" default=" **no** " -->  替换以下命令序列：<br><!--# if expr="$name" --><!--# echo var="name" --><!--# else --> <strong>no</strong> <!--# endif -->  if   执行条件包含。 支持以下命令：<br><!--# if expr="..." --> … <!--# elif expr="..." --> … <!--# else --> … <!--# endif -->  目前仅支持一级嵌套。 该命令具有以下参数：  expr   表达。 表达式可以是： *  变量存在检查：<br><!--# if expr="$name" --> 
+<ul>
+<li>变量与文本的比较： <!--# if expr="$name = *text* " --> <!--# if expr="$name != *text* " --> </li>
+<li>变量与正则表达式的比较： <!--# if expr="$name = / *text* /" --> <!--# if expr="$name != / *text* /" --> 
+如果<em>text</em>包含变量，则替换它们的值。 正则表达式可以包含以后可以通过变量使用的位置和命名捕获，例如：<br><!--# if expr="$name = /(.+)@(?P<domain>.+)/" --> <!--# echo var="1" --> <!--# echo var="domain" --> <!--# endif -->  include   将另一个请求的结果包含在响应中。 该命令具有以下参数：  file   指定包含的文件，例如：<br><!--# include file="footer.html" -->  virtual   指定包含的请求，例如：<br><!--# include virtual="/remote/body.php?argument=value" -->  在一个页面上指定并由代理或FastCGI / uwsgi / SCGI / gRPC服务器处理的多个请求并行运行。 如果需要顺序处理，则应使用wait参数。  stub   一个非标准参数，用于命名块，如果包含的请求导致空体或在请求处理期间发生错误，则将输出其内容，例如：<br><!--# block name="one" -->&nbsp;<!--# endblock --> <!--# include virtual="/remote/body.php?argument=value" stub="one" -->  替换块内容在包含的请求上下文中处理。  wait   一个非标准参数，指示在继续进行SSI处理之前等待请求完全完成，例如：<br><!--# include virtual="/remote/body.php?argument=value" wait="yes" -->  set   一个非标准参数，指示将请求处理的成功结果写入指定变量，例如：<br><!--# include virtual="/remote/body.php?argument=value" set="one" -->  响应的最大大小由subrequest_output_buffer_size指令（1.13.10）设置：<br>location /remote/ { subrequest_output_buffer_size 64k; … }  在版本1.13.10之前，只有使用ngx_http_proxy_module ， ngx_http_memcached_module ， ngx_http_fastcgi_module （1.5.6）， ngx_http_uwsgi_module （1.5.6）和ngx_http_scgi_module （1.5.6）模块获得的响应结果才能写入变量。 响应的最大大小是使用proxy_buffer_size ， memcached_buffer_size ， fastcgi_buffer_size ， uwsgi_buffer_size和scgi_buffer_size指令设置的。  set   设置变量的值。 该命令具有以下参数：  var   变量名称。  value   变量值。 如果指定的值包含变量，则替换它们的值。 ####  嵌入式变量</li>
+</ul>
 </blockquote>
-<h4 id="嵌入式变量"><a href="#嵌入式变量" class="headerlink" title="嵌入式变量"></a>嵌入式变量</h4><p>   <code>ngx_http_ssi_module</code>模块支持两个嵌入变量： </p>
+<p> ngx_http_ssi_module模块支持两个嵌入变量： </p>
+<p> $date_local   当地时区的当前时间。 该格式由config命令和timefmt参数设置。  $date_gmt   格林威治标准时间当前时间 该格式由config命令和timefmt参数设置。  </p>
 
       
     </div>
@@ -746,7 +656,7 @@ stub
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-ssi-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_ssi_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SSI命令"><span class="nav-number">1.0.3.</span> <span class="nav-text">SSI命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌入式变量"><span class="nav-number">1.0.4.</span> <span class="nav-text">嵌入式变量</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-ssi-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_ssi_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SSI命令"><span class="nav-number">1.0.2.</span> <span class="nav-text">SSI命令</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="http,ngx_http_referer_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:44:59.905Z">
+<meta property="og:updated_time" content="2018-12-21T07:53:24.225Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http&#x2F;ngx_http_referer_module-nginx中文手册">
 <meta name="twitter:description" content="http,ngx_http_referer_module">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:45:21+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
                 2018年12月21日
               </time>
             
@@ -397,39 +397,22 @@
 
       
         <p>http,ngx_http_referer_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-http-referer-module"><a href="#Module-ngx-http-referer-module" class="headerlink" title="Module ngx_http_referer_module"></a>Module ngx_http_referer_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#referer_hash_bucket_size">referer_hash_bucket_size</a> <br>     <a href="#referer_hash_max_size">referer_hash_max_size</a> <br>     <a href="#valid_referers">valid_referers</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
-
-<p>   <code>ngx_http_referer_module</code>模块用于阻止对“Referer”头字段中具有无效值的请求访问站点。  应该记住，使用适当的“Referer”字段值来构造请求非常容易，因此本模块的预期目的不是要彻底阻止此类请求，而是阻止常规浏览器发送的请求的大量流量。  还应该考虑到，即使对于有效请求，常规浏览器也可能不发送“Referer”字段。 </p>
+<h2 id="Module-ngx-http-referer-module"><a href="#Module-ngx-http-referer-module" class="headerlink" title="Module ngx_http_referer_module"></a>Module ngx_http_referer_module</h2><p> Example Configuration<br> Directives<br> referer_hash_bucket_size<br> referer_hash_max_size<br> valid_referers<br> Embedded Variables<br> ngx_http_referer_module模块用于阻止对“Referer”头字段中具有无效值的请求访问站点。 应该记住，使用适当的“Referer”字段值来构造请求非常容易，因此本模块的预期目的不是要彻底阻止此类请求，而是阻止常规浏览器发送的请求的大量流量。 还应该考虑到，即使对于有效请求，常规浏览器也可能不发送“Referer”字段。 </p>
 <h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><blockquote>
-<p><pre class="notranslate">valid_referers none blocked server_names<br>               <em>.example.com example.</em> www.example.org/galleries/<br>               ~.google.;</pre></p>
+<p>valid_referers none blocked server_names <em>.example.com example.</em> www.example.org/galleries/ ~.google.; if ($invalid_referer) { return 403; } ####  指令</p>
 </blockquote>
-<p>if ($invalid_referer) {<br>    return 403;<br>}<br></p>
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**referer_hash_bucket_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">referer_hash_bucket_size 64;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  该指令出现在1.0.5版本中。 </p>
-<p>  设置有效引用散列表的存储区大小。  设置哈希表的详细信息在单独的<a href="hash.html">文档</a>中提供。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**referer_hash_max_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">referer_hash_max_size 2048;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  该指令出现在1.0.5版本中。 </p>
-<p>  设置有效引用者哈希表的最大<code>*size*</code> 。  设置哈希表的详细信息在单独的<a href="hash.html">文档</a>中提供。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**valid_referers**     &lt;code class=&quot;notranslate&quot;&gt;none</code> |    <code>blocked</code> |    <code>server_names</code> |    <code>*string*</code>    …; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  指定将导致嵌入的<code>$invalid_referer</code>变量设置为空字符串的“Referer”请求标头字段值。  否则，变量将设置为“ <code>1</code> ”。  搜索匹配不区分大小写。 </p>
-<p>  参数可以如下： </p>
-<p>  例： </p>
+<p> Syntax:  <strong>referer_hash_bucket_size</strong> <em>size</em> ;<br>  Default:  referer_hash_bucket_size 64;  Context:  server , location<br>  该指令出现在1.0.5版本中。 </p>
+<p> 设置有效引用散列表的存储区大小。 设置哈希表的详细信息在单独的文档中提供。 </p>
+<p> Syntax:  <strong>referer_hash_max_size</strong> <em>size</em> ;<br>  Default:  referer_hash_max_size 2048;  Context:  server , location<br>  该指令出现在1.0.5版本中。 </p>
+<p> 设置有效引用者哈希表的最大<em>size</em> 。 设置哈希表的详细信息在单独的文档中提供。 </p>
+<p> Syntax:  <strong>valid_referers</strong> none | blocked | server_names | <em>string</em> …;<br>  Default:  —  Context:  server , location<br>  指定将导致嵌入的$invalid_referer变量设置为空字符串的“Referer”请求标头字段值。 否则，变量将设置为“ 1 ”。 搜索匹配不区分大小写。 </p>
+<p> 参数可以如下： </p>
+<p> none   请求标头中缺少“Referer”字段;  blocked   “Referer”字段出现在请求标头中，但其值已被防火墙或代理服务器删除; 这些值是不以“ http:// ”或“ https:// ”开头的字符串;  server_names   “Referer”请求头字段包含一个服务器名称;  任意字串  定义服务器名称和可选的URI前缀。 服务器名称的开头或结尾可以包含“ * ”。 在检查期间，“Referer”字段中的服务器端口被忽略;  正则表达式  第一个符号应为“ ~ ”。 应该注意的是，表达式将与“ http:// ”或“ https:// ”之后的文本匹配。  例： </p>
 <blockquote>
-<pre class="notranslate">valid_referers none blocked server_names
-               *.example.com example.* www.example.org/galleries/
-               ~\.google\.;
-</pre>
-
-
-
+<p>valid_referers none blocked server_names <em>.example.com example.</em> www.example.org/galleries/ ~.google.; ####  嵌入式变量</p>
 </blockquote>
-<h4 id="嵌入式变量"><a href="#嵌入式变量" class="headerlink" title="嵌入式变量"></a>嵌入式变量</h4>
+<p> $invalid_referer   空字符串，如果“Referer”请求标头字段值被认为有效 ，否则为“ 1 ”。  </p>
+
       
     </div>
     
@@ -661,7 +644,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-referer-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_referer_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌入式变量"><span class="nav-number">1.0.3.</span> <span class="nav-text">嵌入式变量</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-referer-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_referer_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

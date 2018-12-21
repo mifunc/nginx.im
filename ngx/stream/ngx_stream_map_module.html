@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="stream,ngx_stream_map_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:45:01.982Z">
+<meta property="og:updated_time" content="2018-12-21T07:53:26.568Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="stream&#x2F;ngx_stream_map_module-nginx中文手册">
 <meta name="twitter:description" content="stream,ngx_stream_map_module">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:45:21+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
                 2018年12月21日
               </time>
             
@@ -397,54 +397,33 @@
 
       
         <p>stream,ngx_stream_map_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-stream-map-module"><a href="#Module-ngx-stream-map-module" class="headerlink" title="Module ngx_stream_map_module"></a>Module ngx_stream_map_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#map">map</a> <br>     <a href="#map_hash_bucket_size">map_hash_bucket_size</a> <br>     <a href="#map_hash_max_size">map_hash_max_size</a> <br></td>
-
-<p>   <code>ngx_stream_map_module</code>模块（1.11.2）创建的变量的值取决于其他变量的值。 </p>
+<h2 id="Module-ngx-stream-map-module"><a href="#Module-ngx-stream-map-module" class="headerlink" title="Module ngx_stream_map_module"></a>Module ngx_stream_map_module</h2><p> Example Configuration<br> Directives<br> map<br> map_hash_bucket_size<br> map_hash_max_size<br> ngx_stream_map_module模块（1.11.2）创建的变量的值取决于其他变量的值。 </p>
 <h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><blockquote>
-<p><pre class="notranslate">map $remote_addr $limit {<br>    127.0.0.1    “”;<br>    default      $binary_remote_addr;<br>}</pre></p>
+<p>map $remote_addr $limit { 127.0.0.1 “”; default $binary_remote_addr; } limit_conn_zone $limit zone=addr:10m; limit_conn addr 1; ####  指令</p>
 </blockquote>
-<p>limit_conn_zone $limit zone=addr:10m;<br>limit_conn addr 1;<br></p>
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**map**     &lt;code class=&quot;notranslate&quot;&gt;*string*</code>    <code>*$variable*</code> { … } <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> <br>                </td></p>
-<p>  创建一个新变量，其值取决于第一个参数中指定的一个或多个源变量的值。 </p>
+<p> Syntax:  <strong>map</strong> <em>string</em> <em>$variable</em> { … }<br>  Default:  —  Context:  stream<br>  创建一个新变量，其值取决于第一个参数中指定的一个或多个源变量的值。 </p>
 <blockquote>
-<p>  由于变量仅在使用时进行评估，因此即使是大量“ <code>map</code> ”变量的声明也不会给连接处理增加任何额外成本。 </p>
+<p> 由于变量仅在使用时进行评估，因此即使是大量“ map ”变量的声明也不会给连接处理增加任何额外成本。  地图块内的参数指定源和结果值之间的映射。 </p>
 </blockquote>
-<p>  地图块内的参数指定源和结果值之间的映射。 </p>
-<p>  源值指定为字符串或正则表达式。 </p>
-<p>  字符串匹配忽略大小写。 </p>
-<p>  正则表达式应该从“ <code>~</code> ”符号开始，用于区分大小写的匹配，或者从“ <code>~*</code> ”符号开始，用于不区分大小写的匹配。  正则表达式可以包含命名和位置捕获，以后可以在其他指令中使用结果变量。 </p>
-<p>  如果源值与下面描述的特殊参数名称之一匹配，则应使用“ <code>\</code> ”符号作为前缀。 </p>
-<p>  结果值可以包含文本，变量及其组合。 </p>
-<p>  还支持以下特殊参数： </p>
+<p> 源值指定为字符串或正则表达式。 </p>
+<p> 字符串匹配忽略大小写。 </p>
+<p> 正则表达式应该从“ ~ ”符号开始，用于区分大小写的匹配，或者从“ ~* ”符号开始，用于不区分大小写的匹配。 正则表达式可以包含命名和位置捕获，以后可以在其他指令中使用结果变量。 </p>
+<p> 如果源值与下面描述的特殊参数名称之一匹配，则应使用“ \ ”符号作为前缀。 </p>
+<p> 结果值可以包含文本，变量及其组合。 </p>
+<p> 还支持以下特殊参数： </p>
+<p> default <em>value</em>  如果源值与任何指定的变量都不匹配，则设置结果值。 如果未指定default，则默认结果值将为空字符串。  hostnames   表示源值可以是带有前缀或后缀掩码的主机名： </p>
 <blockquote>
-<pre class="notranslate">*.example.com 1;
-example.*     1;
-</pre>
-
-<pre class="notranslate">example.com   1;
-*.example.com 1;
-</pre>
-
-<pre class="notranslate">.example.com  1;
-</pre>
-
-
-
+<p><em>.example.com 1; example.</em> 1;  以下两条记录<br>example.com 1; <em>.example.com 1;  可以合并：<br>.example.com 1;  应在值列表之前指定此参数。  include </em>file*  包含一个包含值的文件。 可能有几个夹杂物。  volatile   表示该变量不可缓存（1.11.7）。  如果源值与多个指定变量匹配，例如掩码和正则表达式匹配，则将按以下优先级顺序选择第一个匹配变量： </p>
 </blockquote>
-<p>  如果源值与多个指定变量匹配，例如掩码和正则表达式匹配，则将按以下优先级顺序选择第一个匹配变量： </p>
 <ol>
-<li>没有掩码的字符串值 1.   带有前缀掩码的最长字符串值，例如“ <code>*.example.com</code> ” 1.   带有后缀掩码的最长字符串值，例如“ <code>mail.*</code> ” 1.   第一个匹配正则表达式（按配置文件中的出现顺序） 1.   默认值 </li>
+<li>没有掩码的字符串值 </li>
+<li>带有前缀掩码的最长字符串值，例如“ *.example.com ” </li>
+<li>带有后缀掩码的最长字符串值，例如“ mail.* ” </li>
+<li>第一个匹配正则表达式（按配置文件中的出现顺序） </li>
+<li><p>默认值<br>Syntax:  <strong>map_hash_bucket_size</strong> <em>size</em> ;<br>Default:  map_hash_bucket_size 32|64|128;  Context:  stream<br>设置映射变量哈希表的存储区大小。 默认值取决于处理器的缓存行大小。 设置哈希表的详细信息在单独的文档中提供。 </p>
+<p>Syntax:  <strong>map_hash_max_size</strong> <em>size</em> ;<br>Default:  map_hash_max_size 2048;  Context:  stream<br>设置映射变量哈希表的最大<em>size</em> 。 设置哈希表的详细信息在单独的文档中提供。 </p>
+</li>
 </ol>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**map_hash_bucket_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">map_hash_bucket_size 32|64|128;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> <br>                </td></p>
-<p>  设置<a href="#map">映射</a>变量哈希表的存储区大小。  默认值取决于处理器的缓存行大小。  设置哈希表的详细信息在单独的<a href="hash.html">文档</a>中提供。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**map_hash_max_size** &lt;code class=&quot;notranslate&quot;&gt;*size*</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">map_hash_max_size 2048;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> <br>                </td></p>
-<p>  设置<a href="#map">映射</a>变量哈希表的最大<code>*size*</code> 。  设置哈希表的详细信息在单独的<a href="hash.html">文档</a>中提供。 </p>
 
       
     </div>
@@ -677,7 +656,7 @@ example.*     1;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-stream-map-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_stream_map_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-stream-map-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_stream_map_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

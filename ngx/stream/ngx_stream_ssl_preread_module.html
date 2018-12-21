@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="stream,ngx_stream_ssl_preread_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:45:02.285Z">
+<meta property="og:updated_time" content="2018-12-21T07:53:26.851Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="stream&#x2F;ngx_stream_ssl_preread_module-nginx中文手册">
 <meta name="twitter:description" content="stream,ngx_stream_ssl_preread_module">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:45:21+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
                 2018年12月21日
               </time>
             
@@ -397,31 +397,16 @@
 
       
         <p>stream,ngx_stream_ssl_preread_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-stream-ssl-preread-module"><a href="#Module-ngx-stream-ssl-preread-module" class="headerlink" title="Module ngx_stream_ssl_preread_module"></a>Module ngx_stream_ssl_preread_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#ssl_preread">ssl_preread</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
+<h2 id="Module-ngx-stream-ssl-preread-module"><a href="#Module-ngx-stream-ssl-preread-module" class="headerlink" title="Module ngx_stream_ssl_preread_module"></a>Module ngx_stream_ssl_preread_module</h2><p> Example Configuration<br> Directives<br> ssl_preread<br> Embedded Variables<br> ngx_stream_ssl_preread_module模块（1.11.5）允许从ClientHello消息中提取信息而不终止SSL / TLS，例如，通过SNI请求的服务器名称或在ALPN中通告的协议。 默认情况下不构建此模块，应使用–with-stream_ssl_preread_module配置参数启用它。 </p>
+<h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><p> 根据服务器名称选择上游： </p>
+<blockquote>
+<p>map $ssl_preread_server_name $name { backend.example.com backend; default backend2; } upstream backend { server 192.168.0.1:12345; server 192.168.0.2:12345; } upstream backend2 { server 192.168.0.3:12345; server 192.168.0.4:12345; } server { listen 12346; proxy_pass $name; ssl_preread on; }  根据协议选择上游： </p>
+<p>map $ssl_preread_alpn_protocols $proxy { ~\bh2\b 127.0.0.1:8001; ~\bhttp/1.1\b 127.0.0.1:8002; ~\bxmpp-client\b 127.0.0.1:8003; } server { listen 9000; proxy_pass $proxy; ssl_preread on; }  根据SSL协议版本选择上游： </p>
+<p>map $ssl_preread_protocol $upstream { “” ssh.example.com:22; “TLSv1.2” new.example.com:443; default tls.example.com:443; } # ssh and https on the same port server { listen 192.168.0.1:443; proxy_pass $upstream; ssl_preread on; } ####  指令</p>
+</blockquote>
+<p> Syntax:  <strong>ssl_preread</strong> on | off ;<br>  Default:  ssl_preread off;  Context:  stream , server<br>  允许在预读阶段从ClientHello消息中提取信息。 </p>
+<h4 id="嵌入式变量"><a href="#嵌入式变量" class="headerlink" title="嵌入式变量"></a>嵌入式变量</h4><p> $ssl_preread_protocol   客户端支持的最高SSL协议版本（1.15.2）  $ssl_preread_server_name   通过SNI请求的服务器名称  $ssl_preread_alpn_protocols   客户端通过ALPN（1.13.10）公布的协议列表。 值以逗号分隔。  </p>
 
-<p>   <code>ngx_stream_ssl_preread_module</code>模块（1.11.5）允许从<a href="https://tools.ietf.org/html/rfc5246#section-7.4.1.2" target="_blank" rel="noopener">ClientHello</a>消息中提取信息而不终止SSL / TLS，例如，通过<a href="https://tools.ietf.org/html/rfc6066#section-3" target="_blank" rel="noopener">SNI</a>请求的服务器名称或在<a href="https://tools.ietf.org/html/rfc7301" target="_blank" rel="noopener">ALPN中</a>通告的协议。  默认情况下不构建此模块，应使用<code>--with-stream_ssl_preread_module</code>配置参数启用它。 </p>
-<h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><p>  根据服务器名称选择上游： </p>
-<blockquote>
-<p><pre class="notranslate">map $ssl_preread_server_name $name {<br>    backend.example.com      backend;<br>    default                  backend2;<br>}</pre></p>
-</blockquote>
-<p>upstream backend {<br>    server 192.168.0.1:12345;<br>    server 192.168.0.2:12345;<br>}</p>
-<p>upstream backend2 {<br>    server 192.168.0.3:12345;<br>    server 192.168.0.4:12345;<br>}</p>
-<p>server {<br>    listen      12346;<br>    proxy_pass  $name;<br>    ssl_preread on;<br>}<br></p>
-<p>  根据协议选择上游： </p>
-<blockquote>
-<p><pre class="notranslate">map $ssl_preread_alpn_protocols $proxy {<br>    ~\bh2\b           127.0.0.1:8001;<br>    ~\bhttp/1.1\b     127.0.0.1:8002;<br>    ~\bxmpp-client\b  127.0.0.1:8003;<br>}</pre></p>
-</blockquote>
-<p>server {<br>    listen      9000;<br>    proxy_pass  $proxy;<br>    ssl_preread on;<br>}<br></p>
-<p>  根据SSL协议版本选择上游： </p>
-<blockquote>
-<p><pre class="notranslate">map $ssl_preread_protocol $upstream {<br>    “”        ssh.example.com:22;<br>    “TLSv1.2” new.example.com:443;<br>    default   tls.example.com:443;<br>}</pre></p>
-</blockquote>
-<h1 id="ssh-and-https-on-the-same-port"><a href="#ssh-and-https-on-the-same-port" class="headerlink" title="ssh and https on the same port"></a>ssh and https on the same port</h1><p>server {<br>    listen      192.168.0.1:443;<br>    proxy_pass  $upstream;<br>    ssl_preread on;<br>}<br></p>
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_preread** &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> ; <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">ssl_preread off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  允许在<a href="stream_processing.html#preread_phase">预读</a>阶段从ClientHello消息中提取信息。 </p>
-<h4 id="嵌入式变量"><a href="#嵌入式变量" class="headerlink" title="嵌入式变量"></a>嵌入式变量</h4>
       
     </div>
     
@@ -653,7 +638,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-stream-ssl-preread-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_stream_ssl_preread_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ssh-and-https-on-the-same-port"><span class="nav-number"></span> <span class="nav-text">ssh and https on the same port</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">0.0.1.</span> <span class="nav-text">指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌入式变量"><span class="nav-number">0.0.2.</span> <span class="nav-text">嵌入式变量</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-stream-ssl-preread-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_stream_ssl_preread_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌入式变量"><span class="nav-number">1.0.2.</span> <span class="nav-text">嵌入式变量</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

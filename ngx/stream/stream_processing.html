@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="stream,stream_processing">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T07:44:55.977Z">
+<meta property="og:updated_time" content="2018-12-21T07:53:20.851Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="stream&#x2F;stream_processing-nginx中文手册">
 <meta name="twitter:description" content="stream,stream_processing">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:45:21+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:53:48+08:00">
                 2018年12月21日
               </time>
             
@@ -397,7 +397,8 @@
 
       
         <p>stream,stream_processing<br><a id="more"></a></p>
-<h2 id="nginx如何处理TCP-UDP会话"><a href="#nginx如何处理TCP-UDP会话" class="headerlink" title="nginx如何处理TCP / UDP会话"></a>nginx如何处理TCP / UDP会话</h2><p>  来自客户端的TCP / UDP会话在称为<strong>阶段的</strong>连续步骤中处理： </p>
+<h2 id="nginx如何处理TCP-UDP会话"><a href="#nginx如何处理TCP-UDP会话" class="headerlink" title=" nginx如何处理TCP / UDP会话"></a> nginx如何处理TCP / UDP会话</h2><p> 来自客户端的TCP / UDP会话在称为<strong>阶段的</strong>连续步骤中处理： </p>
+<p> Post-accept   接受客户端连接后的第一阶段。 在此阶段调用ngx_stream_realip_module模块。  Pre-access   初步检查访问。 在此阶段调用ngx_stream_limit_conn_module模块。  Access   实际数据处理前的客户端访问限制。 在此阶段调用ngx_stream_access_module模块。  SSL   TLS / SSL终止。 在此阶段调用ngx_stream_ssl_module模块。  Preread   将初始数据字节读入预读缓冲区，以允许诸如ngx_stream_ssl_preread_module之类的模块在处理之前分析数据。  Content   实际处理数据的强制阶段（通常代理到上游服务器）或指定值返回给客户端。  Log   记录客户端会话处理结果的最后阶段。 在此阶段调用ngx_stream_log_module模块。  </p>
 
       
     </div>
@@ -626,7 +627,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#nginx如何处理TCP-UDP会话"><span class="nav-number">1.</span> <span class="nav-text">nginx如何处理TCP / UDP会话</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#nginx如何处理TCP-UDP会话"><span class="nav-number">1.</span> <span class="nav-text"> nginx如何处理TCP / UDP会话</span></a></li></ol></div>
             
 
           </div>
