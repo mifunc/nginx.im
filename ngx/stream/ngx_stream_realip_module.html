@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="LINUX,NGINX,JAVA,PYTHON,PYTHON,前端,运维实践" />
+  <meta name="keywords" content="nginx," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="Module ngx_stream_realip_module Example Configuration  Directives      set_real_ip_from  Embedded Variables    ngx_stream_realip_module模块用于将客户端地址和端口更改为PROXY协议头（">
+<meta name="description" content="stream,ngx_stream_realip_module">
+<meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
-<meta property="og:title" content="IM.NGINX">
+<meta property="og:title" content="stream&#x2F;ngx_stream_realip_module-nginx中文手册">
 <meta property="og:url" content="http://nginx.im/ngx/stream/ngx_stream_realip_module.html">
 <meta property="og:site_name" content="IM.NGINX">
-<meta property="og:description" content="Module ngx_stream_realip_module Example Configuration  Directives      set_real_ip_from  Embedded Variables    ngx_stream_realip_module模块用于将客户端地址和端口更改为PROXY协议头（1.11.4）中发送的端口和端口。  必须先通过在listen指令中设置prox">
+<meta property="og:description" content="stream,ngx_stream_realip_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T08:10:40.000Z">
+<meta property="og:updated_time" content="2018-12-21T08:15:38.753Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="IM.NGINX">
-<meta name="twitter:description" content="Module ngx_stream_realip_module Example Configuration  Directives      set_real_ip_from  Embedded Variables    ngx_stream_realip_module模块用于将客户端地址和端口更改为PROXY协议头（1.11.4）中发送的端口和端口。  必须先通过在listen指令中设置prox">
+<meta name="twitter:title" content="stream&#x2F;ngx_stream_realip_module-nginx中文手册">
+<meta name="twitter:description" content="stream,ngx_stream_realip_module">
 
 
 
@@ -125,7 +126,7 @@
 
 
 
-  <title> | IM.NGINX</title>
+  <title>stream/ngx_stream_realip_module-nginx中文手册 | IM.NGINX</title>
   
 
 
@@ -323,7 +324,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline"></h2>
+          <h2 class="post-title" itemprop="name headline">stream/ngx_stream_realip_module-nginx中文手册</h2>
         
 
         <div class="post-meta">
@@ -335,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:16:01+08:00">
                 2018年12月21日
               </time>
             
@@ -345,6 +346,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx中文手册</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -373,17 +396,25 @@
       
 
       
-        <p></p><h2 class="notranslate">Module ngx_stream_realip_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#example">Example Configuration</a> <br> <a hhref="#directives">Directives</a> <br>     <a hhref="#set_real_ip_from">set_real_ip_from</a> <br> <a hhref="#variables">Embedded Variables</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_stream_realip_module</code>模块用于将客户端地址和端口更改为PROXY协议头（1.11.4）中发送的端口和端口。  必须先通过在<code class="notranslate">listen</code>指令中设置<a hhref="ngx_stream_core_module.html#proxy_protocol">proxy_protocol</a>参数来启用PROXY协议。 </p><p>  默认情况下不构建此模块，应使用<code class="notranslate">–with-stream_realip_module</code>配置参数启用它。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">listen 12345 proxy_protocol;<p></p>
-<p>set_real_ip_from  192.168.1.0/24;<br>set_real_ip_from  192.168.2.1;<br>set_real_ip_from  2001:0db8::/32;<br></p></pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="set_real_ip_from"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>set_real_ip_from</strong><br>    <code class="notranslate"><i>address</i></code> |<br>    <code class="notranslate"><i>CIDR</i></code> |<br>    <code class="notranslate">unix:</code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
-<pre><code>—
+        <p>stream,ngx_stream_realip_module<br><a id="more"></a></p>
+<h2 id="Module-ngx-stream-realip-module"><a href="#Module-ngx-stream-realip-module" class="headerlink" title="Module ngx_stream_realip_module"></a>Module ngx_stream_realip_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#set_real_ip_from">set_real_ip_from</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
 
-    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-Context:
-    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-&lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; &lt;br&gt;
-    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  定义已知可发送正确替换地址的可信地址。  如果指定了特殊值&lt;code class=&quot;notranslate&quot;&gt;unix:&lt;/code&gt;则所有UNIX域套接字都将受信任。 &lt;/p&gt;&lt;a name=&quot;variables&quot;&gt;&lt;/a&gt;&lt;center&gt;&lt;h4&gt;  嵌入式变量 &lt;/h4&gt;&lt;/center&gt;&lt;p&gt;&lt;/p&gt;&lt;dl class=&quot;compact&quot;&gt;&lt;dt id=&quot;var_realip_remote_addr&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$realip_remote_addr&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  保留原始客户端地址 &lt;/dd&gt;&lt;dt id=&quot;var_realip_remote_port&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$realip_remote_port&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  保留原始客户端端口 &lt;/dd&gt;&lt;/dl&gt;&lt;p&gt;&lt;/p&gt; 
-</code></pre><p><span></span><div style="display: none;"></div></p>
-</td></tr></tbody></table></div>
+<p>   <code>ngx_stream_realip_module</code>模块用于将客户端地址和端口更改为PROXY协议头（1.11.4）中发送的端口和端口。  必须先通过在<code>listen</code>指令中设置<a href="ngx_stream_core_module.html#proxy_protocol">proxy_protocol</a>参数来启用PROXY协议。 </p>
+<p>  默认情况下不构建此模块，应使用<code>--with-stream_realip_module</code>配置参数启用它。 </p>
+<h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><pre class="notranslate">listen 12345 proxy_protocol;
+
+set_real_ip_from  192.168.1.0/24;
+set_real_ip_from  192.168.2.1;
+set_real_ip_from  2001:0db8::/32;
+</pre>
+
+
+
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**set_real_ip_from**     &lt;code class=&quot;notranslate&quot;&gt;*address*</code> |    <code>*CIDR*</code> |    <code>unix:</code> ;<br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
+<p>  定义已知可发送正确替换地址的可信地址。  如果指定了特殊值<code>unix:</code>则所有UNIX域套接字都将受信任。 </p>
+<h4 id="嵌入式变量"><a href="#嵌入式变量" class="headerlink" title="嵌入式变量"></a>嵌入式变量</h4>
       
     </div>
     
@@ -432,7 +463,7 @@ Context:
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nginx.im/ngx/stream/ngx_stream_realip_module.html" title="">http://nginx.im/ngx/stream/ngx_stream_realip_module.html</a>
+    <a href="http://nginx.im/ngx/stream/ngx_stream_realip_module.html" title="stream/ngx_stream_realip_module-nginx中文手册">http://nginx.im/ngx/stream/ngx_stream_realip_module.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -445,6 +476,12 @@ Context:
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/nginx/" rel="tag"># nginx</a>
+          
+        </div>
+      
 
       
       
@@ -454,8 +491,8 @@ Context:
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ngx/stream/ngx_stream_proxy_module.html" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/ngx/stream/ngx_stream_proxy_module.html" rel="next" title="stream/ngx_stream_proxy_module-nginx中文手册">
+                <i class="fa fa-chevron-left"></i> stream/ngx_stream_proxy_module-nginx中文手册
               </a>
             
           </div>
@@ -464,8 +501,8 @@ Context:
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ngx/stream/ngx_stream_return_module.html" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/ngx/stream/ngx_stream_return_module.html" rel="prev" title="stream/ngx_stream_return_module-nginx中文手册">
+                stream/ngx_stream_return_module-nginx中文手册 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -563,7 +600,7 @@ Context:
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -609,7 +646,7 @@ Context:
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_stream_realip_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">  示例配置 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">  指令 </span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-stream-realip-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_stream_realip_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌入式变量"><span class="nav-number">1.0.3.</span> <span class="nav-text">嵌入式变量</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

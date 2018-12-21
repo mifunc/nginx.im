@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="LINUX,NGINX,JAVA,PYTHON,PYTHON,前端,运维实践" />
+  <meta name="keywords" content="nginx," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="变化   变化为0.2.6   发布日期：2018年11月27日   核心：   特点：使内置原型可变。   特征：使全局对象变得可变。   功能： console.time()和console.timeEnd()方法。   功能：允许重新声明变量和函数。   功能：扩展Object.defineProperty()规">
+<meta name="description" content="changes">
+<meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
-<meta property="og:title" content="IM.NGINX">
+<meta property="og:title" content="changes-nginx中文手册">
 <meta property="og:url" content="http://nginx.im/ngx/changes.html">
 <meta property="og:site_name" content="IM.NGINX">
-<meta property="og:description" content="变化   变化为0.2.6   发布日期：2018年11月27日   核心：   特点：使内置原型可变。   特征：使全局对象变得可变。   功能： console.time()和console.timeEnd()方法。   功能：允许重新声明变量和函数。   功能：扩展Object.defineProperty()规范一致性。   功能：为CLI引入安静模式以处理来自stdin的简单表达式。">
+<meta property="og:description" content="changes">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T08:10:39.974Z">
+<meta property="og:updated_time" content="2018-12-21T08:15:39.030Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="IM.NGINX">
-<meta name="twitter:description" content="变化   变化为0.2.6   发布日期：2018年11月27日   核心：   特点：使内置原型可变。   特征：使全局对象变得可变。   功能： console.time()和console.timeEnd()方法。   功能：允许重新声明变量和函数。   功能：扩展Object.defineProperty()规范一致性。   功能：为CLI引入安静模式以处理来自stdin的简单表达式。">
+<meta name="twitter:title" content="changes-nginx中文手册">
+<meta name="twitter:description" content="changes">
 
 
 
@@ -125,7 +126,7 @@
 
 
 
-  <title> | IM.NGINX</title>
+  <title>changes-nginx中文手册 | IM.NGINX</title>
   
 
 
@@ -323,7 +324,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline"></h2>
+          <h2 class="post-title" itemprop="name headline">changes-nginx中文手册</h2>
         
 
         <div class="post-meta">
@@ -335,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:16:01+08:00">
                 2018年12月21日
               </time>
             
@@ -345,6 +346,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx中文手册</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -373,8 +396,105 @@
       
 
       
-        <p></p><h2>  变化 </h2><a name="njs0.2.6"></a><center><h4>  变化为0.2.6 </h4></center><p>  发布日期：2018年11月27日 </p><p>  核心： </p><ul class="compact"><li><p>  特点：使内置原型可变。 </p></li><li><p>  特征：使全局对象变得可变。 </p></li><li><p>  功能： <code class="notranslate">console.time()</code>和<code class="notranslate">console.timeEnd()</code>方法。 </p></li><li><p>  功能：允许重新声明变量和函数。 </p></li><li><p>  功能：扩展<code class="notranslate">Object.defineProperty()</code>规范一致性。 </p></li><li><p>  功能：为CLI引入安静模式以处理来自stdin的简单表达式。 </p></li><li><p>  特点：引入紧凑形式的回溯来处理堆栈溢出。 </p></li><li><p>  改进：改进各种例外的措辞。 </p></li><li><p>  修正：修复闭包值处理。 </p></li><li><p>  修正：各种值类型的固定相等运算符。 </p></li><li><p>  修正：修复了各种范围内“this”关键字的处理。 </p></li><li><p>  修正：修复了<code class="notranslate">Object.keys()</code>处理非对象值的问题。 </p></li><li><p>  修正：在<code class="notranslate">if</code>语句中修复了throw语句的解析。 </p></li><li><p>  修正：修复throw语句后的换行符。 </p></li><li><p>  修正：修复if语句中没有换行符的语句解析。 </p></li><li><p>  修正： <code class="notranslate">njs_array_expand()</code>固定大小<code class="notranslate">uint32_t</code>溢出。 </p></li><li><p>  修正： <code class="notranslate">object_value</code>类型的固定<code class="notranslate">typeof</code>运算符。 </p></li><li><p>  修正：修复了各种其他错误。 </p></li></ul><p></p><a name="njs0.2.5"></a><center><h4>  变化为0.2.5 </h4></center><p>  发布日期：2018年10月30日 </p><p>   nginx模块： </p><ul class="compact"><li><p>  修正：在流模块中修复计数待处理事件。 </p></li><li><p>  修正：修复了流模块中的<code class="notranslate">s.off()</code> 。 </p></li><li><p>  修正：修复了流模块中<code class="notranslate">js_filter</code>中数据块的处理。 </p></li><li><p>  修正：在http模块中修复了http <code class="notranslate">status</code>和<code class="notranslate">contentType</code> getter。 </p></li><li><p>  修正：在http模块中修复了http响应和父getter。 </p></li></ul><p></p><p>  核心： </p><ul class="compact"><li><p>  功能：参数对象支持。 </p></li><li><p>  特征：非整数分数支持。 </p></li><li><p>  改进：处理<code class="notranslate">Array.prototype.slice()</code>非数组值。 </p></li><li><p>  修正：修复了<code class="notranslate">Array.prototype.length</code> setter </p></li><li><p>  修正：固定<code class="notranslate">njs_array_alloc()</code> ，长度&gt; 2 ** 31。 </p></li><li><p>  修正：处理32位<code class="notranslate">njs_array_alloc()</code>上的<code class="notranslate">njs_array_alloc()</code> int溢出。 </p></li><li><p>  修正：修复代码大小不匹配错误消息。 </p></li><li><p>  修正：修复循环中的删除操作符。 </p></li><li><p>  修正：修复了复杂对象的<code class="notranslate">Object.getOwnPropertyDescriptor()</code> （继承自<code class="notranslate">Array</code>和<code class="notranslate">string</code>值）。 </p></li><li><p>  修正：修复了非对象属性的<code class="notranslate">Object.prototype.hasOwnProperty()</code> </p></li><li><p>  修正：修复了各种其他错误。 </p></li></ul><p></p><a name="njs0.2.4"></a><center><h4>  变化为0.2.4 </h4></center><p>  发布日期：2018年9月18日 </p><p>   nginx模块： </p><ul class="compact"><li><p>  更改：重构的流模块处理程序。 </p><p>  新方法和属性： <a hhref="reference.html#s_on">s.on（）</a> ， <a hhref="reference.html#s_off">s.off（）</a> ， <a hhref="reference.html#s_allow">s.allow（）</a> ， <a hhref="reference.html#s_done">s.done（）</a> ， <a hhref="reference.html#s_decline">s.decline（）</a> ， <a hhref="reference.html#s_deny">s.deny（）</a> 。 </p><p>  删除了<a hhref="reference.html#stream">Stream</a>对象的属性： <code class="notranslate">s.OK</code> ， <code class="notranslate">s.ABORT</code> ， <code class="notranslate">s.AGAIN</code> ， <code class="notranslate">s.DECLINED</code> ， <code class="notranslate">s.ERROR</code> （替换为<a hhref="reference.html#s_allow">s.allow（）</a> ， <a hhref="reference.html#s_done">s.done（）</a> ， <a hhref="reference.html#s_deny">s.deny（）</a> ）。 </p><p>   <code class="notranslate">s.buffer</code> （用于读取替换为相应回调的数据参数，用于写入使用<a hhref="reference.html#s_send">s.send（）</a> ）。 </p><p>   <code class="notranslate">s.fromUpstream</code> （替换为相应事件的回调）。 </p><p>   <code class="notranslate">s.eof</code> （替换为 <code class="notranslate"></code>   <a hhref="reference.html#s_on_callback_last">flags.last</a> ）。 </p></li></ul><p></p><p>  核心： </p><ul class="compact"><li><p>  功能：添加了<code class="notranslate">Function.prototype.length</code> 。 </p></li><li><p>  功能：介绍沙盒模式。 </p></li><li><p>  改进：适当时添加异常字符串。 </p></li><li><p>  改进：改进了原始类型转换异常的措辞。 </p></li><li><p>  修正：为尝试更改冻结属性而抛出<code class="notranslate">TypeError</code> 。 </p></li><li><p>  修正：修复现有属性的<code class="notranslate">Object.defineProperty()</code> 。 </p></li><li><p>  修正：在for for迭代时尊重可枚举属性。 </p></li><li><p>  修正：尊重属性处理程序的可写属性。 </p></li><li><p>  修正：修复了函数参数中的异常处理。 </p></li><li><p>  修正：修复了不同值类型的<code class="notranslate">Object.prototype.toString</code> 。 </p></li><li><p>  修正：修复了对象类型参数的<code class="notranslate">Object()</code>构造函数。 </p></li><li><p>  修正：固定对象和字符串的比较。 </p></li><li><p>  修正：修复了未定义参数的<code class="notranslate">String.slice()</code> 。 </p></li><li><p>  修正：修复了各种其他错误。 </p></li></ul><p></p><a name="njs0.2.3"></a><center><h4>  变化为0.2.3 </h4></center><p>  发布日期：2018年7月31日 </p><p>   nginx模块： </p><ul class="compact"><li><p>  修正：从<code class="notranslate">Reply</code>对象进行子请求导致分段错误。 </p></li><li><p>  修正：获取主<a hhref="reference.html#http">HTTP Request</a>对象的parent属性导致了分段错误。 </p></li></ul><p></p><p>  核心： </p><ul class="compact"><li><p>  功能：为值添加了漂亮的字符串表示。 </p></li><li><p>  功能：正确打印浮点数。 </p></li><li><p>  功能：正确解析浮点数。 </p></li><li><p>  功能： <a hhref="reference.html#string_bytesfrom">String.bytesFrom（）</a>方法（将<code class="notranslate">hex</code> ， <code class="notranslate">base64</code> ， <code class="notranslate">base64url</code>解码为字节字符串）。 </p></li><li><p>  功能： <a hhref="reference.html#string_padstart">String.padStart（）</a>和<a hhref="reference.html#string_padend">String.padEnd（）</a>方法。 </p></li><li><p>  功能：增加了对二进制文字的支持。 </p></li><li><p>  改进：在数字解析中添加有关非法令牌的信息。 </p></li><li><p>  改进：允许在八进制文字值中使用大写字母<code class="notranslate">O</code> </p></li><li><p>  改进：在<code class="notranslate">console.log()</code>添加了对多个参数的支持。 </p></li><li><p>  修正：修复了将<code class="notranslate">call()</code>应用于外部值的方法。 </p></li><li><p>  修正：应用于对象的固定加法运算符。 </p></li><li><p>  修正：在<code class="notranslate">njs_vm_value_to_ext_string()</code>修复异常处理。 </p></li><li><p>  修正：使用布尔，null和未定义的参数修复<code class="notranslate">Number()</code> 。 </p></li><li><p>  修正：修复了设置非数字<code class="notranslate">Array.length</code>错误处理。 </p></li><li><p>  修正：修复全局对象的自动完成。 </p></li><li><p>  修正：修复了各种其他错误。 </p></li></ul><p></p><a name="njs0.2.2"></a><center><h4>  变化为0.2.2 </h4></center><p>  发布日期：2018年6月19日 </p><p>   nginx模块： </p><ul class="compact"><li><p>  更改：合并HTTP <code class="notranslate">Response</code>和<code class="notranslate">Reply</code>到<a hhref="reference.html#http">HTTP请求</a> 。  新成员<code class="notranslate">Request</code> ： </p><ul class="compact"><li><p>   <code class="notranslate">req.status</code> （ <code class="notranslate">res.status</code> ） </p></li><li><p>   <code class="notranslate">req.parent</code> （ <code class="notranslate">reply.parent</code> ） </p></li><li><p>   <code class="notranslate">req.requestBody</code> （ <code class="notranslate">req.body</code> ） </p></li><li><p>   <code class="notranslate">req.responseBody</code> （ <code class="notranslate">reply.body</code> ） </p></li><li><p>   <code class="notranslate">req.headersIn</code> （ <code class="notranslate">req.headers</code> ） </p></li><li><p>   <code class="notranslate">req.headersOut</code> （ <code class="notranslate">res.headers</code> ） </p></li><li><p>   <code class="notranslate">req.sendHeader()</code> （ <code class="notranslate">res.sendHeader()</code> ） </p></li><li><p>   <code class="notranslate">req.send()</code> （ <code class="notranslate">res.send()</code> ） </p></li><li><p>   <code class="notranslate">req.finish()</code> （ <code class="notranslate">res.finish()</code> ） </p></li><li><p>   <code class="notranslate">req.return()</code> （ <code class="notranslate">res.return()</code> ） </p></li></ul><p>  弃用的<code class="notranslate">Request</code>成员： </p><ul class="compact"><li><p>   <code class="notranslate">req.body</code> （使用<code class="notranslate">req.requestBody</code>或<code class="notranslate">req.responseBody</code> ） </p></li><li><p>   <code class="notranslate">req.headers</code> （使用<code class="notranslate">req.headersIn</code>或<code class="notranslate">req.headersOut</code> ） </p></li><li><p> <code class="notranslate">req.response</code> </p> </li></ul><p>  已弃用的属性将在下一版本中删除。 </p></li><li><p>  功能：HTTP <a hhref="reference.html#r_internal_redirect">internalRedirect（）</a>方法。 </p></li></ul><p></p><p>  核心： </p><ul class="compact"><li><p>  修正：在<code class="notranslate">crypto.createHmac()</code>修复了heap-buffer-overflow。 </p></li></ul><p></p><a name="njs0.2.1"></a><center><h4>  变化为0.2.1 </h4></center><p>  发布日期：2018年5月31日 </p><p>   nginx模块： </p><ul class="compact"><li><p>  功能：HTTP请求正文getter。 </p></li><li><p>  改进：将njs vm移动到<code class="notranslate">main</code>配置。 </p></li><li><p>  改进：改进了<a hhref="http/ngx_http_js_module.html#js_set">js_set</a>和<a hhref="http/ngx_http_js_module.html#js_content">js_content</a>指令的日志记录。 </p></li><li><p>  改进：在<a hhref="http/ngx_http_js_module.html#js_content">js_content</a>处理程序中默认将状态代码设置为500 </p></li><li><p>  改进：在<a hhref="http/ngx_http_js_module.html#js_content">js_content</a>处理程序中添加了返回状态代码的调试 </p></li><li><p>  修正：修复了<a hhref="http/ngx_http_js_module.html#js_include">js_include中的</a>错误记录。 </p></li></ul><p></p><p>  核心： </p><ul class="compact"><li><p>  功能：添加了数组长度设置器。 </p></li><li><p>  改进：公共标头<code class="notranslate">cleanup. njscript.h</code>   <code class="notranslate">cleanup. njscript.h</code>重命名为<code class="notranslate">njs.h</code> </p></li><li><p>  修正：调用<code class="notranslate">digest()</code>后修复了crypto <code class="notranslate">update()</code>方法。 </p></li><li><p>  修正：修复了大小&lt;= alg size&gt; 64的密钥的<code class="notranslate">crypto.createHmac()</code> 。 </p></li><li><p>  修正：修复了带空单元格的数组的<code class="notranslate">JSON.stringify()</code> 。 </p></li><li><p>  修正：修复了<code class="notranslate">JSON.stringify()</code>不支持的类型的异常类型。 </p></li><li><p>  修正：修复了函数未定义参数的处理。 </p></li><li><p>  修正：修复了对<code class="notranslate">Object.getOwnPropertyDescriptor()</code>缺失<code class="notranslate">arg</code>的处理。 </p></li><li><p>  修正：修复了<code class="notranslate">Object.getOwnPropertyDescriptor()</code>中属性的处理。 </p></li><li><p>  修正：修复了<code class="notranslate">Array.length</code>属性的可写标志。 </p></li><li><p>  修正： <code class="notranslate">clearTimeout()</code>固定返回值类型。 </p></li><li><p>  修正：修复了<code class="notranslate">njs_vm_external_bind()</code> 。 </p></li><li><p>  修正：修复了各种其他错误。 </p></li></ul><p></p><a name="njs0.2.0"></a><center><h4>  变化为0.2.0 </h4></center><p>  发布日期：2018年4月3日 </p><p></p><ul class="compact"><li><p>  功能：通过CLI报告njs版本。 </p></li><li><p>  功能：转换异常的类型的文本描述。 </p></li><li>  功能： <code class="notranslate">setTimeout()</code>和<code class="notranslate">clearTimeout()</code>方法。 </li><li><p>  功能：字节字符串为<code class="notranslate">hex</code> ， <code class="notranslate">base64</code> ， <code class="notranslate">base64url</code>编码。 </p></li><li><p>  功能： <a hhref="https://nodejs.org/api/crypto.html#crypto_class_hash">Node.js样式</a> <code class="notranslate">Crypto</code>方法。 </p></li><li><p>  功能：HTTP和流<code class="notranslate">warn()</code>和<code class="notranslate">error()</code>方法。 </p></li><li><p>  功能：HTTP <code class="notranslate">subrequest()</code>方法。 </p></li><li><p>  功能：HTTP <code class="notranslate">return()</code>方法。 </p></li><li><p>  修正：核心和交互式shell中修复了各种错误。 </p></li></ul><p></p><a name="njs0.1.15"></a><center><h4>  变化0.1.15 </h4></center><p>  发布日期：2017年11月20日 </p><p></p><ul class="compact"><li><p>  功能： <code class="notranslate">Error</code> ， <code class="notranslate">EvalError</code> ， <code class="notranslate">InternalError</code> ， <code class="notranslate">RangeError</code> ， <code class="notranslate">ReferenceError</code> ， <code class="notranslate">SyntaxError</code> ， <code class="notranslate">TypeError</code> ， <code class="notranslate">URIError</code>对象。 </p></li><li><p>  功能：八进制文字支持。 </p></li><li><p>  功能： <a hhref="https://nodejs.org/api/fs.html#fs_file_system">Node.js样式</a> <code class="notranslate">File system</code>访问方法： <code class="notranslate">fs.readFile()</code> ， <code class="notranslate">fs.readFileSync()</code> ， <code class="notranslate">fs.appendFile()</code> ， <code class="notranslate">fs.appendFileSync()</code> ， <code class="notranslate">fs.writeFile()</code> ， <code class="notranslate">fs.writeFileSync()</code> 。 </p></li><li><p>  功能：nginx模块在异常时打印回溯。 </p></li><li><p>  修正：杂项错误已得到修复。 </p></li></ul><p></p><a name="njs0.1.14"></a><center><h4>  变化0.1.14 </h4></center><p>  发布日期：2017年10月9日 </p><p></p><ul class="compact"><li><p>  功能：JSON对象。 </p></li><li><p>  功能：交互式shell中的对象级完成。 </p></li><li><p>  功能：各种配置改进。 </p></li><li><p>  修正：核心和交互式shell中修复了各种错误。 </p></li></ul><p></p><a name="njs0.1.13"></a><center><h4>  变化0.1.13 </h4></center><p>  发布日期：2017年8月31日 </p><p></p><ul class="compact"><li><p>  功能：交互式shell中的<code class="notranslate">console.log()</code>和<code class="notranslate">console.help()</code>方法。 </p></li><li><p>  功能：交互式shell在异常时打印回溯。 </p></li><li><p>  功能：如果<code class="notranslate">libedit</code>可用，默认情况下为交互式shell。 </p></li><li><p>  修正：在命令行模式下从<code class="notranslate">stdin</code>处理大文件。 </p></li><li><p>  修正：改进了<code class="notranslate">editline</code>检测。 </p></li></ul><p></p><a name="njs0.1.12"></a><center><h4>  变化0.1.12 </h4></center><p>  发布日期：2017年8月8日 </p><p></p><ul class="compact"><li><p>  功能：交互式shell。 </p></li><li><p>  修正：在<code class="notranslate">Object.isSealed()</code> 。 </p></li></ul><p></p><a name="njs0.1.11"></a><center><h4>   0.1.11的变化 </h4></center><p>  发行日期：2017年6月27日 </p><p></p><ul class="compact"><li><p>  功能： <code class="notranslate">Object.keys()</code> ， <code class="notranslate">Object.prototype.hasOwnProperty()</code>方法。 </p></li><li><p>  功能： <code class="notranslate">Object.defineProperty()</code> ， <code class="notranslate">Object.defineProperties()</code> ， <code class="notranslate">Object.getOwnPropertyDescriptor()</code>方法。 </p></li><li><p>  功能： <code class="notranslate">Object.getPrototypeOf()</code> ， <code class="notranslate">Object.prototype.isPrototypeOf()</code>方法。 </p></li><li><p>  功能： <code class="notranslate">Object.preventExtensions()</code> ， <code class="notranslate">Object.isExtensible()</code> ， <code class="notranslate">Object.freeze()</code> ， <code class="notranslate">Object.isFrozen()</code> ， <code class="notranslate">Object.seal()</code> ， <code class="notranslate">Object.isSealed()</code>方法。 </p></li><li><p>  特征：科学记数法（ <code class="notranslate">3.35e10</code> ）文字支持。 </p></li><li><p>  功能：十六进制（ <code class="notranslate">0x1123</code> ）文字支持。 </p></li><li><p>  修正：处理大型数组索引。 </p></li><li><p>  修正：在<code class="notranslate">parseInt()</code>和<code class="notranslate">Date.parse()</code> 。 </p></li></ul><p></p><a name="njs0.1.10"></a><center><h4>  变化0.1.10 </h4></center><p>  发行日期：2017年4月4日 </p><p></p><ul class="compact"><li><p>  功能：嵌套函数和函数闭包。 </p></li><li><p>  功能： <code class="notranslate">Array.of()</code> ， <code class="notranslate">Array.prototype.fill()</code> ， <code class="notranslate">Array.prototype.find()</code> ， <code class="notranslate">Array.prototype.findIndex()</code>方法。 </p></li><li><p>  修正：修复了各种错误和分段错误。 </p></li></ul><p></p><a name="njs0.1.9"></a><center><h4>  变化0.1.9 </h4></center><p>  发布日期：2017年2月1日 </p><p></p><ul class="compact"><li><p>  修正：在nginx中使用njs时，未初始化全局变量。 </p></li></ul><p></p><a name="njs0.1.8"></a><center><h4>  变化0.1.8 </h4></center><p>  发布日期：2017年1月24日 </p><p></p><ul class="compact"><li><p>  更改：强制执行<code class="notranslate">strict</code>模式，必须显式声明变量。 </p></li><li><p>  功能： <code class="notranslate">for</code>和<code class="notranslate">for-in</code>循环支持变量声明。 </p></li><li><p>  修正：全局和功能范围已得到修复。 </p></li><li><p>  修正：现在<code class="notranslate">for-in</code>循环不会丢弃属性变量的最后一个值。 </p></li><li><p>  修正：修复了各种错误和分段错误。 </p></li></ul><p></p><a name="njs0.1.7"></a><center><h4>  变化0.1.7 </h4></center><p>  发布日期：2016年12月27日 </p><p></p><ul class="compact"><li><p>  更改：已在服务器和位置级别禁用<a hhref="http/ngx_http_js_module.html#js_include">js_include</a>指令。 </p></li><li><p>  特征：取幂运算符。 </p></li><li><p>  修正：修复了各种错误和分段错误。 </p></li></ul><p></p><a name="njs0.1.6"></a><center><h4>  变化0.1.6 </h4></center><p>  发布日期：2016年12月13日 </p><p></p><ul class="compact"><li><p>  更改：已在服务器和位置级别禁用<a hhref="http/ngx_http_js_module.html#js_set">js_set</a>指令。 </p></li><li><p>  特征：ES6 <code class="notranslate">Math</code>方法。 </p></li><li><p>  修正：修复了各种错误和分段错误。 </p></li></ul><p></p><br><span></span><div style="display: none;"></div><p></p>
-
+        <p>changes<br><a id="more"></a></p>
+<h2 id="变化"><a href="#变化" class="headerlink" title="变化"></a>变化</h2><h4 id="变化为0-2-6"><a href="#变化为0-2-6" class="headerlink" title="变化为0.2.6"></a>变化为0.2.6</h4><p>  发布日期：2018年11月27日 </p>
+<p>  核心： </p>
+<ul>
+<li>特点：使内置原型可变。 -   特征：使全局对象变得可变。 -   功能： <code>console.time()</code>和<code>console.timeEnd()</code>方法。 -   功能：允许重新声明变量和函数。 -   功能：扩展<code>Object.defineProperty()</code>规范一致性。 -   功能：为CLI引入安静模式以处理来自stdin的简单表达式。 -   特点：引入紧凑形式的回溯来处理堆栈溢出。 -   改进：改进各种例外的措辞。 -   修正：修复闭包值处理。 -   修正：各种值类型的固定相等运算符。 -   修正：修复了各种范围内“this”关键字的处理。 -   修正：修复了<code>Object.keys()</code>处理非对象值的问题。 -   修正：在<code>if</code>语句中修复了throw语句的解析。 -   修正：修复throw语句后的换行符。 -   修正：修复if语句中没有换行符的语句解析。 -   修正： <code>njs_array_expand()</code>固定大小<code>uint32_t</code>溢出。 -   修正： <code>object_value</code>类型的固定<code>typeof</code>运算符。 -   修正：修复了各种其他错误。 </li>
+</ul>
+<h4 id="变化为0-2-5"><a href="#变化为0-2-5" class="headerlink" title="变化为0.2.5"></a>变化为0.2.5</h4><p>  发布日期：2018年10月30日 </p>
+<p>   nginx模块： </p>
+<ul>
+<li>修正：在流模块中修复计数待处理事件。 -   修正：修复了流模块中的<code>s.off()</code> 。 -   修正：修复了流模块中<code>js_filter</code>中数据块的处理。 -   修正：在http模块中修复了http <code>status</code>和<code>contentType</code> getter。 -   修正：在http模块中修复了http响应和父getter。 </li>
+</ul>
+<p>  核心： </p>
+<ul>
+<li>功能：参数对象支持。 -   特征：非整数分数支持。 -   改进：处理<code>Array.prototype.slice()</code>非数组值。 -   修正：修复了<code>Array.prototype.length</code> setter -   修正：固定<code>njs_array_alloc()</code> ，长度&gt; 2 ** 31。 -   修正：处理32位<code>njs_array_alloc()</code>上的<code>njs_array_alloc()</code> int溢出。 -   修正：修复代码大小不匹配错误消息。 -   修正：修复循环中的删除操作符。 -   修正：修复了复杂对象的<code>Object.getOwnPropertyDescriptor()</code> （继承自<code>Array</code>和<code>string</code>值）。 -   修正：修复了非对象属性的<code>Object.prototype.hasOwnProperty()</code> -   修正：修复了各种其他错误。 </li>
+</ul>
+<h4 id="变化为0-2-4"><a href="#变化为0-2-4" class="headerlink" title="变化为0.2.4"></a>变化为0.2.4</h4><p>  发布日期：2018年9月18日 </p>
+<p>   nginx模块： </p>
+<ul>
+<li>更改：重构的流模块处理程序。   新方法和属性： <a href="reference.html#s_on">s.on（）</a> ， <a href="reference.html#s_off">s.off（）</a> ， <a href="reference.html#s_allow">s.allow（）</a> ， <a href="reference.html#s_done">s.done（）</a> ， <a href="reference.html#s_decline">s.decline（）</a> ， <a href="reference.html#s_deny">s.deny（）</a> 。   删除了<a href="reference.html#stream">Stream</a>对象的属性： <code>s.OK</code> ， <code>s.ABORT</code> ， <code>s.AGAIN</code> ， <code>s.DECLINED</code> ， <code>s.ERROR</code> （替换为<a href="reference.html#s_allow">s.allow（）</a> ， <a href="reference.html#s_done">s.done（）</a> ， <a href="reference.html#s_deny">s.deny（）</a> ）。    <code>s.buffer</code> （用于读取替换为相应回调的数据参数，用于写入使用<a href="reference.html#s_send">s.send（）</a> ）。    <code>s.fromUpstream</code> （替换为相应事件的回调）。    <code>s.eof</code> （替换为 ``   <a href="reference.html#s_on_callback_last">flags.last</a> ）。 </li>
+</ul>
+<p>  核心： </p>
+<ul>
+<li>功能：添加了<code>Function.prototype.length</code> 。 -   功能：介绍沙盒模式。 -   改进：适当时添加异常字符串。 -   改进：改进了原始类型转换异常的措辞。 -   修正：为尝试更改冻结属性而抛出<code>TypeError</code> 。 -   修正：修复现有属性的<code>Object.defineProperty()</code> 。 -   修正：在for for迭代时尊重可枚举属性。 -   修正：尊重属性处理程序的可写属性。 -   修正：修复了函数参数中的异常处理。 -   修正：修复了不同值类型的<code>Object.prototype.toString</code> 。 -   修正：修复了对象类型参数的<code>Object()</code>构造函数。 -   修正：固定对象和字符串的比较。 -   修正：修复了未定义参数的<code>String.slice()</code> 。 -   修正：修复了各种其他错误。 </li>
+</ul>
+<h4 id="变化为0-2-3"><a href="#变化为0-2-3" class="headerlink" title="变化为0.2.3"></a>变化为0.2.3</h4><p>  发布日期：2018年7月31日 </p>
+<p>   nginx模块： </p>
+<ul>
+<li>修正：从<code>Reply</code>对象进行子请求导致分段错误。 -   修正：获取主<a href="reference.html#http">HTTP Request</a>对象的parent属性导致了分段错误。 </li>
+</ul>
+<p>  核心： </p>
+<ul>
+<li>功能：为值添加了漂亮的字符串表示。 -   功能：正确打印浮点数。 -   功能：正确解析浮点数。 -   功能： <a href="reference.html#string_bytesfrom">String.bytesFrom（）</a>方法（将<code>hex</code> ， <code>base64</code> ， <code>base64url</code>解码为字节字符串）。 -   功能： <a href="reference.html#string_padstart">String.padStart（）</a>和<a href="reference.html#string_padend">String.padEnd（）</a>方法。 -   功能：增加了对二进制文字的支持。 -   改进：在数字解析中添加有关非法令牌的信息。 -   改进：允许在八进制文字值中使用大写字母<code>O</code> -   改进：在<code>console.log()</code>添加了对多个参数的支持。 -   修正：修复了将<code>call()</code>应用于外部值的方法。 -   修正：应用于对象的固定加法运算符。 -   修正：在<code>njs_vm_value_to_ext_string()</code>修复异常处理。 -   修正：使用布尔，null和未定义的参数修复<code>Number()</code> 。 -   修正：修复了设置非数字<code>Array.length</code>错误处理。 -   修正：修复全局对象的自动完成。 -   修正：修复了各种其他错误。 </li>
+</ul>
+<h4 id="变化为0-2-2"><a href="#变化为0-2-2" class="headerlink" title="变化为0.2.2"></a>变化为0.2.2</h4><p>  发布日期：2018年6月19日 </p>
+<p>   nginx模块： </p>
+<ul>
+<li>更改：合并HTTP <code>Response</code>和<code>Reply</code>到<a href="reference.html#http">HTTP请求</a> 。  新成员<code>Request</code> ： <ul class="compact"><li>   <code>req.status</code> （ <code>res.status</code> ） -    <code>req.parent</code> （ <code>reply.parent</code> ） -    <code>req.requestBody</code> （ <code>req.body</code> ） -    <code>req.responseBody</code> （ <code>reply.body</code> ） -    <code>req.headersIn</code> （ <code>req.headers</code> ） -    <code>req.headersOut</code> （ <code>res.headers</code> ） -    <code>req.sendHeader()</code> （ <code>res.sendHeader()</code> ） -    <code>req.send()</code> （ <code>res.send()</code> ） -    <code>req.finish()</code> （ <code>res.finish()</code> ） -    <code>req.return()</code> （ <code>res.return()</code> ）<br>弃用的<code>Request</code>成员： </li>
+<li><p><code>req.body</code> （使用<code>req.requestBody</code>或<code>req.responseBody</code> ） -    <code>req.headers</code> （使用<code>req.headersIn</code>或<code>req.headersOut</code> ） -  <code>req.response</code><br>已弃用的属性将在下一版本中删除。 </p>
+<p>功能：HTTP <a href="reference.html#r_internal_redirect">internalRedirect（）</a>方法。 </p>
+</li>
+</ul>
+<p>  核心： </p>
+<ul>
+<li>修正：在<code>crypto.createHmac()</code>修复了heap-buffer-overflow。 </li>
+</ul>
+<h4 id="变化为0-2-1"><a href="#变化为0-2-1" class="headerlink" title="变化为0.2.1"></a>变化为0.2.1</h4><p>  发布日期：2018年5月31日 </p>
+<p>   nginx模块： </p>
+<ul>
+<li>功能：HTTP请求正文getter。 -   改进：将njs vm移动到<code>main</code>配置。 -   改进：改进了<a href="http/ngx_http_js_module.html#js_set">js_set</a>和<a href="http/ngx_http_js_module.html#js_content">js_content</a>指令的日志记录。 -   改进：在<a href="http/ngx_http_js_module.html#js_content">js_content</a>处理程序中默认将状态代码设置为500 -   改进：在<a href="http/ngx_http_js_module.html#js_content">js_content</a>处理程序中添加了返回状态代码的调试 -   修正：修复了<a href="http/ngx_http_js_module.html#js_include">js_include中的</a>错误记录。 </li>
+</ul>
+<p>  核心： </p>
+<ul>
+<li>功能：添加了数组长度设置器。 -   改进：公共标头<code>cleanup. njscript.h</code>   <code>cleanup. njscript.h</code>重命名为<code>njs.h</code> -   修正：调用<code>digest()</code>后修复了crypto <code>update()</code>方法。 -   修正：修复了大小&lt;= alg size&gt; 64的密钥的<code>crypto.createHmac()</code> 。 -   修正：修复了带空单元格的数组的<code>JSON.stringify()</code> 。 -   修正：修复了<code>JSON.stringify()</code>不支持的类型的异常类型。 -   修正：修复了函数未定义参数的处理。 -   修正：修复了对<code>Object.getOwnPropertyDescriptor()</code>缺失<code>arg</code>的处理。 -   修正：修复了<code>Object.getOwnPropertyDescriptor()</code>中属性的处理。 -   修正：修复了<code>Array.length</code>属性的可写标志。 -   修正： <code>clearTimeout()</code>固定返回值类型。 -   修正：修复了<code>njs_vm_external_bind()</code> 。 -   修正：修复了各种其他错误。 </li>
+</ul>
+<h4 id="变化为0-2-0"><a href="#变化为0-2-0" class="headerlink" title="变化为0.2.0"></a>变化为0.2.0</h4><p>  发布日期：2018年4月3日 </p>
+<ul>
+<li>功能：通过CLI报告njs版本。 -   功能：转换异常的类型的文本描述。 -   功能： <code>setTimeout()</code>和<code>clearTimeout()</code>方法。 -   功能：字节字符串为<code>hex</code> ， <code>base64</code> ， <code>base64url</code>编码。 -   功能： <a href="https://nodejs.org/api/crypto.html#crypto_class_hash" target="_blank" rel="noopener">Node.js样式</a> <code>Crypto</code>方法。 -   功能：HTTP和流<code>warn()</code>和<code>error()</code>方法。 -   功能：HTTP <code>subrequest()</code>方法。 -   功能：HTTP <code>return()</code>方法。 -   修正：核心和交互式shell中修复了各种错误。 </li>
+</ul>
+<h4 id="变化0-1-15"><a href="#变化0-1-15" class="headerlink" title="变化0.1.15"></a>变化0.1.15</h4><p>  发布日期：2017年11月20日 </p>
+<ul>
+<li>功能： <code>Error</code> ， <code>EvalError</code> ， <code>InternalError</code> ， <code>RangeError</code> ， <code>ReferenceError</code> ， <code>SyntaxError</code> ， <code>TypeError</code> ， <code>URIError</code>对象。 -   功能：八进制文字支持。 -   功能： <a href="https://nodejs.org/api/fs.html#fs_file_system" target="_blank" rel="noopener">Node.js样式</a> <code>File system</code>访问方法： <code>fs.readFile()</code> ， <code>fs.readFileSync()</code> ， <code>fs.appendFile()</code> ， <code>fs.appendFileSync()</code> ， <code>fs.writeFile()</code> ， <code>fs.writeFileSync()</code> 。 -   功能：nginx模块在异常时打印回溯。 -   修正：杂项错误已得到修复。 </li>
+</ul>
+<h4 id="变化0-1-14"><a href="#变化0-1-14" class="headerlink" title="变化0.1.14"></a>变化0.1.14</h4><p>  发布日期：2017年10月9日 </p>
+<ul>
+<li>功能：JSON对象。 -   功能：交互式shell中的对象级完成。 -   功能：各种配置改进。 -   修正：核心和交互式shell中修复了各种错误。 </li>
+</ul>
+<h4 id="变化0-1-13"><a href="#变化0-1-13" class="headerlink" title="变化0.1.13"></a>变化0.1.13</h4><p>  发布日期：2017年8月31日 </p>
+<ul>
+<li>功能：交互式shell中的<code>console.log()</code>和<code>console.help()</code>方法。 -   功能：交互式shell在异常时打印回溯。 -   功能：如果<code>libedit</code>可用，默认情况下为交互式shell。 -   修正：在命令行模式下从<code>stdin</code>处理大文件。 -   修正：改进了<code>editline</code>检测。 </li>
+</ul>
+<h4 id="变化0-1-12"><a href="#变化0-1-12" class="headerlink" title="变化0.1.12"></a>变化0.1.12</h4><p>  发布日期：2017年8月8日 </p>
+<ul>
+<li>功能：交互式shell。 -   修正：在<code>Object.isSealed()</code> 。 </li>
+</ul>
+<h4 id="0-1-11的变化"><a href="#0-1-11的变化" class="headerlink" title="0.1.11的变化"></a>0.1.11的变化</h4><p>  发行日期：2017年6月27日 </p>
+<ul>
+<li>功能： <code>Object.keys()</code> ， <code>Object.prototype.hasOwnProperty()</code>方法。 -   功能： <code>Object.defineProperty()</code> ， <code>Object.defineProperties()</code> ， <code>Object.getOwnPropertyDescriptor()</code>方法。 -   功能： <code>Object.getPrototypeOf()</code> ， <code>Object.prototype.isPrototypeOf()</code>方法。 -   功能： <code>Object.preventExtensions()</code> ， <code>Object.isExtensible()</code> ， <code>Object.freeze()</code> ， <code>Object.isFrozen()</code> ， <code>Object.seal()</code> ， <code>Object.isSealed()</code>方法。 -   特征：科学记数法（ <code>3.35e10</code> ）文字支持。 -   功能：十六进制（ <code>0x1123</code> ）文字支持。 -   修正：处理大型数组索引。 -   修正：在<code>parseInt()</code>和<code>Date.parse()</code> 。 </li>
+</ul>
+<h4 id="变化0-1-10"><a href="#变化0-1-10" class="headerlink" title="变化0.1.10"></a>变化0.1.10</h4><p>  发行日期：2017年4月4日 </p>
+<ul>
+<li>功能：嵌套函数和函数闭包。 -   功能： <code>Array.of()</code> ， <code>Array.prototype.fill()</code> ， <code>Array.prototype.find()</code> ， <code>Array.prototype.findIndex()</code>方法。 -   修正：修复了各种错误和分段错误。 </li>
+</ul>
+<h4 id="变化0-1-9"><a href="#变化0-1-9" class="headerlink" title="变化0.1.9"></a>变化0.1.9</h4><p>  发布日期：2017年2月1日 </p>
+<ul>
+<li>修正：在nginx中使用njs时，未初始化全局变量。 </li>
+</ul>
+<h4 id="变化0-1-8"><a href="#变化0-1-8" class="headerlink" title="变化0.1.8"></a>变化0.1.8</h4><p>  发布日期：2017年1月24日 </p>
+<ul>
+<li>更改：强制执行<code>strict</code>模式，必须显式声明变量。 -   功能： <code>for</code>和<code>for-in</code>循环支持变量声明。 -   修正：全局和功能范围已得到修复。 -   修正：现在<code>for-in</code>循环不会丢弃属性变量的最后一个值。 -   修正：修复了各种错误和分段错误。 </li>
+</ul>
+<h4 id="变化0-1-7"><a href="#变化0-1-7" class="headerlink" title="变化0.1.7"></a>变化0.1.7</h4><p>  发布日期：2016年12月27日 </p>
+<ul>
+<li>更改：已在服务器和位置级别禁用<a href="http/ngx_http_js_module.html#js_include">js_include</a>指令。 -   特征：取幂运算符。 -   修正：修复了各种错误和分段错误。 </li>
+</ul>
+<h4 id="变化0-1-6"><a href="#变化0-1-6" class="headerlink" title="变化0.1.6"></a>变化0.1.6</h4><p>  发布日期：2016年12月13日 </p>
+<ul>
+<li>更改：已在服务器和位置级别禁用<a href="http/ngx_http_js_module.html#js_set">js_set</a>指令。 -   特征：ES6 <code>Math</code>方法。 -   修正：修复了各种错误和分段错误。 </li>
+</ul>
+</li></ul>
       
     </div>
     
@@ -423,7 +543,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nginx.im/ngx/changes.html" title="">http://nginx.im/ngx/changes.html</a>
+    <a href="http://nginx.im/ngx/changes.html" title="changes-nginx中文手册">http://nginx.im/ngx/changes.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -436,6 +556,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/nginx/" rel="tag"># nginx</a>
+          
+        </div>
+      
 
       
       
@@ -445,8 +571,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ngx/beginners_guide.html" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/ngx/beginners_guide.html" rel="next" title="beginners_guide-nginx中文手册">
+                <i class="fa fa-chevron-left"></i> beginners_guide-nginx中文手册
               </a>
             
           </div>
@@ -455,8 +581,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ngx/compatibility.html" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/ngx/compatibility.html" rel="prev" title="compatibility-nginx中文手册">
+                compatibility-nginx中文手册 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -554,7 +680,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -600,7 +726,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">  变化 </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">  变化为0.2.6 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">  变化为0.2.5 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.3.</span> <span class="nav-text">  变化为0.2.4 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.4.</span> <span class="nav-text">  变化为0.2.3 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.5.</span> <span class="nav-text">  变化为0.2.2 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.6.</span> <span class="nav-text">  变化为0.2.1 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.7.</span> <span class="nav-text">  变化为0.2.0 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.8.</span> <span class="nav-text">  变化0.1.15 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.9.</span> <span class="nav-text">  变化0.1.14 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.10.</span> <span class="nav-text">  变化0.1.13 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.11.</span> <span class="nav-text">  变化0.1.12 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.12.</span> <span class="nav-text">   0.1.11的变化 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.13.</span> <span class="nav-text">  变化0.1.10 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.14.</span> <span class="nav-text">  变化0.1.9 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.15.</span> <span class="nav-text">  变化0.1.8 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.16.</span> <span class="nav-text">  变化0.1.7 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.17.</span> <span class="nav-text">  变化0.1.6 </span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#变化"><span class="nav-number">1.</span> <span class="nav-text">变化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#变化为0-2-6"><span class="nav-number">1.0.1.</span> <span class="nav-text">变化为0.2.6</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变化为0-2-5"><span class="nav-number">1.0.2.</span> <span class="nav-text">变化为0.2.5</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变化为0-2-4"><span class="nav-number">1.0.3.</span> <span class="nav-text">变化为0.2.4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变化为0-2-3"><span class="nav-number">1.0.4.</span> <span class="nav-text">变化为0.2.3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变化为0-2-2"><span class="nav-number">1.0.5.</span> <span class="nav-text">变化为0.2.2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变化为0-2-1"><span class="nav-number">1.0.6.</span> <span class="nav-text">变化为0.2.1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变化为0-2-0"><span class="nav-number">1.0.7.</span> <span class="nav-text">变化为0.2.0</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变化0-1-15"><span class="nav-number">1.0.8.</span> <span class="nav-text">变化0.1.15</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变化0-1-14"><span class="nav-number">1.0.9.</span> <span class="nav-text">变化0.1.14</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变化0-1-13"><span class="nav-number">1.0.10.</span> <span class="nav-text">变化0.1.13</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变化0-1-12"><span class="nav-number">1.0.11.</span> <span class="nav-text">变化0.1.12</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0-1-11的变化"><span class="nav-number">1.0.12.</span> <span class="nav-text">0.1.11的变化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变化0-1-10"><span class="nav-number">1.0.13.</span> <span class="nav-text">变化0.1.10</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变化0-1-9"><span class="nav-number">1.0.14.</span> <span class="nav-text">变化0.1.9</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变化0-1-8"><span class="nav-number">1.0.15.</span> <span class="nav-text">变化0.1.8</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变化0-1-7"><span class="nav-number">1.0.16.</span> <span class="nav-text">变化0.1.7</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变化0-1-6"><span class="nav-number">1.0.17.</span> <span class="nav-text">变化0.1.6</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

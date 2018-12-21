@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="LINUX,NGINX,JAVA,PYTHON,PYTHON,前端,运维实践" />
+  <meta name="keywords" content="nginx," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="适用于Windows的nginx  Known issues  Possible future enhancements   适用于Windows的nginx版本使用本机Win32 API（而不是Cygwin仿真层）。  目前仅使用select()连接处理方法，因此不应期望高性能和可伸缩性。  由于这个以及一些其他已知">
+<meta name="description" content="windows">
+<meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
-<meta property="og:title" content="IM.NGINX">
+<meta property="og:title" content="windows-nginx中文手册">
 <meta property="og:url" content="http://nginx.im/ngx/windows.html">
 <meta property="og:site_name" content="IM.NGINX">
-<meta property="og:description" content="适用于Windows的nginx  Known issues  Possible future enhancements   适用于Windows的nginx版本使用本机Win32 API（而不是Cygwin仿真层）。  目前仅使用select()连接处理方法，因此不应期望高性能和可伸缩性。  由于这个以及一些其他已知问题，nginx for Windows的版本被认为是测试版。  目前，除了">
+<meta property="og:description" content="windows">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T08:10:39.969Z">
+<meta property="og:updated_time" content="2018-12-21T08:15:36.036Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="IM.NGINX">
-<meta name="twitter:description" content="适用于Windows的nginx  Known issues  Possible future enhancements   适用于Windows的nginx版本使用本机Win32 API（而不是Cygwin仿真层）。  目前仅使用select()连接处理方法，因此不应期望高性能和可伸缩性。  由于这个以及一些其他已知问题，nginx for Windows的版本被认为是测试版。  目前，除了">
+<meta name="twitter:title" content="windows-nginx中文手册">
+<meta name="twitter:description" content="windows">
 
 
 
@@ -125,7 +126,7 @@
 
 
 
-  <title> | IM.NGINX</title>
+  <title>windows-nginx中文手册 | IM.NGINX</title>
   
 
 
@@ -323,7 +324,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline"></h2>
+          <h2 class="post-title" itemprop="name headline">windows-nginx中文手册</h2>
         
 
         <div class="post-meta">
@@ -335,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:16:01+08:00">
                 2018年12月21日
               </time>
             
@@ -345,6 +346,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx中文手册</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -373,8 +396,45 @@
       
 
       
-        <p></p><h2>  适用于Windows的nginx </h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#known_issues">Known issues</a> <br> <a hhref="#possible_future_enhancements">Possible future enhancements</a> <br></td></tr></tbody></table><p>  适用于Windows的nginx版本使用本机Win32 API（而不是Cygwin仿真层）。  目前仅使用<code class="notranslate">select()</code>连接处理方法，因此不应期望高性能和可伸缩性。  由于这个以及一些其他已知问题，nginx for Windows的版本被认为是<i>测试</i>版。  目前，除了XSLT过滤器，图像过滤器，GeoIP模块和嵌入式Perl语言之外，它提供的功能几乎与UNIX版本的nginx相同。 </p><p>  要安装nginx / Windows，请<a hhref="download.html">下载</a>最新的主线版本发行版（1.15.7），因为nginx的主线分支包含所有已知的修复程序。  然后解压缩发行版，转到nginx-1.15.7目录，然后运行<code class="notranslate">nginx</code> 。  以下是驱动器C：根目录的示例： </p><blockquote class="example"><pre class="notranslate">cd c:\<br>unzip nginx-1.15.7.zip<br>cd nginx-1.15.7<br>start nginx<br></pre></blockquote><p>  运行<code class="notranslate">tasklist</code>命令行实用程序以查看nginx进程： </p><blockquote class="example"><pre class="notranslate">C:\nginx-1.15.7&gt;tasklist /fi “imagename eq nginx.exe”<p></p>
-<p>Image Name           PID Session Name     Session#    Mem Usage<br>=============== ======== ============== ========== ============<br>nginx.exe            652 Console                 0      2 780 K<br>nginx.exe           1332 Console                 0      3 112 K<br></p></pre></blockquote><p>  其中一个进程是主进程，另一个进程是工作进程。  如果nginx未启动，请在错误日志文件<code class="notranslate">logs\error.log</code>查找原因。  如果尚未创建日志文件，则应在Windows事件日志中报告其原因。  如果显示错误页面而不是预期页面，还要在<code class="notranslate">logs\error.log</code>文件中查找原因。 </p><p>   nginx / Windows使用运行它的目录作为配置中相对路径的前缀。  在上面的示例中，前缀为<code class="notranslate">C:\nginx-1.15.7\</code> 。  必须使用正斜杠以UNIX样式指定配置文件中的路径： </p><blockquote class="example"><pre class="notranslate">access_log   logs/site.log;<br>root         C:/web/html;<br></pre></blockquote><p></p><p>   nginx / Windows作为标准控制台应用程序（而非服务）运行，可以使用以下命令进行管理： </p><blockquote><table width="100%"><tbody><tr><td width="20%" class="notranslate">nginx -s stop</td><td class="notranslate">fast shutdown</td></tr><tr><td class="notranslate">nginx -s quit</td><td class="notranslate">graceful shutdown</td></tr><tr><td class="notranslate">nginx -s reload</td><td class="notranslate"><br>changing configuration,<br>starting new worker processes with a new configuration,<br>graceful shutdown of old worker processes<br></td></tr><tr><td class="notranslate">nginx -s reopen</td><td class="notranslate">re-opening log files</td></tr></tbody></table></blockquote><p></p><a name="known_issues"></a><center><h4>  已知的问题 </h4></center><ul class="compact"><li>  虽然可以启动几个工作人员，但实际上只有一个工作。 </li><li>  一个worker可以处理不超过1024个并发连接。 </li><li>  不支持UDP代理功能。 </li></ul><a name="possible_future_enhancements"></a><center><h4>  可能的未来增强功能 </h4></center><ul class="compact"><li>  作为服务运行。 </li><li>  使用I / O完成端口作为连接处理方法。 </li><li>  在单个工作进程中使用多个工作线程。 </li></ul><br><span></span><div style="display: none;"></div><p></p>
+        <p>windows<br><a id="more"></a></p>
+<h2 id="适用于Windows的nginx"><a href="#适用于Windows的nginx" class="headerlink" title="适用于Windows的nginx"></a>适用于Windows的nginx</h2><td align="left" class="notranslate"> <a href="#known_issues">Known issues</a> <br> <a href="#possible_future_enhancements">Possible future enhancements</a> <br></td>
+
+<p>  适用于Windows的nginx版本使用本机Win32 API（而不是Cygwin仿真层）。  目前仅使用<code>select()</code>连接处理方法，因此不应期望高性能和可伸缩性。  由于这个以及一些其他已知问题，nginx for Windows的版本被认为是<em>测试</em>版。  目前，除了XSLT过滤器，图像过滤器，GeoIP模块和嵌入式Perl语言之外，它提供的功能几乎与UNIX版本的nginx相同。 </p>
+<p>  要安装nginx / Windows，请<a href="download.html">下载</a>最新的主线版本发行版（1.15.7），因为nginx的主线分支包含所有已知的修复程序。  然后解压缩发行版，转到nginx-1.15.7目录，然后运行<code>nginx</code> 。  以下是驱动器C：根目录的示例： </p>
+<pre class="notranslate">cd c:\
+unzip nginx-1.15.7.zip
+cd nginx-1.15.7
+start nginx
+</pre>
+
+<p>  运行<code>tasklist</code>命令行实用程序以查看nginx进程： </p>
+<pre class="notranslate">C:\nginx-1.15.7&gt;tasklist /fi "imagename eq nginx.exe"
+
+Image Name           PID Session Name     Session#    Mem Usage
+=============== ======== ============== ========== ============
+nginx.exe            652 Console                 0      2 780 K
+nginx.exe           1332 Console                 0      3 112 K
+</pre>
+
+<p>  其中一个进程是主进程，另一个进程是工作进程。  如果nginx未启动，请在错误日志文件<code>logs\error.log</code>查找原因。  如果尚未创建日志文件，则应在Windows事件日志中报告其原因。  如果显示错误页面而不是预期页面，还要在<code>logs\error.log</code>文件中查找原因。 </p>
+<p>   nginx / Windows使用运行它的目录作为配置中相对路径的前缀。  在上面的示例中，前缀为<code>C:\nginx-1.15.7\</code> 。  必须使用正斜杠以UNIX样式指定配置文件中的路径： </p>
+<pre class="notranslate">access_log   logs/site.log;
+root         C:/web/html;
+</pre>
+
+
+
+<p>   nginx / Windows作为标准控制台应用程序（而非服务）运行，可以使用以下命令进行管理： </p>
+<blockquote>
+<table width="100%"><tbody><td width="20%" class="notranslate">nginx -s stop</td><td class="notranslate">fast shutdown</td><br><td class="notranslate">nginx -s quit</td><td class="notranslate">graceful shutdown</td><br><tr><td class="notranslate">nginx -s reload</td><td class="notranslate"><br>changing configuration,<br>starting new worker processes with a new configuration,<br>graceful shutdown of old worker processes<br></td></tr><td class="notranslate">nginx -s reopen</td><td class="notranslate">re-opening log files</td><br></tbody></table>
+
+
+
+</blockquote>
+<h4 id="已知的问题"><a href="#已知的问题" class="headerlink" title="已知的问题"></a>已知的问题</h4><ul>
+<li>虽然可以启动几个工作人员，但实际上只有一个工作。 -   一个worker可以处理不超过1024个并发连接。 -   不支持UDP代理功能。 <h4 id="可能的未来增强功能"><a href="#可能的未来增强功能" class="headerlink" title="可能的未来增强功能"></a>可能的未来增强功能</h4></li>
+<li>作为服务运行。 -   使用I / O完成端口作为连接处理方法。 -   在单个工作进程中使用多个工作线程。 </li>
+</ul>
 
       
     </div>
@@ -424,7 +484,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nginx.im/ngx/windows.html" title="">http://nginx.im/ngx/windows.html</a>
+    <a href="http://nginx.im/ngx/windows.html" title="windows-nginx中文手册">http://nginx.im/ngx/windows.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -437,6 +497,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/nginx/" rel="tag"># nginx</a>
+          
+        </div>
+      
 
       
       
@@ -446,8 +512,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ngx/varindex.html" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/ngx/varindex.html" rel="next" title="varindex-nginx中文手册">
+                <i class="fa fa-chevron-left"></i> varindex-nginx中文手册
               </a>
             
           </div>
@@ -456,8 +522,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ngx/dev/development_guide.html" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/ngx/dev/development_guide.html" rel="prev" title="dev/development_guide-nginx中文手册">
+                dev/development_guide-nginx中文手册 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -555,7 +621,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -601,7 +667,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">  适用于Windows的nginx </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">  已知的问题 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">  可能的未来增强功能 </span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#适用于Windows的nginx"><span class="nav-number">1.</span> <span class="nav-text">适用于Windows的nginx</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#已知的问题"><span class="nav-number">1.0.1.</span> <span class="nav-text">已知的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可能的未来增强功能"><span class="nav-number">1.0.2.</span> <span class="nav-text">可能的未来增强功能</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

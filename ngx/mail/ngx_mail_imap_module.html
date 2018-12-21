@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="LINUX,NGINX,JAVA,PYTHON,PYTHON,前端,运维实践" />
+  <meta name="keywords" content="nginx," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="Module ngx_mail_imap_module Directives      imap_auth      imap_capabilities      imap_client_buffer   指令             Syntax:                            imap_au">
+<meta name="description" content="mail,ngx_mail_imap_module">
+<meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
-<meta property="og:title" content="IM.NGINX">
+<meta property="og:title" content="mail&#x2F;ngx_mail_imap_module-nginx中文手册">
 <meta property="og:url" content="http://nginx.im/ngx/mail/ngx_mail_imap_module.html">
 <meta property="og:site_name" content="IM.NGINX">
-<meta property="og:description" content="Module ngx_mail_imap_module Directives      imap_auth      imap_capabilities      imap_client_buffer   指令             Syntax:                            imap_auth method …;">
+<meta property="og:description" content="mail,ngx_mail_imap_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T08:10:39.993Z">
+<meta property="og:updated_time" content="2018-12-21T08:15:38.348Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="IM.NGINX">
-<meta name="twitter:description" content="Module ngx_mail_imap_module Directives      imap_auth      imap_capabilities      imap_client_buffer   指令             Syntax:                            imap_auth method …;">
+<meta name="twitter:title" content="mail&#x2F;ngx_mail_imap_module-nginx中文手册">
+<meta name="twitter:description" content="mail,ngx_mail_imap_module">
 
 
 
@@ -125,7 +126,7 @@
 
 
 
-  <title> | IM.NGINX</title>
+  <title>mail/ngx_mail_imap_module-nginx中文手册 | IM.NGINX</title>
   
 
 
@@ -323,7 +324,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline"></h2>
+          <h2 class="post-title" itemprop="name headline">mail/ngx_mail_imap_module-nginx中文手册</h2>
         
 
         <div class="post-meta">
@@ -335,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:16:01+08:00">
                 2018年12月21日
               </time>
             
@@ -345,6 +346,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx中文手册</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -373,7 +396,23 @@
       
 
       
-        <p></p><h2 class="notranslate">Module ngx_mail_imap_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#directives">Directives</a> <br>     <a hhref="#imap_auth">imap_auth</a> <br>     <a hhref="#imap_capabilities">imap_capabilities</a> <br>     <a hhref="#imap_client_buffer">imap_client_buffer</a> <br></td></tr></tbody></table><a name="directives"></a><center><h4>  指令 </h4></center><a name="imap_auth"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>imap_auth</strong> <code class="notranslate"><i>method</i></code> …;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">imap_auth plain;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">mail</code> , <code class="notranslate">server</code> <br><br>                </td></tr></tbody></table></div><p>  为IMAP客户端设置允许的身份验证方法。  支持的方法是： </p><dl class="compact"><dt> <code class="notranslate">login</code> </dt> <dd>   <a hhref="https://tools.ietf.org/html/draft-murchison-sasl-login-00">AUTH = LOGIN</a> </dd><dt> <code class="notranslate">plain</code> </dt> <dd>   <a hhref="https://tools.ietf.org/html/rfc4616">AUTH =普通</a> </dd><dt> <code class="notranslate">cram-md5</code> </dt> <dd>   <a hhref="https://tools.ietf.org/html/rfc2195">AUTH = CRAM-MD5</a> 。  为了使此方法有效，密码必须以未加密的方式存储。 </dd><dt> <code class="notranslate">external</code> </dt> <dd>   <a hhref="https://tools.ietf.org/html/rfc4422">AUTH = EXTERNAL</a> （1.11.6）。 </dd></dl><p></p><a name="imap_capabilities"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>imap_capabilities</strong> <code class="notranslate"><i>extension</i></code> …;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">imap_capabilities IMAP4 IMAP4rev1 UIDPLUS;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">mail</code> , <code class="notranslate">server</code> <br><br>                </td></tr></tbody></table></div><p>  设置传递给客户端以响应<code class="notranslate">CAPABILITY</code>命令的<a hhref="https://tools.ietf.org/html/rfc3501">IMAP协议</a>扩展列表。   <a hhref="#imap_auth">imap_auth</a>指令和<a hhref="https://tools.ietf.org/html/rfc2595">STARTTLS</a>中指定的身份验证方法会根据<a hhref="ngx_mail_ssl_module.html#starttls">starttls</a>指令值自动添加到此列表中。 </p><p>  指定客户端所代理的IMAP后端支持的扩展是有意义的（如果这些扩展与身份验证后使用的命令相关，当nginx透明地代理客户端连接到后端时）。 </p><p>  目前的标准化扩展列表发布在<a hhref="http://www.iana.org/assignments/imap4-capabilities">www.iana.org</a> 。 </p><a name="imap_client_buffer"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>imap_client_buffer</strong> <code class="notranslate"><i>size</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">imap_client_buffer 4k|8k;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">mail</code> , <code class="notranslate">server</code> <br><br>                </td></tr></tbody></table></div><p>  设置用于读取IMAP命令的缓冲区的<code class="notranslate"><i>size</i></code> 。  默认情况下，缓冲区大小等于一个内存页面。  这是4K或8K，具体取决于平台。 </p><br><span></span><div style="display: none;"></div><p></p>
+        <p>mail,ngx_mail_imap_module<br><a id="more"></a></p>
+<h2 id="Module-ngx-mail-imap-module"><a href="#Module-ngx-mail-imap-module" class="headerlink" title="Module ngx_mail_imap_module"></a>Module ngx_mail_imap_module</h2><td align="left" class="notranslate"> <a href="#directives">Directives</a> <br>     <a href="#imap_auth">imap_auth</a> <br>     <a href="#imap_capabilities">imap_capabilities</a> <br>     <a href="#imap_client_buffer">imap_client_buffer</a> <br></td>
+
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**imap_auth*method*</code> …;<br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">imap_auth plain;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>mail</code> , <code>server</code> <br>                </td></p>
+<p>  为IMAP客户端设置允许的身份验证方法。  支持的方法是： </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**imap_capabilities*extension*</code> …;<br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">imap_capabilities IMAP4 IMAP4rev1 UIDPLUS;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>mail</code> , <code>server</code> <br>                </td></p>
+<p>  设置传递给客户端以响应<code>CAPABILITY</code>命令的<a href="https://tools.ietf.org/html/rfc3501" target="_blank" rel="noopener">IMAP协议</a>扩展列表。   <a href="#imap_auth">imap_auth</a>指令和<a href="https://tools.ietf.org/html/rfc2595" target="_blank" rel="noopener">STARTTLS</a>中指定的身份验证方法会根据<a href="ngx_mail_ssl_module.html#starttls">starttls</a>指令值自动添加到此列表中。 </p>
+<p>  指定客户端所代理的IMAP后端支持的扩展是有意义的（如果这些扩展与身份验证后使用的命令相关，当nginx透明地代理客户端连接到后端时）。 </p>
+<p>  目前的标准化扩展列表发布在<a href="http://www.iana.org/assignments/imap4-capabilities" target="_blank" rel="noopener">www.iana.org</a> 。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**imap_client_buffer*size*</code> ;<br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">imap_client_buffer 4k|8k;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>mail</code> , <code>server</code> <br>                </td></p>
+<p>  设置用于读取IMAP命令的缓冲区的<code>*size*</code> 。  默认情况下，缓冲区大小等于一个内存页面。  这是4K或8K，具体取决于平台。 </p>
 
       
     </div>
@@ -423,7 +462,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nginx.im/ngx/mail/ngx_mail_imap_module.html" title="">http://nginx.im/ngx/mail/ngx_mail_imap_module.html</a>
+    <a href="http://nginx.im/ngx/mail/ngx_mail_imap_module.html" title="mail/ngx_mail_imap_module-nginx中文手册">http://nginx.im/ngx/mail/ngx_mail_imap_module.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -436,6 +475,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/nginx/" rel="tag"># nginx</a>
+          
+        </div>
+      
 
       
       
@@ -445,8 +490,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ngx/mail/ngx_mail_core_module.html" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/ngx/mail/ngx_mail_core_module.html" rel="next" title="mail/ngx_mail_core_module-nginx中文手册">
+                <i class="fa fa-chevron-left"></i> mail/ngx_mail_core_module-nginx中文手册
               </a>
             
           </div>
@@ -455,8 +500,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ngx/mail/ngx_mail_pop3_module.html" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/ngx/mail/ngx_mail_pop3_module.html" rel="prev" title="mail/ngx_mail_pop3_module-nginx中文手册">
+                mail/ngx_mail_pop3_module-nginx中文手册 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -554,7 +599,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -600,7 +645,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_mail_imap_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">  指令 </span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-mail-imap-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_mail_imap_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.1.</span> <span class="nav-text">指令</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

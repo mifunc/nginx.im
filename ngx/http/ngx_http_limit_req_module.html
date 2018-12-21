@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="LINUX,NGINX,JAVA,PYTHON,PYTHON,前端,运维实践" />
+  <meta name="keywords" content="nginx," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="Module ngx_http_limit_req_module Example Configuration  Directives      limit_req      limit_req_log_level      limit_req_status      limit_req_zone    ngx_http">
+<meta name="description" content="http,ngx_http_limit_req_module">
+<meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
-<meta property="og:title" content="IM.NGINX">
+<meta property="og:title" content="http&#x2F;ngx_http_limit_req_module-nginx中文手册">
 <meta property="og:url" content="http://nginx.im/ngx/http/ngx_http_limit_req_module.html">
 <meta property="og:site_name" content="IM.NGINX">
-<meta property="og:description" content="Module ngx_http_limit_req_module Example Configuration  Directives      limit_req      limit_req_log_level      limit_req_status      limit_req_zone    ngx_http_limit_req_module模块（0.7.21）用于限制每个定义密钥的请求">
+<meta property="og:description" content="http,ngx_http_limit_req_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T08:10:40.008Z">
+<meta property="og:updated_time" content="2018-12-21T08:15:37.330Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="IM.NGINX">
-<meta name="twitter:description" content="Module ngx_http_limit_req_module Example Configuration  Directives      limit_req      limit_req_log_level      limit_req_status      limit_req_zone    ngx_http_limit_req_module模块（0.7.21）用于限制每个定义密钥的请求">
+<meta name="twitter:title" content="http&#x2F;ngx_http_limit_req_module-nginx中文手册">
+<meta name="twitter:description" content="http,ngx_http_limit_req_module">
 
 
 
@@ -125,7 +126,7 @@
 
 
 
-  <title> | IM.NGINX</title>
+  <title>http/ngx_http_limit_req_module-nginx中文手册 | IM.NGINX</title>
   
 
 
@@ -323,7 +324,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline"></h2>
+          <h2 class="post-title" itemprop="name headline">http/ngx_http_limit_req_module-nginx中文手册</h2>
         
 
         <div class="post-meta">
@@ -335,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:16:01+08:00">
                 2018年12月21日
               </time>
             
@@ -345,6 +346,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx中文手册</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -373,35 +396,92 @@
       
 
       
-        <p></p><h2 class="notranslate">Module ngx_http_limit_req_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#example">Example Configuration</a> <br> <a hhref="#directives">Directives</a> <br>     <a hhref="#limit_req">limit_req</a> <br>     <a hhref="#limit_req_log_level">limit_req_log_level</a> <br>     <a hhref="#limit_req_status">limit_req_status</a> <br>     <a hhref="#limit_req_zone">limit_req_zone</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_limit_req_module</code>模块（0.7.21）用于限制每个定义密钥的请求处理速率，特别是来自单个IP地址的请求的处理速率。  使用“漏桶”方法进行限制。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">http {<br>    limit_req_zone $binary_remote_addr zone=one:10m rate=1r/s;<p></p>
-<pre><code>...
+        <p>http,ngx_http_limit_req_module<br><a id="more"></a></p>
+<h2 id="Module-ngx-http-limit-req-module"><a href="#Module-ngx-http-limit-req-module" class="headerlink" title="Module ngx_http_limit_req_module"></a>Module ngx_http_limit_req_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#limit_req">limit_req</a> <br>     <a href="#limit_req_log_level">limit_req_log_level</a> <br>     <a href="#limit_req_status">limit_req_status</a> <br>     <a href="#limit_req_zone">limit_req_zone</a> <br></td>
 
-server {
+<p>   <code>ngx_http_limit_req_module</code>模块（0.7.21）用于限制每个定义密钥的请求处理速率，特别是来自单个IP地址的请求的处理速率。  使用“漏桶”方法进行限制。 </p>
+<h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><pre class="notranslate">http {
+    limit_req_zone $binary_remote_addr zone=one:10m rate=1r/s;
 
     ...
 
+    server {
+
+        ...
+
+        location /search/ {
+            limit_req zone=one burst=5;
+        }
+</pre>
+
+
+
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**limit_req**     &lt;code class=&quot;notranslate&quot;&gt;zone</code> = <code>*name*</code>    [ <code>burst</code> = <code>*number*</code> ]    [ <code>nodelay</code> |     <code>delay</code> = <code>*number*</code> ];<br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  设置共享内存区域和请求的最大突发大小。  如果请求速率超过为区域配置的速率，则延迟其处理，以便以定义的速率处理请求。  过多的请求被延迟，直到它们的数量超过最大突发大小，在这种情况下请求以<a href="#limit_req_status">错误</a>终止。  默认情况下，最大突发大小等于零。  例如，指令 </p>
+<pre class="notranslate">limit_req_zone $binary_remote_addr zone=one:10m rate=1r/s;
+
+server {
     location /search/ {
         limit_req zone=one burst=5;
     }
-</code></pre><p></p></pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="limit_req"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>limit_req</strong><br>    <code class="notranslate">zone</code> = <code class="notranslate"><i>name</i></code><br>    [ <code class="notranslate">burst</code> = <code class="notranslate"><i>number</i></code> ]<br>    [ <code class="notranslate">nodelay</code> |<br>     <code class="notranslate">delay</code> = <code class="notranslate"><i>number</i></code> ];</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
-<pre><code>—
+</pre>
 
-    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-Context:
-    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-&lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
-    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  设置共享内存区域和请求的最大突发大小。  如果请求速率超过为区域配置的速率，则延迟其处理，以便以定义的速率处理请求。  过多的请求被延迟，直到它们的数量超过最大突发大小，在这种情况下请求以&lt;a hhref=&quot;#limit_req_status&quot;&gt;错误&lt;/a&gt;终止。  默认情况下，最大突发大小等于零。  例如，指令 &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;limit_req_zone $binary_remote_addr zone=one:10m rate=1r/s;
-</code></pre><p>server {<br>    location /search/ {<br>        limit_req zone=one burst=5;<br>    }<br></p><p>  允许每秒平均不超过1个请求，突发不超过5个请求。 </p><p>  如果不希望在请求受限的情况下延迟过多的请求，则应使用参数<code class="notranslate">nodelay</code> ： </p><blockquote class="example"><pre class="notranslate">limit_req zone=one burst=5 nodelay;<br></pre></blockquote><p></p><a name="limit_req_delay"></a><p>   <code class="notranslate">delay</code>参数（1.15.7）指定过多请求被延迟的限制。  默认值为零，即所有过多的请求都会延迟。 </p><p>  可能有几个<code class="notranslate">limit_req</code>指令。  例如，以下配置将限制来自单个IP地址的请求的处理速率，同时限制虚拟服务器的请求处理速率： </p><blockquote class="example"><pre class="notranslate">limit_req_zone $binary_remote_addr zone=perip:10m rate=1r/s;<br>limit_req_zone $server_name zone=perserver:10m rate=10r/s;<p></p>
-<p>server {<br>    …<br>    limit_req zone=perip burst=5 nodelay;<br>    limit_req zone=perserver burst=10;<br>}<br></p></pre></blockquote><p></p><p>  当且仅当当前级别上没有<code class="notranslate">limit_req</code>指令时，这些指令才从先前级别继承。 </p><a name="limit_req_log_level"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>limit_req_log_level</strong><br><code class="notranslate">info</code> |<br><code class="notranslate">notice</code> |<br><code class="notranslate">warn</code> |<br><code class="notranslate">error</code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">limit_req_log_level error;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table><p>  该指令出现在0.8.18版本中。 </p></div><p>  为服务器因速率超过或延迟请求处理而拒绝处理请求的情况设置所需的日志记录级别。  延迟的记录水平比拒绝的记录水平低一个点;  例如，如果指定了“ <code class="notranslate">limit_req_log_level notice</code> ”，则会使用<code class="notranslate">info</code>级别记录延迟。 </p><a name="limit_req_status"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>limit_req_status</strong> <code class="notranslate"><i>code</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">limit_req_status 503;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table><p>  该指令出现在1.3.15版本中。 </p></div><p>  设置要响应拒绝的请求而返回的状态代码。 </p><a name="limit_req_zone"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>limit_req_zone</strong><br>    <code class="notranslate"><i>key</i></code><br>    <code class="notranslate">zone</code> = <code class="notranslate"><i>name</i></code> : <code class="notranslate"><i>size</i></code><br>    <code class="notranslate">rate</code> = <code class="notranslate"><i>rate</i></code><br>    [ <code class="notranslate">sync</code> ];</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
-<pre><code>—
+<p>  允许每秒平均不超过1个请求，突发不超过5个请求。 </p>
+<p>  如果不希望在请求受限的情况下延迟过多的请求，则应使用参数<code>nodelay</code> ： </p>
+<pre class="notranslate">limit_req zone=one burst=5 nodelay;
+</pre>
 
-    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-Context:
-    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-&lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; &lt;br&gt;
-    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  设置共享内存区域的参数，该区域将保留各种键的状态。  特别是，状态存储当前的过多请求数。   &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;key&lt;/i&gt;&lt;/code&gt;可以包含文本，变量及其组合。  具有空键值的请求不计算在内。 &lt;/p&gt;&lt;blockquote class=&quot;note&quot;&gt;  在1.7.6版之前， &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;key&lt;/i&gt;&lt;/code&gt;可以只包含一个变量。 &lt;/blockquote&gt;&lt;p&gt;  用法示例： &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;limit_req_zone $binary_remote_addr zone=one:10m rate=1r/s;
-</code></pre><p></p><p></p><p>  这里，状态保持在10兆字节区域“1”，并且该区域的平均请求处理速率不能超过每秒1个请求。 </p><p>  客户端IP地址用作密钥。  请注意，此处使用<code class="notranslate">$binary_remote_addr</code>变量而不是<code class="notranslate">$remote_addr</code> 。  对于IPv4地址， <code class="notranslate">$binary_remote_addr</code>变量的大小始终为4个字节，对于IPv6地址，则为16个字节。  存储状态在32位平台上总是占用64个字节，在64位平台上占用128个字节。  一兆字节区域可以保留大约16,000个64字节状态或大约8千个128字节状态。 </p><p>  如果区域存储耗尽，则删除最近最少使用的状态。  即使在此之后无法创建新状态，该请求也会因<a hhref="#limit_req_status">错误</a>而终止。 </p><p>  速率以每秒请求数（r / s）指定。  如果需要每秒少于一个请求的速率，则在每分钟请求（r / m）中指定。  例如，每秒半请求为30r / m。 </p><a name="limit_req_zone_sync"></a><p>   <code class="notranslate">sync</code>参数（1.15.3）启用共享内存区域的<a hhref="stream/ngx_stream_zone_sync_module.html#zone_sync">同步</a> 。 </p><blockquote class="note">   <code class="notranslate">sync</code>参数作为我们<a hhref="http://nginx.com/products/">商业订阅的</a>一部分提供。 </blockquote><p></p><br><span></span><div style="display: none;"></div><p></p>
-</td></tr></tbody></table></div></td></tr></tbody></table></div>
+
+
+<p>   <code>delay</code>参数（1.15.7）指定过多请求被延迟的限制。  默认值为零，即所有过多的请求都会延迟。 </p>
+<p>  可能有几个<code>limit_req</code>指令。  例如，以下配置将限制来自单个IP地址的请求的处理速率，同时限制虚拟服务器的请求处理速率： </p>
+<pre class="notranslate">limit_req_zone $binary_remote_addr zone=perip:10m rate=1r/s;
+limit_req_zone $server_name zone=perserver:10m rate=10r/s;
+
+server {
+    ...
+    limit_req zone=perip burst=5 nodelay;
+    limit_req zone=perserver burst=10;
+}
+</pre>
+
+
+
+<p>  当且仅当当前级别上没有<code>limit_req</code>指令时，这些指令才从先前级别继承。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**limit_req_log_levelinfo</code> |<code>notice</code> |<code>warn</code> |<code>error</code> ;<br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">limit_req_log_level error;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  该指令出现在0.8.18版本中。 </p>
+<p>  为服务器因速率超过或延迟请求处理而拒绝处理请求的情况设置所需的日志记录级别。  延迟的记录水平比拒绝的记录水平低一个点;  例如，如果指定了“ <code>limit_req_log_level notice</code> ”，则会使用<code>info</code>级别记录延迟。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**limit_req_status*code*</code> ;<br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">limit_req_status 503;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  该指令出现在1.3.15版本中。 </p>
+<p>  设置要响应拒绝的请求而返回的状态代码。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**limit_req_zone**     &lt;code class=&quot;notranslate&quot;&gt;*key*</code>    <code>zone</code> = <code>*name*</code> : <code>*size*</code>    <code>rate</code> = <code>*rate*</code>    [ <code>sync</code> ];<br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> <br>                </td></p>
+<p>  设置共享内存区域的参数，该区域将保留各种键的状态。  特别是，状态存储当前的过多请求数。   <code>*key*</code>可以包含文本，变量及其组合。  具有空键值的请求不计算在内。 </p>
+<blockquote>
+<p>  在1.7.6版之前， <code>*key*</code>可以只包含一个变量。 </p>
+</blockquote>
+<p>  用法示例： </p>
+<pre class="notranslate">limit_req_zone $binary_remote_addr zone=one:10m rate=1r/s;
+</pre>
+
+
+
+<p>  这里，状态保持在10兆字节区域“1”，并且该区域的平均请求处理速率不能超过每秒1个请求。 </p>
+<p>  客户端IP地址用作密钥。  请注意，此处使用<code>$binary_remote_addr</code>变量而不是<code>$remote_addr</code> 。  对于IPv4地址， <code>$binary_remote_addr</code>变量的大小始终为4个字节，对于IPv6地址，则为16个字节。  存储状态在32位平台上总是占用64个字节，在64位平台上占用128个字节。  一兆字节区域可以保留大约16,000个64字节状态或大约8千个128字节状态。 </p>
+<p>  如果区域存储耗尽，则删除最近最少使用的状态。  即使在此之后无法创建新状态，该请求也会因<a href="#limit_req_status">错误</a>而终止。 </p>
+<p>  速率以每秒请求数（r / s）指定。  如果需要每秒少于一个请求的速率，则在每分钟请求（r / m）中指定。  例如，每秒半请求为30r / m。 </p>
+<p>   <code>sync</code>参数（1.15.3）启用共享内存区域的<a href="stream/ngx_stream_zone_sync_module.html#zone_sync">同步</a> 。 </p>
+<blockquote>
+<p>   <code>sync</code>参数作为我们<a href="http://nginx.com/products/" target="_blank" rel="noopener">商业订阅的</a>一部分提供。 </p>
+</blockquote>
+
       
     </div>
     
@@ -450,7 +530,7 @@ Context:
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nginx.im/ngx/http/ngx_http_limit_req_module.html" title="">http://nginx.im/ngx/http/ngx_http_limit_req_module.html</a>
+    <a href="http://nginx.im/ngx/http/ngx_http_limit_req_module.html" title="http/ngx_http_limit_req_module-nginx中文手册">http://nginx.im/ngx/http/ngx_http_limit_req_module.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -463,6 +543,12 @@ Context:
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/nginx/" rel="tag"># nginx</a>
+          
+        </div>
+      
 
       
       
@@ -472,8 +558,8 @@ Context:
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ngx/http/ngx_http_limit_conn_module.html" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/ngx/http/ngx_http_limit_conn_module.html" rel="next" title="http/ngx_http_limit_conn_module-nginx中文手册">
+                <i class="fa fa-chevron-left"></i> http/ngx_http_limit_conn_module-nginx中文手册
               </a>
             
           </div>
@@ -482,8 +568,8 @@ Context:
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ngx/http/ngx_http_log_module.html" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/ngx/http/ngx_http_log_module.html" rel="prev" title="http/ngx_http_log_module-nginx中文手册">
+                http/ngx_http_log_module-nginx中文手册 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -581,7 +667,7 @@ Context:
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -627,7 +713,7 @@ Context:
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_limit_req_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">  示例配置 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">  指令 </span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-limit-req-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_limit_req_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="LINUX,NGINX,JAVA,PYTHON,PYTHON,前端,运维实践" />
+  <meta name="keywords" content="nginx," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="Module ngx_stream_upstream_module Example Configuration  Directives      upstream      server      zone      state      hash      least_conn      least_time    ">
+<meta name="description" content="stream,ngx_stream_upstream_module">
+<meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
-<meta property="og:title" content="IM.NGINX">
+<meta property="og:title" content="stream&#x2F;ngx_stream_upstream_module-nginx中文手册">
 <meta property="og:url" content="http://nginx.im/ngx/stream/ngx_stream_upstream_module.html">
 <meta property="og:site_name" content="IM.NGINX">
-<meta property="og:description" content="Module ngx_stream_upstream_module Example Configuration  Directives      upstream      server      zone      state      hash      least_conn      least_time      random  Embedded Variables    ngx_stre">
+<meta property="og:description" content="stream,ngx_stream_upstream_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T08:10:40.023Z">
+<meta property="og:updated_time" content="2018-12-21T08:15:38.881Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="IM.NGINX">
-<meta name="twitter:description" content="Module ngx_stream_upstream_module Example Configuration  Directives      upstream      server      zone      state      hash      least_conn      least_time      random  Embedded Variables    ngx_stre">
+<meta name="twitter:title" content="stream&#x2F;ngx_stream_upstream_module-nginx中文手册">
+<meta name="twitter:description" content="stream,ngx_stream_upstream_module">
 
 
 
@@ -125,7 +126,7 @@
 
 
 
-  <title> | IM.NGINX</title>
+  <title>stream/ngx_stream_upstream_module-nginx中文手册 | IM.NGINX</title>
   
 
 
@@ -323,7 +324,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline"></h2>
+          <h2 class="post-title" itemprop="name headline">stream/ngx_stream_upstream_module-nginx中文手册</h2>
         
 
         <div class="post-meta">
@@ -335,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:16:01+08:00">
                 2018年12月21日
               </time>
             
@@ -345,6 +346,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx中文手册</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -373,126 +396,173 @@
       
 
       
-        <p></p><h2 class="notranslate">Module ngx_stream_upstream_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#example">Example Configuration</a> <br> <a hhref="#directives">Directives</a> <br>     <a hhref="#upstream">upstream</a> <br>     <a hhref="#server">server</a> <br>     <a hhref="#zone">zone</a> <br>     <a hhref="#state">state</a> <br>     <a hhref="#hash">hash</a> <br>     <a hhref="#least_conn">least_conn</a> <br>     <a hhref="#least_time">least_time</a> <br>     <a hhref="#random">random</a> <br> <a hhref="#variables">Embedded Variables</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_stream_upstream_module</code>模块（1.9.0）用于定义可由<a hhref="ngx_stream_proxy_module.html#proxy_pass">proxy_pass</a>指令引用的服务器组。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">upstream <strong>backend</strong> {<br>    hash $remote_addr consistent;<p></p>
-<pre><code>server backend1.example.com:12345  weight=5;
-server backend2.example.com:12345;
-server unix:/tmp/backend3;
+        <p>stream,ngx_stream_upstream_module<br><a id="more"></a></p>
+<h2 id="Module-ngx-stream-upstream-module"><a href="#Module-ngx-stream-upstream-module" class="headerlink" title="Module ngx_stream_upstream_module"></a>Module ngx_stream_upstream_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#upstream">upstream</a> <br>     <a href="#server">server</a> <br>     <a href="#zone">zone</a> <br>     <a href="#state">state</a> <br>     <a href="#hash">hash</a> <br>     <a href="#least_conn">least_conn</a> <br>     <a href="#least_time">least_time</a> <br>     <a href="#random">random</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
 
-server backup1.example.com:12345   backup;
-server backup2.example.com:12345   backup;
-</code></pre><p>}</p>
-<p>server {<br>    listen 12346;<br>    proxy_pass <strong>backend</strong> ;<br>}<br></p></pre></blockquote><p></p><p>  具有定期<a hhref="ngx_stream_upstream_hc_module.html">运行状况检查的</a>动态可配置组可作为我们<a hhref="http://nginx.com/products/">商业订阅的</a>一部分： </p><blockquote class="example"><pre class="notranslate">resolver 10.0.0.1;<p></p>
-<p>upstream <strong>dynamic</strong> {<br>    zone upstream_dynamic 64k;</p>
-<pre><code>server backend1.example.com:12345 weight=5;
-server backend2.example.com:12345 fail_timeout=5s slow_start=30s;
-server 192.0.2.1:12345            max_fails=3;
-server backend3.example.com:12345 resolve;
-server backend4.example.com       service=http resolve;
+<p>   <code>ngx_stream_upstream_module</code>模块（1.9.0）用于定义可由<a href="ngx_stream_proxy_module.html#proxy_pass">proxy_pass</a>指令引用的服务器组。 </p>
+<h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><pre class="notranslate">upstream **backend** {
+    hash $remote_addr consistent;
 
-server backup1.example.com:12345  backup;
-server backup2.example.com:12345  backup;
-</code></pre><p>}</p>
-<p>server {<br>    listen 12346;<br>    proxy_pass <strong>dynamic</strong> ;<br>    health_check;<br>}<br></p></pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="upstream"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>upstream</strong> <code class="notranslate"><i>name</i></code> { … }</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
-<pre><code>        —
+    server backend1.example.com:12345  weight=5;
+    server backend2.example.com:12345;
+    server unix:/tmp/backend3;
 
-            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-        Context:
-            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-        &lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; &lt;br&gt;
-            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  定义一组服务器。  服务器可以侦听不同的端口。  此外，可以混合侦听TCP和UNIX域套接字的服务器。 &lt;/p&gt;&lt;p&gt;  例： &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;upstream backend {
-server backend1.example.com:12345 weight=5;
-server 127.0.0.1:12345            max_fails=3 fail_timeout=30s;
-server unix:/tmp/backend2;
-server backend3.example.com:12345 resolve;
-
-server backup1.example.com:12345  backup;
-</code></pre><p>}<br></p><p></p><p>  默认情况下，使用加权循环平衡方法在服务器之间分配连接。  在上面的示例中，每个7个连接将按如下方式分发：5个连接到<code class="notranslate">backend1.example.com:12345</code>并且每个连接到第二个和第三个服务器。  如果在与服务器通信期间发生错误，则连接将传递到下一个服务器，依此类推，直到将尝试所有正常运行的服务器。  如果与所有服务器的通信失败，则将关闭连接。 </p><a name="server"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>server</strong> <code class="notranslate"><i>address</i></code> [ <code class="notranslate"><i>parameters</i></code> ];</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
-<pre><code>        —
-
-            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-        Context:
-            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-        &lt;code class=&quot;notranslate&quot;&gt;upstream&lt;/code&gt; &lt;br&gt;
-            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  定义服务器的&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;address&lt;/i&gt;&lt;/code&gt;和其他&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;parameters&lt;/i&gt;&lt;/code&gt; 。  可以将地址指定为具有强制端口的域名或IP地址，或者指定为“ &lt;code class=&quot;notranslate&quot;&gt;unix:&lt;/code&gt; ”前缀后指定的UNIX域套接字路径。  解析为多个IP地址的域名一次定义多个服务器。 &lt;/p&gt;&lt;p&gt;  可以定义以下参数： &lt;/p&gt;&lt;dl class=&quot;compact&quot;&gt;&lt;dt id=&quot;weight&quot;&gt;   &lt;code class=&quot;notranslate&quot;&gt;weight&lt;/code&gt; = &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;number&lt;/i&gt;&lt;/code&gt; &lt;/dt&gt;&lt;dd&gt;  设置服务器的权重，默认为1。 &lt;/dd&gt;&lt;dt id=&quot;max_conns&quot;&gt;   &lt;code class=&quot;notranslate&quot;&gt;max_conns&lt;/code&gt; = &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;number&lt;/i&gt;&lt;/code&gt; &lt;/dt&gt;&lt;dd&gt;  限制与代理服务器的最大并发连接&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;number&lt;/i&gt;&lt;/code&gt; （1.11.5）。  默认值为零，表示没有限制。  如果服务器组不驻留在&lt;a hhref=&quot;#zone&quot;&gt;共享内存中&lt;/a&gt; ，则每个工作进程的限制都有效。 &lt;blockquote class=&quot;note&quot;&gt;  在1.11.5版之前，此参数作为我们&lt;a hhref=&quot;http://nginx.com/products/&quot;&gt;商业订阅的&lt;/a&gt;一部分提供。 &lt;/blockquote&gt;&lt;/dd&gt;&lt;dt id=&quot;max_fails&quot;&gt;   &lt;code class=&quot;notranslate&quot;&gt;max_fails&lt;/code&gt; = &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;number&lt;/i&gt;&lt;/code&gt; &lt;/dt&gt;&lt;dd&gt;  设置在&lt;code class=&quot;notranslate&quot;&gt;fail_timeout&lt;/code&gt;参数设置的持续时间内发生的与服务器通信的不成功尝试次数，以考虑服务器在&lt;code class=&quot;notranslate&quot;&gt;fail_timeout&lt;/code&gt;参数设置的持续时间内不可用。  默认情况下，不成功尝试次数设置为1.零值禁用尝试的计费。  这里，在与服务器建立连接时，尝试失败是错误或超时。 &lt;/dd&gt;&lt;dt id=&quot;fail_timeout&quot;&gt;   &lt;code class=&quot;notranslate&quot;&gt;fail_timeout&lt;/code&gt; = &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;time&lt;/i&gt;&lt;/code&gt; &lt;/dt&gt;&lt;dd&gt;  套 &lt;ul class=&quot;compact&quot;&gt;&lt;li&gt;  指定数量的不成功尝试与服务器通信的时间应该考虑服务器不可用; &lt;/li&gt;&lt;li&gt;  以及服务器被视为不可用的时间段。 &lt;/li&gt;&lt;/ul&gt;  默认情况下，参数设置为10秒。 &lt;/dd&gt;&lt;dt id=&quot;backup&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;backup&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  将服务器标记为备份服务器。  当主服务器不可用时，将传递与备份服务器的连接。 &lt;/dd&gt;&lt;dt id=&quot;down&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;down&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  将服务器标记为永久不可用。 &lt;/dd&gt;&lt;/dl&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;  此外，以下参数作为我们&lt;a hhref=&quot;http://nginx.com/products/&quot;&gt;商业订阅的&lt;/a&gt;一部分提供： &lt;/p&gt;&lt;dl class=&quot;compact&quot;&gt;&lt;dt id=&quot;resolve&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;resolve&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  监视与服务器域名对应的IP地址的更改，并自动修改上游配置，而无需重新启动nginx。  服务器组必须驻留在&lt;a hhref=&quot;#zone&quot;&gt;共享内存中&lt;/a&gt; 。 &lt;p&gt;  要使此参数起作用，必须在&lt;a hhref=&quot;ngx_stream_core_module.html#stream&quot;&gt;流&lt;/a&gt;块中指定&lt;a hhref=&quot;ngx_stream_core_module.html#resolver&quot;&gt;解析程序&lt;/a&gt;指令。  例： &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;stream {
-resolver 10.0.0.1;
-
-upstream u {
-    zone ...;
-    ...
-    server example.com:12345 resolve;
+    server backup1.example.com:12345   backup;
+    server backup2.example.com:12345   backup;
 }
-</code></pre><p>}<br></p><p></p><dt id="service">   <code class="notranslate">service</code> = <code class="notranslate"><i>name</i></code> </dt><dd>  能够解析DNS <a hhref="https://tools.ietf.org/html/rfc2782">SRV</a>记录并设置服务<code class="notranslate"><i>name</i></code> （1.9.13）。  要使此参数起作用，必须为服务器指定<a hhref="#resolve">resolve</a>参数并指定不带端口号的主机名。 <p>  如果服务名称不包含点（“ <code class="notranslate">.</code> ”），则构造符合<a hhref="https://tools.ietf.org/html/rfc2782">RFC</a>的名称，并将TCP协议添加到服务前缀。  例如，要查找<code class="notranslate">_http._tcp.backend.example.com</code> SRV记录，必须指定该指令： </p><blockquote class="example"><pre class="notranslate">server backend.example.com service=http resolve;<br></pre></blockquote><p>  如果服务名称包含一个或多个点，则通过加入服务前缀和服务器名称来构造名称。  例如，要查找<code class="notranslate">_http._tcp.backend.example.com</code>和<code class="notranslate">server1.backend.example.com</code> SRV记录，必须指定指令： </p><blockquote class="example"><pre class="notranslate">server backend.example.com service=_http._tcp resolve;<br>server example.com service=server1.backend resolve;<br></pre></blockquote><p></p><p>  最高优先级SRV记录（具有相同最低优先级值的记录）将被解析为主服务器，其余SRV记录将被解析为备份服务器。  如果为服务器指定了<a hhref="#backup">backup</a>参数，则高优先级SRV记录将解析为备份服务器，其余SRV记录将被忽略。 </p></dd><dt id="slow_start">   <code class="notranslate">slow_start</code> = <code class="notranslate"><i>time</i></code> </dt><dd>  设置服务器将其权重从零恢复到标称值的时间，当不健康的服务器变得<a hhref="ngx_stream_upstream_hc_module.html#health_check">健康时</a> ，或者服务器在一段时间被认为<a hhref="#fail_timeout">不可用</a>后变得可用时。  默认值为零，即禁用慢启动。 <blockquote class="note">  该参数不能与<a hhref="#hash">散列</a>负载平衡方法一起使用。 </blockquote></dd><p></p><p></p><blockquote class="note">  如果组中只有一个服务器，则忽略<code class="notranslate">max_fails</code> ， <code class="notranslate">fail_timeout</code>和<code class="notranslate">slow_start</code>参数，并且永远不会将此类服务器视为不可用。 </blockquote><p></p><a name="zone"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>zone</strong> <code class="notranslate"><i>name</i></code> [ <code class="notranslate"><i>size</i></code> ];</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
-<pre><code>—
 
-    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-Context:
-    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-&lt;code class=&quot;notranslate&quot;&gt;upstream&lt;/code&gt; &lt;br&gt;
-    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  定义共享内存区域的&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;name&lt;/i&gt;&lt;/code&gt;和&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;size&lt;/i&gt;&lt;/code&gt; ，该区域保持组工作进程之间共享的组配置和运行时状态。  几个组可能共享同一个区域。  在这种情况下，仅指定一次&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;size&lt;/i&gt;&lt;/code&gt;就足够了。 &lt;/p&gt;&lt;p&gt;  此外，作为我们&lt;a hhref=&quot;http://nginx.com/products/&quot;&gt;商业订阅的&lt;/a&gt;一部分，此类组允许更改组成员身份或修改特定服务器的设置，而无需重新启动nginx。  可通过&lt;a hhref=&quot;http/ngx_http_api_module.html&quot;&gt;API&lt;/a&gt;模块（1.13.3）访问该配置。 &lt;/p&gt;&lt;blockquote class=&quot;note&quot;&gt;  在1.13.3版之前，只能通过&lt;a hhref=&quot;http/ngx_http_upstream_conf_module.html#upstream_conf&quot;&gt;upstream_conf&lt;/a&gt;处理的特殊位置访问配置。 &lt;/blockquote&gt;&lt;p&gt;&lt;/p&gt;&lt;a name=&quot;state&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-Syntax:
-    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-&lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;state&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;file&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
-    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-Default:
-    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+server {
+    listen 12346;
+    proxy_pass **backend** ;
+}
+</pre>
 
-—
 
-    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-Context:
-    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-&lt;code class=&quot;notranslate&quot;&gt;upstream&lt;/code&gt; &lt;br&gt;
-    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p&gt;  该指令出现在1.9.7版中。 &lt;/p&gt;&lt;/div&gt;&lt;p&gt;  指定保持动态可配置组状态的&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;file&lt;/i&gt;&lt;/code&gt; 。 &lt;/p&gt;&lt;p&gt;  例子： &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;state /var/lib/nginx/state/servers.conf; # path for Linux
-</code></pre><p>state /var/db/nginx/state/servers.conf;  # path for FreeBSD<br></p><p></p><p>  该状态目前仅限于具有其参数的服务器列表。  解析配置时会读取文件，每次<a hhref="http/ngx_http_api_module.html#stream_upstreams_stream_upstream_name_servers_">更改</a>上游配置时都会更新该文件。  应避免直接更改文件内容。  该指令不能与<a hhref="#server">server</a>指令一起使用。 </p><p></p><blockquote class="note">   <a hhref="control.html#reconfiguration">配置重新加载</a>或<a hhref="control.html#upgrade">二进制升级</a>期间所做的更改可能会丢失。 </blockquote><p></p><p></p><blockquote class="note">  该指令作为我们<a hhref="http://nginx.com/products/">商业订阅的</a>一部分提供。 </blockquote><p></p><a name="hash"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>hash</strong> <code class="notranslate"><i>key</i></code> [ <code class="notranslate">consistent</code> ];</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
-<pre><code>—
 
-    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-Context:
-    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-&lt;code class=&quot;notranslate&quot;&gt;upstream&lt;/code&gt; &lt;br&gt;
-    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  指定服务器组的负载平衡方法，其中客户端 - 服务器映射基于散列&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;key&lt;/i&gt;&lt;/code&gt; 。   &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;key&lt;/i&gt;&lt;/code&gt;可以包含文本，变量及其组合（1.11.2）。  用法示例： &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;hash $remote_addr;
-</code></pre><p></p><p>  请注意，从组中添加或删除服务器可能会导致将大多数密钥重新映射到不同的服务器。  该方法与<a hhref="https://metacpan.org/pod/Cache::Memcached">Cache :: Memcached</a> Perl库兼容。 </p><p>  如果指定了<code class="notranslate">consistent</code>参数，则将使用<a hhref="https://www.metabrew.com/article/libketama-consistent-hashing-algo-memcached-clients">ketama</a>一致性哈希方法。  该方法确保在向组添加服务器或从组中删除服务器时，只有少数密钥将重新映射到不同的服务器。  这有助于为缓存服务器实现更高的缓存命中率。  该方法与<a hhref="https://metacpan.org/pod/Cache::Memcached::Fast">Cache :: Memcached :: Fast</a> Perl库兼容，并将<code class="notranslate"><i>ketama_points</i></code>参数设置为160。 </p><a name="least_conn"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>least_conn</strong> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
-<pre><code>        —
+<p>  具有定期<a href="ngx_stream_upstream_hc_module.html">运行状况检查的</a>动态可配置组可作为我们<a href="http://nginx.com/products/" target="_blank" rel="noopener">商业订阅的</a>一部分： </p>
+<pre class="notranslate">resolver 10.0.0.1;
 
-            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-        Context:
-            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-        &lt;code class=&quot;notranslate&quot;&gt;upstream&lt;/code&gt; &lt;br&gt;
-            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  指定组应使用负载平衡方法，其中将连接传递到具有最少活动连接的服务器，同时考虑服务器的权重。  如果有多个这样的服务器，则使用加权循环平衡方法依次尝试它们。 &lt;/p&gt;&lt;a name=&quot;least_time&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-        Syntax:
-            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;least_time&lt;/strong&gt; 
-&lt;code class=&quot;notranslate&quot;&gt;connect&lt;/code&gt; |
-&lt;code class=&quot;notranslate&quot;&gt;first_byte&lt;/code&gt; |
-&lt;code class=&quot;notranslate&quot;&gt;last_byte&lt;/code&gt;
-[ &lt;code class=&quot;notranslate&quot;&gt;inflight&lt;/code&gt; ];&lt;/code&gt; &lt;br&gt;
-            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-        Default:
-            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+upstream **dynamic** {
+    zone upstream_dynamic 64k;
 
-        —
+    server backend1.example.com:12345 weight=5;
+    server backend2.example.com:12345 fail_timeout=5s slow_start=30s;
+    server 192.0.2.1:12345            max_fails=3;
+    server backend3.example.com:12345 resolve;
+    server backend4.example.com       service=http resolve;
 
-            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-        Context:
-            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-        &lt;code class=&quot;notranslate&quot;&gt;upstream&lt;/code&gt; &lt;br&gt;
-            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  指定组应使用负载平衡方法，其中连接以最少的平均时间和最少的活动连接传递到服务器，同时考虑服务器的权重。  如果有多个这样的服务器，则使用加权循环平衡方法依次尝试它们。 &lt;/p&gt;&lt;p&gt;  如果指定了&lt;code class=&quot;notranslate&quot;&gt;connect&lt;/code&gt;参数，则使用&lt;a hhref=&quot;#var_upstream_connect_time&quot;&gt;连接&lt;/a&gt;到上游服务器的时间。  如果指定了&lt;code class=&quot;notranslate&quot;&gt;first_byte&lt;/code&gt;参数，则使用接收数据的&lt;a hhref=&quot;#var_upstream_first_byte_time&quot;&gt;第一个字节&lt;/a&gt;的时间。  如果指定了&lt;code class=&quot;notranslate&quot;&gt;last_byte&lt;/code&gt;则使用接收&lt;a hhref=&quot;#var_upstream_session_time&quot;&gt;最后一个&lt;/a&gt;数据&lt;a hhref=&quot;#var_upstream_session_time&quot;&gt;字节&lt;/a&gt;的时间。  如果指定了&lt;code class=&quot;notranslate&quot;&gt;inflight&lt;/code&gt;参数（1.11.6），则还会考虑不完整的连接。 &lt;/p&gt;&lt;blockquote class=&quot;note&quot;&gt;  在1.11.6版之前，默认情况下会考虑不完整的连接。 &lt;/blockquote&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;blockquote class=&quot;note&quot;&gt;  该指令作为我们&lt;a hhref=&quot;http://nginx.com/products/&quot;&gt;商业订阅的&lt;/a&gt;一部分提供。 &lt;/blockquote&gt;&lt;p&gt;&lt;/p&gt;&lt;a name=&quot;random&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-        Syntax:
-            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;random&lt;/strong&gt; [ &lt;code class=&quot;notranslate&quot;&gt;two&lt;/code&gt; [ &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;method&lt;/i&gt;&lt;/code&gt; ]];&lt;/code&gt; &lt;br&gt;
-            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-        Default:
-            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+    server backup1.example.com:12345  backup;
+    server backup2.example.com:12345  backup;
+}
 
-        —
+server {
+    listen 12346;
+    proxy_pass **dynamic** ;
+    health_check;
+}
+</pre>
 
-            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-        Context:
-            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-        &lt;code class=&quot;notranslate&quot;&gt;upstream&lt;/code&gt; &lt;br&gt;
-            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p&gt;  该指令出现在1.15.1版本中。 &lt;/p&gt;&lt;/div&gt;&lt;p&gt;  指定组应使用负载平衡方法，其中将连接传递给随机选择的服务器，同时考虑服务器的权重。 &lt;/p&gt;&lt;p&gt;  可选的&lt;code class=&quot;notranslate&quot;&gt;two&lt;/code&gt;参数指示nginx随机选择&lt;a hhref=&quot;https://homes.cs.washington.edu/~karlin/papers/balls.pdf&quot;&gt;两个&lt;/a&gt;服务器，然后使用指定的&lt;code class=&quot;notranslate&quot;&gt;method&lt;/code&gt;选择服务器。  默认方法是&lt;code class=&quot;notranslate&quot;&gt;least_conn&lt;/code&gt; ，它将连接传递给具有最少活动连接数的服务器。 &lt;/p&gt;&lt;a name=&quot;random_least_time&quot;&gt;&lt;/a&gt;&lt;p&gt;   &lt;code class=&quot;notranslate&quot;&gt;least_time&lt;/code&gt;方法将连接传递给平均时间最短且活动连接数最少的服务器。  如果指定了&lt;code class=&quot;notranslate&quot;&gt;least_time=connect&lt;/code&gt;参数，则使用&lt;a hhref=&quot;#var_upstream_connect_time&quot;&gt;连接&lt;/a&gt;到上游服务器的时间。  如果指定了&lt;code class=&quot;notranslate&quot;&gt;least_time=first_byte&lt;/code&gt;参数，则使用接收数据的&lt;a hhref=&quot;#var_upstream_first_byte_time&quot;&gt;第一个字节&lt;/a&gt;的时间。  如果指定了&lt;code class=&quot;notranslate&quot;&gt;least_time=last_byte&lt;/code&gt;则使用接收&lt;a hhref=&quot;#var_upstream_session_time&quot;&gt;最后一个&lt;/a&gt;数据&lt;a hhref=&quot;#var_upstream_session_time&quot;&gt;字节&lt;/a&gt;的时间。 &lt;/p&gt;&lt;blockquote class=&quot;note&quot;&gt;   &lt;code class=&quot;notranslate&quot;&gt;least_time&lt;/code&gt;方法可作为我们&lt;a hhref=&quot;http://nginx.com/products/&quot;&gt;商业订阅&lt;/a&gt;的一部分。 &lt;/blockquote&gt;&lt;p&gt;&lt;/p&gt;&lt;a name=&quot;variables&quot;&gt;&lt;/a&gt;&lt;center&gt;&lt;h4&gt;  嵌入式变量 &lt;/h4&gt;&lt;/center&gt;&lt;p&gt;   &lt;code class=&quot;notranslate&quot;&gt;ngx_stream_upstream_module&lt;/code&gt;模块支持以下嵌入变量： &lt;/p&gt;&lt;dl class=&quot;compact&quot;&gt;&lt;dt id=&quot;var_upstream_addr&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$upstream_addr&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  保留IP地址和端口，或上游服务器的UNIX域套接字的路径（1.11.4）。  如果在代理期间联系了多个服务器，则它们的地址用逗号分隔，例如“ &lt;code class=&quot;notranslate&quot;&gt;192.168.1.1:12345, 192.168.1.2:12345, unix:/tmp/sock&lt;/code&gt; ”。  如果无法选择服务器，则变量将保留服务器组的名称。 &lt;/dd&gt;&lt;dt id=&quot;var_upstream_bytes_received&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$upstream_bytes_received&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  从上游服务器（1.11.4）接收的字节数。  来自多个连接的值由逗号分隔，例如&lt;a hhref=&quot;#var_upstream_addr&quot;&gt;$ upstream_addr&lt;/a&gt;变量中的地址。 &lt;/dd&gt;&lt;dt id=&quot;var_upstream_bytes_sent&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$upstream_bytes_sent&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  发送到上游服务器的字节数（1.11.4）。  来自多个连接的值由逗号分隔，例如&lt;a hhref=&quot;#var_upstream_addr&quot;&gt;$ upstream_addr&lt;/a&gt;变量中的地址。 &lt;/dd&gt;&lt;dt id=&quot;var_upstream_connect_time&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$upstream_connect_time&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  时间连接到上游服务器（1.11.4）;  时间以秒为单位，分辨率为毫秒。  多个连接的时间由逗号分隔，如&lt;a hhref=&quot;#var_upstream_addr&quot;&gt;$ upstream_addr&lt;/a&gt;变量中的地址。 &lt;/dd&gt;&lt;dt id=&quot;var_upstream_first_byte_time&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$upstream_first_byte_time&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  接收数据的第一个字节的时间（1.11.4）;  时间以秒为单位，分辨率为毫秒。  多个连接的时间由逗号分隔，如&lt;a hhref=&quot;#var_upstream_addr&quot;&gt;$ upstream_addr&lt;/a&gt;变量中的地址。 &lt;/dd&gt;&lt;dt id=&quot;var_upstream_session_time&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;$upstream_session_time&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  会话持续时间（以秒为单位），分辨率为毫秒（1.11.4）。  多个连接的时间由逗号分隔，如&lt;a hhref=&quot;#var_upstream_addr&quot;&gt;$ upstream_addr&lt;/a&gt;变量中的地址。 &lt;/dd&gt;&lt;/dl&gt;&lt;p&gt;&lt;/p&gt; 
-</code></pre><p><span></span><div style="display: none;"></div></p>
-</td></tr></tbody></table></div></td></tr></tbody></table></div></td></tr></tbody></table></div></td></tr></tbody></table></div></td></tr></tbody></table></div>
+
+
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**upstream*name*</code> { … } <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> <br>                </td></p>
+<p>  定义一组服务器。  服务器可以侦听不同的端口。  此外，可以混合侦听TCP和UNIX域套接字的服务器。 </p>
+<p>  例： </p>
+<pre class="notranslate">upstream backend {
+    server backend1.example.com:12345 weight=5;
+    server 127.0.0.1:12345            max_fails=3 fail_timeout=30s;
+    server unix:/tmp/backend2;
+    server backend3.example.com:12345 resolve;
+
+    server backup1.example.com:12345  backup;
+}
+</pre>
+
+
+
+<p>  默认情况下，使用加权循环平衡方法在服务器之间分配连接。  在上面的示例中，每个7个连接将按如下方式分发：5个连接到<code>backend1.example.com:12345</code>并且每个连接到第二个和第三个服务器。  如果在与服务器通信期间发生错误，则连接将传递到下一个服务器，依此类推，直到将尝试所有正常运行的服务器。  如果与所有服务器的通信失败，则将关闭连接。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**server*address*</code> [ <code>*parameters*</code> ];<br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>upstream</code> <br>                </td></p>
+<p>  定义服务器的<code>*address*</code>和其他<code>*parameters*</code> 。  可以将地址指定为具有强制端口的域名或IP地址，或者指定为“ <code>unix:</code> ”前缀后指定的UNIX域套接字路径。  解析为多个IP地址的域名一次定义多个服务器。 </p>
+<p>  可以定义以下参数： </p>
+<blockquote>
+<p>  在1.11.5版之前，此参数作为我们<a href="http://nginx.com/products/" target="_blank" rel="noopener">商业订阅的</a>一部分提供。 </p>
+<ul>
+<li>指定数量的不成功尝试与服务器通信的时间应该考虑服务器不可用; -   以及服务器被视为不可用的时间段。 </li>
+</ul>
+</blockquote>
+<p>  此外，以下参数作为我们<a href="http://nginx.com/products/" target="_blank" rel="noopener">商业订阅的</a>一部分提供： </p>
+<p>  要使此参数起作用，必须在<a href="ngx_stream_core_module.html#stream">流</a>块中指定<a href="ngx_stream_core_module.html#resolver">解析程序</a>指令。  例： </p>
+<pre class="notranslate">stream {
+    resolver 10.0.0.1;
+
+    upstream u {
+        zone ...;
+        ...
+        server example.com:12345 resolve;
+    }
+}
+</pre>
+
+
+
+<p>  如果服务名称不包含点（“ <code>.</code> ”），则构造符合<a href="https://tools.ietf.org/html/rfc2782" target="_blank" rel="noopener">RFC</a>的名称，并将TCP协议添加到服务前缀。  例如，要查找<code>_http._tcp.backend.example.com</code> SRV记录，必须指定该指令： </p>
+<pre class="notranslate">server backend.example.com service=http resolve;
+</pre>
+
+<p>  如果服务名称包含一个或多个点，则通过加入服务前缀和服务器名称来构造名称。  例如，要查找<code>_http._tcp.backend.example.com</code>和<code>server1.backend.example.com</code> SRV记录，必须指定指令： </p>
+<pre class="notranslate">server backend.example.com service=_http._tcp resolve;
+server example.com service=server1.backend resolve;
+</pre>
+
+
+
+<p>  最高优先级SRV记录（具有相同最低优先级值的记录）将被解析为主服务器，其余SRV记录将被解析为备份服务器。  如果为服务器指定了<a href="#backup">backup</a>参数，则高优先级SRV记录将解析为备份服务器，其余SRV记录将被忽略。 </p>
+<blockquote>
+<p>  该参数不能与<a href="#hash">散列</a>负载平衡方法一起使用。 </p>
+<p>  如果组中只有一个服务器，则忽略<code>max_fails</code> ， <code>fail_timeout</code>和<code>slow_start</code>参数，并且永远不会将此类服务器视为不可用。 </p>
+</blockquote>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**zone*name*</code> [ <code>*size*</code> ];<br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>upstream</code> <br>                </td></p>
+<p>  定义共享内存区域的<code>*name*</code>和<code>*size*</code> ，该区域保持组工作进程之间共享的组配置和运行时状态。  几个组可能共享同一个区域。  在这种情况下，仅指定一次<code>*size*</code>就足够了。 </p>
+<p>  此外，作为我们<a href="http://nginx.com/products/" target="_blank" rel="noopener">商业订阅的</a>一部分，此类组允许更改组成员身份或修改特定服务器的设置，而无需重新启动nginx。  可通过<a href="http/ngx_http_api_module.html">API</a>模块（1.13.3）访问该配置。 </p>
+<blockquote>
+<p>  在1.13.3版之前，只能通过<a href="http/ngx_http_upstream_conf_module.html#upstream_conf">upstream_conf</a>处理的特殊位置访问配置。 </p>
+</blockquote>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**state*file*</code> ;<br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>upstream</code> <br>                </td></p>
+<p>  该指令出现在1.9.7版中。 </p>
+<p>  指定保持动态可配置组状态的<code>*file*</code> 。 </p>
+<p>  例子： </p>
+<pre class="notranslate">state /var/lib/nginx/state/servers.conf; # path for Linux
+state /var/db/nginx/state/servers.conf;  # path for FreeBSD
+</pre>
+
+
+
+<p>  该状态目前仅限于具有其参数的服务器列表。  解析配置时会读取文件，每次<a href="http/ngx_http_api_module.html#stream_upstreams_stream_upstream_name_servers_">更改</a>上游配置时都会更新该文件。  应避免直接更改文件内容。  该指令不能与<a href="#server">server</a>指令一起使用。 </p>
+<blockquote>
+<p>   <a href="control.html#reconfiguration">配置重新加载</a>或<a href="control.html#upgrade">二进制升级</a>期间所做的更改可能会丢失。 </p>
+<p>  该指令作为我们<a href="http://nginx.com/products/" target="_blank" rel="noopener">商业订阅的</a>一部分提供。 </p>
+</blockquote>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**hash*key*</code> [ <code>consistent</code> ];<br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>upstream</code> <br>                </td></p>
+<p>  指定服务器组的负载平衡方法，其中客户端 - 服务器映射基于散列<code>*key*</code> 。   <code>*key*</code>可以包含文本，变量及其组合（1.11.2）。  用法示例： </p>
+<pre class="notranslate">hash $remote_addr;
+</pre>
+
+<p>  请注意，从组中添加或删除服务器可能会导致将大多数密钥重新映射到不同的服务器。  该方法与<a href="https://metacpan.org/pod/Cache::Memcached" target="_blank" rel="noopener">Cache :: Memcached</a> Perl库兼容。 </p>
+<p>  如果指定了<code>consistent</code>参数，则将使用<a href="https://www.metabrew.com/article/libketama-consistent-hashing-algo-memcached-clients" target="_blank" rel="noopener">ketama</a>一致性哈希方法。  该方法确保在向组添加服务器或从组中删除服务器时，只有少数密钥将重新映射到不同的服务器。  这有助于为缓存服务器实现更高的缓存命中率。  该方法与<a href="https://metacpan.org/pod/Cache::Memcached::Fast" target="_blank" rel="noopener">Cache :: Memcached :: Fast</a> Perl库兼容，并将<code>*ketama_points*</code>参数设置为160。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**least_conn** ;</code> <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>upstream</code> <br>                </td></p>
+<p>  指定组应使用负载平衡方法，其中将连接传递到具有最少活动连接的服务器，同时考虑服务器的权重。  如果有多个这样的服务器，则使用加权循环平衡方法依次尝试它们。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**least_time**     &lt;code class=&quot;notranslate&quot;&gt;connect</code> |    <code>first_byte</code> |    <code>last_byte</code>    [ <code>inflight</code> ];<br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>upstream</code> <br>                </td></p>
+<p>  指定组应使用负载平衡方法，其中连接以最少的平均时间和最少的活动连接传递到服务器，同时考虑服务器的权重。  如果有多个这样的服务器，则使用加权循环平衡方法依次尝试它们。 </p>
+<p>  如果指定了<code>connect</code>参数，则使用<a href="#var_upstream_connect_time">连接</a>到上游服务器的时间。  如果指定了<code>first_byte</code>参数，则使用接收数据的<a href="#var_upstream_first_byte_time">第一个字节</a>的时间。  如果指定了<code>last_byte</code>则使用接收<a href="#var_upstream_session_time">最后一个</a>数据<a href="#var_upstream_session_time">字节</a>的时间。  如果指定了<code>inflight</code>参数（1.11.6），则还会考虑不完整的连接。 </p>
+<blockquote>
+<p>  在1.11.6版之前，默认情况下会考虑不完整的连接。 </p>
+<p>  该指令作为我们<a href="http://nginx.com/products/" target="_blank" rel="noopener">商业订阅的</a>一部分提供。 </p>
+</blockquote>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**random** [ &lt;code class=&quot;notranslate&quot;&gt;two</code> [ <code>*method*</code> ]];<br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>upstream</code> <br>                </td></p>
+<p>  该指令出现在1.15.1版本中。 </p>
+<p>  指定组应使用负载平衡方法，其中将连接传递给随机选择的服务器，同时考虑服务器的权重。 </p>
+<p>  可选的<code>two</code>参数指示nginx随机选择<a href="https://homes.cs.washington.edu/~karlin/papers/balls.pdf" target="_blank" rel="noopener">两个</a>服务器，然后使用指定的<code>method</code>选择服务器。  默认方法是<code>least_conn</code> ，它将连接传递给具有最少活动连接数的服务器。 </p>
+<p>   <code>least_time</code>方法将连接传递给平均时间最短且活动连接数最少的服务器。  如果指定了<code>least_time=connect</code>参数，则使用<a href="#var_upstream_connect_time">连接</a>到上游服务器的时间。  如果指定了<code>least_time=first_byte</code>参数，则使用接收数据的<a href="#var_upstream_first_byte_time">第一个字节</a>的时间。  如果指定了<code>least_time=last_byte</code>则使用接收<a href="#var_upstream_session_time">最后一个</a>数据<a href="#var_upstream_session_time">字节</a>的时间。 </p>
+<blockquote>
+<p>   <code>least_time</code>方法可作为我们<a href="http://nginx.com/products/" target="_blank" rel="noopener">商业订阅</a>的一部分。 </p>
+</blockquote>
+<h4 id="嵌入式变量"><a href="#嵌入式变量" class="headerlink" title="嵌入式变量"></a>嵌入式变量</h4><p>   <code>ngx_stream_upstream_module</code>模块支持以下嵌入变量： </p>
+
       
     </div>
     
@@ -541,7 +611,7 @@ Context:
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nginx.im/ngx/stream/ngx_stream_upstream_module.html" title="">http://nginx.im/ngx/stream/ngx_stream_upstream_module.html</a>
+    <a href="http://nginx.im/ngx/stream/ngx_stream_upstream_module.html" title="stream/ngx_stream_upstream_module-nginx中文手册">http://nginx.im/ngx/stream/ngx_stream_upstream_module.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -554,6 +624,12 @@ Context:
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/nginx/" rel="tag"># nginx</a>
+          
+        </div>
+      
 
       
       
@@ -563,8 +639,8 @@ Context:
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ngx/stream/ngx_stream_upstream_hc_module.html" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/ngx/stream/ngx_stream_upstream_hc_module.html" rel="next" title="stream/ngx_stream_upstream_hc_module-nginx中文手册">
+                <i class="fa fa-chevron-left"></i> stream/ngx_stream_upstream_hc_module-nginx中文手册
               </a>
             
           </div>
@@ -573,8 +649,8 @@ Context:
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ngx/stream/ngx_stream_zone_sync_module.html" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/ngx/stream/ngx_stream_zone_sync_module.html" rel="prev" title="stream/ngx_stream_zone_sync_module-nginx中文手册">
+                stream/ngx_stream_zone_sync_module-nginx中文手册 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -672,7 +748,7 @@ Context:
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -718,7 +794,7 @@ Context:
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_stream_upstream_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">  示例配置 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">  指令 </span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-stream-upstream-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_stream_upstream_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌入式变量"><span class="nav-number">1.0.3.</span> <span class="nav-text">嵌入式变量</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

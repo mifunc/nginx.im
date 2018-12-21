@@ -322,7 +322,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/ngx/http/ngx_http_log_module.html" itemprop="url">未命名</a></h2>
+                <a class="post-title-link" href="/ngx/http/ngx_http_log_module.html" itemprop="url">http/ngx_http_log_module-nginx中文手册</a></h2>
         
 
         <div class="post-meta">
@@ -334,7 +334,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:16:01+08:00">
                 2018年12月21日
               </time>
             
@@ -344,6 +344,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx中文手册</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -373,12 +395,14 @@
 
       
         
-          
-            <p></p><h2 class="notranslate">Module ngx_http_log_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#example">Example Configuration</a> <br> <a hhref="#directives">Directives</a> <br>     <a hhref="#access_log">access_log</a> <br>     <a hhref="#log_format">log_format</a> <br>     <a hhref="#open_log_file_cache">open_log_file_cache</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_log_module</code>模块以指定的格式写入请求日志。 </p><p>  请求记录在处理结束的位置的上下文中。  如果在请求处理期间发生<a hhref="ngx_http_core_module.html#internal">内部重定向</a> ，则它可能与原始位置不同。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">log_format compression ‘$remote_addr - $remote_user [$time_local] ‘<br>                       ‘“$request” $status $bytes_sent ‘<br>                       ‘“$http_referer” “$http_user_agent” “$gzip_ratio”‘;<p></p>
-<p>access_log /spool/logs/nginx-access.log compression buffer=32k;<br></p></pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="access_log"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>access_log</strong><br>    <code class="notranslate"><i>path</i></code><br>    [ <code class="notranslate"><i>format</i></code><br>    [ <code class="notranslate">buffer</code> = <code class="notranslate"><i>size</i></code> ]<br>    [ <code class="notranslate">gzip[= <code class="notranslate"><i>level</i></code> ]</code> ]<br>    [ <code class="notranslate">flush</code> = <code class="notranslate"><i>time</i></code> ]<br>    [ <code class="notranslate">if</code> = <code class="notranslate"><i>condition</i></code> ]];</code> <br> <code class="notranslate"><strong>access_log</strong> <code class="notranslate">off</code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">access_log logs/access.log combined;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> , <code class="notranslate">if in location</code> , <code class="notranslate">limit_except</code> <br><br>                </td></tr></tbody></table></div><p>  设置缓冲日志写入的路径，格式和配置。  可以在同一级别指定多个日志。  可以通过在第一个参数中指定“ <code class="notranslate">syslog:</code> ”前缀来配置记录到<a hhref="syslog.html">syslog</a> 。  特殊值<code class="notranslate">off</code>取消当前级别的所有<code class="notranslate">access_log</code>指令。  如果未指定格式，则使用预定义的“ <code class="notranslate">combined</code> ”格式。 </p><p>  如果使用<code class="notranslate">buffer</code>或<code class="notranslate">gzip</code> （1.3.10,1.2.7）参数，则将缓冲写入日志。 </p><blockquote class="note">  缓冲区大小不得超过磁盘文件的原子写入大小。  对于FreeBSD，这个大小是无限的。 </blockquote><p></p><p>  启用缓冲后，数据将写入文件： </p><ul class="compact"><li>  如果下一个日志行不适合缓冲区; </li><li>  如果缓冲的数据早于<code class="notranslate">flush</code>参数（1.3.10,1.2.7）指定的数据; </li><li>  当工作进程<a hhref="control.html">重新打开</a>日志文件或正在关闭时。 </li></ul><p></p><p>  如果使用<code class="notranslate">gzip</code>参数，则在写入文件之前将压缩缓冲的数据。  压缩级别可以设置为1（最快，压缩较少）和9（最慢，最佳压缩）。  默认情况下，缓冲区大小等于64K字节，压缩级别设置为1.由于数据是以原子块压缩的，因此日志文件可以随时通过“ <code class="notranslate">zcat</code> ”解压缩或读取。 </p><p>  例： </p><blockquote class="example"><pre class="notranslate">access_log /path/to/log.gz combined gzip flush=5m;<br></pre></blockquote><p></p><p></p><blockquote class="note">  要使gzip压缩起作用，必须使用zlib库构建nginx。 </blockquote><p></p><p>  文件路径可以包含变量（0.7.6+），但是这样的日志有一些约束： </p><ul class="compact"><li>  工作进程使用其凭据的<a hhref="ngx_core_module.html#user">用户</a>应具有在具有此类日志的目录中创建文件的权限; </li><li>  缓冲写入不起作用; </li><li>  每个日志写入都会打开和关闭该文件。  但是，由于常用文件的描述符可以存储在<a hhref="#open_log_file_cache">缓存中</a> ，因此写入旧文件可以在<a hhref="#open_log_file_cache">open_log_file_cache</a>指令的<code class="notranslate">valid</code>参数指定的时间内继续写入 </li><li>  在每个日志写入期间，检查是否存在请求的<a hhref="ngx_http_core_module.html#root">根目录</a> ，如果它不存在，则不会创建日志。  因此，在同一级别指定<a hhref="ngx_http_core_module.html#root">root</a>和<code class="notranslate">access_log</code>是个好主意： <blockquote class="example"><pre class="notranslate">server {<br>    root       /spool/vhost/data/$host;<br>    access_log /spool/vhost/logs/$host;<br>    …<br></pre></blockquote></li></ul><p></p><p>   <code class="notranslate">if</code>参数（1.7.0）启用条件记录。  如果<code class="notranslate"><i>condition</i></code>评估为“0”或空字符串，则不会记录请求。  在以下示例中，将不记录响应代码为2xx和3xx的请求： </p><blockquote class="example"><pre class="notranslate">map $status $loggable {<br>    ~^[23]  0;<br>    default 1;<br>}<p></p>
-<p>access_log /path/to/access.log combined if=$loggable;<br></p></pre></blockquote><p></p><a name="log_format"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>log_format</strong><br>    <code class="notranslate"><i>name</i></code><br>    [ <code class="notranslate">escape</code> = <code class="notranslate">default</code> | <code class="notranslate">json</code> | <code class="notranslate">none</code> ]<br>    <code class="notranslate"><i>string</i></code> …;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">log_format combined “…”;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> <br><br>                </td></tr></tbody></table></div><p>  指定日志格式。 </p><a name="log_format_escape"></a><p>   <code class="notranslate">escape</code>参数（1.11.8）允许设置在变量中转义的<code class="notranslate">json</code>或<code class="notranslate">default</code>字符，默认情况下，使用<code class="notranslate">default</code>转义。   <code class="notranslate">none</code>值（1.13.10）禁用转义。 </p><p>  日志格式可以包含公共变量，以及仅在日志写入时存在的变量： </p><dl class="compact"><dt id="var_bytes_sent"> <code class="notranslate">$bytes_sent</code> </dt> <dd>  发送到客户端的字节数 </dd><dt id="var_connection"> <code class="notranslate">$connection</code> </dt> <dd>  连接序列号 </dd><dt id="var_connection_requests"> <code class="notranslate">$connection_requests</code> </dt> <dd>  通过连接发出的当前请求数（1.1.18） </dd><dt id="var_msec"> <code class="notranslate">$msec</code> </dt> <dd>  以秒为单位的时间，日志写入时的分辨率为毫秒 </dd><dt id="var_pipe"> <code class="notranslate">$pipe</code> </dt> <dd>   “ <code class="notranslate">p</code> ”如果请求是流水线的，“ <code class="notranslate">.</code>   “ 除此以外 </dd><dt id="var_request_length"> <code class="notranslate">$request_length</code> </dt> <dd>  请求长度（包括请求行，标题和请求正文） </dd><dt id="var_request_time"> <code class="notranslate">$request_time</code> </dt> <dd>  以毫秒为单位请求处理时间（以秒为单位）;  从客户端读取第一个字节之间经过的时间，并将最后一个字节发送到客户端后的日志写入 </dd><dt id="var_status"> <code class="notranslate">$status</code> </dt> <dd>  回应状态 </dd><dt id="var_time_iso8601"> <code class="notranslate">$time_iso8601</code> </dt> <dd>  当地时间采用ISO 8601标准格式 </dd><dt id="var_time_local"> <code class="notranslate">$time_local</code> </dt> <dd>  通用日志格式的本地时间 </dd></dl><p></p><blockquote class="note">  在现代nginx版本变量<a hhref="ngx_http_core_module.html#var_status">$ status</a> （ <a hhref="ngx_http_core_module.html#var_bytes_sent">1.3.2,1.2.2</a> ）， <a hhref="ngx_http_core_module.html#var_bytes_sent">$ bytes_sent</a> （ <a hhref="ngx_http_core_module.html#var_bytes_sent">1.3.8,1.2.5</a> ）， <a hhref="ngx_http_core_module.html#var_connection">$ connection</a> （ <a hhref="ngx_http_core_module.html#var_bytes_sent">1.3.8,1.2.5</a> ）， <a hhref="ngx_http_core_module.html#var_connection">$ connection_requests</a> （ <a hhref="ngx_http_core_module.html#var_bytes_sent">1.3.8,1.2</a> ） .5）， <a hhref="ngx_http_core_module.html#var_msec">$ msec</a> （1.3.9,1.2.6）， <a hhref="ngx_http_core_module.html#var_request_time">$ request_time</a> （1.3.9,1.2.6）， <a hhref="ngx_http_core_module.html#var_pipe">$ pipe</a> （1.3.12,1.2.7）， <a hhref="ngx_http_core_module.html#var_request_length">$ request_length</a> （1.3.12,1.2.7） ）， <a hhref="ngx_http_core_module.html#var_time_iso8601">$ time_iso8601</a> （ <a hhref="ngx_http_core_module.html#var_time_iso8601">1.3.12,1.2.7</a> ）和<a hhref="ngx_http_core_module.html#var_time_local">$ time_local</a> （1.3.12,1.2.7）也可用作公共变量。 </blockquote><p></p><p>  发送到客户端的标题行具有前缀“ <code class="notranslate">sent<em>http</em></code> ”，例如<code class="notranslate">$sent_http_content_range</code> 。 </p><p>  配置始终包含预定义的“ <code class="notranslate">combined</code> ”格式： </p><blockquote class="example"><pre class="notranslate">log_format combined ‘$remote_addr - $remote_user [$time_local] ‘<br>                    ‘“$request” $status $body_bytes_sent ‘<br>                    ‘“$http_referer” “$http_user_agent”‘;<br></pre></blockquote><p></p><a name="open_log_file_cache"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>open_log_file_cache</strong><br><code class="notranslate">max</code> = <code class="notranslate"><i>N</i></code><br>[ <code class="notranslate">inactive</code> = <code class="notranslate"><i>time</i></code> ]<br>[ <code class="notranslate">min_uses</code> = <code class="notranslate"><i>N</i></code> ]<br>[ <code class="notranslate">valid</code> = <code class="notranslate"><i>time</i></code> ];</code> <br> <code class="notranslate"><strong>open_log_file_cache</strong> <code class="notranslate">off</code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">open_log_file_cache off;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table></div><p>  定义一个缓存，用于存储名称中包含变量的常用日志的文件描述符。  该指令具有以下参数： </p><dl class="compact"><dt> <code class="notranslate">max</code> </dt> <dd>  设置缓存中的最大描述符数;  如果缓存变满，则最近最少使用（LRU）描述符将被关闭 </dd><dt> <code class="notranslate">inactive</code> </dt> <dd>  如果在此期间没有访问权限，则设置关闭缓存描述符的时间;  默认情况下，10秒 </dd><dt> <code class="notranslate">min_uses</code> </dt> <dd>  设置在<code class="notranslate">inactive</code>参数定义的时间内使文件使用的最小数量，以使描述符在缓存中保持打开状态;  默认情况下，1 </dd><dt> <code class="notranslate">valid</code> </dt> <dd>  设置应该检查文件是否仍然存在同名的时间;  默认情况下，60秒 </dd><dt> <code class="notranslate">off</code> </dt> <dd>  禁用缓存 </dd></dl><p></p><p>  用法示例： </p><blockquote class="example"><pre class="notranslate">open_log_file_cache max=1000 inactive=20s valid=1m min_uses=2;<br></pre></blockquote><p></p><br><span></span><div style="display: none;"></div><p></p>
-
-          
+          <p>http,ngx_http_log_module<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/ngx/http/ngx_http_log_module.html#post.more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -444,7 +468,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/ngx/http/ngx_http_limit_req_module.html" itemprop="url">未命名</a></h2>
+                <a class="post-title-link" href="/ngx/http/ngx_http_limit_req_module.html" itemprop="url">http/ngx_http_limit_req_module-nginx中文手册</a></h2>
         
 
         <div class="post-meta">
@@ -456,7 +480,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:16:01+08:00">
                 2018年12月21日
               </time>
             
@@ -466,6 +490,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx中文手册</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -495,37 +541,14 @@
 
       
         
-          
-            <p></p><h2 class="notranslate">Module ngx_http_limit_req_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#example">Example Configuration</a> <br> <a hhref="#directives">Directives</a> <br>     <a hhref="#limit_req">limit_req</a> <br>     <a hhref="#limit_req_log_level">limit_req_log_level</a> <br>     <a hhref="#limit_req_status">limit_req_status</a> <br>     <a hhref="#limit_req_zone">limit_req_zone</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_limit_req_module</code>模块（0.7.21）用于限制每个定义密钥的请求处理速率，特别是来自单个IP地址的请求的处理速率。  使用“漏桶”方法进行限制。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">http {<br>    limit_req_zone $binary_remote_addr zone=one:10m rate=1r/s;<p></p>
-<pre><code>...
-
-server {
-
-    ...
-
-    location /search/ {
-        limit_req zone=one burst=5;
-    }
-</code></pre><p></p></pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="limit_req"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>limit_req</strong><br>    <code class="notranslate">zone</code> = <code class="notranslate"><i>name</i></code><br>    [ <code class="notranslate">burst</code> = <code class="notranslate"><i>number</i></code> ]<br>    [ <code class="notranslate">nodelay</code> |<br>     <code class="notranslate">delay</code> = <code class="notranslate"><i>number</i></code> ];</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
-<pre><code>—
-
-    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-Context:
-    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-&lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
-    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  设置共享内存区域和请求的最大突发大小。  如果请求速率超过为区域配置的速率，则延迟其处理，以便以定义的速率处理请求。  过多的请求被延迟，直到它们的数量超过最大突发大小，在这种情况下请求以&lt;a hhref=&quot;#limit_req_status&quot;&gt;错误&lt;/a&gt;终止。  默认情况下，最大突发大小等于零。  例如，指令 &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;limit_req_zone $binary_remote_addr zone=one:10m rate=1r/s;
-</code></pre><p>server {<br>    location /search/ {<br>        limit_req zone=one burst=5;<br>    }<br></p><p>  允许每秒平均不超过1个请求，突发不超过5个请求。 </p><p>  如果不希望在请求受限的情况下延迟过多的请求，则应使用参数<code class="notranslate">nodelay</code> ： </p><blockquote class="example"><pre class="notranslate">limit_req zone=one burst=5 nodelay;<br></pre></blockquote><p></p><a name="limit_req_delay"></a><p>   <code class="notranslate">delay</code>参数（1.15.7）指定过多请求被延迟的限制。  默认值为零，即所有过多的请求都会延迟。 </p><p>  可能有几个<code class="notranslate">limit_req</code>指令。  例如，以下配置将限制来自单个IP地址的请求的处理速率，同时限制虚拟服务器的请求处理速率： </p><blockquote class="example"><pre class="notranslate">limit_req_zone $binary_remote_addr zone=perip:10m rate=1r/s;<br>limit_req_zone $server_name zone=perserver:10m rate=10r/s;<p></p>
-<p>server {<br>    …<br>    limit_req zone=perip burst=5 nodelay;<br>    limit_req zone=perserver burst=10;<br>}<br></p></pre></blockquote><p></p><p>  当且仅当当前级别上没有<code class="notranslate">limit_req</code>指令时，这些指令才从先前级别继承。 </p><a name="limit_req_log_level"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>limit_req_log_level</strong><br><code class="notranslate">info</code> |<br><code class="notranslate">notice</code> |<br><code class="notranslate">warn</code> |<br><code class="notranslate">error</code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">limit_req_log_level error;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table><p>  该指令出现在0.8.18版本中。 </p></div><p>  为服务器因速率超过或延迟请求处理而拒绝处理请求的情况设置所需的日志记录级别。  延迟的记录水平比拒绝的记录水平低一个点;  例如，如果指定了“ <code class="notranslate">limit_req_log_level notice</code> ”，则会使用<code class="notranslate">info</code>级别记录延迟。 </p><a name="limit_req_status"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>limit_req_status</strong> <code class="notranslate"><i>code</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">limit_req_status 503;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table><p>  该指令出现在1.3.15版本中。 </p></div><p>  设置要响应拒绝的请求而返回的状态代码。 </p><a name="limit_req_zone"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>limit_req_zone</strong><br>    <code class="notranslate"><i>key</i></code><br>    <code class="notranslate">zone</code> = <code class="notranslate"><i>name</i></code> : <code class="notranslate"><i>size</i></code><br>    <code class="notranslate">rate</code> = <code class="notranslate"><i>rate</i></code><br>    [ <code class="notranslate">sync</code> ];</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
-<pre><code>—
-
-    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-Context:
-    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-&lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; &lt;br&gt;
-    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  设置共享内存区域的参数，该区域将保留各种键的状态。  特别是，状态存储当前的过多请求数。   &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;key&lt;/i&gt;&lt;/code&gt;可以包含文本，变量及其组合。  具有空键值的请求不计算在内。 &lt;/p&gt;&lt;blockquote class=&quot;note&quot;&gt;  在1.7.6版之前， &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;key&lt;/i&gt;&lt;/code&gt;可以只包含一个变量。 &lt;/blockquote&gt;&lt;p&gt;  用法示例： &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;limit_req_zone $binary_remote_addr zone=one:10m rate=1r/s;
-</code></pre><p></p><p></p><p>  这里，状态保持在10兆字节区域“1”，并且该区域的平均请求处理速率不能超过每秒1个请求。 </p><p>  客户端IP地址用作密钥。  请注意，此处使用<code class="notranslate">$binary_remote_addr</code>变量而不是<code class="notranslate">$remote_addr</code> 。  对于IPv4地址， <code class="notranslate">$binary_remote_addr</code>变量的大小始终为4个字节，对于IPv6地址，则为16个字节。  存储状态在32位平台上总是占用64个字节，在64位平台上占用128个字节。  一兆字节区域可以保留大约16,000个64字节状态或大约8千个128字节状态。 </p><p>  如果区域存储耗尽，则删除最近最少使用的状态。  即使在此之后无法创建新状态，该请求也会因<a hhref="#limit_req_status">错误</a>而终止。 </p><p>  速率以每秒请求数（r / s）指定。  如果需要每秒少于一个请求的速率，则在每分钟请求（r / m）中指定。  例如，每秒半请求为30r / m。 </p><a name="limit_req_zone_sync"></a><p>   <code class="notranslate">sync</code>参数（1.15.3）启用共享内存区域的<a hhref="stream/ngx_stream_zone_sync_module.html#zone_sync">同步</a> 。 </p><blockquote class="note">   <code class="notranslate">sync</code>参数作为我们<a hhref="http://nginx.com/products/">商业订阅的</a>一部分提供。 </blockquote><p></p><br><span></span><div style="display: none;"></div><p></p>
-</td></tr></tbody></table></div></td></tr></tbody></table></div>
-          
+          <p>http,ngx_http_limit_req_module<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/ngx/http/ngx_http_limit_req_module.html#post.more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -591,7 +614,7 @@ Context:
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/ngx/http/ngx_http_limit_conn_module.html" itemprop="url">未命名</a></h2>
+                <a class="post-title-link" href="/ngx/http/ngx_http_limit_conn_module.html" itemprop="url">http/ngx_http_limit_conn_module-nginx中文手册</a></h2>
         
 
         <div class="post-meta">
@@ -603,7 +626,7 @@ Context:
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:16:01+08:00">
                 2018年12月21日
               </time>
             
@@ -613,6 +636,28 @@ Context:
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx中文手册</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -642,45 +687,14 @@ Context:
 
       
         
-          
-            <p></p><h2 class="notranslate">Module ngx_http_limit_conn_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#example">Example Configuration</a> <br> <a hhref="#directives">Directives</a> <br>     <a hhref="#limit_conn">limit_conn</a> <br>     <a hhref="#limit_conn_log_level">limit_conn_log_level</a> <br>     <a hhref="#limit_conn_status">limit_conn_status</a> <br>     <a hhref="#limit_conn_zone">limit_conn_zone</a> <br>     <a hhref="#limit_zone">limit_zone</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_limit_conn_module</code>模块用于限制每个定义密钥的连接数，特别是来自单个IP地址的连接数。 </p><p>  并非所有连接都被计算在内  仅当连接具有服务器正在处理的请求并且已经读取了整个请求标头时才计算连接。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">http {<br>    limit_conn_zone $binary_remote_addr zone=addr:10m;<p></p>
-<pre><code>...
-
-server {
-
-    ...
-
-    location /download/ {
-        limit_conn addr 1;
-    }
-</code></pre><p></p></pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="limit_conn"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>limit_conn</strong> <code class="notranslate"><i>zone</i></code> <code class="notranslate"><i>number</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
-<pre><code>—
-
-    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-Context:
-    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-&lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
-    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  设置共享内存区域和给定键值的最大允许连接数。  超过此限制时，服务器将返回&lt;a hhref=&quot;#limit_conn_status&quot;&gt;错误&lt;/a&gt;以回复请求。  例如，指令 &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;limit_conn_zone $binary_remote_addr zone=addr:10m;
-</code></pre><p>server {<br>    location /download/ {<br>        limit_conn addr 1;<br>    }<br></p><p>  每次只允许一个IP地址连接一个。 </p><blockquote class="note">  在HTTP / 2和SPDY中，每个并发请求被视为单独的连接。 </blockquote><p></p><p>  可能有几个<code class="notranslate">limit_conn</code>指令。  例如，以下配置将限制每个客户端IP与服务器的连接数，同时限制与虚拟服务器的连接总数： </p><blockquote class="example"><pre class="notranslate">limit_conn_zone $binary_remote_addr zone=perip:10m;<br>limit_conn_zone $server_name zone=perserver:10m;<p></p>
-<p>server {<br>    …<br>    limit_conn perip 10;<br>    limit_conn perserver 100;<br>}<br></p></pre></blockquote><p></p><p>  当且仅当当前级别上没有<code class="notranslate">limit_conn</code>指令时，这些指令才从前一级继承。 </p><a name="limit_conn_log_level"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>limit_conn_log_level</strong><br><code class="notranslate">info</code> |<br><code class="notranslate">notice</code> |<br><code class="notranslate">warn</code> |<br><code class="notranslate">error</code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">limit_conn_log_level error;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table><p>  该指令出现在0.8.18版本中。 </p></div><p>  为服务器限制连接数的情况设置所需的日志记录级别。 </p><a name="limit_conn_status"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>limit_conn_status</strong> <code class="notranslate"><i>code</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">limit_conn_status 503;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table><p>  该指令出现在1.3.15版本中。 </p></div><p>  设置要响应拒绝的请求而返回的状态代码。 </p><a name="limit_conn_zone"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>limit_conn_zone</strong><br>    <code class="notranslate"><i>key</i></code><br>    <code class="notranslate">zone</code> = <code class="notranslate"><i>name</i></code> : <code class="notranslate"><i>size</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
-<pre><code>—
-
-    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-Context:
-    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-&lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; &lt;br&gt;
-    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  设置共享内存区域的参数，该区域将保留各种键的状态。  特别是，状态包括当前的连接数。   &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;key&lt;/i&gt;&lt;/code&gt;可以包含文本，变量及其组合。  具有空键值的请求不计算在内。 &lt;/p&gt;&lt;blockquote class=&quot;note&quot;&gt;  在1.7.6版之前， &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;key&lt;/i&gt;&lt;/code&gt;可以只包含一个变量。 &lt;/blockquote&gt;&lt;p&gt;  用法示例： &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;limit_conn_zone $binary_remote_addr zone=addr:10m;
-</code></pre><p></p><p>  这里，客户端IP地址用作密钥。  请注意，此处使用<code class="notranslate">$binary_remote_addr</code>变量而不是<code class="notranslate">$remote_addr</code> 。   <code class="notranslate">$remote_addr</code>变量的大小可以在7到15个字节之间变化。  存储状态在32位平台上占用32或64字节的内存，在64位平台上占用64字节。  对于IPv4地址， <code class="notranslate">$binary_remote_addr</code>变量的大小始终为4个字节，对于IPv6地址，则为16个字节。  存储状态在32位平台上总是占用32或64字节，在64位平台上占用64字节。  一兆字节区域可以保留大约32,000个32字节状态或大约16,000个64字节状态。  如果区域存储空间耗尽，服务器将向所有其他请求返回<a hhref="#limit_conn_status">错误</a> 。 </p><a name="limit_zone"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>limit_zone</strong><br>    <code class="notranslate"><i>name</i></code><br>    <code class="notranslate"><i>$variable</i></code><br>    <code class="notranslate"><i>size</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
-<pre><code>—
-
-    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-Context:
-    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-&lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; &lt;br&gt;
-    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  该指令在1.1.8版本中已过时，已在1.7.6版本中删除。  应使用具有更改语法的等效&lt;a hhref=&quot;#limit_conn_zone&quot;&gt;limit_conn_zone&lt;/a&gt;指令： &lt;/p&gt;&lt;blockquote class=&quot;note&quot;&gt;   &lt;code class=&quot;notranslate&quot;&gt;limit_conn_zone&lt;/code&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;$variable&lt;/i&gt;&lt;/code&gt; &lt;code class=&quot;notranslate&quot;&gt;zone&lt;/code&gt; = &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;name&lt;/i&gt;&lt;/code&gt; ： &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;size&lt;/i&gt;&lt;/code&gt; ; &lt;/blockquote&gt;&lt;p&gt;&lt;/p&gt; 
-</code></pre><p><span></span><div style="display: none;"></div></p>
-</td></tr></tbody></table></div></td></tr></tbody></table></div></td></tr></tbody></table></div>
-          
+          <p>http,ngx_http_limit_conn_module<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/ngx/http/ngx_http_limit_conn_module.html#post.more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -746,7 +760,7 @@ Context:
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/ngx/http/ngx_http_keyval_module.html" itemprop="url">未命名</a></h2>
+                <a class="post-title-link" href="/ngx/http/ngx_http_keyval_module.html" itemprop="url">http/ngx_http_keyval_module-nginx中文手册</a></h2>
         
 
         <div class="post-meta">
@@ -758,7 +772,7 @@ Context:
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:16:01+08:00">
                 2018年12月21日
               </time>
             
@@ -768,6 +782,28 @@ Context:
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx中文手册</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -797,50 +833,14 @@ Context:
 
       
         
-          
-            <p></p><h2 class="notranslate">Module ngx_http_keyval_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#example">Example Configuration</a> <br> <a hhref="#directives">Directives</a> <br>     <a hhref="#keyval">keyval</a> <br>     <a hhref="#keyval_zone">keyval_zone</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_keyval_module</code>模块（1.13.3）创建的变量的值取自<a hhref="ngx_http_api_module.html#http_keyvals_">API</a>管理的键值对。 </p><p></p><blockquote class="note">  该模块作为我们<a hhref="http://nginx.com/products/">商业订阅的</a>一部分提供。 </blockquote><p></p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">http {<p></p>
-<pre><code>keyval_zone zone=one:32k state=one.keyval;
-keyval $arg_text $text zone=one;
-...
-server {
-    ...
-    location / {
-        return 200 $text;
-    }
-
-    location /api {
-        api write=on;
-    }
-}
-</code></pre><p>}<br></p></pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="keyval"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>keyval</strong><br>    <code class="notranslate"><i>key</i></code><br>    <code class="notranslate"><i>$variable</i></code><br>    <code class="notranslate">zone</code> = <code class="notranslate"><i>name</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
-<pre><code>        —
-
-            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-        Context:
-            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-        &lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; &lt;br&gt;
-            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  创建一个新的&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;$variable&lt;/i&gt;&lt;/code&gt;其值由&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;key&lt;/i&gt;&lt;/code&gt;数据库中的键查找。  字符串匹配忽略大小写。  数据库存储在&lt;code class=&quot;notranslate&quot;&gt;zone&lt;/code&gt;参数指定的共享内存区域中。 &lt;/p&gt;&lt;a name=&quot;keyval_zone&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-        Syntax:
-            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;keyval_zone&lt;/strong&gt; 
-&lt;code class=&quot;notranslate&quot;&gt;zone&lt;/code&gt; = &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;name&lt;/i&gt;&lt;/code&gt; : &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;size&lt;/i&gt;&lt;/code&gt;
-[ &lt;code class=&quot;notranslate&quot;&gt;state&lt;/code&gt; = &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;file&lt;/i&gt;&lt;/code&gt; ]
-[ &lt;code class=&quot;notranslate&quot;&gt;timeout&lt;/code&gt; = &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;time&lt;/i&gt;&lt;/code&gt; ]
-[ &lt;code class=&quot;notranslate&quot;&gt;sync&lt;/code&gt; ];&lt;/code&gt; &lt;br&gt;
-            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-        Default:
-            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-
-        —
-
-            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-        Context:
-            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-        &lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; &lt;br&gt;
-            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  设置保留键值数据库的共享内存区域的&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;name&lt;/i&gt;&lt;/code&gt;和&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;size&lt;/i&gt;&lt;/code&gt; 。  键值对由&lt;a hhref=&quot;ngx_http_api_module.html#http_keyvals_&quot;&gt;API&lt;/a&gt;管理。 &lt;/p&gt;&lt;a name=&quot;keyval_state&quot;&gt;&lt;/a&gt;&lt;p&gt;  可选的&lt;code class=&quot;notranslate&quot;&gt;state&lt;/code&gt;参数指定一个&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;file&lt;/i&gt;&lt;/code&gt; ，该&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;file&lt;/i&gt;&lt;/code&gt;以JSON格式保持键值数据库的当前状态，并使其在nginx重新启动时保持不变。 &lt;/p&gt;&lt;a name=&quot;keyval_timeout&quot;&gt;&lt;/a&gt;&lt;p&gt;  可选的&lt;code class=&quot;notranslate&quot;&gt;timeout&lt;/code&gt;参数（1.15.0）设置从区域中删除键值对的时间。 &lt;/p&gt;&lt;a name=&quot;keyval_sync&quot;&gt;&lt;/a&gt;&lt;p&gt;  可选的&lt;code class=&quot;notranslate&quot;&gt;sync&lt;/code&gt;参数（1.15.0）可以&lt;a hhref=&quot;stream/ngx_stream_zone_sync_module.html#zone_sync&quot;&gt;同步&lt;/a&gt;共享内存区域。  同步需要设置&lt;a hhref=&quot;#keyval_timeout&quot;&gt;超时&lt;/a&gt;参数。 &lt;/p&gt; 
-</code></pre><p><span></span><div style="display: none;"></div></p>
-</td></tr></tbody></table></div>
-          
+          <p>http,ngx_http_keyval_module<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/ngx/http/ngx_http_keyval_module.html#post.more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -906,7 +906,7 @@ server {
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/ngx/http/ngx_http_js_module.html" itemprop="url">未命名</a></h2>
+                <a class="post-title-link" href="/ngx/http/ngx_http_js_module.html" itemprop="url">http/ngx_http_js_module-nginx中文手册</a></h2>
         
 
         <div class="post-meta">
@@ -918,7 +918,7 @@ server {
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:16:01+08:00">
                 2018年12月21日
               </time>
             
@@ -928,6 +928,28 @@ server {
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx中文手册</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -957,89 +979,14 @@ server {
 
       
         
-          
-            <p></p><h2 class="notranslate">Module ngx_http_js_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#example">Example Configuration</a> <br> <a hhref="#directives">Directives</a> <br>     <a hhref="#js_content">js_content</a> <br>     <a hhref="#js_include">js_include</a> <br>     <a hhref="#js_set">js_set</a> <br> <a hhref="#arguments">Request Argument</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_js_module</code>模块用于在<a hhref="njs/index.html">njs中</a>实现位置和变量处理程序 - 这是JavaScript语言的一个子集。 </p><p>  默认情况下不构建此模块。  可<a hhref="njs/install.html">在此处</a>下载和安装说明。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">load_module modules/ngx_http_js_module.so;<br>…<p></p>
-<p>http {<br>    js_include http.js;</p>
-<pre><code>js_set $foo     foo;
-js_set $summary summary;
-
-server {
-    listen 8000;
-
-    location / {
-        add_header X-Foo $foo;
-        js_content baz;
-    }
-
-    location = /summary {
-        return 200 $summary;
-    }
-
-    location = /hello {
-        js_content hello;
-    }
-}
-</code></pre><p>}<br></p></pre></blockquote><p></p><p>   <code class="notranslate">http.js</code>文件： </p><blockquote class="example"><pre class="notranslate">function foo(r) {<br>    r.log(“hello from foo() handler”);<br>    return “foo”;<br>}<p></p>
-<p>function summary(r) {<br>    var a, s, h;</p>
-<pre><code>s = &quot;JS summary\n\n&quot;;
-
-s += &quot;Method: &quot; + r.method + &quot;\n&quot;;
-s += &quot;HTTP version: &quot; + r.httpVersion + &quot;\n&quot;;
-s += &quot;Host: &quot; + r.headersIn.host + &quot;\n&quot;;
-s += &quot;Remote Address: &quot; + r.remoteAddress + &quot;\n&quot;;
-s += &quot;URI: &quot; + r.uri + &quot;\n&quot;;
-
-s += &quot;Headers:\n&quot;;
-for (h in r.headersIn) {
-    s += &quot;  header &apos;&quot; + h + &quot;&apos; is &apos;&quot; + r.headersIn[h] + &quot;&apos;\n&quot;;
-}
-
-s += &quot;Args:\n&quot;;
-for (a in r.args) {
-    s += &quot;  arg &apos;&quot; + a + &quot;&apos; is &apos;&quot; + r.args[a] + &quot;&apos;\n&quot;;
-}
-
-return s;
-</code></pre><p>}</p>
-<p>function baz(r) {<br>    r.status = 200;<br>    r.headersOut.foo = 1234;<br>    r.headersOut[‘Content-Type’] = “text/plain; charset=utf-8”;<br>    r.headersOut[‘Content-Length’] = 15;<br>    r.sendHeader();<br>    r.send(“nginx”);<br>    r.send(“java”);<br>    r.send(“script”);</p>
-<pre><code>r.finish();
-</code></pre><p>}</p>
-<p>function hello(r) {<br>    r.return(200, “Hello world!”);<br>}<br></p></pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="js_content"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>js_content</strong> <code class="notranslate"><i>function</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
-<pre><code>—
-
-    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-Context:
-    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-&lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;limit_except&lt;/code&gt; &lt;br&gt;
-    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  将njs函数设置为位置内容处理程序。 &lt;/p&gt;&lt;a name=&quot;js_include&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-Syntax:
-    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-&lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;js_include&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;file&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
-    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-Default:
-    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-
-—
-
-    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-Context:
-    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-&lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; &lt;br&gt;
-    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  指定在njs中实现位置和变量处理程序的文件。 &lt;/p&gt;&lt;a name=&quot;js_set&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-Syntax:
-    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-&lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;js_set&lt;/strong&gt; 
-</code></pre><p><code class="notranslate"><i>$variable</i></code> <code class="notranslate"><i>function</i></code> ; <br><br>                </p></td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
-<pre><code>—
-
-    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-Context:
-    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-&lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; &lt;br&gt;
-    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  为指定的变量设置njs函数。 &lt;/p&gt;&lt;a name=&quot;arguments&quot;&gt;&lt;/a&gt;&lt;center&gt;&lt;h4&gt;  请求参数 &lt;/h4&gt;&lt;/center&gt;&lt;p&gt;  每个HTTP njs处理程序都接收一个参数，一个请求&lt;a hhref=&quot;njs/reference.html#http&quot;&gt;对象&lt;/a&gt; 。 &lt;/p&gt; 
-</code></pre><p><span></span><div style="display: none;"></div></p>
-</td></tr></tbody></table></div>
-          
+          <p>http,ngx_http_js_module<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/ngx/http/ngx_http_js_module.html#post.more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1105,7 +1052,7 @@ Context:
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/ngx/http/ngx_http_index_module.html" itemprop="url">未命名</a></h2>
+                <a class="post-title-link" href="/ngx/http/ngx_http_index_module.html" itemprop="url">http/ngx_http_index_module-nginx中文手册</a></h2>
         
 
         <div class="post-meta">
@@ -1117,7 +1064,7 @@ Context:
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:16:01+08:00">
                 2018年12月21日
               </time>
             
@@ -1127,6 +1074,28 @@ Context:
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx中文手册</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -1156,11 +1125,14 @@ Context:
 
       
         
-          
-            <p></p><h2 class="notranslate">Module ngx_http_index_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#example">Example Configuration</a> <br> <a hhref="#directives">Directives</a> <br>     <a hhref="#index">index</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_index_module</code>模块处理以斜杠字符（’ <code class="notranslate">/</code> ‘）结尾的请求。  这些请求也可以由<a hhref="ngx_http_autoindex_module.html">ngx_http_autoindex_module</a>和<a hhref="ngx_http_random_index_module.html">ngx_http_random_index_module</a>模块处理。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">location / {<br>    index index.$geo.html index.html;<br>}<br></pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="index"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>index</strong> <code class="notranslate"><i>file</i></code> …;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">index index.html;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table></div><p>  定义将用作索引的文件。   <code class="notranslate"><i>file</i></code>名可以包含变量。  按指定顺序检查文件。  列表的最后一个元素可以是具有绝对路径的文件。  例： </p><blockquote class="example"><pre class="notranslate">index index.$geo.html index.0.html /index.html;<br></pre></blockquote><p></p><p>  应该注意，使用索引文件会导致内部重定向，并且可以在不同的位置处理请求。  例如，使用以下配置： </p><blockquote class="example"><pre class="notranslate">location = / {<br>    index index.html;<br>}<p></p>
-<p>location / {<br>    …<br>}<br></p></pre></blockquote><p>   “ <code class="notranslate">/</code> ”请求实际上将在第二个位置处理为“ <code class="notranslate">/index.html</code> ”。 </p><br><span></span><div style="display: none;"></div><p></p>
-
-          
+          <p>http,ngx_http_index_module<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/ngx/http/ngx_http_index_module.html#post.more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1226,7 +1198,7 @@ Context:
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/ngx/http/ngx_http_image_filter_module.html" itemprop="url">未命名</a></h2>
+                <a class="post-title-link" href="/ngx/http/ngx_http_image_filter_module.html" itemprop="url">http/ngx_http_image_filter_module-nginx中文手册</a></h2>
         
 
         <div class="post-meta">
@@ -1238,7 +1210,7 @@ Context:
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:16:01+08:00">
                 2018年12月21日
               </time>
             
@@ -1248,6 +1220,28 @@ Context:
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx中文手册</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -1277,11 +1271,14 @@ Context:
 
       
         
-          
-            <p></p><h2 class="notranslate">Module ngx_http_image_filter_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#example">Example Configuration</a> <br> <a hhref="#directives">Directives</a> <br>     <a hhref="#image_filter">image_filter</a> <br>     <a hhref="#image_filter_buffer">image_filter_buffer</a> <br>     <a hhref="#image_filter_interlace">image_filter_interlace</a> <br>     <a hhref="#image_filter_jpeg_quality">image_filter_jpeg_quality</a> <br>     <a hhref="#image_filter_sharpen">image_filter_sharpen</a> <br>     <a hhref="#image_filter_transparency">image_filter_transparency</a> <br>     <a hhref="#image_filter_webp_quality">image_filter_webp_quality</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_image_filter_module</code>模块（0.7.54+）是一个过滤器，可以转换JPEG，GIF，PNG和WebP格式的图像。 </p><p>  默认情况下不构建此模块，应使用<code class="notranslate">–with-http_image_filter_module</code>配置参数启用它。 </p><blockquote class="note">  该模块使用<a hhref="http://libgd.org">libgd</a>库。  建议使用最新版本的库。 </blockquote><p></p><blockquote class="note">   WebP格式支持出现在1.11.6版中。  要以此格式转换图像，必须使用WebP支持编译<code class="notranslate">libgd</code>库。 </blockquote><p></p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">location /img/ {<br>    proxy_pass   <a href="http://backend" target="_blank" rel="noopener">http://backend</a>;<br>    image_filter resize 150 100;<br>    image_filter rotate 90;<br>    error_page   415 = /empty;<br>}<p></p>
-<p>location = /empty {<br>    empty_gif;<br>}<br></p></pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="image_filter"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>image_filter</strong> <code class="notranslate">off</code> ;</code> <br> <code class="notranslate"><strong>image_filter</strong> <code class="notranslate">test</code> ;</code> <br> <code class="notranslate"><strong>image_filter</strong> <code class="notranslate">size</code> ;</code> <br> <code class="notranslate"><strong>image_filter</strong><br>    <code class="notranslate">rotate</code><br>    <code class="notranslate">90</code> | <code class="notranslate">180</code> |<br>    <code class="notranslate">270</code> ;</code> <br> <code class="notranslate"><strong>image_filter</strong><br>    <code class="notranslate">resize</code><br>    <code class="notranslate"><i>width</i></code><br>    <code class="notranslate"><i>height</i></code> ;</code> <br> <code class="notranslate"><strong>image_filter</strong><br>    <code class="notranslate">crop</code><br>    <code class="notranslate"><i>width</i></code><br>    <code class="notranslate"><i>height</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">image_filter off;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table></div><p>  设置要对图像执行的转换类型： </p><dl class="compact"><dt> <code class="notranslate">off</code> </dt> <dd>  关闭周围位置的模块处理。 </dd><dt> <code class="notranslate">test</code> </dt> <dd>  确保响应是JPEG，GIF，PNG或WebP格式的图像。  否则，将返回415（不支持的媒体类型）错误。 </dd><dt> <code class="notranslate">size</code> </dt> <dd>  以JSON格式输出有关图像的信息，例如： <blockquote class="example"><pre class="notranslate">{ “img” : { “width”: 100, “height”: 100, “type”: “gif” } }<br></pre></blockquote>  如果出现错误，输出如下： <blockquote class="example"><pre class="notranslate">{}<br></pre></blockquote></dd><dt>   <code class="notranslate">rotate</code> <code class="notranslate">90</code> |   <code class="notranslate">180</code> | <code class="notranslate">270</code> </dt><dd>  逆时针旋转图像指定的度数。  参数值可以包含变量。  此模式既可以单独使用，也可以与<code class="notranslate">resize</code>和<code class="notranslate">crop</code>变换一起使用。 </dd><dt>   <code class="notranslate">resize</code> <code class="notranslate"><i>width</i></code> <code class="notranslate"><i>height</i></code> </dt><dd>  按比例将图像缩小到指定的大小。  要仅减少一个维度，可以将另一个维度指定为“ <code class="notranslate">-</code> ”。  如果出现错误，服务器将返回代码415（不支持的介质类型）。  参数值可以包含变量。  与<code class="notranslate">rotate</code>参数一起使用时，旋转会<strong>在</strong>缩小<strong>后</strong>发生。 </dd><dt>   <code class="notranslate">crop</code> <code class="notranslate"><i>width</i></code> <code class="notranslate"><i>height</i></code> </dt><dd>  按比例将图像缩小到较大的边尺寸，并通过另一面裁剪外部边缘。  要仅减少一个维度，可以将另一个维度指定为“ <code class="notranslate">-</code> ”。  如果出现错误，服务器将返回代码415（不支持的介质类型）。  参数值可以包含变量。  与<code class="notranslate">rotate</code>参数一起使用时， <code class="notranslate">rotate</code> <strong>在</strong>缩小<strong>之前</strong>发生。 </dd></dl><p></p><a name="image_filter_buffer"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>image_filter_buffer</strong> <code class="notranslate"><i>size</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">image_filter_buffer 1M;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table></div><p>  设置用于读取图像的缓冲区的最大大小。  超出大小时，服务器返回错误415（不支持的介质类型）。 </p><a name="image_filter_interlace"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>image_filter_interlace</strong> <code class="notranslate">on</code> | <code class="notranslate">off</code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">image_filter_interlace off;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table><p>  该指令出现在1.3.15版本中。 </p></div><p>  如果启用，最终图像将被隔行扫描。  对于JPEG，最终图像将采用“渐进式JPEG”格式。 </p><a name="image_filter_jpeg_quality"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>image_filter_jpeg_quality</strong> <code class="notranslate"><i>quality</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">image_filter_jpeg_quality 75;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table></div><p>  设置变换后的JPEG图像的所需<code class="notranslate"><i>quality</i></code> 。  可接受的值在1到100的范围内。较小的值通常意味着较低的图像质量和较少的传输数据。  建议的最大值为95.参数值可以包含变量。 </p><a name="image_filter_sharpen"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>image_filter_sharpen</strong> <code class="notranslate"><i>percent</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">image_filter_sharpen 0;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table></div><p>  增加最终图像的清晰度。  锐度百分比可以超过100.零值禁用锐化。  参数值可以包含变量。 </p><a name="image_filter_transparency"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>image_filter_transparency</strong> <code class="notranslate">on</code> | <code class="notranslate">off</code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">image_filter_transparency on;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table></div><p>  定义在使用调色板指定的颜色转换GIF图像或PNG图像时是否应保留透明度。  透明度的丧失导致图像质量更好。  始终保留PNG中的Alpha通道透明度。 </p><a name="image_filter_webp_quality"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>image_filter_webp_quality</strong> <code class="notranslate"><i>quality</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">image_filter_webp_quality 80;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table><p>  该指令出现在1.11.6版中。 </p></div><p>  设置转换的WebP图像的所需<code class="notranslate"><i>quality</i></code> 。  可接受的值在1到100的范围内。较小的值通常意味着较低的图像质量和较少的传输数据。  参数值可以包含变量。 </p><br><span></span><div style="display: none;"></div><p></p>
-
-          
+          <p>http,ngx_http_image_filter_module<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/ngx/http/ngx_http_image_filter_module.html#post.more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1347,7 +1344,7 @@ Context:
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/ngx/http/ngx_http_hls_module.html" itemprop="url">未命名</a></h2>
+                <a class="post-title-link" href="/ngx/http/ngx_http_hls_module.html" itemprop="url">http/ngx_http_hls_module-nginx中文手册</a></h2>
         
 
         <div class="post-meta">
@@ -1359,7 +1356,7 @@ Context:
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:16:01+08:00">
                 2018年12月21日
               </time>
             
@@ -1369,6 +1366,28 @@ Context:
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx中文手册</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -1398,79 +1417,14 @@ Context:
 
       
         
-          
-            <p></p><h2 class="notranslate">Module ngx_http_hls_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#example">Example Configuration</a> <br> <a hhref="#directives">Directives</a> <br>     <a hhref="#hls">hls</a> <br>     <a hhref="#hls_buffers">hls_buffers</a> <br>     <a hhref="#hls_forward_args">hls_forward_args</a> <br>     <a hhref="#hls_fragment">hls_fragment</a> <br>     <a hhref="#hls_mp4_buffer_size">hls_mp4_buffer_size</a> <br>     <a hhref="#hls_mp4_max_buffer_size">hls_mp4_max_buffer_size</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_hls_module</code>模块为MP4和MOV媒体文件提供HTTP实时流（HLS）服务器端支持。  此类文件通常具有<code class="notranslate">.mp4</code> ， <code class="notranslate">.m4v</code> ， <code class="notranslate">.m4a</code> ， <code class="notranslate">.mov</code>或<code class="notranslate">.qt</code>文件扩展名。  该模块支持H.264视频编解码器，AAC和MP3音频编解码器。 </p><p>  对于每个媒体文件，支持两个URI： </p><ul class="compact"><li>  带有“ <code class="notranslate">.m3u8</code> ”文件扩展名的播放列表URI。   URI可以接受可选参数： <ul class="compact"><li>   “ <code class="notranslate">start</code> ”和“ <code class="notranslate">end</code> ”以秒为单位定义播放列表边界（1.9.0）。 </li><li>   “ <code class="notranslate">offset</code> ”将初始播放位置移动到以秒为单位的时间偏移（1.9.0）。  正值设置从播放列表开头的时间偏移量。  负值设置播放列表中最后一个片段末尾的时间偏移量。 </li><li>   “ <code class="notranslate">len</code> ”以秒为单位定义片段长度。 </li></ul></li><li>  带有“ <code class="notranslate">.ts</code> ”文件扩展名的片段URI。   URI可以接受可选参数： <ul class="compact"><li>   “ <code class="notranslate">start</code> ”和“ <code class="notranslate">end</code> ”以秒为单位定义片段边界。 </li></ul></li></ul><p></p><p></p><blockquote class="note">  该模块作为我们<a hhref="http://nginx.com/products/">商业订阅的</a>一部分提供。 </blockquote><p></p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">location / {<br>    hls;<br>    hls_fragment            5s;<br>    hls_buffers             10 10m;<br>    hls_mp4_buffer_size     1m;<br>    hls_mp4_max_buffer_size 5m;<br>    root /var/video/;<br>}<br></pre></blockquote><p>  使用此配置，“/ <code class="notranslate">/var/video/test.mp4</code> ”文件支持以下URI： </p><blockquote class="example"><pre class="notranslate"><a href="http://hls.example.com/test.mp4.m3u8?offset=1.000&amp;start=1.000&amp;end=2.200" target="_blank" rel="noopener">http://hls.example.com/test.mp4.m3u8?offset=1.000&amp;start=1.000&amp;end=2.200</a><br><a href="http://hls.example.com/test.mp4.m3u8?len=8.000" target="_blank" rel="noopener">http://hls.example.com/test.mp4.m3u8?len=8.000</a><br><a href="http://hls.example.com/test.mp4.ts?start=1.000&amp;end=2.200" target="_blank" rel="noopener">http://hls.example.com/test.mp4.ts?start=1.000&amp;end=2.200</a><br></pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="hls"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>hls</strong> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
-<pre><code>—
-
-    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-Context:
-    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-&lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
-    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  打开周围位置的HLS流。 &lt;/p&gt;&lt;a name=&quot;hls_buffers&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-Syntax:
-    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-&lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;hls_buffers&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;number&lt;/i&gt;&lt;/code&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;size&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
-    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-Default:
-    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-&lt;pre class=&quot;notranslate&quot;&gt;hls_buffers 8 2m;&lt;/pre&gt;
-    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-Context:
-    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-&lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
-    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  设置用于读取和写入数据帧的缓冲区的最大&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;number&lt;/i&gt;&lt;/code&gt;和&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;size&lt;/i&gt;&lt;/code&gt; 。 &lt;/p&gt;&lt;a name=&quot;hls_forward_args&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-Syntax:
-    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-&lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;hls_forward_args&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;on&lt;/code&gt; | &lt;code class=&quot;notranslate&quot;&gt;off&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
-    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-Default:
-    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-&lt;pre class=&quot;notranslate&quot;&gt;hls_forward_args off;&lt;/pre&gt;
-    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-Context:
-    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-&lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; &lt;br&gt;
-    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p&gt;  该指令出现在1.5.12版本中。 &lt;/p&gt;&lt;/div&gt;&lt;p&gt;  将播放列表请求中的参数添加到片段的URI中。  这对于在请求片段时或在使用&lt;a hhref=&quot;ngx_http_secure_link_module.html&quot;&gt;ngx_http_secure_link_module&lt;/a&gt;模块保护HLS流时执行客户端授权可能很有用。 &lt;/p&gt;&lt;p&gt;  例如，如果客户端请求播放列表&lt;code class=&quot;notranslate&quot;&gt;http://example.com/hls/test.mp4.m3u8?a=1&amp;amp;b=2&lt;/code&gt; ，则参数&lt;code class=&quot;notranslate&quot;&gt;a=1&lt;/code&gt;和&lt;code class=&quot;notranslate&quot;&gt;b=2&lt;/code&gt;将添加到参数后的片段的URI中&lt;code class=&quot;notranslate&quot;&gt;start&lt;/code&gt;和&lt;code class=&quot;notranslate&quot;&gt;end&lt;/code&gt; ： &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;#EXTM3U
-</code></pre><p>#EXT-X-VERSION:3</p>
-<p>#EXT-X-TARGETDURATION:15</p>
-<p>#EXT-X-PLAYLIST-TYPE:VOD</p>
-<p>#EXTINF:9.333,<br>test.mp4.ts?start=0.000&amp;end=9.333&amp;a=1&amp;b=2</p>
-<p>#EXTINF:7.167,<br>test.mp4.ts?start=9.333&amp;end=16.500&amp;a=1&amp;b=2</p>
-<p>#EXTINF:5.416,<br>test.mp4.ts?start=16.500&amp;end=21.916&amp;a=1&amp;b=2</p>
-<p>#EXTINF:5.500,<br>test.mp4.ts?start=21.916&amp;end=27.416&amp;a=1&amp;b=2</p>
-<p>#EXTINF:15.167,<br>test.mp4.ts?start=27.416&amp;end=42.583&amp;a=1&amp;b=2</p>
-<p>#EXTINF:9.626,<br>test.mp4.ts?start=42.583&amp;end=52.209&amp;a=1&amp;b=2</p>
-<p>#EXT-X-ENDLIST<br></p><p></p><p>  如果使用<a hhref="ngx_http_secure_link_module.html">ngx_http_secure_link_module</a>模块保护HLS流，则不应在<a hhref="ngx_http_secure_link_module.html#secure_link_md5">secure_link_md5</a>表达式中使用<code class="notranslate">$uri</code> ，因为这会在请求片段时导致错误。  应该使用<a hhref="ngx_http_map_module.html#map">基URI</a>而不是<code class="notranslate">$uri</code> （ <code class="notranslate">$hls_uri</code>中为<code class="notranslate">$hls_uri</code> ）： </p><blockquote class="example"><pre class="notranslate">http {<br>    …<p></p>
-<pre><code>map $uri $hls_uri {
-    ~^(?&amp;lt;base_uri&amp;gt;.*).m3u8$ $base_uri;
-    ~^(?&amp;lt;base_uri&amp;gt;.*).ts$   $base_uri;
-    default                 $uri;
-}
-
-server {
-    ...
-
-    location /hls/ {
-        hls;
-        hls_forward_args on;
-
-        alias /var/videos/;
-
-        secure_link $arg_md5,$arg_expires;
-        secure_link_md5 &quot;$secure_link_expires$hls_uri$remote_addr secret&quot;;
-
-        if ($secure_link = &quot;&quot;) {
-            return 403;
-        }
-
-        if ($secure_link = &quot;0&quot;) {
-            return 410;
-        }
-    }
-}
-</code></pre><p>}<br></p></pre></blockquote><p></p><a name="hls_fragment"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>hls_fragment</strong> <code class="notranslate"><i>time</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">hls_fragment 5s;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table></div><p>  为没有“ <code class="notranslate">len</code> ”参数的请求的播放列表URI定义默认片段长度。 </p><a name="hls_mp4_buffer_size"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>hls_mp4_buffer_size</strong> <code class="notranslate"><i>size</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">hls_mp4_buffer_size 512k;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table></div><p>  设置用于处理MP4和MOV文件的缓冲区的初始<code class="notranslate"><i>size</i></code> 。 </p><a name="hls_mp4_max_buffer_size"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>hls_mp4_max_buffer_size</strong> <code class="notranslate"><i>size</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">hls_mp4_max_buffer_size 10m;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table></div><p>  在元数据处理期间，可能需要更大的缓冲区。  它的大小不能超过指定的<code class="notranslate"><i>size</i></code> ，否则nginx将返回服务器错误500（内部服务器错误），并记录以下消息： </p><blockquote class="example"><pre class="notranslate">“/some/movie/file.mp4” mp4 moov atom is too large:<br>12583268, you may want to increase hls_mp4_max_buffer_size<br></pre></blockquote><p></p><br><span></span><div style="display: none;"></div><p></p>
-</td></tr></tbody></table></div>
-          
+          <p>http,ngx_http_hls_module<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/ngx/http/ngx_http_hls_module.html#post.more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1536,7 +1490,7 @@ server {
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/ngx/http/ngx_http_headers_module.html" itemprop="url">未命名</a></h2>
+                <a class="post-title-link" href="/ngx/http/ngx_http_headers_module.html" itemprop="url">http/ngx_http_headers_module-nginx中文手册</a></h2>
         
 
         <div class="post-meta">
@@ -1548,7 +1502,7 @@ server {
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:16:01+08:00">
                 2018年12月21日
               </time>
             
@@ -1558,6 +1512,28 @@ server {
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx中文手册</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -1587,45 +1563,14 @@ server {
 
       
         
-          
-            <p></p><h2 class="notranslate">Module ngx_http_headers_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#example">Example Configuration</a> <br> <a hhref="#directives">Directives</a> <br>     <a hhref="#add_header">add_header</a> <br>     <a hhref="#add_trailer">add_trailer</a> <br>     <a hhref="#expires">expires</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_headers_module</code>模块允许将“Expires”和“Cache-Control”头字段以及任意字段添加到响应头。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">expires    24h;<br>expires    modified +24h;<br>expires    @24h;<br>expires    0;<br>expires    -1;<br>expires    epoch;<br>expires    $expires;<br>add_header Cache-Control private;<br></pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="add_header"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>add_header</strong><br><code class="notranslate"><i>name</i></code> <code class="notranslate"><i>value</i></code><br>[ <code class="notranslate">always</code> ];</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
-<pre><code>—
-
-    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-Context:
-    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-&lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;if in location&lt;/code&gt; &lt;br&gt;
-    &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  将指定字段添加到响应头，前提是响应代码等于200,201（1.3.10），204,206,301,302,303,304,307（1.1.16,1.0.13）或308（1.13） .0）。  该值可以包含变量。 &lt;/p&gt;&lt;p&gt;  可能有几个&lt;code class=&quot;notranslate&quot;&gt;add_header&lt;/code&gt;指令。  当且仅当在当前级别上没有定义&lt;code class=&quot;notranslate&quot;&gt;add_header&lt;/code&gt;指令时，这些指令才从前一级继承。 &lt;/p&gt;&lt;p&gt;  如果指定了&lt;code class=&quot;notranslate&quot;&gt;always&lt;/code&gt;参数（1.7.5），则无论响应代码如何，都将添加标题字段。 &lt;/p&gt;&lt;a name=&quot;add_trailer&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-Syntax:
-    &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-&lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;add_trailer&lt;/strong&gt; 
-</code></pre><p><code class="notranslate"><i>name</i></code> <code class="notranslate"><i>value</i></code><br>[ <code class="notranslate">always</code> ]; <br><br>                </p></td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
-<pre><code>        —
-
-            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-        Context:
-            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-        &lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;if in location&lt;/code&gt; &lt;br&gt;
-            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p&gt;  该指令出现在1.13.2版中。 &lt;/p&gt;&lt;/div&gt;&lt;p&gt;  如果响应代码等于200,201,206,301,302,303,307或308，则将指定字段添加到响应的末尾。该值可以包含变量。 &lt;/p&gt;&lt;p&gt;  可能有几个&lt;code class=&quot;notranslate&quot;&gt;add_trailer&lt;/code&gt;指令。  当且仅当在当前级别上没有定义&lt;code class=&quot;notranslate&quot;&gt;add_trailer&lt;/code&gt;指令时，这些指令才从先前级别继承。 &lt;/p&gt;&lt;p&gt;  如果指定了&lt;code class=&quot;notranslate&quot;&gt;always&lt;/code&gt;参数，则无论响应代码如何，都将添加指定的字段。 &lt;/p&gt;&lt;a name=&quot;expires&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-        Syntax:
-            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;expires&lt;/strong&gt; [ &lt;code class=&quot;notranslate&quot;&gt;modified&lt;/code&gt; ] &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;time&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;expires&lt;/strong&gt; 
-&lt;code class=&quot;notranslate&quot;&gt;epoch&lt;/code&gt; |
-&lt;code class=&quot;notranslate&quot;&gt;max&lt;/code&gt; |
-&lt;code class=&quot;notranslate&quot;&gt;off&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
-            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-        Default:
-            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-        &lt;pre class=&quot;notranslate&quot;&gt;expires off;&lt;/pre&gt;
-            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-        Context:
-            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-        &lt;code class=&quot;notranslate&quot;&gt;http&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;location&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;if in location&lt;/code&gt; &lt;br&gt;
-            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  启用或禁用添加或修改“Expires”和“Cache-Control”响应头字段，前提是响应代码等于200,201（1.3.10），204,206,301,302,303,304,307（1.1。 16,1.0.13）或308（1.13.0）。  参数可以是正&lt;a hhref=&quot;syntax.html&quot;&gt;时间&lt;/a&gt;或负&lt;a hhref=&quot;syntax.html&quot;&gt;时间&lt;/a&gt; 。 &lt;/p&gt;&lt;p&gt;   “Expires”字段中的时间计算为指令中指定的当前时间和&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;time&lt;/i&gt;&lt;/code&gt;的总和。  如果使用&lt;code class=&quot;notranslate&quot;&gt;modified&lt;/code&gt;参数（0.7.0,0.6.32），则计算时间为文件修改时间与指令中指定时间的总和。 &lt;/p&gt;&lt;p&gt;  此外，可以使用“ &lt;code class=&quot;notranslate&quot;&gt;@&lt;/code&gt; ”前缀（0.7.9,0.6.34）指定一天中的时间： &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;expires @15h30m;
-</code></pre><p></p><p></p><p>   <code class="notranslate">epoch</code>参数对应于绝对时间“ <code class="notranslate">Thu, 01 Jan 1970 00:00:01 GMT</code> ”。   “Cache-Control”字段的内容取决于指定时间的符号： </p><ul class="compact"><li>  时间是负面的 - “Cache-Control：no-cache”。 </li><li>  时间为正或零 - “Cache-Control：max-age = <code class="notranslate"><i>t</i></code> ”，其中<code class="notranslate"><i>t</i></code>是指令中指定的时间，以秒为单位。 </li></ul><p></p><p>   <code class="notranslate">max</code>参数将“Expires”设置为值“ <code class="notranslate">Thu, 31 Dec 2037 23:55:55 GMT</code> ”，并将“Cache-Control”设置为10年。 </p><p>   <code class="notranslate">off</code>参数禁用添加或修改“Expires”和“Cache-Control”响应头字段。 </p><p>  最后一个参数值可以包含变量（1.7.9）： </p><blockquote class="example"><pre class="notranslate">map $sent_http_content_type $expires {<br>    default         off;<br>    application/pdf 42d;<br>    ~image/         max;<br>}<p></p>
-<p>expires $expires;<br></p></pre></blockquote><p></p><br><span></span><div style="display: none;"></div><p></p>
-</td></tr></tbody></table></div>
-          
+          <p>http,ngx_http_headers_module<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/ngx/http/ngx_http_headers_module.html#post.more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1691,7 +1636,7 @@ Syntax:
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/ngx/http/ngx_http_gzip_static_module.html" itemprop="url">未命名</a></h2>
+                <a class="post-title-link" href="/ngx/http/ngx_http_gzip_static_module.html" itemprop="url">http/ngx_http_gzip_static_module-nginx中文手册</a></h2>
         
 
         <div class="post-meta">
@@ -1703,7 +1648,7 @@ Syntax:
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:16:01+08:00">
                 2018年12月21日
               </time>
             
@@ -1713,6 +1658,28 @@ Syntax:
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx中文手册</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -1742,10 +1709,14 @@ Syntax:
 
       
         
-          
-            <p></p><h2 class="notranslate">Module ngx_http_gzip_static_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#example">Example Configuration</a> <br> <a hhref="#directives">Directives</a> <br>     <a hhref="#gzip_static">gzip_static</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_gzip_static_module</code>模块允许发送带有“ <code class="notranslate">.gz</code> ”文件扩展名的预压缩文件，而不是常规文件。 </p><p>  默认情况下不构建此模块，应使用<code class="notranslate">–with-http_gzip_static_module</code>配置参数启用它。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">gzip_static  on;<br>gzip_proxied expired no-cache no-store private auth;<br></pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="gzip_static"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>gzip_static</strong><br>    <code class="notranslate">on</code> |<br>    <code class="notranslate">off</code> |<br>    <code class="notranslate">always</code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">gzip_static off;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table></div><p>  启用（“ <code class="notranslate">on</code> ”）或禁用（“ <code class="notranslate">off</code> ”）检查预压缩文件是否存在。  还考虑了以下指令： <a hhref="ngx_http_gzip_module.html#gzip_http_version">gzip_http_version</a> ， <a hhref="ngx_http_gzip_module.html#gzip_proxied">gzip_proxied</a> ， <a hhref="ngx_http_gzip_module.html#gzip_disable">gzip_disable</a>和<a hhref="ngx_http_gzip_module.html#gzip_vary">gzip_vary</a> 。 </p><p>  使用“ <code class="notranslate">always</code> ”值（1.3.6），在所有情况下都使用gzip压缩文件，而不检查客户端是否支持它。  如果磁盘上没有未压缩的文件或者使用了<a hhref="ngx_http_gunzip_module.html">ngx_http_gunzip_module，</a>则非常有用。 </p><p>  可以使用<code class="notranslate">gzip</code>命令或任何其他兼容的文件压缩文件。  建议原始文件和压缩文件的修改日期和时间相同。 </p><br><span></span><div style="display: none;"></div><p></p>
-
-          
+          <p>http,ngx_http_gzip_static_module<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/ngx/http/ngx_http_gzip_static_module.html#post.more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1844,7 +1815,7 @@ Syntax:
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>

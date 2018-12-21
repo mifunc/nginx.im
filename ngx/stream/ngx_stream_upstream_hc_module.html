@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="LINUX,NGINX,JAVA,PYTHON,PYTHON,前端,运维实践" />
+  <meta name="keywords" content="nginx," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="Module ngx_stream_upstream_hc_module Example Configuration  Directives      health_check      health_check_timeout      match    ngx_stream_upstream_hc_module模块">
+<meta name="description" content="stream,ngx_stream_upstream_hc_module">
+<meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
-<meta property="og:title" content="IM.NGINX">
+<meta property="og:title" content="stream&#x2F;ngx_stream_upstream_hc_module-nginx中文手册">
 <meta property="og:url" content="http://nginx.im/ngx/stream/ngx_stream_upstream_hc_module.html">
 <meta property="og:site_name" content="IM.NGINX">
-<meta property="og:description" content="Module ngx_stream_upstream_hc_module Example Configuration  Directives      health_check      health_check_timeout      match    ngx_stream_upstream_hc_module模块（1.9.0）允许对组中的服务器启用定期运行状况检查。  服务器组必须驻留在共享">
+<meta property="og:description" content="stream,ngx_stream_upstream_hc_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T08:10:40.018Z">
+<meta property="og:updated_time" content="2018-12-21T08:15:38.904Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="IM.NGINX">
-<meta name="twitter:description" content="Module ngx_stream_upstream_hc_module Example Configuration  Directives      health_check      health_check_timeout      match    ngx_stream_upstream_hc_module模块（1.9.0）允许对组中的服务器启用定期运行状况检查。  服务器组必须驻留在共享">
+<meta name="twitter:title" content="stream&#x2F;ngx_stream_upstream_hc_module-nginx中文手册">
+<meta name="twitter:description" content="stream,ngx_stream_upstream_hc_module">
 
 
 
@@ -125,7 +126,7 @@
 
 
 
-  <title> | IM.NGINX</title>
+  <title>stream/ngx_stream_upstream_hc_module-nginx中文手册 | IM.NGINX</title>
   
 
 
@@ -323,7 +324,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline"></h2>
+          <h2 class="post-title" itemprop="name headline">stream/ngx_stream_upstream_hc_module-nginx中文手册</h2>
         
 
         <div class="post-meta">
@@ -335,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:16:01+08:00">
                 2018年12月21日
               </time>
             
@@ -345,6 +346,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx中文手册</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -373,61 +396,100 @@
       
 
       
-        <p></p><h2 class="notranslate">Module ngx_stream_upstream_hc_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#example">Example Configuration</a> <br> <a hhref="#directives">Directives</a> <br>     <a hhref="#health_check">health_check</a> <br>     <a hhref="#health_check_timeout">health_check_timeout</a> <br>     <a hhref="#match">match</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_stream_upstream_hc_module</code>模块（1.9.0）允许对<a hhref="ngx_stream_upstream_module.html#upstream">组</a>中的服务器启用定期运行状况检查。  服务器组必须驻留在<a hhref="ngx_stream_upstream_module.html#zone">共享内存中</a> 。 </p><p>  如果运行状况检查失败，则服务器将被视为运行状况不佳。  如果为同一组服务器定义了多个运行状况检查，则任何检查的单个故障都将使相应的服务器被视为不健康。  客户端连接不会传递到处于“检查”状态的不健康服务器和服务器。 </p><p></p><blockquote class="note">  该模块作为我们<a hhref="http://nginx.com/products/">商业订阅的</a>一部分提供。 </blockquote><p></p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">upstream tcp {<br>    zone upstream_tcp 64k;<p></p>
-<pre><code>server backend1.example.com:12345 weight=5;
-server backend2.example.com:12345 fail_timeout=5s slow_start=30s;
-server 192.0.2.1:12345            max_fails=3;
+        <p>stream,ngx_stream_upstream_hc_module<br><a id="more"></a></p>
+<h2 id="Module-ngx-stream-upstream-hc-module"><a href="#Module-ngx-stream-upstream-hc-module" class="headerlink" title="Module ngx_stream_upstream_hc_module"></a>Module ngx_stream_upstream_hc_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#health_check">health_check</a> <br>     <a href="#health_check_timeout">health_check_timeout</a> <br>     <a href="#match">match</a> <br></td>
 
-server backup1.example.com:12345  backup;
-server backup2.example.com:12345  backup;
-</code></pre><p>}</p>
-<p>server {<br>    listen     12346;<br>    proxy_pass tcp;<br>    health_check;<br>}<br></p></pre></blockquote><p>  使用此配置，nginx将检查每五秒钟与<code class="notranslate">tcp</code>组中每个服务器建立TCP连接的能力。  当无法建立与服务器的连接时，运行状况检查将失败，并且服务器将被视为运行状况不佳。 </p><p>  可以为UDP协议配置运行状况检查： </p><blockquote class="example"><pre class="notranslate">upstream dns_upstream {<p></p>
-<pre><code>zone   dns_zone 64k;
+<p>   <code>ngx_stream_upstream_hc_module</code>模块（1.9.0）允许对<a href="ngx_stream_upstream_module.html#upstream">组</a>中的服务器启用定期运行状况检查。  服务器组必须驻留在<a href="ngx_stream_upstream_module.html#zone">共享内存中</a> 。 </p>
+<p>  如果运行状况检查失败，则服务器将被视为运行状况不佳。  如果为同一组服务器定义了多个运行状况检查，则任何检查的单个故障都将使相应的服务器被视为不健康。  客户端连接不会传递到处于“检查”状态的不健康服务器和服务器。 </p>
+<blockquote>
+<p>  该模块作为我们<a href="http://nginx.com/products/" target="_blank" rel="noopener">商业订阅的</a>一部分提供。 </p>
+</blockquote>
+<h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><pre class="notranslate">upstream tcp {
+    zone upstream_tcp 64k;
 
-server dns1.example.com:53;
-server dns2.example.com:53;
-server dns3.example.com:53;
-</code></pre><p>}</p>
-<p>server {<br>    listen       53 udp;<br>    proxy_pass   dns_upstream;<br>    health_check udp;<br>}<br></p></pre></blockquote><p>  在这种情况下，预期缺少ICMP“ <code class="notranslate">Destination Unreachable</code> ”消息以回复发送的字符串“ <code class="notranslate">nginx health check</code> ”。 </p><p>  还可以配置运行状况检查以测试从服务器获取的数据。  测试使用<a hhref="#match">match</a>伪指令单独配置，并在<a hhref="#health_check">health_check</a>指令的<code class="notranslate">match</code>参数中引用。 </p><a name="directives"></a><center><h4>  指令 </h4></center><a name="health_check"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>health_check</strong> [ <code class="notranslate"><i>parameters</i></code> ];</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><p></p>
-<pre><code>        —
+    server backend1.example.com:12345 weight=5;
+    server backend2.example.com:12345 fail_timeout=5s slow_start=30s;
+    server 192.0.2.1:12345            max_fails=3;
 
-            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-        Context:
-            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-        &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; &lt;br&gt;
-            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  启用对&lt;a hhref=&quot;ngx_stream_upstream_module.html#upstream&quot;&gt;组中&lt;/a&gt;服务器的定期运行状况检查。 &lt;/p&gt;&lt;p&gt;  支持以下可选参数： &lt;/p&gt;&lt;dl class=&quot;compact&quot;&gt;&lt;dt id=&quot;health_check_interval&quot;&gt;   &lt;code class=&quot;notranslate&quot;&gt;interval&lt;/code&gt; = &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;time&lt;/i&gt;&lt;/code&gt; &lt;/dt&gt;&lt;dd&gt;  设置两次连续运行状况检查之间的间隔，默认为5秒。 &lt;/dd&gt;&lt;dt id=&quot;health_check_jitter&quot;&gt;   &lt;code class=&quot;notranslate&quot;&gt;jitter&lt;/code&gt; = &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;time&lt;/i&gt;&lt;/code&gt; &lt;/dt&gt;&lt;dd&gt;  设置每个健康检查随机延迟的时间，默认情况下，没有延迟。 &lt;/dd&gt;&lt;dt id=&quot;health_check_fails&quot;&gt;   &lt;code class=&quot;notranslate&quot;&gt;fails&lt;/code&gt; = &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;number&lt;/i&gt;&lt;/code&gt; &lt;/dt&gt;&lt;dd&gt;  设置特定服务器的连续失败运行状况检查的数量，在此之后，此服务器将被视为运行状况不佳，默认情况下为1。 &lt;/dd&gt;&lt;dt id=&quot;health_check_passes&quot;&gt;   &lt;code class=&quot;notranslate&quot;&gt;passes&lt;/code&gt; = &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;number&lt;/i&gt;&lt;/code&gt; &lt;/dt&gt;&lt;dd&gt;  设置特定服务器的连续传递运行状况检查的数量，在此之后服务器将被视为运行状况，默认情况下为1。 &lt;/dd&gt;&lt;dt id=&quot;health_check_mandatory&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;mandatory&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  设置服务器的初始“检查”状态，直到第一次健康检查完成（1.11.7）。  客户端连接不会传递到处于“检查”状态的服务器。  如果未指定参数，则服务器最初将被视为健康。 &lt;/dd&gt;&lt;dt id=&quot;health_check_match&quot;&gt;   &lt;code class=&quot;notranslate&quot;&gt;match&lt;/code&gt; = &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;name&lt;/i&gt;&lt;/code&gt; &lt;/dt&gt;&lt;dd&gt;  指定配置成功连接应传递的测试的&lt;code class=&quot;notranslate&quot;&gt;match&lt;/code&gt;块，以便进行运行状况检查。  默认情况下，对于TCP，仅检查与服务器建立TCP连接的能力。  对于&lt;a hhref=&quot;#health_check_udp&quot;&gt;UDP&lt;/a&gt; ，预期缺少ICMP“ &lt;code class=&quot;notranslate&quot;&gt;Destination Unreachable&lt;/code&gt; ”消息以回复发送的字符串“ &lt;code class=&quot;notranslate&quot;&gt;nginx health check&lt;/code&gt; ”。 &lt;blockquote class=&quot;note&quot;&gt;  在1.11.7版之前，默认情况下，UDP运行状况检查需要带有&lt;a hhref=&quot;#match_send&quot;&gt;send&lt;/a&gt;和&lt;a hhref=&quot;#match_expect&quot;&gt;expect&lt;/a&gt;参数的&lt;a hhref=&quot;#hc_match&quot;&gt;匹配&lt;/a&gt;块。 &lt;/blockquote&gt;&lt;/dd&gt;&lt;dt id=&quot;health_check_port&quot;&gt;   &lt;code class=&quot;notranslate&quot;&gt;port&lt;/code&gt; = &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;number&lt;/i&gt;&lt;/code&gt; &lt;/dt&gt;&lt;dd&gt;  定义连接到服务器以执行运行状况检查时使用的端口（1.9.7）。  默认情况下，等于&lt;a hhref=&quot;ngx_stream_upstream_module.html#server&quot;&gt;服务器&lt;/a&gt;端口。 &lt;/dd&gt;&lt;dt id=&quot;health_check_udp&quot;&gt; &lt;code class=&quot;notranslate&quot;&gt;udp&lt;/code&gt; &lt;/dt&gt; &lt;dd&gt;  指定&lt;code class=&quot;notranslate&quot;&gt;UDP&lt;/code&gt;协议应该用于运行状况检查而不是默认的&lt;code class=&quot;notranslate&quot;&gt;TCP&lt;/code&gt;协议（1.9.13）。 &lt;/dd&gt;&lt;/dl&gt;&lt;p&gt;&lt;/p&gt;&lt;a name=&quot;health_check_timeout&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-        Syntax:
-            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;health_check_timeout&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;timeout&lt;/i&gt;&lt;/code&gt; ;&lt;/code&gt; &lt;br&gt;
-            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-        Default:
-            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-        &lt;pre class=&quot;notranslate&quot;&gt;health_check_timeout 5s;&lt;/pre&gt;
-            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-        Context:
-            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-        &lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; , &lt;code class=&quot;notranslate&quot;&gt;server&lt;/code&gt; &lt;br&gt;
-            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  覆盖&lt;a hhref=&quot;ngx_stream_proxy_module.html#proxy_timeout&quot;&gt;运行&lt;/a&gt;状况检查的&lt;a hhref=&quot;ngx_stream_proxy_module.html#proxy_timeout&quot;&gt;proxy_timeout&lt;/a&gt;值。 &lt;/p&gt;&lt;a name=&quot;match&quot;&gt;&lt;/a&gt;&lt;div class=&quot;directive&quot;&gt;&lt;table cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-        Syntax:
-            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-        &lt;code class=&quot;notranslate&quot;&gt;&lt;strong&gt;match&lt;/strong&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;name&lt;/i&gt;&lt;/code&gt;  { ... }&lt;/code&gt; &lt;br&gt;
-            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-        Default:
-            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
+    server backup1.example.com:12345  backup;
+    server backup2.example.com:12345  backup;
+}
 
-        —
+server {
+    listen     12346;
+    proxy_pass tcp;
+    health_check;
+}
+</pre>
 
-            &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;notranslate&quot;&gt;
-        Context:
-            &lt;/th&gt;&lt;td class=&quot;notranslate&quot;&gt;
-        &lt;code class=&quot;notranslate&quot;&gt;stream&lt;/code&gt; &lt;br&gt;
-            &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;  定义用于验证服务器对运行状况检查的响应的命名测试集。 &lt;/p&gt;&lt;p&gt;  可以配置以下参数： &lt;/p&gt;&lt;dl class=&quot;compact&quot;&gt;&lt;dt id=&quot;match_send&quot;&gt;   &lt;code class=&quot;notranslate&quot;&gt;send&lt;/code&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;string&lt;/i&gt;&lt;/code&gt; ; &lt;/dt&gt;&lt;dd&gt;  将&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;string&lt;/i&gt;&lt;/code&gt;发送到服务器; &lt;/dd&gt;&lt;dt id=&quot;match_expect&quot;&gt;   &lt;code class=&quot;notranslate&quot;&gt;expect&lt;/code&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;string&lt;/i&gt;&lt;/code&gt; |   &lt;code class=&quot;notranslate&quot;&gt;~&lt;/code&gt; &lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;regex&lt;/i&gt;&lt;/code&gt; ; &lt;/dt&gt;&lt;dd&gt;  文字字符串（1.9.12）或从服务器获取的数据应匹配的正则表达式。  使用前面的“ &lt;code class=&quot;notranslate&quot;&gt;~*&lt;/code&gt; ”修饰符（对于不区分大小写的匹配）或“ &lt;code class=&quot;notranslate&quot;&gt;~&lt;/code&gt; ”修饰符（对于区分大小写的匹配）指定正则表达式。 &lt;/dd&gt;&lt;/dl&gt;&lt;p&gt;   &lt;code class=&quot;notranslate&quot;&gt;send&lt;/code&gt;和&lt;code class=&quot;notranslate&quot;&gt;expect&lt;/code&gt;参数都可以包含十六进制文字，前缀为“ &lt;code class=&quot;notranslate&quot;&gt;\x&lt;/code&gt; ”，后跟两个十六进制数字，例如“ &lt;code class=&quot;notranslate&quot;&gt;\x80&lt;/code&gt; ”（1.9.12）。 &lt;/p&gt;&lt;p&gt;  在下列情况下通过健康检查 &lt;/p&gt;&lt;ul class=&quot;compact&quot;&gt;&lt;li&gt;   TCP连接成功建立; &lt;/li&gt;&lt;li&gt;   &lt;code class=&quot;notranslate&quot;&gt;send&lt;/code&gt;参数中的&lt;code class=&quot;notranslate&quot;&gt;&lt;i&gt;string&lt;/i&gt;&lt;/code&gt; （如果已指定）已发送; &lt;/li&gt;&lt;li&gt;  如果指定，从服务器获取的数据与&lt;code class=&quot;notranslate&quot;&gt;expect&lt;/code&gt;参数中的字符串或正则表达式匹配; &lt;/li&gt;&lt;li&gt;  经过的时间不超过&lt;a hhref=&quot;#health_check_timeout&quot;&gt;health_check_timeout&lt;/a&gt;指令中指定的值。 &lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;  例： &lt;/p&gt;&lt;blockquote class=&quot;example&quot;&gt;&lt;pre class=&quot;notranslate&quot;&gt;upstream backend {
-zone     upstream_backend 10m;
-server   127.0.0.1:12345;
-</code></pre><p>}</p>
-<p>match http {<br>    send     “GET / HTTP/1.0\r\nHost: localhost\r\n\r\n”;<br>    expect ~ “200 OK”;<br>}</p>
-<p>server {<br>    listen       12346;<br>    proxy_pass   backend;<br>    health_check match=http;<br>}<br></p><p></p><p></p><blockquote class="note">  仅检查从服务器获得的第一个<a hhref="ngx_stream_proxy_module.html#proxy_buffer_size">proxy_buffer_size</a>字节数据。 </blockquote><p></p><br><span></span><div style="display: none;"></div><p></p>
-</td></tr></tbody></table></div>
+<p>  使用此配置，nginx将检查每五秒钟与<code>tcp</code>组中每个服务器建立TCP连接的能力。  当无法建立与服务器的连接时，运行状况检查将失败，并且服务器将被视为运行状况不佳。 </p>
+<p>  可以为UDP协议配置运行状况检查： </p>
+<pre class="notranslate">upstream dns_upstream {
+
+    zone   dns_zone 64k;
+
+    server dns1.example.com:53;
+    server dns2.example.com:53;
+    server dns3.example.com:53;
+}
+
+server {
+    listen       53 udp;
+    proxy_pass   dns_upstream;
+    health_check udp;
+}
+</pre>
+
+<p>  在这种情况下，预期缺少ICMP“ <code>Destination Unreachable</code> ”消息以回复发送的字符串“ <code>nginx health check</code> ”。 </p>
+<p>  还可以配置运行状况检查以测试从服务器获取的数据。  测试使用<a href="#match">match</a>伪指令单独配置，并在<a href="#health_check">health_check</a>指令的<code>match</code>参数中引用。 </p>
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**health_check** [ &lt;code class=&quot;notranslate&quot;&gt;*parameters*</code> ];<br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>server</code> <br>                </td></p>
+<p>  启用对<a href="ngx_stream_upstream_module.html#upstream">组中</a>服务器的定期运行状况检查。 </p>
+<p>  支持以下可选参数： </p>
+<blockquote>
+<p>  在1.11.7版之前，默认情况下，UDP运行状况检查需要带有<a href="#match_send">send</a>和<a href="#match_expect">expect</a>参数的<a href="#hc_match">匹配</a>块。 </p>
+</blockquote>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**health_check_timeout*timeout*</code> ;<br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">health_check_timeout 5s;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
+<p>  覆盖<a href="ngx_stream_proxy_module.html#proxy_timeout">运行</a>状况检查的<a href="ngx_stream_proxy_module.html#proxy_timeout">proxy_timeout</a>值。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**match*name*</code>  { … } <br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> <br>                </td></p>
+<p>  定义用于验证服务器对运行状况检查的响应的命名测试集。 </p>
+<p>  可以配置以下参数： </p>
+<p>   <code>send</code>和<code>expect</code>参数都可以包含十六进制文字，前缀为“ <code>\x</code> ”，后跟两个十六进制数字，例如“ <code>\x80</code> ”（1.9.12）。 </p>
+<p>  在下列情况下通过健康检查 </p>
+<ul>
+<li>TCP连接成功建立; -    <code>send</code>参数中的<code>*string*</code> （如果已指定）已发送; -   如果指定，从服务器获取的数据与<code>expect</code>参数中的字符串或正则表达式匹配; -   经过的时间不超过<a href="#health_check_timeout">health_check_timeout</a>指令中指定的值。 </li>
+</ul>
+<p>  例： </p>
+<pre class="notranslate">upstream backend {
+    zone     upstream_backend 10m;
+    server   127.0.0.1:12345;
+}
+
+match http {
+    send     "GET / HTTP/1.0\r\nHost: localhost\r\n\r\n";
+    expect ~ "200 OK";
+}
+
+server {
+    listen       12346;
+    proxy_pass   backend;
+    health_check match=http;
+}
+</pre>
+
+
+
+
+
+<blockquote>
+<p>  仅检查从服务器获得的第一个<a href="ngx_stream_proxy_module.html#proxy_buffer_size">proxy_buffer_size</a>字节数据。 </p>
+</blockquote>
+
       
     </div>
     
@@ -476,7 +538,7 @@ server   127.0.0.1:12345;
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nginx.im/ngx/stream/ngx_stream_upstream_hc_module.html" title="">http://nginx.im/ngx/stream/ngx_stream_upstream_hc_module.html</a>
+    <a href="http://nginx.im/ngx/stream/ngx_stream_upstream_hc_module.html" title="stream/ngx_stream_upstream_hc_module-nginx中文手册">http://nginx.im/ngx/stream/ngx_stream_upstream_hc_module.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -489,6 +551,12 @@ server   127.0.0.1:12345;
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/nginx/" rel="tag"># nginx</a>
+          
+        </div>
+      
 
       
       
@@ -498,8 +566,8 @@ server   127.0.0.1:12345;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ngx/stream/ngx_stream_ssl_preread_module.html" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/ngx/stream/ngx_stream_ssl_preread_module.html" rel="next" title="stream/ngx_stream_ssl_preread_module-nginx中文手册">
+                <i class="fa fa-chevron-left"></i> stream/ngx_stream_ssl_preread_module-nginx中文手册
               </a>
             
           </div>
@@ -508,8 +576,8 @@ server   127.0.0.1:12345;
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ngx/stream/ngx_stream_upstream_module.html" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/ngx/stream/ngx_stream_upstream_module.html" rel="prev" title="stream/ngx_stream_upstream_module-nginx中文手册">
+                stream/ngx_stream_upstream_module-nginx中文手册 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -607,7 +675,7 @@ server   127.0.0.1:12345;
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -653,7 +721,7 @@ server   127.0.0.1:12345;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_stream_upstream_hc_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">  示例配置 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">  指令 </span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-stream-upstream-hc-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_stream_upstream_hc_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

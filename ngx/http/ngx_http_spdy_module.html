@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="LINUX,NGINX,JAVA,PYTHON,PYTHON,前端,运维实践" />
+  <meta name="keywords" content="nginx," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="Module ngx_http_spdy_module Known Issues  Example Configuration  Directives      spdy_chunk_size      spdy_headers_comp  Embedded Variables    ngx_http_spdy_mod">
+<meta name="description" content="http,ngx_http_spdy_module">
+<meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
-<meta property="og:title" content="IM.NGINX">
+<meta property="og:title" content="http&#x2F;ngx_http_spdy_module-nginx中文手册">
 <meta property="og:url" content="http://nginx.im/ngx/http/ngx_http_spdy_module.html">
 <meta property="og:site_name" content="IM.NGINX">
-<meta property="og:description" content="Module ngx_http_spdy_module Known Issues  Example Configuration  Directives      spdy_chunk_size      spdy_headers_comp  Embedded Variables    ngx_http_spdy_module模块为SPDY提供实验支持。  目前，已实施SPDY协议草案3.1 。">
+<meta property="og:description" content="http,ngx_http_spdy_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T08:10:39.990Z">
+<meta property="og:updated_time" content="2018-12-21T08:15:37.831Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="IM.NGINX">
-<meta name="twitter:description" content="Module ngx_http_spdy_module Known Issues  Example Configuration  Directives      spdy_chunk_size      spdy_headers_comp  Embedded Variables    ngx_http_spdy_module模块为SPDY提供实验支持。  目前，已实施SPDY协议草案3.1 。">
+<meta name="twitter:title" content="http&#x2F;ngx_http_spdy_module-nginx中文手册">
+<meta name="twitter:description" content="http,ngx_http_spdy_module">
 
 
 
@@ -125,7 +126,7 @@
 
 
 
-  <title> | IM.NGINX</title>
+  <title>http/ngx_http_spdy_module-nginx中文手册 | IM.NGINX</title>
   
 
 
@@ -323,7 +324,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline"></h2>
+          <h2 class="post-title" itemprop="name headline">http/ngx_http_spdy_module-nginx中文手册</h2>
         
 
         <div class="post-meta">
@@ -335,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:09:50+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:16:01+08:00">
                 2018年12月21日
               </time>
             
@@ -345,6 +346,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx中文手册</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -373,11 +396,45 @@
       
 
       
-        <p></p><h2 class="notranslate">Module ngx_http_spdy_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a hhref="#issues">Known Issues</a> <br> <a hhref="#example">Example Configuration</a> <br> <a hhref="#directives">Directives</a> <br>     <a hhref="#spdy_chunk_size">spdy_chunk_size</a> <br>     <a hhref="#spdy_headers_comp">spdy_headers_comp</a> <br> <a hhref="#variables">Embedded Variables</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_spdy_module</code>模块为<a hhref="http://www.chromium.org/spdy/spdy-protocol">SPDY</a>提供实验支持。  目前，已实施SPDY协议<a hhref="http://www.chromium.org/spdy/spdy-protocol/spdy-protocol-draft3-1">草案3.1</a> 。 </p><blockquote class="note">  在1.5.10版之前，实施了SPDY协议<a hhref="http://www.chromium.org/spdy/spdy-protocol/spdy-protocol-draft2">草案2</a> 。 </blockquote><p></p><p>  默认情况下不构建此模块，应使用<code class="notranslate">–with-http_spdy_module</code>配置参数启用它。 </p><p></p><blockquote class="note">  该模块已被1.9.5中的<a hhref="ngx_http_v2_module.html">ngx_http_v2_module</a>模块取代。 </blockquote><p></p><a name="issues"></a><center><h4>  已知的问题 </h4></center><p>  该模块是实验性的，需要注意的是经纪人。 </p><p>   SPDY协议的当前实现不支持“服务器推送”。 </p><p>  在1.5.9之前的版本中，SPDY连接中的响应不能受<a hhref="ngx_http_core_module.html#limit_rate">速率限制</a> 。 </p><p>  无论<a hhref="ngx_http_proxy_module.html#proxy_request_buffering">proxy_request_buffering</a> ， <a hhref="ngx_http_fastcgi_module.html#fastcgi_request_buffering">fastcgi_request_buffering</a> ， <a hhref="ngx_http_uwsgi_module.html#uwsgi_request_buffering">uwsgi_request_buffering</a>和<a hhref="ngx_http_scgi_module.html#scgi_request_buffering">scgi_request_buffering</a>指令值如何，都无法禁用客户端请求正文的缓冲。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">server {<br>    listen 443 ssl spdy;<p></p>
-<pre><code>ssl_certificate server.crt;
-ssl_certificate_key server.key;
-...
-</code></pre><p>}<br></p></pre></blockquote><p></p><blockquote class="note">  请注意，为了在同一端口上同时接受<a hhref="ngx_http_ssl_module.html">HTTPS</a>和SPDY连接，所使用的<a hhref="http://www.openssl.org">OpenSSL</a>库应支持“Next Protocol Negotiation”TLS扩展，自Ope​​nSSL 1.0.1版开始可用。 </blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="spdy_chunk_size"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>spdy_chunk_size</strong> <code class="notranslate"><i>size</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">spdy_chunk_size 8k;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br><br>                </td></tr></tbody></table><p>  该指令出现在1.5.9版本中。 </p></div><p>  设置响应主体被<a hhref="http://www.chromium.org/spdy/spdy-protocol/spdy-protocol-draft2#TOC-Data-frames">切片</a>到的块的最大大小。  值太低会导致更高的开销。  由于<a hhref="http://en.wikipedia.org/wiki/Head-of-line_blocking">HOL阻塞，</a>太高的值会损害优先级。 </p><a name="spdy_headers_comp"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate"><br>            Syntax:<br>                </th><td class="notranslate"><br>            <code class="notranslate"><strong>spdy_headers_comp</strong> <code class="notranslate"><i>level</i></code> ;</code> <br><br>                </td></tr><tr><th class="notranslate"><br>            Default:<br>                </th><td class="notranslate"><br>            <pre class="notranslate">spdy_headers_comp 0;</pre><br>                </td></tr><tr><th class="notranslate"><br>            Context:<br>                </th><td class="notranslate"><br>            <code class="notranslate">http</code> , <code class="notranslate">server</code> <br><br>                </td></tr></tbody></table></div><p>  设置响应的标头压缩<code class="notranslate"><i>level</i></code> ，范围从1（最快，压缩程度较低）到9（最慢，最佳压缩）。  特殊值0关闭标头压缩。 </p><a name="variables"></a><center><h4>  嵌入式变量 </h4></center><p>   <code class="notranslate">ngx_http_spdy_module</code>模块支持以下嵌入变量： </p><dl><dt id="var_spdy"> <code class="notranslate">$spdy</code> </dt> <dd>   SPDY连接的SPDY协议版本，否则为空字符串; </dd><dt id="var_spdy_request_priority"> <code class="notranslate">$spdy_request_priority</code> </dt> <dd>  请求SPDY连接的优先级，否则请求空字符串。 </dd></dl><p></p><br><span></span><div style="display: none;"></div><p></p>
+        <p>http,ngx_http_spdy_module<br><a id="more"></a></p>
+<h2 id="Module-ngx-http-spdy-module"><a href="#Module-ngx-http-spdy-module" class="headerlink" title="Module ngx_http_spdy_module"></a>Module ngx_http_spdy_module</h2><td align="left" class="notranslate"> <a href="#issues">Known Issues</a> <br> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#spdy_chunk_size">spdy_chunk_size</a> <br>     <a href="#spdy_headers_comp">spdy_headers_comp</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
+
+<p>   <code>ngx_http_spdy_module</code>模块为<a href="http://www.chromium.org/spdy/spdy-protocol" target="_blank" rel="noopener">SPDY</a>提供实验支持。  目前，已实施SPDY协议<a href="http://www.chromium.org/spdy/spdy-protocol/spdy-protocol-draft3-1" target="_blank" rel="noopener">草案3.1</a> 。 </p>
+<blockquote>
+<p>  在1.5.10版之前，实施了SPDY协议<a href="http://www.chromium.org/spdy/spdy-protocol/spdy-protocol-draft2" target="_blank" rel="noopener">草案2</a> 。 </p>
+</blockquote>
+<p>  默认情况下不构建此模块，应使用<code>--with-http_spdy_module</code>配置参数启用它。 </p>
+<blockquote>
+<p>  该模块已被1.9.5中的<a href="ngx_http_v2_module.html">ngx_http_v2_module</a>模块取代。 </p>
+</blockquote>
+<h4 id="已知的问题"><a href="#已知的问题" class="headerlink" title="已知的问题"></a>已知的问题</h4><p>  该模块是实验性的，需要注意的是经纪人。 </p>
+<p>   SPDY协议的当前实现不支持“服务器推送”。 </p>
+<p>  在1.5.9之前的版本中，SPDY连接中的响应不能受<a href="ngx_http_core_module.html#limit_rate">速率限制</a> 。 </p>
+<p>  无论<a href="ngx_http_proxy_module.html#proxy_request_buffering">proxy_request_buffering</a> ， <a href="ngx_http_fastcgi_module.html#fastcgi_request_buffering">fastcgi_request_buffering</a> ， <a href="ngx_http_uwsgi_module.html#uwsgi_request_buffering">uwsgi_request_buffering</a>和<a href="ngx_http_scgi_module.html#scgi_request_buffering">scgi_request_buffering</a>指令值如何，都无法禁用客户端请求正文的缓冲。 </p>
+<h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><pre class="notranslate">server {
+    listen 443 ssl spdy;
+
+    ssl_certificate server.crt;
+    ssl_certificate_key server.key;
+    ...
+}
+</pre>
+
+
+
+<blockquote>
+<p>  请注意，为了在同一端口上同时接受<a href="ngx_http_ssl_module.html">HTTPS</a>和SPDY连接，所使用的<a href="http://www.openssl.org" target="_blank" rel="noopener">OpenSSL</a>库应支持“Next Protocol Negotiation”TLS扩展，自Ope​​nSSL 1.0.1版开始可用。 </p>
+</blockquote>
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**spdy_chunk_size*size*</code> ;<br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">spdy_chunk_size 8k;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
+<p>  该指令出现在1.5.9版本中。 </p>
+<p>  设置响应主体被<a href="http://www.chromium.org/spdy/spdy-protocol/spdy-protocol-draft2#TOC-Data-frames" target="_blank" rel="noopener">切片</a>到的块的最大大小。  值太低会导致更高的开销。  由于<a href="http://en.wikipedia.org/wiki/Head-of-line_blocking" target="_blank" rel="noopener">HOL阻塞，</a>太高的值会损害优先级。 </p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**spdy_headers_comp*level*</code> ;<br>                </td></p>
+<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">spdy_headers_comp 0;</pre>                </td></p>
+<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> <br>                </td></p>
+<p>  设置响应的标头压缩<code>*level*</code> ，范围从1（最快，压缩程度较低）到9（最慢，最佳压缩）。  特殊值0关闭标头压缩。 </p>
+<h4 id="嵌入式变量"><a href="#嵌入式变量" class="headerlink" title="嵌入式变量"></a>嵌入式变量</h4><p>   <code>ngx_http_spdy_module</code>模块支持以下嵌入变量： </p>
 
       
     </div>
@@ -427,7 +484,7 @@ ssl_certificate_key server.key;
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nginx.im/ngx/http/ngx_http_spdy_module.html" title="">http://nginx.im/ngx/http/ngx_http_spdy_module.html</a>
+    <a href="http://nginx.im/ngx/http/ngx_http_spdy_module.html" title="http/ngx_http_spdy_module-nginx中文手册">http://nginx.im/ngx/http/ngx_http_spdy_module.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -440,6 +497,12 @@ ssl_certificate_key server.key;
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/nginx/" rel="tag"># nginx</a>
+          
+        </div>
+      
 
       
       
@@ -449,8 +512,8 @@ ssl_certificate_key server.key;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ngx/http/ngx_http_slice_module.html" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/ngx/http/ngx_http_slice_module.html" rel="next" title="http/ngx_http_slice_module-nginx中文手册">
+                <i class="fa fa-chevron-left"></i> http/ngx_http_slice_module-nginx中文手册
               </a>
             
           </div>
@@ -459,8 +522,8 @@ ssl_certificate_key server.key;
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ngx/http/ngx_http_split_clients_module.html" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/ngx/http/ngx_http_split_clients_module.html" rel="prev" title="http/ngx_http_split_clients_module-nginx中文手册">
+                http/ngx_http_split_clients_module-nginx中文手册 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -558,7 +621,7 @@ ssl_certificate_key server.key;
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -604,7 +667,7 @@ ssl_certificate_key server.key;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_spdy_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">  已知的问题 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">  示例配置 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.3.</span> <span class="nav-text">  指令 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.4.</span> <span class="nav-text">  嵌入式变量 </span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-spdy-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_spdy_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#已知的问题"><span class="nav-number">1.0.1.</span> <span class="nav-text">已知的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.2.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.3.</span> <span class="nav-text">指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌入式变量"><span class="nav-number">1.0.4.</span> <span class="nav-text">嵌入式变量</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
