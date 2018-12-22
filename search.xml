@@ -29708,29 +29708,6 @@ diff -r 822b82191940 -r 2220de0521ca src/mail/ngx_mail_auth_http_module.c
     </entry>
     
     <entry>
-      <title><![CDATA[springboot过滤器验证token]]></title>
-      <url>/spring-boot/spring-token.html</url>
-      <content type="html"><![CDATA[<p>springboot过滤器验证token<br><a id="more"></a></p>
-<h1 id="token-java"><a href="#token-java" class="headerlink" title="token.java"></a>token.java</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">public class TokenInterceptor extends HandlerInterceptorAdapter &#123;</span><br><span class="line">    @Autowired</span><br><span class="line">    private UserService userService;</span><br><span class="line">    @Autowired</span><br><span class="line">    private AdminService adminService;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception &#123;</span><br><span class="line">        String ip = request.getRemoteAddr();</span><br><span class="line">        String token = request.getHeader(&quot;token&quot;);</span><br><span class="line">        String user = request.getHeader(&quot;userId&quot;);</span><br><span class="line">        if (token == null || user == null) &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        Integer userId = Integer.valueOf(user);</span><br><span class="line">        //获取Service实例</span><br><span class="line">        if (userService == null) &#123;</span><br><span class="line">            BeanFactory factory = WebApplicationContextUtils.getRequiredWebApplicationContext(request.getServletContext());</span><br><span class="line">            userService = (UserService) factory.getBean(&quot;userService&quot;);</span><br><span class="line">            adminService = (AdminService) factory.getBean(&quot;adminService&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        //增加日活量</span><br><span class="line">        if (ip != null) &#123;</span><br><span class="line">            adminService.addAccessCount(ip);</span><br><span class="line">        &#125;</span><br><span class="line">        String checkToken = userService.selectToken(userId);</span><br><span class="line">        //检查头部请求</span><br><span class="line">        if (!checkToken.equals(token)) &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-        <categories>
-            
-            <category> token </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> springboot </tag>
-            
-            <tag> token </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[springboot-Access-Control-Allow-Origin]]></title>
       <url>/spring-boot/spring-boot-Access-Control-Allow-Origin.html</url>
       <content type="html"><![CDATA[<p>springboot 跨域研究</p>
@@ -29758,20 +29735,14 @@ diff -r 822b82191940 -r 2220de0521ca src/mail/ngx_mail_auth_http_module.c
     </entry>
     
     <entry>
-      <title><![CDATA[spring-boot-feign伪rpc集成]]></title>
-      <url>/spring-boot-feign%E4%BC%AArpc%E9%9B%86%E6%88%90.html</url>
-      <content type="html"><![CDATA[<p>Feign使得 Java HTTP 客户端编写更方便。Feign 灵感来源于Retrofit、JAXRS-2.0和WebSocket。Feign最初是为了降低统一绑定Denominator到HTTP API的复杂度，不区分是否支持Restful。Feign旨在通过最少的资源和代码来实现和HTTP API的连接。通过可定制的解码器和错误处理，可以编写任意的HTTP API。可以认为是一种伪RPC。<br><a id="more"></a></p>
-<h1 id="和springboot整合"><a href="#和springboot整合" class="headerlink" title="和springboot整合"></a>和springboot整合</h1><blockquote>
-<p>pom.xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">       &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">       &lt;artifactId&gt;spring-cloud-starter-feign&lt;/artifactId&gt;</span><br><span class="line">       &lt;version&gt;1.3.2.RELEASE&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h1 id="配置application-properties-文件"><a href="#配置application-properties-文件" class="headerlink" title="配置application.properties 文件"></a>配置application.properties 文件</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">feign.name=feignName</span><br><span class="line">feign.url=http://localhost:88</span><br><span class="line">feign.client.config.default.loggerLevel = full</span><br><span class="line">feign.connectTimeoutMillis=1000   #连接超时,单位毫秒</span><br><span class="line">feign.readTimeoutMillis=15000     #读超时,单位毫秒</span><br></pre></td></tr></table></figure>
-<h1 id="编写feign的-interface"><a href="#编写feign的-interface" class="headerlink" title="编写feign的 interface"></a>编写feign的 interface</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@Component</span><br><span class="line">@FeignClient(url = &quot;$&#123;feign.url&#125;&quot;, name = &quot;feign.name&quot;)</span><br><span class="line">public interface testfeign &#123;</span><br><span class="line">	@RequestMapping(value = &quot;/version&quot;, method = RequestMethod.GET)</span><br><span class="line">	public String version();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="在controller-注入上面的-interface"><a href="#在controller-注入上面的-interface" class="headerlink" title="在controller 注入上面的 interface"></a>在controller 注入上面的 interface</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@Autowired</span><br><span class="line">private testfeign stestfeign;</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">@RequestMapping(&quot;testfeign&quot;)</span><br><span class="line">	private String pub() &#123;</span><br><span class="line">		return stestfeign.version();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="配置项目启动文件"><a href="#配置项目启动文件" class="headerlink" title="配置项目启动文件"></a>配置项目启动文件</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">@EnableFeignClients(basePackages = &quot;im.nginx.test&quot;)</span><br><span class="line">#im.nginx.test 为feign interface 文件所在的包</span><br><span class="line">public class Application &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws Exception &#123;</span><br><span class="line">		SpringApplication.run(Application.class, args);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <title><![CDATA[springboot过滤器验证token]]></title>
+      <url>/spring-boot/spring-token.html</url>
+      <content type="html"><![CDATA[<p>springboot过滤器验证token<br><a id="more"></a></p>
+<h1 id="token-java"><a href="#token-java" class="headerlink" title="token.java"></a>token.java</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">public class TokenInterceptor extends HandlerInterceptorAdapter &#123;</span><br><span class="line">    @Autowired</span><br><span class="line">    private UserService userService;</span><br><span class="line">    @Autowired</span><br><span class="line">    private AdminService adminService;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception &#123;</span><br><span class="line">        String ip = request.getRemoteAddr();</span><br><span class="line">        String token = request.getHeader(&quot;token&quot;);</span><br><span class="line">        String user = request.getHeader(&quot;userId&quot;);</span><br><span class="line">        if (token == null || user == null) &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        Integer userId = Integer.valueOf(user);</span><br><span class="line">        //获取Service实例</span><br><span class="line">        if (userService == null) &#123;</span><br><span class="line">            BeanFactory factory = WebApplicationContextUtils.getRequiredWebApplicationContext(request.getServletContext());</span><br><span class="line">            userService = (UserService) factory.getBean(&quot;userService&quot;);</span><br><span class="line">            adminService = (AdminService) factory.getBean(&quot;adminService&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        //增加日活量</span><br><span class="line">        if (ip != null) &#123;</span><br><span class="line">            adminService.addAccessCount(ip);</span><br><span class="line">        &#125;</span><br><span class="line">        String checkToken = userService.selectToken(userId);</span><br><span class="line">        //检查头部请求</span><br><span class="line">        if (!checkToken.equals(token)) &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       
         <categories>
             
-            <category> feign </category>
+            <category> token </category>
             
         </categories>
         
@@ -29780,7 +29751,7 @@ diff -r 822b82191940 -r 2220de0521ca src/mail/ngx_mail_auth_http_module.c
             
             <tag> springboot </tag>
             
-            <tag> feign </tag>
+            <tag> token </tag>
             
         </tags>
         
@@ -29823,6 +29794,35 @@ diff -r 822b82191940 -r 2220de0521ca src/mail/ngx_mail_auth_http_module.c
     </entry>
     
     <entry>
+      <title><![CDATA[spring-boot-feign伪rpc集成]]></title>
+      <url>/spring-boot-feign%E4%BC%AArpc%E9%9B%86%E6%88%90.html</url>
+      <content type="html"><![CDATA[<p>Feign使得 Java HTTP 客户端编写更方便。Feign 灵感来源于Retrofit、JAXRS-2.0和WebSocket。Feign最初是为了降低统一绑定Denominator到HTTP API的复杂度，不区分是否支持Restful。Feign旨在通过最少的资源和代码来实现和HTTP API的连接。通过可定制的解码器和错误处理，可以编写任意的HTTP API。可以认为是一种伪RPC。<br><a id="more"></a></p>
+<h1 id="和springboot整合"><a href="#和springboot整合" class="headerlink" title="和springboot整合"></a>和springboot整合</h1><blockquote>
+<p>pom.xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">       &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">       &lt;artifactId&gt;spring-cloud-starter-feign&lt;/artifactId&gt;</span><br><span class="line">       &lt;version&gt;1.3.2.RELEASE&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h1 id="配置application-properties-文件"><a href="#配置application-properties-文件" class="headerlink" title="配置application.properties 文件"></a>配置application.properties 文件</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">feign.name=feignName</span><br><span class="line">feign.url=http://localhost:88</span><br><span class="line">feign.client.config.default.loggerLevel = full</span><br><span class="line">feign.connectTimeoutMillis=1000   #连接超时,单位毫秒</span><br><span class="line">feign.readTimeoutMillis=15000     #读超时,单位毫秒</span><br></pre></td></tr></table></figure>
+<h1 id="编写feign的-interface"><a href="#编写feign的-interface" class="headerlink" title="编写feign的 interface"></a>编写feign的 interface</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@Component</span><br><span class="line">@FeignClient(url = &quot;$&#123;feign.url&#125;&quot;, name = &quot;feign.name&quot;)</span><br><span class="line">public interface testfeign &#123;</span><br><span class="line">	@RequestMapping(value = &quot;/version&quot;, method = RequestMethod.GET)</span><br><span class="line">	public String version();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="在controller-注入上面的-interface"><a href="#在controller-注入上面的-interface" class="headerlink" title="在controller 注入上面的 interface"></a>在controller 注入上面的 interface</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@Autowired</span><br><span class="line">private testfeign stestfeign;</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">@RequestMapping(&quot;testfeign&quot;)</span><br><span class="line">	private String pub() &#123;</span><br><span class="line">		return stestfeign.version();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="配置项目启动文件"><a href="#配置项目启动文件" class="headerlink" title="配置项目启动文件"></a>配置项目启动文件</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">@EnableFeignClients(basePackages = &quot;im.nginx.test&quot;)</span><br><span class="line">#im.nginx.test 为feign interface 文件所在的包</span><br><span class="line">public class Application &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws Exception &#123;</span><br><span class="line">		SpringApplication.run(Application.class, args);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+        <categories>
+            
+            <category> feign </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> springboot </tag>
+            
+            <tag> feign </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title></title>
       <url>/nginx%E5%B8%B8%E7%94%A8%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F%E5%8F%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html</url>
       <content type="html"><![CDATA[<p>title: nginx常用基本变量及数据结构<br>tags: [nginx]<br>categories: nginx</p>
@@ -29859,15 +29859,14 @@ diff -r 822b82191940 -r 2220de0521ca src/mail/ngx_mail_auth_http_module.c
     </entry>
     
     <entry>
-      <title><![CDATA[nginx-args-query-string-uri详解]]></title>
-      <url>/nginx-args-query-string-uri%E8%AF%A6%E8%A7%A3.html</url>
-      <content type="html"><![CDATA[<p>Nginx 中常见和url操作相关的变量</p>
-<blockquote>
-<p>$args<br>$query_string<br>$request_uri<br>$uri<br>$document_uri</p>
-</blockquote>
-<p>以上变量有什么联系和区别呢?</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">url:  http://nginx.im/nginx/im/?page=1</span><br><span class="line">$args -&gt;    page=1</span><br><span class="line">$query_string -&gt; page=1</span><br><span class="line">$request_uri  -&gt; /nginx/im/?page=1</span><br><span class="line">$uri       -&gt;  /nginx/im</span><br><span class="line">$document_uri -&gt; /nginx/im</span><br><span class="line">**总结**</span><br><span class="line">$args &lt;=&gt; $query_string 获取？后面的参数</span><br><span class="line">$request_uri  获取除了host 之外所有的</span><br><span class="line">$uri &lt;=&gt; $cocuemnt_uri 获取请求路径</span><br></pre></td></tr></table></figure>
+      <title><![CDATA[nginx-location正则表达式匹配规则及动静分离]]></title>
+      <url>/nginx-location%E5%A5%87%E6%B7%AB%E6%8A%80%E5%B7%A7.html</url>
+      <content type="html"><![CDATA[<p>nginx，location常用正则表达式，及nginx动静分离<br><a id="more"></a></p>
+<h1 id="nginx匹配规则"><a href="#nginx匹配规则" class="headerlink" title="nginx匹配规则"></a>nginx匹配规则</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">~      波浪线表示执行一个正则匹配，区分大小写</span><br><span class="line">~*    表示执行一个正则匹配，不区分大小写</span><br><span class="line">^~     ^~表示普通字符匹配，如果该选项匹配，只匹配该选项，不匹配别的选项，一般用来匹配目录</span><br><span class="line">=      进行普通字符精确匹配</span><br><span class="line">@      &quot;@&quot; 定义一个命名的 location，使用在内部定向时，例如 error_page, try_files</span><br><span class="line">!~（!~*） 表示区分大小写不正则匹配和不区分大小写不正则匹配</span><br></pre></td></tr></table></figure>
+<h1 id="nginx正则表达式"><a href="#nginx正则表达式" class="headerlink" title="nginx正则表达式"></a>nginx正则表达式</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">. ： 匹配除换行符以外的任意字符</span><br><span class="line">? ： 重复0次或1次</span><br><span class="line">+ ： 重复1次或更多次</span><br><span class="line">* ： 重复0次或更多次</span><br><span class="line">\d ：匹配数字</span><br><span class="line">^ ： 匹配字符串的开始</span><br><span class="line">$ ： 匹配字符串的介绍</span><br><span class="line">&#123;n&#125; ： 重复n次</span><br><span class="line">&#123;n,&#125; ： 重复n次或更多次</span><br><span class="line">[c] ： 匹配单个字符c</span><br><span class="line">[a-z] ： 匹配a-z小写字母的任意一个</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong> 当正则表达式中含有 {} 是,必须将 正则表达式用 “” 引起来否则会报错<br>nginx: [emerg] pcre_compile() failed: missing ) in “/one/(\d” in /usr/local/nginx/conf/nginx.conf:56</p>
+<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#rewrite ^/test/([\d]&#123;3&#125;)/$ /index.php?id=$1 break;  #报错</span><br><span class="line">#修改为</span><br><span class="line">rewrite &quot;^/test/([\d]&#123;3&#125;)/$&quot; /index.php?id=$1 break;</span><br><span class="line"></span><br><span class="line">#本条可以不用引号</span><br><span class="line">rewrite ^/(\d+)/$ /index.php?id=$1 break;</span><br></pre></td></tr></table></figure></p>
+<h1 id="动静分离清单"><a href="#动静分离清单" class="headerlink" title="动静分离清单"></a>动静分离清单</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># 第一个必选规则</span><br><span class="line">location = / &#123;</span><br><span class="line">    proxy_pass http://127.0.0.1:9000/index</span><br><span class="line">&#125;</span><br><span class="line"># 第二个必选规则是处理静态文件请求，这是nginx作为http服务器的强项</span><br><span class="line"># 有两种配置模式，目录匹配或后缀匹配,任选其一或搭配使用</span><br><span class="line">location ^~ /static/ &#123;</span><br><span class="line">    root /web/static/;</span><br><span class="line">&#125;</span><br><span class="line">location ~* \.(gif|jpg|jpeg|png|css|js|ico)$ &#123;</span><br><span class="line">    root /web/res/;</span><br><span class="line">&#125;</span><br><span class="line">#第三个规则就是通用规则，用来转发动态请求到后端应用服务器</span><br><span class="line">#非静态文件请求就默认是动态请求，自己根据实际把握</span><br><span class="line">#毕竟目前的一些框架的流行，带.php,.jsp后缀的情况很少了</span><br><span class="line">location / &#123;</span><br><span class="line">    proxy_pass http://127.0.0.1:9000/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       
         <categories>
@@ -29881,13 +29880,7 @@ diff -r 822b82191940 -r 2220de0521ca src/mail/ngx_mail_auth_http_module.c
             
             <tag> nginx </tag>
             
-            <tag> uri </tag>
-            
-            <tag> query_string </tag>
-            
-            <tag> request_uri </tag>
-            
-            <tag> document_uri </tag>
+            <tag> location </tag>
             
         </tags>
         
@@ -29924,14 +29917,15 @@ diff -r 822b82191940 -r 2220de0521ca src/mail/ngx_mail_auth_http_module.c
     </entry>
     
     <entry>
-      <title><![CDATA[nginx-location正则表达式匹配规则及动静分离]]></title>
-      <url>/nginx-location%E5%A5%87%E6%B7%AB%E6%8A%80%E5%B7%A7.html</url>
-      <content type="html"><![CDATA[<p>nginx，location常用正则表达式，及nginx动静分离<br><a id="more"></a></p>
-<h1 id="nginx匹配规则"><a href="#nginx匹配规则" class="headerlink" title="nginx匹配规则"></a>nginx匹配规则</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">~      波浪线表示执行一个正则匹配，区分大小写</span><br><span class="line">~*    表示执行一个正则匹配，不区分大小写</span><br><span class="line">^~     ^~表示普通字符匹配，如果该选项匹配，只匹配该选项，不匹配别的选项，一般用来匹配目录</span><br><span class="line">=      进行普通字符精确匹配</span><br><span class="line">@      &quot;@&quot; 定义一个命名的 location，使用在内部定向时，例如 error_page, try_files</span><br><span class="line">!~（!~*） 表示区分大小写不正则匹配和不区分大小写不正则匹配</span><br></pre></td></tr></table></figure>
-<h1 id="nginx正则表达式"><a href="#nginx正则表达式" class="headerlink" title="nginx正则表达式"></a>nginx正则表达式</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">. ： 匹配除换行符以外的任意字符</span><br><span class="line">? ： 重复0次或1次</span><br><span class="line">+ ： 重复1次或更多次</span><br><span class="line">* ： 重复0次或更多次</span><br><span class="line">\d ：匹配数字</span><br><span class="line">^ ： 匹配字符串的开始</span><br><span class="line">$ ： 匹配字符串的介绍</span><br><span class="line">&#123;n&#125; ： 重复n次</span><br><span class="line">&#123;n,&#125; ： 重复n次或更多次</span><br><span class="line">[c] ： 匹配单个字符c</span><br><span class="line">[a-z] ： 匹配a-z小写字母的任意一个</span><br></pre></td></tr></table></figure>
-<p><strong>注意</strong> 当正则表达式中含有 {} 是,必须将 正则表达式用 “” 引起来否则会报错<br>nginx: [emerg] pcre_compile() failed: missing ) in “/one/(\d” in /usr/local/nginx/conf/nginx.conf:56</p>
-<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#rewrite ^/test/([\d]&#123;3&#125;)/$ /index.php?id=$1 break;  #报错</span><br><span class="line">#修改为</span><br><span class="line">rewrite &quot;^/test/([\d]&#123;3&#125;)/$&quot; /index.php?id=$1 break;</span><br><span class="line"></span><br><span class="line">#本条可以不用引号</span><br><span class="line">rewrite ^/(\d+)/$ /index.php?id=$1 break;</span><br></pre></td></tr></table></figure></p>
-<h1 id="动静分离清单"><a href="#动静分离清单" class="headerlink" title="动静分离清单"></a>动静分离清单</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># 第一个必选规则</span><br><span class="line">location = / &#123;</span><br><span class="line">    proxy_pass http://127.0.0.1:9000/index</span><br><span class="line">&#125;</span><br><span class="line"># 第二个必选规则是处理静态文件请求，这是nginx作为http服务器的强项</span><br><span class="line"># 有两种配置模式，目录匹配或后缀匹配,任选其一或搭配使用</span><br><span class="line">location ^~ /static/ &#123;</span><br><span class="line">    root /web/static/;</span><br><span class="line">&#125;</span><br><span class="line">location ~* \.(gif|jpg|jpeg|png|css|js|ico)$ &#123;</span><br><span class="line">    root /web/res/;</span><br><span class="line">&#125;</span><br><span class="line">#第三个规则就是通用规则，用来转发动态请求到后端应用服务器</span><br><span class="line">#非静态文件请求就默认是动态请求，自己根据实际把握</span><br><span class="line">#毕竟目前的一些框架的流行，带.php,.jsp后缀的情况很少了</span><br><span class="line">location / &#123;</span><br><span class="line">    proxy_pass http://127.0.0.1:9000/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      <title><![CDATA[nginx-args-query-string-uri详解]]></title>
+      <url>/nginx-args-query-string-uri%E8%AF%A6%E8%A7%A3.html</url>
+      <content type="html"><![CDATA[<p>Nginx 中常见和url操作相关的变量</p>
+<blockquote>
+<p>$args<br>$query_string<br>$request_uri<br>$uri<br>$document_uri</p>
+</blockquote>
+<p>以上变量有什么联系和区别呢?</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">url:  http://nginx.im/nginx/im/?page=1</span><br><span class="line">$args -&gt;    page=1</span><br><span class="line">$query_string -&gt; page=1</span><br><span class="line">$request_uri  -&gt; /nginx/im/?page=1</span><br><span class="line">$uri       -&gt;  /nginx/im</span><br><span class="line">$document_uri -&gt; /nginx/im</span><br><span class="line">**总结**</span><br><span class="line">$args &lt;=&gt; $query_string 获取？后面的参数</span><br><span class="line">$request_uri  获取除了host 之外所有的</span><br><span class="line">$uri &lt;=&gt; $cocuemnt_uri 获取请求路径</span><br></pre></td></tr></table></figure>
 ]]></content>
       
         <categories>
@@ -29945,7 +29939,13 @@ diff -r 822b82191940 -r 2220de0521ca src/mail/ngx_mail_auth_http_module.c
             
             <tag> nginx </tag>
             
-            <tag> location </tag>
+            <tag> uri </tag>
+            
+            <tag> query_string </tag>
+            
+            <tag> request_uri </tag>
+            
+            <tag> document_uri </tag>
             
         </tags>
         
@@ -30003,6 +30003,38 @@ diff -r 822b82191940 -r 2220de0521ca src/mail/ngx_mail_auth_http_module.c
     </entry>
     
     <entry>
+      <title><![CDATA[java常用的一些代码片段]]></title>
+      <url>/java%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81.html</url>
+      <content type="html"><![CDATA[<p>收集整理java开放中常用的一些代码片段（长期更新）</p>
+<a id="more"></a>
+<blockquote>
+<p>字符串翻转</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public static String reverse(String str)&#123;  </span><br><span class="line">        return new StringBuilder(str).reverse().toString();  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>spring 中读取 src/main/resource 下的文件</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public void testClassPathResource() throws IOException &#123;</span><br><span class="line">    Resource res = new      ClassPathResource(&quot;resource/ApplicationContext.xml&quot;);</span><br><span class="line">   InputStream input = res.getInputStream();</span><br><span class="line">   Assert.assertNotNull(input);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">File file = ResourceUtils.getFile(&quot;classpath:doc&quot;);</span><br><span class="line">str = FileUtils.readFileToString(file, &quot;utf-8&quot;);</span><br></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> java </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> java </tag>
+            
+            <tag> java常用代码 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[java-zip压缩单文件]]></title>
       <url>/java-zip%E5%8E%8B%E7%BC%A9%E5%8D%95%E6%96%87%E4%BB%B6.html</url>
       <content type="html"><![CDATA[<p>java开发中经常用到压缩文件,在JDK中自带zip 压缩相关的类</p>
@@ -30031,38 +30063,6 @@ diff -r 822b82191940 -r 2220de0521ca src/mail/ngx_mail_auth_http_module.c
             <tag> ZipInputStream </tag>
             
             <tag> ZipFile </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[java常用的一些代码片段]]></title>
-      <url>/java%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81.html</url>
-      <content type="html"><![CDATA[<p>收集整理java开放中常用的一些代码片段（长期更新）</p>
-<a id="more"></a>
-<blockquote>
-<p>字符串翻转</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public static String reverse(String str)&#123;  </span><br><span class="line">        return new StringBuilder(str).reverse().toString();  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>spring 中读取 src/main/resource 下的文件</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public void testClassPathResource() throws IOException &#123;</span><br><span class="line">    Resource res = new      ClassPathResource(&quot;resource/ApplicationContext.xml&quot;);</span><br><span class="line">   InputStream input = res.getInputStream();</span><br><span class="line">   Assert.assertNotNull(input);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">File file = ResourceUtils.getFile(&quot;classpath:doc&quot;);</span><br><span class="line">str = FileUtils.readFileToString(file, &quot;utf-8&quot;);</span><br></pre></td></tr></table></figure>
-]]></content>
-      
-        <categories>
-            
-            <category> java </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> java </tag>
-            
-            <tag> java常用代码 </tag>
             
         </tags>
         
@@ -30206,6 +30206,36 @@ diff -r 822b82191940 -r 2220de0521ca src/mail/ngx_mail_auth_http_module.c
     </entry>
     
     <entry>
+      <title><![CDATA[Faile- to-star- component-Unable-to-register-MBean]]></title>
+      <url>/Failed%20to%20start%20component.html</url>
+      <content type="html"><![CDATA[<p>部署springboot war包到 tomcat出现以下错误<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">org.apache.catalina.LifecycleException: Failed to start component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[]]</span><br><span class="line">Caused by: org.springframework.jmx.export.UnableToRegisterMBeanException: Unable to register MBean</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h1 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h1><blockquote>
+<p>需要为每个项目配置JMX的域，  修改application.properties中的属性spring.jmx.default-domain=applicationname</p>
+</blockquote>
+<h1 id="spring-jmx-default-domain"><a href="#spring-jmx-default-domain" class="headerlink" title="spring.jmx.default-domain"></a>spring.jmx.default-domain</h1><blockquote>
+<p>解决tomcat同时部署两个SpringBoot应用提示InstanceAlreadyExistsException</p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> springboot </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> tomcat </tag>
+            
+            <tag> springboot </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[C语言结构体研究]]></title>
       <url>/C%E8%AF%AD%E8%A8%80%E7%BB%93%E6%9E%84%E4%BD%93%E7%A0%94%E7%A9%B6.html</url>
       <content type="html"><![CDATA[<p>总结一些C语言结构体中常用的知识点</p>
@@ -30231,36 +30261,6 @@ diff -r 822b82191940 -r 2220de0521ca src/mail/ngx_mail_auth_http_module.c
             <tag> struct </tag>
             
             <tag> c </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Faile- to-star- component-Unable-to-register-MBean]]></title>
-      <url>/Failed%20to%20start%20component.html</url>
-      <content type="html"><![CDATA[<p>部署springboot war包到 tomcat出现以下错误<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">org.apache.catalina.LifecycleException: Failed to start component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[]]</span><br><span class="line">Caused by: org.springframework.jmx.export.UnableToRegisterMBeanException: Unable to register MBean</span><br></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<h1 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h1><blockquote>
-<p>需要为每个项目配置JMX的域，  修改application.properties中的属性spring.jmx.default-domain=applicationname</p>
-</blockquote>
-<h1 id="spring-jmx-default-domain"><a href="#spring-jmx-default-domain" class="headerlink" title="spring.jmx.default-domain"></a>spring.jmx.default-domain</h1><blockquote>
-<p>解决tomcat同时部署两个SpringBoot应用提示InstanceAlreadyExistsException</p>
-</blockquote>
-]]></content>
-      
-        <categories>
-            
-            <category> springboot </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> tomcat </tag>
-            
-            <tag> springboot </tag>
             
         </tags>
         
