@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="http,ngx_http_mp4_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T08:31:23.696Z">
+<meta property="og:updated_time" content="2018-12-22T02:27:05.302Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http&#x2F;ngx_http_mp4_module-nginx中文手册">
 <meta name="twitter:description" content="http,ngx_http_mp4_module">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:31:57+08:00">
-                2018年12月21日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T10:27:47+08:00">
+                2018年12月22日
               </time>
             
 
@@ -438,7 +438,7 @@
 </pre>
 
 
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**mp4_limit_rate**     &lt;code class=&quot;notranslate&quot;&gt;on</code> |    <code>off</code> |    <code>*factor*</code> ;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**mp4_limit_rate** on</code> |    <code>off</code> |    <code>*factor*</code> ;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">mp4_limit_rate off;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  限制向客户端传输的响应速率。  根据所服务的MP4文件的平均比特率限制速率。  要计算速率，比特率乘以指定的<code>*factor*</code> 。  特殊值“ <code>on</code> ”对应于因子1.1。  特殊值“ <code>off</code> ”禁用速率限制。  根据请求设置限制，因此如果客户端同时打开两个连接，则总速率将是指定限制的两倍。 </p>

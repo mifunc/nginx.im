@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="stream,ngx_stream_upstream_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T08:31:25.222Z">
+<meta property="og:updated_time" content="2018-12-22T02:27:06.768Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="stream&#x2F;ngx_stream_upstream_module-nginx中文手册">
 <meta name="twitter:description" content="stream,ngx_stream_upstream_module">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:31:57+08:00">
-                2018年12月21日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T10:27:47+08:00">
+                2018年12月22日
               </time>
             
 
@@ -532,7 +532,7 @@ state /var/db/nginx/state/servers.conf;  # path for FreeBSD
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>upstream</code> <br>                </td></p>
 <p>  指定组应使用负载平衡方法，其中将连接传递到具有最少活动连接的服务器，同时考虑服务器的权重。  如果有多个这样的服务器，则使用加权循环平衡方法依次尝试它们。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**least_time**     &lt;code class=&quot;notranslate&quot;&gt;connect</code> |    <code>first_byte</code> |    <code>last_byte</code>    [ <code>inflight</code> ];<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**least_time** connect</code> |    <code>first_byte</code> |    <code>last_byte</code>    [ <code>inflight</code> ];<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>upstream</code> <br>                </td></p>
 <p>  指定组应使用负载平衡方法，其中连接以最少的平均时间和最少的活动连接传递到服务器，同时考虑服务器的权重。  如果有多个这样的服务器，则使用加权循环平衡方法依次尝试它们。 </p>
@@ -541,7 +541,7 @@ state /var/db/nginx/state/servers.conf;  # path for FreeBSD
 <p>  在1.11.6版之前，默认情况下会考虑不完整的连接。 </p>
 <p>  该指令作为我们<a href="http://nginx.com/products/" target="_blank" rel="noopener">商业订阅的</a>一部分提供。 </p>
 </blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**random** [ &lt;code class=&quot;notranslate&quot;&gt;two</code> [ <code>*method*</code> ]];<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**random** [ two</code> [ <code>*method*</code> ]];<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>upstream</code> <br>                </td></p>
 <p>  该指令出现在1.15.1版本中。 </p>

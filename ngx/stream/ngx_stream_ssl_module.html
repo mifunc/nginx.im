@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="stream,ngx_stream_ssl_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T08:31:25.173Z">
+<meta property="og:updated_time" content="2018-12-22T02:27:06.718Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="stream&#x2F;ngx_stream_ssl_module-nginx中文手册">
 <meta name="twitter:description" content="stream,ngx_stream_ssl_module">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:31:57+08:00">
-                2018年12月21日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T10:27:47+08:00">
+                2018年12月22日
               </time>
             
 
@@ -520,7 +520,7 @@ stream {
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">ssl_prefer_server_ciphers off;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
 <p>  指定在使用SSLv3和TLS协议时，服务器密码应优先于客户端密码。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_protocols**     [ &lt;code class=&quot;notranslate&quot;&gt;SSLv2</code> ]    [ <code>SSLv3</code> ]    [ <code>TLSv1</code> ]    [ <code>TLSv1.1</code> ]    [ <code>TLSv1.2</code> ]    [ <code>TLSv1.3</code> ];<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_protocols** [ SSLv2</code> ]    [ <code>SSLv3</code> ]    [ <code>TLSv1</code> ]    [ <code>TLSv1.1</code> ]    [ <code>TLSv1.2</code> ]    [ <code>TLSv1.3</code> ];<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
 <p>  启用指定的协议。 </p>
@@ -528,7 +528,7 @@ stream {
 <p>   <code>TLSv1.1</code>和<code>TLSv1.2</code>参数仅在使用OpenSSL 1.0.1或更高版本时有效。 </p>
 <p>  仅当使用使用TLSv1.3支持构建的OpenSSL 1.1.1时， <code>TLSv1.3</code>参数（1.13.0）才有效。 </p>
 </blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_session_cache**     &lt;code class=&quot;notranslate&quot;&gt;off</code> |    <code>none</code> |    [ <code>builtin</code> [: <code>*size*</code> ]]    [ <code>shared</code> : <code>*name*</code> : <code>*size*</code> ];<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_session_cache** off</code> |    <code>none</code> |    [ <code>builtin</code> [: <code>*size*</code> ]]    [ <code>shared</code> : <code>*name*</code> : <code>*size*</code> ];<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">ssl_session_cache none;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
 <p>  设置存储会话参数的缓存的类型和大小。  缓存可以是以下任何类型： </p>
@@ -567,7 +567,7 @@ ssl_session_ticket_key previous.key;
 <p>  该指令出现在1.11.8版中。 </p>
 <p>  指定具有PEM格式的可信CA证书的<code>*file*</code> ，用于<a href="#ssl_verify_client">验证</a>客户端证书。 </p>
 <p>  与<a href="#ssl_client_certificate">ssl_client_certificate</a>设置的证书<a href="#ssl_client_certificate">不同</a> ，这些证书的列表不会发送给客户端。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_verify_client**     &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> |    <code>optional</code> | <code>optional_no_ca</code> ;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_verify_client** on</code> | <code>off</code> |    <code>optional</code> | <code>optional_no_ca</code> ;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">ssl_verify_client off;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
 <p>  该指令出现在1.11.8版中。 </p>

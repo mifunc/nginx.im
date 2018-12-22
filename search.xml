@@ -174,7 +174,7 @@ stream {
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
 <p>  指定具有密钥密码的<code>*file*</code> ，其中每个密码在单独的行上指定。  在加载密钥时依次尝试密码短语。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**zone_sync_ssl_protocols**     [ &lt;code class=&quot;notranslate&quot;&gt;SSLv2</code> ]    [ <code>SSLv3</code> ]    [ <code>TLSv1</code> ]    [ <code>TLSv1.1</code> ]    [ <code>TLSv1.2</code> ]    [ <code>TLSv1.3</code> ];<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**zone_sync_ssl_protocols** [ SSLv2</code> ]    [ <code>SSLv3</code> ]    [ <code>TLSv1</code> ]    [ <code>TLSv1.1</code> ]    [ <code>TLSv1.2</code> ]    [ <code>TLSv1.3</code> ];<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">zone_sync_ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
 <p>  启用指定的协议以连接到另一个群集服务器。 </p>
@@ -369,7 +369,7 @@ state /var/db/nginx/state/servers.conf;  # path for FreeBSD
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>upstream</code> <br>                </td></p>
 <p>  指定组应使用负载平衡方法，其中将连接传递到具有最少活动连接的服务器，同时考虑服务器的权重。  如果有多个这样的服务器，则使用加权循环平衡方法依次尝试它们。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**least_time**     &lt;code class=&quot;notranslate&quot;&gt;connect</code> |    <code>first_byte</code> |    <code>last_byte</code>    [ <code>inflight</code> ];<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**least_time** connect</code> |    <code>first_byte</code> |    <code>last_byte</code>    [ <code>inflight</code> ];<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>upstream</code> <br>                </td></p>
 <p>  指定组应使用负载平衡方法，其中连接以最少的平均时间和最少的活动连接传递到服务器，同时考虑服务器的权重。  如果有多个这样的服务器，则使用加权循环平衡方法依次尝试它们。 </p>
@@ -378,7 +378,7 @@ state /var/db/nginx/state/servers.conf;  # path for FreeBSD
 <p>  在1.11.6版之前，默认情况下会考虑不完整的连接。 </p>
 <p>  该指令作为我们<a href="http://nginx.com/products/" target="_blank" rel="noopener">商业订阅的</a>一部分提供。 </p>
 </blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**random** [ &lt;code class=&quot;notranslate&quot;&gt;two</code> [ <code>*method*</code> ]];<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**random** [ two</code> [ <code>*method*</code> ]];<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>upstream</code> <br>                </td></p>
 <p>  该指令出现在1.15.1版本中。 </p>
@@ -455,7 +455,7 @@ server {
 
 <p>  在这种情况下，预期缺少ICMP“ <code>Destination Unreachable</code> ”消息以回复发送的字符串“ <code>nginx health check</code> ”。 </p>
 <p>  还可以配置运行状况检查以测试从服务器获取的数据。  测试使用<a href="#match">match</a>伪指令单独配置，并在<a href="#health_check">health_check</a>指令的<code>match</code>参数中引用。 </p>
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**health_check** [ &lt;code class=&quot;notranslate&quot;&gt;*parameters*</code> ];<br>                </td></p>
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**health_check** [ *parameters*</code> ];<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>server</code> <br>                </td></p>
 <p>  启用对<a href="ngx_stream_upstream_module.html#upstream">组中</a>服务器的定期运行状况检查。 </p>
@@ -742,7 +742,7 @@ stream {
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">ssl_prefer_server_ciphers off;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
 <p>  指定在使用SSLv3和TLS协议时，服务器密码应优先于客户端密码。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_protocols**     [ &lt;code class=&quot;notranslate&quot;&gt;SSLv2</code> ]    [ <code>SSLv3</code> ]    [ <code>TLSv1</code> ]    [ <code>TLSv1.1</code> ]    [ <code>TLSv1.2</code> ]    [ <code>TLSv1.3</code> ];<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_protocols** [ SSLv2</code> ]    [ <code>SSLv3</code> ]    [ <code>TLSv1</code> ]    [ <code>TLSv1.1</code> ]    [ <code>TLSv1.2</code> ]    [ <code>TLSv1.3</code> ];<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
 <p>  启用指定的协议。 </p>
@@ -750,7 +750,7 @@ stream {
 <p>   <code>TLSv1.1</code>和<code>TLSv1.2</code>参数仅在使用OpenSSL 1.0.1或更高版本时有效。 </p>
 <p>  仅当使用使用TLSv1.3支持构建的OpenSSL 1.1.1时， <code>TLSv1.3</code>参数（1.13.0）才有效。 </p>
 </blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_session_cache**     &lt;code class=&quot;notranslate&quot;&gt;off</code> |    <code>none</code> |    [ <code>builtin</code> [: <code>*size*</code> ]]    [ <code>shared</code> : <code>*name*</code> : <code>*size*</code> ];<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_session_cache** off</code> |    <code>none</code> |    [ <code>builtin</code> [: <code>*size*</code> ]]    [ <code>shared</code> : <code>*name*</code> : <code>*size*</code> ];<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">ssl_session_cache none;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
 <p>  设置存储会话参数的缓存的类型和大小。  缓存可以是以下任何类型： </p>
@@ -789,7 +789,7 @@ ssl_session_ticket_key previous.key;
 <p>  该指令出现在1.11.8版中。 </p>
 <p>  指定具有PEM格式的可信CA证书的<code>*file*</code> ，用于<a href="#ssl_verify_client">验证</a>客户端证书。 </p>
 <p>  与<a href="#ssl_client_certificate">ssl_client_certificate</a>设置的证书<a href="#ssl_client_certificate">不同</a> ，这些证书的列表不会发送给客户端。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_verify_client**     &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> |    <code>optional</code> | <code>optional_no_ca</code> ;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_verify_client** on</code> | <code>off</code> |    <code>optional</code> | <code>optional_no_ca</code> ;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">ssl_verify_client off;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
 <p>  该指令出现在1.11.8版中。 </p>
@@ -1099,7 +1099,7 @@ server {
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
 <p>  指定具有密钥密码的<code>*file*</code> ，其中每个密码在单独的行上指定。  在加载密钥时依次尝试密码短语。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_ssl_protocols**     [ &lt;code class=&quot;notranslate&quot;&gt;SSLv2</code> ]    [ <code>SSLv3</code> ]    [ <code>TLSv1</code> ]    [ <code>TLSv1.1</code> ]    [ <code>TLSv1.2</code> ]    [ <code>TLSv1.3</code> ];<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_ssl_protocols** [ SSLv2</code> ]    [ <code>SSLv3</code> ]    [ <code>TLSv1</code> ]    [ <code>TLSv1.1</code> ]    [ <code>TLSv1.2</code> ]    [ <code>TLSv1.3</code> ];<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
 <p>  启用指定的协议以连接到代理服务器。 </p>
@@ -1418,7 +1418,7 @@ stream {
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> <br>                </td></p>
 <p>  创建一个新的<code>*$variable*</code>其值由<code>*key*</code>数据库中的键查找。  字符串匹配忽略大小写。  数据库存储在<code>zone</code>参数指定的共享内存区域中。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**keyval_zone**     &lt;code class=&quot;notranslate&quot;&gt;zone</code> = <code>*name*</code> : <code>*size*</code>    [ <code>state</code> = <code>*file*</code> ]    [ <code>timeout</code> = <code>*time*</code> ]    [ <code>sync</code> ];<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**keyval_zone** zone</code> = <code>*name*</code> : <code>*size*</code>    [ <code>state</code> = <code>*file*</code> ]    [ <code>timeout</code> = <code>*time*</code> ]    [ <code>sync</code> ];<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> <br>                </td></p>
 <p>  设置保留键值数据库的共享内存区域的<code>*name*</code>和<code>*size*</code> 。  键值对由<a href="http/ngx_http_api_module.html#stream_keyvals_">API</a>管理。 </p>
@@ -1604,7 +1604,7 @@ function access(s) {
 
 
 
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**geo** [ &lt;code class=&quot;notranslate&quot;&gt;*$address*</code> ] <code>*$variable*</code> { … } <br>                </td></p>
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**geo** [ *$address*</code> ] <code>*$variable*</code> { … } <br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> <br>                </td></p>
 <p>  描述指定变量的值对客户端IP地址的依赖性。  默认情况下，地址取自<code>$remote_addr</code>变量，但也可以从另一个变量中获取，例如： </p>
@@ -2594,7 +2594,7 @@ mail {
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">ssl_prefer_server_ciphers off;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>mail</code> , <code>server</code> <br>                </td></p>
 <p>  指定在使用SSLv3和TLS协议时，服务器密码应优先于客户端密码。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_protocols**     [ &lt;code class=&quot;notranslate&quot;&gt;SSLv2</code> ]    [ <code>SSLv3</code> ]    [ <code>TLSv1</code> ]    [ <code>TLSv1.1</code> ]    [ <code>TLSv1.2</code> ]    [ <code>TLSv1.3</code> ];<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_protocols** [ SSLv2</code> ]    [ <code>SSLv3</code> ]    [ <code>TLSv1</code> ]    [ <code>TLSv1.1</code> ]    [ <code>TLSv1.2</code> ]    [ <code>TLSv1.3</code> ];<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>mail</code> , <code>server</code> <br>                </td></p>
 <p>  启用指定的协议。 </p>
@@ -2602,7 +2602,7 @@ mail {
 <p>   <code>TLSv1.1</code>和<code>TLSv1.2</code>参数（ <code>TLSv1.2</code> ）仅在使用OpenSSL 1.0.1或更高版本时有效。 </p>
 <p>  仅当使用使用TLSv1.3支持构建的OpenSSL 1.1.1时， <code>TLSv1.3</code>参数（1.13.0）才有效。 </p>
 </blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_session_cache**     &lt;code class=&quot;notranslate&quot;&gt;off</code> |    <code>none</code> |    [ <code>builtin</code> [: <code>*size*</code> ]]    [ <code>shared</code> : <code>*name*</code> : <code>*size*</code> ];<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_session_cache** off</code> |    <code>none</code> |    [ <code>builtin</code> [: <code>*size*</code> ]]    [ <code>shared</code> : <code>*name*</code> : <code>*size*</code> ];<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">ssl_session_cache none;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>mail</code> , <code>server</code> <br>                </td></p>
 <p>  设置存储会话参数的缓存的类型和大小。  缓存可以是以下任何类型： </p>
@@ -2643,7 +2643,7 @@ ssl_session_ticket_key previous.key;
 <p>  该指令出现在1.7.11版本中。 </p>
 <p>  指定具有PEM格式的可信CA证书的<code>*file*</code> ，用于<a href="#ssl_verify_client">验证</a>客户端证书。 </p>
 <p>  与<a href="#ssl_client_certificate">ssl_client_certificate</a>设置的证书<a href="#ssl_client_certificate">不同</a> ，这些证书的列表不会发送给客户端。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_verify_client**     &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> |    <code>optional</code> | <code>optional_no_ca</code> ;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_verify_client** on</code> | <code>off</code> |    <code>optional</code> | <code>optional_no_ca</code> ;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">ssl_verify_client off;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>mail</code> , <code>server</code> <br>                </td></p>
 <p>  该指令出现在1.7.11版本中。 </p>
@@ -3844,7 +3844,7 @@ uwsgi_cache_bypass $http_pragma    $http_authorization;
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  该指令出现在1.11.6版中。 </p>
 <p>  设置字节范围请求的偏移量（以字节为单位）。  如果范围超出偏移量，则范围请求将传递给uwsgi服务器，并且不会缓存响应。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**uwsgi_cache_methods**     &lt;code class=&quot;notranslate&quot;&gt;GET</code> |    <code>HEAD</code> |    <code>POST</code>    …;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**uwsgi_cache_methods** GET</code> |    <code>HEAD</code> |    <code>POST</code>    …;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">uwsgi_cache_methods GET HEAD;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  如果此指令中列出了客户端请求方法，则将缓存响应。   “ <code>GET</code> ”和“ <code>HEAD</code> ”方法总是添加到列表中，但建议明确指定它们。  另请参见<a href="#uwsgi_no_cache">uwsgi_no_cache</a>指令。 </p>
@@ -3912,7 +3912,7 @@ server {
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  该指令出现在1.5.7版本中。 </p>
 <p>  使用具有“If-Modified-Since”和“If-None-Match”标头字段的条件请求启用过期缓存项的重新验证。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**uwsgi_cache_use_stale**     &lt;code class=&quot;notranslate&quot;&gt;error</code> |    <code>timeout</code> |    <code>invalid_header</code> |    <code>updating</code> |    <code>http_500</code> |    <code>http_503</code> |    <code>http_403</code> |    <code>http_404</code> |    <code>http_429</code> |    <code>off</code>    …;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**uwsgi_cache_use_stale** error</code> |    <code>timeout</code> |    <code>invalid_header</code> |    <code>updating</code> |    <code>http_500</code> |    <code>http_503</code> |    <code>http_403</code> |    <code>http_404</code> |    <code>http_429</code> |    <code>off</code>    …;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">uwsgi_cache_use_stale off;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  确定在与uwsgi服务器通信期间发生错误时，在哪些情况下可以使用过时的缓存响应。  该指令的参数与<a href="#uwsgi_next_upstream">uwsgi_next_upstream</a>指令的参数匹配。 </p>
@@ -3923,7 +3923,7 @@ server {
 <li>“Cache-Control”头字段的“ <a href="https://tools.ietf.org/html/rfc5861#section-3" target="_blank" rel="noopener">stale-while-revalidate</a> ”扩展允许使用陈旧的缓存响应（如果当前正在更新）。 -    “Cache-Control”头字段的“ <a href="https://tools.ietf.org/html/rfc5861#section-4" target="_blank" rel="noopener">stale-if-error</a> ”扩展允许在出现错误时使用陈旧的缓存响应。 </li>
 </ul>
 <p>  要在填充新缓存元素时最小化对uwsgi服务器的访问次数，可以使用<a href="#uwsgi_cache_lock">uwsgi_cache_lock</a>指令。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**uwsgi_cache_valid** [ &lt;code class=&quot;notranslate&quot;&gt;*code*</code> …] <code>*time*</code> ;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**uwsgi_cache_valid** [ *code*</code> …] <code>*time*</code> ;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  设置不同响应代码的缓存时间。  例如，以下指令 </p>
@@ -3983,7 +3983,7 @@ uwsgi_cache_valid any      1m;
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">uwsgi_modifier2 0;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  设置<a href="http://uwsgi-docs.readthedocs.org/en/latest/Protocol.html#uwsgi-packet-header" target="_blank" rel="noopener">uwsgi数据包标头中</a> <code>modifier2</code>字段的<a href="http://uwsgi-docs.readthedocs.org/en/latest/Protocol.html#uwsgi-packet-header" target="_blank" rel="noopener">值</a> 。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**uwsgi_next_upstream**     &lt;code class=&quot;notranslate&quot;&gt;error</code> |    <code>timeout</code> |    <code>invalid_header</code> |    <code>http_500</code> |    <code>http_503</code> |    <code>http_403</code> |    <code>http_404</code> |    <code>http_429</code> |    <code>non_idempotent</code> |    <code>off</code>    …;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**uwsgi_next_upstream** error</code> |    <code>timeout</code> |    <code>invalid_header</code> |    <code>http_500</code> |    <code>http_503</code> |    <code>http_403</code> |    <code>http_404</code> |    <code>http_429</code> |    <code>non_idempotent</code> |    <code>off</code>    …;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">uwsgi_next_upstream error timeout;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  指定应将请求传递到下一个服务器的情况： </p>
@@ -4027,7 +4027,7 @@ uwsgi_no_cache $http_pragma    $http_authorization;
 </pre>
 
 
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**uwsgi_pass** [ &lt;code class=&quot;notranslate&quot;&gt;*protocol*</code> ://] <code>*address*</code> ;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**uwsgi_pass** [ *protocol*</code> ://] <code>*address*</code> ;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>location</code> , <code>if in location</code> <br>                </td></p>
 <p>  设置uwsgi服务器的协议和地址。  作为<code>*protocol*</code> ，可以指定“ <code>suwsgi</code> ”或“ <code>suwsgi</code> ”（安全的<code>suwsgi</code> over SSL）。  地址可以指定为域名或IP地址，以及端口： </p>
@@ -4113,7 +4113,7 @@ uwsgi_pass suwsgi://[2001:db8::1]:9090;
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  该指令出现在1.7.8版本中。 </p>
 <p>  指定具有密钥密码的<code>*file*</code> ，其中每个密码在单独的行上指定。  在加载密钥时依次尝试密码短语。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**uwsgi_ssl_protocols**     [ &lt;code class=&quot;notranslate&quot;&gt;SSLv2</code> ]    [ <code>SSLv3</code> ]    [ <code>TLSv1</code> ]    [ <code>TLSv1.1</code> ]    [ <code>TLSv1.2</code> ]    [ <code>TLSv1.3</code> ];<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**uwsgi_ssl_protocols** [ SSLv2</code> ]    [ <code>SSLv3</code> ]    [ <code>TLSv1</code> ]    [ <code>TLSv1.1</code> ]    [ <code>TLSv1.2</code> ]    [ <code>TLSv1.3</code> ];<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">uwsgi_ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  该指令出现在1.5.8版本中。 </p>
@@ -4143,7 +4143,7 @@ uwsgi_pass suwsgi://[2001:db8::1]:9090;
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  该指令出现在1.7.0版本中。 </p>
 <p>  在安全的uwsgi服务器证书链中设置验证深度。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**uwsgi_store**     &lt;code class=&quot;notranslate&quot;&gt;on</code> |    <code>off</code> |    <code>*string*</code> ;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**uwsgi_store** on</code> |    <code>off</code> |    <code>*string*</code> ;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">uwsgi_store off;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  允许将文件保存到磁盘。   <code>on</code>参数使用与指令<a href="ngx_http_core_module.html#alias">别名</a>或<a href="ngx_http_core_module.html#root">root</a>对应的路径保存文件。   <code>off</code>参数禁用文件保存。  此外，可以使用带变量的<code>*string*</code>显式设置文件名： </p>
@@ -4240,7 +4240,7 @@ userid_p3p     'policyref="/w3c/p3p.xml", CP="CUR ADM OUR NOR STA NID"';
 
 
 
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**userid**     &lt;code class=&quot;notranslate&quot;&gt;on</code> |    <code>v1</code> |    <code>log</code> |    <code>off</code> ;<br>                </td></p>
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**userid** on</code> |    <code>v1</code> |    <code>log</code> |    <code>off</code> ;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">userid off;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  启用或禁用设置cookie并记录收到的cookie： </p>
@@ -4590,7 +4590,7 @@ server {
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>upstream</code> <br>                </td></p>
 <p>  该指令出现在1.3.1和1.2.2版本中。 </p>
 <p>  指定组应使用负载平衡方法，其中将请求传递到具有最少活动连接的服务器，同时考虑服务器的权重。  如果有多个这样的服务器，则使用加权循环平衡方法依次尝试它们。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**least_time**     &lt;code class=&quot;notranslate&quot;&gt;header</code> |    <code>last_byte</code>    [ <code>inflight</code> ];<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**least_time** header</code> |    <code>last_byte</code>    [ <code>inflight</code> ];<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>upstream</code> <br>                </td></p>
 <p>  该指令出现在1.7.10版本中。 </p>
@@ -4610,7 +4610,7 @@ server {
 <p>  使用除默认循环方法之外的负载平衡器方法时，必须在<code>queue</code>指令之前激活它们。 </p>
 <p>  该指令作为我们<a href="http://nginx.com/products/" target="_blank" rel="noopener">商业订阅的</a>一部分提供。 </p>
 </blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**random** [ &lt;code class=&quot;notranslate&quot;&gt;two</code> [ <code>*method*</code> ]];<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**random** [ two</code> [ <code>*method*</code> ]];<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>upstream</code> <br>                </td></p>
 <p>  该指令出现在1.15.1版本中。 </p>
@@ -4620,7 +4620,7 @@ server {
 <blockquote>
 <p>   <code>least_time</code>方法可作为我们<a href="http://nginx.com/products/" target="_blank" rel="noopener">商业订阅</a>的一部分。 </p>
 </blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**sticky**     &lt;code class=&quot;notranslate&quot;&gt;cookie</code> <code>*name*</code>    [ <code>expires=</code> <code>*time*</code> ]    [ <code>domain=</code> <code>*domain*</code> ]    [ <code>httponly</code> ]    [ <code>secure</code> ]    [ <code>path=</code> <code>*path*</code> ]; <br> <code>**sticky**     &lt;code class=&quot;notranslate&quot;&gt;route</code> <code>*$variable*</code> …; <br> <code>**sticky**     &lt;code class=&quot;notranslate&quot;&gt;learn</code>    <code>create=</code> <code>*$variable*</code>    <code>lookup=</code> <code>*$variable*</code>    <code>zone=</code> <code>*name*</code> : <code>*size*</code>    [ <code>timeout=</code> <code>*time*</code> ]    [ <code>header</code> ]    [ <code>sync</code> ];<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**sticky** cookie</code> <code>*name*</code>    [ <code>expires=</code> <code>*time*</code> ]    [ <code>domain=</code> <code>*domain*</code> ]    [ <code>httponly</code> ]    [ <code>secure</code> ]    [ <code>path=</code> <code>*path*</code> ]; <br> <code>**sticky** route</code> <code>*$variable*</code> …; <br> <code>**sticky** learn</code>    <code>create=</code> <code>*$variable*</code>    <code>lookup=</code> <code>*$variable*</code>    <code>zone=</code> <code>*name*</code> : <code>*size*</code>    [ <code>timeout=</code> <code>*time*</code> ]    [ <code>header</code> ]    [ <code>sync</code> ];<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>upstream</code> <br>                </td></p>
 <p>  该指令出现在1.5.7版本中。 </p>
@@ -4765,7 +4765,7 @@ server {
 </pre>
 
 <p>  此配置显示，为了通过运行状况检查，对运行状况检查请求的响应应该成功，状态为200，并包含“ <code>Welcome to nginx!</code>   “ 在身体里。 </p>
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**health_check** [ &lt;code class=&quot;notranslate&quot;&gt;*parameters*</code> ];<br>                </td></p>
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**health_check** [ *parameters*</code> ];<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>location</code> <br>                </td></p>
 <p>  启用对周围位置中引用的<a href="ngx_http_upstream_module.html#upstream">组</a>中的服务器的定期运行状况检查。 </p>
@@ -5330,7 +5330,7 @@ http {
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">ssl_prefer_server_ciphers off;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> <br>                </td></p>
 <p>  指定在使用SSLv3和TLS协议时，服务器密码应优先于客户端密码。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_protocols**     [ &lt;code class=&quot;notranslate&quot;&gt;SSLv2</code> ]    [ <code>SSLv3</code> ]    [ <code>TLSv1</code> ]    [ <code>TLSv1.1</code> ]    [ <code>TLSv1.2</code> ]    [ <code>TLSv1.3</code> ];<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_protocols** [ SSLv2</code> ]    [ <code>SSLv3</code> ]    [ <code>TLSv1</code> ]    [ <code>TLSv1.1</code> ]    [ <code>TLSv1.2</code> ]    [ <code>TLSv1.3</code> ];<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> <br>                </td></p>
 <p>  启用指定的协议。 </p>
@@ -5338,7 +5338,7 @@ http {
 <p>   <code>TLSv1.1</code>和<code>TLSv1.2</code>参数（ <code>TLSv1.2</code> ）仅在使用OpenSSL 1.0.1或更高版本时有效。 </p>
 <p>  仅当使用使用TLSv1.3支持构建的OpenSSL 1.1.1时， <code>TLSv1.3</code>参数（1.13.0）才有效。 </p>
 </blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_session_cache**     &lt;code class=&quot;notranslate&quot;&gt;off</code> |    <code>none</code> |    [ <code>builtin</code> [: <code>*size*</code> ]]    [ <code>shared</code> : <code>*name*</code> : <code>*size*</code> ];<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_session_cache** off</code> |    <code>none</code> |    [ <code>builtin</code> [: <code>*size*</code> ]]    [ <code>shared</code> : <code>*name*</code> : <code>*size*</code> ];<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">ssl_session_cache none;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> <br>                </td></p>
 <p>  设置存储会话参数的缓存的类型和大小。  缓存可以是以下任何类型： </p>
@@ -5414,7 +5414,7 @@ resolver 192.0.2.1;
 <p>  该指令出现在1.3.7版本中。 </p>
 <p>  如果启用了<a href="#ssl_stapling">ssl_stapling，</a>则指定具有PEM格式的可信CA证书的<code>*file*</code> ，该证书用于<a href="#ssl_verify_client">验证</a>客户端证书和OCSP响应。 </p>
 <p>  与<a href="#ssl_client_certificate">ssl_client_certificate</a>设置的证书<a href="#ssl_client_certificate">不同</a> ，这些证书的列表不会发送给客户端。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_verify_client**     &lt;code class=&quot;notranslate&quot;&gt;on</code> | <code>off</code> |    <code>optional</code> | <code>optional_no_ca</code> ;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_verify_client** on</code> | <code>off</code> |    <code>optional</code> | <code>optional_no_ca</code> ;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">ssl_verify_client off;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> <br>                </td></p>
 <p>  启用客户端证书验证。  验证结果存储在<a href="#var_ssl_client_verify">$ ssl_client_verify</a>变量中。 </p>
@@ -5988,7 +5988,7 @@ scgi_cache_bypass $http_pragma    $http_authorization;
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  该指令出现在1.11.6版中。 </p>
 <p>  设置字节范围请求的偏移量（以字节为单位）。  如果范围超出偏移量，则范围请求将传递给SCGI服务器，并且不会缓存响应。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**scgi_cache_methods**     &lt;code class=&quot;notranslate&quot;&gt;GET</code> |    <code>HEAD</code> |    <code>POST</code>    …;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**scgi_cache_methods** GET</code> |    <code>HEAD</code> |    <code>POST</code>    …;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">scgi_cache_methods GET HEAD;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  如果此指令中列出了客户端请求方法，则将缓存响应。   “ <code>GET</code> ”和“ <code>HEAD</code> ”方法总是添加到列表中，但建议明确指定它们。  另请参见<a href="#scgi_no_cache">scgi_no_cache</a>指令。 </p>
@@ -6056,7 +6056,7 @@ server {
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  该指令出现在1.5.7版本中。 </p>
 <p>  使用具有“If-Modified-Since”和“If-None-Match”标头字段的条件请求启用过期缓存项的重新验证。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**scgi_cache_use_stale**     &lt;code class=&quot;notranslate&quot;&gt;error</code> |    <code>timeout</code> |    <code>invalid_header</code> |    <code>updating</code> |    <code>http_500</code> |    <code>http_503</code> |    <code>http_403</code> |    <code>http_404</code> |    <code>http_429</code> |    <code>off</code>    …;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**scgi_cache_use_stale** error</code> |    <code>timeout</code> |    <code>invalid_header</code> |    <code>updating</code> |    <code>http_500</code> |    <code>http_503</code> |    <code>http_403</code> |    <code>http_404</code> |    <code>http_429</code> |    <code>off</code>    …;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">scgi_cache_use_stale off;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  确定在与SCGI服务器通信期间发生错误时可以使用过时的缓存响应的情况。  该指令的参数与<a href="#scgi_next_upstream">scgi_next_upstream</a>指令的参数匹配。 </p>
@@ -6067,7 +6067,7 @@ server {
 <li>“Cache-Control”头字段的“ <a href="https://tools.ietf.org/html/rfc5861#section-3" target="_blank" rel="noopener">stale-while-revalidate</a> ”扩展允许使用陈旧的缓存响应（如果当前正在更新）。 -    “Cache-Control”头字段的“ <a href="https://tools.ietf.org/html/rfc5861#section-4" target="_blank" rel="noopener">stale-if-error</a> ”扩展允许在出现错误时使用陈旧的缓存响应。 </li>
 </ul>
 <p>  要在填充新缓存元素时最小化对SCGI服务器的访问次数，可以使用<a href="#scgi_cache_lock">scgi_cache_lock</a>指令。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**scgi_cache_valid** [ &lt;code class=&quot;notranslate&quot;&gt;*code*</code> …] <code>*time*</code> ;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**scgi_cache_valid** [ *code*</code> …] <code>*time*</code> ;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  设置不同响应代码的缓存时间。  例如，以下指令 </p>
@@ -6119,7 +6119,7 @@ scgi_cache_valid any      1m;
 <blockquote>
 <p>  此限制不适用于将<a href="#scgi_cache">缓存</a>或<a href="#scgi_store">存储</a>在磁盘上的响应。 </p>
 </blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**scgi_next_upstream**     &lt;code class=&quot;notranslate&quot;&gt;error</code> |    <code>timeout</code> |    <code>invalid_header</code> |    <code>http_500</code> |    <code>http_503</code> |    <code>http_403</code> |    <code>http_404</code> |    <code>http_429</code> |    <code>non_idempotent</code> |    <code>off</code>    …;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**scgi_next_upstream** error</code> |    <code>timeout</code> |    <code>invalid_header</code> |    <code>http_500</code> |    <code>http_503</code> |    <code>http_403</code> |    <code>http_404</code> |    <code>http_429</code> |    <code>non_idempotent</code> |    <code>off</code>    …;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">scgi_next_upstream error timeout;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  指定应将请求传递到下一个服务器的情况： </p>
@@ -6211,7 +6211,7 @@ scgi_no_cache $http_pragma    $http_authorization;
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  该指令出现在1.15.6版中。 </p>
 <p>  配置与SCGI服务器的传出连接的“TCP keepalive”行为。  默认情况下，操作系统的设置对套接字有效。  如果指令设置为值“ <code>on</code> ”，则为套接字打开<code>SO_KEEPALIVE</code>套接字选项。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**scgi_store**     &lt;code class=&quot;notranslate&quot;&gt;on</code> |    <code>off</code> |    <code>*string*</code> ;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**scgi_store** on</code> |    <code>off</code> |    <code>*string*</code> ;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">scgi_store off;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  允许将文件保存到磁盘。   <code>on</code>参数使用与指令<a href="ngx_http_core_module.html#alias">别名</a>或<a href="ngx_http_core_module.html#root">root</a>对应的路径保存文件。   <code>off</code>参数禁用文件保存。  此外，可以使用带变量的<code>*string*</code>显式设置文件名： </p>
@@ -6511,7 +6511,7 @@ if ($invalid_referer) {
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  该指令出现在1.0.5版本中。 </p>
 <p>  设置有效引用者哈希表的最大<code>*size*</code> 。  设置哈希表的详细信息在单独的<a href="hash.html">文档</a>中提供。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**valid_referers**     &lt;code class=&quot;notranslate&quot;&gt;none</code> |    <code>blocked</code> |    <code>server_names</code> |    <code>*string*</code>    …;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**valid_referers** none</code> |    <code>blocked</code> |    <code>server_names</code> |    <code>*string*</code>    …;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  指定将导致嵌入的<code>$invalid_referer</code>变量设置为空字符串的“Referer”请求标头字段值。  否则，变量将设置为“ <code>1</code> ”。  搜索匹配不区分大小写。 </p>
@@ -6732,7 +6732,7 @@ proxy_cache_bypass $http_pragma    $http_authorization;
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  该指令出现在1.11.6版中。 </p>
 <p>  设置字节范围请求的偏移量（以字节为单位）。  如果范围超出偏移量，则范围请求将传递到代理服务器，并且不会缓存响应。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_cache_methods**     &lt;code class=&quot;notranslate&quot;&gt;GET</code> |    <code>HEAD</code> |    <code>POST</code>    …;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_cache_methods** GET</code> |    <code>HEAD</code> |    <code>POST</code>    …;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_cache_methods GET HEAD;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  该指令出现在0.7.59版本中。 </p>
@@ -6801,7 +6801,7 @@ server {
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  该指令出现在1.5.7版本中。 </p>
 <p>  使用具有“If-Modified-Since”和“If-None-Match”标头字段的条件请求启用过期缓存项的重新验证。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_cache_use_stale**     &lt;code class=&quot;notranslate&quot;&gt;error</code> |    <code>timeout</code> |    <code>invalid_header</code> |    <code>updating</code> |    <code>http_500</code> |    <code>http_502</code> |    <code>http_503</code> |    <code>http_504</code> |    <code>http_403</code> |    <code>http_404</code> |    <code>http_429</code> |    <code>off</code>    …;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_cache_use_stale** error</code> |    <code>timeout</code> |    <code>invalid_header</code> |    <code>updating</code> |    <code>http_500</code> |    <code>http_502</code> |    <code>http_503</code> |    <code>http_504</code> |    <code>http_403</code> |    <code>http_404</code> |    <code>http_429</code> |    <code>off</code>    …;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_cache_use_stale off;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  确定在与代理服务器通信期间可以在哪些情况下使用过时的缓存响应。  该指令的参数与<a href="#proxy_next_upstream">proxy_next_upstream</a>指令的参数匹配。 </p>
@@ -6812,7 +6812,7 @@ server {
 <li>“Cache-Control”头字段的“ <a href="https://tools.ietf.org/html/rfc5861#section-3" target="_blank" rel="noopener">stale-while-revalidate</a> ”扩展允许使用陈旧的缓存响应（如果当前正在更新）。 -    “Cache-Control”头字段的“ <a href="https://tools.ietf.org/html/rfc5861#section-4" target="_blank" rel="noopener">stale-if-error</a> ”扩展允许在出现错误时使用陈旧的缓存响应。 </li>
 </ul>
 <p>  要在填充新缓存元素时最小化对代理服务器的访问次数，可以使用<a href="#proxy_cache_lock">proxy_cache_lock</a>指令。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_cache_valid** [ &lt;code class=&quot;notranslate&quot;&gt;*code*</code> …] <code>*time*</code> ;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_cache_valid** [ *code*</code> …] <code>*time*</code> ;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  设置不同响应代码的缓存时间。  例如，以下指令 </p>
@@ -6963,7 +6963,7 @@ proxy_cookie_path ~*^/user/([^/]+) /u/$1;
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  指定在转发到代理服务器的请求中使用的HTTP <code>*method*</code> ，而不是客户端请求中的方法。  参数值可以包含变量（1.11.6）。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_next_upstream**     &lt;code class=&quot;notranslate&quot;&gt;error</code> |    <code>timeout</code> |    <code>invalid_header</code> |    <code>http_500</code> |    <code>http_502</code> |    <code>http_503</code> |    <code>http_504</code> |    <code>http_403</code> |    <code>http_404</code> |    <code>http_429</code> |    <code>non_idempotent</code> |    <code>off</code>    …;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_next_upstream** error</code> |    <code>timeout</code> |    <code>invalid_header</code> |    <code>http_500</code> |    <code>http_502</code> |    <code>http_503</code> |    <code>http_504</code> |    <code>http_403</code> |    <code>http_404</code> |    <code>http_429</code> |    <code>non_idempotent</code> |    <code>off</code>    …;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_next_upstream error timeout;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  指定应将请求传递到下一个服务器的情况： </p>
@@ -7220,7 +7220,7 @@ proxy_set_header Connection close;
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  该指令出现在1.7.8版本中。 </p>
 <p>  指定具有密钥密码的<code>*file*</code> ，其中每个密码在单独的行上指定。  在加载密钥时依次尝试密码短语。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_ssl_protocols**     [ &lt;code class=&quot;notranslate&quot;&gt;SSLv2</code> ]    [ <code>SSLv3</code> ]    [ <code>TLSv1</code> ]    [ <code>TLSv1.1</code> ]    [ <code>TLSv1.2</code> ]    [ <code>TLSv1.3</code> ];<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_ssl_protocols** [ SSLv2</code> ]    [ <code>SSLv3</code> ]    [ <code>TLSv1</code> ]    [ <code>TLSv1.1</code> ]    [ <code>TLSv1.2</code> ]    [ <code>TLSv1.3</code> ];<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  该指令出现在1.5.6版本中。 </p>
@@ -7249,7 +7249,7 @@ proxy_set_header Connection close;
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  该指令出现在1.7.0版本中。 </p>
 <p>  在代理的HTTPS服务器证书链中设置验证深度。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_store**     &lt;code class=&quot;notranslate&quot;&gt;on</code> |    <code>off</code> |    <code>*string*</code> ;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**proxy_store** on</code> |    <code>off</code> |    <code>*string*</code> ;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">proxy_store off;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  允许将文件保存到磁盘。   <code>on</code>参数使用与指令<a href="ngx_http_core_module.html#alias">别名</a>或<a href="ngx_http_core_module.html#root">root</a>对应的路径保存文件。   <code>off</code>参数禁用文件保存。  此外，可以使用带变量的<code>*string*</code>显式设置文件名： </p>
@@ -7588,7 +7588,7 @@ __END__
 </pre>
 
 
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**mp4_limit_rate**     &lt;code class=&quot;notranslate&quot;&gt;on</code> |    <code>off</code> |    <code>*factor*</code> ;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**mp4_limit_rate** on</code> |    <code>off</code> |    <code>*factor*</code> ;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">mp4_limit_rate off;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  限制向客户端传输的响应速率。  根据所服务的MP4文件的平均比特率限制速率。  要计算速率，比特率乘以指定的<code>*factor*</code> 。  特殊值“ <code>on</code> ”对应于因子1.1。  特殊值“ <code>off</code> ”禁用速率限制。  根据请求设置限制，因此如果客户端同时打开两个连接，则总速率将是指定限制的两倍。 </p>
@@ -7733,7 +7733,7 @@ location = /mirror {
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  该指令出现在1.3.6版本中。 </p>
 <p>  如果设置了<code>*flag*</code> ，则在memcached服务器响应中启用<code>*flag*</code>存在的测试，并将“ <code>Content-Encoding</code> ”响应头字段设置为“ <code>gzip</code> ”。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**memcached_next_upstream**     &lt;code class=&quot;notranslate&quot;&gt;error</code> |    <code>timeout</code> |    <code>invalid_response</code> |    <code>not_found</code> |    <code>off</code>    …;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**memcached_next_upstream** error</code> |    <code>timeout</code> |    <code>invalid_response</code> |    <code>not_found</code> |    <code>off</code>    …;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">memcached_next_upstream error timeout;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  指定应将请求传递到下一个服务器的情况： </p>
@@ -8003,7 +8003,7 @@ access_log /path/to/access.log combined if=$loggable;
 
 
 
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**limit_req**     &lt;code class=&quot;notranslate&quot;&gt;zone</code> = <code>*name*</code>    [ <code>burst</code> = <code>*number*</code> ]    [ <code>nodelay</code> |     <code>delay</code> = <code>*number*</code> ];<br>                </td></p>
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**limit_req** zone</code> = <code>*name*</code>    [ <code>burst</code> = <code>*number*</code> ]    [ <code>nodelay</code> |     <code>delay</code> = <code>*number*</code> ];<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  设置共享内存区域和请求的最大突发大小。  如果请求速率超过为区域配置的速率，则延迟其处理，以便以定义的速率处理请求。  过多的请求被延迟，直到它们的数量超过最大突发大小，在这种情况下请求以<a href="#limit_req_status">错误</a>终止。  默认情况下，最大突发大小等于零。  例如，指令 </p>
@@ -8219,7 +8219,7 @@ server {
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> <br>                </td></p>
 <p>  创建一个新的<code>*$variable*</code>其值由<code>*key*</code>数据库中的键查找。  字符串匹配忽略大小写。  数据库存储在<code>zone</code>参数指定的共享内存区域中。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**keyval_zone**     &lt;code class=&quot;notranslate&quot;&gt;zone</code> = <code>*name*</code> : <code>*size*</code>    [ <code>state</code> = <code>*file*</code> ]    [ <code>timeout</code> = <code>*time*</code> ]    [ <code>sync</code> ];<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**keyval_zone** zone</code> = <code>*name*</code> : <code>*size*</code>    [ <code>state</code> = <code>*file*</code> ]    [ <code>timeout</code> = <code>*time*</code> ]    [ <code>sync</code> ];<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> <br>                </td></p>
 <p>  设置保留键值数据库的共享内存区域的<code>*name*</code>和<code>*size*</code> 。  键值对由<a href="ngx_http_api_module.html#http_keyvals_">API</a>管理。 </p>
@@ -8438,7 +8438,7 @@ location = /empty {
 
 
 
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**image_filteroff</code> ; <br> <code>**image_filtertest</code> ; <br> <code>**image_filtersize</code> ; <br> <code>**image_filter**     &lt;code class=&quot;notranslate&quot;&gt;rotate</code>    <code>90</code> | <code>180</code> |    <code>270</code> ; <br> <code>**image_filter**     &lt;code class=&quot;notranslate&quot;&gt;resize</code>    <code>*width*</code>    <code>*height*</code> ; <br> <code>**image_filter**     &lt;code class=&quot;notranslate&quot;&gt;crop</code>    <code>*width*</code>    <code>*height*</code> ;<br>                </td></p>
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**image_filteroff</code> ; <br> <code>**image_filtertest</code> ; <br> <code>**image_filtersize</code> ; <br> <code>**image_filter** rotate</code>    <code>90</code> | <code>180</code> |    <code>270</code> ; <br> <code>**image_filter** resize</code>    <code>*width*</code>    <code>*height*</code> ; <br> <code>**image_filter** crop</code>    <code>*width*</code>    <code>*height*</code> ;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">image_filter off;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>location</code> <br>                </td></p>
 <p>  设置要对图像执行的转换类型： </p>
@@ -8665,7 +8665,7 @@ add_header Cache-Control private;
 <p>  如果响应代码等于200,201,206,301,302,303,307或308，则将指定字段添加到响应的末尾。该值可以包含变量。 </p>
 <p>  可能有几个<code>add_trailer</code>指令。  当且仅当在当前级别上没有定义<code>add_trailer</code>指令时，这些指令才从先前级别继承。 </p>
 <p>  如果指定了<code>always</code>参数，则无论响应代码如何，都将添加指定的字段。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**expires** [ &lt;code class=&quot;notranslate&quot;&gt;modified</code> ] <code>*time*</code> ; <br> <code>**expires**     &lt;code class=&quot;notranslate&quot;&gt;epoch</code> |    <code>max</code> |    <code>off</code> ;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**expires** [ modified</code> ] <code>*time*</code> ; <br> <code>**expires** epoch</code> |    <code>max</code> |    <code>off</code> ;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">expires off;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> , <code>if in location</code> <br>                </td></p>
 <p>  启用或禁用添加或修改“Expires”和“Cache-Control”响应头字段，前提是响应代码等于200,201（1.3.10），204,206,301,302,303,304,307（1.1。 16,1.0.13）或308（1.13.0）。  参数可以是正<a href="syntax.html">时间</a>或负<a href="syntax.html">时间</a> 。 </p>
@@ -8727,7 +8727,7 @@ gzip_proxied expired no-cache no-store private auth;
 
 
 
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**gzip_static**     &lt;code class=&quot;notranslate&quot;&gt;on</code> |    <code>off</code> |    <code>always</code> ;<br>                </td></p>
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**gzip_static** on</code> |    <code>off</code> |    <code>always</code> ;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">gzip_static off;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  启用（“ <code>on</code> ”）或禁用（“ <code>off</code> ”）检查预压缩文件是否存在。  还考虑了以下指令： <a href="ngx_http_gzip_module.html#gzip_http_version">gzip_http_version</a> ， <a href="ngx_http_gzip_module.html#gzip_proxied">gzip_proxied</a> ， <a href="ngx_http_gzip_module.html#gzip_disable">gzip_disable</a>和<a href="ngx_http_gzip_module.html#gzip_vary">gzip_vary</a> 。 </p>
@@ -8795,7 +8795,7 @@ gzip_types      text/plain application/xml;
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">gzip_min_length 20;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  设置将被gzip压缩的响应的最小长度。  长度仅由“Content-Length”响应头字段确定。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**gzip_proxied**     &lt;code class=&quot;notranslate&quot;&gt;off</code> |    <code>expired</code> |    <code>no-cache</code> |    <code>no-store</code> |    <code>private</code> |    <code>no_last_modified</code> |    <code>no_etag</code> |    <code>auth</code> |    <code>any</code>    …;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**gzip_proxied** off</code> |    <code>expired</code> |    <code>no-cache</code> |    <code>no-store</code> |    <code>private</code> |    <code>no_last_modified</code> |    <code>no_etag</code> |    <code>auth</code> |    <code>any</code>    …;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">gzip_proxied off;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  根据请求和响应启用或禁用对代理请求的响应的gzipping。  代理请求的事实由“Via”请求头字段的存在确定。  该指令接受多个参数： </p>
@@ -8916,7 +8916,7 @@ gzip_types      text/plain application/xml;
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">grpc_intercept_errors off;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  确定代码大于或等于300的gRPC服务器响应是应该传递给客户端还是被拦截并重定向到nginx以便使用<a href="ngx_http_core_module.html#error_page">error_page</a>指令进行处理。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**grpc_next_upstream**     &lt;code class=&quot;notranslate&quot;&gt;error</code> |    <code>timeout</code> |    <code>invalid_header</code> |    <code>http_500</code> |    <code>http_502</code> |    <code>http_503</code> |    <code>http_504</code> |    <code>http_403</code> |    <code>http_404</code> |    <code>http_429</code> |    <code>non_idempotent</code> |    <code>off</code>    …;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**grpc_next_upstream** error</code> |    <code>timeout</code> |    <code>invalid_header</code> |    <code>http_500</code> |    <code>http_502</code> |    <code>http_503</code> |    <code>http_504</code> |    <code>http_403</code> |    <code>http_404</code> |    <code>http_429</code> |    <code>non_idempotent</code> |    <code>off</code>    …;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">grpc_next_upstream error timeout;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  指定应将请求传递到下一个服务器的情况： </p>
@@ -9006,7 +9006,7 @@ gzip_types      text/plain application/xml;
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  指定具有密钥密码的<code>*file*</code> ，其中每个密码在单独的行上指定。  在加载密钥时依次尝试密码短语。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**grpc_ssl_protocols**     [ &lt;code class=&quot;notranslate&quot;&gt;SSLv2</code> ]    [ <code>SSLv3</code> ]    [ <code>TLSv1</code> ]    [ <code>TLSv1.1</code> ]    [ <code>TLSv1.2</code> ]    [ <code>TLSv1.3</code> ];<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**grpc_ssl_protocols** [ SSLv2</code> ]    [ <code>SSLv3</code> ]    [ <code>TLSv1</code> ]    [ <code>TLSv1.1</code> ]    [ <code>TLSv1.2</code> ]    [ <code>TLSv1.3</code> ];<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">grpc_ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  为gRPC SSL服务器的请求启用指定的协议。 </p>
@@ -9068,7 +9068,7 @@ gzip_types      text/plain application/xml;
 
 
 
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**geo** [ &lt;code class=&quot;notranslate&quot;&gt;*$address*</code> ] <code>*$variable*</code> { … } <br>                </td></p>
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**geo** [ *$address*</code> ] <code>*$variable*</code> { … } <br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> <br>                </td></p>
 <p>  描述指定变量的值对客户端IP地址的依赖性。  默认情况下，地址取自<code>$remote_addr</code>变量，但也可以从另一个变量（0.7.27）获取，例如： </p>
@@ -9354,7 +9354,7 @@ fastcgi_cache_bypass $http_pragma    $http_authorization;
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  该指令出现在1.11.6版中。 </p>
 <p>  设置字节范围请求的偏移量（以字节为单位）。  如果范围超出偏移量，则范围请求将传递给FastCGI服务器，并且不会缓存响应。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_cache_methods**     &lt;code class=&quot;notranslate&quot;&gt;GET</code> |    <code>HEAD</code> |    <code>POST</code>    …;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_cache_methods** GET</code> |    <code>HEAD</code> |    <code>POST</code>    …;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_cache_methods GET HEAD;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  该指令出现在0.7.59版本中。 </p>
@@ -9423,7 +9423,7 @@ server {
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  该指令出现在1.5.7版本中。 </p>
 <p>  使用具有“If-Modified-Since”和“If-None-Match”标头字段的条件请求启用过期缓存项的重新验证。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_cache_use_stale**     &lt;code class=&quot;notranslate&quot;&gt;error</code> |    <code>timeout</code> |    <code>invalid_header</code> |    <code>updating</code> |    <code>http_500</code> |    <code>http_503</code> |    <code>http_403</code> |    <code>http_404</code> |    <code>http_429</code> |    <code>off</code>    …;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_cache_use_stale** error</code> |    <code>timeout</code> |    <code>invalid_header</code> |    <code>updating</code> |    <code>http_500</code> |    <code>http_503</code> |    <code>http_403</code> |    <code>http_404</code> |    <code>http_429</code> |    <code>off</code>    …;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_cache_use_stale off;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  确定在与FastCGI服务器通信期间发生错误时可以使用过时的缓存响应的情况。  该指令的参数与<a href="#fastcgi_next_upstream">fastcgi_next_upstream</a>指令的参数匹配。 </p>
@@ -9434,7 +9434,7 @@ server {
 <li>“Cache-Control”头字段的“ <a href="https://tools.ietf.org/html/rfc5861#section-3" target="_blank" rel="noopener">stale-while-revalidate</a> ”扩展允许使用陈旧的缓存响应（如果当前正在更新）。 -    “Cache-Control”头字段的“ <a href="https://tools.ietf.org/html/rfc5861#section-4" target="_blank" rel="noopener">stale-if-error</a> ”扩展允许在出现错误时使用陈旧的缓存响应。 </li>
 </ul>
 <p>  要在填充新缓存元素时最小化对FastCGI服务器的访问次数，可以使用<a href="#fastcgi_cache_lock">fastcgi_cache_lock</a>指令。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_cache_valid** [ &lt;code class=&quot;notranslate&quot;&gt;*code*</code> …] <code>*time*</code> ;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_cache_valid** [ *code*</code> …] <code>*time*</code> ;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  设置不同响应代码的缓存时间。  例如，以下指令 </p>
@@ -9527,7 +9527,7 @@ fastcgi_param SCRIPT_FILENAME /home/www/scripts/php$fastcgi_script_name;
 <blockquote>
 <p>  此限制不适用于将<a href="#fastcgi_cache">缓存</a>或<a href="#fastcgi_store">存储</a>在磁盘上的响应。 </p>
 </blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_next_upstream**     &lt;code class=&quot;notranslate&quot;&gt;error</code> |    <code>timeout</code> |    <code>invalid_header</code> |    <code>http_500</code> |    <code>http_503</code> |    <code>http_403</code> |    <code>http_404</code> |    <code>http_429</code> |    <code>non_idempotent</code> |    <code>off</code>    …;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_next_upstream** error</code> |    <code>timeout</code> |    <code>invalid_header</code> |    <code>http_500</code> |    <code>http_503</code> |    <code>http_403</code> |    <code>http_404</code> |    <code>http_429</code> |    <code>non_idempotent</code> |    <code>off</code>    …;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_next_upstream error timeout;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  指定应将请求传递到下一个服务器的情况： </p>
@@ -9647,7 +9647,7 @@ fastcgi_param CONTENT_LENGTH  $content_length;
 </pre>
 
 <p>  和“ <code>/show.php/article/0001</code> ”请求， <code>SCRIPT_FILENAME</code>参数将等于“ <code>/path/to/php/show.php</code>参数将等于“ <code>/article/0001</code> ”。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_store**     &lt;code class=&quot;notranslate&quot;&gt;on</code> |    <code>off</code> |    <code>*string*</code> ;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**fastcgi_store** on</code> |    <code>off</code> |    <code>*string*</code> ;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">fastcgi_store off;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  允许将文件保存到磁盘。   <code>on</code>参数使用与指令<a href="ngx_http_core_module.html#alias">别名</a>或<a href="ngx_http_core_module.html#root">root</a>对应的路径保存文件。   <code>off</code>参数禁用文件保存。  此外，可以使用带变量的<code>*string*</code>显式设置文件名： </p>
@@ -9862,7 +9862,7 @@ fastcgi_param SCRIPT_FILENAME /home/www/scripts/php$fastcgi_script_name;
 </pre>
 
 
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**dav_methods**     &lt;code class=&quot;notranslate&quot;&gt;off</code> | <code>*method*</code> …;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**dav_methods** off</code> | <code>*method*</code> …;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">dav_methods off;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  允许指定的HTTP和WebDAV方法。  参数<code>off</code>拒绝此模块处理的所有方法。  支持以下方法： <code>PUT</code> ， <code>DELETE</code> ， <code>MKCOL</code> ， <code>COPY</code>和<code>MOVE</code> 。 </p>
@@ -11115,7 +11115,7 @@ if ($ancient_browser) {
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">autoindex_exact_size on;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  对于HTML <a href="#autoindex_format">格式</a> ，指定是否应在目录列表中输出确切的文件大小，或者更确切地舍入为千字节，兆字节和千兆字节。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**autoindex_format**     &lt;code class=&quot;notranslate&quot;&gt;html</code> |    <code>xml</code> |    <code>json</code> |    <code>jsonp</code> ;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**autoindex_format** html</code> |    <code>xml</code> |    <code>json</code> |    <code>jsonp</code> ;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">autoindex_format html;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  该指令出现在1.7.9版本中。 </p>
@@ -17260,6 +17260,42 @@ diff -r 822b82191940 -r 2220de0521ca src/mail/ngx_mail_auth_http_module.c
     </entry>
     
     <entry>
+      <title><![CDATA[spring-boot自义定错误返回页面和json格式]]></title>
+      <url>/spring-boot%E8%87%AA%E4%B9%89%E5%AE%9A%E9%94%99%E8%AF%AF%E8%BF%94%E5%9B%9E%E9%A1%B5%E9%9D%A2%E5%92%8Cjson%E6%A0%BC%E5%BC%8F.html</url>
+      <content type="html"><![CDATA[<p>springboot发生错误时，在浏览器端访问和用测试接口的软件看到的返回页面是不一样的。</p>
+<blockquote>
+<p>浏览器端  返回 Whitelabel Error Page页面<br>测试接口的软件返回一个json 字符串<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;timestamp&quot;: 1492063521109,</span><br><span class="line">&quot;status&quot;: 404,</span><br><span class="line">&quot;error&quot;: &quot;Not Found&quot;,</span><br><span class="line">&quot;message&quot;: &quot;No message available&quot;,</span><br><span class="line">&quot;path&quot;: &quot;/test/auth&quot;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<a id="more"></a>
+<h1 id="spring根据请求的-produces返回不同值"><a href="#spring根据请求的-produces返回不同值" class="headerlink" title="spring根据请求的 produces返回不同值"></a>spring根据请求的 produces返回不同值</h1><blockquote>
+<p>BasicErrorController.java源码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(produces = &quot;text/html&quot;) #浏览器访问</span><br><span class="line">public ModelAndView errorHtml(HttpServletRequest request,</span><br><span class="line">			HttpServletResponse response) &#123;</span><br><span class="line">		HttpStatus status = getStatus(request);</span><br><span class="line">		Map&lt;String, Object&gt; model = Collections.unmodifiableMap(getErrorAttributes(</span><br><span class="line">				request, isIncludeStackTrace(request, MediaType.TEXT_HTML)));</span><br><span class="line">		response.setStatus(status.value());</span><br><span class="line">		ModelAndView modelAndView = resolveErrorView(request, response, status, model);</span><br><span class="line">		return (modelAndView == null ? new ModelAndView(&quot;error&quot;, model) : modelAndView);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">@RequestMapping  #接口测试软件  application/json 默认没写</span><br><span class="line">@ResponseBody</span><br><span class="line">public ResponseEntity&lt;Map&lt;String, Object&gt;&gt; error(HttpServletRequest request) &#123;</span><br><span class="line">		Map&lt;String, Object&gt; body = getErrorAttributes(request,</span><br><span class="line">				isIncludeStackTrace(request, MediaType.ALL));</span><br><span class="line">		HttpStatus status = getStatus(request);</span><br><span class="line">		return new ResponseEntity&lt;Map&lt;String, Object&gt;&gt;(body, status);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<p>@RequestMapping(value = “/produces”, produces = “application/json”)：表示将功能处理方法将生产json格式的数据，此时根据请求头中的Accept进行匹配，如请求头“Accept:application/json”时即可匹配;<br>@RequestMapping(value = “/produces”, produces = “application/xml”)：表示将功能处理方法将生产xml格式的数据，此时根据请求头中的Accept进行匹配，如请求头“Accept:application/xml”时即可匹配。</p>
+</blockquote>
+<h1 id="自定义浏览器端错误的返回页面"><a href="#自定义浏览器端错误的返回页面" class="headerlink" title="自定义浏览器端错误的返回页面"></a>自定义浏览器端错误的返回页面</h1><h2 id="重写BasicErrorController"><a href="#重写BasicErrorController" class="headerlink" title="重写BasicErrorController"></a>重写BasicErrorController</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@Controller</span><br><span class="line">public class MyErrorController extends BasicErrorController &#123;</span><br><span class="line"></span><br><span class="line">	public MyErrorController(ServerProperties serverProperties) &#123;</span><br><span class="line">		super(new DefaultErrorAttributes(), serverProperties.getError());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public ModelAndView errorHtml(HttpServletRequest request, HttpServletResponse response) &#123;</span><br><span class="line">		HttpStatus status = getStatus(request);</span><br><span class="line">		response.setStatus(getStatus(request).value());</span><br><span class="line">		Map&lt;String, Object&gt; model = getErrorAttributes(request, isIncludeStackTrace(request, MediaType.TEXT_HTML));</span><br><span class="line">		return new ModelAndView(&quot;error/404.html&quot;, model);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="创建-src-main-resources-public-error-404-html-页面"><a href="#创建-src-main-resources-public-error-404-html-页面" class="headerlink" title="创建 src/main/resources/public/error/404.html 页面"></a>创建 src/main/resources/public/error/404.html 页面</h2><h1 id="自定义测试软件返回json"><a href="#自定义测试软件返回json" class="headerlink" title="自定义测试软件返回json"></a>自定义测试软件返回json</h1><blockquote>
+<p>重写BasicErrorController</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">@Controller</span><br><span class="line">public class MyErrorController extends BasicErrorController &#123;</span><br><span class="line"></span><br><span class="line">	public MyErrorController(ServerProperties serverProperties) &#123;</span><br><span class="line">		super(new DefaultErrorAttributes(), serverProperties.getError());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public ResponseEntity&lt;Map&lt;String, Object&gt;&gt; error(HttpServletRequest request) &#123;</span><br><span class="line">		Map&lt;String, Object&gt; body = getErrorAttributes(request, isIncludeStackTrace(request, MediaType.ALL));</span><br><span class="line">		HttpStatus status = getStatus(request);</span><br><span class="line"></span><br><span class="line">		Map&lt;String, Object&gt; map = new HashMap&lt;String, Object&gt;();</span><br><span class="line">		map.put(&quot;msg&quot;, body.get(&quot;message&quot;));</span><br><span class="line">		map.put(&quot;code&quot;, body.get(&quot;status&quot;));</span><br><span class="line">		map.put(&quot;data&quot;, &quot;&quot;);</span><br><span class="line">		return new ResponseEntity&lt;Map&lt;String, Object&gt;&gt;(map, status);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> springboot </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> springboot </tag>
+            
+            <tag> json </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[tomcat启动流程]]></title>
       <url>/tomcat/tomcat%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B.html</url>
       <content type="html"><![CDATA[<p>tomcat 启动启动过程分析<br><a id="more"></a></p>
@@ -17383,23 +17419,16 @@ diff -r 822b82191940 -r 2220de0521ca src/mail/ngx_mail_auth_http_module.c
     </entry>
     
     <entry>
-      <title><![CDATA[spring-boot自义定错误返回页面和json格式]]></title>
-      <url>/spring-boot%E8%87%AA%E4%B9%89%E5%AE%9A%E9%94%99%E8%AF%AF%E8%BF%94%E5%9B%9E%E9%A1%B5%E9%9D%A2%E5%92%8Cjson%E6%A0%BC%E5%BC%8F.html</url>
-      <content type="html"><![CDATA[<p>springboot发生错误时，在浏览器端访问和用测试接口的软件看到的返回页面是不一样的。</p>
-<blockquote>
-<p>浏览器端  返回 Whitelabel Error Page页面<br>测试接口的软件返回一个json 字符串<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;timestamp&quot;: 1492063521109,</span><br><span class="line">&quot;status&quot;: 404,</span><br><span class="line">&quot;error&quot;: &quot;Not Found&quot;,</span><br><span class="line">&quot;message&quot;: &quot;No message available&quot;,</span><br><span class="line">&quot;path&quot;: &quot;/test/auth&quot;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
+      <title><![CDATA[springboot-Access-Control-Allow-Origin]]></title>
+      <url>/spring-boot/spring-boot-Access-Control-Allow-Origin.html</url>
+      <content type="html"><![CDATA[<p>springboot 跨域研究</p>
 <a id="more"></a>
-<h1 id="spring根据请求的-produces返回不同值"><a href="#spring根据请求的-produces返回不同值" class="headerlink" title="spring根据请求的 produces返回不同值"></a>spring根据请求的 produces返回不同值</h1><blockquote>
-<p>BasicErrorController.java源码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(produces = &quot;text/html&quot;) #浏览器访问</span><br><span class="line">public ModelAndView errorHtml(HttpServletRequest request,</span><br><span class="line">			HttpServletResponse response) &#123;</span><br><span class="line">		HttpStatus status = getStatus(request);</span><br><span class="line">		Map&lt;String, Object&gt; model = Collections.unmodifiableMap(getErrorAttributes(</span><br><span class="line">				request, isIncludeStackTrace(request, MediaType.TEXT_HTML)));</span><br><span class="line">		response.setStatus(status.value());</span><br><span class="line">		ModelAndView modelAndView = resolveErrorView(request, response, status, model);</span><br><span class="line">		return (modelAndView == null ? new ModelAndView(&quot;error&quot;, model) : modelAndView);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">@RequestMapping  #接口测试软件  application/json 默认没写</span><br><span class="line">@ResponseBody</span><br><span class="line">public ResponseEntity&lt;Map&lt;String, Object&gt;&gt; error(HttpServletRequest request) &#123;</span><br><span class="line">		Map&lt;String, Object&gt; body = getErrorAttributes(request,</span><br><span class="line">				isIncludeStackTrace(request, MediaType.ALL));</span><br><span class="line">		HttpStatus status = getStatus(request);</span><br><span class="line">		return new ResponseEntity&lt;Map&lt;String, Object&gt;&gt;(body, status);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
-<p>@RequestMapping(value = “/produces”, produces = “application/json”)：表示将功能处理方法将生产json格式的数据，此时根据请求头中的Accept进行匹配，如请求头“Accept:application/json”时即可匹配;<br>@RequestMapping(value = “/produces”, produces = “application/xml”)：表示将功能处理方法将生产xml格式的数据，此时根据请求头中的Accept进行匹配，如请求头“Accept:application/xml”时即可匹配。</p>
+<h1 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h1><blockquote>
+<p>在前后端开发的模式中，前端通常使用ajax调用后端服务器的接口，常见错误<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">No ‘Access-Control-Allow-Origin’ header is present on the requested resource. Origin ‘http://localhost:8080’ is therefore not allowed access.</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<h1 id="自定义浏览器端错误的返回页面"><a href="#自定义浏览器端错误的返回页面" class="headerlink" title="自定义浏览器端错误的返回页面"></a>自定义浏览器端错误的返回页面</h1><h2 id="重写BasicErrorController"><a href="#重写BasicErrorController" class="headerlink" title="重写BasicErrorController"></a>重写BasicErrorController</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@Controller</span><br><span class="line">public class MyErrorController extends BasicErrorController &#123;</span><br><span class="line"></span><br><span class="line">	public MyErrorController(ServerProperties serverProperties) &#123;</span><br><span class="line">		super(new DefaultErrorAttributes(), serverProperties.getError());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public ModelAndView errorHtml(HttpServletRequest request, HttpServletResponse response) &#123;</span><br><span class="line">		HttpStatus status = getStatus(request);</span><br><span class="line">		response.setStatus(getStatus(request).value());</span><br><span class="line">		Map&lt;String, Object&gt; model = getErrorAttributes(request, isIncludeStackTrace(request, MediaType.TEXT_HTML));</span><br><span class="line">		return new ModelAndView(&quot;error/404.html&quot;, model);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="创建-src-main-resources-public-error-404-html-页面"><a href="#创建-src-main-resources-public-error-404-html-页面" class="headerlink" title="创建 src/main/resources/public/error/404.html 页面"></a>创建 src/main/resources/public/error/404.html 页面</h2><h1 id="自定义测试软件返回json"><a href="#自定义测试软件返回json" class="headerlink" title="自定义测试软件返回json"></a>自定义测试软件返回json</h1><blockquote>
-<p>重写BasicErrorController</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">@Controller</span><br><span class="line">public class MyErrorController extends BasicErrorController &#123;</span><br><span class="line"></span><br><span class="line">	public MyErrorController(ServerProperties serverProperties) &#123;</span><br><span class="line">		super(new DefaultErrorAttributes(), serverProperties.getError());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public ResponseEntity&lt;Map&lt;String, Object&gt;&gt; error(HttpServletRequest request) &#123;</span><br><span class="line">		Map&lt;String, Object&gt; body = getErrorAttributes(request, isIncludeStackTrace(request, MediaType.ALL));</span><br><span class="line">		HttpStatus status = getStatus(request);</span><br><span class="line"></span><br><span class="line">		Map&lt;String, Object&gt; map = new HashMap&lt;String, Object&gt;();</span><br><span class="line">		map.put(&quot;msg&quot;, body.get(&quot;message&quot;));</span><br><span class="line">		map.put(&quot;code&quot;, body.get(&quot;status&quot;));</span><br><span class="line">		map.put(&quot;data&quot;, &quot;&quot;);</span><br><span class="line">		return new ResponseEntity&lt;Map&lt;String, Object&gt;&gt;(map, status);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
+<h1 id="springboot-解决跨域的方案"><a href="#springboot-解决跨域的方案" class="headerlink" title="springboot 解决跨域的方案"></a>springboot 解决跨域的方案</h1><h2 id="通过UrlBasedCorsConfigurationSource解决"><a href="#通过UrlBasedCorsConfigurationSource解决" class="headerlink" title="通过UrlBasedCorsConfigurationSource解决"></a>通过UrlBasedCorsConfigurationSource解决</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">public class CorsConfig &#123;</span><br><span class="line">    private CorsConfiguration buildConfig() &#123;</span><br><span class="line">        CorsConfiguration corsConfiguration = new CorsConfiguration();</span><br><span class="line">        corsConfiguration.addAllowedOrigin(&quot;*&quot;); // 1 设置访问源地址</span><br><span class="line">        corsConfiguration.addAllowedHeader(&quot;*&quot;); // 2 设置访问源请求头</span><br><span class="line">        corsConfiguration.addAllowedMethod(&quot;*&quot;); // 3 设置访问源请求方法</span><br><span class="line">        return corsConfiguration;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Bean</span><br><span class="line">    public CorsFilter corsFilter() &#123;</span><br><span class="line">        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();</span><br><span class="line">        source.registerCorsConfiguration(&quot;/**&quot;, buildConfig()); // 4 对接口配置跨域设置</span><br><span class="line">        return new CorsFilter(source);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="通过拦截器解决"><a href="#通过拦截器解决" class="headerlink" title="通过拦截器解决"></a>通过拦截器解决</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">public class CORSConfiguration &#123;</span><br><span class="line">	@Bean</span><br><span class="line">	public WebMvcConfigurer corsConfigurer() &#123;</span><br><span class="line">		return new WebMvcConfigurerAdapter() &#123;</span><br><span class="line">			@Override</span><br><span class="line">			public void addCorsMappings(CorsRegistry registry) &#123;</span><br><span class="line">				registry.addMapping(&quot;/**&quot;).allowedHeaders(&quot;*&quot;).allowedMethods(&quot;*&quot;).allowedOrigins(&quot;*&quot;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="通过注解解决"><a href="#通过注解解决" class="headerlink" title="通过注解解决"></a>通过注解解决</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@CrossOrigin(origins = &quot;http://a.com&quot;, maxAge = 3600)</span><br><span class="line">@RestController</span><br><span class="line">@RequestMapping(&quot;/account&quot;)</span><br><span class="line">public class AccountController &#123;</span><br><span class="line"></span><br><span class="line">    @GetMapping(&quot;/&#123;id&#125;&quot;)</span><br><span class="line">    public Account retrieve(@PathVariable Long id) &#123;</span><br><span class="line">        // ...</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @DeleteMapping(&quot;/&#123;id&#125;&quot;)</span><br><span class="line">    public void remove(@PathVariable Long id) &#123;</span><br><span class="line">        // ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       
         <categories>
             
@@ -17411,8 +17440,6 @@ diff -r 822b82191940 -r 2220de0521ca src/mail/ngx_mail_auth_http_module.c
         <tags>
             
             <tag> springboot </tag>
-            
-            <tag> json </tag>
             
         </tags>
         
@@ -17436,33 +17463,6 @@ diff -r 822b82191940 -r 2220de0521ca src/mail/ngx_mail_auth_http_module.c
             <tag> springboot </tag>
             
             <tag> token </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[springboot-Access-Control-Allow-Origin]]></title>
-      <url>/spring-boot/spring-boot-Access-Control-Allow-Origin.html</url>
-      <content type="html"><![CDATA[<p>springboot 跨域研究</p>
-<a id="more"></a>
-<h1 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h1><blockquote>
-<p>在前后端开发的模式中，前端通常使用ajax调用后端服务器的接口，常见错误<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">No ‘Access-Control-Allow-Origin’ header is present on the requested resource. Origin ‘http://localhost:8080’ is therefore not allowed access.</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h1 id="springboot-解决跨域的方案"><a href="#springboot-解决跨域的方案" class="headerlink" title="springboot 解决跨域的方案"></a>springboot 解决跨域的方案</h1><h2 id="通过UrlBasedCorsConfigurationSource解决"><a href="#通过UrlBasedCorsConfigurationSource解决" class="headerlink" title="通过UrlBasedCorsConfigurationSource解决"></a>通过UrlBasedCorsConfigurationSource解决</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">public class CorsConfig &#123;</span><br><span class="line">    private CorsConfiguration buildConfig() &#123;</span><br><span class="line">        CorsConfiguration corsConfiguration = new CorsConfiguration();</span><br><span class="line">        corsConfiguration.addAllowedOrigin(&quot;*&quot;); // 1 设置访问源地址</span><br><span class="line">        corsConfiguration.addAllowedHeader(&quot;*&quot;); // 2 设置访问源请求头</span><br><span class="line">        corsConfiguration.addAllowedMethod(&quot;*&quot;); // 3 设置访问源请求方法</span><br><span class="line">        return corsConfiguration;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Bean</span><br><span class="line">    public CorsFilter corsFilter() &#123;</span><br><span class="line">        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();</span><br><span class="line">        source.registerCorsConfiguration(&quot;/**&quot;, buildConfig()); // 4 对接口配置跨域设置</span><br><span class="line">        return new CorsFilter(source);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="通过拦截器解决"><a href="#通过拦截器解决" class="headerlink" title="通过拦截器解决"></a>通过拦截器解决</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">public class CORSConfiguration &#123;</span><br><span class="line">	@Bean</span><br><span class="line">	public WebMvcConfigurer corsConfigurer() &#123;</span><br><span class="line">		return new WebMvcConfigurerAdapter() &#123;</span><br><span class="line">			@Override</span><br><span class="line">			public void addCorsMappings(CorsRegistry registry) &#123;</span><br><span class="line">				registry.addMapping(&quot;/**&quot;).allowedHeaders(&quot;*&quot;).allowedMethods(&quot;*&quot;).allowedOrigins(&quot;*&quot;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="通过注解解决"><a href="#通过注解解决" class="headerlink" title="通过注解解决"></a>通过注解解决</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@CrossOrigin(origins = &quot;http://a.com&quot;, maxAge = 3600)</span><br><span class="line">@RestController</span><br><span class="line">@RequestMapping(&quot;/account&quot;)</span><br><span class="line">public class AccountController &#123;</span><br><span class="line"></span><br><span class="line">    @GetMapping(&quot;/&#123;id&#125;&quot;)</span><br><span class="line">    public Account retrieve(@PathVariable Long id) &#123;</span><br><span class="line">        // ...</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @DeleteMapping(&quot;/&#123;id&#125;&quot;)</span><br><span class="line">    public void remove(@PathVariable Long id) &#123;</span><br><span class="line">        // ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-        <categories>
-            
-            <category> springboot </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> springboot </tag>
             
         </tags>
         
@@ -17570,14 +17570,15 @@ diff -r 822b82191940 -r 2220de0521ca src/mail/ngx_mail_auth_http_module.c
     </entry>
     
     <entry>
-      <title><![CDATA[nginx-location正则表达式匹配规则及动静分离]]></title>
-      <url>/nginx-location%E5%A5%87%E6%B7%AB%E6%8A%80%E5%B7%A7.html</url>
-      <content type="html"><![CDATA[<p>nginx，location常用正则表达式，及nginx动静分离<br><a id="more"></a></p>
-<h1 id="nginx匹配规则"><a href="#nginx匹配规则" class="headerlink" title="nginx匹配规则"></a>nginx匹配规则</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">~      波浪线表示执行一个正则匹配，区分大小写</span><br><span class="line">~*    表示执行一个正则匹配，不区分大小写</span><br><span class="line">^~     ^~表示普通字符匹配，如果该选项匹配，只匹配该选项，不匹配别的选项，一般用来匹配目录</span><br><span class="line">=      进行普通字符精确匹配</span><br><span class="line">@      &quot;@&quot; 定义一个命名的 location，使用在内部定向时，例如 error_page, try_files</span><br><span class="line">!~（!~*） 表示区分大小写不正则匹配和不区分大小写不正则匹配</span><br></pre></td></tr></table></figure>
-<h1 id="nginx正则表达式"><a href="#nginx正则表达式" class="headerlink" title="nginx正则表达式"></a>nginx正则表达式</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">. ： 匹配除换行符以外的任意字符</span><br><span class="line">? ： 重复0次或1次</span><br><span class="line">+ ： 重复1次或更多次</span><br><span class="line">* ： 重复0次或更多次</span><br><span class="line">\d ：匹配数字</span><br><span class="line">^ ： 匹配字符串的开始</span><br><span class="line">$ ： 匹配字符串的介绍</span><br><span class="line">&#123;n&#125; ： 重复n次</span><br><span class="line">&#123;n,&#125; ： 重复n次或更多次</span><br><span class="line">[c] ： 匹配单个字符c</span><br><span class="line">[a-z] ： 匹配a-z小写字母的任意一个</span><br></pre></td></tr></table></figure>
-<p><strong>注意</strong> 当正则表达式中含有 {} 是,必须将 正则表达式用 “” 引起来否则会报错<br>nginx: [emerg] pcre_compile() failed: missing ) in “/one/(\d” in /usr/local/nginx/conf/nginx.conf:56</p>
-<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#rewrite ^/test/([\d]&#123;3&#125;)/$ /index.php?id=$1 break;  #报错</span><br><span class="line">#修改为</span><br><span class="line">rewrite &quot;^/test/([\d]&#123;3&#125;)/$&quot; /index.php?id=$1 break;</span><br><span class="line"></span><br><span class="line">#本条可以不用引号</span><br><span class="line">rewrite ^/(\d+)/$ /index.php?id=$1 break;</span><br></pre></td></tr></table></figure></p>
-<h1 id="动静分离清单"><a href="#动静分离清单" class="headerlink" title="动静分离清单"></a>动静分离清单</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># 第一个必选规则</span><br><span class="line">location = / &#123;</span><br><span class="line">    proxy_pass http://127.0.0.1:9000/index</span><br><span class="line">&#125;</span><br><span class="line"># 第二个必选规则是处理静态文件请求，这是nginx作为http服务器的强项</span><br><span class="line"># 有两种配置模式，目录匹配或后缀匹配,任选其一或搭配使用</span><br><span class="line">location ^~ /static/ &#123;</span><br><span class="line">    root /web/static/;</span><br><span class="line">&#125;</span><br><span class="line">location ~* \.(gif|jpg|jpeg|png|css|js|ico)$ &#123;</span><br><span class="line">    root /web/res/;</span><br><span class="line">&#125;</span><br><span class="line">#第三个规则就是通用规则，用来转发动态请求到后端应用服务器</span><br><span class="line">#非静态文件请求就默认是动态请求，自己根据实际把握</span><br><span class="line">#毕竟目前的一些框架的流行，带.php,.jsp后缀的情况很少了</span><br><span class="line">location / &#123;</span><br><span class="line">    proxy_pass http://127.0.0.1:9000/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      <title><![CDATA[nginx-args-query-string-uri详解]]></title>
+      <url>/nginx-args-query-string-uri%E8%AF%A6%E8%A7%A3.html</url>
+      <content type="html"><![CDATA[<p>Nginx 中常见和url操作相关的变量</p>
+<blockquote>
+<p>$args<br>$query_string<br>$request_uri<br>$uri<br>$document_uri</p>
+</blockquote>
+<p>以上变量有什么联系和区别呢?</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">url:  http://nginx.im/nginx/im/?page=1</span><br><span class="line">$args -&gt;    page=1</span><br><span class="line">$query_string -&gt; page=1</span><br><span class="line">$request_uri  -&gt; /nginx/im/?page=1</span><br><span class="line">$uri       -&gt;  /nginx/im</span><br><span class="line">$document_uri -&gt; /nginx/im</span><br><span class="line">**总结**</span><br><span class="line">$args &lt;=&gt; $query_string 获取？后面的参数</span><br><span class="line">$request_uri  获取除了host 之外所有的</span><br><span class="line">$uri &lt;=&gt; $cocuemnt_uri 获取请求路径</span><br></pre></td></tr></table></figure>
 ]]></content>
       
         <categories>
@@ -17591,7 +17592,13 @@ diff -r 822b82191940 -r 2220de0521ca src/mail/ngx_mail_auth_http_module.c
             
             <tag> nginx </tag>
             
-            <tag> location </tag>
+            <tag> uri </tag>
+            
+            <tag> query_string </tag>
+            
+            <tag> request_uri </tag>
+            
+            <tag> document_uri </tag>
             
         </tags>
         
@@ -17628,15 +17635,14 @@ diff -r 822b82191940 -r 2220de0521ca src/mail/ngx_mail_auth_http_module.c
     </entry>
     
     <entry>
-      <title><![CDATA[nginx-args-query-string-uri详解]]></title>
-      <url>/nginx-args-query-string-uri%E8%AF%A6%E8%A7%A3.html</url>
-      <content type="html"><![CDATA[<p>Nginx 中常见和url操作相关的变量</p>
-<blockquote>
-<p>$args<br>$query_string<br>$request_uri<br>$uri<br>$document_uri</p>
-</blockquote>
-<p>以上变量有什么联系和区别呢?</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">url:  http://nginx.im/nginx/im/?page=1</span><br><span class="line">$args -&gt;    page=1</span><br><span class="line">$query_string -&gt; page=1</span><br><span class="line">$request_uri  -&gt; /nginx/im/?page=1</span><br><span class="line">$uri       -&gt;  /nginx/im</span><br><span class="line">$document_uri -&gt; /nginx/im</span><br><span class="line">**总结**</span><br><span class="line">$args &lt;=&gt; $query_string 获取？后面的参数</span><br><span class="line">$request_uri  获取除了host 之外所有的</span><br><span class="line">$uri &lt;=&gt; $cocuemnt_uri 获取请求路径</span><br></pre></td></tr></table></figure>
+      <title><![CDATA[nginx-location正则表达式匹配规则及动静分离]]></title>
+      <url>/nginx-location%E5%A5%87%E6%B7%AB%E6%8A%80%E5%B7%A7.html</url>
+      <content type="html"><![CDATA[<p>nginx，location常用正则表达式，及nginx动静分离<br><a id="more"></a></p>
+<h1 id="nginx匹配规则"><a href="#nginx匹配规则" class="headerlink" title="nginx匹配规则"></a>nginx匹配规则</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">~      波浪线表示执行一个正则匹配，区分大小写</span><br><span class="line">~*    表示执行一个正则匹配，不区分大小写</span><br><span class="line">^~     ^~表示普通字符匹配，如果该选项匹配，只匹配该选项，不匹配别的选项，一般用来匹配目录</span><br><span class="line">=      进行普通字符精确匹配</span><br><span class="line">@      &quot;@&quot; 定义一个命名的 location，使用在内部定向时，例如 error_page, try_files</span><br><span class="line">!~（!~*） 表示区分大小写不正则匹配和不区分大小写不正则匹配</span><br></pre></td></tr></table></figure>
+<h1 id="nginx正则表达式"><a href="#nginx正则表达式" class="headerlink" title="nginx正则表达式"></a>nginx正则表达式</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">. ： 匹配除换行符以外的任意字符</span><br><span class="line">? ： 重复0次或1次</span><br><span class="line">+ ： 重复1次或更多次</span><br><span class="line">* ： 重复0次或更多次</span><br><span class="line">\d ：匹配数字</span><br><span class="line">^ ： 匹配字符串的开始</span><br><span class="line">$ ： 匹配字符串的介绍</span><br><span class="line">&#123;n&#125; ： 重复n次</span><br><span class="line">&#123;n,&#125; ： 重复n次或更多次</span><br><span class="line">[c] ： 匹配单个字符c</span><br><span class="line">[a-z] ： 匹配a-z小写字母的任意一个</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong> 当正则表达式中含有 {} 是,必须将 正则表达式用 “” 引起来否则会报错<br>nginx: [emerg] pcre_compile() failed: missing ) in “/one/(\d” in /usr/local/nginx/conf/nginx.conf:56</p>
+<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#rewrite ^/test/([\d]&#123;3&#125;)/$ /index.php?id=$1 break;  #报错</span><br><span class="line">#修改为</span><br><span class="line">rewrite &quot;^/test/([\d]&#123;3&#125;)/$&quot; /index.php?id=$1 break;</span><br><span class="line"></span><br><span class="line">#本条可以不用引号</span><br><span class="line">rewrite ^/(\d+)/$ /index.php?id=$1 break;</span><br></pre></td></tr></table></figure></p>
+<h1 id="动静分离清单"><a href="#动静分离清单" class="headerlink" title="动静分离清单"></a>动静分离清单</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># 第一个必选规则</span><br><span class="line">location = / &#123;</span><br><span class="line">    proxy_pass http://127.0.0.1:9000/index</span><br><span class="line">&#125;</span><br><span class="line"># 第二个必选规则是处理静态文件请求，这是nginx作为http服务器的强项</span><br><span class="line"># 有两种配置模式，目录匹配或后缀匹配,任选其一或搭配使用</span><br><span class="line">location ^~ /static/ &#123;</span><br><span class="line">    root /web/static/;</span><br><span class="line">&#125;</span><br><span class="line">location ~* \.(gif|jpg|jpeg|png|css|js|ico)$ &#123;</span><br><span class="line">    root /web/res/;</span><br><span class="line">&#125;</span><br><span class="line">#第三个规则就是通用规则，用来转发动态请求到后端应用服务器</span><br><span class="line">#非静态文件请求就默认是动态请求，自己根据实际把握</span><br><span class="line">#毕竟目前的一些框架的流行，带.php,.jsp后缀的情况很少了</span><br><span class="line">location / &#123;</span><br><span class="line">    proxy_pass http://127.0.0.1:9000/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       
         <categories>
@@ -17650,13 +17656,7 @@ diff -r 822b82191940 -r 2220de0521ca src/mail/ngx_mail_auth_http_module.c
             
             <tag> nginx </tag>
             
-            <tag> uri </tag>
-            
-            <tag> query_string </tag>
-            
-            <tag> request_uri </tag>
-            
-            <tag> document_uri </tag>
+            <tag> location </tag>
             
         </tags>
         
@@ -17680,6 +17680,40 @@ diff -r 822b82191940 -r 2220de0521ca src/mail/ngx_mail_auth_http_module.c
             <tag> fastjson </tag>
             
             <tag> json </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[java-zip压缩单文件]]></title>
+      <url>/java-zip%E5%8E%8B%E7%BC%A9%E5%8D%95%E6%96%87%E4%BB%B6.html</url>
+      <content type="html"><![CDATA[<p>java开发中经常用到压缩文件,在JDK中自带zip 压缩相关的类</p>
+<blockquote>
+<p>ZipOutputStream<br>ZipEntry</p>
+<blockquote>
+<p>在压缩文件中，每一个压缩的内容都可以用一个ZipEntry 表示，所以在进行压缩之前必须通过putNextEntry 设置一个ZipEntry 即可。</p>
+</blockquote>
+</blockquote>
+<a id="more"></a>
+<h1 id="单文件压缩"><a href="#单文件压缩" class="headerlink" title="单文件压缩"></a>单文件压缩</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># in为原始文件的绝对路径</span><br><span class="line">public static void zip(String in) throws Exception &#123;</span><br><span class="line">		File file = new File(in);</span><br><span class="line">		File zipFile = new File(in + &quot;.zip&quot;);</span><br><span class="line">		InputStream input = new FileInputStream(file);</span><br><span class="line">		ZipOutputStream zipOut = null;</span><br><span class="line">		zipOut = new ZipOutputStream(new FileOutputStream(zipFile));</span><br><span class="line">		zipOut.putNextEntry(new ZipEntry(file.getName()));</span><br><span class="line">		zipOut.setComment(&quot;这是一个压缩文件&quot;);</span><br><span class="line">		int temp = 0;</span><br><span class="line">		while ((temp = input.read()) != -1) &#123;</span><br><span class="line">			zipOut.write(temp);</span><br><span class="line">		&#125;</span><br><span class="line">		input.close();</span><br><span class="line">		zipOut.close();</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+        <categories>
+            
+            <category> java </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> java </tag>
+            
+            <tag> zip </tag>
+            
+            <tag> ZipInputStream </tag>
+            
+            <tag> ZipFile </tag>
             
         </tags>
         
@@ -17740,40 +17774,6 @@ diff -r 822b82191940 -r 2220de0521ca src/mail/ngx_mail_auth_http_module.c
             <tag> java </tag>
             
             <tag> 随机字符串 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[java-zip压缩单文件]]></title>
-      <url>/java-zip%E5%8E%8B%E7%BC%A9%E5%8D%95%E6%96%87%E4%BB%B6.html</url>
-      <content type="html"><![CDATA[<p>java开发中经常用到压缩文件,在JDK中自带zip 压缩相关的类</p>
-<blockquote>
-<p>ZipOutputStream<br>ZipEntry</p>
-<blockquote>
-<p>在压缩文件中，每一个压缩的内容都可以用一个ZipEntry 表示，所以在进行压缩之前必须通过putNextEntry 设置一个ZipEntry 即可。</p>
-</blockquote>
-</blockquote>
-<a id="more"></a>
-<h1 id="单文件压缩"><a href="#单文件压缩" class="headerlink" title="单文件压缩"></a>单文件压缩</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># in为原始文件的绝对路径</span><br><span class="line">public static void zip(String in) throws Exception &#123;</span><br><span class="line">		File file = new File(in);</span><br><span class="line">		File zipFile = new File(in + &quot;.zip&quot;);</span><br><span class="line">		InputStream input = new FileInputStream(file);</span><br><span class="line">		ZipOutputStream zipOut = null;</span><br><span class="line">		zipOut = new ZipOutputStream(new FileOutputStream(zipFile));</span><br><span class="line">		zipOut.putNextEntry(new ZipEntry(file.getName()));</span><br><span class="line">		zipOut.setComment(&quot;这是一个压缩文件&quot;);</span><br><span class="line">		int temp = 0;</span><br><span class="line">		while ((temp = input.read()) != -1) &#123;</span><br><span class="line">			zipOut.write(temp);</span><br><span class="line">		&#125;</span><br><span class="line">		input.close();</span><br><span class="line">		zipOut.close();</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-        <categories>
-            
-            <category> java </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> java </tag>
-            
-            <tag> zip </tag>
-            
-            <tag> ZipInputStream </tag>
-            
-            <tag> ZipFile </tag>
             
         </tags>
         
@@ -17863,6 +17863,31 @@ diff -r 822b82191940 -r 2220de0521ca src/mail/ngx_mail_auth_http_module.c
     </entry>
     
     <entry>
+      <title><![CDATA[The real difference between $host and $http_host]]></title>
+      <url>/The-real-difference-between-$host-and-$http_host.html</url>
+      <content type="html"><![CDATA[<p>Nginx中$host与$http_host的区别<br><a id="more"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">The wiki page of &quot;$host&quot; says $host and $host_addr are different only when there is no &quot;Host&quot; header or the &quot;Host&quot; header is empty. But I found when &quot;Host&quot; contains port number, $host never contains the port number while $http_host is equal to the value of &quot;Host&quot; header. </span><br><span class="line"></span><br><span class="line">That is, if &quot;Host: foo:8080&quot;, then </span><br><span class="line">$http_host = foo:8080 </span><br><span class="line">$host = foo </span><br><span class="line"></span><br><span class="line">$http_host是request里的host header </span><br><span class="line">$host是server&#123;&#125;里的server_name里的第一个</span><br><span class="line"></span><br><span class="line">&quot;192.168.160.1&quot; http_host:&quot;192.168.160.159:808&quot; host:&quot;192.168.160.159&quot; &quot;[08/Apr/2016:15:37:06 +0800]&quot; &quot;GET / HTTP/1.1&quot; &quot;304&quot; &quot;0&quot; &quot;171&quot; &quot;-&quot; &quot;-&quot; &quot;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36&quot; &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;0.000&quot;</span><br></pre></td></tr></table></figure>]]></content>
+      
+        <categories>
+            
+            <category> nginx </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> nginx </tag>
+            
+            <tag> host </tag>
+            
+            <tag> http_host </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[centos7-rc-local不起作用修复]]></title>
       <url>/centos7-rc-local%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E4%BF%AE%E5%A4%8D.html</url>
       <content type="html"><![CDATA[<p>在centos7版本以下的系统中, 尝尝用rc.local 自动启动一些软件. 但是在centos7 中 默认rc.local 是不起作用的, centos7 中把 SysV 替换成  system 。centos7保留了rc.local ,只需要简单的设置就可以开启.</p>
@@ -17886,31 +17911,6 @@ diff -r 822b82191940 -r 2220de0521ca src/mail/ngx_mail_auth_http_module.c
             <tag> centos7 </tag>
             
             <tag> rc.local </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[The real difference between $host and $http_host]]></title>
-      <url>/The-real-difference-between-$host-and-$http_host.html</url>
-      <content type="html"><![CDATA[<p>Nginx中$host与$http_host的区别<br><a id="more"></a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">The wiki page of &quot;$host&quot; says $host and $host_addr are different only when there is no &quot;Host&quot; header or the &quot;Host&quot; header is empty. But I found when &quot;Host&quot; contains port number, $host never contains the port number while $http_host is equal to the value of &quot;Host&quot; header. </span><br><span class="line"></span><br><span class="line">That is, if &quot;Host: foo:8080&quot;, then </span><br><span class="line">$http_host = foo:8080 </span><br><span class="line">$host = foo </span><br><span class="line"></span><br><span class="line">$http_host是request里的host header </span><br><span class="line">$host是server&#123;&#125;里的server_name里的第一个</span><br><span class="line"></span><br><span class="line">&quot;192.168.160.1&quot; http_host:&quot;192.168.160.159:808&quot; host:&quot;192.168.160.159&quot; &quot;[08/Apr/2016:15:37:06 +0800]&quot; &quot;GET / HTTP/1.1&quot; &quot;304&quot; &quot;0&quot; &quot;171&quot; &quot;-&quot; &quot;-&quot; &quot;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36&quot; &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;0.000&quot;</span><br></pre></td></tr></table></figure>]]></content>
-      
-        <categories>
-            
-            <category> nginx </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> nginx </tag>
-            
-            <tag> host </tag>
-            
-            <tag> http_host </tag>
             
         </tags>
         

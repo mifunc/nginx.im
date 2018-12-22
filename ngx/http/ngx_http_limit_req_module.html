@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="http,ngx_http_limit_req_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T08:31:23.571Z">
+<meta property="og:updated_time" content="2018-12-22T02:27:05.168Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http&#x2F;ngx_http_limit_req_module-nginx中文手册">
 <meta name="twitter:description" content="http,ngx_http_limit_req_module">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:31:57+08:00">
-                2018年12月21日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T10:27:47+08:00">
+                2018年12月22日
               </time>
             
 
@@ -406,7 +406,7 @@
 
 
 
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**limit_req**     &lt;code class=&quot;notranslate&quot;&gt;zone</code> = <code>*name*</code>    [ <code>burst</code> = <code>*number*</code> ]    [ <code>nodelay</code> |     <code>delay</code> = <code>*number*</code> ];<br>                </td></p>
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**limit_req** zone</code> = <code>*name*</code>    [ <code>burst</code> = <code>*number*</code> ]    [ <code>nodelay</code> |     <code>delay</code> = <code>*number*</code> ];<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  设置共享内存区域和请求的最大突发大小。  如果请求速率超过为区域配置的速率，则延迟其处理，以便以定义的速率处理请求。  过多的请求被延迟，直到它们的数量超过最大突发大小，在这种情况下请求以<a href="#limit_req_status">错误</a>终止。  默认情况下，最大突发大小等于零。  例如，指令 </p>

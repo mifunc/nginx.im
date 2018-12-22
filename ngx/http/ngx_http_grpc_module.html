@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="http,ngx_http_grpc_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T08:31:23.247Z">
+<meta property="og:updated_time" content="2018-12-22T02:27:04.879Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http&#x2F;ngx_http_grpc_module-nginx中文手册">
 <meta name="twitter:description" content="http,ngx_http_grpc_module">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:31:57+08:00">
-                2018年12月21日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T10:27:47+08:00">
+                2018年12月22日
               </time>
             
 
@@ -434,7 +434,7 @@
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">grpc_intercept_errors off;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  确定代码大于或等于300的gRPC服务器响应是应该传递给客户端还是被拦截并重定向到nginx以便使用<a href="ngx_http_core_module.html#error_page">error_page</a>指令进行处理。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**grpc_next_upstream**     &lt;code class=&quot;notranslate&quot;&gt;error</code> |    <code>timeout</code> |    <code>invalid_header</code> |    <code>http_500</code> |    <code>http_502</code> |    <code>http_503</code> |    <code>http_504</code> |    <code>http_403</code> |    <code>http_404</code> |    <code>http_429</code> |    <code>non_idempotent</code> |    <code>off</code>    …;<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**grpc_next_upstream** error</code> |    <code>timeout</code> |    <code>invalid_header</code> |    <code>http_500</code> |    <code>http_502</code> |    <code>http_503</code> |    <code>http_504</code> |    <code>http_403</code> |    <code>http_404</code> |    <code>http_429</code> |    <code>non_idempotent</code> |    <code>off</code>    …;<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">grpc_next_upstream error timeout;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  指定应将请求传递到下一个服务器的情况： </p>
@@ -524,7 +524,7 @@
 <p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  指定具有密钥密码的<code>*file*</code> ，其中每个密码在单独的行上指定。  在加载密钥时依次尝试密码短语。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**grpc_ssl_protocols**     [ &lt;code class=&quot;notranslate&quot;&gt;SSLv2</code> ]    [ <code>SSLv3</code> ]    [ <code>TLSv1</code> ]    [ <code>TLSv1.1</code> ]    [ <code>TLSv1.2</code> ]    [ <code>TLSv1.3</code> ];<br>                </td></p>
+<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**grpc_ssl_protocols** [ SSLv2</code> ]    [ <code>SSLv3</code> ]    [ <code>TLSv1</code> ]    [ <code>TLSv1.1</code> ]    [ <code>TLSv1.2</code> ]    [ <code>TLSv1.3</code> ];<br>                </td></p>
 <p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">grpc_ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</pre>                </td></p>
 <p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
 <p>  为gRPC SSL服务器的请求启用指定的协议。 </p>
