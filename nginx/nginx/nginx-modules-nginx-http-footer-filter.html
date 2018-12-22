@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="nginx," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="nginx,nginx-modules-nginx-http-footer-filter,">
+<meta name="keywords" content="nginx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nginx模块nginx-http-footer-filter研究使用-nginx案例">
+<meta property="og:url" content="http://nginx.im/nginx/nginx/nginx-modules-nginx-http-footer-filter.html">
+<meta property="og:site_name" content="IM.NGINX">
+<meta property="og:description" content="nginx,nginx-modules-nginx-http-footer-filter,">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-22T10:07:19.631Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="nginx模块nginx-http-footer-filter研究使用-nginx案例">
+<meta name="twitter:description" content="nginx,nginx-modules-nginx-http-footer-filter,">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://nginx.im/nginx/nginx/nginx-modules-nginx-http-footer-filter.html"/>
+
+
+
+
+
+  <title>nginx模块nginx-http-footer-filter研究使用-nginx案例 | IM.NGINX</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8ff19561e3a0e2a31ba9fffe98d8fc00";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">IM.NGINX</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">运维实践</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nginx.im/nginx/nginx/nginx-modules-nginx-http-footer-filter.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="IM.NGINX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IM.NGINX">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">nginx模块nginx-http-footer-filter研究使用-nginx案例</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T18:07:18+08:00">
+                2018年12月22日
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx案例/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx案例</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>nginx,nginx-modules-nginx-http-footer-filter,<br><a id="more"></a><br>
+  <div><!--<a href="/go/jjim" rel="external nofollow" target="_blank"><img src="/wp-content/uploads/2017/12/jujin_im.jpg" alt="又拍云upyun" /></a>-->
+ 
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-0956732394986573" data-ad-slot="2895550264"></ins>
+ 
+</div>
+	
+				</p><p>nginx-http-footer-filter想必大家都觉得很陌生,那我们就来认识一下它吧,这是淘宝开发的nginx模块. 它用于nginx在响应请求文件底部追加内容. 今天抽空研究下这个插件，希望对大家有所帮助。为什么发现了这个插件，因为这几天公司需要在所有shtml文件后面追加一个js代码用来做统计（之前统计代码没加齐全），在寻求解决方法的过程中找到了它认识了它最后喜欢上了它，你可能以为我用这个插件去实现了我要的功能，其实在认识他之前我用shell脚本替换齐全了. 不过我还是决定研究测试一下nginx-http-footer-filter，或许以后的需求上能有帮助,更或许能帮上其他需要帮助的人.进入正题吧.</p>
+<p><strong>1. nginx-http-footer-filter到底是做什么的？</strong><br>
+说白了，就是在请求的页面底部插入你要插入的代码。</p>
+<p><strong>2. 我们能用nginx-http-footer-filter来做什么？</strong><br>
+1、统一追加js代码用于统计(我是这么想的)<br>
+2、底部追加响应这个请求的realsver（后端真实服务器）信息,便于系统管理员排查故障.<br>
+3、你管理着数量庞大的虚拟主机，在所有web后面追加你的广告代码，黑链什么的（很无耻）<br>
+4、举一反三吧,自己想想能用来做什么吧.</p>
+<p>淘宝用它来做什么？</p>
+<p>打开淘宝首页，查看他源代码，拖到最下面,内容如下：</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre><!--city: fuzhou-->
+<!--province: unknown-->
+<!--hostname: -->
+<!--hostname: home1.cn199--></pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+<p>我们可以很清晰的看到，这边有省和地区还有主机名,也就是淘宝真实服务器的主机名,处理我这个请求的主机名为home1.cn199, city取到了fuzhou,provinece省份没取到，估计是它Geo的问题<br>
+或者随便打开一个商品页面, 查看源代码,如下：</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre></pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0164 seconds] -->
+<p>可以看到他这边给这页面追加了一个js代码,淘宝开发这个模块的用意想必大家都明白了，集思广益，或许大家还有更好的用处.<br>
+<strong>3. 怎么安nginx-http-footer-filter</strong></p>
+<p>3.1 下载地址：</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre>https://github.com/alibaba/nginx-http-footer-filter/tree/1.2.2</pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p>3.2 安装nginx-footer模块<br>
+之前已经安装过nginx，所以我选择覆盖nginx文件。</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre># cd /usr/local/src/
+# wget https://codeload.github.com/alibaba/nginx-http-footer-filter/zip/1.2.2
+# unzip 1.2.2
+
+# http://nginx.org/download/nginx-1.4.1.tar.gz
+# tar -xzvf nginx-1.4.1.tar.gz
+# cd nginx-1.4.1
+# ./configure --prefix=/usr/local/nginx-1.4.1 \
+--with-http_stub_status_module --with-http_realip_module \
+--add-module=../nginx-http-footer-filter-1.2.2
+# make
+# mv /usr/local/nginx-1.4.1/sbin/nginx /usr/local/nginx-1.4.1/sbin/old_nginx
+# mv objs/nginx /usr/local/nginx-1.4.1/sbin/
+# /usr/local/nginx-1.4.1/sbin/nginx -s stop
+# /usr/local/nginx-1.4.1/sbin/nginx</pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0004 seconds] -->
+<p>3.3 验证模块是否安装成功</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre># /usr/local/nginx-1.4.1/sbin/nginx -V
+nginx version: nginx/1.4.1
+built by gcc 4.4.7 20120313 (Red Hat 4.4.7-3) (GCC)
+TLS SNI support enabled
+configure arguments: --prefix=/usr/local/nginx-1.4.1 
+--with-http_stub_status_module 
+--with-http_realip_module  
+--add-module=../nginx-http-footer-filter-1.2.2</pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0006 seconds] -->
+<p><strong>4. 怎么使用nginx-http-footer-filter模块</strong></p>
+<p>4.1 配置location<br>
+在location中使用footer "你的内容" 即可.看如下配置</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre>server {
+        listen       173.255.219.122:80;
+        server_name  test.ttlsa.com;
+        access_log  /data/logs/nginx/test.ttlsa.com.access.log  main;
+
+        index index.html index.<a href="http://www.ttlsa.com/php/" title="php" target="_blank">php</a> index.html;
+        root /data/site/test.ttlsa.com;
+        location / {
+           footer "<!-- $date_gmt -->";
+           index index.html;
+        }
+
+        location =/html/2252.css {
+           footer_types text/css;
+           footer "/* host: $server_name - $date_local */";
+}</pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0008 seconds] -->
+<p>4.2 测试nginx-footer效果</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre># cat 2252.shtml
+<html>
+    <head>
+    <title>test</title>
+    </head>
+    <body>
+        this is webpage
+    </body>
+</html></pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+<p>访问站点test.ttlsa.com/html/2252.shtml</p>
+<div><p>nginx追加底部代码</p></div>
+<p>如图，我们可以看到文件最底部加上了&lt;!-- 1376063369 --&gt;,怎么变成了时间撮了,因为我这边是ssi的语法，如果你不知道什么是ssi，那么请参考文章什么是ssi.</p>
+<p>[warning]他仅仅是在文件的最后一行追加,而不是&lt;body&gt;里面.这点大家要注意了.[/warning]</p>
+<p>4.3 再来测试一下css文件</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre># cat 2242.css
+# this is css file</pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p>如下是访问结果：<br>
+# this is css file<br>
+/* host: test.ttlsa.com - 1376064324 */</p>
+<p>看图：</p>
+<div><p>nginx footer追加底部代码css</p></div>
+<p><strong>5. 我能写多个footer指令吗？</strong><br>
+不行，以下我写了两个footer</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre>location / {
+    footer "12312321321";
+    footer "<!-- $date_gmt -->";
+    index index.html;
+}</pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p>如下测试，提示footer指令重复了</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre># /usr/local/nginx-1.4.1/sbin/nginx -t
+nginx: [emerg] "footer" directive is duplicate in /usr/local/nginx-1.4.1/conf/vhost/test.ttlsa.com.conf:13
+nginx: configuration file /usr/local/nginx-1.4.1/conf/nginx.conf test failed</pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0005 seconds] -->
+<p><strong>6. 只能用ssi变量吗？</strong><br>
+当然不是,随便你写，可以是ssi指令，也可以是nginx变量，也可以是任何无意义的字符串<br>
+如下：<br>
+footer "12312321321";<br>
+footer "&lt;!--12312321321--&gt;";<br>
+footer "&lt;!--$remote_addr--&gt;";</p>
+<p>比如我想知道这个页面是哪台web服务器处理的,那么我在底部插入主机名即可.这样，有500错误，我便可以马上定位到具体的服务器了</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre>footer "<!--$hostname-->";</pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p>返回结果如下：</p>
+<div><p>nginx footer 追加底部代码nginx变量hostname</p></div>
+<p><strong>7. 服务器返回500,404,403等错误, 是否还会追加内容到底部</strong></p>
+<p>会,如果不追加,就无法通过返回的页面得知哪台web出现故障,这明显就不符合作者的初衷了</p>
+<p>配置如下：</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre>location / {
+    return 500;
+    footer "<!--$hostname-->";
+}</pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p>结果如下：</p>
+<div><p>nginx footer追加底部代码500错误</p></div>
+<p><strong>8. 模块指令说明：</strong><br>
+footer模块非常简单，就只有两个指令，具体说明如下<br>
+footer字符串<br>
+默认值: <code></code><br>
+配置段: http, server, location<br>
+这个定义了将什么内容追加到文件内容的底部</p>
+<p>footer_types MIME类型<br>
+默认值: footer_types: text/html<br>
+配置段: http, server, location<br>
+定义被追加底部文件的MIME返回类型,默认值是text/html</p>
+<div><span></span></div>			
+<p></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作(*锐)！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weixin.png" alt="IM.NGINX 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="IM.NGINX 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    IM.NGINX
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://nginx.im/nginx/nginx/nginx-modules-nginx-http-footer-filter.html" title="nginx模块nginx-http-footer-filter研究使用-nginx案例">http://nginx.im/nginx/nginx/nginx-modules-nginx-http-footer-filter.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/nginx/" rel="tag"># nginx</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/nginx/nginx/nginx-modules-image_filter_module.html" rel="next" title="nginx生成缩略图配置-nginx案例">
+                <i class="fa fa-chevron-left"></i> nginx生成缩略图配置-nginx案例
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/nginx/nginx/nginx-modules-nginx-sticky-module.html" rel="prev" title="使用nginx sticky实现基于cookie的负载均衡-nginx案例">
+                使用nginx sticky实现基于cookie的负载均衡-nginx案例 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTg1NS84NDE5"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="IM.NGINX" />
+            
+              <p class="site-author-name" itemprop="name">IM.NGINX</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">236</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">IM.NGINX</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+		
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

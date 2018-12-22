@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="nginx," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="nginx,memc_nginx_srcache_nginx_memcached-to-construct-transparent-caching-dynamic-pages,">
+<meta name="keywords" content="nginx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="memc_nginx+srcache_nginx+memcached构建透明的动态页面缓存-nginx案例">
+<meta property="og:url" content="http://nginx.im/nginx/nginx/memc_nginx_srcache_nginx_memcached-to-construct-transparent-caching-dynamic-pages.html">
+<meta property="og:site_name" content="IM.NGINX">
+<meta property="og:description" content="nginx,memc_nginx_srcache_nginx_memcached-to-construct-transparent-caching-dynamic-pages,">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-22T10:07:19.562Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="memc_nginx+srcache_nginx+memcached构建透明的动态页面缓存-nginx案例">
+<meta name="twitter:description" content="nginx,memc_nginx_srcache_nginx_memcached-to-construct-transparent-caching-dynamic-pages,">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://nginx.im/nginx/nginx/memc_nginx_srcache_nginx_memcached-to-construct-transparent-caching-dynamic-pages.html"/>
+
+
+
+
+
+  <title>memc_nginx+srcache_nginx+memcached构建透明的动态页面缓存-nginx案例 | IM.NGINX</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8ff19561e3a0e2a31ba9fffe98d8fc00";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">IM.NGINX</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">运维实践</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nginx.im/nginx/nginx/memc_nginx_srcache_nginx_memcached-to-construct-transparent-caching-dynamic-pages.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="IM.NGINX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IM.NGINX">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">memc_nginx+srcache_nginx+memcached构建透明的动态页面缓存-nginx案例</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T18:07:18+08:00">
+                2018年12月22日
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx案例/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx案例</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>nginx,memc_nginx_srcache_nginx_memcached-to-construct-transparent-caching-dynamic-pages,<br><a id="more"></a><br>
+  <div><!--<a href="/go/jjim" rel="external nofollow" target="_blank"><img src="/wp-content/uploads/2017/12/jujin_im.jpg" alt="又拍云upyun" /></a>-->
+ 
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-0956732394986573" data-ad-slot="2895550264"></ins>
+ 
+</div>
+	
+				</p><p>在上一节《nginx+memcached构建页面缓存应用》http://www.ttlsa.com/html/2418.html中，说道nginx只负责从memcached服务器中读取数据，要往memcached写入数据还得需要后台的应用程序来完成。使用memc-nginx和srcache-nginx模块就可以主动的向memcached添加缓存，对应用程序来说是透明的。大大的提高动态页面访问速度。第一次访问创建缓存，后续访问在缓存过期时间内，直接从memcached返回，不需要再次经过php-fpm处理。</p>
+<p>nginx_memc模块与nginx_srcache模块配合使用，来提供缓存服务器后端的操作，在技术上，任何提供REST接口的模块都可以与nginx_srcache配合使用来获取和存储缓存子请求。</p>
+<p>使用memcached作为后端缓存，需要注意memcached存储大小的限制，不得超过1M。为了使用更宽松的后端存储服务，建议使用redis等，参见《srcache_nginx+redis构建缓存系统》。</p>
+<p>1. memc-nginx-module模块指令说明：<br>
+memc_pass<br>
+语法：memc_pass address:port or socket；<br>
+默认值：none<br>
+配置段：http, server, location, if<br>
+指定memcached服务器地址。</p>
+<p>memc_cmds_allowed<br>
+语法：memc_cmds_allowed &lt;cmd&gt;...<br>
+默认值： none<br>
+配置段：http, server, location, if<br>
+列出允许访问的memcached命令。默认情况下，所有的memcached命令都可以访问。</p>
+<p>memc_flags_to_last_modified<br>
+语法：memc_flags_to_last_modified on|off<br>
+默认值：off<br>
+配置段：http, server, location, if<br>
+读取memcached标识，并将其设置为Last-Modified头部值。对于有条件的get，nginx返回304未修改响应，以便节省带宽。</p>
+<p>memc_connect_timeout<br>
+语法：memc_connect_timeout &lt;time&gt;<br>
+默认值：60s<br>
+配置段: http, server, location<br>
+与memcached服务器建立连接的超时时间。不得超过597 hours。</p>
+<p>memc_send_timeout<br>
+语法：memc_send_timeout &lt;time&gt;<br>
+默认值：60s<br>
+配置段：http, server, location<br>
+设置发送请求到memcached服务器的超时时间。不得超过597 hours。</p>
+<p>memc_read_timeout<br>
+语法：memc_read_timeout &lt;time&gt;<br>
+默认值：60s<br>
+配置段：http, server, location<br>
+定义从memcached服务器读取响应超时时间。不得超过597 hours。</p>
+<p>memc_buffer_size<br>
+语法：memc_buffer_size &lt;size&gt;<br>
+默认值：4k/8k<br>
+配置段：http, server, location<br>
+读取从memcached服务器接收到响应的缓冲大小。</p>
+<p>2. memcached支持的命令<br>
+memcached存储命令set、add、replace、prepend、append，以$memc_key作为键。$memc_exptime定义过期时间，默认值为0。$memc_flags作为标识，默认值为0，来建立相应的memcached查询。<br>
+如果$memc_value没有定义，那么请求的请求体将作为该值，除了incr和decr命令外。注意：如果$memc_value定义为空的字符串，那么该空字符串仍然被当做该值。<br>
+2.1 get $memc_key<br>
+使用键来检索值。</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre>location /foo {
+set $memc_cmd 'get';
+set $memc_key 'my_key';
+memc_pass 127.0.0.1:11211;
+add_header X-Memc-Flags $memc_flags;
+}</pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0004 seconds] -->
+<p>如果该键被找到，响应体为该键值，返回200。否则范围404 Not Found。如果发生错误或客户端错误或服务端错误，则返回502。标识码设置到$memc_flags变量。通常使用add_header指令来添加到响应头部。</p>
+<p>2.2 set $memc_key $memc_flags $memc_exptime $memc_value<br>
+将请求体作为memcached值。如果另外指定值可以通过$memc_value变量来指定。</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre>location /foo {
+    set $memc_cmd 'set';
+    set $memc_key 'my_key';
+    set $memc_flags 12345;
+    set $memc_exptime 24;
+    memc_pass 127.0.0.1:11211;
+}</pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0005 seconds] -->
+<p>或</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre>location /foo {
+    set $memc_cmd 'set';
+    set $memc_key 'my_key';
+    set $memc_flags 12345;
+    set $memc_exptime 24;
+    set $memc_value 'my_value';
+    memc_pass 127.0.0.1:11211;
+}</pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0005 seconds] -->
+<p>返回201，说明创建memcached缓存存储成功。返回200说明NOT_STORED。返回404说明NOT_FOUND。返回502说明发生错误或客户端错误或服务端错误。<br>
+memcached原始响应是响应体，404 NOT FOUND除外。</p>
+<p>2.3 add $memc_key $memc_flags $memc_exptime $memc_value<br>
+和set命令相似</p>
+<p>2.4 prepend $memc_key $memc_flags $memc_exptime $memc_value<br>
+和set命令相似</p>
+<p>2.5 delete $memc_key<br>
+删除该键值</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre>location /foo
+set $memc_cmd delete;
+set $memc_key my_key;
+
+memc_pass 127.0.0.1:11211;
+}</pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p>返回200说明删除成功。返回404说明NOT_FOUND。返回502说明发生错误或客户端错误或服务端错误。</p>
+<p>2.6 delete $memc_key $memc_exptime<br>
+和delete命令相似。</p>
+<p>2.7 incr $memc_key $memc_value<br>
+给指定的$memc_key对应的$memc_value增量。</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre>location /foo {
+set $memc_key my_key;
+set $memc_value 2;
+memc_pass 127.0.0.1:11211;
+}</pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+<p>每次访问/foo将导致my_key的值加2。<br>
+返回200说明成功。返回404说明键Not Found。返回502说明发生错误或客户端错误或服务端错误。</p>
+<p>2.8 decr $memc_key $memc_value<br>
+与incr相似。</p>
+<p>2.9 flush_all<br>
+刷新memcached上所有的键。</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre>location /foo {
+set $memc_cmd flush_all;
+memc_pass 127.0.0.1:11211;
+}</pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p>2.10 flush_all $memc_exptime<br>
+与flush_all相似。</p>
+<p>2.11 stats<br>
+输出memcached统计信息。</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre>location /foo {
+set $memc_cmd stats;
+memc_pass 127.0.0.1:11211;
+}</pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p>2.12 version<br>
+返回memcached版本信息。</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre>location /foo {
+set $memc_cmd version;
+memc_pass 127.0.0.1:11211;
+}</pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p>3. srcache-nginx-module模块指令说明：<br>
+srcache_fetch<br>
+语法：srcache_fetch &lt;method&gt; &lt;uri&gt; &lt;args&gt;?<br>
+默认值：no<br>
+配置段：http, server, location, location if<br>
+查询缓存。返回200说明缓存命中，直接从缓存响应客户端请求。非200需要后端程序处理。</p>
+<p>srcache_fetch_skip<br>
+语法：srcache_fetch_skip &lt;flag&gt;<br>
+默认值：srcache_fetch_skip 0<br>
+配置段：http, server, location, location if<br>
+&lt;flag&gt;支持nginx变量。当这个参数值不为空和不等于0，则从缓存取数据过程被无条件跳过。</p>
+<p>srcache_store<br>
+语法：srcache_store &lt;method&gt; &lt;uri&gt; &lt;args&gt;?<br>
+默认值：no<br>
+配置段：http, server, location, location if<br>
+将当前请求的响应存入缓存。可以使用srcache_store_skip和srcache_store_max_size指令禁用缓存。不管是响应状态行，响应头，响应体都会被缓存。默认情况下，下列特殊响应头不会被缓存：<br>
+Connection<br>
+Keep-Alive<br>
+Proxy-Authenticate<br>
+Proxy-Authorization<br>
+TE<br>
+Trailers<br>
+Transfer-Encoding<br>
+Upgrade<br>
+Set-Cookie<br>
+可以使用srcache_store_pass_header、srcache_store_hide_header指令来控制哪些头要缓存哪些不要。<br>
+注意：即使所有的响应数据被立即发送，当前的nginx请求生命周期未必完成，直到srcache_store子请求完成。这意味着服务器端延迟关闭TCP连接，或下一个请求服务发送同一个TCP连接。</p>
+<p>srcache_store_max_size<br>
+语法：srcache_store_max_size &lt;size&gt;<br>
+默认值：srcache_store_max_size 0<br>
+配置段：http, server, location, location if<br>
+当响应体超过该值，将不会缓存。<br>
+当后端缓存存储有对缓存数据做硬限制，这个指令非常有用。比如memcached服务器，上限是1M。<br>
+默认值0，不限制。</p>
+<p>srcache_store_skip<br>
+语法：srcache_store_skip &lt;flag&gt;<br>
+默认值：srcache_store_skip 0<br>
+配置段：http, server, location, location if<br>
+&lt;flag&gt;支持nginx变量。当这个参数值不为空和不等于0，则从存入缓存过程被无条件跳过。</p>
+<p>srcache_store_statuses<br>
+语法：srcache_store_statuses &lt;status1&gt; &lt;status2&gt; ..<br>
+默认值：srcache_store_statuses 200 301 302<br>
+配置段：http, server, location, location if<br>
+该指令控制那些状态码响应被缓存。</p>
+<p>srcache_header_buffer_size<br>
+语法：srcache_header_buffer_size &lt;size&gt;<br>
+默认值：srcache_header_buffer_size 4k/8k<br>
+配置段：http, server, location, location if<br>
+在序列化响应头时控制头缓冲大小。默认大小为页面大小，通常为4k或8k，取决于具体平台。<br>
+注意：该大小是以每个头的，因此，需要足够大来容纳最大响应头。</p>
+<p>srcache_store_hide_header<br>
+语法：srcache_store_hide_header &lt;header&gt;<br>
+默认值：no<br>
+配置段：http, server, location, location if<br>
+默认情况下，除了以下头缓存所有响应头：<br>
+Connection<br>
+Keep-Alive<br>
+Proxy-Authenticate<br>
+Proxy-Authorization<br>
+TE<br>
+Trailers<br>
+Transfer-Encoding<br>
+Upgrade<br>
+Set-Cookie<br>
+可以隐藏多个响应头，不区分大小写。如<br>
+srcache_store_hide_header X-Foo;<br>
+srcache_store_hide_header Last-Modified;</p>
+<p>srcache_store_pass_header<br>
+语法：srcache_store_pass_header &lt;header&gt;<br>
+默认值：no<br>
+配置段：http, server, location, location if<br>
+默认情况下，除了以下头缓存所有响应头：<br>
+Connection<br>
+Keep-Alive<br>
+Proxy-Authenticate<br>
+Proxy-Authorization<br>
+TE<br>
+Trailers<br>
+Transfer-Encoding<br>
+Upgrade<br>
+Set-Cookie<br>
+可以缓存多个响应头，不区分大小写。如<br>
+srcache_store_pass_header Set-Cookie;<br>
+srcache_store_pass_header Proxy-Autenticate;</p>
+<p>srcache_methods<br>
+语法：srcache_methods &lt;method&gt;...<br>
+默认值：srcache_methods GET HEAD<br>
+配置段：http, server, location</p>
+<p>srcache_ignore_content_encoding<br>
+语法：srcache_ignore_content_encoding on|off<br>
+默认值: srcache_ignore_content_encoding off<br>
+配置段：http, server, location, location if<br>
+内容是否编码。<br>
+建议后端服务器禁用gzip/deflate压缩。在nginx.conf配置：</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre>proxy_set_header Accept-Encoding "";</pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p>srcache_request_cache_control<br>
+语法：srcache_request_cache_control on|off<br>
+默认值：srcache_request_cache_control off<br>
+配置段：http, server, location<br>
+当该指令为on时，请求头Cache-Control和Pragma按照下面的方法处理：<br>
+1. srcache_fetch查询缓存操作时，当请求头Cache-Control: no-cache 、 Pragma: no-cache 将跳过。<br>
+2. srcache_store存入缓存操作时，当请求头Cache-Control: no-store将跳过。<br>
+当该指令为off时，将禁用此功能，对于繁忙的站点依赖缓存加速被认为是最安全的。</p>
+<p>srcache_response_cache_control<br>
+语法：srcache_response_cache_control on|off<br>
+默认值：srcache_response_cache_control on<br>
+配置段：http, server, location<br>
+当该指令为on时，响应头Cache-Control和Expires按照下面的方法处理：<br>
+Cache-Control: private skips srcache_store,<br>
+Cache-Control: no-store skips srcache_store,<br>
+Cache-Control: no-cache skips srcache_store,<br>
+Cache-Control: max-age=0 skips srcache_store,<br>
+Expires: &lt;date-no-more-recently-than-now&gt; skips srcache_store.<br>
+该指令优先级比srcache_store_no_store，srcache_store_no_cache，srcache_store_private高。</p>
+<p>srcache_store_no_store<br>
+语法：srcache_store_no_store on|off<br>
+默认值：srcache_store_no_store off<br>
+配置段：http, server, location<br>
+开启该指令，将强制响应头Cache-Control: no-store。默认为关闭。</p>
+<p>srcache_store_no_cache<br>
+语法：srcache_store_no_cache on|off<br>
+默认值：srcache_store_no_cache off<br>
+配置段：http, server, location<br>
+开启该指令，将强制响应头Cache-Control: no-cache。默认为关闭。</p>
+<p>srcache_store_private<br>
+语法：srcache_store_private on|off<br>
+默认值：srcache_store_private off<br>
+配置段：http, server, location<br>
+开启该指令，将强制响应头Cache-Control: private。默认为关闭。</p>
+<p>srcache_default_expire<br>
+语法：srcache_default_expire &lt;time&gt;<br>
+默认值：srcache_default_expire 60s<br>
+配置段：http, server, location, location if<br>
+控制默认过期时间。当响应头既没有Cache-Control: max-age=N也没有指定Expires时，允许的$srcache_expire变量值。<br>
+该值必须小于597hours。</p>
+<p>srcache_max_expire<br>
+语法：srcache_max_expire &lt;time&gt;<br>
+默认值：srcache_max_expire 0<br>
+配置段：http, server, location, location if<br>
+控制最大缓存时间，此设置优先级高于其他计算方法。<br>
+该值必须小于597hours。<br>
+默认为0，不限制。</p>
+<p>4. srcache-nginx-module变量<br>
+$srcache_expire<br>
+当前的响应存入缓存的过期时间。按照下面的方法计算：<br>
+1. 当响应头Cache-Control: max-age=N被指定，那么N将作为过期时间。<br>
+2. 如果响应头Expires被指定，那么该值与当前时间差作为过期时间。<br>
+3. 当既没有指定Cache-Control: max-age=N也没有指定Expires，那么使用 srcache_default_expire 指定的值。<br>
+如果超过srcache_max_expire指令值，那么此变量最终值为srcache_max_expire。</p>
+<p>$srcache_fetch_status<br>
+获取缓存的三种状态值：HIT, MISS, BYPASS。</p>
+<p>$srcache_store_status<br>
+存入缓存的两种状态值：STORE ，BYPASS。</p>
+<p>5. 安装nginx_memc和nginx_srcache模块</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre># wget https://github.com/agentzh/memc-nginx-module/archive/master.zip
+# wget https://github.com/agentzh/srcache-nginx-module/archive/master.zip
+# ./configure --prefix=/usr/local/nginx-1.2.5 \
+--add-module=../srcache-nginx-module
+--add-module=../memc-nginx-module
+# make
+# make install</pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+<p>6. 配置</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre>upstream memcacheds {
+        server 10.1.240.166:22222;
+}
+server  {
+        listen       8090;
+        server_name  test.ttlsa.com;
+        index index.html index.htm index.php;
+        root  /data/wwwroot/www.ttlsa.com/webroot;
+
+        location /memc {
+                internal;
+                memc_connect_timeout 100ms;
+                memc_send_timeout 100ms;
+                memc_read_timeout 100ms;
+                set $memc_key $query_string;
+                set $memc_exptime 120;
+                memc_pass memcacheds;
+                }
+
+        location ~ .*\.php?$
+        {
+                if ($uri ~ /ttlsa/){
+                        set $ttlsa_key $request_uri;
+                        srcache_fetch GET /memc $ttlsa_key;
+                        srcache_store PUT /memc $ttlsa_key;
+                        add_header X-Cached-From $srcache_fetch_status;
+                        add_header X-Cached-Store $srcache_store_status;
+                }
+                include fastcgi_params;
+                fastcgi_pass  127.0.0.1:10081;
+                fastcgi_index index.php;
+                fastcgi_connect_timeout 60;
+                fastcgi_send_timeout 180;
+                fastcgi_read_timeout 180;
+                fastcgi_buffer_size 128k;
+                fastcgi_buffers 4 256k;
+                fastcgi_busy_buffers_size 256k;
+                fastcgi_temp_file_write_size 256k;
+                fastcgi_intercept_errors on;
+                fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+        }
+}</pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0020 seconds] -->
+<p>7. 测试<br>
+7.1 第一次访问（404 Not found 创建缓存）</p>
+<p></p>
+<p>7.2 后续访问（直接从缓存中响应）</p>
+<p></p>
+<p>第一次访问创建缓存，后续访问在缓存过期时间内，直接从memcached返回，不需要再次经过php-fpm处理。大大提升动态页面访问速度。</p>
+<p>《memc_nginx+srcache_nginx+memcached遇到的问题》<br>
+如需转载请注明出处：http://www.ttlsa.com/html/2460.html</p>
+<div><span></span></div>			
+<p></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作(*锐)！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weixin.png" alt="IM.NGINX 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="IM.NGINX 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    IM.NGINX
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://nginx.im/nginx/nginx/memc_nginx_srcache_nginx_memcached-to-construct-transparent-caching-dynamic-pages.html" title="memc_nginx+srcache_nginx+memcached构建透明的动态页面缓存-nginx案例">http://nginx.im/nginx/nginx/memc_nginx_srcache_nginx_memcached-to-construct-transparent-caching-dynamic-pages.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/nginx/" rel="tag"># nginx</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/nginx/nginx/local-nginx-cache-module-ngx_slowfs_cache.html" rel="next" title="nginx本地缓存模块ngx_slowfs_cache-nginx案例">
+                <i class="fa fa-chevron-left"></i> nginx本地缓存模块ngx_slowfs_cache-nginx案例
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/nginx/nginx/nginx-and-lua.html" rel="prev" title="Nginx 与 Lua-nginx案例">
+                Nginx 与 Lua-nginx案例 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTg1NS84NDE5"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="IM.NGINX" />
+            
+              <p class="site-author-name" itemprop="name">IM.NGINX</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">236</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">IM.NGINX</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+		
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

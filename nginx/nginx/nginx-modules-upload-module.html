@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="nginx," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="nginx,nginx-modules-upload-module,">
+<meta name="keywords" content="nginx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nginx上传模块—nginx upload module-nginx案例">
+<meta property="og:url" content="http://nginx.im/nginx/nginx/nginx-modules-upload-module.html">
+<meta property="og:site_name" content="IM.NGINX">
+<meta property="og:description" content="nginx,nginx-modules-upload-module,">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-22T10:07:20.368Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="nginx上传模块—nginx upload module-nginx案例">
+<meta name="twitter:description" content="nginx,nginx-modules-upload-module,">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://nginx.im/nginx/nginx/nginx-modules-upload-module.html"/>
+
+
+
+
+
+  <title>nginx上传模块—nginx upload module-nginx案例 | IM.NGINX</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8ff19561e3a0e2a31ba9fffe98d8fc00";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">IM.NGINX</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">运维实践</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nginx.im/nginx/nginx/nginx-modules-upload-module.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="IM.NGINX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IM.NGINX">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">nginx上传模块—nginx upload module-nginx案例</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T18:07:19+08:00">
+                2018年12月22日
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx案例/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx案例</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>nginx,nginx-modules-upload-module,<br><a id="more"></a><br>
+  <div><!--<a href="/go/jjim" rel="external nofollow" target="_blank"><img src="/wp-content/uploads/2017/12/jujin_im.jpg" alt="又拍云upyun" /></a>-->
+ 
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-0956732394986573" data-ad-slot="2895550264"></ins>
+ 
+</div>
+	
+				</p><p>nginx上传模块</p>
+<p>一. nginx upload module原理</p>
+<p>官方文档： http://www.grid.net.ru/nginx/upload.en.html</p>
+<p>Nginx upload module通过nginx服务来接受用户上传的文件，自动解析请求体中存储的所有文件上传到upload_store指定的目录下。这些文件信息从原始请求体中分离并根据nginx.conf中的配置重新组装好上传参数，交由upload_pass指定的段处理，从而允许处理任意上传文件。每个上传文件中的file字段值被一系列的upload_set_form_field指令值替换。每个上传文件的内容可以从$upload_tmp_path变量读取，或者可以将文件转移到目的目录下。上传的文件移除可以通过upload_cleanup指令控制。如果请求的方法不是POST，模块将返回405错误(405 Not Allowed)，该错误提示可以通过error_page指令处理。</p>
+<p>具体的过程如下：</p>
+<p>1. 用户访问能够选择上传文件的页面</p>
+<p>2. 用户提交表单</p>
+<p>3. 浏览器把文件和有关文件的信息作为请求的一部分发送给服务器</p>
+<p>4. 服务器把文件保存到临时存储目录下upload_store</p>
+<p>5. upload_pass指定的处理表单提交的php页面将文件从upload_store拷贝到持久存储位置</p>
+<p>二.nginx upload module配置参数</p>
+<p>upload_pass 指明后续处理的php地址。文件中的字段将被分离和取代，包含必要的信息处理上传文件。</p>
+<p>upload_resumable 是否启动可恢复上传。</p>
+<p>upload_store 指定上传文件存放地址(目录)。目录可以散列，在这种情况下，在nginx启动前，所有的子目录必须存在。</p>
+<p>upload_state_store 指定保存上传文件可恢复上传的文件状态信息目录。目录可以散列，在这种情况下，在nginx启动前，所有的子目录必须存在。</p>
+<p>upload_store_access 上传文件的访问权限，user:r是指用户可读</p>
+<p>upload_pass_form_field 从表单原样转到后端的参数，可以正则表达式表示。：</p>
+<p>$upload_field_name -- 原始文件中的字段的名称</p>
+<p>upload_pass_form_field "^submit$|^description$";</p>
+<p>意思是把submit，description这两个字段也原样通过upload_pass传递到后端php处理。如果希望把所有的表单字段都传给后端可以用upload_pass_form_field "^.*$";</p>
+<p>upload_set_form_field 名称和值都可能包含以下特殊变量：</p>
+<p>$upload_field_name 表单的name值</p>
+<p>$upload_content_type 上传文件的类型</p>
+<p>$upload_file_name 客户端上传的原始文件名称</p>
+<p>$upload_tmp_path 文件上传后保存在服务端的位置</p>
+<p>upload_aggregate_form_field 可以多使用的几个变量,文件接收完毕后生成的并传递到后端</p>
+<p>$upload_file_md5 文件的MD5校验值</p>
+<p>$upload_file_md5_uc 大写字母表示的MD5校验值</p>
+<p>$upload_file_sha1 文件的SHA1校验值</p>
+<p>$upload_file_sha1_uc 大写字母表示的SHA1校验值</p>
+<p>$upload_file_crc32 16进制表示的文件CRC32值</p>
+<p>$upload_file_size 文件大小</p>
+<p>$upload_file_number 请求体中的文件序号</p>
+<p>这些字段值是在文件成功上传后计算的。</p>
+<p>upload_cleanup 如果出现400 404 499 500-505之类的错误，则删除上传的文件</p>
+<p>upload_buffer_size 上传缓冲区大小</p>
+<p>upload_max_part_header_len 指定头部分最大长度字节。</p>
+<p>upload_max_file_size 指定上传文件最大大小，软限制。client_max_body_size硬限制。</p>
+<p>upload_limit_rate 上传限速，如果设置为0则表示不限制。</p>
+<p>upload_max_output_body_len 超过这个大小，将报403错(Request entity too large)。</p>
+<p>upload_tame_arrays 指定文件字段名的方括号是否删除</p>
+<p>upload_pass_args 是否转发参数。</p>
+<p>三. nginx配置</p>
+<p># wget http://www.nginx.org/download/nginx-1.2.2.tar.gz</p>
+<p># wget http://www.grid.net.ru/nginx/download/nginx_upload_module-2.2.0.tar.gz</p>
+<p># tar zxvf nginx_upload_module-2.2.0.tar.gz -c ../software/</p>
+<p># tar zxvf nginx_upload_module-2.2.0.tar.gz -C ../software/</p>
+<p># ./configure --prefix=/usr/local/nginx --add-module=../nginx_upload_module-2.2.0 --with-http_secure_link_module</p>
+<p># make</p>
+<p># make install</p>
+<p># vi nginx.conf</p>
+<p>user www-data;</p>
+<p>worker_processes 20;</p>
+<p>error_log logs/error.log notice;</p>
+<p>working_directory /usr/local/nginx;</p>
+<p>events {</p>
+<p>worker_connections 1024;</p>
+<p>}</p>
+<p>http {</p>
+<p>include mime.types;</p>
+<p>default_type application/octet-stream;</p>
+<p>root /www/web/upload;</p>
+<p>server {</p>
+<p>listen 80;</p>
+<p>server_name 192.168.41.129;</p>
+<p> </p>
+<p>error_page 405 =200 @405; //处理405错误</p>
+<p>location / {</p>
+<p>index index.html index.htm index.php;</p>
+<p>}</p>
+<p>location @405</p>
+<p>{</p>
+<p>root /www/web/upload;</p>
+<p>}</p>
+<p>location ~ \.php$ {</p>
+<p>try_files $uri /404.html;</p>
+<p>fastcgi_pass 127.0.0.1:9000;</p>
+<p>fastcgi_index index.php;</p>
+<p>fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;</p>
+<p>include /etc/nginx/fastcgi_params;</p>
+<p>}</p>
+<p>client_max_body_size 100m;</p>
+<p># 上传页面提交到这个location</p>
+<p>location /upload {</p>
+<p># 文件上传以后转交给后端的php代码处理</p>
+<p>upload_pass @test;</p>
+<p># 上传文件的临时存储位置，目录是散列的，应该存在子目录0 1 2 3 4 5 6 7 8 9</p>
+<p>upload_store /www/web/upload/tmp 1;</p>
+<p>upload_store_access user:r;</p>
+<p># 设置请求体的字段</p>
+<p>upload_set_form_field "${upload_field_name}_name" $upload_file_name;</p>
+<p>upload_set_form_field "${upload_field_name}_content_type" $upload_content_type;</p>
+<p>upload_set_form_field "${upload_field_name}_path" $upload_tmp_path;</p>
+<p># 指示后端关于上传文件的md5值和文件大小</p>
+<p>upload_aggregate_form_field "${upload_field_name}_md5" $upload_file_md5;</p>
+<p>upload_aggregate_form_field "${upload_field_name}_size" $upload_file_size;</p>
+<p># 指示原样转到后端的参数，可以用正则表达式表示</p>
+<p>upload_pass_form_field "^submit$|^description$";</p>
+<p>upload_pass_args on;</p>
+<p>}</p>
+<p># 将请求转到后端的地址处理</p>
+<p>location @test {</p>
+<p>rewrite ^(.*)$ /test.php last;</p>
+<p>}</p>
+<p>}</p>
+<p>}</p>
+<p>四. 上传界面</p>
+<p># cat /www/web/upload/upload.html</p>
+<p>&lt;html&gt;</p>
+<p>&lt;head&gt;</p>
+<p>&lt;title&gt;Test upload&lt;/title&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+<p>&lt;h2&gt;Select files to upload&lt;/h2&gt;</p>
+<p>&lt;form enctype="multipart/form-data" action="/upload" method="post"&gt;</p>
+<p>&lt;input type="file" name="file1"&gt;&lt;br&gt;</p>
+<p>&lt;input type="file" name="file2"&gt;&lt;br&gt;</p>
+<p>&lt;input type="file" name="file3"&gt;&lt;br&gt;</p>
+<p>&lt;input type="file" name="file4"&gt;&lt;br&gt;</p>
+<p>&lt;input type="file" name="file5"&gt;&lt;br&gt;</p>
+<p>&lt;input type="file" name="file6"&gt;&lt;br&gt;</p>
+<p>&lt;input type="submit" name="submit" value="Upload"&gt;</p>
+<p>&lt;input type="hidden" name="test" value="value"&gt;</p>
+<p>&lt;/form&gt;</p>
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</p>
+<p>五. upload_pass处理内容</p>
+<p># cat test.php //这里只是简单的打印出来，便于先理解上传原理。请对着输出内容理解下nginx upload module配置参数。</p>
+<p>&lt;?php</p>
+<p>print_r($_POST);</p>
+<p>?&gt;</p>
+<p>对上传文件的处理请参考：http://cn.php.net/manual/en/features.file-upload.php</p>
+<p>六. 测试</p>
+<p>http://192.168.41.129/upload.html</p>
+<p>输出内容如下所示：</p>
+<p>Array</p>
+<p>(</p>
+<p>[file1_name] =&gt; Learning Perl, Sixth Edition.pdf</p>
+<p>[file1_content_type] =&gt; application/pdf</p>
+<p>[file1_path] =&gt; /www/web/upload/tmp/4/0000000014</p>
+<p>[file1_md5] =&gt; 87032cc58109f5c6bb866d2684f9b48c</p>
+<p>[file1_size] =&gt; 8927511</p>
+<p>[file2_name] =&gt; Programming Perl, 4th Edition.pdf</p>
+<p>[file2_content_type] =&gt; application/pdf</p>
+<p>[file2_path] =&gt; /www/web/upload/tmp/5/0000000015</p>
+<p>[file2_md5] =&gt; 82a52df177a8912c06af276581cfd5e4</p>
+<p>[file2_size] =&gt; 21146356</p>
+<p>[submit] =&gt; Upload</p>
+<p>)</p>
+<p>注意：需要修改php.ini以下参数</p>
+<p>file_uploads on 是否允许通过http上传</p>
+<p>upload_max_filesize 8m 允许上传文件的最大大小</p>
+<p>post_max_size 8m 通过表单POST给php所能接收的最大值</p>
+<p>另外nginx.conf中设置上传文件大小</p>
+<p>upload_max_file_size 软限制</p>
+<p>client_max_body_size 硬限制</p>
+<div></div>
+<div><span></span></div>			
+<p></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作(*锐)！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weixin.png" alt="IM.NGINX 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="IM.NGINX 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    IM.NGINX
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://nginx.im/nginx/nginx/nginx-modules-upload-module.html" title="nginx上传模块—nginx upload module-nginx案例">http://nginx.im/nginx/nginx/nginx-modules-upload-module.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/nginx/" rel="tag"># nginx</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/nginx/nginx/nginx-modules-sysgurad.html" rel="next" title="nginx防止高负载的解决方案(sysgurad模块)-nginx案例">
+                <i class="fa fa-chevron-left"></i> nginx防止高负载的解决方案(sysgurad模块)-nginx案例
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/nginx/nginx/nginx-modules-video-thumbextractor.html" rel="prev" title="nginx+video-thumbextractor生成视频缩略图-nginx案例">
+                nginx+video-thumbextractor生成视频缩略图-nginx案例 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTg1NS84NDE5"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="IM.NGINX" />
+            
+              <p class="site-author-name" itemprop="name">IM.NGINX</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">236</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">IM.NGINX</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+		
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
