@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="nginx,nginx-var-5">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T10:07:20.362Z">
+<meta property="og:updated_time" content="2018-12-24T09:25:39.519Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx变量使用方法详解(5)-nginx案例">
 <meta name="twitter:description" content="nginx,nginx-var-5">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T18:07:19+08:00">
-                2018年12月22日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T17:31:16+08:00">
+                2018年12月24日
               </time>
             
 
@@ -387,11 +387,7 @@
 
       
         <p>nginx,nginx-var-5<br><a id="more"></a><br>
-  <div><!--<a href="/go/jjim" rel="external nofollow" target="_blank"><img src="/wp-content/uploads/2017/12/jujin_im.jpg" alt="又拍云upyun" /></a>-->
- 
-<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-0956732394986573" data-ad-slot="2895550264"></ins>
- 
-</div>
+   
 	
 				</p><p>前面在 （二） 中我们已经了解到变量值容器的生命期是与请求绑定的，但是我当时有意避开了“请求”的正式定义。大家应当一直默认这里的“请求”都是指客户端发起的 HTTP 请求。其实在 Nginx 世界里有两种类型的“请求”，一种叫做“主请求”（main request），而另一种则叫做“子请求”（subrequest）。我们先来介绍一下它们。</p>
 <p>所谓“主请求”，就是由 HTTP 客户端从 Nginx 外部发起的请求。我们前面见到的所有例子都只涉及到“主请求”，包括 （二） 中那两个使用 echo_exec 和 rewrite 指令发起“内部跳转”的例子。</p>
@@ -490,8 +486,8 @@
 <p>我们看到，/sub 接口对 $var 变量值的修改影响到了主请求 /main. 所以 ngx_auth_request 模块发起的“子请求”确实是与其“父请求”共享一套 Nginx 变量的值容器。</p>
 <p>对于上面这个例子，相信有读者会问：“为什么‘子请求’ /sub 的输出没有出现在最终的输出里呢？”答案很简单，那就是因为 auth_request 指令会自动忽略“子请求”的响应体，而只检查“子请求”的响应状态码。当状态码是 2XX 的时候，auth_request 指令会忽略“子请求”而让 Nginx 继续处理当前的请求，否则它就会立即中断当前（主）请求的执行，返回相应的出错页。在我们的例子中，/sub “子请求”只是使用 echo 指令作了一些输出，所以隐式地返回了指示正常的 200 状态码。</p>
 <p>如 ngx_auth_request 模块这样父子请求共享一套 Nginx 变量的行为，虽然可以让父子请求之间的数据双向传递变得极为容易，但是对于足够复杂的配置，却也经常导致不少难于调试的诡异 bug. 因为用户时常不知道“父请求”的某个 Nginx 变量的值，其实已经在它的某个“子请求”中被意外修改了。诸如此类的因共享而导致的不好的“副作用”，让包括 ngx_echo，ngx_lua，以及 ngx_srcache 在内的许多第三方模块都选择了禁用父子请求间的变量共享。</p>
-<div></div>
-<div><span></span></div>			
+
+			
 <p></p>
 
       
@@ -659,7 +655,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">240</span>
+                  <span class="site-state-item-count">244</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

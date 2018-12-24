@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="nginx,nginx-limiting-the-number-of-requests-ngx_http_limit_req_module-module,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T10:07:19.568Z">
+<meta property="og:updated_time" content="2018-12-24T09:25:56.179Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx限制请求数ngx_http_limit_req_module模块-nginx案例">
 <meta name="twitter:description" content="nginx,nginx-limiting-the-number-of-requests-ngx_http_limit_req_module-module,">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T18:07:18+08:00">
-                2018年12月22日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T17:31:16+08:00">
+                2018年12月24日
               </time>
             
 
@@ -387,11 +387,7 @@
 
       
         <p>nginx,nginx-limiting-the-number-of-requests-ngx_http_limit_req_module-module,<br><a id="more"></a><br>
-  <div><!--<a href="/go/jjim" rel="external nofollow" target="_blank"><img src="/wp-content/uploads/2017/12/jujin_im.jpg" alt="又拍云upyun" /></a>-->
- 
-<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-0956732394986573" data-ad-slot="2895550264"></ins>
- 
-</div>
+   
 	
 				</p><h3><strong><span>一. 前言</span></strong></h3>
 <p>在《nginx限制连接数ngx_http_limit_conn_module模块》我们说到了ngx_http_limit_conn_module 模块，来限制连接数。那么请求数的限制该怎么做呢？这就需要通过ngx_http_limit_req_module 模块来实现，该模块可以通过定义的 键值来限制请求处理的频率。特别的，可以限制来自单个IP地址的请求处理频率。 限制的方法如同漏斗，每秒固定处理请求数，推迟过多请求。</p>
@@ -407,7 +403,7 @@
 			<div><pre>limit_req_zone $binary_remote_addr zone=one:10m rate=1r/s;</pre></div>
 			 
 		</div>
-<!-- [Format Time: 0.0002 seconds] -->
+<!-- [Format Time: 0.0003 seconds] -->
 <p>说明：区域名称为one，大小为10m，平均处理的请求频率不能超过每秒一次。<br>
 键值是客户端IP。<br>
 使用$binary_remote_addr变量， 可以将每条状态记录的大小减少到64个字节，这样1M的内存可以保存大约1万6千个64字节的记录。<br>
@@ -449,9 +445,9 @@ server {
 			 
 		</div>
 <!-- [Format Time: 0.0001 seconds] -->
-<p></p>
+
 <h3><strong>三. 完整实例配置</strong></h3>
-<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
 		<div>
 		
@@ -470,7 +466,7 @@ server {
 <!-- [Format Time: 0.0005 seconds] -->
 <p>可能要对某些IP不做限制，需要使用到白名单。名单设置参见后续的文档，我会整理一份以供读者参考。请专注。</p>
 <p>如需转载请注明出处：http://www.ttlsa.com/html/3185.html</p>
-<div><span></span></div>			
+			
 <p></p>
 
       
@@ -647,7 +643,7 @@ server {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">240</span>
+                  <span class="site-state-item-count">244</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

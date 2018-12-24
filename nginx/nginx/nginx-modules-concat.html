@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="nginx,nginx-modules-concat,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T10:07:19.582Z">
+<meta property="og:updated_time" content="2018-12-24T09:25:46.516Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx js、css多个请求合并为一个请求(concat模块)-nginx案例">
 <meta name="twitter:description" content="nginx,nginx-modules-concat,">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T18:07:18+08:00">
-                2018年12月22日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T17:31:16+08:00">
+                2018年12月24日
               </time>
             
 
@@ -387,11 +387,7 @@
 
       
         <p>nginx,nginx-modules-concat,<br><a id="more"></a><br>
-  <div><!--<a href="/go/jjim" rel="external nofollow" target="_blank"><img src="/wp-content/uploads/2017/12/jujin_im.jpg" alt="又拍云upyun" /></a>-->
- 
-<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-0956732394986573" data-ad-slot="2895550264"></ins>
- 
-</div>
+   
 	
 				</p><h3>模块介绍</h3>
 <p>mod_concat模块由淘宝开发，目前已经包含在tengine中，并且淘宝已经在使用这个nginx模块。不过塔暂时没有包含在nginx中。这个模块类似于apache中的modconcat。如果需要使用它，需要使用两个"?"问号.</p>
@@ -401,7 +397,7 @@ http://example.com/??style1.css,style2.css,foo/style3.css<br>
 <p>如果你担心文件被用户的浏览器缓存而没有及时更新，你依旧可以带上一个版本号的参数，如下：<br>
 http://example.com/??style1.css,style2.css,foo/style3.css?v=102234</p>
 <h3><strong>1. 安装nginx concat</strong></h3>
-<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
 		<div>
 		
@@ -418,7 +414,7 @@ http://example.com/??style1.css,style2.css,foo/style3.css?v=102234</p>
 			 
 		</div>
 <!-- [Format Time: 0.0003 seconds] -->
-<p></p>
+
 <h3><strong>2. 指令directives</strong></h3>
 <p>concat on | off<br>
 default: concat off<br>
@@ -448,7 +444,7 @@ default: off<br>
 context: http, server, location<br>
 是否忽略文件请求错误，例如404和403等</p>
 <h3><strong>3. 配置nginx</strong></h3>
-<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
 		<div>
 		
@@ -467,7 +463,7 @@ context: http, server, location<br>
 			 
 		</div>
 <!-- [Format Time: 0.0005 seconds] -->
-<p></p>
+
 <h3>4.<strong> 测试nginx concat</strong></h3>
 <p>我的站点有调用到static/ttlsa_concat.css和static/ttlsa_concat.js两个文件，为了提高站点访问速度，我决定使用nginx的concat模块将两个请求合并为一个。<br>
 合并前<br>
@@ -555,7 +551,7 @@ http://www.ttlsa.com/static??js/ttlsa_concat.js,css/ttlsa_concat.css?ver=123<br>
 <h3><strong>6. 参考文章</strong></h3>
 <p>官方：http://wiki.nginx.org/HttpConcatModule</p>
 <p>来源站点：运维生存时间   网址：http://www.ttlsa.com/html/3332.html</p>
-<div><span></span></div>			
+			
 <p></p>
 
       
@@ -732,7 +728,7 @@ http://www.ttlsa.com/static??js/ttlsa_concat.js,css/ttlsa_concat.css?ver=123<br>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">240</span>
+                  <span class="site-state-item-count">244</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

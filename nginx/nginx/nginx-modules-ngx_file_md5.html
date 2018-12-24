@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="nginx,nginx-modules-ngx_file_md5,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T10:07:19.599Z">
+<meta property="og:updated_time" content="2018-12-24T09:25:44.917Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx获取大文件MD5值(nginx模块ngx_file_md5)-nginx案例">
 <meta name="twitter:description" content="nginx,nginx-modules-ngx_file_md5,">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T18:07:18+08:00">
-                2018年12月22日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T17:31:16+08:00">
+                2018年12月24日
               </time>
             
 
@@ -387,15 +387,11 @@
 
       
         <p>nginx,nginx-modules-ngx_file_md5,<br><a id="more"></a><br>
-  <div><!--<a href="/go/jjim" rel="external nofollow" target="_blank"><img src="/wp-content/uploads/2017/12/jujin_im.jpg" alt="又拍云upyun" /></a>-->
- 
-<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-0956732394986573" data-ad-slot="2895550264"></ins>
- 
-</div>
+   
 	
 				</p><p>HTTP协议新增了Content-MD5 HTTP头，但是nginx并不支持这个功能，而且官方也明确表示不会增加这项功能，为什么呢？因为每次请求都需要读取整个文件来计算MD5值，以性能著称的nginx绝对不愿意干出违背软件宗旨的事情。但是有些应用中，需要验证文件的正确性，有些人通过下载当前文件，然后计算MD5值来比对当前文件是否正确。不仅仅浪费带宽资源也浪费了大把的时间。有需求就有解决方案，网友开发了file-md5模块。</p>
 <h3>1. 下载模块file-md5</h3>
-<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
 		<div>
 		
@@ -404,10 +400,10 @@
     # unzip file-md5-master.zip</pre></div>
 			 
 		</div>
-<!-- [Format Time: 0.0001 seconds] -->
-<p></p>
+<!-- [Format Time: 0.0002 seconds] -->
+
 <h3>2. 安装模块file-md5</h3>
-<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
 		<div>
 		
@@ -457,7 +453,7 @@
     Accept-Ranges: bytes</pre></div>
 			 
 		</div>
-<!-- [Format Time: 0.0008 seconds] -->
+<!-- [Format Time: 0.0007 seconds] -->
 <p>大家可以看到Content-MD5: 6adda4a06dbad3ac9b53a08f4ff9c4f8，这个就是1.exe文件的MD5值.</p>
 <p>3.2 直接响应MD5值到内容中</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
@@ -494,7 +490,7 @@
 <p>项目地址：https://github.com/cfsego/file-md5<br>
 项目文档：https://github.com/cfsego/file-md5/blob/master/README<br>
 网站：运维生存时间</p>
-<div><span></span></div>			
+			
 <p></p>
 
       
@@ -671,7 +667,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">240</span>
+                  <span class="site-state-item-count">244</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

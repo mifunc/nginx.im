@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="nginx,application-of-nginx_memcached-to-construct-the-page-cache,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T10:07:19.549Z">
+<meta property="og:updated_time" content="2018-12-24T09:25:48.012Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx+memcached构建页面缓存应用-nginx案例">
 <meta name="twitter:description" content="nginx,application-of-nginx_memcached-to-construct-the-page-cache,">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T18:07:18+08:00">
-                2018年12月22日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T17:31:16+08:00">
+                2018年12月24日
               </time>
             
 
@@ -387,16 +387,12 @@
 
       
         <p>nginx,application-of-nginx_memcached-to-construct-the-page-cache,<br><a id="more"></a><br>
-  <div><!--<a href="/go/jjim" rel="external nofollow" target="_blank"><img src="/wp-content/uploads/2017/12/jujin_im.jpg" alt="又拍云upyun" /></a>-->
- 
-<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-0956732394986573" data-ad-slot="2895550264"></ins>
- 
-</div>
+   
 	
 				</p><p>nginx的memcached_module模块可以直接从memcached服务器中读取内容后输出，后续的请求不再经过应用程序处理，如php-fpm、django，大大的提升动态页面的速度。nginx只负责从memcached服务器中读取数据，要往memcached写入数据还得需要后台的应用程序来完成，主动的将要缓存的页面缓存到memcached中，可以通过404重定向到后端去处理的。<br>
 ngx_http_memcached_module可以操作任何兼用memcached协议的软件。如ttserver、membase等。</p>
 <p>结构图如下：</p>
-<p></p>
+
 <p>memcached的key可以通过memcached_key变量来设置，如以$uri。如果命中，那么直接输出内容，没有命中就意味着nginx需要从应用程序请求页面。同时，我们还希望该应用程序将键值对写入到memcached，以便下一个请求可以直接从memcached获取。<br>
 如果键值不存在，nginx将报告not found错误。最好的方法是使用error_page指定和location请求处理。同时包含"Bad Gateway"错误和"Gateway Timeout"错误，如：error_page 404 502 504 = @app;。<br>
 注意：需要设置default_type，否则可能会显示不正常。</p>
@@ -524,9 +520,9 @@ if(file_exists($fn)) {
 <!-- [Format Time: 0.0010 seconds] -->
 <p>4. 测试<br>
 第一次访问：（需要经过php处理）</p>
-<p></p>
+
 <p>再次访问：（直接从memcached读取）</p>
-<p></p>
+
 <p>哈，这个实例并不好。<br>
 1. 地球人都知道memcached不是持久化的，如果是永久性的图片应用，选用可以持久化存储方案合适，如riak、membase、ttserver、mongodb GridFS等等。<br>
 2. 如果是用户头像的应用，用memcached来做缓存也不合适。因为用户更改头像又得刷新缓存，鉴于此，一步到位的用ttserver或mongodb GridFS来做用户头像的存储岂不是更好么。<br>
@@ -534,7 +530,7 @@ ttserver+nginx构建高并发高可用性应用参见：http://www.ttlsa.com/htm
 这个实例改改或许可以用来在线迁移图片到key-value存储的过渡方案。</p>
 <p>nginx的memc-nginx和srcache-nginx模块可以主动的向memcached添加缓存。后续整理后再发布出来。参见《memc_nginx+srcache_nginx+memcached构建透明的动态页面缓存》http://www.ttlsa.com/html/2460.html</p>
 <p>如需转载请注明出处： http://www.ttlsa.com/html/2418.html</p>
-<div><span></span></div>			
+			
 <p></p>
 
       
@@ -702,7 +698,7 @@ ttserver+nginx构建高并发高可用性应用参见：http://www.ttlsa.com/htm
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">240</span>
+                  <span class="site-state-item-count">244</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

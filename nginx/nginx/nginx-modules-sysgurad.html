@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="nginx,nginx-modules-sysgurad,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T10:07:20.357Z">
+<meta property="og:updated_time" content="2018-12-24T09:25:46.192Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx防止高负载的解决方案(sysgurad模块)-nginx案例">
 <meta name="twitter:description" content="nginx,nginx-modules-sysgurad,">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T18:07:19+08:00">
-                2018年12月22日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T17:31:16+08:00">
+                2018年12月24日
               </time>
             
 
@@ -387,11 +387,7 @@
 
       
         <p>nginx,nginx-modules-sysgurad,<br><a id="more"></a><br>
-  <div><!--<a href="/go/jjim" rel="external nofollow" target="_blank"><img src="/wp-content/uploads/2017/12/jujin_im.jpg" alt="又拍云upyun" /></a>-->
- 
-<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-0956732394986573" data-ad-slot="2895550264"></ins>
- 
-</div>
+   
 	
 				</p><p>如果nginx被攻击或者访问量突然变大，nginx会因为负载变高或者内存不够用导致服务器宕机，最终导致站点无法访问。今天要谈到的解决方法来自淘宝开发的模块nginx-http-sysguard，主要用于当负载和内存达到一定的阀值之时，会执行相应的动作，比如直接返回503,504或者其他的.一直等到内存或者负载回到阀值的范围内，站点恢复可用。简单的说，这几个模块是让nginx有个缓冲时间，缓缓.</p>
 <h3><strong>1. 安装nginx sysguard模块</strong></h3>
@@ -406,7 +402,7 @@
 # tar -xzvf nginx-1.4.2.tar.gz</pre></div>
 			 
 		</div>
-<!-- [Format Time: 0.0010 seconds] -->
+<!-- [Format Time: 0.0003 seconds] -->
 <p><span>1.2 打sysgrard补丁</span><br>
 这边没找到nginx-1.4.2对应的补丁，只有1.2.9和1.3.9的，索性试试1.3.9的吧，应该差不多.</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
@@ -428,7 +424,7 @@
 			 
 		</div>
 <!-- [Format Time: 0.0002 seconds] -->
-<p></p>
+
 <h3>2.<strong> sysguard指令</strong></h3>
 <p>语法: sysguard [on | off]<br>
 默认值: sysguard off<br>
@@ -482,7 +478,7 @@
 }</pre></div>
 			 
 		</div>
-<!-- [Format Time: 0.0010 seconds] -->
+<!-- [Format Time: 0.0011 seconds] -->
 <p><span>3.2 测试</span><br>
 负载OK的情况下,访问nginx</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
@@ -516,7 +512,7 @@ Content-Length: 206
 Connection: keep-alive</pre></div>
 			 
 		</div>
-<!-- [Format Time: 0.0007 seconds] -->
+<!-- [Format Time: 0.0006 seconds] -->
 <p>swap超过阀值的功能我就不再测试了。大家回家可以自己动手测试一下.</p>
 <h3>结束语</h3>
 <p>在nginx是realserver的情况下，个人也比较推荐使用这种方法，如果服务器负载一旦爬高，一般要比较长的时间才能恢复到正常水平，在采用这个插件的情况下，负载达到阀值，nginx返回503，前段使用故障转移将请求发往其他服务器，这台服务器在无访问的情况下，便能很快的恢复到正常水平，并且能够立即投入工作。超过阀值的服务器处理请求速度也会大打折扣，使用这个模块，巧妙的将请求发送到了更快速的服务器上，在一定程度上避免了访问速度慢的问题. 前面说的是在集群环境下，在单点环境下，用不用大家斟酌一下。</p>
@@ -524,7 +520,7 @@ Connection: keep-alive</pre></div>
 nginx-http-sysguard:https://github.com/alibaba/nginx-http-sysguard<br>
 TCP Proxy:https://github.com/yaoweibin/nginx_tcp_proxy_module (相同功能软件)</p>
 <p> </p>
-<div><span></span></div>			
+			
 <p></p>
 
       
@@ -701,7 +697,7 @@ TCP Proxy:https://github.com/yaoweibin/nginx_tcp_proxy_module (相同功能软�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">240</span>
+                  <span class="site-state-item-count">244</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="nginx,nginx-rewriting-rules-guide,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T10:07:20.369Z">
+<meta property="og:updated_time" content="2018-12-24T09:25:33.939Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx重写规则指南-nginx案例">
 <meta name="twitter:description" content="nginx,nginx-rewriting-rules-guide,">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T18:07:19+08:00">
-                2018年12月22日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T17:31:16+08:00">
+                2018年12月24日
               </time>
             
 
@@ -387,11 +387,7 @@
 
       
         <p>nginx,nginx-rewriting-rules-guide,<br><a id="more"></a><br>
-  <div><!--<a href="/go/jjim" rel="external nofollow" target="_blank"><img src="/wp-content/uploads/2017/12/jujin_im.jpg" alt="又拍云upyun" /></a>-->
- 
-<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-0956732394986573" data-ad-slot="2895550264"></ins>
- 
-</div>
+   
 	
 				</p><p>当运维遇到要重写情况时，往往是要程序员把重写规则写好后，发给你，你再到生产环境下配置。对于重写规则说到底就是正则匹配，做运维的岂能对正则表达式不了解的？最起码最基本的正则表达式会写。套用一句阿里的话(某网友说是阿里说的，不清楚到底是不是出自阿里)“不懂程序的运维，不是好运维；不懂运维的开发，不是好开发。”。 正则表达式也是一门语言哈。当你学习一门语言时，必然会遇到该门语言的正则表达式这章节的。 在这里推荐一本非常好的正则表达式书，包含常用的语言的正则写法如sed、perl、bash、awk、php、c#、java、javascript、python、ruby等等，《Regular Expressions Cookbook, 2nd Edition》，也有中文版的，大家可以到网络上找找。<br>
 介绍nginx的重写模块，创建重写规则向导，便于快捷正确的创建新的重写规则，不求救于人。同时，如果想把apache转换成nginx，重写规则也是要改的咯。</p>
@@ -457,7 +453,7 @@ permanent - 返回301永久重定向。</p>
 			<div><pre>^/images/([a-z]{2})/([a-z0-9]{5})/(.*)\.(png|jpg|gif)$</pre></div>
 			 
 		</div>
-<!-- [Format Time: 0.0004 seconds] -->
+<!-- [Format Time: 0.0012 seconds] -->
 <p>$1是两个小写字母组成的字符串，$2是由小写字母和0到9的数字组成的5个字符的字符串，$3将是个文件名，$4是png、jpg、gif中的其中一个。</p>
 <p>3.2 重写规则的第二部分是URI<br>
 请求被改写。该URI可能包含正则表达式中的捕获的位置参数或这个级别下的nginx任何配置变量。如：</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
@@ -499,9 +495,9 @@ permanent - 返回301永久重定向。</p>
 			 
 		</div>
 <!-- [Format Time: 0.0002 seconds] -->
-<p></p>
+
 <h3><span><strong>四.</strong> 实例</span></h3>
-<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
 		<div>
 		
@@ -538,8 +534,8 @@ permanent - 返回301永久重定向。</p>
 }</pre></div>
 			 
 		</div>
-<!-- [Format Time: 0.0013 seconds] -->
-<p></p>
+<!-- [Format Time: 0.0012 seconds] -->
+
 <h3><span><strong>五.</strong> 创建新的重新规则</span></h3>
 <p>在接到要创建新的重写规则时，要弄清楚需求是什么样的，再决定怎么做。毕竟重写也是耗资源的有效率之分的。 下面的这些问题有些帮助的：<br>
 1. 你的URL的模式是什么样的?<br>
@@ -570,7 +566,7 @@ permanent - 返回301永久重定向。</p>
 			<div><pre>rewrite ^/(home(/index)?|index(\.php)?)/?$ $scheme://$host/ permanent;</pre></div>
 			 
 		</div>
-<!-- [Format Time: 0.0003 seconds] -->
+<!-- [Format Time: 0.0002 seconds] -->
 <p>指定$scheme和$host变量，因为要做一个永久重定向并希望nginx使用相同的参数来构造URL。</p>
 <p>实例2. 如果想分别记录各个部分的URL，可以使用正则表达式来捕获URI，然后，给变量分配指定位置变量，见上面的实例。</p>
 <p>实例3. 当重写规则导致内部重定向或指示客户端调用该规则本身被定义的location时，必须采取特殊的动作来避免重写循环。如：在server配置段定义了一条规则带上last标志，在引用location时，必须使用break标志。</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
@@ -595,7 +591,7 @@ permanent - 返回301永久重定向。</p>
 		</div>
 <!-- [Format Time: 0.0004 seconds] -->
 <p>nginx重写规则说起来挺简单的，做起来就难，重点在于正则表达式，同时，还需要考虑到nginx执行顺序。有疑问的朋友，欢迎加入ttlsa群，一起讨论，联系方式在网站中有，也可以跟帖说明。</p>
-<div><span></span></div>			
+			
 <p></p>
 
       
@@ -772,7 +768,7 @@ permanent - 返回301永久重定向。</p>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">240</span>
+                  <span class="site-state-item-count">244</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

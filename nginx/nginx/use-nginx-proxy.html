@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="nginx,use-nginx-proxy,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T10:07:20.378Z">
+<meta property="og:updated_time" content="2018-12-24T09:25:36.394Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建nginx反向代理用做内网域名转发-nginx案例">
 <meta name="twitter:description" content="nginx,use-nginx-proxy,">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T18:07:19+08:00">
-                2018年12月22日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T17:31:16+08:00">
+                2018年12月24日
               </time>
             
 
@@ -387,11 +387,7 @@
 
       
         <p>nginx,use-nginx-proxy,<br><a id="more"></a><br>
-  <div><!--<a href="/go/jjim" rel="external nofollow" target="_blank"><img src="/wp-content/uploads/2017/12/jujin_im.jpg" alt="又拍云upyun" /></a>-->
- 
-<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-0956732394986573" data-ad-slot="2895550264"></ins>
- 
-</div>
+   
 	
 				</p><h3><strong>情景</strong></h3>
 <p>由于公司内网有多台服务器的http服务要映射到公司外网静态IP，如果用路由的端口映射来做，就只能一台内网服务器的80端口映射到外网80端口，其他服务器的80端口只能映射到外网的非80端口。非80端口的映射在访问的时候要域名加上端口，比较麻烦。并且公司入口路由最多只能做20个端口映射。肯定以后不够用。<br>
@@ -430,7 +426,7 @@ apt-get install wget -y</pre></div>
 			<div><pre> apt-get install build-essential libtool -y</pre></div>
 			 
 		</div>
-<!-- [Format Time: 0.0002 seconds] -->
+<!-- [Format Time: 0.0001 seconds] -->
 <p><span>#创建nginx用户</span></p>
 <p>所谓的unprivileged user</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
@@ -569,7 +565,7 @@ server
 }</pre></div>
 			 
 		</div>
-<!-- [Format Time: 0.0007 seconds] -->
+<!-- [Format Time: 0.0008 seconds] -->
 <p>额，关于负载均衡和缓存就不多说了，这里只是要起到一个简单的“域名转发”功能。<br>
 另外，由于http请求最后都是由反向代理服务器传递给后段的机器，所以后端的机器原来的访问日志记录的访问IP都是反向代理服务器的IP。<br>
 要想能记录真实IP，需要修改后端机器的日志格式，这里假设后端也是一台nginx：<br>
@@ -604,7 +600,7 @@ access_log logs/access.log access;</pre></div>
 <ul>
 <li>之前没配置下面这段，访问时候偶尔会出现504 gateway timeout，由于偶尔出现，所以不太好排查</li>
 </ul>
-<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
 		<div>
 		
@@ -629,7 +625,7 @@ access_log logs/access.log access;</pre></div>
 <!-- [Format Time: 0.0003 seconds] -->
 <p>从日志看来是连接超时了，网上一通乱查之后估计可能是后端服务器响应超时了，本着大胆假设，小心求证的原则，既然假设了错误原因就要做实验重现错误：那就调整代理超时参数，反过来把代理超时阀值设小（比如1ms）看会不会次次出现504。后来发现把proxy_read_timeout 这个参数设置成1ms的时候，每次访问都出现504。于是把这个参数调大，加入上面那段配置，解决问题了。</p>
 <p>有问题可以直接EMAIL作者，当然也可以加入我们ttlsa群单独私聊或者群里发提问。</p>
-<div><span></span></div>			
+			
 <p></p>
 
       
@@ -806,7 +802,7 @@ access_log logs/access.log access;</pre></div>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">240</span>
+                  <span class="site-state-item-count">244</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

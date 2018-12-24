@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="nginx,nginx-var-8">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T10:07:20.373Z">
+<meta property="og:updated_time" content="2018-12-24T09:25:40.936Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx变量使用方法详解(8)-nginx案例">
 <meta name="twitter:description" content="nginx,nginx-var-8">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T18:07:19+08:00">
-                2018年12月22日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T17:31:16+08:00">
+                2018年12月24日
               </time>
             
 
@@ -387,11 +387,7 @@
 
       
         <p>nginx,nginx-var-8<br><a id="more"></a><br>
-  <div><!--<a href="/go/jjim" rel="external nofollow" target="_blank"><img src="/wp-content/uploads/2017/12/jujin_im.jpg" alt="又拍云upyun" /></a>-->
- 
-<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-0956732394986573" data-ad-slot="2895550264"></ins>
- 
-</div>
+   
 	
 				</p><p> </p>
 <p>与 $arg_XXX 类似，我们在 （二） 中提到过的内建变量 $cookie_XXX 变量也会在名为 XXX 的 cookie 不存在时返回特殊值“没找到”：</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
@@ -409,7 +405,7 @@
     }</pre></div>
 			 
 		</div>
-<!-- [Format Time: 0.0003 seconds] -->
+<!-- [Format Time: 0.0002 seconds] -->
 <p>利用 curl 命令行工具的 --cookie name=value 选项可以指定 name=value 为当前请求携带的 cookie（通过添加相应的 Cookie 请求头）。下面是若干次测试结果：</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
 		<div>
@@ -424,7 +420,7 @@
     cookie user: missing</pre></div>
 			 
 		</div>
-<!-- [Format Time: 0.0005 seconds] -->
+<!-- [Format Time: 0.0004 seconds] -->
 <p>我们看到，cookie user 不存在以及取值为空字符串这两种情况被很好地区分开了：当 cookie user 不存在时，Lua 代码中的 ngx.var.cookie_user 返回了期望的 Lua nil 值。</p>
 <p>在 Lua 里访问未创建的 Nginx 用户变量时，在 Lua 里也会得到 nil 值，而不会像先前的例子那样直接让 Nginx 拒绝加载配置：</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
@@ -508,8 +504,8 @@
 <p>在下一个系列的教程，即 Nginx 配置指令的执行顺序系列 中，我们将深入探讨 Nginx 配置指令的执行顺序以及请求的各个处理阶段，因为很多 Nginx 用户都搞不清楚他们书写的众多配置指令之间究竟是按照何种时间顺序执行的，也搞不懂为什么这些指令实际执行的顺序经常和配置文件里的书写顺序大相径庭。</p>
 <p> </p>
 <p>[link_post name="nginx%e5%8f%98%e9%87%8f%e4%bd%bf%e7%94%a8%e6%96%b9%e6%b3%95%e8%af%a6%e8%a7%a31"]|[link_post name="nginx%e5%8f%98%e9%87%8f%e4%bd%bf%e7%94%a8%e6%96%b9%e6%b3%95%e8%af%a6%e8%a7%a32"]|[link_post name="nginx%e5%8f%98%e9%87%8f%e4%bd%bf%e7%94%a8%e6%96%b9%e6%b3%95%e8%af%a6%e8%a7%a33"]|[link_post name="nginx%e5%8f%98%e9%87%8f%e4%bd%bf%e7%94%a8%e6%96%b9%e6%b3%95%e8%af%a6%e8%a7%a34"]|[link_post name="nginx%e5%8f%98%e9%87%8f%e4%bd%bf%e7%94%a8%e6%96%b9%e6%b3%95%e8%af%a6%e8%a7%a35"]|[link_post name="nginx%e5%8f%98%e9%87%8f%e4%bd%bf%e7%94%a8%e6%96%b9%e6%b3%95%e8%af%a6%e8%a7%a36"]|[link_post name="nginx%e5%8f%98%e9%87%8f%e4%bd%bf%e7%94%a8%e6%96%b9%e6%b3%95%e8%af%a6%e8%a7%a37"]|[link_post name="nginx%e5%8f%98%e9%87%8f%e4%bd%bf%e7%94%a8%e6%96%b9%e6%b3%95%e8%af%a6%e8%a7%a38"]</p>
-<div></div>
-<div><span></span></div>			
+
+			
 <p></p>
 
       
@@ -677,7 +673,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">240</span>
+                  <span class="site-state-item-count">244</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

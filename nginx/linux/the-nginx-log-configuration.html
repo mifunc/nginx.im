@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="linux,the-nginx-log-configuration,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T10:07:19.549Z">
+<meta property="og:updated_time" content="2018-12-24T09:25:32.914Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx日志配置-nginx案例">
 <meta name="twitter:description" content="linux,the-nginx-log-configuration,">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T18:07:18+08:00">
-                2018年12月22日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T17:31:16+08:00">
+                2018年12月24日
               </time>
             
 
@@ -387,11 +387,7 @@
 
       
         <p>linux,the-nginx-log-configuration,<br><a id="more"></a><br>
-  <div><!--<a href="/go/jjim" rel="external nofollow" target="_blank"><img src="/wp-content/uploads/2017/12/jujin_im.jpg" alt="又拍云upyun" /></a>-->
- 
-<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-0956732394986573" data-ad-slot="2895550264"></ins>
- 
-</div>
+   
 	
 				</p><p>日志对于统计排错来说非常有利的。本文总结了nginx日志相关的配置如access_log、log_format、open_log_file_cache、log_not_found、log_subrequest、rewrite_log、error_log。<br>
 nginx有一个非常灵活的日志记录模式。每个级别的配置可以有各自独立的访问日志。日志格式通过log_format命令来定义。ngx_http_log_module是用来定义请求日志格式的。</p>
@@ -454,7 +450,7 @@ $time_local 通用日志格式下的本地时间。</pre></div>
 			 
 		</div>
 <!-- [Format Time: 0.0007 seconds] -->
-<p></p>
+
 <div>
 <div>[warning]发送给客户端的响应头拥有“sent_http_”前缀。 比如$sent_http_content_range。[/warning]</div>
 </div>
@@ -487,7 +483,7 @@ $time_local 通用日志格式下的本地时间。</pre></div>
 			 
 		</div>
 <!-- [Format Time: 0.0008 seconds] -->
-<p></p>
+
 <h3><strong>3. open_log_file_cache指令</strong></h3>
 <p>语法: open_log_file_cache max=N [inactive=time] [min_uses=N] [valid=time];<br>
 open_log_file_cache off;<br>
@@ -508,7 +504,7 @@ off：禁用缓存<br>
 			 
 		</div>
 <!-- [Format Time: 0.0002 seconds] -->
-<p></p>
+
 <h3><strong>4.</strong> log_not_found指令</h3>
 <p>语法: log_not_found on | off;<br>
 默认值: log_not_found on;<br>
@@ -530,7 +526,7 @@ off：禁用缓存<br>
 默认值: error_log logs/error.log error;<br>
 配置段: main, http, server, location<br>
 配置错误日志。</p>
-<div><span></span></div>			
+			
 <p></p>
 
       
@@ -707,7 +703,7 @@ off：禁用缓存<br>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">240</span>
+                  <span class="site-state-item-count">244</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

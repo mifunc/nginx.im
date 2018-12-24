@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="nginx," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="database,nginx-and-riak,">
+<meta name="keywords" content="nginx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NginX and Riak:-nginx案例">
+<meta property="og:url" content="http://nginx.im/nginx/database/nginx-and-riak.html">
+<meta property="og:site_name" content="IM.NGINX">
+<meta property="og:description" content="database,nginx-and-riak,">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-24T09:25:58.818Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NginX and Riak:-nginx案例">
+<meta name="twitter:description" content="database,nginx-and-riak,">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://nginx.im/nginx/database/nginx-and-riak.html"/>
+
+
+
+
+
+  <title>NginX and Riak:-nginx案例 | IM.NGINX</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8ff19561e3a0e2a31ba9fffe98d8fc00";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">IM.NGINX</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">运维实践</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nginx.im/nginx/database/nginx-and-riak.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="IM.NGINX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IM.NGINX">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">NginX and Riak:-nginx案例</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T17:31:16+08:00">
+                2018年12月24日
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx案例/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx案例</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>database,nginx-and-riak,<br><a id="more"></a><br>
+   
+	
+				</p><p align="JUSTIFY">Problem of storage and delivering static content is quiet actual nowadays. Lots of people needs big and reliable storages for storing static images and many other static files and delivering it to end users. Most popular solution still is NFS mounted storage, which is accessible from all front-ends, but this solution has big bottlenecks.</p>
+<ol>
+<li>Hard to backup.</li>
+<li>Everything relies on NAS.</li>
+<li>Statically mounted external storage is needed.</li>
+</ol>
+<p align="JUSTIFY"><strong>Now lets dig deeper: </strong></p>
+<p align="JUSTIFY"><strong>Hard to Backup :</strong>Some of you will say that this is not so ! But lets imagine that you have 10TB of small images which your application regularly use and this images are very critical. Standard rsync and or tar could take lots of time and system resources, which is definitely not what we want.</p>
+<p align="JUSTIFY"><strong>Everything relies on NAS :</strong> So what ? We an buy a reliable NAS/SAN with cool RAID(1-10) storage and use it. But if we have a closer look we will see that for having 10TB space with for example 10x1TB 15k RPM SAS drives we will need at least 11x drives + RAID controller. Everything is good so far, but wait what is the price for that. After digging internet shops and price-lists you will see that this is quiet expensive, especial if your data is very critical and you need hot-backup aka second NAS/SAN. Another bottleneck is that in that in this solution you will have to do vertical only scalability. This is expensive and hard to achieve. And at least by order but not by meaning is that you will have to share same IO  device for all. This is truly a problem for large scale deployments.</p>
+<p align="JUSTIFY"><strong>Statically mounted external storage is needed:</strong> This means that all your system will rely on externally mounted device and regardless how reliable is that, it is some king of SPOF.</p>
+<p align="JUSTIFY">So combining this all will show that classical shared storage architecture is hard to implement, expensive and has slow performance for large deployments. This may not me a big deal if, you are IT of Bank, and you management has lots of money and very little “imagination”. In this case this article is not for you </p>
+<p align="JUSTIFY"><strong>So for everyone else: </strong></p>
+<p align="JUSTIFY">lets summarize what we need:</p>
+<ol>
+<li>Reliable storage.</li>
+<li>Low latency to access file.</li>
+<li>Easy management and backup.</li>
+<li>Reliability and fault tolerance.</li>
+<li>Easy access and less programming overhead.</li>
+</ol>
+<p align="JUSTIFY">After spending lots of time for finding a solution for mentioned problems we found seems ideal solution:</p>
+<ol>
+<li>Riak (Will act as storage and deliver files )Four our needs free, community edition is much more than enough</li>
+<li>NginX (Will act as reverse proxy and URL filter)</li>
+</ol>
+<p align="JUSTIFY">Before starting let’s summarize what these two tools will give us:</p>
+<p align="JUSTIFY"><strong>Riak:</strong> Wonderful, fully clusterized NoSQL server written in Erlang. It works asynchronously, has great performance and easy access via REST, protobuf and lots of other interfaces. It also has built in realtime Search index and MapReduce Implementation. But for now we will use only small par of Riak, aka storage for static files. In this scenario we must look  on several benefits against shared storage solution.</p>
+<ol>
+<li>Low latency to access files. (Riak bitcask uses Single Seek to Retrieve any value )</li>
+<li>Horizontally scaleable. (Just add more and more cheap servers to the cluster)</li>
+<li>Much more throughput (for example 10 servers with 1xGbit por will have total 10 Gbit minus about 10% internal utilization)</li>
+<li>No need for expensive Raids, SAN etc</li>
+</ol>
+<p align="JUSTIFY">So lets start my favorite part: Installation and configuration of mentioned above. As I’m Debian fan, I will do this on current Stable release Debian 6.0 Squeeze</p>
+<p align="JUSTIFY">First you need t download and install Riak. At the moment of writing this article this was the latest version of Riak but before just copy-pasting check out for latest version here: http://basho.com/resources/downloads/.</p>
+<p align="JUSTIFY">Download and Install Riak:</p>
+<div>
+<div>
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre># cd /usr/local/src
+# wget http://s3.amazonaws.com/downloads.basho.com/riak/CURRENT/debian/6/riak_1.2.1-1_amd64.deb
+# dpkg -i riak_1.2.1-1_amd64.deb</pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+
+</div>
+</div>
+<p align="JUSTIFY"> Done! Riak is installed. Do not start it for now. Just in case:</p>
+<div>
+<div>
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre># /etc/init.d/riak restart</pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+
+</div>
+</div>
+<p align="JUSTIFY"> Now we need to clusterize it and make some configuration changes. By default Riak binds on 127.0.0.1 whic ix not a good idea fo clusters   so change it to internal ip address of server,<strong>do not bind Riak on servers public IP is that exist . </strong></p>
+<p align="JUSTIFY">edit /etc/riak/app.config and change:</p>
+<div>
+<div>
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre>{pb_ip,   "192.168.235.111" }, and {http, [ {"192.168.235.111", 8098 } ]},</pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+
+</div>
+</div>
+<p>Also make sure you have configured /etc/hosts file and system hostname. Correct /etc/hosts should look something like this:</p>
+<p>Also make sure you have configured /etc/hosts file and system hostname. Correct /etc/hosts should look something like this:</p>
+<div>
+<div>
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre>127.0.0.1 localhost
+192.168.235.111 riak1.your-domain.com riak1</pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+
+</div>
+</div>
+<p>Also if you do not have your own internal DNS, you will have to add other nodes to /etc/hosts as well, but better to have DNS.</p>
+<div>
+<div>
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre>192.168.235.112 riak2.your-domain.com riak2
+192.168.235.113 riak3.your-domain.com riak3
+192.168.235.11N riakN.your-domain.com riakN</pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+
+</div>
+</div>
+<p>Also make some changes for storage configuration:</p>
+<p>format and mount your bid disk to /var/lib/riak:</p>
+<div>
+<div>
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre># mkfs.xfs /dev/sdb1
+# mount /dev/sdb1 /mnt
+# mv /var/lib/riak/* /mnt/
+# umount /mnt
+# mount /dev/sdb1 /var/lib/riak
+# chown -R riak.riak /var/lib/riak</pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+
+</div>
+</div>
+<p>Or better just create another mount-point and reconfigure Riak to use it</p>
+<div>
+<div>
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre># mount /dev/sdb1 /opt
+# mkdir /opt/riak
+# chown riak.riak /opt/riak
+# mv /var/lib/riak/* /opt/riak</pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+
+</div>
+</div>
+<p>Change paths in /etc/riak/app.config:</p>
+<div>
+<div>
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre>{riak_core, [
+{ring_state_dir, "/opt/riak/riak/ring"},
+...--------...
+{bitcask, [{data_root, "/opt/riak/bitcask"} ]},
+{eleveldb, [{data_root, "/opt/riak/leveldb"}]},</pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0005 seconds] -->
+
+</div>
+</div>
+<p>Also it would be nice to enable Riak console to have nice WUI</p>
+<p>It is installed by default so all you need is to change userlist from {userlist, [{"user", "pass"} to actual values. and make sure {admin, true} exist.</p>
+<p>It is also highly recommended to enable HTTPS and user secure link to admin Riak. For that you will need to enable HTTPS at riak_core section and add Certificate and Private key files:</p>
+<div>
+<div>
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre>{https, [ {"192.168.235.111", 8069 } ]},
+    {ssl, [
+        {certfile, "/etc/riak/ssl/riak.crt"},
+        {keyfile, "/etc/riak/ssl/riak.pem"}
+]},</pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+
+</div>
+</div>
+<p>That's all ! now restart Riak and login to Riak Admin via https://192.168..233.111:8069/admin.</p>
+<p>also edit /etc.riak/vm.args and change</p>
+<p>Now restart Riak:</p>
+<div>
+<div>
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre>-name riak@127.0.0.1
+to
+-name riak@riak1.your-domain.com</pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+
+</div>
+</div>
+<div>
+<div>
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre>/etc/init.d/riak restart</pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+
+</div>
+</div>
+<p>Nor we need to more nodes to have redundancy: lets imagine that we have 3 nodes cluster for now.</p>
+<p>So repeat all steps above on riak2.your-domain.com and riak3.your-domain.com:</p>
+<p>Now you have 3 separate nodes, now need to join them all to single cluster: Very nice guide to do this is here</p>
+<p>Shortly you need yo do following: After making apropriate configs</p>
+<p>on node 2 and 3</p>
+<div>
+<div>
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre>riak-admin cluster join riak@riak1.your-domain.com</pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+
+</div>
+</div>
+<p>And only on riak1 node</p>
+<div>
+<div>
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre>riak-admin cluster plan
+riak-admin cluster commit</pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+
+</div>
+</div>
+<p>Now you have fully clusterized and working Riak installation.</p>
+<p>to test is do following:</p>
+<div>
+<div>
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre>curl -v -X PUT http://192.168.235.111:8098/riak/images/foo.jpg -H "Content-type: image/jpg" --data-binary @./foo.jpg</pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+
+</div>
+</div>
+<p>Full reference to Riak cUrl commands is here</p>
+<p>Now open http://192.168.235.111:8098/riak/images/foo.jpg with your favorite browser: Just for Fun open all 3 nodes and see same picture:</p>
+<p>Great we have completed with Riak installation, now  lets install and configure NginX front-end.</p>
+<p>apt-get install nginx</p>
+<p>Now edit /etc/nginx/sites-enabled/default and replace content with this:</p>
+<div>
+<div>
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div>
+		
+			<div><pre>upstream riak {
+    server 192.168.235.111:8098 fail_timeout=30s;
+    server 192.168.235.112:8098 fail_timeout=30s;
+    server 192.168.235.113:8098 fail_timeout=30s;
+}
+
+server {
+        listen 80;
+        server_name  your.public.domain;
+
+        if ( $uri !~ \. ) { return 403; }       # Require URI with file extension 
+        if ( $uri !~ ^/.*/.* ) { return 403; }  # Disable access to Riak / 
+        if ( $uri ~ ^/.*/.*/.* ) { return 403;} # Disable Link walk MR etc  
+
+        location / {
+        if ($request_method = GET){
+        proxy_pass http://riak;
+        rewrite ^/(.*) /riak/$1 break;          # Remove /riak from external URL (Hide Riak)
+        }
+
+        proxy_redirect          off;
+        proxy_next_upstream     error timeout invalid_header http_500;
+        proxy_connect_timeout   2;
+        proxy_set_header        Host            $host;
+        proxy_set_header        X-Real-IP       $remote_addr;
+        proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header        Referer         ""; # Zero up referer or Riak will 403 all requests 
+        proxy_hide_header       X-Riak-Vclock;      # Remove Riak specific headers
+        proxy_hide_header       Link;               # Remove Riak specific headers 
+        proxy_hide_header       ETag;               # Remove Another Riak header 
+        proxy_hide_header       Server;
+        }
+        }</pre></div>
+			 
+		</div>
+<!-- [Format Time: 0.0021 seconds] -->
+
+</div>
+</div>
+<p>After all this done you can get you image via http://your.public.domain/images/foo.jpg without any Riak specific tags and links.</p>
+<p>原文地址： http://netangels.net/knowledge-base/nginx-and-riak/#.Uo3xN9JkP-Z</p>
+			
+<p></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作(*锐)！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weixin.png" alt="IM.NGINX 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="IM.NGINX 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    IM.NGINX
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://nginx.im/nginx/database/nginx-and-riak.html" title="NginX and Riak:-nginx案例">http://nginx.im/nginx/database/nginx-and-riak.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/nginx/" rel="tag"># nginx</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Nginx-Config-Pitfalls.html" rel="next" title="Nginx 陷阱和常见错误">
+                <i class="fa fa-chevron-left"></i> Nginx 陷阱和常见错误
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/nginx/linux/nginx-modules-ngx_http_access_module.html" rel="prev" title="nginx访问控制allow、deny（ngx_http_access_module）-nginx案例">
+                nginx访问控制allow、deny（ngx_http_access_module）-nginx案例 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTg1NS84NDE5"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="IM.NGINX" />
+            
+              <p class="site-author-name" itemprop="name">IM.NGINX</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">244</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">IM.NGINX</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+		
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -4,12 +4,1747 @@
 
     
   <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-proxy_set_header.html</loc>
+    <lastmod>2018-12-24T09:26:03.903Z</lastmod>
+    <data>
+        <display>
+        <title>nginx反向代理proxy_set_header自定义header头无效-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.320Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-purge-404-error.html</loc>
+    <lastmod>2018-12-24T09:26:03.621Z</lastmod>
+    <data>
+        <display>
+        <title>nginx purge更新缓存404错误-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.321Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/memc_nginx_srcache_nginx_memcached-problems.html</loc>
+    <lastmod>2018-12-24T09:26:01.031Z</lastmod>
+    <data>
+        <display>
+        <title>memc_nginx+srcache_nginx+memcached遇到的问题-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.245Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/database/nginx-and-riak.html</loc>
+    <lastmod>2018-12-24T09:25:58.818Z</lastmod>
+    <data>
+        <display>
+        <title>NginX and Riak:-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.204Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/the-ngx_http_headers_module-module-add_header-and-expires-instructions.html</loc>
+    <lastmod>2018-12-24T09:25:58.435Z</lastmod>
+    <data>
+        <display>
+        <title>ngx_http_headers_module模块add_header和expires指令-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.343Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-and-lua.html</loc>
+    <lastmod>2018-12-24T09:25:58.138Z</lastmod>
+    <data>
+        <display>
+        <title>Nginx 与 Lua-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.248Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/using-nginx-geo-method.html</loc>
+    <lastmod>2018-12-24T09:25:57.490Z</lastmod>
+    <data>
+        <display>
+        <title>nginx geo使用方法-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.348Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx_set-misc-nginx-module-module-description.html</loc>
+    <lastmod>2018-12-24T09:25:56.847Z</lastmod>
+    <data>
+        <display>
+        <title>nginx+set-misc-nginx-module模块说明-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.339Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-modules-ngx_image_thumb.html</loc>
+    <lastmod>2018-12-24T09:25:56.476Z</lastmod>
+    <data>
+        <display>
+        <title>Nginx国人开发缩略图模块(ngx_image_thumb)-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.302Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-limiting-the-number-of-requests-ngx_http_limit_req_module-module.html</loc>
+    <lastmod>2018-12-24T09:25:56.179Z</lastmod>
+    <data>
+        <display>
+        <title>nginx限制请求数ngx_http_limit_req_module模块-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.262Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-limited-connection-number-ngx_http_limit_conn_module-module.html</loc>
+    <lastmod>2018-12-24T09:25:55.929Z</lastmod>
+    <data>
+        <display>
+        <title>nginx限制连接数ngx_http_limit_conn_module模块-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.261Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-modules-video-thumbextractor.html</loc>
+    <lastmod>2018-12-24T09:25:55.494Z</lastmod>
+    <data>
+        <display>
+        <title>nginx+video-thumbextractor生成视频缩略图-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.315Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-module-auto_index.html</loc>
+    <lastmod>2018-12-24T09:25:55.208Z</lastmod>
+    <data>
+        <display>
+        <title>nginx索引目录配置-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.270Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-modules-perl_module.html</loc>
+    <lastmod>2018-12-24T09:25:54.928Z</lastmod>
+    <data>
+        <display>
+        <title>nginx+perl模块的使用-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.307Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/linux/nginx-modules-ngx_http_access_module.html</loc>
+    <lastmod>2018-12-24T09:25:54.668Z</lastmod>
+    <data>
+        <display>
+        <title>nginx访问控制allow、deny（ngx_http_access_module）-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.219Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/linux/nginx-modules-ngx_http_addition_module.html</loc>
+    <lastmod>2018-12-24T09:25:54.433Z</lastmod>
+    <data>
+        <display>
+        <title>nginx向响应内容中追加内容（ngx_http_addition_module模块）-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.223Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/linux/nginx-modules-ngx_http_sub_module.html</loc>
+    <lastmod>2018-12-24T09:25:54.179Z</lastmod>
+    <data>
+        <display>
+        <title>nginx替换网站响应内容（ngx_http_sub_module）-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.226Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-for-the-crawler-to-limit-configuration.html</loc>
+    <lastmod>2018-12-24T09:25:53.874Z</lastmod>
+    <data>
+        <display>
+        <title>nginx针对爬虫进行限速配置-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.256Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-modules-ngx_set_cconv.html</loc>
+    <lastmod>2018-12-24T09:25:53.550Z</lastmod>
+    <data>
+        <display>
+        <title>nginx实现简体繁体字互转以及中文转拼音(ngx_set_cconv模块)-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.307Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-modules-ngx_http_dyups_module.html</loc>
+    <lastmod>2018-12-24T09:25:53.223Z</lastmod>
+    <data>
+        <display>
+        <title>nginx修改upstream不重启的方法(ngx_http_dyups_module模块)-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.298Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-speed-white-list-configuration.html</loc>
+    <lastmod>2018-12-24T09:25:52.886Z</lastmod>
+    <data>
+        <display>
+        <title>nginx限速白名单配置-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.325Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/using-nginx-map-method.html</loc>
+    <lastmod>2018-12-24T09:25:52.456Z</lastmod>
+    <data>
+        <display>
+        <title>nginx map使用方法-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.349Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-modules-ngx_http_log_request_speed.html</loc>
+    <lastmod>2018-12-24T09:25:52.103Z</lastmod>
+    <data>
+        <display>
+        <title>nginx记录分析网站响应慢的请求(ngx_http_log_request_speed)-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.299Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-modules-empty_gif.html</loc>
+    <lastmod>2018-12-24T09:25:51.801Z</lastmod>
+    <data>
+        <display>
+        <title>nginx空白图片(empty_gif模块)-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.280Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-referer.html</loc>
+    <lastmod>2018-12-24T09:25:51.480Z</lastmod>
+    <data>
+        <display>
+        <title>nginx实现图片防盗链(referer指令)-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.322Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-modules-random-index.html</loc>
+    <lastmod>2018-12-24T09:25:51.140Z</lastmod>
+    <data>
+        <display>
+        <title>nginx显示随机首页模块(Random Index)-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.308Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-modules-secure_link.html</loc>
+    <lastmod>2018-12-24T09:25:50.901Z</lastmod>
+    <data>
+        <display>
+        <title>nginx secure_link下载防盗链-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.309Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-module-ngx-fancyindex.html</loc>
+    <lastmod>2018-12-24T09:25:50.618Z</lastmod>
+    <data>
+        <display>
+        <title>nginx+fancy实现漂亮的索引目录-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.272Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/local-nginx-cache-module-ngx_slowfs_cache.html</loc>
+    <lastmod>2018-12-24T09:25:50.308Z</lastmod>
+    <data>
+        <display>
+        <title>nginx本地缓存模块ngx_slowfs_cache-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.243Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-modules-nginx-http-footer-filter.html</loc>
+    <lastmod>2018-12-24T09:25:49.971Z</lastmod>
+    <data>
+        <display>
+        <title>nginx模块nginx-http-footer-filter研究使用-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.283Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/construction-of-srcache_nginx_redis-caching-system.html</loc>
+    <lastmod>2018-12-24T09:25:49.620Z</lastmod>
+    <data>
+        <display>
+        <title>srcache_nginx+redis构建缓存系统-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.237Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-module-ngx_white_black_list.html</loc>
+    <lastmod>2018-12-24T09:25:49.216Z</lastmod>
+    <data>
+        <display>
+        <title>nginx动态IP黑白名单构建web防火墙(ngx_white_black_list)-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.274Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/web/srcache_nginx-redis-purge-cache.html</loc>
+    <lastmod>2018-12-24T09:25:48.982Z</lastmod>
+    <data>
+        <display>
+        <title>srcache_nginx redis 清除缓存-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.355Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/web/multiple-https-host-nginx-with-a-ip-configuration.html</loc>
+    <lastmod>2018-12-24T09:25:48.734Z</lastmod>
+    <data>
+        <display>
+        <title>nginx 同一个IP上配置多个HTTPS主机-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.354Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/memc_nginx_srcache_nginx_memcached-to-construct-transparent-caching-dynamic-pages.html</loc>
+    <lastmod>2018-12-24T09:25:48.384Z</lastmod>
+    <data>
+        <display>
+        <title>memc_nginx+srcache_nginx+memcached构建透明的动态页面缓存-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.246Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/application-of-nginx_memcached-to-construct-the-page-cache.html</loc>
+    <lastmod>2018-12-24T09:25:48.012Z</lastmod>
+    <data>
+        <display>
+        <title>nginx+memcached构建页面缓存应用-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.235Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/perl-fastcgi-nginx.html</loc>
+    <lastmod>2018-12-24T09:25:47.672Z</lastmod>
+    <data>
+        <display>
+        <title>perl + fastcgi + nginx搭建-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.340Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-create-image-on-disk.html</loc>
+    <lastmod>2018-12-24T09:25:47.182Z</lastmod>
+    <data>
+        <display>
+        <title>nginx实时生成缩略图到硬盘上-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.254Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-get-user-real-ip.html</loc>
+    <lastmod>2018-12-24T09:25:46.859Z</lastmod>
+    <data>
+        <display>
+        <title>CDN下nginx获取用户真实IP地址-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.257Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-modules-concat.html</loc>
+    <lastmod>2018-12-24T09:25:46.516Z</lastmod>
+    <data>
+        <display>
+        <title>nginx js、css多个请求合并为一个请求(concat模块)-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.277Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-modules-sysgurad.html</loc>
+    <lastmod>2018-12-24T09:25:46.192Z</lastmod>
+    <data>
+        <display>
+        <title>nginx防止高负载的解决方案(sysgurad模块)-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.312Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-modules-ngx_http_lower_upper_case.html</loc>
+    <lastmod>2018-12-24T09:25:45.850Z</lastmod>
+    <data>
+        <display>
+        <title>nginx实现大小写字母转换（ngx_http_lower_upper_case模块）-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.301Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-modules-ngx_http_circle_gif_module.html</loc>
+    <lastmod>2018-12-24T09:25:45.561Z</lastmod>
+    <data>
+        <display>
+        <title>nginx快速绘制圆形图（ngx_http_circle_gif_module模块）-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.295Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-modules-access_log_bypass_if.html</loc>
+    <lastmod>2018-12-24T09:25:45.266Z</lastmod>
+    <data>
+        <display>
+        <title>nginx不记录特定日志(access_log_bypass_if)-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.275Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-modules-ngx_file_md5.html</loc>
+    <lastmod>2018-12-24T09:25:44.917Z</lastmod>
+    <data>
+        <display>
+        <title>nginx获取大文件MD5值(nginx模块ngx_file_md5)-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.292Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-modules-ngx_realtime_request_module.html</loc>
+    <lastmod>2018-12-24T09:25:44.629Z</lastmod>
+    <data>
+        <display>
+        <title>nginx实时记录请求状态信息( ngx_realtime_request_module)-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.303Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-modules-ngx_req_status.html</loc>
+    <lastmod>2018-12-24T09:25:44.371Z</lastmod>
+    <data>
+        <display>
+        <title>nginx流量带宽等请求状态统计( ngx_req_status)-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.305Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-modules-ngx-http-status-code-counter.html</loc>
+    <lastmod>2018-12-24T09:25:44.118Z</lastmod>
+    <data>
+        <display>
+        <title>nginx统计响应的http状态码信息(ngx-http-status-code-counter)-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.289Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-modules-ngx_lua.html</loc>
+    <lastmod>2018-12-24T09:25:43.865Z</lastmod>
+    <data>
+        <display>
+        <title>nginx + ngx_lua安装测试-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.302Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-modules-nginx-strip.html</loc>
+    <lastmod>2018-12-24T09:25:43.461Z</lastmod>
+    <data>
+        <display>
+        <title>nginx strip模块优化页面-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.287Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-modules-upload-module.html</loc>
+    <lastmod>2018-12-24T09:25:43.115Z</lastmod>
+    <data>
+        <display>
+        <title>nginx上传模块—nginx upload module-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.314Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-modules-nginx-sticky-module.html</loc>
+    <lastmod>2018-12-24T09:25:42.864Z</lastmod>
+    <data>
+        <display>
+        <title>使用nginx sticky实现基于cookie的负载均衡-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.285Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-modules-image_filter_module.html</loc>
+    <lastmod>2018-12-24T09:25:42.485Z</lastmod>
+    <data>
+        <display>
+        <title>nginx生成缩略图配置-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.282Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-lua-redis.html</loc>
+    <lastmod>2018-12-24T09:25:42.015Z</lastmod>
+    <data>
+        <display>
+        <title>nginx+lua+redis构建高并发应用-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.269Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/to-build-an-application-cache-system-of-srcache_nginx-redis.html</loc>
+    <lastmod>2018-12-24T09:25:41.611Z</lastmod>
+    <data>
+        <display>
+        <title>srcache_nginx redis 构建缓存系统应用一例-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.344Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/how-to-install-nginx-third-modules.html</loc>
+    <lastmod>2018-12-24T09:25:41.265Z</lastmod>
+    <data>
+        <display>
+        <title>如何安装nginx第三方模块-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.240Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-var-8.html</loc>
+    <lastmod>2018-12-24T09:25:40.936Z</lastmod>
+    <data>
+        <display>
+        <title>nginx变量使用方法详解(8)-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.336Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-var-7.html</loc>
+    <lastmod>2018-12-24T09:25:40.487Z</lastmod>
+    <data>
+        <display>
+        <title>nginx变量使用方法详解(7)-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.335Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-var-6.html</loc>
+    <lastmod>2018-12-24T09:25:40.058Z</lastmod>
+    <data>
+        <display>
+        <title>nginx变量使用方法详解(6)-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.334Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-var-5.html</loc>
+    <lastmod>2018-12-24T09:25:39.519Z</lastmod>
+    <data>
+        <display>
+        <title>nginx变量使用方法详解(5)-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.333Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-var-4.html</loc>
+    <lastmod>2018-12-24T09:25:39.076Z</lastmod>
+    <data>
+        <display>
+        <title>nginx变量使用方法详解(4)-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.332Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-var-3.html</loc>
+    <lastmod>2018-12-24T09:25:38.454Z</lastmod>
+    <data>
+        <display>
+        <title>nginx变量使用方法详解(3)-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.331Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-var-2.html</loc>
+    <lastmod>2018-12-24T09:25:38.000Z</lastmod>
+    <data>
+        <display>
+        <title>nginx变量使用方法详解(2)-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.329Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-var-1.html</loc>
+    <lastmod>2018-12-24T09:25:37.683Z</lastmod>
+    <data>
+        <display>
+        <title>nginx变量使用方法详解(1)-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.328Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/10-tips-to-ensure-the-security-of-nginx.html</loc>
+    <lastmod>2018-12-24T09:25:37.394Z</lastmod>
+    <data>
+        <display>
+        <title>确保nginx安全的10个技巧-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.233Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-battle-ready-optimization-guide.html</loc>
+    <lastmod>2018-12-24T09:25:37.127Z</lastmod>
+    <data>
+        <display>
+        <title>Nginx 战斗准备 —— 优化指南-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.250Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-keepalived-proxy_cache.html</loc>
+    <lastmod>2018-12-24T09:25:36.739Z</lastmod>
+    <data>
+        <display>
+        <title>nginx+keepalived+proxy_cache 配置高可用nginx群集和高速缓存-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.260Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/use-nginx-proxy.html</loc>
+    <lastmod>2018-12-24T09:25:36.394Z</lastmod>
+    <data>
+        <display>
+        <title>搭建nginx反向代理用做内网域名转发-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.347Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-positive-proxy.html</loc>
+    <lastmod>2018-12-24T09:25:35.933Z</lastmod>
+    <data>
+        <display>
+        <title>nginx正向代理-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.318Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-tcp-proxy.html</loc>
+    <lastmod>2018-12-24T09:25:35.611Z</lastmod>
+    <data>
+        <display>
+        <title>nginx tcp代理-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.327Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/lnmp-safe-config.html</loc>
+    <lastmod>2018-12-24T09:25:35.260Z</lastmod>
+    <data>
+        <display>
+        <title>lnmp架构下php安全配置分享-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.242Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/web/the-cdn-scheduler-nginx-haproxy-varnish.html</loc>
+    <lastmod>2018-12-24T09:25:34.929Z</lastmod>
+    <data>
+        <display>
+        <title>CDN调度器HAProxy、Nginx、Varnish-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.357Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/hidden-nginx-version.html</loc>
+    <lastmod>2018-12-24T09:25:34.543Z</lastmod>
+    <data>
+        <display>
+        <title>隐藏Nginx版本号的安全性与方法-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.238Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-logic.html</loc>
+    <lastmod>2018-12-24T09:25:34.219Z</lastmod>
+    <data>
+        <display>
+        <title>nginx 逻辑运算-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.268Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-rewriting-rules-guide.html</loc>
+    <lastmod>2018-12-24T09:25:33.939Z</lastmod>
+    <data>
+        <display>
+        <title>Nginx重写规则指南-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.323Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-log-cutting.html</loc>
+    <lastmod>2018-12-24T09:25:33.565Z</lastmod>
+    <data>
+        <display>
+        <title>nginx日志切割-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.266Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/web/apache-and-nginx-support-ssi-configuration.html</loc>
+    <lastmod>2018-12-24T09:25:33.271Z</lastmod>
+    <data>
+        <display>
+        <title>apache和nginx支持SSI配置-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.353Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/linux/the-nginx-log-configuration.html</loc>
+    <lastmod>2018-12-24T09:25:32.914Z</lastmod>
+    <data>
+        <display>
+        <title>nginx日志配置-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.227Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/the-ngx_http_core_module-module-provides-variable.html</loc>
+    <lastmod>2018-12-24T09:25:32.608Z</lastmod>
+    <data>
+        <display>
+        <title>ngx_http_core_module模块提供的变量-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.342Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-root_alias-file-path-configuration.html</loc>
+    <lastmod>2018-12-24T09:25:32.306Z</lastmod>
+    <data>
+        <display>
+        <title>nginx root&alias文件路径配置-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.324Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-location-configure.html</loc>
+    <lastmod>2018-12-24T09:25:32.053Z</lastmod>
+    <data>
+        <display>
+        <title>nginx location配置-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.264Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-configure-vhosts.html</loc>
+    <lastmod>2018-12-24T09:25:31.772Z</lastmod>
+    <data>
+        <display>
+        <title>nginx配置虚拟主机-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.253Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-php-5_5.html</loc>
+    <lastmod>2018-12-24T09:25:31.469Z</lastmod>
+    <data>
+        <display>
+        <title>nginx+PHP 5.5-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.316Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-modules-ngx_cache_purge.html</loc>
+    <lastmod>2018-12-24T09:25:31.030Z</lastmod>
+    <data>
+        <display>
+        <title>nginx安装配置+清缓存模块安装-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.290Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-configure-descriptions.html</loc>
+    <lastmod>2018-12-24T09:25:30.754Z</lastmod>
+    <data>
+        <display>
+        <title>nginx 编译参数详解-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.251Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-install-on-linux.html</loc>
+    <lastmod>2018-12-24T09:25:30.309Z</lastmod>
+    <data>
+        <display>
+        <title>nginx安装-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.258Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx%E5%B8%B8%E7%94%A8%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F%E5%8F%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html</loc>
+    <lastmod>2018-12-24T08:19:42.859Z</lastmod>
+    <data>
+        <display>
+        <title></title>
+        <pubTime>2018-03-05T04:58:45.364Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://nginx.im/nginx/nginx/ttserver-nginx-1429.html</loc>
     <lastmod>2018-12-24T08:18:44.486Z</lastmod>
     <data>
         <display>
         <title>ttserver+nginx构建高并发高可用性应用-nginx案例</title>
-        <pubTime>2018-12-22T10:07:19.055Z</pubTime>
+        <pubTime>2018-12-24T09:31:16.346Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -38,21 +1773,6 @@
              
               <breadCrumb title="nginx常见错误" url="http://nginx.im/categories/nginx%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx%E5%B8%B8%E7%94%A8%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F%E5%8F%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html</loc>
-    <lastmod>2018-12-24T06:42:03.563Z</lastmod>
-    <data>
-        <display>
-        <title></title>
-        <pubTime>2018-03-05T04:58:45.364Z</pubTime>
-        
-         
-           
         </display>
     </data>
     </url>
@@ -1859,12 +3579,12 @@
 
     
   <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_gunzip_module.html</loc>
+    <loc>http://nginx.im/ngx/http/ngx_http_geo_module.html</loc>
     <lastmod>2018-12-24T03:54:08.191Z</lastmod>
     <data>
         <display>
-        <title>http/ngx_http_gunzip_module-nginx中文参考手册</title>
-        <pubTime>2018-12-24T03:54:01.282Z</pubTime>
+        <title>http/ngx_http_geo_module-nginx中文参考手册</title>
+        <pubTime>2018-12-24T03:54:01.278Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -1879,12 +3599,12 @@
 
     
   <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_geo_module.html</loc>
+    <loc>http://nginx.im/ngx/http/ngx_http_gunzip_module.html</loc>
     <lastmod>2018-12-24T03:54:08.191Z</lastmod>
     <data>
         <display>
-        <title>http/ngx_http_geo_module-nginx中文参考手册</title>
-        <pubTime>2018-12-24T03:54:01.278Z</pubTime>
+        <title>http/ngx_http_gunzip_module-nginx中文参考手册</title>
+        <pubTime>2018-12-24T03:54:01.282Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -2479,1646 +4199,6 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/nginx/use-nginx-proxy.html</loc>
-    <lastmod>2018-12-22T10:07:20.378Z</lastmod>
-    <data>
-        <display>
-        <title>搭建nginx反向代理用做内网域名转发-nginx案例</title>
-        <pubTime>2018-12-22T10:07:19.058Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/perl-fastcgi-nginx.html</loc>
-    <lastmod>2018-12-22T10:07:20.378Z</lastmod>
-    <data>
-        <display>
-        <title>perl + fastcgi + nginx搭建-nginx案例</title>
-        <pubTime>2018-12-22T10:07:19.047Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx_set-misc-nginx-module-module-description.html</loc>
-    <lastmod>2018-12-22T10:07:20.376Z</lastmod>
-    <data>
-        <display>
-        <title>nginx+set-misc-nginx-module模块说明-nginx案例</title>
-        <pubTime>2018-12-22T10:07:19.045Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-var-7.html</loc>
-    <lastmod>2018-12-22T10:07:20.374Z</lastmod>
-    <data>
-        <display>
-        <title>nginx变量使用方法详解(7)-nginx案例</title>
-        <pubTime>2018-12-22T10:07:19.040Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-var-8.html</loc>
-    <lastmod>2018-12-22T10:07:20.373Z</lastmod>
-    <data>
-        <display>
-        <title>nginx变量使用方法详解(8)-nginx案例</title>
-        <pubTime>2018-12-22T10:07:19.042Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-var-6.html</loc>
-    <lastmod>2018-12-22T10:07:20.372Z</lastmod>
-    <data>
-        <display>
-        <title>nginx变量使用方法详解(6)-nginx案例</title>
-        <pubTime>2018-12-22T10:07:19.039Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-var-2.html</loc>
-    <lastmod>2018-12-22T10:07:20.371Z</lastmod>
-    <data>
-        <display>
-        <title>nginx变量使用方法详解(2)-nginx案例</title>
-        <pubTime>2018-12-22T10:07:19.032Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-var-3.html</loc>
-    <lastmod>2018-12-22T10:07:20.370Z</lastmod>
-    <data>
-        <display>
-        <title>nginx变量使用方法详解(3)-nginx案例</title>
-        <pubTime>2018-12-22T10:07:19.034Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-rewriting-rules-guide.html</loc>
-    <lastmod>2018-12-22T10:07:20.369Z</lastmod>
-    <data>
-        <display>
-        <title>Nginx重写规则指南-nginx案例</title>
-        <pubTime>2018-12-22T10:07:19.021Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-var-1.html</loc>
-    <lastmod>2018-12-22T10:07:20.369Z</lastmod>
-    <data>
-        <display>
-        <title>nginx变量使用方法详解(1)-nginx案例</title>
-        <pubTime>2018-12-22T10:07:19.030Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-modules-upload-module.html</loc>
-    <lastmod>2018-12-22T10:07:20.368Z</lastmod>
-    <data>
-        <display>
-        <title>nginx上传模块—nginx upload module-nginx案例</title>
-        <pubTime>2018-12-22T10:07:19.011Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/using-nginx-map-method.html</loc>
-    <lastmod>2018-12-22T10:07:20.367Z</lastmod>
-    <data>
-        <display>
-        <title>nginx map使用方法-nginx案例</title>
-        <pubTime>2018-12-22T10:07:19.062Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/using-nginx-geo-method.html</loc>
-    <lastmod>2018-12-22T10:07:20.367Z</lastmod>
-    <data>
-        <display>
-        <title>nginx geo使用方法-nginx案例</title>
-        <pubTime>2018-12-22T10:07:19.060Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/to-build-an-application-cache-system-of-srcache_nginx-redis.html</loc>
-    <lastmod>2018-12-22T10:07:20.365Z</lastmod>
-    <data>
-        <display>
-        <title>srcache_nginx redis 构建缓存系统应用一例-nginx案例</title>
-        <pubTime>2018-12-22T10:07:19.054Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/the-ngx_http_headers_module-module-add_header-and-expires-instructions.html</loc>
-    <lastmod>2018-12-22T10:07:20.364Z</lastmod>
-    <data>
-        <display>
-        <title>ngx_http_headers_module模块add_header和expires指令-nginx案例</title>
-        <pubTime>2018-12-22T10:07:19.051Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/the-ngx_http_core_module-module-provides-variable.html</loc>
-    <lastmod>2018-12-22T10:07:20.364Z</lastmod>
-    <data>
-        <display>
-        <title>ngx_http_core_module模块提供的变量-nginx案例</title>
-        <pubTime>2018-12-22T10:07:19.049Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-var-4.html</loc>
-    <lastmod>2018-12-22T10:07:20.363Z</lastmod>
-    <data>
-        <display>
-        <title>nginx变量使用方法详解(4)-nginx案例</title>
-        <pubTime>2018-12-22T10:07:19.035Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-tcp-proxy.html</loc>
-    <lastmod>2018-12-22T10:07:20.362Z</lastmod>
-    <data>
-        <display>
-        <title>nginx tcp代理-nginx案例</title>
-        <pubTime>2018-12-22T10:07:19.029Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-var-5.html</loc>
-    <lastmod>2018-12-22T10:07:20.362Z</lastmod>
-    <data>
-        <display>
-        <title>nginx变量使用方法详解(5)-nginx案例</title>
-        <pubTime>2018-12-22T10:07:19.037Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-speed-white-list-configuration.html</loc>
-    <lastmod>2018-12-22T10:07:20.361Z</lastmod>
-    <data>
-        <display>
-        <title>nginx限速白名单配置-nginx案例</title>
-        <pubTime>2018-12-22T10:07:19.027Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-referer.html</loc>
-    <lastmod>2018-12-22T10:07:20.360Z</lastmod>
-    <data>
-        <display>
-        <title>nginx实现图片防盗链(referer指令)-nginx案例</title>
-        <pubTime>2018-12-22T10:07:19.019Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-root_alias-file-path-configuration.html</loc>
-    <lastmod>2018-12-22T10:07:20.360Z</lastmod>
-    <data>
-        <display>
-        <title>nginx root&alias文件路径配置-nginx案例</title>
-        <pubTime>2018-12-22T10:07:19.023Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-positive-proxy.html</loc>
-    <lastmod>2018-12-22T10:07:20.359Z</lastmod>
-    <data>
-        <display>
-        <title>nginx正向代理-nginx案例</title>
-        <pubTime>2018-12-22T10:07:19.017Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-php-5_5.html</loc>
-    <lastmod>2018-12-22T10:07:20.358Z</lastmod>
-    <data>
-        <display>
-        <title>nginx+PHP 5.5-nginx案例</title>
-        <pubTime>2018-12-22T10:07:19.015Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-modules-sysgurad.html</loc>
-    <lastmod>2018-12-22T10:07:20.357Z</lastmod>
-    <data>
-        <display>
-        <title>nginx防止高负载的解决方案(sysgurad模块)-nginx案例</title>
-        <pubTime>2018-12-22T10:07:19.009Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-modules-video-thumbextractor.html</loc>
-    <lastmod>2018-12-22T10:07:20.355Z</lastmod>
-    <data>
-        <display>
-        <title>nginx+video-thumbextractor生成视频缩略图-nginx案例</title>
-        <pubTime>2018-12-22T10:07:19.013Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/web/the-cdn-scheduler-nginx-haproxy-varnish.html</loc>
-    <lastmod>2018-12-22T10:07:19.639Z</lastmod>
-    <data>
-        <display>
-        <title>CDN调度器HAProxy、Nginx、Varnish-nginx案例</title>
-        <pubTime>2018-12-22T10:07:19.071Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/web/srcache_nginx-redis-purge-cache.html</loc>
-    <lastmod>2018-12-22T10:07:19.638Z</lastmod>
-    <data>
-        <display>
-        <title>srcache_nginx redis 清除缓存-nginx案例</title>
-        <pubTime>2018-12-22T10:07:19.069Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/web/apache-and-nginx-support-ssi-configuration.html</loc>
-    <lastmod>2018-12-22T10:07:19.635Z</lastmod>
-    <data>
-        <display>
-        <title>apache和nginx支持SSI配置-nginx案例</title>
-        <pubTime>2018-12-22T10:07:19.066Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/web/multiple-https-host-nginx-with-a-ip-configuration.html</loc>
-    <lastmod>2018-12-22T10:07:19.633Z</lastmod>
-    <data>
-        <display>
-        <title>nginx 同一个IP上配置多个HTTPS主机-nginx案例</title>
-        <pubTime>2018-12-22T10:07:19.068Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-modules-nginx-http-footer-filter.html</loc>
-    <lastmod>2018-12-22T10:07:19.631Z</lastmod>
-    <data>
-        <display>
-        <title>nginx模块nginx-http-footer-filter研究使用-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.973Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-module-ngx_white_black_list.html</loc>
-    <lastmod>2018-12-22T10:07:19.630Z</lastmod>
-    <data>
-        <display>
-        <title>nginx动态IP黑白名单构建web防火墙(ngx_white_black_list)-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.963Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-modules-secure_link.html</loc>
-    <lastmod>2018-12-22T10:07:19.626Z</lastmod>
-    <data>
-        <display>
-        <title>nginx secure_link下载防盗链-nginx案例</title>
-        <pubTime>2018-12-22T10:07:19.007Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-modules-perl_module.html</loc>
-    <lastmod>2018-12-22T10:07:19.622Z</lastmod>
-    <data>
-        <display>
-        <title>nginx+perl模块的使用-nginx案例</title>
-        <pubTime>2018-12-22T10:07:19.004Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-modules-random-index.html</loc>
-    <lastmod>2018-12-22T10:07:19.621Z</lastmod>
-    <data>
-        <display>
-        <title>nginx显示随机首页模块(Random Index)-nginx案例</title>
-        <pubTime>2018-12-22T10:07:19.005Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-modules-ngx_set_cconv.html</loc>
-    <lastmod>2018-12-22T10:07:19.620Z</lastmod>
-    <data>
-        <display>
-        <title>nginx实现简体繁体字互转以及中文转拼音(ngx_set_cconv模块)-nginx案例</title>
-        <pubTime>2018-12-22T10:07:19.002Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-modules-ngx_realtime_request_module.html</loc>
-    <lastmod>2018-12-22T10:07:19.618Z</lastmod>
-    <data>
-        <display>
-        <title>nginx实时记录请求状态信息( ngx_realtime_request_module)-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.998Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-modules-ngx_req_status.html</loc>
-    <lastmod>2018-12-22T10:07:19.617Z</lastmod>
-    <data>
-        <display>
-        <title>nginx流量带宽等请求状态统计( ngx_req_status)-nginx案例</title>
-        <pubTime>2018-12-22T10:07:19.000Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-modules-ngx_lua.html</loc>
-    <lastmod>2018-12-22T10:07:19.616Z</lastmod>
-    <data>
-        <display>
-        <title>nginx + ngx_lua安装测试-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.996Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-modules-ngx_http_lower_upper_case.html</loc>
-    <lastmod>2018-12-22T10:07:19.614Z</lastmod>
-    <data>
-        <display>
-        <title>nginx实现大小写字母转换（ngx_http_lower_upper_case模块）-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.992Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-modules-ngx_image_thumb.html</loc>
-    <lastmod>2018-12-22T10:07:19.610Z</lastmod>
-    <data>
-        <display>
-        <title>Nginx国人开发缩略图模块(ngx_image_thumb)-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.994Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-modules-ngx_http_log_request_speed.html</loc>
-    <lastmod>2018-12-22T10:07:19.608Z</lastmod>
-    <data>
-        <display>
-        <title>nginx记录分析网站响应慢的请求(ngx_http_log_request_speed)-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.989Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-modules-ngx_http_dyups_module.html</loc>
-    <lastmod>2018-12-22T10:07:19.604Z</lastmod>
-    <data>
-        <display>
-        <title>nginx修改upstream不重启的方法(ngx_http_dyups_module模块)-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.988Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-modules-ngx_http_circle_gif_module.html</loc>
-    <lastmod>2018-12-22T10:07:19.601Z</lastmod>
-    <data>
-        <display>
-        <title>nginx快速绘制圆形图（ngx_http_circle_gif_module模块）-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.985Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-modules-ngx_file_md5.html</loc>
-    <lastmod>2018-12-22T10:07:19.599Z</lastmod>
-    <data>
-        <display>
-        <title>nginx获取大文件MD5值(nginx模块ngx_file_md5)-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.982Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-modules-ngx_cache_purge.html</loc>
-    <lastmod>2018-12-22T10:07:19.598Z</lastmod>
-    <data>
-        <display>
-        <title>nginx安装配置+清缓存模块安装-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.980Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-modules-nginx-strip.html</loc>
-    <lastmod>2018-12-22T10:07:19.595Z</lastmod>
-    <data>
-        <display>
-        <title>nginx strip模块优化页面-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.977Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-modules-ngx-http-status-code-counter.html</loc>
-    <lastmod>2018-12-22T10:07:19.592Z</lastmod>
-    <data>
-        <display>
-        <title>nginx统计响应的http状态码信息(ngx-http-status-code-counter)-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.978Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-modules-image_filter_module.html</loc>
-    <lastmod>2018-12-22T10:07:19.589Z</lastmod>
-    <data>
-        <display>
-        <title>nginx生成缩略图配置-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.971Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-modules-nginx-sticky-module.html</loc>
-    <lastmod>2018-12-22T10:07:19.587Z</lastmod>
-    <data>
-        <display>
-        <title>使用nginx sticky实现基于cookie的负载均衡-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.975Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-logic.html</loc>
-    <lastmod>2018-12-22T10:07:19.585Z</lastmod>
-    <data>
-        <display>
-        <title>nginx 逻辑运算-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.955Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-modules-empty_gif.html</loc>
-    <lastmod>2018-12-22T10:07:19.583Z</lastmod>
-    <data>
-        <display>
-        <title>nginx空白图片(empty_gif模块)-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.969Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-modules-concat.html</loc>
-    <lastmod>2018-12-22T10:07:19.582Z</lastmod>
-    <data>
-        <display>
-        <title>nginx js、css多个请求合并为一个请求(concat模块)-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.966Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-modules-access_log_bypass_if.html</loc>
-    <lastmod>2018-12-22T10:07:19.579Z</lastmod>
-    <data>
-        <display>
-        <title>nginx不记录特定日志(access_log_bypass_if)-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.965Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-lua-redis.html</loc>
-    <lastmod>2018-12-22T10:07:19.577Z</lastmod>
-    <data>
-        <display>
-        <title>nginx+lua+redis构建高并发应用-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.957Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-module-ngx-fancyindex.html</loc>
-    <lastmod>2018-12-22T10:07:19.574Z</lastmod>
-    <data>
-        <display>
-        <title>nginx+fancy实现漂亮的索引目录-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.961Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-module-auto_index.html</loc>
-    <lastmod>2018-12-22T10:07:19.573Z</lastmod>
-    <data>
-        <display>
-        <title>nginx索引目录配置-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.958Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-log-cutting.html</loc>
-    <lastmod>2018-12-22T10:07:19.571Z</lastmod>
-    <data>
-        <display>
-        <title>nginx日志切割-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.953Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-location-configure.html</loc>
-    <lastmod>2018-12-22T10:07:19.570Z</lastmod>
-    <data>
-        <display>
-        <title>nginx location配置-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.951Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-limited-connection-number-ngx_http_limit_conn_module-module.html</loc>
-    <lastmod>2018-12-22T10:07:19.569Z</lastmod>
-    <data>
-        <display>
-        <title>nginx限制连接数ngx_http_limit_conn_module模块-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.948Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-limiting-the-number-of-requests-ngx_http_limit_req_module-module.html</loc>
-    <lastmod>2018-12-22T10:07:19.568Z</lastmod>
-    <data>
-        <display>
-        <title>nginx限制请求数ngx_http_limit_req_module模块-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.950Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-keepalived-proxy_cache.html</loc>
-    <lastmod>2018-12-22T10:07:19.566Z</lastmod>
-    <data>
-        <display>
-        <title>nginx+keepalived+proxy_cache 配置高可用nginx群集和高速缓存-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.947Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-install-on-linux.html</loc>
-    <lastmod>2018-12-22T10:07:19.564Z</lastmod>
-    <data>
-        <display>
-        <title>nginx安装-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.945Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-get-user-real-ip.html</loc>
-    <lastmod>2018-12-22T10:07:19.563Z</lastmod>
-    <data>
-        <display>
-        <title>CDN下nginx获取用户真实IP地址-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.943Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/memc_nginx_srcache_nginx_memcached-to-construct-transparent-caching-dynamic-pages.html</loc>
-    <lastmod>2018-12-22T10:07:19.562Z</lastmod>
-    <data>
-        <display>
-        <title>memc_nginx+srcache_nginx+memcached构建透明的动态页面缓存-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.929Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-battle-ready-optimization-guide.html</loc>
-    <lastmod>2018-12-22T10:07:19.561Z</lastmod>
-    <data>
-        <display>
-        <title>Nginx 战斗准备 —— 优化指南-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.933Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-configure-descriptions.html</loc>
-    <lastmod>2018-12-22T10:07:19.559Z</lastmod>
-    <data>
-        <display>
-        <title>nginx 编译参数详解-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.934Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-and-lua.html</loc>
-    <lastmod>2018-12-22T10:07:19.557Z</lastmod>
-    <data>
-        <display>
-        <title>Nginx 与 Lua-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.931Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-for-the-crawler-to-limit-configuration.html</loc>
-    <lastmod>2018-12-22T10:07:19.556Z</lastmod>
-    <data>
-        <display>
-        <title>nginx针对爬虫进行限速配置-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.941Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-create-image-on-disk.html</loc>
-    <lastmod>2018-12-22T10:07:19.555Z</lastmod>
-    <data>
-        <display>
-        <title>nginx实时生成缩略图到硬盘上-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.939Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/local-nginx-cache-module-ngx_slowfs_cache.html</loc>
-    <lastmod>2018-12-22T10:07:19.554Z</lastmod>
-    <data>
-        <display>
-        <title>nginx本地缓存模块ngx_slowfs_cache-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.927Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-configure-vhosts.html</loc>
-    <lastmod>2018-12-22T10:07:19.554Z</lastmod>
-    <data>
-        <display>
-        <title>nginx配置虚拟主机-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.936Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/hidden-nginx-version.html</loc>
-    <lastmod>2018-12-22T10:07:19.553Z</lastmod>
-    <data>
-        <display>
-        <title>隐藏Nginx版本号的安全性与方法-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.919Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/construction-of-srcache_nginx_redis-caching-system.html</loc>
-    <lastmod>2018-12-22T10:07:19.552Z</lastmod>
-    <data>
-        <display>
-        <title>srcache_nginx+redis构建缓存系统-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.917Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/lnmp-safe-config.html</loc>
-    <lastmod>2018-12-22T10:07:19.552Z</lastmod>
-    <data>
-        <display>
-        <title>lnmp架构下php安全配置分享-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.925Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/how-to-install-nginx-third-modules.html</loc>
-    <lastmod>2018-12-22T10:07:19.551Z</lastmod>
-    <data>
-        <display>
-        <title>如何安装nginx第三方模块-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.923Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/10-tips-to-ensure-the-security-of-nginx.html</loc>
-    <lastmod>2018-12-22T10:07:19.550Z</lastmod>
-    <data>
-        <display>
-        <title>确保nginx安全的10个技巧-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.914Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/nginx/application-of-nginx_memcached-to-construct-the-page-cache.html</loc>
-    <lastmod>2018-12-22T10:07:19.549Z</lastmod>
-    <data>
-        <display>
-        <title>nginx+memcached构建页面缓存应用-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.915Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/linux/the-nginx-log-configuration.html</loc>
-    <lastmod>2018-12-22T10:07:19.549Z</lastmod>
-    <data>
-        <display>
-        <title>nginx日志配置-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.907Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/linux/nginx-modules-ngx_http_addition_module.html</loc>
-    <lastmod>2018-12-22T10:07:19.548Z</lastmod>
-    <data>
-        <display>
-        <title>nginx向响应内容中追加内容（ngx_http_addition_module模块）-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.903Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/linux/nginx-modules-ngx_http_access_module.html</loc>
-    <lastmod>2018-12-22T10:07:19.547Z</lastmod>
-    <data>
-        <display>
-        <title>nginx访问控制allow、deny（ngx_http_access_module）-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.902Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/linux/nginx-modules-ngx_http_sub_module.html</loc>
-    <lastmod>2018-12-22T10:07:19.546Z</lastmod>
-    <data>
-        <display>
-        <title>nginx替换网站响应内容（ngx_http_sub_module）-nginx案例</title>
-        <pubTime>2018-12-22T10:07:18.905Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://nginx.im/java/JVM%E5%AD%A6%E4%B9%A0.html</loc>
     <lastmod>2018-12-20T08:11:29.301Z</lastmod>
     <data>
@@ -4431,26 +4511,6 @@
 
     
   <url>
-    <loc>http://nginx.im/spring-boot/spring-boot-Access-Control-Allow-Origin.html</loc>
-    <lastmod>2018-03-05T04:58:45.369Z</lastmod>
-    <data>
-        <display>
-        <title>springboot-Access-Control-Allow-Origin</title>
-        <pubTime>2018-03-05T04:58:45.369Z</pubTime>
-        
-        <tag>springboot</tag>
-         
-         
-           
-             
-              <breadCrumb title="springboot" url="http://nginx.im/categories/springboot/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://nginx.im/spring-boot-mybatis-druid%E6%95%B4%E5%90%88.html</loc>
     <lastmod>2018-03-05T04:58:45.369Z</lastmod>
     <data>
@@ -4463,6 +4523,26 @@
         <tag>mybatis</tag>
          
         <tag>druid</tag>
+         
+         
+           
+             
+              <breadCrumb title="springboot" url="http://nginx.im/categories/springboot/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/spring-boot/spring-boot-Access-Control-Allow-Origin.html</loc>
+    <lastmod>2018-03-05T04:58:45.369Z</lastmod>
+    <data>
+        <display>
+        <title>springboot-Access-Control-Allow-Origin</title>
+        <pubTime>2018-03-05T04:58:45.369Z</pubTime>
+        
+        <tag>springboot</tag>
          
          
            
@@ -4539,16 +4619,16 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx-if%E6%8C%87%E4%BB%A4%E4%B8%8E%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F.html</loc>
+    <loc>http://nginx.im/nginx-location%E5%A5%87%E6%B7%AB%E6%8A%80%E5%B7%A7.html</loc>
     <lastmod>2018-03-05T04:58:45.363Z</lastmod>
     <data>
         <display>
-        <title>nginx-if指令与全局变量</title>
+        <title>nginx-location正则表达式匹配规则及动静分离</title>
         <pubTime>2018-03-05T04:58:45.363Z</pubTime>
         
         <tag>nginx</tag>
          
-        <tag>if</tag>
+        <tag>location</tag>
          
          
            
@@ -4561,16 +4641,16 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx-location%E5%A5%87%E6%B7%AB%E6%8A%80%E5%B7%A7.html</loc>
+    <loc>http://nginx.im/nginx-if%E6%8C%87%E4%BB%A4%E4%B8%8E%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F.html</loc>
     <lastmod>2018-03-05T04:58:45.363Z</lastmod>
     <data>
         <display>
-        <title>nginx-location正则表达式匹配规则及动静分离</title>
+        <title>nginx-if指令与全局变量</title>
         <pubTime>2018-03-05T04:58:45.363Z</pubTime>
         
         <tag>nginx</tag>
          
-        <tag>location</tag>
+        <tag>if</tag>
          
          
            
@@ -4611,6 +4691,28 @@
 
     
   <url>
+    <loc>http://nginx.im/json/fastjson.html</loc>
+    <lastmod>2018-03-05T04:58:45.362Z</lastmod>
+    <data>
+        <display>
+        <title>JSON字符串转换为Map</title>
+        <pubTime>2018-03-05T04:58:45.362Z</pubTime>
+        
+        <tag>fastjson</tag>
+         
+        <tag>json</tag>
+         
+         
+           
+             
+              <breadCrumb title="json" url="http://nginx.im/categories/json/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://nginx.im/java%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88%E5%BA%94%E7%94%A8.html</loc>
     <lastmod>2018-03-05T04:58:45.362Z</lastmod>
     <data>
@@ -4633,16 +4735,14 @@
 
     
   <url>
-    <loc>http://nginx.im/json/fastjson.html</loc>
-    <lastmod>2018-03-05T04:58:45.362Z</lastmod>
+    <loc>http://nginx.im/fastjson%E8%A7%A3%E6%9E%90json%E5%AD%97%E7%AC%A6%E4%B8%B2.html</loc>
+    <lastmod>2018-03-05T04:58:45.361Z</lastmod>
     <data>
         <display>
-        <title>JSON字符串转换为Map</title>
-        <pubTime>2018-03-05T04:58:45.362Z</pubTime>
+        <title>fastjson解析json字符串</title>
+        <pubTime>2018-03-05T04:58:45.360Z</pubTime>
         
         <tag>fastjson</tag>
-         
-        <tag>json</tag>
          
          
            
@@ -4696,26 +4796,6 @@
            
              
               <breadCrumb title="java" url="http://nginx.im/categories/java/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/fastjson%E8%A7%A3%E6%9E%90json%E5%AD%97%E7%AC%A6%E4%B8%B2.html</loc>
-    <lastmod>2018-03-05T04:58:45.361Z</lastmod>
-    <data>
-        <display>
-        <title>fastjson解析json字符串</title>
-        <pubTime>2018-03-05T04:58:45.360Z</pubTime>
-        
-        <tag>fastjson</tag>
-         
-         
-           
-             
-              <breadCrumb title="json" url="http://nginx.im/categories/json/"/>
           
         </display>
     </data>

@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="nginx,nginx-and-lua,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T10:07:19.557Z">
+<meta property="og:updated_time" content="2018-12-24T09:25:58.138Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx 与 Lua-nginx案例">
 <meta name="twitter:description" content="nginx,nginx-and-lua,">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T18:07:18+08:00">
-                2018年12月22日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T17:31:16+08:00">
+                2018年12月24日
               </time>
             
 
@@ -387,11 +387,7 @@
 
       
         <p>nginx,nginx-and-lua,<br><a id="more"></a><br>
-  <div><!--<a href="/go/jjim" rel="external nofollow" target="_blank"><img src="/wp-content/uploads/2017/12/jujin_im.jpg" alt="又拍云upyun" /></a>-->
- 
-<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-0956732394986573" data-ad-slot="2895550264"></ins>
- 
-</div>
+   
 	
 				</p><p>这几个月里，我们逐步把Lua集成到Mixlr的前端Nginx配置中。<br>
 Lua是一个可以嵌入到Nginx配置文件中的动态脚本语言，从而可以在Nginx请求处理的任何阶段执行各种Lua代码。刚开始我们只是用Lua 把请求路由到后端服务器，但是它对我们架构的作用超出了我们的预期。下面就讲讲我们所做的工作。<br>
@@ -460,7 +456,7 @@ Lua提供了比Nginx默认配置规则更加灵活的设置方式。 在下面�
   ';}</pre></div>
 			 
 		</div>
-<!-- [Format Time: 0.0001 seconds] -->
+<!-- [Format Time: 0.0002 seconds] -->
 <p><span><strong>基于Redis的实时IP封禁</strong></span><br>
 某些情况下，需要阻止流氓爬虫的抓取，这可以通过专门的封禁设备去做，但是通过Lua，也可以实现简单版本的封禁。</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
@@ -512,7 +508,7 @@ location / {
 			<div><pre>ruby&gt; $redis.sadd("banned_ips", "200.1.35.4")</pre></div>
 			 
 		</div>
-<!-- [Format Time: 0.0001 seconds] -->
+<!-- [Format Time: 0.0002 seconds] -->
 <p>Nginx进程每隔10秒从Redis获取一次最新的禁止IP名单。需要注意的是，如果架构中使用了Haproxy这样类似的负载均衡服务器时， 需要把$remote_addr设置为正确的远端IP地址。<br>
 这个方法还可以用于HTTP User-Agent字段的检查，要求满足指定条件。</p>
 <p><strong><span>使用Nginx输出CSRF(form_authenticity_token)</span></strong><br>
@@ -553,7 +549,7 @@ location @dynamic {
   try_files /maintenance.html /rails_cache$uri @thin;}</pre></div>
 			 
 		</div>
-<!-- [Format Time: 0.0006 seconds] -->
+<!-- [Format Time: 0.0009 seconds] -->
 <p>CSRF token生成 app/metal/csrf_token_endpoint.rb:</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
 		<div>
@@ -576,13 +572,13 @@ location @dynamic {
   endend</pre></div>
 			 
 		</div>
-<!-- [Format Time: 0.0009 seconds] -->
+<!-- [Format Time: 0.0010 seconds] -->
 <p>我们的模版文件示例:<br>
 &lt;meta name="csrf-param" value="authenticity_token"/&gt;<br>
 &lt;meta name="csrf-token" value="&lt;!--# echo var="csrf_token" default="" encoding="none" --&gt;"/&gt;<br>
 Again you could make use of lua_shared_dict to store in memory the CSRF token for a particular session. This minimises the number of trips made to /csrf_token_endpoint.<br>
 原文链接：http://devblog.mixlr.com/2012/09/01/nginx-lua/</p>
-<div><span></span></div>			
+			
 <p></p>
 
       
@@ -750,7 +746,7 @@ Again you could make use of lua_shared_dict to store in memory the CSRF token fo
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">240</span>
+                  <span class="site-state-item-count">244</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

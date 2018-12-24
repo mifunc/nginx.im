@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="nginx,nginx-var-7">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T10:07:20.374Z">
+<meta property="og:updated_time" content="2018-12-24T09:25:40.487Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx变量使用方法详解(7)-nginx案例">
 <meta name="twitter:description" content="nginx,nginx-var-7">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T18:07:19+08:00">
-                2018年12月22日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T17:31:16+08:00">
+                2018年12月24日
               </time>
             
 
@@ -387,11 +387,7 @@
 
       
         <p>nginx,nginx-var-7<br><a id="more"></a><br>
-  <div><!--<a href="/go/jjim" rel="external nofollow" target="_blank"><img src="/wp-content/uploads/2017/12/jujin_im.jpg" alt="又拍云upyun" /></a>-->
- 
-<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-0956732394986573" data-ad-slot="2895550264"></ins>
- 
-</div>
+   
 	
 				</p><p>在 （一） 中我们提到过，Nginx 变量的值只有一种类型，那就是字符串，但是变量也有可能压根就不存在有意义的值。没有值的变量也有两种特殊的值：一种是“不合法”（invalid），另一种是“没找到”（not found）。</p>
 <p>举例说来，当 Nginx 用户变量 $foo 创建了却未被赋值时，$foo 的值便是“不合法”；而如果当前请求的 URL 参数串中并没有提及 XXX 这个参数，则 $arg_XXX 内建变量的值便是“没找到”。</p>
@@ -419,7 +415,7 @@
     foo = []</pre></div>
 			 
 		</div>
-<!-- [Format Time: 0.0001 seconds] -->
+<!-- [Format Time: 0.0002 seconds] -->
 <p>从输出上看，未初始化的 $foo 变量确实和空字符串的效果等同。但细心的读者当时应该就已经注意到，对于上面这个请求，Nginx 的错误日志文件（一般文件名叫做 error.log）中多出一行类似下面这样的警告：</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
 		<div>
@@ -427,7 +423,7 @@
 			<div><pre>    [warn] 5765#0: *1 using uninitialized "foo" variable, ...</pre></div>
 			 
 		</div>
-<!-- [Format Time: 0.0002 seconds] -->
+<!-- [Format Time: 0.0001 seconds] -->
 <p>这一行警告是谁输出的呢？答案是 set 指令为 $foo 注册的“取处理程序”。当 /foo 接口中的 echo 指令实际执行的时候，它会对它的参数 "foo = [$foo]" 进行“变量插值”计算。于是，参数串中的 $foo 变量会被读取，而 Nginx 会首先检查其值容器里的取值，结果它看到了“不合法”这个特殊值，于是它这才决定继续调用 $foo 变量的“取处理程序”。于是 $foo 变量的“取处理程序”开始运行，它向 Nginx 的错误日志打印出上面那条警告消息，然后返回一个空字符串作为 $foo 的值，并从此缓存在 $foo 的值容器中。</p>
 <p>细心的读者会注意到刚刚描述的这个过程其实就是那些支持值缓存的内建变量的工作原理，只不过 set 指令在这里借用了这套机制来处理未正确初始化的 Nginx 变量。值得一提的是，只有“不合法”这个特殊值才会触发 Nginx 调用变量的“取处理程序”，而特殊值“没找到”却不会。</p>
 <p>上面这样的警告一般会指示出我们的 Nginx 配置中存在变量名拼写错误，抑或是在错误的场合使用了尚未初始化的变量。因为值缓存的存在，这条警告在一个请求的生命期中也不会打印多次。当然，ngx_rewrite 模块专门提供了一条 uninitialized_variable_warn 配置指令可用于禁止这条警告日志。</p>
@@ -440,7 +436,7 @@
     }</pre></div>
 			 
 		</div>
-<!-- [Format Time: 0.0001 seconds] -->
+<!-- [Format Time: 0.0002 seconds] -->
 <p>这里我们输出 $arg_name 变量的值同时故意在请求中不提供 URL 参数 name:</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
 		<div>
@@ -449,7 +445,7 @@
     name: []</pre></div>
 			 
 		</div>
-<!-- [Format Time: 0.0001 seconds] -->
+<!-- [Format Time: 0.0002 seconds] -->
 <p>我们看到，输出特殊值“找不到”的效果和空字符串是相同的。因为这一回是 Nginx 的“变量插值”引擎自动把“找不到”给忽略了。</p>
 <p>那么我们究竟应当如何捕捉到“找不到”这种特殊值的踪影呢？换句话说，我们应当如何把它和空字符串给区分开来呢？显然，下面这个请求中，URL 参数 name 是有值的，而且其值应当是空字符串：</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
@@ -459,7 +455,7 @@
     name: []</pre></div>
 			 
 		</div>
-<!-- [Format Time: 0.0002 seconds] -->
+<!-- [Format Time: 0.0001 seconds] -->
 <p>但我们却无法将之和前面完全不提供 name 参数的情况给区分开。</p>
 <p>幸运的是，通过第三方模块 ngx_lua，我们可以轻松地在 Lua 代码中做到这一点。请看下面这个例子：</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
@@ -507,7 +503,7 @@
     name: missing</pre></div>
 			 
 		</div>
-<!-- [Format Time: 0.0002 seconds] -->
+<!-- [Format Time: 0.0001 seconds] -->
 <p>此时，$arg_name 变量仍然读出“找不到”这个特殊值，这就明显有些违反常识。此外，$arg_XXX 变量在请求 URL 中有多个同名 XXX 参数时，就只会返回最先出现的那个 XXX 参数的值，而默默忽略掉其他实例：</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
 		<div>
@@ -516,10 +512,10 @@
     name: [Tom]</pre></div>
 			 
 		</div>
-<!-- [Format Time: 0.0002 seconds] -->
+<!-- [Format Time: 0.0001 seconds] -->
 <p>要解决这些局限，可以直接在 Lua 代码中使用 ngx_lua 模块提供的 ngx.req.get_uri_args 函数。</p>
-<div></div>
-<div><span></span></div>			
+
+			
 <p></p>
 
       
@@ -687,7 +683,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">240</span>
+                  <span class="site-state-item-count">244</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

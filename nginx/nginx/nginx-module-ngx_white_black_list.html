@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="nginx,nginx-module-ngx_white_black_list,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T10:07:19.630Z">
+<meta property="og:updated_time" content="2018-12-24T09:25:49.216Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx动态IP黑白名单构建web防火墙(ngx_white_black_list)-nginx案例">
 <meta name="twitter:description" content="nginx,nginx-module-ngx_white_black_list,">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T18:07:18+08:00">
-                2018年12月22日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T17:31:16+08:00">
+                2018年12月24日
               </time>
             
 
@@ -387,11 +387,7 @@
 
       
         <p>nginx,nginx-module-ngx_white_black_list,<br><a id="more"></a><br>
-  <div><!--<a href="/go/jjim" rel="external nofollow" target="_blank"><img src="/wp-content/uploads/2017/12/jujin_im.jpg" alt="又拍云upyun" /></a>-->
- 
-<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-0956732394986573" data-ad-slot="2895550264"></ins>
- 
-</div>
+   
 	
 				<div>
 <div>功能描述：</div>
@@ -399,9 +395,9 @@
 <div>处在白名单中的ip，访问web服务时，将不受nginx所有安全模块的限制。</div>
 <div>支持动态黑名单（需要与ngx_http_limit_req 配合）</div>
 <div>具体详见下面的说明</div>
-<div></div>
+
 <div>文件配置方法说明</div>
-<div></div>
+
 <div><strong>一、定义黑名单或白名单方法：</strong></div>
 <div>1. 配置格式</div>
 <div>配置关键字 黑名单或白名单文件 存储空间</div>
@@ -411,12 +407,12 @@
 <div>  | | ---------------------------------------------------------------------------------------------存储空间名</div>
 <div>  | ---------------------------------------------------------------黑名单或白名单配置文件路径</div>
 <div>  ------------------------------------------------配置命令</div>
-<div></div>
+
 <div>2. 配置关键字 white_black_list_conf。</div>
 <div>3. 只能在http{} 中使用</div>
 <div>4. white_black_list_conf可以配置多个 只需 zone=value 其中的value不同就可</div>
 <div>5. 配置示例：</div>
-<div></div>
+
 <div>http{</div>
 <div>        ......</div>
 <div>        white_black_list_conf conf/white.list zone=white:4m;</div>
@@ -427,14 +423,14 @@
 <div>        }</div>
 <div>        .......</div>
 <div>}</div>
-<div></div>
+
 <div>二、黑白名单作用范围</div>
 <div>1. 配置格式</div>
 <div>配置关键字 on/off</div>
 <div>配置关键字有：white_list 与 black_list 分别用来表示白名单与黑名单</div>
-<div></div>
+
 <div>2. 能在http{}、server{}、location{}下使用, 功能默认是关闭</div>
-<div></div>
+
 <div>3. 配置示例：</div>
 <div>http{</div>
 <div>        ......</div>
@@ -447,7 +443,7 @@
 <div>        }</div>
 <div>        .......</div>
 <div>}</div>
-<div></div>
+
 <div>http{</div>
 <div>        ......</div>
 <div>        white_black_list_conf conf/white.list zone=white2:4m;</div>
@@ -460,8 +456,8 @@
 <div>        }</div>
 <div>        .......</div>
 <div>}</div>
-<div></div>
-<div></div>
+
+
 <div>http{</div>
 <div>        ......</div>
 <div>        white_black_list_conf conf/white.list zone=white3:4m;</div>
@@ -476,7 +472,7 @@
 <div>                        black_list black3 on; #黑名单 black3 在location /do{} 中开启</div>
 <div>                        ........</div>
 <div>                }</div>
-<div></div>
+
 <div>                location /do1{</div>
 <div>                        white_list white2 on; #白名单 white2 在整个server{} 中都开启</div>
 <div>                        black_list black2 on; #黑名单 black2 在整个server{} 中都开启</div>
@@ -485,8 +481,8 @@
 <div>        }</div>
 <div>        .......</div>
 <div>}</div>
-<div></div>
-<div></div>
+
+
 <div>http配置接口说明：</div>
 <div>一、配置配置接口</div>
 <div>http{</div>
@@ -500,8 +496,8 @@
 <div>        }</div>
 <div>        .......</div>
 <div>}</div>
-<div></div>
-<div></div>
+
+
 <div>二、配置方法：</div>
 <div>1. http://xxx/sec_config 查看黑白名单定义情况</div>
 <div>返回结果如下</div>
@@ -524,16 +520,16 @@
 <div>                "list_path":        "/home/john/nginx/conf/status_ex"</div>
 <div>        }</div>
 <div>}</div>
-<div></div>
+
 <div>2. http://xxx/sec_config?zone_name=white 查看zone_name 为white 的 list_path中的具体内容</div>
-<div></div>
+
 <div>3. http://xxx/sec_config?zone_name=white&amp;add_item=192.168.141.23 向 zone_name 为white 中增加192.168.141.23</div>
-<div></div>
+
 <div>4. http://xxx/sec_config?zone_name=white&amp;delete_item=192.168.141.23 在 zone_name 为white 中删除192.168.141.23</div>
-<div></div>
+
 <div>查看配置方法2:</div>
 <div>http://xxx/sec_config?for_each</div>
-<div></div>
+
 <div>三、黑白名单文件内容</div>
 <div>conf/black.list 文件内容如下</div>
 <div>2.2.2.2</div>
@@ -541,7 +537,7 @@
 <div>3.3.3.3</div>
 <div>4.4.4.5</div>
 <div>2.3.4.4</div>
-<div></div>
+
 <div>四、动态黑名单</div>
 <div>    要使用该功能必须对 ngx_http_limit_req_module.c 进行patch</div>
 <div>    在ngx_http_limit_req_module.c中</div>
@@ -553,22 +549,22 @@
 <div>                      "limiting requests, excess: %ui.%03ui by zone \"%V\"",</div>
 <div>                      excess / 1000, excess % 1000,</div>
 <div>                      &amp;limit-&gt;shm_zone-&gt;shm.name);</div>
-<div></div>
+
 <div>        "</div>
 <div>    在其下面增加：</div>
 <div>    ngx_black_add_item_interface(r, 1);</div>
-<div></div>
+
 <div>        配备关键字：</div>
 <div>                dyn_black</div>
-<div></div>
+
 <div>        格式：</div>
 <div>                dyn_black $zone_name time;</div>
 <div>        比如：</div>
 <div>                dyn_black black 60; //禁止访问60秒，60秒后自动解除</div>
-<div></div>
+
 <div>        注意：</div>
 <div>                必须要配置black_list</div>
-<div></div>
+
 <div>        配置示例：</div>
 <div>                http{</div>
 <div>                        ....</div>
@@ -576,14 +572,14 @@
 <div>                        limit_req_zone $binary_remote_addr zone=one:8m rate=4r/s;</div>
 <div>                        ...</div>
 <div>                        server {</div>
-<div></div>
+
 <div>                                location / {</div>
 <div>                 black_list black on;</div>
 <div>                 limit_req zone=one burst=6;</div>
 <div>                 dyn_black black 60; //禁止访问60秒，60秒后自动解除</div>
 <div>                 ...</div>
 <div>                 }</div>
-<div></div>
+
 <div>                 location /xxx {</div>
 <div>                 sec_config on;</div>
 <div>                 }</div>
@@ -591,15 +587,15 @@
 <div>                        }</div>
 <div>                        ...</div>
 <div>                }</div>
-<div></div>
+
 <div>参考文章</div>
 <div>项目地址：https://github.com/codehunte/ngx_white_black_list</div>
 <div>项目文档：https://github.com/codehunte/ngx_white_black_list/blob/master/white_black_list.txt</div>
-<div></div>
+
 <div>网站：运维生存时间  网址：http://www.ttlsa.com/html/4145.html</div>
 </div>
-<div></div>
-<div><span></span></div>			
+
+			
 </p>
 
       
@@ -767,7 +763,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">240</span>
+                  <span class="site-state-item-count">244</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

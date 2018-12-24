@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="nginx,memc_nginx_srcache_nginx_memcached-to-construct-transparent-caching-dynamic-pages,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T10:07:19.562Z">
+<meta property="og:updated_time" content="2018-12-24T09:25:48.384Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="memc_nginx+srcache_nginx+memcached构建透明的动态页面缓存-nginx案例">
 <meta name="twitter:description" content="nginx,memc_nginx_srcache_nginx_memcached-to-construct-transparent-caching-dynamic-pages,">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T18:07:18+08:00">
-                2018年12月22日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T17:31:16+08:00">
+                2018年12月24日
               </time>
             
 
@@ -387,11 +387,7 @@
 
       
         <p>nginx,memc_nginx_srcache_nginx_memcached-to-construct-transparent-caching-dynamic-pages,<br><a id="more"></a><br>
-  <div><!--<a href="/go/jjim" rel="external nofollow" target="_blank"><img src="/wp-content/uploads/2017/12/jujin_im.jpg" alt="又拍云upyun" /></a>-->
- 
-<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-0956732394986573" data-ad-slot="2895550264"></ins>
- 
-</div>
+   
 	
 				</p><p>在上一节《nginx+memcached构建页面缓存应用》http://www.ttlsa.com/html/2418.html中，说道nginx只负责从memcached服务器中读取数据，要往memcached写入数据还得需要后台的应用程序来完成。使用memc-nginx和srcache-nginx模块就可以主动的向memcached添加缓存，对应用程序来说是透明的。大大的提高动态页面访问速度。第一次访问创建缓存，后续访问在缓存过期时间内，直接从memcached返回，不需要再次经过php-fpm处理。</p>
 <p>nginx_memc模块与nginx_srcache模块配合使用，来提供缓存服务器后端的操作，在技术上，任何提供REST接口的模块都可以与nginx_srcache配合使用来获取和存储缓存子请求。</p>
@@ -464,7 +460,7 @@ add_header X-Memc-Flags $memc_flags;
 }</pre></div>
 			 
 		</div>
-<!-- [Format Time: 0.0005 seconds] -->
+<!-- [Format Time: 0.0004 seconds] -->
 <p>或</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
 		<div>
@@ -782,13 +778,13 @@ server  {
 <!-- [Format Time: 0.0020 seconds] -->
 <p>7. 测试<br>
 7.1 第一次访问（404 Not found 创建缓存）</p>
-<p></p>
+
 <p>7.2 后续访问（直接从缓存中响应）</p>
-<p></p>
+
 <p>第一次访问创建缓存，后续访问在缓存过期时间内，直接从memcached返回，不需要再次经过php-fpm处理。大大提升动态页面访问速度。</p>
 <p>《memc_nginx+srcache_nginx+memcached遇到的问题》<br>
 如需转载请注明出处：http://www.ttlsa.com/html/2460.html</p>
-<div><span></span></div>			
+			
 <p></p>
 
       
@@ -867,8 +863,8 @@ server  {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/nginx/nginx/local-nginx-cache-module-ngx_slowfs_cache.html" rel="next" title="nginx本地缓存模块ngx_slowfs_cache-nginx案例">
-                <i class="fa fa-chevron-left"></i> nginx本地缓存模块ngx_slowfs_cache-nginx案例
+              <a href="/nginx/nginx/memc_nginx_srcache_nginx_memcached-problems.html" rel="next" title="memc_nginx+srcache_nginx+memcached遇到的问题-nginx案例">
+                <i class="fa fa-chevron-left"></i> memc_nginx+srcache_nginx+memcached遇到的问题-nginx案例
               </a>
             
           </div>
@@ -956,7 +952,7 @@ server  {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">240</span>
+                  <span class="site-state-item-count">244</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

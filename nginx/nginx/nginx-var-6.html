@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="nginx,nginx-var-6">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T10:07:20.372Z">
+<meta property="og:updated_time" content="2018-12-24T09:25:40.058Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx变量使用方法详解(6)-nginx案例">
 <meta name="twitter:description" content="nginx,nginx-var-6">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T18:07:19+08:00">
-                2018年12月22日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T17:31:16+08:00">
+                2018年12月24日
               </time>
             
 
@@ -387,11 +387,7 @@
 
       
         <p>nginx,nginx-var-6<br><a id="more"></a><br>
-  <div><!--<a href="/go/jjim" rel="external nofollow" target="_blank"><img src="/wp-content/uploads/2017/12/jujin_im.jpg" alt="又拍云upyun" /></a>-->
- 
-<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-0956732394986573" data-ad-slot="2895550264"></ins>
- 
-</div>
+   
 	
 				</p><p>Nginx 内建变量用在“子请求”的上下文中时，其行为也会变得有些微妙。</p>
 <p>前面在 （三） 中我们已经知道，许多内建变量都不是简单的“存放值的容器”，它们一般会通过注册“存取处理程序”来表现得与众不同，而它们即使有存放值的容器，也只是用于缓存“存取处理程序”的计算结果。我们之前讨论过的 $args 变量正是通过它的“取处理程序”来返回当前请求的 URL 参数串。因为当前请求也可以是“子请求”，所以在“子请求”中读取 $args，其“取处理程序”会很自然地返回当前“子请求”的参数串。我们来看这样的一个例子：</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
@@ -558,8 +554,8 @@ sub args: a=1&amp;b=2</p>
 <p>咦？我们不是分明把 /main 这个值映射到 1 上的么？为什么实际输出的是 /sub 映射的结果 2 呢？</p>
 <p>其实道理很简单，因为我们的 $tag 变量在“子请求” /sub 中首先被读取，于是在那里计算出了值 2（因为 $uri 在那里取值 /sub，而根据 map 映射规则，$tag 应当取值 2），从此就被 $tag 的值容器给缓存住了。而 auth_request 发起的“子请求”又是与“父请求”共享一套变量的，于是当 Nginx 的执行流回到“父请求”输出 $tag 变量的值时，Nginx 就直接返回缓存住的结果 2 了。这样的结果确实太意外了。</p>
 <p>从这个例子我们再次看到，父子请求间的变量共享，实在不是一个好主意。</p>
-<div></div>
-<div><span></span></div>			
+
+			
 <p></p>
 
       
@@ -727,7 +723,7 @@ sub args: a=1&amp;b=2</p>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">240</span>
+                  <span class="site-state-item-count">244</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

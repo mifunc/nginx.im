@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="nginx,nginx-battle-ready-optimization-guide,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T10:07:19.561Z">
+<meta property="og:updated_time" content="2018-12-24T09:25:37.127Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx 战斗准备 —— 优化指南-nginx案例">
 <meta name="twitter:description" content="nginx,nginx-battle-ready-optimization-guide,">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T18:07:18+08:00">
-                2018年12月22日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T17:31:16+08:00">
+                2018年12月24日
               </time>
             
 
@@ -387,11 +387,7 @@
 
       
         <p>nginx,nginx-battle-ready-optimization-guide,<br><a id="more"></a><br>
-  <div><!--<a href="/go/jjim" rel="external nofollow" target="_blank"><img src="/wp-content/uploads/2017/12/jujin_im.jpg" alt="又拍云upyun" /></a>-->
- 
-<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-0956732394986573" data-ad-slot="2895550264"></ins>
- 
-</div>
+   
 	
 				<div>
 <p>大多数的Nginx安装指南告诉你如下基础知识——通过apt-get安装，修改这里或那里的几行配置，好了，你已经有了一个Web服务器了！而且，在大多数情况下，一个常规安装的nginx对你的网站来说已经能很好地工作了。然而，如果你真的想挤压出nginx的性能，你必须更深入一些。在本指南中，我将解释Nginx的那些设置可以微调，以优化处理大量客户端时的性能。需要注意一点，这不是一个全面的微调指南。这是一个简单的预览——那些可以通过微调来提高性能设置的概述。你的情况可能不同。</p>
@@ -410,7 +406,7 @@ worker_processes auto;
 worker_rlimit_nofile 100000;</pre></div>
 			 
 		</div>
-<!-- [Format Time: 0.0003 seconds] -->
+<!-- [Format Time: 0.0005 seconds] -->
 
 </div>
 <p><strong>user</strong>和<strong>pid</strong>应该按默认设置 - 我们不会更改这些内容，因为更改与否没有什么不同。</p>
@@ -430,7 +426,7 @@ use epoll;
 }</pre></div>
 			 
 		</div>
-<!-- [Format Time: 0.0002 seconds] -->
+<!-- [Format Time: 0.0003 seconds] -->
 
 </div>
 <p><strong>worker_connections</strong>设置可由一个worker进程同时打开的最大连接数。如果设置了上面提到的worker_rlimit_nofile，我们可以将这个值设得很高。</p>
@@ -454,7 +450,7 @@ tcp_nodelay on;
 }</pre></div>
 			 
 		</div>
-<!-- [Format Time: 0.0002 seconds] -->
+<!-- [Format Time: 0.0003 seconds] -->
 
 </div>
 <p><strong>server_tokens </strong>并不会让nginx执行的速度更快，但它可以关闭在错误页面中的nginx版本数字，这样对于安全性是有好处的。<strong>sendfile</strong>可以让sendfile()发挥作用。sendfile()可以在磁盘和TCP socket之间互相拷贝数据(或任意两个文件描述符)。Pre-sendfile是传送数据之前在用户空间申请数据缓冲区。之后用read()将数据从文件拷贝到这个缓冲区，write()将缓冲区数据写入网络。sendfile()是立即将数据从磁盘读到OS缓存。因为这种拷贝是在内核完成的，sendfile()要比组合read()和write()以及打开关闭丢弃缓冲更加有效(更多有关于sendfile)</p>
@@ -469,7 +465,7 @@ tcp_nodelay on;
 error_log /var/log/nginx/error.log crit;</pre></div>
 			 
 		</div>
-<!-- [Format Time: 0.0002 seconds] -->
+<!-- [Format Time: 0.0003 seconds] -->
 
 </div>
 <p><strong>access_log</strong>设置nginx是否将存储访问日志。关闭这个选项可以让读取磁盘IO操作更快(aka,YOLO)<strong>error_log </strong>告诉nginx只能记录严重的错误</p>
@@ -485,7 +481,7 @@ reset_timedout_connection on;
 send_timeout 10;</pre></div>
 			 
 		</div>
-<!-- [Format Time: 0.0002 seconds] -->
+<!-- [Format Time: 0.0004 seconds] -->
 
 </div>
 <p><strong>keepalive_timeout</strong> 给客户端分配keep-alive链接超时时间。服务器将在这个超时时间过后关闭链接。我们将它设置低些可以让ngnix持续工作的时间更长。client_header_timeout 和<strong>client_body_timeout</strong> 设置请求头和请求体(各自)的超时时间。我们也可以把这个设置低些。</p>
@@ -500,7 +496,7 @@ send_timeout 10;</pre></div>
 limit_conn addr 100;</pre></div>
 			 
 		</div>
-<!-- [Format Time: 0.0002 seconds] -->
+<!-- [Format Time: 0.0003 seconds] -->
 
 </div>
 <p>limit_conn_zone设置用于保存各种key（比如当前连接数）的共享内存的参数。5m就是5兆字节，这个值应该被设置的足够大以存储（32K*5）32byte状态或者（16K*5）64byte状态。limit_conn为给定的key设置最大连接数。这里key是addr，我们设置的值是100，也就是说我们允许每一个IP地址最多同时打开有100个连接。</p>
@@ -514,7 +510,7 @@ default_type text/html;
 charset UTF-8;</pre></div>
 			 
 		</div>
-<!-- [Format Time: 0.0002 seconds] -->
+<!-- [Format Time: 0.0003 seconds] -->
 
 </div>
 <p>include只是一个在当前文件中包含另一个文件内容的指令。这里我们使用它来加载稍后会用到的一系列的MIME类型。default_type设置文件使用的默认的MIME-type。</p>
@@ -534,7 +530,7 @@ gzip_comp_level 4;
 gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;</pre></div>
 			 
 		</div>
-<!-- [Format Time: 0.0004 seconds] -->
+<!-- [Format Time: 0.0007 seconds] -->
 
 </div>
 <p>gzip是告诉nginx采用gzip压缩的形式发送数据。这将会减少我们发送的数据量。</p>
@@ -563,7 +559,7 @@ include /etc/nginx/conf.d/*.conf;
 include /etc/nginx/sites-enabled/*;</pre></div>
 			 
 		</div>
-<!-- [Format Time: 0.0004 seconds] -->
+<!-- [Format Time: 0.0007 seconds] -->
 
 </div>
 <p>open_file_cache打开缓存的同时也指定了缓存最大数目，以及缓存的时间。我们可以设置一个相对高的最大时间，这样我们可以在它们不活动超过20秒后清除掉。</p>
@@ -617,7 +613,7 @@ open_file_cache_errors on;
 }</pre></div>
 			 
 		</div>
-<!-- [Format Time: 0.0018 seconds] -->
+<!-- [Format Time: 0.0031 seconds] -->
 
 </div>
 <p>编辑完配置后，确认重启nginx使设置生效。</p>
@@ -628,7 +624,7 @@ open_file_cache_errors on;
 <p>本文地址：http://www.oschina.net/translate/nginx-setup<br>
 原文地址：http://blog.zachorr.com/nginx-setup/</p>
 </div>
-<div><span></span></div>			
+			
 </p>
 
       
@@ -805,7 +801,7 @@ open_file_cache_errors on;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">240</span>
+                  <span class="site-state-item-count">244</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="nginx,nginx-referer,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T10:07:20.360Z">
+<meta property="og:updated_time" content="2018-12-24T09:25:51.480Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx实现图片防盗链(referer指令)-nginx案例">
 <meta name="twitter:description" content="nginx,nginx-referer,">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T18:07:19+08:00">
-                2018年12月22日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T17:31:16+08:00">
+                2018年12月24日
               </time>
             
 
@@ -387,17 +387,13 @@
 
       
         <p>nginx,nginx-referer,<br><a id="more"></a><br>
-  <div><!--<a href="/go/jjim" rel="external nofollow" target="_blank"><img src="/wp-content/uploads/2017/12/jujin_im.jpg" alt="又拍云upyun" /></a>-->
- 
-<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-0956732394986573" data-ad-slot="2895550264"></ins>
- 
-</div>
+   
 	
 				</p><p>前几天讲了《nginx下载防盗链》，今天继续说下图片防盗链. 他们两个使用的指令不同，前者使用secure link,并且需要程序配合,但是效果非常好;后者不需要程序配合,根据图片来源来实现,但是只能先限制基本的图片盗用,无法防止图片采集.</p>
 <h3><strong>nginx</strong> referer指令简介</h3>
 <p>nginx模块ngx_http_referer_module通常用于阻挡来源非法的域名请求.我们应该牢记,伪装Referer头部是非常简单的事情，所以这个模块只能用于阻止大部分非法请求.我们应该记住，有些合法的请求是不会带referer来源头部的,所以有时候不要拒绝来源头部（referer）为空的请求.</p>
 <h3>图片防盗链配置</h3>
-<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
 		<div>
 		
@@ -410,7 +406,7 @@
 }</pre></div>
 			 
 		</div>
-<!-- [Format Time: 0.0005 seconds] -->
+<!-- [Format Time: 0.0006 seconds] -->
 <p>以上所有来至ttlsa.com和域名中包含google和baidu的站点都可以访问到当前站点的图片,如果来源域名不在这个列表中，那么$invalid_referer等于1，在if语句中返回一个403给用户，这样用户便会看到一个403的页面,如果使用下面的rewrite，那么盗链的图片都会显示403.jpg。如果用户直接在浏览器输入你的图片地址,那么图片显示正常，因为它符合none这个规则.</p>
 <h3>nginx防盗链指令</h3>
 <p>语法: referer_hash_bucket_size size;<br>
@@ -440,7 +436,7 @@ regular expression<br>
 正则表达式,~表示排除https://或http://开头的字符串.</p>
 <h3><strong>最后</strong></h3>
 <p>图片使用来源头部做防盗链是最合理的. 简单、实用。但是没有办法防采集。如果想做文件的防盗链请参考前面章节讲到的使用secure link文件防盗链文章.</p>
-<div><span></span></div>			
+			
 <p></p>
 
       
@@ -519,8 +515,8 @@ regular expression<br>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/nginx/nginx/nginx-positive-proxy.html" rel="next" title="nginx正向代理-nginx案例">
-                <i class="fa fa-chevron-left"></i> nginx正向代理-nginx案例
+              <a href="/nginx/nginx/nginx-purge-404-error.html" rel="next" title="nginx purge更新缓存404错误-nginx案例">
+                <i class="fa fa-chevron-left"></i> nginx purge更新缓存404错误-nginx案例
               </a>
             
           </div>
@@ -617,7 +613,7 @@ regular expression<br>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">240</span>
+                  <span class="site-state-item-count">244</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

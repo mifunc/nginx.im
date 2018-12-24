@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="nginx,lnmp-safe-config,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T10:07:19.552Z">
+<meta property="og:updated_time" content="2018-12-24T09:25:35.260Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="lnmp架构下php安全配置分享-nginx案例">
 <meta name="twitter:description" content="nginx,lnmp-safe-config,">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T18:07:18+08:00">
-                2018年12月22日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T17:31:16+08:00">
+                2018年12月24日
               </time>
             
 
@@ -387,14 +387,11 @@
 
       
         <p>nginx,lnmp-safe-config,<br><a id="more"></a><br>
-  <div> 
-<!-- GG-Mobi-ad -->
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-0956732394986573" data-ad-slot="4502371869" data-ad-format="auto"></ins>
-</div>
+   
 	
 				</p><p>以往的lamp网站向着lnmp发展, 笔者工作环境使用lnmp多年, 在这里很高兴和大家分享一下多年的lnmp网站的php安全配置，至于lamp安全后续与大家分享，其实内容上八成相同，这边着重讲php安全配置，看内容.</p>
 <h3>1. 使用open_basedir限制虚拟主机跨目录访问</h3>
-<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
 		<div>
 		
@@ -410,7 +407,7 @@ open_basedir=/data/site/test.ttlsa.com/:/tmp/</pre></div>
 如果其中一个站点有漏洞被黑客植入了webshell，那么他可以通过这个站点拿下同一台服务器的其他站点，最后挂木马.</p>
 <p>[warning]注意：目录最后一定要加上/. 比如你写/tmp，你的站点同时存在/tmp123等等以/tmp开头的目录，那么黑客也可以访问到这些目录，另外, php5.3以上支持这个写法，5.2不支持。[/warning]</p>
 <h3>2. 禁用不安全PHP函数</h3>
-<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
 		<div>
 		
@@ -425,7 +422,7 @@ open_basedir=/data/site/test.ttlsa.com/:/tmp/</pre></div>
 <p>这个方法是我最推崇的方法，但是执行之前一定要和php工程师商量. 为什么？例如站点www.ttlsa.com根目录用户与组为nobody，而运行php的用户和组为phpuser。目录权限为755，文件权限为644. 如此，php为只读，无法写入任何文件到站点目录下。也就是说用户不能上传文件，即使有漏洞, 黑客也传不了后门, 更不可能挂木马.  这么干之前告知程序员将文件缓存改为nosql内存缓存（例如memcached、redis等），上传的文件通过接口传到其他服务器（静态服务器）。</p>
 <p>[warning]备注：程序生成本地缓存是个非常糟糕的习惯，使用文件缓存速度缓慢、浪费磁盘空间、最重要一点是一般情况下服务器无法横向扩展.[/warning]</p>
 <h3>5. 关闭php错误日志</h3>
-<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
 		<div>
 		
@@ -443,7 +440,7 @@ php站点www.ttlsa.com，目录/data/site/www.ttlsa.com<br>
 静态文件站点static.ttlsa.com，目录/data/site/static.ttlsa.com</p>
 <p>文件直接被传到了/data/site/static.ttlsa.com，上传的文件无法通过www.ttlsa.com来访问，只能使用static.ttlsa.com访问，但是static.ttlsa.com不支持php.</p>
 <h3>7. 关闭php信息</h3>
-<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
 		<div>
 		
@@ -455,7 +452,7 @@ expose_php = Off</pre></div>
 <!-- [Format Time: 0.0001 seconds] -->
 <p>不轻易透露自己php版本信息，防止黑客针对这个版本的php发动攻击.</p>
 <h3>8. 禁止动态加载链接库</h3>
-<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
 		<div>
 		
@@ -465,9 +462,9 @@ enable_dl = Off;</pre></div>
 			 
 		</div>
 <!-- [Format Time: 0.0001 seconds] -->
-<p></p>
+
 <h3>9. 禁用打开远程url</h3>
-<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
 		<div>
 		
@@ -500,8 +497,8 @@ allow_url_fopen = Off</pre></div>
 <p>今天lnmp站点的php安全暂时讲到这里,有问题后续将继续补充.</p>
 <p> </p>
 <p>转载请注明出处:http://www.ttlsa.com/html/2279.html</p>
-<div></div>
-<div><span></span></div>			
+
+			
 <p></p>
 
       
@@ -678,7 +675,7 @@ allow_url_fopen = Off</pre></div>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">240</span>
+                  <span class="site-state-item-count">244</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
