@@ -2,856 +2,856 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://nginx.im/ngx/njs/changes.html</loc>
-    
-    <lastmod>2018-12-24T03:53:38.633Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/njs/reference.html</loc>
-    
-    <lastmod>2018-12-24T03:53:38.604Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/njs/cli.html</loc>
-    
-    <lastmod>2018-12-24T03:53:38.541Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/njs/examples.html</loc>
-    
-    <lastmod>2018-12-24T03:53:38.479Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/njs/install.html</loc>
-    
-    <lastmod>2018-12-24T03:53:38.406Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/index.html</loc>
-    
-    <lastmod>2018-12-24T03:53:38.376Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/examples.html</loc>
-    
-    <lastmod>2018-12-24T03:53:38.340Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/reference.html</loc>
-    
-    <lastmod>2018-12-24T03:53:38.293Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/changes.html</loc>
-    
-    <lastmod>2018-12-24T03:53:38.235Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/compatibility.html</loc>
-    
-    <lastmod>2018-12-24T03:53:38.200Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/linux_packages.html</loc>
-    
-    <lastmod>2018-12-24T03:53:38.166Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/ngx_google_perftools_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:38.115Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/stream/ngx_stream_zone_sync_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:38.085Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/stream/ngx_stream_upstream_hc_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:38.039Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/stream/ngx_stream_upstream_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:37.997Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/stream/ngx_stream_ssl_preread_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:37.945Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/stream/ngx_stream_ssl_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:37.897Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/stream/ngx_stream_split_clients_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:37.851Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/stream/ngx_stream_return_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:37.815Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/stream/ngx_stream_realip_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:37.783Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/stream/ngx_stream_proxy_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:37.751Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/stream/ngx_stream_map_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:37.708Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/stream/ngx_stream_log_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:37.677Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/stream/ngx_stream_limit_conn_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:37.639Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/stream/ngx_stream_keyval_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:37.609Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/stream/ngx_stream_js_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:37.573Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/stream/ngx_stream_geoip_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:37.518Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/stream/ngx_stream_geo_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:37.444Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/stream/ngx_stream_access_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:37.399Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/stream/ngx_stream_core_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:37.366Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/mail/ngx_mail_smtp_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:37.325Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/mail/ngx_mail_pop3_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:37.273Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/mail/ngx_mail_imap_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:37.241Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/mail/ngx_mail_ssl_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:37.196Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/mail/ngx_mail_proxy_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:37.141Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/mail/ngx_mail_auth_http_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:37.106Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/mail/ngx_mail_core_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:37.058Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_xslt_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:37.017Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_v2_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:36.986Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_uwsgi_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:36.952Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_userid_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:36.876Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_upstream_hc_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:36.837Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_upstream_conf_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:36.796Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_upstream_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:36.754Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_sub_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:36.683Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_stub_status_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:36.649Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_status_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:36.614Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_ssl_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:36.555Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_ssi_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:36.458Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_split_clients_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:36.415Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_spdy_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:36.381Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_slice_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:36.349Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_session_log_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:36.307Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_secure_link_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:36.219Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_scgi_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:36.138Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_rewrite_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:36.067Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_referer_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:36.024Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_realip_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:35.990Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_random_index_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:35.956Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_proxy_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:35.912Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_perl_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:35.790Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_mp4_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:35.742Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_mirror_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:35.711Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_memcached_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:35.673Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_map_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:35.634Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_log_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:35.587Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_limit_req_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:35.545Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_limit_conn_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:35.506Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_keyval_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:35.467Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_js_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:35.434Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_index_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:35.377Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_image_filter_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:35.342Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_hls_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:35.307Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_headers_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:35.257Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_gzip_static_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:35.220Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_gzip_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:35.192Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_gunzip_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:35.156Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_grpc_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:35.112Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_geoip_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:35.066Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_geo_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:35.033Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_flv_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:35.004Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_fastcgi_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:34.972Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_f4f_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:34.896Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_empty_gif_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:34.863Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_dav_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:34.833Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_charset_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:34.801Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_browser_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:34.766Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_autoindex_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:34.732Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_auth_request_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:34.697Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_auth_jwt_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:34.669Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_auth_basic_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:34.622Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_api_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:34.576Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_addition_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:34.480Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_access_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:34.446Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_core_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:34.407Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/ngx_core_module.html</loc>
-    
-    <lastmod>2018-12-24T03:53:34.316Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://nginx.im/ngx/varindex.html</loc>
     
-    <lastmod>2018-12-24T03:53:34.271Z</lastmod>
+    <lastmod>2018-12-24T06:06:55.771Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://nginx.im/ngx/dirindex.html</loc>
     
-    <lastmod>2018-12-24T03:53:34.235Z</lastmod>
+    <lastmod>2018-12-24T06:05:36.287Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://nginx.im/ngx/dev/development_guide.html</loc>
     
-    <lastmod>2018-12-24T03:53:34.183Z</lastmod>
+    <lastmod>2018-12-24T03:54:08.305Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://nginx.im/ngx/contributing_changes.html</loc>
+    <loc>http://nginx.im/ngx/http/ngx_http_core_module.html</loc>
     
-    <lastmod>2018-12-24T03:53:33.901Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/websocket.html</loc>
-    
-    <lastmod>2018-12-24T03:53:33.848Z</lastmod>
+    <lastmod>2018-12-24T03:54:08.303Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://nginx.im/ngx/http/converting_rewrite_rules.html</loc>
+    <loc>http://nginx.im/ngx/http/ngx_http_api_module.html</loc>
     
-    <lastmod>2018-12-24T03:53:33.807Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/nginx_dtrace_pid_provider.html</loc>
-    
-    <lastmod>2018-12-24T03:53:33.766Z</lastmod>
+    <lastmod>2018-12-24T03:54:08.300Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://nginx.im/ngx/howto_build_on_win32.html</loc>
+    <loc>http://nginx.im/ngx/http/ngx_http_proxy_module.html</loc>
     
-    <lastmod>2018-12-24T03:53:33.734Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/njs/index.html</loc>
-    
-    <lastmod>2018-12-24T03:53:33.698Z</lastmod>
+    <lastmod>2018-12-24T03:54:08.298Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://nginx.im/ngx/stream/stream_processing.html</loc>
+    <loc>http://nginx.im/ngx/http/ngx_http_uwsgi_module.html</loc>
     
-    <lastmod>2018-12-24T03:53:33.666Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/configuring_https_servers.html</loc>
-    
-    <lastmod>2018-12-24T03:53:33.635Z</lastmod>
+    <lastmod>2018-12-24T03:54:08.296Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://nginx.im/ngx/http/load_balancing.html</loc>
+    <loc>http://nginx.im/ngx/http/ngx_http_fastcgi_module.html</loc>
     
-    <lastmod>2018-12-24T03:53:33.582Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/http/server_names.html</loc>
-    
-    <lastmod>2018-12-24T03:53:33.549Z</lastmod>
+    <lastmod>2018-12-24T03:54:08.294Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://nginx.im/ngx/http/request_processing.html</loc>
+    <loc>http://nginx.im/ngx/http/ngx_http_scgi_module.html</loc>
     
-    <lastmod>2018-12-24T03:53:33.504Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/windows.html</loc>
-    
-    <lastmod>2018-12-24T03:53:33.447Z</lastmod>
+    <lastmod>2018-12-24T03:54:08.292Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://nginx.im/ngx/switches.html</loc>
+    <loc>http://nginx.im/ngx/njs/reference.html</loc>
     
-    <lastmod>2018-12-24T03:53:33.411Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/syntax.html</loc>
-    
-    <lastmod>2018-12-24T03:53:33.386Z</lastmod>
+    <lastmod>2018-12-24T03:54:08.289Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://nginx.im/ngx/syslog.html</loc>
+    <loc>http://nginx.im/ngx/http/ngx_http_upstream_module.html</loc>
     
-    <lastmod>2018-12-24T03:53:33.347Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/debugging_log.html</loc>
-    
-    <lastmod>2018-12-24T03:53:33.317Z</lastmod>
+    <lastmod>2018-12-24T03:54:08.288Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://nginx.im/ngx/hash.html</loc>
+    <loc>http://nginx.im/ngx/http/ngx_http_ssl_module.html</loc>
     
-    <lastmod>2018-12-24T03:53:33.280Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/ngx/events.html</loc>
-    
-    <lastmod>2018-12-24T03:53:33.245Z</lastmod>
+    <lastmod>2018-12-24T03:54:08.287Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://nginx.im/ngx/stream/control.html</loc>
+    <loc>http://nginx.im/ngx/http/ngx_http_grpc_module.html</loc>
     
-    <lastmod>2018-12-24T03:53:33.215Z</lastmod>
+    <lastmod>2018-12-24T03:54:08.286Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://nginx.im/ngx/beginners_guide.html</loc>
+    <loc>http://nginx.im/ngx/stream/ngx_stream_ssl_module.html</loc>
     
-    <lastmod>2018-12-24T03:53:33.168Z</lastmod>
+    <lastmod>2018-12-24T03:54:08.285Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/stream/ngx_stream_zone_sync_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.284Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/stream/ngx_stream_core_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.283Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/stream/ngx_stream_proxy_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.282Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/mail/ngx_mail_ssl_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.280Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_status_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.279Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/reference.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.278Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/stream/ngx_stream_upstream_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.276Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/njs/changes.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.275Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/mail/ngx_mail_core_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.274Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_rewrite_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.273Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_memcached_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.272Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/ngx_core_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.270Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://nginx.im/ngx/configure.html</loc>
     
-    <lastmod>2018-12-24T03:53:33.119Z</lastmod>
+    <lastmod>2018-12-24T03:54:08.269Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/stream/ngx_stream_upstream_hc_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.268Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/stream/ngx_stream_log_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.267Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/stream/control.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.266Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/njs/examples.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.265Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/server_names.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.264Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/mail/ngx_mail_auth_http_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.263Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_v2_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.262Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_xslt_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.261Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/request_processing.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.261Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_userid_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.260Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_upstream_conf_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.259Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_upstream_hc_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.257Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_ssi_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.256Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_secure_link_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.255Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_perl_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.254Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_mp4_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.252Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_log_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.251Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_limit_req_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.249Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_limit_conn_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.248Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_image_filter_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.246Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_hls_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.245Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_gzip_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.243Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_geoip_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.242Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_charset_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.241Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_auth_jwt_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.240Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/load_balancing.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.239Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/configuring_https_servers.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.238Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/stream/stream_processing.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.237Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/stream/ngx_stream_ssl_preread_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.236Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/stream/ngx_stream_split_clients_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.235Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/stream/ngx_stream_return_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.234Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/stream/ngx_stream_realip_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.233Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/stream/ngx_stream_map_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.232Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/stream/ngx_stream_limit_conn_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.231Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/stream/ngx_stream_keyval_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.230Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/stream/ngx_stream_js_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.229Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/stream/ngx_stream_geoip_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.228Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/stream/ngx_stream_geo_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.227Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/stream/ngx_stream_access_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.225Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/njs/index.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.224Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/njs/install.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.223Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/njs/cli.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.221Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/mail/ngx_mail_proxy_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.219Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/mail/ngx_mail_pop3_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.218Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/mail/ngx_mail_smtp_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.216Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/mail/ngx_mail_imap_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.215Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/websocket.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.213Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_sub_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.212Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_stub_status_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.209Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_split_clients_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.207Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_spdy_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.206Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_slice_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.205Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_session_log_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.205Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_referer_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.204Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_random_index_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.203Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_realip_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.201Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_mirror_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.200Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_map_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.199Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_keyval_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.198Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_js_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.197Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_index_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.196Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_headers_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.194Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_gzip_static_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.192Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_geo_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.191Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_gunzip_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.191Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_flv_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.190Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_f4f_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.189Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_empty_gif_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.188Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_dav_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.187Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_autoindex_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.186Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_browser_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.186Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_auth_request_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.185Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_auth_basic_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.184Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_access_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.184Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/ngx_http_addition_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.183Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/http/converting_rewrite_rules.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.182Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/beginners_guide.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.180Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/changes.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.179Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/linux_packages.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.178Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/index.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.176Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/compatibility.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.175Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/windows.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.174Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/syntax.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.173Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/syslog.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.171Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/switches.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.169Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/ngx_google_perftools_module.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.165Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/nginx_dtrace_pid_provider.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.163Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/howto_build_on_win32.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.160Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://nginx.im/ngx/install.html</loc>
     
-    <lastmod>2018-12-24T03:53:32.308Z</lastmod>
+    <lastmod>2018-12-24T03:54:08.159Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/hash.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.157Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/examples.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.156Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/events.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.154Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/debugging_log.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.153Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nginx.im/ngx/contributing_changes.html</loc>
+    
+    <lastmod>2018-12-24T03:54:08.152Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://nginx.im/nginx%E5%B8%B8%E7%94%A8%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F%E5%8F%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html</loc>
     
-    <lastmod>2018-12-24T03:51:23.101Z</lastmod>
+    <lastmod>2018-12-24T03:54:08.148Z</lastmod>
     
   </url>
   
@@ -933,14 +933,14 @@
   </url>
   
   <url>
-    <loc>http://nginx.im/nginx/nginx/using-nginx-map-method.html</loc>
+    <loc>http://nginx.im/nginx/nginx/using-nginx-geo-method.html</loc>
     
     <lastmod>2018-12-22T10:07:20.367Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://nginx.im/nginx/nginx/using-nginx-geo-method.html</loc>
+    <loc>http://nginx.im/nginx/nginx/using-nginx-map-method.html</loc>
     
     <lastmod>2018-12-22T10:07:20.367Z</lastmod>
     
@@ -1003,14 +1003,14 @@
   </url>
   
   <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-root_alias-file-path-configuration.html</loc>
+    <loc>http://nginx.im/nginx/nginx/nginx-referer.html</loc>
     
     <lastmod>2018-12-22T10:07:20.360Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-referer.html</loc>
+    <loc>http://nginx.im/nginx/nginx/nginx-root_alias-file-path-configuration.html</loc>
     
     <lastmod>2018-12-22T10:07:20.360Z</lastmod>
     
@@ -1353,14 +1353,14 @@
   </url>
   
   <url>
-    <loc>http://nginx.im/nginx/nginx/local-nginx-cache-module-ngx_slowfs_cache.html</loc>
+    <loc>http://nginx.im/nginx/nginx/nginx-configure-vhosts.html</loc>
     
     <lastmod>2018-12-22T10:07:19.554Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-configure-vhosts.html</loc>
+    <loc>http://nginx.im/nginx/nginx/local-nginx-cache-module-ngx_slowfs_cache.html</loc>
     
     <lastmod>2018-12-22T10:07:19.554Z</lastmod>
     
@@ -1374,14 +1374,14 @@
   </url>
   
   <url>
-    <loc>http://nginx.im/nginx/nginx/construction-of-srcache_nginx_redis-caching-system.html</loc>
+    <loc>http://nginx.im/nginx/nginx/lnmp-safe-config.html</loc>
     
     <lastmod>2018-12-22T10:07:19.552Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://nginx.im/nginx/nginx/lnmp-safe-config.html</loc>
+    <loc>http://nginx.im/nginx/nginx/construction-of-srcache_nginx_redis-caching-system.html</loc>
     
     <lastmod>2018-12-22T10:07:19.552Z</lastmod>
     
@@ -1402,14 +1402,14 @@
   </url>
   
   <url>
-    <loc>http://nginx.im/nginx/nginx/application-of-nginx_memcached-to-construct-the-page-cache.html</loc>
+    <loc>http://nginx.im/nginx/linux/the-nginx-log-configuration.html</loc>
     
     <lastmod>2018-12-22T10:07:19.549Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://nginx.im/nginx/linux/the-nginx-log-configuration.html</loc>
+    <loc>http://nginx.im/nginx/nginx/application-of-nginx_memcached-to-construct-the-page-cache.html</loc>
     
     <lastmod>2018-12-22T10:07:19.549Z</lastmod>
     
@@ -1535,14 +1535,14 @@
   </url>
   
   <url>
-    <loc>http://nginx.im/categories/index.html</loc>
+    <loc>http://nginx.im/%E5%9F%BA%E4%BA%8EThree.js%E5%B1%95%E7%A4%BA%E5%85%A8%E6%99%AF%E5%9B%BE.html</loc>
     
     <lastmod>2018-03-05T04:58:45.371Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://nginx.im/%E5%9F%BA%E4%BA%8EThree.js%E5%B1%95%E7%A4%BA%E5%85%A8%E6%99%AF%E5%9B%BE.html</loc>
+    <loc>http://nginx.im/categories/index.html</loc>
     
     <lastmod>2018-03-05T04:58:45.371Z</lastmod>
     
@@ -1556,14 +1556,14 @@
   </url>
   
   <url>
-    <loc>http://nginx.im/spring-boot-mybatis-druid%E6%95%B4%E5%90%88.html</loc>
+    <loc>http://nginx.im/spring-boot/spring-boot-Access-Control-Allow-Origin.html</loc>
     
     <lastmod>2018-03-05T04:58:45.369Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://nginx.im/spring-boot/spring-boot-Access-Control-Allow-Origin.html</loc>
+    <loc>http://nginx.im/spring-boot-mybatis-druid%E6%95%B4%E5%90%88.html</loc>
     
     <lastmod>2018-03-05T04:58:45.369Z</lastmod>
     
@@ -1591,7 +1591,7 @@
   </url>
   
   <url>
-    <loc>http://nginx.im/nginx-if%E6%8C%87%E4%BB%A4%E4%B8%8E%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F.html</loc>
+    <loc>http://nginx.im/nginx-args-query-string-uri%E8%AF%A6%E8%A7%A3.html</loc>
     
     <lastmod>2018-03-05T04:58:45.363Z</lastmod>
     
@@ -1605,21 +1605,21 @@
   </url>
   
   <url>
-    <loc>http://nginx.im/nginx-args-query-string-uri%E8%AF%A6%E8%A7%A3.html</loc>
+    <loc>http://nginx.im/nginx-if%E6%8C%87%E4%BB%A4%E4%B8%8E%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F.html</loc>
     
     <lastmod>2018-03-05T04:58:45.363Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://nginx.im/java%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88%E5%BA%94%E7%94%A8.html</loc>
+    <loc>http://nginx.im/json/fastjson.html</loc>
     
     <lastmod>2018-03-05T04:58:45.362Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://nginx.im/json/fastjson.html</loc>
+    <loc>http://nginx.im/java%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88%E5%BA%94%E7%94%A8.html</loc>
     
     <lastmod>2018-03-05T04:58:45.362Z</lastmod>
     
@@ -1661,6 +1661,13 @@
   </url>
   
   <url>
+    <loc>http://nginx.im/Nginx%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B.html</loc>
+    
+    <lastmod>2018-03-05T04:58:45.346Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://nginx.im/centos7-rc-local%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E4%BF%AE%E5%A4%8D.html</loc>
     
     <lastmod>2018-03-05T04:58:45.346Z</lastmod>
@@ -1669,13 +1676,6 @@
   
   <url>
     <loc>http://nginx.im/The-real-difference-between-$host-and-$http_host.html</loc>
-    
-    <lastmod>2018-03-05T04:58:45.346Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nginx.im/Nginx%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B.html</loc>
     
     <lastmod>2018-03-05T04:58:45.346Z</lastmod>
     
