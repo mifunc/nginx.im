@@ -82,14 +82,14 @@
 <meta name="description" content="http,ngx_http_gzip_module">
 <meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
-<meta property="og:title" content="http&#x2F;ngx_http_gzip_module-nginx中文手册">
+<meta property="og:title" content="http&#x2F;ngx_http_gzip_module-nginx中文参考手册">
 <meta property="og:url" content="http://nginx.im/ngx/http/ngx_http_gzip_module.html">
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="http,ngx_http_gzip_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T02:28:10.607Z">
+<meta property="og:updated_time" content="2018-12-24T03:47:00.274Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="http&#x2F;ngx_http_gzip_module-nginx中文手册">
+<meta name="twitter:title" content="http&#x2F;ngx_http_gzip_module-nginx中文参考手册">
 <meta name="twitter:description" content="http,ngx_http_gzip_module">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>http/ngx_http_gzip_module-nginx中文手册 | IM.NGINX</title>
+  <title>http/ngx_http_gzip_module-nginx中文参考手册 | IM.NGINX</title>
   
 
 
@@ -314,7 +314,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">http/ngx_http_gzip_module-nginx中文手册</h2>
+          <h2 class="post-title" itemprop="name headline">http/ngx_http_gzip_module-nginx中文参考手册</h2>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T10:27:47+08:00">
-                2018年12月22日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T11:49:01+08:00">
+                2018年12月24日
               </time>
             
 
@@ -349,8 +349,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx中文手册</span>
+                  <a href="/categories/nginx案例/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx案例</span>
                   </a>
                 </span>
 
@@ -386,61 +386,135 @@
       
 
       
-        <p>http,ngx_http_gzip_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-http-gzip-module"><a href="#Module-ngx-http-gzip-module" class="headerlink" title="Module ngx_http_gzip_module"></a>Module ngx_http_gzip_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#gzip">gzip</a> <br>     <a href="#gzip_buffers">gzip_buffers</a> <br>     <a href="#gzip_comp_level">gzip_comp_level</a> <br>     <a href="#gzip_disable">gzip_disable</a> <br>     <a href="#gzip_http_version">gzip_http_version</a> <br>     <a href="#gzip_min_length">gzip_min_length</a> <br>     <a href="#gzip_proxied">gzip_proxied</a> <br>     <a href="#gzip_types">gzip_types</a> <br>     <a href="#gzip_vary">gzip_vary</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
-
-<p>   <code>ngx_http_gzip_module</code>模块是一个使用“gzip”方法压缩响应的过滤器。  这通常有助于将传输数据的大小减少一半甚至更多。 </p>
-<h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><pre class="notranslate">gzip            on;
+        <p>http,ngx_http_gzip_module<br><a id="more"></a><br>
+  </p><h2 class="notranslate">Module ngx_http_gzip_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#gzip">gzip</a> <br>     <a href="#gzip_buffers">gzip_buffers</a> <br>     <a href="#gzip_comp_level">gzip_comp_level</a> <br>     <a href="#gzip_disable">gzip_disable</a> <br>     <a href="#gzip_http_version">gzip_http_version</a> <br>     <a href="#gzip_min_length">gzip_min_length</a> <br>     <a href="#gzip_proxied">gzip_proxied</a> <br>     <a href="#gzip_types">gzip_types</a> <br>     <a href="#gzip_vary">gzip_vary</a> <br> <a href="#variables">Embedded Variables</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_gzip_module</code>模块是一个使用“gzip”方法压缩响应的过滤器。  这通常有助于将传输数据的大小减少一半甚至更多。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">gzip            on;
 gzip_min_length 1000;
 gzip_proxied    expired no-cache no-store private auth;
 gzip_types      text/plain application/xml;
-</pre>
+</pre></blockquote><p></p><p>   <code class="notranslate">$gzip_ratio</code>变量可用于记录实现的压缩比。 </p><a name="directives"></a><center><h4>  指令 </h4></center><a name="gzip"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>gzip</strong> <code class="notranslate">on</code> | <code class="notranslate">off</code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">gzip off;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> , <code class="notranslate">if in location</code> <br>
+                </td></tr></tbody></table></div><p>  启用或禁用gzipping响应。 </p><a name="gzip_buffers"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>gzip_buffers</strong> <code class="notranslate"><i>number</i></code> <code class="notranslate"><i>size</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">gzip_buffers 32 4k|16 8k;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  设置用于压缩响应的缓冲区的<code class="notranslate"><i>number</i></code>和<code class="notranslate"><i>size</i></code> 。  默认情况下，缓冲区大小等于一个内存页面。  这是4K或8K，具体取决于平台。 </p><blockquote class="note">  在版本0.7.28之前，默认使用四个4K或8K缓冲区。 </blockquote><p></p><a name="gzip_comp_level"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>gzip_comp_level</strong> <code class="notranslate"><i>level</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">gzip_comp_level 1;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  设置响应的gzip压缩<code class="notranslate"><i>level</i></code> 。  可接受的值范围为1到9。 </p><a name="gzip_disable"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>gzip_disable</strong> <code class="notranslate"><i>regex</i></code> ...;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table><p>  该指令出现在0.6.23版本中。 </p></div><p>  对具有与任何指定正则表达式匹配的“User-Agent”标头字段的请求禁用gzipping响应。 </p><p>  特殊掩码“ <code class="notranslate">msie6</code> ”（0.7.12）对应于正则表达式“ <code class="notranslate">MSIE [4-6]\.</code>   “，但工作得更快。  从版本0.8.11开始，“ <code class="notranslate">MSIE 6.0; ... SV1</code>   <code class="notranslate">MSIE 6.0; ... SV1</code>此掩码中不包括“ <code class="notranslate">MSIE 6.0; ... SV1</code> ”。 </p><a name="gzip_http_version"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>gzip_http_version</strong> <code class="notranslate">1.0</code> | <code class="notranslate">1.1</code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">gzip_http_version 1.1;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  设置压缩响应所需的最低HTTP请求版本。 </p><a name="gzip_min_length"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>gzip_min_length</strong> <code class="notranslate"><i>length</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">gzip_min_length 20;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  设置将被gzip压缩的响应的最小长度。  长度仅由“Content-Length”响应头字段确定。 </p><a name="gzip_proxied"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>gzip_proxied</strong> 
+    <code class="notranslate">off</code> |
+    <code class="notranslate">expired</code> |
+    <code class="notranslate">no-cache</code> |
+    <code class="notranslate">no-store</code> |
+    <code class="notranslate">private</code> |
+    <code class="notranslate">no_last_modified</code> |
+    <code class="notranslate">no_etag</code> |
+    <code class="notranslate">auth</code> |
+    <code class="notranslate">any</code>
+    ...;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">gzip_proxied off;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  根据请求和响应启用或禁用对代理请求的响应的gzipping。  代理请求的事实由“Via”请求头字段的存在确定。  该指令接受多个参数： </p><dl class="compact"><dt> <code class="notranslate">off</code> </dt> <dd>  禁用所有代理请求的压缩，忽略其他参数; </dd><dt> <code class="notranslate">expired</code> </dt> <dd>  如果响应头包含“Expires”字段，其值为禁用缓存，则启用压缩; </dd><dt> <code class="notranslate">no-cache</code> </dt> <dd>  如果响应头包含带有“ <code class="notranslate">no-cache</code> ”参数的“Cache-Control”字段，则启用压缩; </dd><dt> <code class="notranslate">no-store</code> </dt> <dd>  如果响应头包含带有“ <code class="notranslate">no-store</code> ”参数的“Cache-Control”字段，则启用压缩; </dd><dt> <code class="notranslate">private</code> </dt> <dd>  如果响应头包含带有“ <code class="notranslate">private</code> ”参数的“Cache-Control”字段，则启用压缩; </dd><dt> <code class="notranslate">no_last_modified</code> </dt> <dd>  如果响应头不包含“Last-Modified”字段，则启用压缩; </dd><dt> <code class="notranslate">no_etag</code> </dt> <dd>  如果响应头不包含“ETag”字段，则启用压缩; </dd><dt> <code class="notranslate">auth</code> </dt> <dd>  如果请求标头包含“授权”字段，则启用压缩; </dd><dt> <code class="notranslate">any</code> </dt> <dd>  为所有代理请求启用压缩。 </dd></dl><p></p><a name="gzip_types"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>gzip_types</strong> <code class="notranslate"><i>mime-type</i></code> ...;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">gzip_types text/html;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  除了“ <code class="notranslate">text/html</code> ”之外，还允许对指定的MIME类型进行gzipping响应。  特殊值“ <code class="notranslate">*</code> ”匹配任何MIME类型（0.8.29）。  始终压缩“ <code class="notranslate">text/html</code> ”类型的响应。 </p><a name="gzip_vary"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>gzip_vary</strong> <code class="notranslate">on</code> | <code class="notranslate">off</code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">gzip_vary off;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  如果指令<a href="#gzip">gzip</a> ， <a href="ngx_http_gzip_static_module.html#gzip_static">gzip_static</a>或<a href="ngx_http_gunzip_module.html#gunzip">gunzip</a>处于活动状态，则启用或禁用插入“Vary：Accept-Encoding”响应头字段。 </p><a name="variables"></a><center><h4>  嵌入式变量 </h4></center><p></p><dl class="compact"><dt id="var_gzip_ratio"> <code class="notranslate">$gzip_ratio</code> </dt> <dd>  达到的压缩比，计算为原始和压缩响应大小之间的比率。 </dd></dl><p></p> 
 
+<p></p>
 
-
-<p>   <code>$gzip_ratio</code>变量可用于记录实现的压缩比。 </p>
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**gzipon</code> | <code>off</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">gzip off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> , <code>if in location</code> <br>                </td></p>
-<p>  启用或禁用gzipping响应。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**gzip_buffers*number*</code> <code>*size*</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">gzip_buffers 32 4k|16 8k;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  设置用于压缩响应的缓冲区的<code>*number*</code>和<code>*size*</code> 。  默认情况下，缓冲区大小等于一个内存页面。  这是4K或8K，具体取决于平台。 </p>
-<blockquote>
-<p>  在版本0.7.28之前，默认使用四个4K或8K缓冲区。 </p>
-</blockquote>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**gzip_comp_level*level*</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">gzip_comp_level 1;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  设置响应的gzip压缩<code>*level*</code> 。  可接受的值范围为1到9。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**gzip_disable*regex*</code> …;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  该指令出现在0.6.23版本中。 </p>
-<p>  对具有与任何指定正则表达式匹配的“User-Agent”标头字段的请求禁用gzipping响应。 </p>
-<p>  特殊掩码“ <code>msie6</code> ”（0.7.12）对应于正则表达式“ <code>MSIE [4-6]\.</code>   “，但工作得更快。  从版本0.8.11开始，“ <code>MSIE 6.0; ... SV1</code>   <code>MSIE 6.0; ... SV1</code>此掩码中不包括“ <code>MSIE 6.0; ... SV1</code> ”。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**gzip_http_version1.0</code> | <code>1.1</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">gzip_http_version 1.1;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  设置压缩响应所需的最低HTTP请求版本。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**gzip_min_length*length*</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">gzip_min_length 20;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  设置将被gzip压缩的响应的最小长度。  长度仅由“Content-Length”响应头字段确定。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**gzip_proxied** off</code> |    <code>expired</code> |    <code>no-cache</code> |    <code>no-store</code> |    <code>private</code> |    <code>no_last_modified</code> |    <code>no_etag</code> |    <code>auth</code> |    <code>any</code>    …;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">gzip_proxied off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  根据请求和响应启用或禁用对代理请求的响应的gzipping。  代理请求的事实由“Via”请求头字段的存在确定。  该指令接受多个参数： </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**gzip_types*mime-type*</code> …;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">gzip_types text/html;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  除了“ <code>text/html</code> ”之外，还允许对指定的MIME类型进行gzipping响应。  特殊值“ <code>*</code> ”匹配任何MIME类型（0.8.29）。  始终压缩“ <code>text/html</code> ”类型的响应。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**gzip_varyon</code> | <code>off</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">gzip_vary off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  如果指令<a href="#gzip">gzip</a> ， <a href="ngx_http_gzip_static_module.html#gzip_static">gzip_static</a>或<a href="ngx_http_gunzip_module.html#gunzip">gunzip</a>处于活动状态，则启用或禁用插入“Vary：Accept-Encoding”响应头字段。 </p>
-<h4 id="嵌入式变量"><a href="#嵌入式变量" class="headerlink" title="嵌入式变量"></a>嵌入式变量</h4>
       
     </div>
     
@@ -489,7 +563,7 @@ gzip_types      text/plain application/xml;
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nginx.im/ngx/http/ngx_http_gzip_module.html" title="http/ngx_http_gzip_module-nginx中文手册">http://nginx.im/ngx/http/ngx_http_gzip_module.html</a>
+    <a href="http://nginx.im/ngx/http/ngx_http_gzip_module.html" title="http/ngx_http_gzip_module-nginx中文参考手册">http://nginx.im/ngx/http/ngx_http_gzip_module.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -517,8 +591,8 @@ gzip_types      text/plain application/xml;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ngx/http/ngx_http_gunzip_module.html" rel="next" title="http/ngx_http_gunzip_module-nginx中文手册">
-                <i class="fa fa-chevron-left"></i> http/ngx_http_gunzip_module-nginx中文手册
+              <a href="/ngx/http/ngx_http_gunzip_module.html" rel="next" title="http/ngx_http_gunzip_module-nginx中文参考手册">
+                <i class="fa fa-chevron-left"></i> http/ngx_http_gunzip_module-nginx中文参考手册
               </a>
             
           </div>
@@ -527,8 +601,8 @@ gzip_types      text/plain application/xml;
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ngx/http/ngx_http_gzip_static_module.html" rel="prev" title="http/ngx_http_gzip_static_module-nginx中文手册">
-                http/ngx_http_gzip_static_module-nginx中文手册 <i class="fa fa-chevron-right"></i>
+              <a href="/ngx/http/ngx_http_gzip_static_module.html" rel="prev" title="http/ngx_http_gzip_static_module-nginx中文参考手册">
+                http/ngx_http_gzip_static_module-nginx中文参考手册 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -615,7 +689,7 @@ gzip_types      text/plain application/xml;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">236</span>
+                  <span class="site-state-item-count">239</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -626,7 +700,7 @@ gzip_types      text/plain application/xml;
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -672,7 +746,7 @@ gzip_types      text/plain application/xml;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-gzip-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_gzip_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌入式变量"><span class="nav-number">1.0.3.</span> <span class="nav-text">嵌入式变量</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_gzip_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">  示例配置 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">  指令 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.3.</span> <span class="nav-text">  嵌入式变量 </span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

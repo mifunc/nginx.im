@@ -82,14 +82,14 @@
 <meta name="description" content="http,ngx_http_browser_module">
 <meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
-<meta property="og:title" content="http&#x2F;ngx_http_browser_module-nginx中文手册">
+<meta property="og:title" content="http&#x2F;ngx_http_browser_module-nginx中文参考手册">
 <meta property="og:url" content="http://nginx.im/ngx/http/ngx_http_browser_module.html">
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="http,ngx_http_browser_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T02:28:10.598Z">
+<meta property="og:updated_time" content="2018-12-24T03:46:59.787Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="http&#x2F;ngx_http_browser_module-nginx中文手册">
+<meta name="twitter:title" content="http&#x2F;ngx_http_browser_module-nginx中文参考手册">
 <meta name="twitter:description" content="http,ngx_http_browser_module">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>http/ngx_http_browser_module-nginx中文手册 | IM.NGINX</title>
+  <title>http/ngx_http_browser_module-nginx中文参考手册 | IM.NGINX</title>
   
 
 
@@ -314,7 +314,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">http/ngx_http_browser_module-nginx中文手册</h2>
+          <h2 class="post-title" itemprop="name headline">http/ngx_http_browser_module-nginx中文参考手册</h2>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T10:27:47+08:00">
-                2018年12月22日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T11:49:01+08:00">
+                2018年12月24日
               </time>
             
 
@@ -349,8 +349,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx中文手册</span>
+                  <a href="/categories/nginx案例/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx案例</span>
                   </a>
                 </span>
 
@@ -386,12 +386,8 @@
       
 
       
-        <p>http,ngx_http_browser_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-http-browser-module"><a href="#Module-ngx-http-browser-module" class="headerlink" title="Module ngx_http_browser_module"></a>Module ngx_http_browser_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#ancient_browser">ancient_browser</a> <br>     <a href="#ancient_browser_value">ancient_browser_value</a> <br>     <a href="#modern_browser">modern_browser</a> <br>     <a href="#modern_browser_value">modern_browser_value</a> <br></td>
-
-<p>   <code>ngx_http_browser_module</code>模块创建的变量的值取决于“User-Agent”请求标头字段的值： </p>
-<h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><p>  选择索引文件： </p>
-<pre class="notranslate">modern_browser_value "modern.";
+        <p>http,ngx_http_browser_module<br><a id="more"></a><br>
+  </p><h2 class="notranslate">Module ngx_http_browser_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#ancient_browser">ancient_browser</a> <br>     <a href="#ancient_browser_value">ancient_browser_value</a> <br>     <a href="#modern_browser">modern_browser</a> <br>     <a href="#modern_browser_value">modern_browser_value</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_browser_module</code>模块创建的变量的值取决于“User-Agent”请求标头字段的值： </p><dl class="compact"><dt id="var_modern_browser"> <code class="notranslate">$modern_browser</code> </dt> <dd>  如果浏览器被识别为现代，则等于<a href="#modern_browser_value">modern_browser_value</a>指令设置的值; </dd><dt id="var_ancient_browser"> <code class="notranslate">$ancient_browser</code> </dt> <dd>  如果浏览器被识别为古代，则等于<a href="#ancient_browser_value">ancient_browser_value</a>指令设置的值; </dd><dt id="var_msie"> <code class="notranslate">$msie</code> </dt> <dd>  如果浏览器被识别为任何版本的MSIE，则等于“1”。 </dd></dl><p></p><a name="example"></a><center><h4>  示例配置 </h4></center><p>  选择索引文件： </p><blockquote class="example"><pre class="notranslate">modern_browser_value "modern.";
 
 modern_browser msie      5.5;
 modern_browser gecko     1.0.0;
@@ -400,12 +396,7 @@ modern_browser safari    413;
 modern_browser konqueror 3.0;
 
 index index.${modern_browser}html index.html;
-</pre>
-
-
-
-<p>  旧浏览器的重定向： </p>
-<pre class="notranslate">modern_browser msie      5.0;
+</pre></blockquote><p></p><p>  旧浏览器的重定向： </p><blockquote class="example"><pre class="notranslate">modern_browser msie      5.0;
 modern_browser gecko     0.9.1;
 modern_browser opera     8.0;
 modern_browser safari    413;
@@ -418,28 +409,61 @@ ancient_browser Links Lynx netscape4;
 if ($ancient_browser) {
     rewrite ^ /ancient.html;
 }
-</pre>
+</pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="ancient_browser"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>ancient_browser</strong> <code class="notranslate"><i>string</i></code> ...;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  如果在“User-Agent”请求标头字段中找到任何指定的子字符串，则浏览器将被视为古代。  特殊字符串“ <code class="notranslate">netscape4</code> ”对应于正则表达式“ <code class="notranslate">^Mozilla/[1-4]</code> ”。 </p><a name="ancient_browser_value"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>ancient_browser_value</strong> <code class="notranslate"><i>string</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">ancient_browser_value 1;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  设置<code class="notranslate">$ancient_browser</code>变量的值。 </p><a name="modern_browser"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>modern_browser</strong> <code class="notranslate"><i>browser</i></code> <code class="notranslate"><i>version</i></code> ;</code> <br> <code class="notranslate"><strong>modern_browser</strong> <code class="notranslate">unlisted</code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  指定从中将浏览器视为现代的版本。  浏览器可以是以下任何一种： <code class="notranslate">msie</code> ， <code class="notranslate">gecko</code> （基于Mozilla的浏览器）， <code class="notranslate">opera</code> ， <code class="notranslate">safari</code>或<code class="notranslate">konqueror</code> 。 </p><p>  可以使用以下格式指定版本：X，XX，XXX或XXXX每种格式的最大值分别为4000,4000.99,4000.99.99和4000.99.99.99。 </p><p>   <code class="notranslate">unlisted</code>的特殊值指定将浏览器视为现代浏览器，如果它未被<code class="notranslate">modern_browser</code>和<a href="#ancient_browser">ancient_browser</a>指令列出。  否则这样的浏览器被认为是古老的。  如果请求未在标头中提供“User-Agent”字段，则将浏览器视为未列出。 </p><a name="modern_browser_value"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>modern_browser_value</strong> <code class="notranslate"><i>string</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">modern_browser_value 1;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  设置<code class="notranslate">$modern_browser</code>变量的值。 </p> 
 
-
-
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ancient_browser*string*</code> …;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  如果在“User-Agent”请求标头字段中找到任何指定的子字符串，则浏览器将被视为古代。  特殊字符串“ <code>netscape4</code> ”对应于正则表达式“ <code>^Mozilla/[1-4]</code> ”。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ancient_browser_value*string*</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">ancient_browser_value 1;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  设置<code>$ancient_browser</code>变量的值。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**modern_browser*browser*</code> <code>*version*</code> ; <br> <code>**modern_browserunlisted</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  指定从中将浏览器视为现代的版本。  浏览器可以是以下任何一种： <code>msie</code> ， <code>gecko</code> （基于Mozilla的浏览器）， <code>opera</code> ， <code>safari</code>或<code>konqueror</code> 。 </p>
-<p>  可以使用以下格式指定版本：X，XX，XXX或XXXX每种格式的最大值分别为4000,4000.99,4000.99.99和4000.99.99.99。 </p>
-<p>   <code>unlisted</code>的特殊值指定将浏览器视为现代浏览器，如果它未被<code>modern_browser</code>和<a href="#ancient_browser">ancient_browser</a>指令列出。  否则这样的浏览器被认为是古老的。  如果请求未在标头中提供“User-Agent”字段，则将浏览器视为未列出。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**modern_browser_value*string*</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">modern_browser_value 1;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  设置<code>$modern_browser</code>变量的值。 </p>
+<p></p>
 
       
     </div>
@@ -489,7 +513,7 @@ if ($ancient_browser) {
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nginx.im/ngx/http/ngx_http_browser_module.html" title="http/ngx_http_browser_module-nginx中文手册">http://nginx.im/ngx/http/ngx_http_browser_module.html</a>
+    <a href="http://nginx.im/ngx/http/ngx_http_browser_module.html" title="http/ngx_http_browser_module-nginx中文参考手册">http://nginx.im/ngx/http/ngx_http_browser_module.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -517,8 +541,8 @@ if ($ancient_browser) {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ngx/http/ngx_http_autoindex_module.html" rel="next" title="http/ngx_http_autoindex_module-nginx中文手册">
-                <i class="fa fa-chevron-left"></i> http/ngx_http_autoindex_module-nginx中文手册
+              <a href="/ngx/http/ngx_http_autoindex_module.html" rel="next" title="http/ngx_http_autoindex_module-nginx中文参考手册">
+                <i class="fa fa-chevron-left"></i> http/ngx_http_autoindex_module-nginx中文参考手册
               </a>
             
           </div>
@@ -527,8 +551,8 @@ if ($ancient_browser) {
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ngx/http/ngx_http_charset_module.html" rel="prev" title="http/ngx_http_charset_module-nginx中文手册">
-                http/ngx_http_charset_module-nginx中文手册 <i class="fa fa-chevron-right"></i>
+              <a href="/ngx/http/ngx_http_charset_module.html" rel="prev" title="http/ngx_http_charset_module-nginx中文参考手册">
+                http/ngx_http_charset_module-nginx中文参考手册 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -615,7 +639,7 @@ if ($ancient_browser) {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">236</span>
+                  <span class="site-state-item-count">239</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -626,7 +650,7 @@ if ($ancient_browser) {
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -672,7 +696,7 @@ if ($ancient_browser) {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-browser-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_browser_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_browser_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">  示例配置 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">  指令 </span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

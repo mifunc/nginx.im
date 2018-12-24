@@ -82,14 +82,14 @@
 <meta name="description" content="http,ngx_http_map_module">
 <meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
-<meta property="og:title" content="http&#x2F;ngx_http_map_module-nginx中文手册">
+<meta property="og:title" content="http&#x2F;ngx_http_map_module-nginx中文参考手册">
 <meta property="og:url" content="http://nginx.im/ngx/http/ngx_http_map_module.html">
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="http,ngx_http_map_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T02:28:10.618Z">
+<meta property="og:updated_time" content="2018-12-24T03:47:00.703Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="http&#x2F;ngx_http_map_module-nginx中文手册">
+<meta name="twitter:title" content="http&#x2F;ngx_http_map_module-nginx中文参考手册">
 <meta name="twitter:description" content="http,ngx_http_map_module">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>http/ngx_http_map_module-nginx中文手册 | IM.NGINX</title>
+  <title>http/ngx_http_map_module-nginx中文参考手册 | IM.NGINX</title>
   
 
 
@@ -314,7 +314,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">http/ngx_http_map_module-nginx中文手册</h2>
+          <h2 class="post-title" itemprop="name headline">http/ngx_http_map_module-nginx中文参考手册</h2>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T10:27:47+08:00">
-                2018年12月22日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T11:49:01+08:00">
+                2018年12月24日
               </time>
             
 
@@ -349,8 +349,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx中文手册</span>
+                  <a href="/categories/nginx案例/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx案例</span>
                   </a>
                 </span>
 
@@ -386,11 +386,8 @@
       
 
       
-        <p>http,ngx_http_map_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-http-map-module"><a href="#Module-ngx-http-map-module" class="headerlink" title="Module ngx_http_map_module"></a>Module ngx_http_map_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#map">map</a> <br>     <a href="#map_hash_bucket_size">map_hash_bucket_size</a> <br>     <a href="#map_hash_max_size">map_hash_max_size</a> <br></td>
-
-<p>   <code>ngx_http_map_module</code>模块创建的变量的值取决于其他变量的值。 </p>
-<h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><pre class="notranslate">map $http_host $name {
+        <p>http,ngx_http_map_module<br><a id="more"></a><br>
+  </p><h2 class="notranslate">Module ngx_http_map_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#map">map</a> <br>     <a href="#map_hash_bucket_size">map_hash_bucket_size</a> <br>     <a href="#map_hash_max_size">map_hash_max_size</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_map_module</code>模块创建的变量的值取决于其他变量的值。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">map $http_host $name {
     hostnames;
 
     default       0;
@@ -407,50 +404,54 @@ map $http_user_agent $mobile {
     default       0;
     "~Opera Mini" 1;
 }
-</pre>
-
-
-
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**map**  *string*</code>    <code>*$variable*</code> { … } <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> <br>                </td></p>
-<p>  创建一个新变量，其值取决于第一个参数中指定的一个或多个源变量的值。 </p>
-<blockquote>
-<p>  在0.9.0版之前，只能在第一个参数中指定单个变量。 </p>
-<p>  由于变量仅在使用时进行评估，因此即使是大量“ <code>map</code> ”变量的声明也不会增加请求处理的额外成本。 </p>
-</blockquote>
-<p>  地图块内的参数指定源和结果值之间的映射。 </p>
-<p>  源值指定为字符串或正则表达式（0.9.6）。 </p>
-<p>  字符串匹配忽略大小写。 </p>
-<p>  对于区分大小写的匹配，正则表达式应该从“ <code>~</code> ”符号开始，或者对于不区分大小写的匹配，应该从“ <code>~*</code> ”符号（1.0.4）开始。  正则表达式可以包含命名和位置捕获，以后可以在其他指令中使用结果变量。 </p>
-<p>  如果源值与下面描述的特殊参数名称之一匹配，则应使用“ <code>\</code> ”符号作为前缀。 </p>
-<p>  结果值可以包含文本，变量（0.9.0）及其组合（1.11.0）。 </p>
-<p>  还支持以下特殊参数： </p>
-<pre class="notranslate">*.example.com 1;
+</pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="map"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>map</strong> 
+    <code class="notranslate"><i>string</i></code>
+    <code class="notranslate"><i>$variable</i></code> { ... }</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> <br>
+                </td></tr></tbody></table></div><p>  创建一个新变量，其值取决于第一个参数中指定的一个或多个源变量的值。 </p><blockquote class="note">  在0.9.0版之前，只能在第一个参数中指定单个变量。 </blockquote><p></p><p></p><blockquote class="note">  由于变量仅在使用时进行评估，因此即使是大量“ <code class="notranslate">map</code> ”变量的声明也不会增加请求处理的额外成本。 </blockquote><p></p><p>  地图块内的参数指定源和结果值之间的映射。 </p><p>  源值指定为字符串或正则表达式（0.9.6）。 </p><p>  字符串匹配忽略大小写。 </p><p>  对于区分大小写的匹配，正则表达式应该从“ <code class="notranslate">~</code> ”符号开始，或者对于不区分大小写的匹配，应该从“ <code class="notranslate">~*</code> ”符号（1.0.4）开始。  正则表达式可以包含命名和位置捕获，以后可以在其他指令中使用结果变量。 </p><p>  如果源值与下面描述的特殊参数名称之一匹配，则应使用“ <code class="notranslate">\</code> ”符号作为前缀。 </p><p>  结果值可以包含文本，变量（0.9.0）及其组合（1.11.0）。 </p><p>  还支持以下特殊参数： </p><dl class="compact"><dt>   <code class="notranslate">default</code> <code class="notranslate"><i>value</i></code> </dt><dd>  如果源值与任何指定的变量都不匹配，则设置结果值。  如果未指定default，则默认结果值将为空字符串。 </dd><dt> <code class="notranslate">hostnames</code> </dt> <dd>  表示源值可以是带有前缀或后缀掩码的主机名： <blockquote class="example"><pre class="notranslate">*.example.com 1;
 example.*     1;
-</pre>
-
-<pre class="notranslate">example.com   1;
+</pre></blockquote>  以下两条记录 <blockquote class="example"><pre class="notranslate">example.com   1;
 *.example.com 1;
-</pre>
+</pre></blockquote>  可以合并： <blockquote class="example"><pre class="notranslate">.example.com  1;
+</pre></blockquote>  应在值列表之前指定此参数。 </dd><dt>   <code class="notranslate">include</code> <code class="notranslate"><i>file</i></code> </dt><dd>  包含一个包含值的文件。  可能有几个夹杂物。 </dd><dt id="volatile"> <code class="notranslate">volatile</code> </dt> <dd>  表示该变量不可缓存（1.11.7）。 </dd></dl><p></p><p>  如果源值与多个指定变量匹配，例如掩码和正则表达式匹配，则将按以下优先级顺序选择第一个匹配变量： </p><ol class="compact"><li>  没有掩码的字符串值 </li><li>  带有前缀掩码的最长字符串值，例如“ <code class="notranslate">*.example.com</code> ” </li><li>  带有后缀掩码的最长字符串值，例如“ <code class="notranslate">mail.*</code> ” </li><li>  第一个匹配正则表达式（按配置文件中的出现顺序） </li><li>  默认值 </li></ol><p></p><a name="map_hash_bucket_size"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>map_hash_bucket_size</strong> <code class="notranslate"><i>size</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">map_hash_bucket_size 32|64|128;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> <br>
+                </td></tr></tbody></table></div><p>  设置<a href="#map">映射</a>变量哈希表的存储区大小。  默认值取决于处理器的缓存行大小。  设置哈希表的详细信息在单独的<a href="hash.html">文档</a>中提供。 </p><a name="map_hash_max_size"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>map_hash_max_size</strong> <code class="notranslate"><i>size</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">map_hash_max_size 2048;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> <br>
+                </td></tr></tbody></table></div><p>  设置<a href="#map">映射</a>变量哈希表的最大<code class="notranslate"><i>size</i></code> 。  设置哈希表的详细信息在单独的<a href="hash.html">文档</a>中提供。 </p> 
 
-<pre class="notranslate">.example.com  1;
-</pre>
-
-
-
-<p>  如果源值与多个指定变量匹配，例如掩码和正则表达式匹配，则将按以下优先级顺序选择第一个匹配变量： </p>
-<ol>
-<li>没有掩码的字符串值 1.   带有前缀掩码的最长字符串值，例如“ <code>*.example.com</code> ” 1.   带有后缀掩码的最长字符串值，例如“ <code>mail.*</code> ” 1.   第一个匹配正则表达式（按配置文件中的出现顺序） 1.   默认值 </li>
-</ol>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**map_hash_bucket_size*size*</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">map_hash_bucket_size 32|64|128;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> <br>                </td></p>
-<p>  设置<a href="#map">映射</a>变量哈希表的存储区大小。  默认值取决于处理器的缓存行大小。  设置哈希表的详细信息在单独的<a href="hash.html">文档</a>中提供。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**map_hash_max_size*size*</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">map_hash_max_size 2048;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> <br>                </td></p>
-<p>  设置<a href="#map">映射</a>变量哈希表的最大<code>*size*</code> 。  设置哈希表的详细信息在单独的<a href="hash.html">文档</a>中提供。 </p>
+<p></p>
 
       
     </div>
@@ -500,7 +501,7 @@ example.*     1;
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nginx.im/ngx/http/ngx_http_map_module.html" title="http/ngx_http_map_module-nginx中文手册">http://nginx.im/ngx/http/ngx_http_map_module.html</a>
+    <a href="http://nginx.im/ngx/http/ngx_http_map_module.html" title="http/ngx_http_map_module-nginx中文参考手册">http://nginx.im/ngx/http/ngx_http_map_module.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -528,8 +529,8 @@ example.*     1;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ngx/http/ngx_http_log_module.html" rel="next" title="http/ngx_http_log_module-nginx中文手册">
-                <i class="fa fa-chevron-left"></i> http/ngx_http_log_module-nginx中文手册
+              <a href="/ngx/http/ngx_http_log_module.html" rel="next" title="http/ngx_http_log_module-nginx中文参考手册">
+                <i class="fa fa-chevron-left"></i> http/ngx_http_log_module-nginx中文参考手册
               </a>
             
           </div>
@@ -538,8 +539,8 @@ example.*     1;
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ngx/http/ngx_http_memcached_module.html" rel="prev" title="http/ngx_http_memcached_module-nginx中文手册">
-                http/ngx_http_memcached_module-nginx中文手册 <i class="fa fa-chevron-right"></i>
+              <a href="/ngx/http/ngx_http_memcached_module.html" rel="prev" title="http/ngx_http_memcached_module-nginx中文参考手册">
+                http/ngx_http_memcached_module-nginx中文参考手册 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -626,7 +627,7 @@ example.*     1;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">236</span>
+                  <span class="site-state-item-count">239</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -637,7 +638,7 @@ example.*     1;
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -683,7 +684,7 @@ example.*     1;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-map-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_map_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_map_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">  示例配置 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">  指令 </span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

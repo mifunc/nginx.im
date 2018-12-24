@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="control">
+<meta name="description" content="njs,changes">
 <meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
-<meta property="og:title" content="control-nginx中文手册">
-<meta property="og:url" content="http://nginx.im/ngx/control.html">
+<meta property="og:title" content="njs&#x2F;changes-nginx中文参考手册">
+<meta property="og:url" content="http://nginx.im/ngx/njs/changes.html">
 <meta property="og:site_name" content="IM.NGINX">
-<meta property="og:description" content="control">
+<meta property="og:description" content="njs,changes">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T02:28:10.585Z">
+<meta property="og:updated_time" content="2018-12-24T03:47:03.660Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="control-nginx中文手册">
-<meta name="twitter:description" content="control">
+<meta name="twitter:title" content="njs&#x2F;changes-nginx中文参考手册">
+<meta name="twitter:description" content="njs,changes">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://nginx.im/ngx/control.html"/>
+  <link rel="canonical" href="http://nginx.im/ngx/njs/changes.html"/>
 
 
 
 
 
-  <title>control-nginx中文手册 | IM.NGINX</title>
+  <title>njs/changes-nginx中文参考手册 | IM.NGINX</title>
   
 
 
@@ -297,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nginx.im/ngx/control.html">
+    <link itemprop="mainEntityOfPage" href="http://nginx.im/ngx/njs/changes.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="IM.NGINX">
@@ -314,7 +314,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">control-nginx中文手册</h2>
+          <h2 class="post-title" itemprop="name headline">njs/changes-nginx中文参考手册</h2>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T10:27:47+08:00">
-                2018年12月22日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T11:49:01+08:00">
+                2018年12月24日
               </time>
             
 
@@ -349,8 +349,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx中文手册</span>
+                  <a href="/categories/nginx案例/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx案例</span>
                   </a>
                 </span>
 
@@ -386,114 +386,10 @@
       
 
       
-        <p>control<br><a id="more"></a></p>
-<h2 id="控制nginx"><a href="#控制nginx" class="headerlink" title="控制nginx"></a>控制nginx</h2><td align="left" class="notranslate"> <a href="#reconfiguration">Changing Configuration</a> <br> <a href="#logs">Rotating Log-files</a> <br> <a href="#upgrade">Upgrading Executable on the Fly</a> <br></td>
+        <p>njs,changes<br><a id="more"></a><br>
+  </p><h2>  变化 </h2><a name="njs0.2.6"></a><center><h4>  变化为0.2.6 </h4></center><p>  发布日期：2018年11月27日 </p><p>  核心： </p><ul class="compact"><li><p>  特点：使内置原型可变。 </p></li><li><p>  特征：使全局对象变得可变。 </p></li><li><p>  功能： <code class="notranslate">console.time()</code>和<code class="notranslate">console.timeEnd()</code>方法。 </p></li><li><p>  功能：允许重新声明变量和函数。 </p></li><li><p>  功能：扩展<code class="notranslate">Object.defineProperty()</code>规范一致性。 </p></li><li><p>  功能：为CLI引入安静模式以处理来自stdin的简单表达式。 </p></li><li><p>  特点：引入紧凑形式的回溯来处理堆栈溢出。 </p></li><li><p>  改进：改进各种例外的措辞。 </p></li><li><p>  修正：修复闭包值处理。 </p></li><li><p>  修正：各种值类型的固定相等运算符。 </p></li><li><p>  修正：修复了各种范围内“this”关键字的处理。 </p></li><li><p>  修正：修复了<code class="notranslate">Object.keys()</code>处理非对象值的问题。 </p></li><li><p>  修正：在<code class="notranslate">if</code>语句中修复了throw语句的解析。 </p></li><li><p>  修正：修复throw语句后的换行符。 </p></li><li><p>  修正：修复if语句中没有换行符的语句解析。 </p></li><li><p>  修正： <code class="notranslate">njs_array_expand()</code>固定大小<code class="notranslate">uint32_t</code>溢出。 </p></li><li><p>  修正： <code class="notranslate">object_value</code>类型的固定<code class="notranslate">typeof</code>运算符。 </p></li><li><p>  修正：修复了各种其他错误。 </p></li></ul><p></p><a name="njs0.2.5"></a><center><h4>  变化为0.2.5 </h4></center><p>  发布日期：2018年10月30日 </p><p>   nginx模块： </p><ul class="compact"><li><p>  修正：在流模块中修复计数待处理事件。 </p></li><li><p>  修正：修复了流模块中的<code class="notranslate">s.off()</code> 。 </p></li><li><p>  修正：修复了流模块中<code class="notranslate">js_filter</code>中数据块的处理。 </p></li><li><p>  修正：在http模块中修复了http <code class="notranslate">status</code>和<code class="notranslate">contentType</code> getter。 </p></li><li><p>  修正：在http模块中修复了http响应和父getter。 </p></li></ul><p></p><p>  核心： </p><ul class="compact"><li><p>  功能：参数对象支持。 </p></li><li><p>  特征：非整数分数支持。 </p></li><li><p>  改进：处理<code class="notranslate">Array.prototype.slice()</code>非数组值。 </p></li><li><p>  修正：修复了<code class="notranslate">Array.prototype.length</code> setter </p></li><li><p>  修正：固定<code class="notranslate">njs_array_alloc()</code> ，长度&gt; 2 ** 31。 </p></li><li><p>  修正：处理32位<code class="notranslate">njs_array_alloc()</code>上的<code class="notranslate">njs_array_alloc()</code> int溢出。 </p></li><li><p>  修正：修复代码大小不匹配错误消息。 </p></li><li><p>  修正：修复循环中的删除操作符。 </p></li><li><p>  修正：修复了复杂对象的<code class="notranslate">Object.getOwnPropertyDescriptor()</code> （继承自<code class="notranslate">Array</code>和<code class="notranslate">string</code>值）。 </p></li><li><p>  修正：修复了非对象属性的<code class="notranslate">Object.prototype.hasOwnProperty()</code> </p></li><li><p>  修正：修复了各种其他错误。 </p></li></ul><p></p><a name="njs0.2.4"></a><center><h4>  变化为0.2.4 </h4></center><p>  发布日期：2018年9月18日 </p><p>   nginx模块： </p><ul class="compact"><li><p>  更改：重构的流模块处理程序。 </p><p>  新方法和属性： <a href="reference.html#s_on">s.on（）</a> ， <a href="reference.html#s_off">s.off（）</a> ， <a href="reference.html#s_allow">s.allow（）</a> ， <a href="reference.html#s_done">s.done（）</a> ， <a href="reference.html#s_decline">s.decline（）</a> ， <a href="reference.html#s_deny">s.deny（）</a> 。 </p><p>  删除了<a href="reference.html#stream">Stream</a>对象的属性： <code class="notranslate">s.OK</code> ， <code class="notranslate">s.ABORT</code> ， <code class="notranslate">s.AGAIN</code> ， <code class="notranslate">s.DECLINED</code> ， <code class="notranslate">s.ERROR</code> （替换为<a href="reference.html#s_allow">s.allow（）</a> ， <a href="reference.html#s_done">s.done（）</a> ， <a href="reference.html#s_deny">s.deny（）</a> ）。 </p><p>   <code class="notranslate">s.buffer</code> （用于读取替换为相应回调的数据参数，用于写入使用<a href="reference.html#s_send">s.send（）</a> ）。 </p><p>   <code class="notranslate">s.fromUpstream</code> （替换为相应事件的回调）。 </p><p>   <code class="notranslate">s.eof</code> （替换为 <code class="notranslate"></code>   <a href="reference.html#s_on_callback_last">flags.last</a> ）。 </p></li></ul><p></p><p>  核心： </p><ul class="compact"><li><p>  功能：添加了<code class="notranslate">Function.prototype.length</code> 。 </p></li><li><p>  功能：介绍沙盒模式。 </p></li><li><p>  改进：适当时添加异常字符串。 </p></li><li><p>  改进：改进了原始类型转换异常的措辞。 </p></li><li><p>  修正：尝试更改冻结属性时抛出<code class="notranslate">TypeError</code> 。 </p></li><li><p>  修正：修复现有属性的<code class="notranslate">Object.defineProperty()</code> 。 </p></li><li><p>  修正：在for for迭代时尊重可枚举属性。 </p></li><li><p>  修正：尊重属性处理程序的可写属性。 </p></li><li><p>  修正：修复了函数参数中的异常处理。 </p></li><li><p>  修正：修复了不同值类型的<code class="notranslate">Object.prototype.toString</code> 。 </p></li><li><p>  修正：修复了对象类型参数的<code class="notranslate">Object()</code>构造函数。 </p></li><li><p>  修正：固定对象和字符串的比较。 </p></li><li><p>  修正：修复了未定义参数的<code class="notranslate">String.slice()</code> 。 </p></li><li><p>  修正：修复了各种其他错误。 </p></li></ul><p></p><a name="njs0.2.3"></a><center><h4>  变化为0.2.3 </h4></center><p>  发布日期：2018年7月31日 </p><p>   nginx模块： </p><ul class="compact"><li><p>  修正：从<code class="notranslate">Reply</code>对象进行子请求导致分段错误。 </p></li><li><p>  修正：获取主<a href="reference.html#http">HTTP Request</a>对象的parent属性导致了分段错误。 </p></li></ul><p></p><p>  核心： </p><ul class="compact"><li><p>  功能：为值添加了漂亮的字符串表示。 </p></li><li><p>  功能：正确打印浮点数。 </p></li><li><p>  功能：正确解析浮点数。 </p></li><li><p>  功能： <a href="reference.html#string_bytesfrom">String.bytesFrom（）</a>方法（将<code class="notranslate">hex</code> ， <code class="notranslate">base64</code> ， <code class="notranslate">base64url</code>解码为字节字符串）。 </p></li><li><p>  功能： <a href="reference.html#string_padstart">String.padStart（）</a>和<a href="reference.html#string_padend">String.padEnd（）</a>方法。 </p></li><li><p>  功能：增加了对二进制文字的支持。 </p></li><li><p>  改进：在数字解析中添加有关非法令牌的信息。 </p></li><li><p>  改进：允许在八进制文字值中使用大写字母<code class="notranslate">O</code> </p></li><li><p>  改进：在<code class="notranslate">console.log()</code>添加了对多个参数的支持。 </p></li><li><p>  修正：修复了将<code class="notranslate">call()</code>应用于外部值的方法。 </p></li><li><p>  修正：应用于对象的固定加法运算符。 </p></li><li><p>  修正：在<code class="notranslate">njs_vm_value_to_ext_string()</code>修复异常处理。 </p></li><li><p>  修正：使用布尔，null和未定义的参数修复<code class="notranslate">Number()</code> 。 </p></li><li><p>  修正：修复了设置非数字<code class="notranslate">Array.length</code>错误处理。 </p></li><li><p>  修正：修复全局对象的自动完成。 </p></li><li><p>  修正：修复了各种其他错误。 </p></li></ul><p></p><a name="njs0.2.2"></a><center><h4>  变化为0.2.2 </h4></center><p>  发布日期：2018年6月19日 </p><p>   nginx模块： </p><ul class="compact"><li><p>  更改：合并HTTP <code class="notranslate">Response</code>和<code class="notranslate">Reply</code>到<a href="reference.html#http">HTTP请求</a> 。  新成员<code class="notranslate">Request</code> ： </p><ul class="compact"><li><p>   <code class="notranslate">req.status</code> （ <code class="notranslate">res.status</code> ） </p></li><li><p>   <code class="notranslate">req.parent</code> （ <code class="notranslate">reply.parent</code> ） </p></li><li><p>   <code class="notranslate">req.requestBody</code> （ <code class="notranslate">req.body</code> ） </p></li><li><p>   <code class="notranslate">req.responseBody</code> （ <code class="notranslate">reply.body</code> ） </p></li><li><p>   <code class="notranslate">req.headersIn</code> （ <code class="notranslate">req.headers</code> ） </p></li><li><p>   <code class="notranslate">req.headersOut</code> （ <code class="notranslate">res.headers</code> ） </p></li><li><p>   <code class="notranslate">req.sendHeader()</code> （ <code class="notranslate">res.sendHeader()</code> ） </p></li><li><p>   <code class="notranslate">req.send()</code> （ <code class="notranslate">res.send()</code> ） </p></li><li><p>   <code class="notranslate">req.finish()</code> （ <code class="notranslate">res.finish()</code> ） </p></li><li><p>   <code class="notranslate">req.return()</code> （ <code class="notranslate">res.return()</code> ） </p></li></ul><p>  弃用的<code class="notranslate">Request</code>成员： </p><ul class="compact"><li><p>   <code class="notranslate">req.body</code> （使用<code class="notranslate">req.requestBody</code>或<code class="notranslate">req.responseBody</code> ） </p></li><li><p>   <code class="notranslate">req.headers</code> （使用<code class="notranslate">req.headersIn</code>或<code class="notranslate">req.headersOut</code> ） </p></li><li><p> <code class="notranslate">req.response</code> </p> </li></ul><p>  已弃用的属性将在下一版本中删除。 </p></li><li><p>  功能：HTTP <a href="reference.html#r_internal_redirect">internalRedirect（）</a>方法。 </p></li></ul><p></p><p>  核心： </p><ul class="compact"><li><p>  修正：在<code class="notranslate">crypto.createHmac()</code>修复了heap-buffer-overflow。 </p></li></ul><p></p><a name="njs0.2.1"></a><center><h4>  变化为0.2.1 </h4></center><p>  发布日期：2018年5月31日 </p><p>   nginx模块： </p><ul class="compact"><li><p>  功能：HTTP请求正文getter。 </p></li><li><p>  改进：将njs vm移动到<code class="notranslate">main</code>配置。 </p></li><li><p>  改进：改进了<a href="http/ngx_http_js_module.html#js_set">js_set</a>和<a href="http/ngx_http_js_module.html#js_content">js_content</a>指令的日志记录。 </p></li><li><p>  改进：在<a href="http/ngx_http_js_module.html#js_content">js_content</a>处理程序中默认将状态代码设置为500 </p></li><li><p>  改进：在<a href="http/ngx_http_js_module.html#js_content">js_content</a>处理程序中添加了返回状态代码的调试 </p></li><li><p>  修正：修复了<a href="http/ngx_http_js_module.html#js_include">js_include中的</a>错误记录。 </p></li></ul><p></p><p>  核心： </p><ul class="compact"><li><p>  功能：添加了数组长度设置器。 </p></li><li><p>  改进：公共标头<code class="notranslate">cleanup. njscript.h</code>   <code class="notranslate">cleanup. njscript.h</code>重命名为<code class="notranslate">njs.h</code> </p></li><li><p>  修正：调用<code class="notranslate">digest()</code>后修复了crypto <code class="notranslate">update()</code>方法。 </p></li><li><p>  修正：修复了大小&lt;= alg size&gt; 64的密钥的<code class="notranslate">crypto.createHmac()</code> 。 </p></li><li><p>  修正：修复了带空单元格的数组的<code class="notranslate">JSON.stringify()</code> 。 </p></li><li><p>  修正：修复了<code class="notranslate">JSON.stringify()</code>不支持的类型的异常类型。 </p></li><li><p>  修正：修复了函数未定义参数的处理。 </p></li><li><p>  修正：修复了对<code class="notranslate">Object.getOwnPropertyDescriptor()</code>缺失<code class="notranslate">arg</code>的处理。 </p></li><li><p>  修正：修复了<code class="notranslate">Object.getOwnPropertyDescriptor()</code>中属性的处理。 </p></li><li><p>  修正：修复了<code class="notranslate">Array.length</code>属性的可写标志。 </p></li><li><p>  修正： <code class="notranslate">clearTimeout()</code>固定返回值类型。 </p></li><li><p>  修正：修复了<code class="notranslate">njs_vm_external_bind()</code> 。 </p></li><li><p>  修正：修复了各种其他错误。 </p></li></ul><p></p><a name="njs0.2.0"></a><center><h4>  变化为0.2.0 </h4></center><p>  发布日期：2018年4月3日 </p><p></p><ul class="compact"><li><p>  功能：通过CLI报告njs版本。 </p></li><li><p>  功能：转换异常的类型的文本描述。 </p></li><li>  功能： <code class="notranslate">setTimeout()</code>和<code class="notranslate">clearTimeout()</code>方法。 </li><li><p>  功能：字节字符串为<code class="notranslate">hex</code> ， <code class="notranslate">base64</code> ， <code class="notranslate">base64url</code>编码。 </p></li><li><p>  功能： <a href="https://nodejs.org/api/crypto.html#crypto_class_hash" target="_blank" rel="noopener">Node.js样式</a> <code class="notranslate">Crypto</code>方法。 </p></li><li><p>  功能：HTTP和流<code class="notranslate">warn()</code>和<code class="notranslate">error()</code>方法。 </p></li><li><p>  功能：HTTP <code class="notranslate">subrequest()</code>方法。 </p></li><li><p>  功能：HTTP <code class="notranslate">return()</code>方法。 </p></li><li><p>  修正：核心和交互式shell中修复了各种错误。 </p></li></ul><p></p><a name="njs0.1.15"></a><center><h4>  变化0.1.15 </h4></center><p>  发布日期：2017年11月20日 </p><p></p><ul class="compact"><li><p>  功能： <code class="notranslate">Error</code> ， <code class="notranslate">EvalError</code> ， <code class="notranslate">InternalError</code> ， <code class="notranslate">RangeError</code> ， <code class="notranslate">ReferenceError</code> ， <code class="notranslate">SyntaxError</code> ， <code class="notranslate">TypeError</code> ， <code class="notranslate">URIError</code>对象。 </p></li><li><p>  功能：八进制文字支持。 </p></li><li><p>  功能： <a href="https://nodejs.org/api/fs.html#fs_file_system" target="_blank" rel="noopener">Node.js样式</a> <code class="notranslate">File system</code>访问方法： <code class="notranslate">fs.readFile()</code> ， <code class="notranslate">fs.readFileSync()</code> ， <code class="notranslate">fs.appendFile()</code> ， <code class="notranslate">fs.appendFileSync()</code> ， <code class="notranslate">fs.writeFile()</code> ， <code class="notranslate">fs.writeFileSync()</code> 。 </p></li><li><p>  功能：nginx模块在异常时打印回溯。 </p></li><li><p>  修正：杂项错误已得到修复。 </p></li></ul><p></p><a name="njs0.1.14"></a><center><h4>  变化0.1.14 </h4></center><p>  发布日期：2017年10月9日 </p><p></p><ul class="compact"><li><p>  功能：JSON对象。 </p></li><li><p>  功能：交互式shell中的对象级完成。 </p></li><li><p>  功能：各种配置改进。 </p></li><li><p>  修正：核心和交互式shell中修复了各种错误。 </p></li></ul><p></p><a name="njs0.1.13"></a><center><h4>  变化0.1.13 </h4></center><p>  发布日期：2017年8月31日 </p><p></p><ul class="compact"><li><p>  功能：交互式shell中的<code class="notranslate">console.log()</code>和<code class="notranslate">console.help()</code>方法。 </p></li><li><p>  功能：交互式shell在异常时打印回溯。 </p></li><li><p>  功能：如果<code class="notranslate">libedit</code>可用，默认情况下为交互式shell。 </p></li><li><p>  修正：在命令行模式下从<code class="notranslate">stdin</code>处理大文件。 </p></li><li><p>  修正：改进了<code class="notranslate">editline</code>检测。 </p></li></ul><p></p><a name="njs0.1.12"></a><center><h4>  变化0.1.12 </h4></center><p>  发布日期：2017年8月8日 </p><p></p><ul class="compact"><li><p>  功能：交互式shell。 </p></li><li><p>  修正：在<code class="notranslate">Object.isSealed()</code> 。 </p></li></ul><p></p><a name="njs0.1.11"></a><center><h4>   0.1.11的变化 </h4></center><p>  发行日期：2017年6月27日 </p><p></p><ul class="compact"><li><p>  功能： <code class="notranslate">Object.keys()</code> ， <code class="notranslate">Object.prototype.hasOwnProperty()</code>方法。 </p></li><li><p>  功能： <code class="notranslate">Object.defineProperty()</code> ， <code class="notranslate">Object.defineProperties()</code> ， <code class="notranslate">Object.getOwnPropertyDescriptor()</code>方法。 </p></li><li><p>  功能： <code class="notranslate">Object.getPrototypeOf()</code> ， <code class="notranslate">Object.prototype.isPrototypeOf()</code>方法。 </p></li><li><p>  功能： <code class="notranslate">Object.preventExtensions()</code> ， <code class="notranslate">Object.isExtensible()</code> ， <code class="notranslate">Object.freeze()</code> ， <code class="notranslate">Object.isFrozen()</code> ， <code class="notranslate">Object.seal()</code> ， <code class="notranslate">Object.isSealed()</code>方法。 </p></li><li><p>  特征：科学记数法（ <code class="notranslate">3.35e10</code> ）文字支持。 </p></li><li><p>  功能：十六进制（ <code class="notranslate">0x1123</code> ）文字支持。 </p></li><li><p>  修正：处理大型数组索引。 </p></li><li><p>  修正：在<code class="notranslate">parseInt()</code>和<code class="notranslate">Date.parse()</code> 。 </p></li></ul><p></p><a name="njs0.1.10"></a><center><h4>  变化0.1.10 </h4></center><p>  发行日期：2017年4月4日 </p><p></p><ul class="compact"><li><p>  功能：嵌套函数和函数闭包。 </p></li><li><p>  功能： <code class="notranslate">Array.of()</code> ， <code class="notranslate">Array.prototype.fill()</code> ， <code class="notranslate">Array.prototype.find()</code> ， <code class="notranslate">Array.prototype.findIndex()</code>方法。 </p></li><li><p>  修正：修复了各种错误和分段错误。 </p></li></ul><p></p><a name="njs0.1.9"></a><center><h4>  变化0.1.9 </h4></center><p>  发布日期：2017年2月1日 </p><p></p><ul class="compact"><li><p>  修正：在nginx中使用njs时，未初始化全局变量。 </p></li></ul><p></p><a name="njs0.1.8"></a><center><h4>  变化0.1.8 </h4></center><p>  发布日期：2017年1月24日 </p><p></p><ul class="compact"><li><p>  更改：强制执行<code class="notranslate">strict</code>模式，必须显式声明变量。 </p></li><li><p>  功能： <code class="notranslate">for</code>和<code class="notranslate">for-in</code>循环支持变量声明。 </p></li><li><p>  修正：全局和功能范围已得到修复。 </p></li><li><p>  修正：现在<code class="notranslate">for-in</code>循环不会丢弃属性变量的最后一个值。 </p></li><li><p>  修正：修复了各种错误和分段错误。 </p></li></ul><p></p><a name="njs0.1.7"></a><center><h4>  变化0.1.7 </h4></center><p>  发布日期：2016年12月27日 </p><p></p><ul class="compact"><li><p>  更改：已在服务器和位置级别禁用<a href="http/ngx_http_js_module.html#js_include">js_include</a>指令。 </p></li><li><p>  特征：取幂运算符。 </p></li><li><p>  修正：修复了各种错误和分段错误。 </p></li></ul><p></p><a name="njs0.1.6"></a><center><h4>  变化0.1.6 </h4></center><p>  发布日期：2016年12月13日 </p><p></p><ul class="compact"><li><p>  更改：已在服务器和位置级别禁用<a href="http/ngx_http_js_module.html#js_set">js_set</a>指令。 </p></li><li><p>  特征：ES6 <code class="notranslate">Math</code>方法。 </p></li><li><p>  修正：修复了各种错误和分段错误。 </p></li></ul><p></p> 
 
-<p>   nginx可以用信号控制。  默认情况下，主进程的进程ID将写入文件<code>/usr/local/nginx/logs/nginx.pid</code> 。  此名称可以在配置时更改，也可以使用<a href="ngx_core_module.html#pid">pid</a>指令在<code>nginx.conf</code>更改。  主进程支持以下信号： </p>
-<blockquote>
-<table width="100%"><tbody><td width="20%" class="notranslate">TERM, INT</td><td class="notranslate">fast shutdown</td><br><td width="20%" class="notranslate">QUIT</td><td class="notranslate">graceful shutdown</td><br><tr><td width="20%" class="notranslate">HUP</td><td class="notranslate">changing configuration,<br>keeping up with a changed time zone (only for FreeBSD and Linux),<br>starting new worker processes with a new configuration,<br>graceful shutdown of old worker processes</td></tr><td width="20%" class="notranslate">USR1</td><td class="notranslate">re-opening log files</td><br><td width="20%" class="notranslate">USR2</td><td class="notranslate">upgrading an executable file</td><br><td width="20%" class="notranslate">WINCH</td><td class="notranslate">graceful shutdown of worker processes</td><br></tbody></table>
-
-
-
-</blockquote>
-<p>  虽然不是必需的，但也可以通过信号控制单个工作进程。  支持的信号是： </p>
-<blockquote>
-<table width="100%"><tbody><td width="20%" class="notranslate">TERM, INT</td><td class="notranslate">fast shutdown</td><br><td width="20%" class="notranslate">QUIT</td><td class="notranslate">graceful shutdown</td><br><td width="20%" class="notranslate">USR1</td><td class="notranslate">re-opening log files</td><br><tr><td width="20%" class="notranslate">WINCH</td><td class="notranslate">abnormal termination for debugging<br>(requires <a href="ngx_core_module.html#debug_points">debug_points</a> to be enabled)<br></td></tr></tbody></table>
-
-
-
-</blockquote>
-<h4 id="改变配置"><a href="#改变配置" class="headerlink" title="改变配置"></a>改变配置</h4><p>  为了让nginx重新读取配置文件，应该将HUP信号发送到主进程。  主进程首先检查语法有效性，然后尝试应用新配置，即打开日志文件和新的侦听套接字。  如果此操作失败，则会回滚更改并继续使用旧配置。  如果成功，它将启动新的工作进程，并向旧工作进程发送消息，请求它们正常关闭。  旧工作进程关闭侦听套接字并继续为旧客户端提供服务。  在为所有客户端提供服务后，将关闭旧工作进程。 </p>
-<p>  让我们通过例子来说明这一点。  想象一下，nginx是在FreeBSD和命令上运行的 </p>
-<pre class="notranslate">ps axw -o pid,ppid,user,%cpu,vsz,wchan,command | egrep '(nginx|PID)'
-</pre>
-
-<p>  产生以下输出： </p>
-<pre class="notranslate">  PID  PPID USER    %CPU   VSZ WCHAN  COMMAND
-33126     1 root     0.0  1148 pause  nginx: master process /usr/local/nginx/sbin/nginx
-33127 33126 nobody   0.0  1380 kqread nginx: worker process (nginx)
-33128 33126 nobody   0.0  1364 kqread nginx: worker process (nginx)
-33129 33126 nobody   0.0  1364 kqread nginx: worker process (nginx)
-</pre>
-
-
-
-<p>  如果将HUP发送到主进程，则输出变为： </p>
-<pre class="notranslate">  PID  PPID USER    %CPU   VSZ WCHAN  COMMAND
-33126     1 root     0.0  1164 pause  nginx: master process /usr/local/nginx/sbin/nginx
-33129 33126 nobody   0.0  1380 kqread nginx: worker process is shutting down (nginx)
-33134 33126 nobody   0.0  1368 kqread nginx: worker process (nginx)
-33135 33126 nobody   0.0  1368 kqread nginx: worker process (nginx)
-33136 33126 nobody   0.0  1368 kqread nginx: worker process (nginx)
-</pre>
-
-
-
-<p>   PID 33129的旧工作进程之一仍然继续工作。  退出一段时间后： </p>
-<pre class="notranslate">  PID  PPID USER    %CPU   VSZ WCHAN  COMMAND
-33126     1 root     0.0  1164 pause  nginx: master process /usr/local/nginx/sbin/nginx
-33134 33126 nobody   0.0  1368 kqread nginx: worker process (nginx)
-33135 33126 nobody   0.0  1368 kqread nginx: worker process (nginx)
-33136 33126 nobody   0.0  1368 kqread nginx: worker process (nginx)
-</pre>
-
-
-
-<h4 id="旋转日志文件"><a href="#旋转日志文件" class="headerlink" title="旋转日志文件"></a>旋转日志文件</h4><p>  为了旋转日志文件，需要先重命名它们。  之后，应将USR1信号发送到主进程。  然后，主进程将重新打开所有当前打开的日志文件，并为作为所有者的工作进程正在运行的非特权用户分配。  成功重新打开后，主进程将关闭所有打开的文件，并将消息发送到工作进程，要求他们重新打开文件。  工作进程还会立即打开新文件并关闭旧文件。  因此，旧文件几乎可立即用于后期处理，例如压缩。 </p>
-<h4 id="即时升级可执行文件"><a href="#即时升级可执行文件" class="headerlink" title="即时升级可执行文件"></a>即时升级可执行文件</h4><p>  为了升级服务器可执行文件，应首先使用新的可执行文件代替旧文件。  之后，应将USR2信号发送到主进程。  主进程首先使用进程ID将其文件重命名为带有<code>.oldbin</code>后缀的新文件，例如<code>/usr/local/nginx/logs/nginx.pid.oldbin</code> ，然后启动一个新的可执行文件，该文件又启动新的工作进程： </p>
-<pre class="notranslate">  PID  PPID USER    %CPU   VSZ WCHAN  COMMAND
-33126     1 root     0.0  1164 pause  nginx: master process /usr/local/nginx/sbin/nginx
-33134 33126 nobody   0.0  1368 kqread nginx: worker process (nginx)
-33135 33126 nobody   0.0  1380 kqread nginx: worker process (nginx)
-33136 33126 nobody   0.0  1368 kqread nginx: worker process (nginx)
-36264 33126 root     0.0  1148 pause  nginx: master process /usr/local/nginx/sbin/nginx
-36265 36264 nobody   0.0  1364 kqread nginx: worker process (nginx)
-36266 36264 nobody   0.0  1364 kqread nginx: worker process (nginx)
-36267 36264 nobody   0.0  1364 kqread nginx: worker process (nginx)
-</pre>
-
-
-
-<p>  之后，所有工作进程（新旧进程）继续接受请求。  如果将WINCH信号发送到第一个主进程，它将向其工作进程发送消息，请求它们正常关闭，然后它们将开始退出： </p>
-<pre class="notranslate">  PID  PPID USER    %CPU   VSZ WCHAN  COMMAND
-33126     1 root     0.0  1164 pause  nginx: master process /usr/local/nginx/sbin/nginx
-33135 33126 nobody   0.0  1380 kqread nginx: worker process is shutting down (nginx)
-36264 33126 root     0.0  1148 pause  nginx: master process /usr/local/nginx/sbin/nginx
-36265 36264 nobody   0.0  1364 kqread nginx: worker process (nginx)
-36266 36264 nobody   0.0  1364 kqread nginx: worker process (nginx)
-36267 36264 nobody   0.0  1364 kqread nginx: worker process (nginx)
-</pre>
-
-
-
-<p>  一段时间后，只有新的工作进程才会处理请求： </p>
-<pre class="notranslate">  PID  PPID USER    %CPU   VSZ WCHAN  COMMAND
-33126     1 root     0.0  1164 pause  nginx: master process /usr/local/nginx/sbin/nginx
-36264 33126 root     0.0  1148 pause  nginx: master process /usr/local/nginx/sbin/nginx
-36265 36264 nobody   0.0  1364 kqread nginx: worker process (nginx)
-36266 36264 nobody   0.0  1364 kqread nginx: worker process (nginx)
-36267 36264 nobody   0.0  1364 kqread nginx: worker process (nginx)
-</pre>
-
-
-
-<p>  应该注意的是，旧的主进程不会关闭其侦听套接字，并且可以管理它以在需要时再次启动其工作进程。  如果由于某种原因新的可执行文件无法接受，可以执行以下操作之一： </p>
-<ul>
-<li>将HUP信号发送到旧的主进程。  旧的主进程将启动新的工作进程，而无需重新读取配置。  之后，通过将QUIT信号发送到新的主进程，可以正常关闭所有新进程。 -   将TERM信号发送到新的主进程。  然后它会向其工作进程发送一条消息，要求它们立即退出，并且它们几乎都会立即退出。   （如果新进程由于某种原因没有退出，则应将KILL信号发送给它们以强制它们退出。）当新的主进程退出时，旧的主进程将自动启动新的进程进程。 </li>
-</ul>
-<p>  如果新的主进程退出，则旧的主进程将使用进程ID从文件名中丢弃<code>.oldbin</code>后缀。 </p>
-<p>  如果升级成功，则应将QUIT信号发送到旧的主进程，并且只保留新进程： </p>
-<pre class="notranslate">  PID  PPID USER    %CPU   VSZ WCHAN  COMMAND
-36264     1 root     0.0  1148 pause  nginx: master process /usr/local/nginx/sbin/nginx
-36265 36264 nobody   0.0  1364 kqread nginx: worker process (nginx)
-36266 36264 nobody   0.0  1364 kqread nginx: worker process (nginx)
-36267 36264 nobody   0.0  1364 kqread nginx: worker process (nginx)
-</pre>
-
-
-
-
-
+<p></p>
 
       
     </div>
@@ -543,7 +439,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nginx.im/ngx/control.html" title="control-nginx中文手册">http://nginx.im/ngx/control.html</a>
+    <a href="http://nginx.im/ngx/njs/changes.html" title="njs/changes-nginx中文参考手册">http://nginx.im/ngx/njs/changes.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -571,8 +467,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ngx/contributing_changes.html" rel="next" title="contributing_changes-nginx中文手册">
-                <i class="fa fa-chevron-left"></i> contributing_changes-nginx中文手册
+              <a href="/ngx/mail/ngx_mail_ssl_module.html" rel="next" title="mail/ngx_mail_ssl_module-nginx中文参考手册">
+                <i class="fa fa-chevron-left"></i> mail/ngx_mail_ssl_module-nginx中文参考手册
               </a>
             
           </div>
@@ -581,8 +477,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ngx/debugging_log.html" rel="prev" title="debugging_log-nginx中文手册">
-                debugging_log-nginx中文手册 <i class="fa fa-chevron-right"></i>
+              <a href="/ngx/njs/cli.html" rel="prev" title="njs/cli-nginx中文参考手册">
+                njs/cli-nginx中文参考手册 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -669,7 +565,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">236</span>
+                  <span class="site-state-item-count">239</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -680,7 +576,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -726,7 +622,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#控制nginx"><span class="nav-number">1.</span> <span class="nav-text">控制nginx</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#改变配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">改变配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#旋转日志文件"><span class="nav-number">1.0.2.</span> <span class="nav-text">旋转日志文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#即时升级可执行文件"><span class="nav-number">1.0.3.</span> <span class="nav-text">即时升级可执行文件</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">  变化 </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">  变化为0.2.6 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">  变化为0.2.5 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.3.</span> <span class="nav-text">  变化为0.2.4 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.4.</span> <span class="nav-text">  变化为0.2.3 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.5.</span> <span class="nav-text">  变化为0.2.2 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.6.</span> <span class="nav-text">  变化为0.2.1 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.7.</span> <span class="nav-text">  变化为0.2.0 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.8.</span> <span class="nav-text">  变化0.1.15 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.9.</span> <span class="nav-text">  变化0.1.14 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.10.</span> <span class="nav-text">  变化0.1.13 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.11.</span> <span class="nav-text">  变化0.1.12 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.12.</span> <span class="nav-text">   0.1.11的变化 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.13.</span> <span class="nav-text">  变化0.1.10 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.14.</span> <span class="nav-text">  变化0.1.9 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.15.</span> <span class="nav-text">  变化0.1.8 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.16.</span> <span class="nav-text">  变化0.1.7 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.17.</span> <span class="nav-text">  变化0.1.6 </span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

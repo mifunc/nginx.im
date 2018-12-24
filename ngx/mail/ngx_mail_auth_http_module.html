@@ -82,14 +82,14 @@
 <meta name="description" content="mail,ngx_mail_auth_http_module">
 <meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mail&#x2F;ngx_mail_auth_http_module-nginx中文手册">
+<meta property="og:title" content="mail&#x2F;ngx_mail_auth_http_module-nginx中文参考手册">
 <meta property="og:url" content="http://nginx.im/ngx/mail/ngx_mail_auth_http_module.html">
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="mail,ngx_mail_auth_http_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T02:28:10.640Z">
+<meta property="og:updated_time" content="2018-12-24T03:47:02.163Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mail&#x2F;ngx_mail_auth_http_module-nginx中文手册">
+<meta name="twitter:title" content="mail&#x2F;ngx_mail_auth_http_module-nginx中文参考手册">
 <meta name="twitter:description" content="mail,ngx_mail_auth_http_module">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>mail/ngx_mail_auth_http_module-nginx中文手册 | IM.NGINX</title>
+  <title>mail/ngx_mail_auth_http_module-nginx中文参考手册 | IM.NGINX</title>
   
 
 
@@ -314,7 +314,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">mail/ngx_mail_auth_http_module-nginx中文手册</h2>
+          <h2 class="post-title" itemprop="name headline">mail/ngx_mail_auth_http_module-nginx中文参考手册</h2>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T10:27:47+08:00">
-                2018年12月22日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T11:49:01+08:00">
+                2018年12月24日
               </time>
             
 
@@ -349,8 +349,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx中文手册</span>
+                  <a href="/categories/nginx案例/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx案例</span>
                   </a>
                 </span>
 
@@ -386,34 +386,61 @@
       
 
       
-        <p>mail,ngx_mail_auth_http_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-mail-auth-http-module"><a href="#Module-ngx-mail-auth-http-module" class="headerlink" title="Module ngx_mail_auth_http_module"></a>Module ngx_mail_auth_http_module</h2><td align="left" class="notranslate"> <a href="#directives">Directives</a> <br>     <a href="#auth_http">auth_http</a> <br>     <a href="#auth_http_header">auth_http_header</a> <br>     <a href="#auth_http_pass_client_cert">auth_http_pass_client_cert</a> <br>     <a href="#auth_http_timeout">auth_http_timeout</a> <br> <a href="#protocol">Protocol</a> <br></td>
-
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**auth_http*URL*</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>mail</code> , <code>server</code> <br>                </td></p>
-<p>  设置HTTP身份验证服务器的URL。  该协议<a href="#protocol">如下所述</a> 。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**auth_http_header*header*</code> <code>*value*</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>mail</code> , <code>server</code> <br>                </td></p>
-<p>  将指定的标头附加到发送到身份验证服务器的请求。  此标头可用作共享密钥，以验证请求是否来自nginx。  例如： </p>
-<pre class="notranslate">auth_http_header X-Auth-Key "secret_string";
-</pre>
-
-
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**auth_http_pass_client_certon</code> | <code>off</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">auth_http_pass_client_cert off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>mail</code> , <code>server</code> <br>                </td></p>
-<p>  该指令出现在1.7.11版本中。 </p>
-<p>  将具有PEM格式（urlencoded）的<a href="ngx_mail_ssl_module.html#ssl_verify_client">客户端</a>证书的“Auth-SSL-Cert”标头附加到发送到身份验证服务器的请求。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**auth_http_timeout*time*</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">auth_http_timeout 60s;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>mail</code> , <code>server</code> <br>                </td></p>
-<p>  设置与身份验证服务器通信的超时。 </p>
-<h4 id="协议"><a href="#协议" class="headerlink" title="协议"></a>协议</h4><p>   HTTP协议用于与身份验证服务器通信。  响应正文中的数据将被忽略，信息仅在标题中传递。 </p>
-<p>  请求和响应的示例： </p>
-<p>  请求： </p>
-<pre class="notranslate">GET /auth HTTP/1.0
+        <p>mail,ngx_mail_auth_http_module<br><a id="more"></a><br>
+  </p><h2 class="notranslate">Module ngx_mail_auth_http_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a href="#directives">Directives</a> <br>     <a href="#auth_http">auth_http</a> <br>     <a href="#auth_http_header">auth_http_header</a> <br>     <a href="#auth_http_pass_client_cert">auth_http_pass_client_cert</a> <br>     <a href="#auth_http_timeout">auth_http_timeout</a> <br> <a href="#protocol">Protocol</a> <br></td></tr></tbody></table><a name="directives"></a><center><h4>  指令 </h4></center><a name="auth_http"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>auth_http</strong> <code class="notranslate"><i>URL</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">mail</code> , <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table></div><p>  设置HTTP身份验证服务器的URL。  该协议<a href="#protocol">如下所述</a> 。 </p><a name="auth_http_header"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>auth_http_header</strong> <code class="notranslate"><i>header</i></code> <code class="notranslate"><i>value</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">mail</code> , <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table></div><p>  将指定的标头附加到发送到身份验证服务器的请求。  此标头可用作共享密钥，以验证请求是否来自nginx。  例如： </p><blockquote class="example"><pre class="notranslate">auth_http_header X-Auth-Key "secret_string";
+</pre></blockquote><p></p><a name="auth_http_pass_client_cert"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>auth_http_pass_client_cert</strong> <code class="notranslate">on</code> | <code class="notranslate">off</code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">auth_http_pass_client_cert off;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">mail</code> , <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table><p>  该指令出现在1.7.11版本中。 </p></div><p>  将具有PEM格式（urlencoded）的<a href="ngx_mail_ssl_module.html#ssl_verify_client">客户端</a>证书的“Auth-SSL-Cert”标头附加到发送到身份验证服务器的请求。 </p><a name="auth_http_timeout"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>auth_http_timeout</strong> <code class="notranslate"><i>time</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">auth_http_timeout 60s;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">mail</code> , <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table></div><p>  设置与身份验证服务器通信的超时。 </p><a name="protocol"></a><center><h4>  协议 </h4></center><p>   HTTP协议用于与身份验证服务器通信。  响应正文中的数据将被忽略，信息仅在标题中传递。 </p><p>  请求和响应的示例： </p><p>  请求： </p><blockquote class="example"><pre class="notranslate">GET /auth HTTP/1.0
 Host: localhost
 Auth-Method: plain # plain/apop/cram-md5/external
 Auth-User: user
@@ -422,26 +449,14 @@ Auth-Protocol: imap # imap/pop3/smtp
 Auth-Login-Attempt: 1
 Client-IP: 192.0.2.42
 Client-Host: client.example.org
-</pre>
-
-<p>  反应良好： </p>
-<pre class="notranslate">HTTP/1.0 200 OK
+</pre></blockquote><p>  反应良好： </p><blockquote class="example"><pre class="notranslate">HTTP/1.0 200 OK
 Auth-Status: OK
 Auth-Server: 198.51.100.1
 Auth-Port: 143
-</pre>
-
-<p>  不好的回应： </p>
-<pre class="notranslate">HTTP/1.0 200 OK
+</pre></blockquote><p>  不好的回应： </p><blockquote class="example"><pre class="notranslate">HTTP/1.0 200 OK
 Auth-Status: Invalid login or password
 Auth-Wait: 3
-</pre>
-
-
-
-<p>  如果没有“Auth-Wait”标头，将返回错误并关闭连接。  当前实现为每次身份验证尝试分配内存。  仅在会话结束时释放内存。  因此，必须限制单个会话中无效身份验证尝试的次数 - 服务器必须在10-20次尝试后响应而不使用“Auth-Wait”标头（尝试号码在“Auth-Login-Attempt”标头中传递） 。 </p>
-<p>  使用APOP或CRAM-MD5时，请求 - 响应将如下所示： </p>
-<pre class="notranslate">GET /auth HTTP/1.0
+</pre></blockquote><p></p><p>  如果没有“Auth-Wait”标头，将返回错误并关闭连接。  当前实现为每次身份验证尝试分配内存。  仅在会话结束时释放内存。  因此，必须限制单个会话中无效身份验证尝试的次数 - 服务器必须在10-20次尝试后响应而不使用“Auth-Wait”标头（尝试号码在“Auth-Login-Attempt”标头中传递） 。 </p><p>  使用APOP或CRAM-MD5时，请求 - 响应将如下所示： </p><blockquote class="example"><pre class="notranslate">GET /auth HTTP/1.0
 Host: localhost
 Auth-Method: apop
 Auth-User: user
@@ -451,35 +466,17 @@ Auth-Protocol: imap
 Auth-Login-Attempt: 1
 Client-IP: 192.0.2.42
 Client-Host: client.example.org
-</pre>
-
-<p>  反应良好： </p>
-<pre class="notranslate">HTTP/1.0 200 OK
+</pre></blockquote><p>  反应良好： </p><blockquote class="example"><pre class="notranslate">HTTP/1.0 200 OK
 Auth-Status: OK
 Auth-Server: 198.51.100.1
 Auth-Port: 143
 Auth-Pass: plain-text-pass
-</pre>
-
-
-
-<p>  如果响应中存在“Auth-User”标头，它将覆盖用于通过后端进行身份验证的用户名。 </p>
-<p>  对于SMTP，响应还考虑了“Auth-Error-Code”标头 - 如果存在，则在发生错误时用作响应代码。  否则，535 5.7.0代码将添加到“Auth-Status”标头中。 </p>
-<p>  例如，如果从身份验证服务器收到以下响应： </p>
-<pre class="notranslate">HTTP/1.0 200 OK
+</pre></blockquote><p></p><p>  如果响应中存在“Auth-User”标头，它将覆盖用于通过后端进行身份验证的用户名。 </p><p>  对于SMTP，响应还考虑了“Auth-Error-Code”标头 - 如果存在，则在发生错误时用作响应代码。  否则，535 5.7.0代码将添加到“Auth-Status”标头中。 </p><p>  例如，如果从身份验证服务器收到以下响应： </p><blockquote class="example"><pre class="notranslate">HTTP/1.0 200 OK
 Auth-Status: Temporary server problem, try again later
 Auth-Error-Code: 451 4.3.0
 Auth-Wait: 3
-</pre>
-
-<p>  然后SMTP客户端将收到错误 </p>
-<pre class="notranslate">451 4.3.0 Temporary server problem, try again later
-</pre>
-
-
-
-<p>  如果代理SMTP不需要身份验证，请求将如下所示： </p>
-<pre class="notranslate">GET /auth HTTP/1.0
+</pre></blockquote><p>  然后SMTP客户端将收到错误 </p><blockquote class="example"><pre class="notranslate">451 4.3.0 Temporary server problem, try again later
+</pre></blockquote><p></p><p>  如果代理SMTP不需要身份验证，请求将如下所示： </p><blockquote class="example"><pre class="notranslate">GET /auth HTTP/1.0
 Host: localhost
 Auth-Method: none
 Auth-User:
@@ -491,16 +488,7 @@ Client-Host: client.example.org
 Auth-SMTP-Helo: client.example.org
 Auth-SMTP-From: MAIL FROM: &lt;&gt;
 Auth-SMTP-To: RCPT TO: &lt;postmaster@mail.example.com&gt;
-</pre>
-
-
-
-<p>  对于SSL / TLS客户端连接（1.7.11），添加了“Auth-SSL”标头，“Auth-SSL-Verify”将包含客户端证书验证的结果（如果已<a href="ngx_mail_ssl_module.html#ssl_verify_client">启用）</a> ：“ <code>SUCCESS</code> ”，“ <code>FAILED:</code>如果证书不存在，则“和” <code>NONE</code> “。 </p>
-<blockquote>
-<p>  在1.11.7版之前，“ <code>FAILED</code> ”结果不包含<code>*reason*</code>字符串。 </p>
-</blockquote>
-<p>  当客户端证书存在时，其详细信息将在以下请求标头中传递：“Auth-SSL-Subject”，“Auth-SSL-Issuer”，“Auth-SSL-Serial”和“Auth-SSL-Fingerprint”。  如果启用了<a href="#auth_http_pass_client_cert">auth_http_pass_client_cert</a> ，则证书本身将在“Auth-SSL-Cert”标头中传递。  请求如下： </p>
-<pre class="notranslate">GET /auth HTTP/1.0
+</pre></blockquote><p></p><p>  对于SSL / TLS客户端连接（1.7.11），添加了“Auth-SSL”标头，“Auth-SSL-Verify”将包含客户端证书验证的结果（如果已<a href="ngx_mail_ssl_module.html#ssl_verify_client">启用）</a> ：“ <code class="notranslate">SUCCESS</code> ”，“ <code class="notranslate">FAILED:</code>如果证书不存在，则“和” <code class="notranslate">NONE</code> “。 </p><blockquote class="note">  在1.11.7版之前，“ <code class="notranslate">FAILED</code> ”结果不包含<code class="notranslate"><i>reason</i></code>字符串。 </blockquote><p>  当客户端证书存在时，其详细信息将在以下请求标头中传递：“Auth-SSL-Subject”，“Auth-SSL-Issuer”，“Auth-SSL-Serial”和“Auth-SSL-Fingerprint”。  如果启用了<a href="#auth_http_pass_client_cert">auth_http_pass_client_cert</a> ，则证书本身将在“Auth-SSL-Cert”标头中传递。  请求如下： </p><blockquote class="example"><pre class="notranslate">GET /auth HTTP/1.0
 Host: localhost
 Auth-Method: plain
 Auth-User: user
@@ -514,12 +502,9 @@ Auth-SSL-Subject: /CN=example.com
 Auth-SSL-Issuer: /CN=example.com
 Auth-SSL-Serial: C07AD56B846B5BFF
 Auth-SSL-Fingerprint: 29d6a80a123d13355ed16b4b04605e29cb55a5ad
-</pre>
+</pre></blockquote><p></p> 
 
-
-
-
-
+<p></p>
 
       
     </div>
@@ -569,7 +554,7 @@ Auth-SSL-Fingerprint: 29d6a80a123d13355ed16b4b04605e29cb55a5ad
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nginx.im/ngx/mail/ngx_mail_auth_http_module.html" title="mail/ngx_mail_auth_http_module-nginx中文手册">http://nginx.im/ngx/mail/ngx_mail_auth_http_module.html</a>
+    <a href="http://nginx.im/ngx/mail/ngx_mail_auth_http_module.html" title="mail/ngx_mail_auth_http_module-nginx中文参考手册">http://nginx.im/ngx/mail/ngx_mail_auth_http_module.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -597,8 +582,8 @@ Auth-SSL-Fingerprint: 29d6a80a123d13355ed16b4b04605e29cb55a5ad
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ngx/http/websocket.html" rel="next" title="http/websocket-nginx中文手册">
-                <i class="fa fa-chevron-left"></i> http/websocket-nginx中文手册
+              <a href="/ngx/http/websocket.html" rel="next" title="http/websocket-nginx中文参考手册">
+                <i class="fa fa-chevron-left"></i> http/websocket-nginx中文参考手册
               </a>
             
           </div>
@@ -607,8 +592,8 @@ Auth-SSL-Fingerprint: 29d6a80a123d13355ed16b4b04605e29cb55a5ad
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ngx/mail/ngx_mail_core_module.html" rel="prev" title="mail/ngx_mail_core_module-nginx中文手册">
-                mail/ngx_mail_core_module-nginx中文手册 <i class="fa fa-chevron-right"></i>
+              <a href="/ngx/mail/ngx_mail_core_module.html" rel="prev" title="mail/ngx_mail_core_module-nginx中文参考手册">
+                mail/ngx_mail_core_module-nginx中文参考手册 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -695,7 +680,7 @@ Auth-SSL-Fingerprint: 29d6a80a123d13355ed16b4b04605e29cb55a5ad
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">236</span>
+                  <span class="site-state-item-count">239</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -706,7 +691,7 @@ Auth-SSL-Fingerprint: 29d6a80a123d13355ed16b4b04605e29cb55a5ad
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -752,7 +737,7 @@ Auth-SSL-Fingerprint: 29d6a80a123d13355ed16b4b04605e29cb55a5ad
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-mail-auth-http-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_mail_auth_http_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.1.</span> <span class="nav-text">指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#协议"><span class="nav-number">1.0.2.</span> <span class="nav-text">协议</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_mail_auth_http_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">  指令 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">  协议 </span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

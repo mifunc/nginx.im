@@ -82,14 +82,14 @@
 <meta name="description" content="http,ngx_http_auth_basic_module">
 <meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
-<meta property="og:title" content="http&#x2F;ngx_http_auth_basic_module-nginx中文手册">
+<meta property="og:title" content="http&#x2F;ngx_http_auth_basic_module-nginx中文参考手册">
 <meta property="og:url" content="http://nginx.im/ngx/http/ngx_http_auth_basic_module.html">
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="http,ngx_http_auth_basic_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T02:28:10.595Z">
+<meta property="og:updated_time" content="2018-12-24T03:46:59.633Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="http&#x2F;ngx_http_auth_basic_module-nginx中文手册">
+<meta name="twitter:title" content="http&#x2F;ngx_http_auth_basic_module-nginx中文参考手册">
 <meta name="twitter:description" content="http,ngx_http_auth_basic_module">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>http/ngx_http_auth_basic_module-nginx中文手册 | IM.NGINX</title>
+  <title>http/ngx_http_auth_basic_module-nginx中文参考手册 | IM.NGINX</title>
   
 
 
@@ -314,7 +314,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">http/ngx_http_auth_basic_module-nginx中文手册</h2>
+          <h2 class="post-title" itemprop="name headline">http/ngx_http_auth_basic_module-nginx中文参考手册</h2>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T10:27:47+08:00">
-                2018年12月22日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T11:49:01+08:00">
+                2018年12月24日
               </time>
             
 
@@ -349,8 +349,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx中文手册</span>
+                  <a href="/categories/nginx案例/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx案例</span>
                   </a>
                 </span>
 
@@ -386,38 +386,44 @@
       
 
       
-        <p>http,ngx_http_auth_basic_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-http-auth-basic-module"><a href="#Module-ngx-http-auth-basic-module" class="headerlink" title="Module ngx_http_auth_basic_module"></a>Module ngx_http_auth_basic_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#auth_basic">auth_basic</a> <br>     <a href="#auth_basic_user_file">auth_basic_user_file</a> <br></td>
-
-<p>   <code>ngx_http_auth_basic_module</code>模块允许通过使用“HTTP基本身份验证”协议验证用户名和密码来限制对资源的访问。 </p>
-<p>  访问也可以通过<a href="ngx_http_access_module.html">地址</a> ， <a href="ngx_http_auth_request_module.html">子请求</a>的<a href="ngx_http_auth_request_module.html">结果</a>或<a href="ngx_http_auth_jwt_module.html">JWT来限制</a> 。  通过地址和密码同时限制访问由<a href="ngx_http_core_module.html#satisfy">satisf</a>指令控制。 </p>
-<h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><pre class="notranslate">location / {
+        <p>http,ngx_http_auth_basic_module<br><a id="more"></a><br>
+  </p><h2 class="notranslate">Module ngx_http_auth_basic_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#auth_basic">auth_basic</a> <br>     <a href="#auth_basic_user_file">auth_basic_user_file</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_auth_basic_module</code>模块允许通过使用“HTTP基本身份验证”协议验证用户名和密码来限制对资源的访问。 </p><p>  访问也可以通过<a href="ngx_http_access_module.html">地址</a> ， <a href="ngx_http_auth_request_module.html">子请求</a>的<a href="ngx_http_auth_request_module.html">结果</a>或<a href="ngx_http_auth_jwt_module.html">JWT来限制</a> 。  通过地址和密码同时限制访问由<a href="ngx_http_core_module.html#satisfy">satisf</a>指令控制。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">location / {
     auth_basic           "closed site";
     auth_basic_user_file conf/htpasswd;
 }
-</pre>
-
-
-
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**auth_basic*string*</code> | <code>off</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">auth_basic off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> , <code>limit_except</code> <br>                </td></p>
-<p>  使用“HTTP基本身份验证”协议启用用户名和密码验证。  指定的参数用作域。  参数值可以包含变量（1.3.10,1.2.7）。  特殊值<code>off</code>允许取消从先前配置级别继承的<code>auth_basic</code>伪指令的效果。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**auth_basic_user_file*file*</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> , <code>limit_except</code> <br>                </td></p>
-<p>  指定保存用户名和密码的文件，格式如下： </p>
-<pre class="notranslate"># comment
+</pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="auth_basic"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>auth_basic</strong> <code class="notranslate"><i>string</i></code> | <code class="notranslate">off</code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">auth_basic off;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> , <code class="notranslate">limit_except</code> <br>
+                </td></tr></tbody></table></div><p>  使用“HTTP基本身份验证”协议启用用户名和密码验证。  指定的参数用作域。  参数值可以包含变量（1.3.10,1.2.7）。  特殊值<code class="notranslate">off</code>允许取消从先前配置级别继承的<code class="notranslate">auth_basic</code>伪指令的效果。 </p><a name="auth_basic_user_file"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>auth_basic_user_file</strong> <code class="notranslate"><i>file</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> , <code class="notranslate">limit_except</code> <br>
+                </td></tr></tbody></table></div><p>  指定保存用户名和密码的文件，格式如下： </p><blockquote class="example"><pre class="notranslate"># comment
 name1:password1
 name2:password2:comment
 name3:password3
-</pre>
+</pre></blockquote><p>   <code class="notranslate"><i>file</i></code>名可以包含变量。 </p><p>  支持以下密码类型： </p><ul class="compact"><li>  用<code class="notranslate">crypt()</code>函数加密;  可以使用Apache HTTP Server分发中的“ <code class="notranslate">htpasswd</code> ”实用程序或“ <code class="notranslate">openssl passwd</code> ”命令生成; </li><li>  使用基于MD5的密码算法（apr1）的Apache变体进行散列;  可以使用相同的工具生成; </li><li>  由<a href="https://tools.ietf.org/html/rfc2307#section-5.3" target="_blank" rel="noopener">RFC 2307中</a>描述的“ <code class="notranslate">{</code> <code class="notranslate"><i>scheme</i></code> <code class="notranslate">}</code> <code class="notranslate"><i>data</i></code> ”语法（1.0.3+）指定;  目前实现的方案包括<code class="notranslate">PLAIN</code> （不应使用示例一）， <code class="notranslate">SHA</code> （1.3.13）（不应使用普通SHA-1哈希）和<code class="notranslate">SSHA</code> （盐渍SHA-1哈希，一些软件包使用，特别是OpenLDAP和Dovecot）。 <blockquote class="note">  仅添加了对<code class="notranslate">SHA</code>方案的支持，以帮助从其他Web服务器迁移。  它不应该用于新密码，因为它使用的无盐SHA-1散列很容易受到<a href="http://en.wikipedia.org/wiki/Rainbow_attack" target="_blank" rel="noopener">彩虹表</a>攻击。 </blockquote></li></ul><p></p> 
 
-<p>   <code>*file*</code>名可以包含变量。 </p>
-<p>  支持以下密码类型： </p>
-<ul>
-<li>用<code>crypt()</code>函数加密;  可以使用Apache HTTP Server分发中的“ <code>htpasswd</code> ”实用程序或“ <code>openssl passwd</code> ”命令生成; -   使用基于MD5的密码算法（apr1）的Apache变体进行散列;  可以使用相同的工具生成; -   由<a href="https://tools.ietf.org/html/rfc2307#section-5.3" target="_blank" rel="noopener">RFC 2307中</a>描述的“ <code>{</code> <code>*scheme*</code> <code>}</code> <code>*data*</code> ”语法（1.0.3+）指定;  目前实现的方案包括<code>PLAIN</code> （不应使用示例一）， <code>SHA</code> （1.3.13）（不应使用普通SHA-1哈希）和<code>SSHA</code> （盐渍SHA-1哈希，一些软件包使用，特别是OpenLDAP和Dovecot）。 <blockquote class="note">  仅添加了对<code>SHA</code>方案的支持，以帮助从其他Web服务器迁移。  它不应该用于新密码，因为它使用的无盐SHA-1散列很容易受到<a href="http://en.wikipedia.org/wiki/Rainbow_attack" target="_blank" rel="noopener">彩虹表</a>攻击。 </blockquote></li>
-</ul>
+<p></p>
 
       
     </div>
@@ -467,7 +473,7 @@ name3:password3
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nginx.im/ngx/http/ngx_http_auth_basic_module.html" title="http/ngx_http_auth_basic_module-nginx中文手册">http://nginx.im/ngx/http/ngx_http_auth_basic_module.html</a>
+    <a href="http://nginx.im/ngx/http/ngx_http_auth_basic_module.html" title="http/ngx_http_auth_basic_module-nginx中文参考手册">http://nginx.im/ngx/http/ngx_http_auth_basic_module.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -495,8 +501,8 @@ name3:password3
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ngx/http/ngx_http_api_module.html" rel="next" title="http/ngx_http_api_module-nginx中文手册">
-                <i class="fa fa-chevron-left"></i> http/ngx_http_api_module-nginx中文手册
+              <a href="/ngx/http/ngx_http_api_module.html" rel="next" title="http/ngx_http_api_module-nginx中文参考手册">
+                <i class="fa fa-chevron-left"></i> http/ngx_http_api_module-nginx中文参考手册
               </a>
             
           </div>
@@ -505,8 +511,8 @@ name3:password3
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ngx/http/ngx_http_auth_jwt_module.html" rel="prev" title="http/ngx_http_auth_jwt_module-nginx中文手册">
-                http/ngx_http_auth_jwt_module-nginx中文手册 <i class="fa fa-chevron-right"></i>
+              <a href="/ngx/http/ngx_http_auth_jwt_module.html" rel="prev" title="http/ngx_http_auth_jwt_module-nginx中文参考手册">
+                http/ngx_http_auth_jwt_module-nginx中文参考手册 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -593,7 +599,7 @@ name3:password3
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">236</span>
+                  <span class="site-state-item-count">239</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -604,7 +610,7 @@ name3:password3
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -650,7 +656,7 @@ name3:password3
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-auth-basic-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_auth_basic_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_auth_basic_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">  示例配置 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">  指令 </span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

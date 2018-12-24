@@ -82,14 +82,14 @@
 <meta name="description" content="http,server_names">
 <meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
-<meta property="og:title" content="http&#x2F;server_names-nginx中文手册">
+<meta property="og:title" content="http&#x2F;server_names-nginx中文参考手册">
 <meta property="og:url" content="http://nginx.im/ngx/http/server_names.html">
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="http,server_names">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T02:28:10.663Z">
+<meta property="og:updated_time" content="2018-12-24T03:46:58.396Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="http&#x2F;server_names-nginx中文手册">
+<meta name="twitter:title" content="http&#x2F;server_names-nginx中文参考手册">
 <meta name="twitter:description" content="http,server_names">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>http/server_names-nginx中文手册 | IM.NGINX</title>
+  <title>http/server_names-nginx中文参考手册 | IM.NGINX</title>
   
 
 
@@ -314,7 +314,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">http/server_names-nginx中文手册</h2>
+          <h2 class="post-title" itemprop="name headline">http/server_names-nginx中文参考手册</h2>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T10:27:47+08:00">
-                2018年12月22日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T11:49:01+08:00">
+                2018年12月24日
               </time>
             
 
@@ -349,8 +349,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx中文手册</span>
+                  <a href="/categories/nginx案例/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx案例</span>
                   </a>
                 </span>
 
@@ -386,11 +386,8 @@
       
 
       
-        <p>http,server_names<br><a id="more"></a></p>
-<h2 id="服务器名称"><a href="#服务器名称" class="headerlink" title="服务器名称"></a>服务器名称</h2><td align="left" class="notranslate"> <a href="#wildcard_names">Wildcard names</a> <br> <a href="#regex_names">Regular expressions names</a> <br> <a href="#miscellaneous_names">Miscellaneous names</a> <br> <a href="#idn">Internationalized names</a> <br> <a href="#optimization">Optimization</a> <br> <a href="#compatibility">Compatibility</a> <br></td>
-
-<p>  服务器名称使用<a href="ngx_http_core_module.html#server_name">server_name</a>指令定义，并确定用于给定请求的<a href="ngx_http_core_module.html#server">服务器</a>块。  另请参阅“ <a href="request_processing.html">nginx如何处理请求</a> ”。  可以使用确切名称，通配符名称或正则表达式来定义它们： </p>
-<pre class="notranslate">server {
+        <p>http,server_names<br><a id="more"></a><br>
+  </p><h2>  服务器名称 </h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a href="#wildcard_names">Wildcard names</a> <br> <a href="#regex_names">Regular expressions names</a> <br> <a href="#miscellaneous_names">Miscellaneous names</a> <br> <a href="#idn">Internationalized names</a> <br> <a href="#optimization">Optimization</a> <br> <a href="#compatibility">Compatibility</a> <br></td></tr></tbody></table><p>  服务器名称使用<a href="ngx_http_core_module.html#server_name">server_name</a>指令定义，并确定用于给定请求的<a href="ngx_http_core_module.html#server">服务器</a>块。  另请参阅“ <a href="request_processing.html">nginx如何处理请求</a> ”。  可以使用确切名称，通配符名称或正则表达式来定义它们： </p><blockquote class="example"><pre class="notranslate">server {
     listen       80;
     server_name  example.org  www.example.org;
     ...
@@ -413,100 +410,44 @@ server {
     server_name  ~^(?&lt;user&gt;.+)\.example\.net$;
     ...
 }
-</pre>
-
-
-
-<p>  按名称搜索虚拟服务器时，如果name匹配多个指定的变体，例如通配符名称和正则表达式匹配，则将按以下优先顺序选择第一个匹配的变体： </p>
-<ol>
-<li>确切的名字 1.   最长的通配符名称以星号开头，例如“ <code>*.example.org</code> ” 1.   最长的通配符名称以星号结尾，例如“ <code>mail.*</code> ” 1.   第一个匹配正则表达式（按配置文件中的出现顺序） </li>
-</ol>
-<h4 id="通配符名称"><a href="#通配符名称" class="headerlink" title="通配符名称"></a>通配符名称</h4><p>  通配符名称可能仅在名称的开头或结尾包含星号，并且仅在点边框上包含星号。  名称“ <code>www.*.example.org</code> ”和“ <code>w*.example.org</code> ”无效。  但是，可以使用正则表达式指定这些名称，例如“ <code>~^www\..+\.example\.org$</code> ”和“ <code>~^w.*\.example\.org$</code> ”。  星号可以匹配多个名称部分。  名称“ <code>*.example.org</code> ”不仅匹配<code>www.example.org</code>还匹配<code>www.sub.example.org</code> 。 </p>
-<p>   “ <code>.example.org</code> ”形式的特殊通配符名称可用于匹配确切名称“ <code>example.org</code> ”和通配符名称“ <code>*.example.org</code> ”。 </p>
-<h4 id="正则表达式名称"><a href="#正则表达式名称" class="headerlink" title="正则表达式名称"></a>正则表达式名称</h4><p>   nginx使用的正则表达式与Perl编程语言（PCRE）使用的正则表达式兼容。  要使用正则表达式，服务器名称必须以波浪号开头： </p>
-<pre class="notranslate">server_name  ~^www\d+\.example\.net$;
-</pre>
-
-<p>  否则它将被视为一个确切的名称，或者如果表达式包含星号，则视为通配符名称（并且很可能是无效的名称）。  不要忘记设置“ <code>^</code> ”和“ <code>$</code> ”锚点。  它们在语法上不是必需的，但在逻辑上是必需的。  另请注意，域名点应使用反斜杠进行转义。  应引用包含字符“ <code>{</code> ”和“ <code>}</code> ”的正则表达式： </p>
-<pre class="notranslate">server_name  "~^(?&lt;name&gt;\w\d **{** 1,3 **}** +)\.example\.net$";
-</pre>
-
-<p>  否则nginx将无法启动并显示错误消息： </p>
-<pre class="notranslate">directive "server_name" is not terminated by ";" in ...
-</pre>
-
-<p>  命名的正则表达式捕获稍后可以用作变量： </p>
-<pre class="notranslate">server {
-    server_name   ~^(www\.)?( **?&lt;domain&gt;** .+)$;
+</pre></blockquote><p></p><p>  按名称搜索虚拟服务器时，如果name匹配多个指定的变体，例如通配符名称和正则表达式匹配，则将按以下优先顺序选择第一个匹配的变体： </p><ol class="compact"><li>  确切的名字 </li><li>  最长的通配符名称以星号开头，例如“ <code class="notranslate">*.example.org</code> ” </li><li>  最长的通配符名称以星号结尾，例如“ <code class="notranslate">mail.*</code> ” </li><li>  第一个匹配正则表达式（按配置文件中的出现顺序） </li></ol><p></p><a name="wildcard_names"></a><center><h4>  通配符名称 </h4></center><p>  通配符名称可能仅在名称的开头或结尾包含星号，并且仅在点边框上包含星号。  名称“ <code class="notranslate">www.*.example.org</code> ”和“ <code class="notranslate">w*.example.org</code> ”无效。  但是，可以使用正则表达式指定这些名称，例如“ <code class="notranslate">~^www\..+\.example\.org$</code> ”和“ <code class="notranslate">~^w.*\.example\.org$</code> ”。  星号可以匹配多个名称部分。  名称“ <code class="notranslate">*.example.org</code> ”不仅匹配<code class="notranslate">www.example.org</code>还匹配<code class="notranslate">www.sub.example.org</code> 。 </p><p>   “ <code class="notranslate">.example.org</code> ”形式的特殊通配符名称可用于匹配确切名称“ <code class="notranslate">example.org</code> ”和通配符名称“ <code class="notranslate">*.example.org</code> ”。 </p><a name="regex_names"></a><center><h4>  正则表达式名称 </h4></center><p>   nginx使用的正则表达式与Perl编程语言（PCRE）使用的正则表达式兼容。  要使用正则表达式，服务器名称必须以波浪号开头： </p><blockquote class="example"><pre class="notranslate">server_name  ~^www\d+\.example\.net$;
+</pre></blockquote><p>  否则它将被视为一个确切的名称，或者如果表达式包含星号，则视为通配符名称（并且很可能是无效的名称）。  不要忘记设置“ <code class="notranslate">^</code> ”和“ <code class="notranslate">$</code> ”锚点。  它们在语法上不是必需的，但在逻辑上是必需的。  另请注意，域名点应使用反斜杠进行转义。  应引用包含字符“ <code class="notranslate">{</code> ”和“ <code class="notranslate">}</code> ”的正则表达式： </p><blockquote class="example"><pre class="notranslate">server_name  "~^(?&lt;name&gt;\w\d <b>{</b> 1,3 <b>}</b> +)\.example\.net$";
+</pre></blockquote><p>  否则nginx将无法启动并显示错误消息： </p><blockquote class="example"><pre class="notranslate">directive "server_name" is not terminated by ";" in ...
+</pre></blockquote><p>  命名的正则表达式捕获稍后可以用作变量： </p><blockquote class="example"><pre class="notranslate">server {
+    server_name   ~^(www\.)?( <b>?&lt;domain&gt;</b> .+)$;
 
     location / {
-        root   /sites/ **$domain** ;
+        root   /sites/ <b>$domain</b> ;
     }
 }
-</pre>
-
-<p>   PCRE库使用以下语法支持命名捕获： </p>
-<blockquote>
-<table width="100%"><tbody><td class="notranslate"> <code>?&amp;lt; &lt;code class=&quot;notranslate&quot;&gt;*name*</code> &gt; </td><td class="notranslate">Perl 5.10 compatible syntax, supported since PCRE-7.0</td><br><td class="notranslate"> <code>?&#39; &lt;code class=&quot;notranslate&quot;&gt;*name*</code> ‘ </td><td class="notranslate">Perl 5.10 compatible syntax, supported since PCRE-7.0</td><br><td class="notranslate"> <code>?P&amp;lt; &lt;code class=&quot;notranslate&quot;&gt;*name*</code> &gt; </td><td class="notranslate">Python compatible syntax, supported since PCRE-4.0</td><br></tbody></table>
-
-
-
-</blockquote>
-<pre class="notranslate">pcre_compile() failed: unrecognized character after (?&lt; in ...
-</pre>
-
-<p>  这意味着PCRE库已经过时了，应该尝试使用语法“ <code>?P&amp;lt; &lt;code class=&quot;notranslate&quot;&gt;*name*</code> &gt; ”。  捕获也可以以数字形式使用： </p>
-<pre class="notranslate">server {
+</pre></blockquote><p>   PCRE库使用以下语法支持命名捕获： </p><blockquote><table width="100%"><tbody><tr><td class="notranslate"> <code class="notranslate">?&lt; <code class="notranslate"><i>name</i></code> &gt;</code> </td><td class="notranslate">Perl 5.10 compatible syntax, supported since PCRE-7.0</td></tr><tr><td class="notranslate"> <code class="notranslate">?' <code class="notranslate"><i>name</i></code> '</code> </td><td class="notranslate">Perl 5.10 compatible syntax, supported since PCRE-7.0</td></tr><tr><td class="notranslate"> <code class="notranslate">?P&lt; <code class="notranslate"><i>name</i></code> &gt;</code> </td><td class="notranslate">Python compatible syntax, supported since PCRE-4.0</td></tr></tbody></table></blockquote>  如果nginx无法启动并显示错误消息： <p></p><blockquote class="example"><pre class="notranslate">pcre_compile() failed: unrecognized character after (?&lt; in ...
+</pre></blockquote><p>  这意味着PCRE库已经过时了，应该尝试使用语法“ <code class="notranslate">?P&lt; <code class="notranslate"><i>name</i></code> &gt;</code> ”。  捕获也可以以数字形式使用： </p><blockquote class="example"><pre class="notranslate">server {
     server_name   ~^(www\.)?(.+)$;
 
     location / {
-        root   /sites/ **$2** ;
+        root   /sites/ <b>$2</b> ;
     }
 }
-</pre>
-
-<p>  但是，这种用法应限于简单的情况（如上所述），因为数字参考可以很容易地被覆盖。 </p>
-<h4 id="杂项名称"><a href="#杂项名称" class="headerlink" title="杂项名称"></a>杂项名称</h4><p>  有一些服务器名称是专门处理的。 </p>
-<p>  如果需要处理没有默认<a href="ngx_http_core_module.html#server">服务器</a>块中“Host”头字段的<a href="ngx_http_core_module.html#server">请求</a> ，则应指定一个空名称： </p>
-<pre class="notranslate">server {
+</pre></blockquote><p>  但是，这种用法应限于简单的情况（如上所述），因为数字参考可以很容易地被覆盖。 </p><a name="miscellaneous_names"></a><center><h4>  杂项名称 </h4></center><p>  有一些服务器名称是专门处理的。 </p><p>  如果需要处理没有默认<a href="ngx_http_core_module.html#server">服务器</a>块中“Host”头字段的<a href="ngx_http_core_module.html#server">请求</a> ，则应指定一个空名称： </p><blockquote class="example"><pre class="notranslate">server {
     listen       80;
     server_name  example.org  www.example.org  "";
     ...
 }
-</pre>
-
-
-
-<p>  如果<a href="ngx_http_core_module.html#server">服务器</a>块中未定义<a href="ngx_http_core_module.html#server_name">server_name</a> ，则nginx使用空名称作为服务器名称。 </p>
-<blockquote>
-<p>  在这种情况下，最高为0.8.48的nginx版本使用机器的主机名作为服务器名称。 </p>
-</blockquote>
-<p>  如果服务器名称定义为“ <code>$hostname</code> ”（0.9.4），则使用计算机的主机名。 </p>
-<p>  如果有人使用IP地址而不是服务器名称发出请求，则“主机”请求标头字段将包含IP地址，并且可以使用IP地址作为服务器名称来处理请求： </p>
-<pre class="notranslate">server {
+</pre></blockquote><p></p><p>  如果<a href="ngx_http_core_module.html#server">服务器</a>块中未定义<a href="ngx_http_core_module.html#server_name">server_name</a> ，则nginx使用空名称作为服务器名称。 </p><blockquote class="note">  在这种情况下，最高为0.8.48的nginx版本使用机器的主机名作为服务器名称。 </blockquote><p></p><p>  如果服务器名称定义为“ <code class="notranslate">$hostname</code> ”（0.9.4），则使用计算机的主机名。 </p><p>  如果有人使用IP地址而不是服务器名称发出请求，则“主机”请求标头字段将包含IP地址，并且可以使用IP地址作为服务器名称来处理请求： </p><blockquote class="example"><pre class="notranslate">server {
     listen       80;
     server_name  example.org
                  www.example.org
                  ""
-                 **192.168.1.1**
+                 <b>192.168.1.1</b>
                  ;
     ...
 }
-</pre>
-
-
-
-<p>  在catch-all服务器示例中，可以看到奇怪的名称“ <code>_</code> ”： </p>
-<pre class="notranslate">server {
+</pre></blockquote><p></p><p>  在catch-all服务器示例中，可以看到奇怪的名称“ <code class="notranslate">_</code> ”： </p><blockquote class="example"><pre class="notranslate">server {
     listen       80  default_server;
     server_name  _;
     return       444;
 }
-</pre>
-
-<p>  这个名称没有什么特别之处，它只是无数域名之一，永远不会与任何真实姓名相交。  也可以使用诸如“ <code>--</code> ”和“ <code>!@#</code> ”之类的其他无效名称。 </p>
-<p>   nginx版本高达0.6.25支持特殊名称“ <code>*</code> ”，它被错误地解释为一个包罗万象的名称。  它从不作为全能或通配符服务器名称运行。  相反，它提供了<a href="ngx_http_core_module.html#server_name_in_redirect">server_name_in_redirect</a>指令现在提供的功能。  现在不推荐使用特殊名称“ <code>*</code> ”，并且应使用<a href="ngx_http_core_module.html#server_name_in_redirect">server_name_in_redirect</a>指令。  请注意，无法使用<a href="ngx_http_core_module.html#server_name">server_name</a>指令指定catch-all名称或缺省服务器。  这是<a href="ngx_http_core_module.html#listen">listen</a>指令的属性，而不是<a href="ngx_http_core_module.html#server_name">server_name</a>指令的属性。  另请参阅“ <a href="request_processing.html">nginx如何处理请求</a> ”。  可以定义侦听端口<em>：80和</em>：8080的服务器，并指示一个端口将是端口<em>的默认服务器：8080，而另一个将是端口</em>的默认值：80： </p>
-<pre class="notranslate">server {
+</pre></blockquote><p>  这个名称没有什么特别之处，它只是无数域名之一，永远不会与任何真实姓名相交。  也可以使用诸如“ <code class="notranslate">--</code> ”和“ <code class="notranslate">!@#</code> ”之类的其他无效名称。 </p><p>   nginx版本高达0.6.25支持特殊名称“ <code class="notranslate">*</code> ”，它被错误地解释为一个包罗万象的名称。  它从不作为全能或通配符服务器名称运行。  相反，它提供了<a href="ngx_http_core_module.html#server_name_in_redirect">server_name_in_redirect</a>指令现在提供的功能。  现在不推荐使用特殊名称“ <code class="notranslate">*</code> ”，并且应使用<a href="ngx_http_core_module.html#server_name_in_redirect">server_name_in_redirect</a>指令。  请注意，无法使用<a href="ngx_http_core_module.html#server_name">server_name</a>指令指定catch-all名称或缺省服务器。  这是<a href="ngx_http_core_module.html#listen">listen</a>指令的属性，而不是<a href="ngx_http_core_module.html#server_name">server_name</a>指令的属性。  另请参阅“ <a href="request_processing.html">nginx如何处理请求</a> ”。  可以定义侦听端口*：80和*：8080的服务器，并指示一个端口将是端口*的默认服务器：8080，而另一个将是端口*的默认值：80： </p><blockquote class="example"><pre class="notranslate">server {
     listen       80;
     listen       8080  default_server;
     server_name  example.net;
@@ -519,68 +460,32 @@ server {
     server_name  example.org;
     ...
 }
-</pre>
-
-
-
-<h4 id="国际化名称"><a href="#国际化名称" class="headerlink" title="国际化名称"></a>国际化名称</h4><p>  应使用<a href="ngx_http_core_module.html#server_name">server_name</a>指令中的ASCII（Punycode）表示来指定国际化域名（ <a href="https://en.wikipedia.org/wiki/Internationalized_domain_name" target="_blank" rel="noopener">IDN</a> ）： </p>
-<pre class="notranslate">server {
+</pre></blockquote><p></p><a name="idn"></a><center><h4>  国际化名称 </h4></center><p>  应使用<a href="ngx_http_core_module.html#server_name">server_name</a>指令中的ASCII（Punycode）表示来指定国际化域名（ <a href="https://en.wikipedia.org/wiki/Internationalized_domain_name" target="_blank" rel="noopener">IDN</a> ）： </p><blockquote class="example"><pre class="notranslate">server {
     listen       80;
     server_name  xn--e1afmkfd.xn--80akhbyknj4f;  # пример.испытание
     ...
 }
-</pre>
-
-
-
-<h4 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h4><p>  确切名称，以星号开头的通配符名称以及以星号结尾的通配符名称存储在绑定到侦听端口的三个哈希表中。  散列表的大小在配置阶段进行了优化，因此可以找到最少CPU缓存未命中的名称。  设置哈希表的详细信息在单独的<a href="hash.html">文档</a>中提供。 </p>
-<p>  首先搜索确切的名称哈希表。  如果未找到名称，则搜索带有以星号开头的通配符名称的哈希表。  如果在那里找不到名称，则搜索带有以星号结尾的通配符名称的哈希表。 </p>
-<p>  搜索通配符名称哈希表比搜索确切名称哈希表要慢，因为域名部分会搜索名称。  请注意，特殊通配符形式“ <code>.example.org</code> ”存储在通配符名称哈希表中，而不是存储在精确名称哈希表中。 </p>
-<p>  正则表达式是按顺序测试的，因此是最慢的方法，并且是不可伸缩的。 </p>
-<p>  出于这些原因，最好在可能的情况下使用确切的名称。  例如，如果服务器的最常请求名称是<code>example.org</code>和<code>www.example.org</code> ，则明确定义它们会更有效： </p>
-<pre class="notranslate">server {
+</pre></blockquote><p></p><a name="optimization"></a><center><h4>  优化 </h4></center><p>  确切名称，以星号开头的通配符名称以及以星号结尾的通配符名称存储在绑定到侦听端口的三个哈希表中。  散列表的大小在配置阶段进行了优化，因此可以找到最少CPU缓存未命中的名称。  设置哈希表的详细信息在单独的<a href="hash.html">文档</a>中提供。 </p><p>  首先搜索确切的名称哈希表。  如果未找到名称，则搜索带有以星号开头的通配符名称的哈希表。  如果在那里找不到名称，则搜索带有以星号结尾的通配符名称的哈希表。 </p><p>  搜索通配符名称哈希表比搜索确切名称哈希表要慢，因为域名部分会搜索名称。  请注意，特殊通配符形式“ <code class="notranslate">.example.org</code> ”存储在通配符名称哈希表中，而不是存储在精确名称哈希表中。 </p><p>  正则表达式是按顺序测试的，因此是最慢的方法，并且是不可伸缩的。 </p><p>  出于这些原因，最好在可能的情况下使用确切的名称。  例如，如果服务器的最常请求名称是<code class="notranslate">example.org</code>和<code class="notranslate">www.example.org</code> ，则明确定义它们会更有效： </p><blockquote class="example"><pre class="notranslate">server {
     listen       80;
     server_name  example.org  www.example.org  *.example.org;
     ...
 }
-</pre>
-
-<p>  而不是使用简化形式： </p>
-<pre class="notranslate">server {
+</pre></blockquote><p>  而不是使用简化形式： </p><blockquote class="example"><pre class="notranslate">server {
     listen       80;
     server_name  .example.org;
     ...
 }
-</pre>
-
-
-
-<p>  如果定义了大量服务器名称，或者定义了异常长的服务器名称，则可能需要在<em>http</em>级别调整<a href="ngx_http_core_module.html#server_names_hash_max_size">server_names_hash_max_size</a>和<a href="ngx_http_core_module.html#server_names_hash_bucket_size">server_names_hash_bucket_size</a>指令。   <a href="ngx_http_core_module.html#server_names_hash_bucket_size">server_names_hash_bucket_size</a>指令的默认值可能等于32或64，或其他值，具体取决于CPU缓存行大小。  如果默认值为32且服务器名称定义为“ <code>too.long.server.name.example.org</code> ”，则nginx将无法启动并显示错误消息： </p>
-<pre class="notranslate">could not build the server_names_hash,
+</pre></blockquote><p></p><p>  如果定义了大量服务器名称，或者定义了异常长的服务器名称，则可能需要在<i>http</i>级别调整<a href="ngx_http_core_module.html#server_names_hash_max_size">server_names_hash_max_size</a>和<a href="ngx_http_core_module.html#server_names_hash_bucket_size">server_names_hash_bucket_size</a>指令。   <a href="ngx_http_core_module.html#server_names_hash_bucket_size">server_names_hash_bucket_size</a>指令的默认值可能等于32或64，或其他值，具体取决于CPU缓存行大小。  如果默认值为32且服务器名称定义为“ <code class="notranslate">too.long.server.name.example.org</code> ”，则nginx将无法启动并显示错误消息： </p><blockquote class="example"><pre class="notranslate">could not build the server_names_hash,
 you should increase server_names_hash_bucket_size: 32
-</pre>
-
-<p>  在这种情况下，指令值应该增加到下一个2的幂： </p>
-<pre class="notranslate">http {
+</pre></blockquote><p>  在这种情况下，指令值应该增加到下一个2的幂： </p><blockquote class="example"><pre class="notranslate">http {
     server_names_hash_bucket_size  64;
     ...
-</pre>
-
-<p>  如果定义了大量服务器名称，则会显示另一条错误消息： </p>
-<pre class="notranslate">could not build the server_names_hash,
+</pre></blockquote><p>  如果定义了大量服务器名称，则会显示另一条错误消息： </p><blockquote class="example"><pre class="notranslate">could not build the server_names_hash,
 you should increase either server_names_hash_max_size: 512
 or server_names_hash_bucket_size: 32
-</pre>
+</pre></blockquote><p>  在这种情况下，首先尝试将<a href="ngx_http_core_module.html#server_names_hash_max_size">server_names_hash_max_size</a>设置为接近服务器名称数的数字。  只有当这没有帮助时，或者如果nginx的开始时间长得令人无法接受，请尝试增加<a href="ngx_http_core_module.html#server_names_hash_bucket_size">server_names_hash_bucket_size</a> 。 </p><p>  如果服务器是监听端口的唯一服务器，则nginx根本不会测试服务器名称（并且不会为监听端口构建哈希表）。  但是，有一个例外。  如果服务器名称是带捕获的正则表达式，则nginx必须执行表达式才能获取捕获。 </p><a name="compatibility"></a><center><h4>  兼容性 </h4></center><p></p><ul class="compact"><li>  自0.9.4以来一直支持特殊服务器名称“ <code class="notranslate">$hostname</code> ”。 </li><li>  默认服务器名称值是自0.8.48以来的空名称“”。 </li><li>  自0.8.25起，支持命名正则表达式服务器名称捕获。 </li><li>  自0.7.40起支持正则表达式服务器名称捕获。 </li><li>  自0.7.12起，支持空服务器名称“”。 </li><li>  支持使用通配符服务器名称或正则表达式作为自0.6.25以来的第一个服务器名称。 </li><li>  自0.6.7起支持正则表达式服务器名称。 </li><li>  自0.6.0以来一直支持通配符表单<code class="notranslate">example.*</code> 。 </li><li>  从0.3.18开始支持特殊格式<code class="notranslate">.example.org</code> 。 </li><li>  自0.1.13起支持通配符<code class="notranslate">*.example.org</code> 。 </li></ul><p></p><table width="100%"><tbody><tr><td align="right" class="notranslate">written by Igor Sysoev<br>edited by Brian Mercer<br></td></tr></tbody></table> 
 
-<p>  在这种情况下，首先尝试将<a href="ngx_http_core_module.html#server_names_hash_max_size">server_names_hash_max_size</a>设置为接近服务器名称数的数字。  只有当这没有帮助时，或者如果nginx的开始时间长得令人无法接受，请尝试增加<a href="ngx_http_core_module.html#server_names_hash_bucket_size">server_names_hash_bucket_size</a> 。 </p>
-<p>  如果服务器是监听端口的唯一服务器，则nginx根本不会测试服务器名称（并且不会为监听端口构建哈希表）。  但是，有一个例外。  如果服务器名称是带捕获的正则表达式，则nginx必须执行表达式才能获取捕获。 </p>
-<h4 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h4><ul>
-<li>自0.9.4以来一直支持特殊服务器名称“ <code>$hostname</code> ”。 -   默认服务器名称值是自0.8.48以来的空名称“”。 -   自0.8.25起，支持命名正则表达式服务器名称捕获。 -   自0.7.40起支持正则表达式服务器名称捕获。 -   自0.7.12起，支持空服务器名称“”。 -   支持使用通配符服务器名称或正则表达式作为自0.6.25以来的第一个服务器名称。 -   自0.6.7起支持正则表达式服务器名称。 -   自0.6.0以来一直支持通配符表单<code>example.*</code> 。 -   从0.3.18开始支持特殊格式<code>.example.org</code> 。 -   自0.1.13起支持通配符<code>*.example.org</code> 。 </li>
-</ul>
-<td align="right" class="notranslate">written by Igor Sysoev<br>edited by Brian Mercer<br></td>
-
-
-
+<p></p>
 
       
     </div>
@@ -630,7 +535,7 @@ or server_names_hash_bucket_size: 32
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nginx.im/ngx/http/server_names.html" title="http/server_names-nginx中文手册">http://nginx.im/ngx/http/server_names.html</a>
+    <a href="http://nginx.im/ngx/http/server_names.html" title="http/server_names-nginx中文参考手册">http://nginx.im/ngx/http/server_names.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -658,8 +563,8 @@ or server_names_hash_bucket_size: 32
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ngx/http/request_processing.html" rel="next" title="http/request_processing-nginx中文手册">
-                <i class="fa fa-chevron-left"></i> http/request_processing-nginx中文手册
+              <a href="/ngx/http/request_processing.html" rel="next" title="http/request_processing-nginx中文参考手册">
+                <i class="fa fa-chevron-left"></i> http/request_processing-nginx中文参考手册
               </a>
             
           </div>
@@ -668,8 +573,8 @@ or server_names_hash_bucket_size: 32
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ngx/http/websocket.html" rel="prev" title="http/websocket-nginx中文手册">
-                http/websocket-nginx中文手册 <i class="fa fa-chevron-right"></i>
+              <a href="/ngx/http/websocket.html" rel="prev" title="http/websocket-nginx中文参考手册">
+                http/websocket-nginx中文参考手册 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -756,7 +661,7 @@ or server_names_hash_bucket_size: 32
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">236</span>
+                  <span class="site-state-item-count">239</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -767,7 +672,7 @@ or server_names_hash_bucket_size: 32
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -813,7 +718,7 @@ or server_names_hash_bucket_size: 32
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器名称"><span class="nav-number">1.</span> <span class="nav-text">服务器名称</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#通配符名称"><span class="nav-number">1.0.1.</span> <span class="nav-text">通配符名称</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正则表达式名称"><span class="nav-number">1.0.2.</span> <span class="nav-text">正则表达式名称</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#杂项名称"><span class="nav-number">1.0.3.</span> <span class="nav-text">杂项名称</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#国际化名称"><span class="nav-number">1.0.4.</span> <span class="nav-text">国际化名称</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优化"><span class="nav-number">1.0.5.</span> <span class="nav-text">优化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#兼容性"><span class="nav-number">1.0.6.</span> <span class="nav-text">兼容性</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">  服务器名称 </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">  通配符名称 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">  正则表达式名称 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.3.</span> <span class="nav-text">  杂项名称 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.4.</span> <span class="nav-text">  国际化名称 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.5.</span> <span class="nav-text">  优化 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.6.</span> <span class="nav-text">  兼容性 </span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

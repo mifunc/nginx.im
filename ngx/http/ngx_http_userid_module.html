@@ -82,14 +82,14 @@
 <meta name="description" content="http,ngx_http_userid_module">
 <meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
-<meta property="og:title" content="http&#x2F;ngx_http_userid_module-nginx中文手册">
+<meta property="og:title" content="http&#x2F;ngx_http_userid_module-nginx中文参考手册">
 <meta property="og:url" content="http://nginx.im/ngx/http/ngx_http_userid_module.html">
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="http,ngx_http_userid_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T02:28:10.638Z">
+<meta property="og:updated_time" content="2018-12-24T03:47:01.931Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="http&#x2F;ngx_http_userid_module-nginx中文手册">
+<meta name="twitter:title" content="http&#x2F;ngx_http_userid_module-nginx中文参考手册">
 <meta name="twitter:description" content="http,ngx_http_userid_module">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>http/ngx_http_userid_module-nginx中文手册 | IM.NGINX</title>
+  <title>http/ngx_http_userid_module-nginx中文参考手册 | IM.NGINX</title>
   
 
 
@@ -314,7 +314,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">http/ngx_http_userid_module-nginx中文手册</h2>
+          <h2 class="post-title" itemprop="name headline">http/ngx_http_userid_module-nginx中文参考手册</h2>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T10:27:47+08:00">
-                2018年12月22日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T11:49:01+08:00">
+                2018年12月24日
               </time>
             
 
@@ -349,8 +349,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx中文手册</span>
+                  <a href="/categories/nginx案例/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx案例</span>
                   </a>
                 </span>
 
@@ -386,54 +386,120 @@
       
 
       
-        <p>http,ngx_http_userid_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-http-userid-module"><a href="#Module-ngx-http-userid-module" class="headerlink" title="Module ngx_http_userid_module"></a>Module ngx_http_userid_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#userid">userid</a> <br>     <a href="#userid_domain">userid_domain</a> <br>     <a href="#userid_expires">userid_expires</a> <br>     <a href="#userid_mark">userid_mark</a> <br>     <a href="#userid_name">userid_name</a> <br>     <a href="#userid_p3p">userid_p3p</a> <br>     <a href="#userid_path">userid_path</a> <br>     <a href="#userid_service">userid_service</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
-
-<p>   <code>ngx_http_userid_module</code>模块设置适合客户端识别的cookie。  可以使用嵌入变量<a href="#var_uid_got">$ uid_got</a>和<a href="#var_uid_set">$ uid_set</a>记录已接收和设置的cookie。  该模块与Apache的<a href="http://www.lexa.ru/programs/mod-uid-eng.html" target="_blank" rel="noopener">mod_uid</a>模块兼容。 </p>
-<h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><pre class="notranslate">userid         on;
+        <p>http,ngx_http_userid_module<br><a id="more"></a><br>
+  </p><h2 class="notranslate">Module ngx_http_userid_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#userid">userid</a> <br>     <a href="#userid_domain">userid_domain</a> <br>     <a href="#userid_expires">userid_expires</a> <br>     <a href="#userid_mark">userid_mark</a> <br>     <a href="#userid_name">userid_name</a> <br>     <a href="#userid_p3p">userid_p3p</a> <br>     <a href="#userid_path">userid_path</a> <br>     <a href="#userid_service">userid_service</a> <br> <a href="#variables">Embedded Variables</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_userid_module</code>模块设置适合客户端识别的cookie。  可以使用嵌入变量<a href="#var_uid_got">$ uid_got</a>和<a href="#var_uid_set">$ uid_set</a>记录已接收和设置的cookie。  该模块与Apache的<a href="http://www.lexa.ru/programs/mod-uid-eng.html" target="_blank" rel="noopener">mod_uid</a>模块兼容。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">userid         on;
 userid_name    uid;
 userid_domain  example.com;
 userid_path    /;
 userid_expires 365d;
 userid_p3p     'policyref="/w3c/p3p.xml", CP="CUR ADM OUR NOR STA NID"';
-</pre>
+</pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="userid"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>userid</strong> 
+    <code class="notranslate">on</code> |
+    <code class="notranslate">v1</code> |
+    <code class="notranslate">log</code> |
+    <code class="notranslate">off</code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">userid off;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  启用或禁用设置cookie并记录收到的cookie： </p><dl class="compact"><dt> <code class="notranslate">on</code> </dt> <dd>  可以设置版本2 cookie并记录收到的cookie; </dd><dt> <code class="notranslate">v1</code> </dt> <dd>  可以设置版本1 cookie并记录收到的cookie; </dd><dt> <code class="notranslate">log</code> </dt> <dd>  禁用cookie的设置，但允许记录收到的cookie; </dd><dt> <code class="notranslate">off</code> </dt> <dd>  禁用cookie的设置和记录收到的cookie。 </dd></dl><p></p><a name="userid_domain"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>userid_domain</strong> <code class="notranslate"><i>name</i></code> | <code class="notranslate">none</code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">userid_domain none;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  定义为其设置cookie的域。   <code class="notranslate">none</code>参数禁用cookie的域设置。 </p><a name="userid_expires"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>userid_expires</strong> <code class="notranslate"><i>time</i></code> | <code class="notranslate">max</code> |
+    <code class="notranslate">off</code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">userid_expires off;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  设置浏览器保留cookie的时间。  参数<code class="notranslate">max</code>将导致cookie在“ <code class="notranslate">31 Dec 2037 23:55:55 GMT</code> ”到期。  参数<code class="notranslate">off</code>将导致cookie在浏览器会话结束时到期。 </p><a name="userid_mark"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>userid_mark</strong> 
+    <code class="notranslate"><i>letter</i></code> | <code class="notranslate"><i>digit</i></code> |
+    <code class="notranslate">=</code> |
+    <code class="notranslate">off</code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">userid_mark off;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  如果参数未<code class="notranslate">off</code> ，则启用cookie标记机制并设置用作标记的字符。  此机制用于在保留客户端标识符的同时添加或更改<a href="#userid_p3p">userid_p3p</a>和/或cookie过期时间。  标记可以是英文字母（区分大小写），数字或“ <code class="notranslate">=</code> ”字符的任何字母。 </p><p>  如果设置了标记，则将其与cookie中传递的客户端标识符的base64表示中的第一个填充符号进行比较。  如果它们不匹配，则会使用指定的标记，到期时间和“P3P”标头重新发送cookie。 </p><a name="userid_name"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>userid_name</strong> <code class="notranslate"><i>name</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">userid_name uid;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  设置cookie名称。 </p><a name="userid_p3p"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>userid_p3p</strong> <code class="notranslate"><i>string</i></code> | <code class="notranslate">none</code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">userid_p3p none;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  设置将与cookie一起发送的“P3P”标题字段的值。  如果指令设置为特殊值<code class="notranslate">none</code> ，则不会在响应中发送“P3P”标头。 </p><a name="userid_path"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>userid_path</strong> <code class="notranslate"><i>path</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">userid_path /;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  定义cookie的设置路径。 </p><a name="userid_service"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>userid_service</strong> <code class="notranslate"><i>number</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">userid_service IP address of the server;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> , <code class="notranslate">server</code> , <code class="notranslate">location</code> <br>
+                </td></tr></tbody></table></div><p>  如果标识符由多个服务器（服务）发出，则应为每个服务分配其自己的<code class="notranslate"><i>number</i></code>以确保客户端标识符是唯一的。  对于版本1 cookie，默认值为零。  对于版本2 cookie，默认值是由服务器IP地址的最后四个八位字节组成的数字。 </p><a name="variables"></a><center><h4>  嵌入式变量 </h4></center><p>   <code class="notranslate">ngx_http_userid_module</code>模块支持以下嵌入变量： </p><dl class="compact"><dt id="var_uid_got"> <code class="notranslate">$uid_got</code> </dt> <dd>   Cookie名称和已接收的客户端标识符。 </dd><dt id="var_uid_reset"> <code class="notranslate">$uid_reset</code> </dt> <dd>  如果变量设置为非空字符串不是“ <code class="notranslate">0</code> ”，则重置客户端标识符。  特殊值“ <code class="notranslate">log</code> ”还导致将关于重置标识符的消息输出到<a href="ngx_core_module.html#error_log">error_log</a> 。 </dd><dt id="var_uid_set"> <code class="notranslate">$uid_set</code> </dt> <dd>   Cookie名称和已发送的客户端标识符。 </dd></dl><p></p> 
 
-
-
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**userid** on</code> |    <code>v1</code> |    <code>log</code> |    <code>off</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">userid off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  启用或禁用设置cookie并记录收到的cookie： </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**userid_domain*name*</code> | <code>none</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">userid_domain none;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  定义为其设置cookie的域。   <code>none</code>参数禁用cookie的域设置。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**userid_expires*time*</code> | <code>max</code> |    <code>off</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">userid_expires off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  设置浏览器保留cookie的时间。  参数<code>max</code>将导致cookie在“ <code>31 Dec 2037 23:55:55 GMT</code> ”到期。  参数<code>off</code>将导致cookie在浏览器会话结束时到期。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**userid_mark**  *letter*</code> | <code>*digit*</code> |    <code>=</code> |    <code>off</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">userid_mark off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  如果参数未<code>off</code> ，则启用cookie标记机制并设置用作标记的字符。  此机制用于在保留客户端标识符的同时添加或更改<a href="#userid_p3p">userid_p3p</a>和/或cookie过期时间。  标记可以是英文字母（区分大小写），数字或“ <code>=</code> ”字符的任何字母。 </p>
-<p>  如果设置了标记，则将其与cookie中传递的客户端标识符的base64表示中的第一个填充符号进行比较。  如果它们不匹配，则会使用指定的标记，到期时间和“P3P”标头重新发送cookie。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**userid_name*name*</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">userid_name uid;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  设置cookie名称。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**userid_p3p*string*</code> | <code>none</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">userid_p3p none;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  设置将与cookie一起发送的“P3P”标题字段的值。  如果指令设置为特殊值<code>none</code> ，则不会在响应中发送“P3P”标头。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**userid_path*path*</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">userid_path /;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  定义cookie的设置路径。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**userid_service*number*</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">userid_service IP address of the server;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> , <code>server</code> , <code>location</code> <br>                </td></p>
-<p>  如果标识符由多个服务器（服务）发出，则应为每个服务分配其自己的<code>*number*</code>以确保客户端标识符是唯一的。  对于版本1 cookie，默认值为零。  对于版本2 cookie，默认值是由服务器IP地址的最后四个八位字节组成的数字。 </p>
-<h4 id="嵌入式变量"><a href="#嵌入式变量" class="headerlink" title="嵌入式变量"></a>嵌入式变量</h4><p>   <code>ngx_http_userid_module</code>模块支持以下嵌入变量： </p>
+<p></p>
 
       
     </div>
@@ -483,7 +549,7 @@ userid_p3p     'policyref="/w3c/p3p.xml", CP="CUR ADM OUR NOR STA NID"';
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nginx.im/ngx/http/ngx_http_userid_module.html" title="http/ngx_http_userid_module-nginx中文手册">http://nginx.im/ngx/http/ngx_http_userid_module.html</a>
+    <a href="http://nginx.im/ngx/http/ngx_http_userid_module.html" title="http/ngx_http_userid_module-nginx中文参考手册">http://nginx.im/ngx/http/ngx_http_userid_module.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -511,8 +577,8 @@ userid_p3p     'policyref="/w3c/p3p.xml", CP="CUR ADM OUR NOR STA NID"';
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ngx/http/ngx_http_upstream_module.html" rel="next" title="http/ngx_http_upstream_module-nginx中文手册">
-                <i class="fa fa-chevron-left"></i> http/ngx_http_upstream_module-nginx中文手册
+              <a href="/ngx/http/ngx_http_upstream_module.html" rel="next" title="http/ngx_http_upstream_module-nginx中文参考手册">
+                <i class="fa fa-chevron-left"></i> http/ngx_http_upstream_module-nginx中文参考手册
               </a>
             
           </div>
@@ -521,8 +587,8 @@ userid_p3p     'policyref="/w3c/p3p.xml", CP="CUR ADM OUR NOR STA NID"';
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ngx/http/ngx_http_uwsgi_module.html" rel="prev" title="http/ngx_http_uwsgi_module-nginx中文手册">
-                http/ngx_http_uwsgi_module-nginx中文手册 <i class="fa fa-chevron-right"></i>
+              <a href="/ngx/http/ngx_http_uwsgi_module.html" rel="prev" title="http/ngx_http_uwsgi_module-nginx中文参考手册">
+                http/ngx_http_uwsgi_module-nginx中文参考手册 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -609,7 +675,7 @@ userid_p3p     'policyref="/w3c/p3p.xml", CP="CUR ADM OUR NOR STA NID"';
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">236</span>
+                  <span class="site-state-item-count">239</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -620,7 +686,7 @@ userid_p3p     'policyref="/w3c/p3p.xml", CP="CUR ADM OUR NOR STA NID"';
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -666,7 +732,7 @@ userid_p3p     'policyref="/w3c/p3p.xml", CP="CUR ADM OUR NOR STA NID"';
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-userid-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_userid_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌入式变量"><span class="nav-number">1.0.3.</span> <span class="nav-text">嵌入式变量</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_userid_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">  示例配置 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">  指令 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.3.</span> <span class="nav-text">  嵌入式变量 </span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

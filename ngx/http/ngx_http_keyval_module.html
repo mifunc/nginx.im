@@ -82,14 +82,14 @@
 <meta name="description" content="http,ngx_http_keyval_module">
 <meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
-<meta property="og:title" content="http&#x2F;ngx_http_keyval_module-nginx中文手册">
+<meta property="og:title" content="http&#x2F;ngx_http_keyval_module-nginx中文参考手册">
 <meta property="og:url" content="http://nginx.im/ngx/http/ngx_http_keyval_module.html">
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="http,ngx_http_keyval_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T02:28:10.616Z">
+<meta property="og:updated_time" content="2018-12-24T03:47:00.558Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="http&#x2F;ngx_http_keyval_module-nginx中文手册">
+<meta name="twitter:title" content="http&#x2F;ngx_http_keyval_module-nginx中文参考手册">
 <meta name="twitter:description" content="http,ngx_http_keyval_module">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>http/ngx_http_keyval_module-nginx中文手册 | IM.NGINX</title>
+  <title>http/ngx_http_keyval_module-nginx中文参考手册 | IM.NGINX</title>
   
 
 
@@ -314,7 +314,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">http/ngx_http_keyval_module-nginx中文手册</h2>
+          <h2 class="post-title" itemprop="name headline">http/ngx_http_keyval_module-nginx中文参考手册</h2>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T10:27:47+08:00">
-                2018年12月22日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T11:49:01+08:00">
+                2018年12月24日
               </time>
             
 
@@ -349,8 +349,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx中文手册</span>
+                  <a href="/categories/nginx案例/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx案例</span>
                   </a>
                 </span>
 
@@ -386,14 +386,8 @@
       
 
       
-        <p>http,ngx_http_keyval_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-http-keyval-module"><a href="#Module-ngx-http-keyval-module" class="headerlink" title="Module ngx_http_keyval_module"></a>Module ngx_http_keyval_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#keyval">keyval</a> <br>     <a href="#keyval_zone">keyval_zone</a> <br></td>
-
-<p>   <code>ngx_http_keyval_module</code>模块（1.13.3）创建的变量的值取自<a href="ngx_http_api_module.html#http_keyvals_">API</a>管理的键值对。 </p>
-<blockquote>
-<p>  该模块作为我们<a href="http://nginx.com/products/" target="_blank" rel="noopener">商业订阅的</a>一部分提供。 </p>
-</blockquote>
-<h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><pre class="notranslate">http {
+        <p>http,ngx_http_keyval_module<br><a id="more"></a><br>
+  </p><h2 class="notranslate">Module ngx_http_keyval_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#keyval">keyval</a> <br>     <a href="#keyval_zone">keyval_zone</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_http_keyval_module</code>模块（1.13.3）创建的变量的值取自<a href="ngx_http_api_module.html#http_keyvals_">API</a>管理的键值对。 </p><p></p><blockquote class="note">  该模块作为我们<a href="http://nginx.com/products/" target="_blank" rel="noopener">商业订阅的</a>一部分提供。 </blockquote><p></p><a name="example"></a><center><h4>  示例配置 </h4></center><p></p><blockquote class="example"><pre class="notranslate">http {
 
     keyval_zone zone=one:32k state=one.keyval;
     keyval $arg_text $text zone=one;
@@ -409,21 +403,44 @@
         }
     }
 }
-</pre>
+</pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="keyval"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>keyval</strong> 
+    <code class="notranslate"><i>key</i></code>
+    <code class="notranslate"><i>$variable</i></code>
+    <code class="notranslate">zone</code> = <code class="notranslate"><i>name</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> <br>
+                </td></tr></tbody></table></div><p>  创建一个新的<code class="notranslate"><i>$variable</i></code>其值由<code class="notranslate"><i>key</i></code>数据库中的键查找。  字符串匹配忽略大小写。  数据库存储在<code class="notranslate">zone</code>参数指定的共享内存区域中。 </p><a name="keyval_zone"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>keyval_zone</strong> 
+    <code class="notranslate">zone</code> = <code class="notranslate"><i>name</i></code> : <code class="notranslate"><i>size</i></code>
+    [ <code class="notranslate">state</code> = <code class="notranslate"><i>file</i></code> ]
+    [ <code class="notranslate">timeout</code> = <code class="notranslate"><i>time</i></code> ]
+    [ <code class="notranslate">sync</code> ];</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">http</code> <br>
+                </td></tr></tbody></table></div><p>  设置保留键值数据库的共享内存区域的<code class="notranslate"><i>name</i></code>和<code class="notranslate"><i>size</i></code> 。  键值对由<a href="ngx_http_api_module.html#http_keyvals_">API</a>管理。 </p><a name="keyval_state"></a><p>  可选的<code class="notranslate">state</code>参数指定一个<code class="notranslate"><i>file</i></code> ，该<code class="notranslate"><i>file</i></code>以JSON格式保持键值数据库的当前状态，并使其在nginx重新启动时保持不变。 </p><a name="keyval_timeout"></a><p>  可选的<code class="notranslate">timeout</code>参数（1.15.0）设置从区域中删除键值对的时间。 </p><a name="keyval_sync"></a><p>  可选的<code class="notranslate">sync</code>参数（1.15.0）可以<a href="stream/ngx_stream_zone_sync_module.html#zone_sync">同步</a>共享内存区域。  同步需要设置<a href="#keyval_timeout">超时</a>参数。 </p> 
 
-
-
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**keyval**  *key*</code>    <code>*$variable*</code>    <code>zone</code> = <code>*name*</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> <br>                </td></p>
-<p>  创建一个新的<code>*$variable*</code>其值由<code>*key*</code>数据库中的键查找。  字符串匹配忽略大小写。  数据库存储在<code>zone</code>参数指定的共享内存区域中。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**keyval_zone** zone</code> = <code>*name*</code> : <code>*size*</code>    [ <code>state</code> = <code>*file*</code> ]    [ <code>timeout</code> = <code>*time*</code> ]    [ <code>sync</code> ];<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>http</code> <br>                </td></p>
-<p>  设置保留键值数据库的共享内存区域的<code>*name*</code>和<code>*size*</code> 。  键值对由<a href="ngx_http_api_module.html#http_keyvals_">API</a>管理。 </p>
-<p>  可选的<code>state</code>参数指定一个<code>*file*</code> ，该<code>*file*</code>以JSON格式保持键值数据库的当前状态，并使其在nginx重新启动时保持不变。 </p>
-<p>  可选的<code>timeout</code>参数（1.15.0）设置从区域中删除键值对的时间。 </p>
-<p>  可选的<code>sync</code>参数（1.15.0）可以<a href="stream/ngx_stream_zone_sync_module.html#zone_sync">同步</a>共享内存区域。  同步需要设置<a href="#keyval_timeout">超时</a>参数。 </p>
+<p></p>
 
       
     </div>
@@ -473,7 +490,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nginx.im/ngx/http/ngx_http_keyval_module.html" title="http/ngx_http_keyval_module-nginx中文手册">http://nginx.im/ngx/http/ngx_http_keyval_module.html</a>
+    <a href="http://nginx.im/ngx/http/ngx_http_keyval_module.html" title="http/ngx_http_keyval_module-nginx中文参考手册">http://nginx.im/ngx/http/ngx_http_keyval_module.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -501,8 +518,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ngx/http/ngx_http_js_module.html" rel="next" title="http/ngx_http_js_module-nginx中文手册">
-                <i class="fa fa-chevron-left"></i> http/ngx_http_js_module-nginx中文手册
+              <a href="/ngx/http/ngx_http_js_module.html" rel="next" title="http/ngx_http_js_module-nginx中文参考手册">
+                <i class="fa fa-chevron-left"></i> http/ngx_http_js_module-nginx中文参考手册
               </a>
             
           </div>
@@ -511,8 +528,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ngx/http/ngx_http_limit_conn_module.html" rel="prev" title="http/ngx_http_limit_conn_module-nginx中文手册">
-                http/ngx_http_limit_conn_module-nginx中文手册 <i class="fa fa-chevron-right"></i>
+              <a href="/ngx/http/ngx_http_limit_conn_module.html" rel="prev" title="http/ngx_http_limit_conn_module-nginx中文参考手册">
+                http/ngx_http_limit_conn_module-nginx中文参考手册 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -599,7 +616,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">236</span>
+                  <span class="site-state-item-count">239</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -610,7 +627,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -656,7 +673,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-http-keyval-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_keyval_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_http_keyval_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">  示例配置 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">  指令 </span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

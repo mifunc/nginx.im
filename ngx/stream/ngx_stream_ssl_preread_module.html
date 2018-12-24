@@ -82,14 +82,14 @@
 <meta name="description" content="stream,ngx_stream_ssl_preread_module">
 <meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
-<meta property="og:title" content="stream&#x2F;ngx_stream_ssl_preread_module-nginx中文手册">
+<meta property="og:title" content="stream&#x2F;ngx_stream_ssl_preread_module-nginx中文参考手册">
 <meta property="og:url" content="http://nginx.im/ngx/stream/ngx_stream_ssl_preread_module.html">
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="stream,ngx_stream_ssl_preread_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T02:28:10.654Z">
+<meta property="og:updated_time" content="2018-12-24T03:47:03.021Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="stream&#x2F;ngx_stream_ssl_preread_module-nginx中文手册">
+<meta name="twitter:title" content="stream&#x2F;ngx_stream_ssl_preread_module-nginx中文参考手册">
 <meta name="twitter:description" content="stream,ngx_stream_ssl_preread_module">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>stream/ngx_stream_ssl_preread_module-nginx中文手册 | IM.NGINX</title>
+  <title>stream/ngx_stream_ssl_preread_module-nginx中文参考手册 | IM.NGINX</title>
   
 
 
@@ -314,7 +314,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">stream/ngx_stream_ssl_preread_module-nginx中文手册</h2>
+          <h2 class="post-title" itemprop="name headline">stream/ngx_stream_ssl_preread_module-nginx中文参考手册</h2>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T10:27:47+08:00">
-                2018年12月22日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T11:49:01+08:00">
+                2018年12月24日
               </time>
             
 
@@ -349,8 +349,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx中文手册</span>
+                  <a href="/categories/nginx案例/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx案例</span>
                   </a>
                 </span>
 
@@ -386,12 +386,8 @@
       
 
       
-        <p>stream,ngx_stream_ssl_preread_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-stream-ssl-preread-module"><a href="#Module-ngx-stream-ssl-preread-module" class="headerlink" title="Module ngx_stream_ssl_preread_module"></a>Module ngx_stream_ssl_preread_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#ssl_preread">ssl_preread</a> <br> <a href="#variables">Embedded Variables</a> <br></td>
-
-<p>   <code>ngx_stream_ssl_preread_module</code>模块（1.11.5）允许从<a href="https://tools.ietf.org/html/rfc5246#section-7.4.1.2" target="_blank" rel="noopener">ClientHello</a>消息中提取信息而不终止SSL / TLS，例如，通过<a href="https://tools.ietf.org/html/rfc6066#section-3" target="_blank" rel="noopener">SNI</a>请求的服务器名称或在<a href="https://tools.ietf.org/html/rfc7301" target="_blank" rel="noopener">ALPN中</a>通告的协议。  默认情况下不构建此模块，应使用<code>--with-stream_ssl_preread_module</code>配置参数启用它。 </p>
-<h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><p>  根据服务器名称选择上游： </p>
-<pre class="notranslate">map $ssl_preread_server_name $name {
+        <p>stream,ngx_stream_ssl_preread_module<br><a id="more"></a><br>
+  </p><h2 class="notranslate">Module ngx_stream_ssl_preread_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#ssl_preread">ssl_preread</a> <br> <a href="#variables">Embedded Variables</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_stream_ssl_preread_module</code>模块（1.11.5）允许从<a href="https://tools.ietf.org/html/rfc5246#section-7.4.1.2" target="_blank" rel="noopener">ClientHello</a>消息中提取信息而不终止SSL / TLS，例如，通过<a href="https://tools.ietf.org/html/rfc6066#section-3" target="_blank" rel="noopener">SNI</a>请求的服务器名称或在<a href="https://tools.ietf.org/html/rfc7301" target="_blank" rel="noopener">ALPN中</a>通告的协议。  默认情况下不构建此模块，应使用<code class="notranslate">--with-stream_ssl_preread_module</code>配置参数启用它。 </p><a name="example"></a><center><h4>  示例配置 </h4></center><p>  根据服务器名称选择上游： </p><blockquote class="example"><pre class="notranslate">map $ssl_preread_server_name $name {
     backend.example.com      backend;
     default                  backend2;
 }
@@ -411,12 +407,7 @@ server {
     proxy_pass  $name;
     ssl_preread on;
 }
-</pre>
-
-
-
-<p>  根据协议选择上游： </p>
-<pre class="notranslate">map $ssl_preread_alpn_protocols $proxy {
+</pre></blockquote><p></p><p>  根据协议选择上游： </p><blockquote class="example"><pre class="notranslate">map $ssl_preread_alpn_protocols $proxy {
     ~\bh2\b           127.0.0.1:8001;
     ~\bhttp/1.1\b     127.0.0.1:8002;
     ~\bxmpp-client\b  127.0.0.1:8003;
@@ -427,12 +418,7 @@ server {
     proxy_pass  $proxy;
     ssl_preread on;
 }
-</pre>
-
-
-
-<p>  根据SSL协议版本选择上游： </p>
-<pre class="notranslate">map $ssl_preread_protocol $upstream {
+</pre></blockquote><p></p><p>  根据SSL协议版本选择上游： </p><blockquote class="example"><pre class="notranslate">map $ssl_preread_protocol $upstream {
     ""        ssh.example.com:22;
     "TLSv1.2" new.example.com:443;
     default   tls.example.com:443;
@@ -444,15 +430,22 @@ server {
     proxy_pass  $upstream;
     ssl_preread on;
 }
-</pre>
+</pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="ssl_preread"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>ssl_preread</strong> <code class="notranslate">on</code> | <code class="notranslate">off</code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">ssl_preread off;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table></div><p>  允许在<a href="stream_processing.html#preread_phase">预读</a>阶段从ClientHello消息中提取信息。 </p><a name="variables"></a><center><h4>  嵌入式变量 </h4></center><p></p><dl class="compact"><dt id="var_ssl_preread_protocol"> <code class="notranslate">$ssl_preread_protocol</code> </dt> <dd>  客户端支持的最高SSL协议版本（1.15.2） </dd><dt id="var_ssl_preread_server_name"> <code class="notranslate">$ssl_preread_server_name</code> </dt> <dd>  通过SNI请求的服务器名称 </dd><dt id="var_ssl_preread_alpn_protocols"> <code class="notranslate">$ssl_preread_alpn_protocols</code> </dt> <dd>  客户端通过ALPN（1.13.10）公布的协议列表。  值以逗号分隔。 </dd></dl><p></p> 
 
+<p></p>
 
-
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**ssl_prereadon</code> | <code>off</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">ssl_preread off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  允许在<a href="stream_processing.html#preread_phase">预读</a>阶段从ClientHello消息中提取信息。 </p>
-<h4 id="嵌入式变量"><a href="#嵌入式变量" class="headerlink" title="嵌入式变量"></a>嵌入式变量</h4>
       
     </div>
     
@@ -501,7 +494,7 @@ server {
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nginx.im/ngx/stream/ngx_stream_ssl_preread_module.html" title="stream/ngx_stream_ssl_preread_module-nginx中文手册">http://nginx.im/ngx/stream/ngx_stream_ssl_preread_module.html</a>
+    <a href="http://nginx.im/ngx/stream/ngx_stream_ssl_preread_module.html" title="stream/ngx_stream_ssl_preread_module-nginx中文参考手册">http://nginx.im/ngx/stream/ngx_stream_ssl_preread_module.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -529,8 +522,8 @@ server {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ngx/stream/ngx_stream_ssl_module.html" rel="next" title="stream/ngx_stream_ssl_module-nginx中文手册">
-                <i class="fa fa-chevron-left"></i> stream/ngx_stream_ssl_module-nginx中文手册
+              <a href="/ngx/stream/ngx_stream_ssl_module.html" rel="next" title="stream/ngx_stream_ssl_module-nginx中文参考手册">
+                <i class="fa fa-chevron-left"></i> stream/ngx_stream_ssl_module-nginx中文参考手册
               </a>
             
           </div>
@@ -539,8 +532,8 @@ server {
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ngx/stream/ngx_stream_upstream_hc_module.html" rel="prev" title="stream/ngx_stream_upstream_hc_module-nginx中文手册">
-                stream/ngx_stream_upstream_hc_module-nginx中文手册 <i class="fa fa-chevron-right"></i>
+              <a href="/ngx/stream/ngx_stream_upstream_hc_module.html" rel="prev" title="stream/ngx_stream_upstream_hc_module-nginx中文参考手册">
+                stream/ngx_stream_upstream_hc_module-nginx中文参考手册 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -627,7 +620,7 @@ server {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">236</span>
+                  <span class="site-state-item-count">239</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -638,7 +631,7 @@ server {
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -684,7 +677,7 @@ server {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-stream-ssl-preread-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_stream_ssl_preread_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌入式变量"><span class="nav-number">1.0.3.</span> <span class="nav-text">嵌入式变量</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_stream_ssl_preread_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">  示例配置 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">  指令 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.3.</span> <span class="nav-text">  嵌入式变量 </span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

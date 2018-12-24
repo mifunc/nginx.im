@@ -82,14 +82,14 @@
 <meta name="description" content="njs,index">
 <meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
-<meta property="og:title" content="njs&#x2F;index-nginx中文手册">
+<meta property="og:title" content="njs&#x2F;index-nginx中文参考手册">
 <meta property="og:url" content="http://nginx.im/ngx/njs/index.html">
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="njs,index">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T02:28:10.646Z">
+<meta property="og:updated_time" content="2018-12-24T03:46:58.561Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="njs&#x2F;index-nginx中文手册">
+<meta name="twitter:title" content="njs&#x2F;index-nginx中文参考手册">
 <meta name="twitter:description" content="njs,index">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>njs/index-nginx中文手册 | IM.NGINX</title>
+  <title>njs/index-nginx中文参考手册 | IM.NGINX</title>
   
 
 
@@ -314,7 +314,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">njs/index-nginx中文手册</h2>
+          <h2 class="post-title" itemprop="name headline">njs/index-nginx中文参考手册</h2>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T10:27:47+08:00">
-                2018年12月22日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T11:49:01+08:00">
+                2018年12月24日
               </time>
             
 
@@ -349,8 +349,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx中文手册</span>
+                  <a href="/categories/nginx案例/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx案例</span>
                   </a>
                 </span>
 
@@ -386,33 +386,11 @@
       
 
       
-        <p>njs,index<br><a id="more"></a></p>
-<h2 id="njs脚本语言"><a href="#njs脚本语言" class="headerlink" title="njs脚本语言"></a>njs脚本语言</h2><p>   njs是JavaScript语言的一个子集，允许扩展nginx功能。   njs是根据<a href="http://www.ecma-international.org/ecma-262/5.1/" target="_blank" rel="noopener">ECMAScript 5.1</a> （严格模式）创建的，带有一些<a href="http://www.ecma-international.org/ecma-262/6.0/" target="_blank" rel="noopener">ECMAScript 6</a>及更高版本的扩展。  合规性仍在<a href="compatibility.html">不断发展</a> 。 </p>
-<ul>
-<li><a href="install.html">下载并安装</a> -    <a href="changes.html">变化</a> -    <a href="reference.html">参考</a> -    <a href="examples.html">例子</a> -    <a href="compatibility.html">兼容性</a> -    <a href="cli.html">命令行界面</a> </li>
-</ul>
-<ul>
-<li><a href="http/ngx_http_js_module.html">ngx_http_js_module</a> -    <a href="stream/ngx_stream_js_module.html">ngx_stream_js_module</a> </li>
-</ul>
-<h4 id="用例"><a href="#用例" class="headerlink" title="用例"></a>用例</h4><ul>
-<li>在请求到达上游服务器之前，njs中的复杂访问控制和安全性检查 -   操纵响应标头 -   编写灵活的异步内容处理程序和过滤器<br>有关更多njs用例，请参阅<a href="examples.html">示例</a>和<a href="https://www.nginx.com/blog/tag/nginx-javascript-module/" target="_blank" rel="noopener">博客文章</a> 。 </li>
-</ul>
-<h4 id="基本HTTP示例"><a href="#基本HTTP示例" class="headerlink" title="基本HTTP示例"></a>基本HTTP示例</h4><p>  要在nginx中使用njs： </p>
-<ul>
-<li><a href="install.html">安装</a> njs脚本语言 </li><li id="hello_world">  创建一个njs脚本文件，例如<code>hello_world.js</code> 。  有关njs属性和方法的列表，请参见<a href="reference.html">参考</a> 。 <blockquote class="example"><pre class="notranslate">function hello(r) {<br>r.return(200, “Hello world!”);<br>}<br></pre></blockquote></li><li>  在<code>nginx.conf</code>文件中，启用<a href="http/ngx_http_js_module.html">ngx_http_js_module</a>模块并使用<code>hello_world.js</code>脚本文件指定<a href="http/ngx_http_js_module.html#js_include">js_include</a>指令： <blockquote class="example"><pre class="notranslate">load_module modules/ngx_http_js_module.so;</pre></blockquote></li>
-</ul>
-<p>events {}</p>
-<p>http {<br>    js_include hello_world.js;</p>
-<pre><code>server {
-    listen 8000;
-
-    location / {
-        js_content hello;
-    }
+        <p>njs,index<br><a id="more"></a><br>
+  </p><h2>   njs脚本语言 </h2><a name="summary"></a><p>   njs是JavaScript语言的一个子集，允许扩展nginx功能。   njs是根据<a href="http://www.ecma-international.org/ecma-262/5.1/" target="_blank" rel="noopener">ECMAScript 5.1</a> （严格模式）创建的，带有一些<a href="http://www.ecma-international.org/ecma-262/6.0/" target="_blank" rel="noopener">ECMAScript 6</a>及更高版本的扩展。  合规性仍在<a href="compatibility.html">不断发展</a> 。 </p><a name="links"></a><p></p><ul class="compact"><li>   <a href="install.html">下载并安装</a> </li><li>   <a href="changes.html">变化</a> </li><li>   <a href="reference.html">参考</a> </li><li>   <a href="examples.html">例子</a> </li><li>   <a href="compatibility.html">兼容性</a> </li><li>   <a href="cli.html">命令行界面</a> </li></ul><p></p><p></p><ul class="compact"><li>   <a href="http/ngx_http_js_module.html">ngx_http_js_module</a> </li><li>   <a href="stream/ngx_stream_js_module.html">ngx_stream_js_module</a> </li></ul><p></p><a name="usecases"></a><center><h4>  用例 </h4></center><p></p><ul class="compact"><li>  在请求到达上游服务器之前，njs中的复杂访问控制和安全性检查 </li><li>  操纵响应标头 </li><li>  编写灵活的异步内容处理程序和过滤器 </li></ul><p>  有关更多njs用例，请参阅<a href="examples.html">示例</a>和<a href="https://www.nginx.com/blog/tag/nginx-javascript-module/" target="_blank" rel="noopener">博客文章</a> 。 </p><a name="example"></a><center><h4>  基本HTTP示例 </h4></center><p>  要在nginx中使用njs： </p><ul class="compact"><li><p>   <a href="install.html">安装</a> njs脚本语言 </p></li><li id="hello_world"><p>  创建一个njs脚本文件，例如<code class="notranslate">hello_world.js</code> 。  有关njs属性和方法的列表，请参见<a href="reference.html">参考</a> 。 </p><blockquote class="example"><pre class="notranslate">function hello(r) {
+    r.return(200, "Hello world!");
 }
-</code></pre><p>}</p>
-<p></p>
-<pre class="notranslate">load_module modules/ngx_http_js_module.so;
+</pre></blockquote><p></p></li><li><p>  在<code class="notranslate">nginx.conf</code>文件中，启用<a href="http/ngx_http_js_module.html">ngx_http_js_module</a>模块并使用<code class="notranslate">hello_world.js</code>脚本文件指定<a href="http/ngx_http_js_module.html#js_include">js_include</a>指令： </p><blockquote class="example"><pre class="notranslate">load_module modules/ngx_http_js_module.so;
 
 events {}
 
@@ -428,10 +406,10 @@ http {
     }
 }
 
-</pre>
+</pre></blockquote><p></p></li></ul><p>  还有一个独立的<a href="cli.html">命令行</a>实用程序，可以独立于nginx用于njs开发和调试。 </p><a name="presentation"></a><center><h4>  在2018年的nginx.conf上发表演讲 </h4></center><p>
+<span></span></p><div style="display: none;"></div>
+<p></p>
 
-<p>  还有一个独立的<a href="cli.html">命令行</a>实用程序，可以独立于nginx用于njs开发和调试。 </p>
-<h4 id="在2018年的nginx-conf上发表演讲"><a href="#在2018年的nginx-conf上发表演讲" class="headerlink" title="在2018年的nginx.conf上发表演讲"></a>在2018年的nginx.conf上发表演讲</h4>
       
     </div>
     
@@ -480,7 +458,7 @@ http {
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nginx.im/ngx/njs/index.html" title="njs/index-nginx中文手册">http://nginx.im/ngx/njs/index.html</a>
+    <a href="http://nginx.im/ngx/njs/index.html" title="njs/index-nginx中文参考手册">http://nginx.im/ngx/njs/index.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -508,8 +486,8 @@ http {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ngx/njs/examples.html" rel="next" title="njs/examples-nginx中文手册">
-                <i class="fa fa-chevron-left"></i> njs/examples-nginx中文手册
+              <a href="/ngx/njs/examples.html" rel="next" title="njs/examples-nginx中文参考手册">
+                <i class="fa fa-chevron-left"></i> njs/examples-nginx中文参考手册
               </a>
             
           </div>
@@ -518,8 +496,8 @@ http {
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ngx/njs/install.html" rel="prev" title="njs/install-nginx中文手册">
-                njs/install-nginx中文手册 <i class="fa fa-chevron-right"></i>
+              <a href="/ngx/njs/install.html" rel="prev" title="njs/install-nginx中文参考手册">
+                njs/install-nginx中文参考手册 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -606,7 +584,7 @@ http {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">236</span>
+                  <span class="site-state-item-count">239</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -617,7 +595,7 @@ http {
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -663,7 +641,7 @@ http {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#njs脚本语言"><span class="nav-number">1.</span> <span class="nav-text">njs脚本语言</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#用例"><span class="nav-number">1.0.1.</span> <span class="nav-text">用例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本HTTP示例"><span class="nav-number">1.0.2.</span> <span class="nav-text">基本HTTP示例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在2018年的nginx-conf上发表演讲"><span class="nav-number">1.0.3.</span> <span class="nav-text">在2018年的nginx.conf上发表演讲</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">   njs脚本语言 </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">  用例 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">  基本HTTP示例 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.3.</span> <span class="nav-text">  在2018年的nginx.conf上发表演讲 </span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

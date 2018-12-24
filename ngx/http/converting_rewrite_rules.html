@@ -82,14 +82,14 @@
 <meta name="description" content="http,converting_rewrite_rules">
 <meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
-<meta property="og:title" content="http&#x2F;converting_rewrite_rules-nginx中文手册">
+<meta property="og:title" content="http&#x2F;converting_rewrite_rules-nginx中文参考手册">
 <meta property="og:url" content="http://nginx.im/ngx/http/converting_rewrite_rules.html">
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="http,converting_rewrite_rules">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T02:28:10.591Z">
+<meta property="og:updated_time" content="2018-12-24T03:46:58.690Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="http&#x2F;converting_rewrite_rules-nginx中文手册">
+<meta name="twitter:title" content="http&#x2F;converting_rewrite_rules-nginx中文参考手册">
 <meta name="twitter:description" content="http,converting_rewrite_rules">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>http/converting_rewrite_rules-nginx中文手册 | IM.NGINX</title>
+  <title>http/converting_rewrite_rules-nginx中文参考手册 | IM.NGINX</title>
   
 
 
@@ -314,7 +314,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">http/converting_rewrite_rules-nginx中文手册</h2>
+          <h2 class="post-title" itemprop="name headline">http/converting_rewrite_rules-nginx中文参考手册</h2>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T10:27:47+08:00">
-                2018年12月22日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T11:49:01+08:00">
+                2018年12月24日
               </time>
             
 
@@ -349,8 +349,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx中文手册</span>
+                  <a href="/categories/nginx案例/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx案例</span>
                   </a>
                 </span>
 
@@ -386,16 +386,10 @@
       
 
       
-        <p>http,converting_rewrite_rules<br><a id="more"></a></p>
-<h2 id="转换重写规则"><a href="#转换重写规则" class="headerlink" title="转换重写规则"></a>转换重写规则</h2><td align="left" class="notranslate"> <a href="#converting_mongrel_rules">Converting Mongrel rules</a> <br></td>
-
-<h4 id="重定向到主站点"><a href="#重定向到主站点" class="headerlink" title="重定向到主站点"></a>重定向到主站点</h4><p>  在共享托管生活期间用于<em>仅</em>使用Apache的.htaccess文件配置<em>所有内容</em>的人通常会翻译以下规则： </p>
-<pre class="notranslate">RewriteCond  %{HTTP_HOST}  example.org
+        <p>http,converting_rewrite_rules<br><a id="more"></a><br>
+  </p><h2>  转换重写规则 </h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a href="#converting_mongrel_rules">Converting Mongrel rules</a> <br></td></tr></tbody></table><center><h4>  重定向到主站点 </h4></center><p>  在共享托管生活期间用于<i>仅</i>使用Apache的.htaccess文件配置<i>所有内容</i>的人通常会翻译以下规则： </p><blockquote class="example"><pre class="notranslate">RewriteCond  %{HTTP_HOST}  example.org
 RewriteRule  (.*)          http://www.example.org$1
-</pre>
-
-<p>  这样的事情： </p>
-<pre class="notranslate">server {
+</pre></blockquote><p>  这样的事情： </p><blockquote class="example"><pre class="notranslate">server {
     listen       80;
     server_name  www.example.org  example.org;
     if ($http_host = example.org) {
@@ -403,12 +397,7 @@ RewriteRule  (.*)          http://www.example.org$1
     }
     ...
 }
-</pre>
-
-
-
-<p>  这是一种错误，繁琐且无效的方式。  正确的方法是为<code>example.org</code>定义一个单独的服务器： </p>
-<pre class="notranslate">server {
+</pre></blockquote><p></p><p>  这是一种错误，繁琐且无效的方式。  正确的方法是为<code class="notranslate">example.org</code>定义一个单独的服务器： </p><blockquote class="example"><pre class="notranslate">server {
     listen       80;
     server_name  example.org;
     return       301 http://www.example.org$request_uri;
@@ -419,21 +408,11 @@ server {
     server_name  www.example.org;
     ...
 }
-</pre>
-
-
-
-<blockquote>
-<p>  在0.9.1之前的版本上，重定向可以使用： <blockquote class="example"><pre class="notranslate">    rewrite      ^ <a href="http://www.example.org$request_uri?" target="_blank" rel="noopener">http://www.example.org$request_uri?</a>;<br></pre></blockquote></p>
-</blockquote>
-<p>  另一个例子。  而不是“倒置”逻辑“所有不是<code>example.com</code>而不是<code>www.example.com</code> ”： </p>
-<pre class="notranslate">RewriteCond  %{HTTP_HOST}  !example.com
+</pre></blockquote><p></p><blockquote class="note">  在0.9.1之前的版本上，重定向可以使用： <blockquote class="example"><pre class="notranslate">    rewrite      ^ http://www.example.org$request_uri?;
+</pre></blockquote></blockquote><p></p><p>  另一个例子。  而不是“倒置”逻辑“所有不是<code class="notranslate">example.com</code>而不是<code class="notranslate">www.example.com</code> ”： </p><blockquote class="example"><pre class="notranslate">RewriteCond  %{HTTP_HOST}  !example.com
 RewriteCond  %{HTTP_HOST}  !www.example.com
 RewriteRule  (.*)          http://www.example.com$1
-</pre>
-
-<p>  一个人应该简单地定义<code>example.com</code> ， <code>www.example.com</code>和“其他一切”： </p>
-<pre class="notranslate">server {
+</pre></blockquote><p>  一个人应该简单地定义<code class="notranslate">example.com</code> ， <code class="notranslate">www.example.com</code>和“其他一切”： </p><blockquote class="example"><pre class="notranslate">server {
     listen       80;
     server_name  example.com www.example.com;
     ...
@@ -444,15 +423,8 @@ server {
     server_name  _;
     return       301 http://example.com$request_uri;
 }
-</pre>
-
-
-
-<blockquote>
-<p>  在0.9.1之前的版本上，重定向可以使用： <blockquote class="example"><pre class="notranslate">    rewrite      ^ <a href="http://example.com$request_uri?" target="_blank" rel="noopener">http://example.com$request_uri?</a>;<br></pre></blockquote></p>
-</blockquote>
-<h4 id="转换Mongrel规则"><a href="#转换Mongrel规则" class="headerlink" title="转换Mongrel规则"></a>转换Mongrel规则</h4><p>  典型的Mongrel规则： </p>
-<pre class="notranslate">DocumentRoot /var/www/myapp.com/current/public
+</pre></blockquote><p></p><blockquote class="note">  在0.9.1之前的版本上，重定向可以使用： <blockquote class="example"><pre class="notranslate">    rewrite      ^ http://example.com$request_uri?;
+</pre></blockquote></blockquote><p></p><a name="converting_mongrel_rules"></a><center><h4>  转换Mongrel规则 </h4></center><p>  典型的Mongrel规则： </p><blockquote class="example"><pre class="notranslate">DocumentRoot /var/www/myapp.com/current/public
 
 RewriteCond %{DOCUMENT_ROOT}/system/maintenance.html -f
 RewriteCond %{SCRIPT_FILENAME} !maintenance.html
@@ -468,10 +440,7 @@ RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^(.*)$ $1.html [QSA,L]
 
 RewriteRule ^/(.*)$ balancer://mongrel_cluster%{REQUEST_URI} [P,QSA,L]
-</pre>
-
-<p>  应转换为 </p>
-<pre class="notranslate">location / {
+</pre></blockquote><p>  应转换为 </p><blockquote class="example"><pre class="notranslate">location / {
     root       /var/www/myapp.com/current/public;
 
     try_files  /system/maintenance.html
@@ -482,12 +451,9 @@ RewriteRule ^/(.*)$ balancer://mongrel_cluster%{REQUEST_URI} [P,QSA,L]
 location @mongrel {
     proxy_pass  http://mongrel;
 }
-</pre>
+</pre></blockquote><p></p> 
 
-
-
-
-
+<p></p>
 
       
     </div>
@@ -537,7 +503,7 @@ location @mongrel {
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nginx.im/ngx/http/converting_rewrite_rules.html" title="http/converting_rewrite_rules-nginx中文手册">http://nginx.im/ngx/http/converting_rewrite_rules.html</a>
+    <a href="http://nginx.im/ngx/http/converting_rewrite_rules.html" title="http/converting_rewrite_rules-nginx中文参考手册">http://nginx.im/ngx/http/converting_rewrite_rules.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -565,8 +531,8 @@ location @mongrel {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ngx/http/configuring_https_servers.html" rel="next" title="http/configuring_https_servers-nginx中文手册">
-                <i class="fa fa-chevron-left"></i> http/configuring_https_servers-nginx中文手册
+              <a href="/ngx/http/configuring_https_servers.html" rel="next" title="http/configuring_https_servers-nginx中文参考手册">
+                <i class="fa fa-chevron-left"></i> http/configuring_https_servers-nginx中文参考手册
               </a>
             
           </div>
@@ -575,8 +541,8 @@ location @mongrel {
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ngx/http/load_balancing.html" rel="prev" title="http/load_balancing-nginx中文手册">
-                http/load_balancing-nginx中文手册 <i class="fa fa-chevron-right"></i>
+              <a href="/ngx/http/load_balancing.html" rel="prev" title="http/load_balancing-nginx中文参考手册">
+                http/load_balancing-nginx中文参考手册 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -663,7 +629,7 @@ location @mongrel {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">236</span>
+                  <span class="site-state-item-count">239</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -674,7 +640,7 @@ location @mongrel {
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -720,7 +686,7 @@ location @mongrel {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#转换重写规则"><span class="nav-number">1.</span> <span class="nav-text">转换重写规则</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#重定向到主站点"><span class="nav-number">1.0.1.</span> <span class="nav-text">重定向到主站点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转换Mongrel规则"><span class="nav-number">1.0.2.</span> <span class="nav-text">转换Mongrel规则</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">  转换重写规则 </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">  重定向到主站点 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">  转换Mongrel规则 </span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

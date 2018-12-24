@@ -82,14 +82,14 @@
 <meta name="description" content="stream,ngx_stream_zone_sync_module">
 <meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
-<meta property="og:title" content="stream&#x2F;ngx_stream_zone_sync_module-nginx中文手册">
+<meta property="og:title" content="stream&#x2F;ngx_stream_zone_sync_module-nginx中文参考手册">
 <meta property="og:url" content="http://nginx.im/ngx/stream/ngx_stream_zone_sync_module.html">
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="stream,ngx_stream_zone_sync_module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T02:28:10.669Z">
+<meta property="og:updated_time" content="2018-12-24T03:47:03.148Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="stream&#x2F;ngx_stream_zone_sync_module-nginx中文手册">
+<meta name="twitter:title" content="stream&#x2F;ngx_stream_zone_sync_module-nginx中文参考手册">
 <meta name="twitter:description" content="stream,ngx_stream_zone_sync_module">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>stream/ngx_stream_zone_sync_module-nginx中文手册 | IM.NGINX</title>
+  <title>stream/ngx_stream_zone_sync_module-nginx中文参考手册 | IM.NGINX</title>
   
 
 
@@ -314,7 +314,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">stream/ngx_stream_zone_sync_module-nginx中文手册</h2>
+          <h2 class="post-title" itemprop="name headline">stream/ngx_stream_zone_sync_module-nginx中文参考手册</h2>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T10:27:47+08:00">
-                2018年12月22日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T11:49:01+08:00">
+                2018年12月24日
               </time>
             
 
@@ -349,8 +349,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx中文手册</span>
+                  <a href="/categories/nginx案例/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx案例</span>
                   </a>
                 </span>
 
@@ -386,15 +386,8 @@
       
 
       
-        <p>stream,ngx_stream_zone_sync_module<br><a id="more"></a></p>
-<h2 id="Module-ngx-stream-zone-sync-module"><a href="#Module-ngx-stream-zone-sync-module" class="headerlink" title="Module ngx_stream_zone_sync_module"></a>Module ngx_stream_zone_sync_module</h2><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#zone_sync">zone_sync</a> <br>     <a href="#zone_sync_buffers">zone_sync_buffers</a> <br>     <a href="#zone_sync_connect_retry_interval">zone_sync_connect_retry_interval</a> <br>     <a href="#zone_sync_connect_timeout">zone_sync_connect_timeout</a> <br>     <a href="#zone_sync_interval">zone_sync_interval</a> <br>     <a href="#zone_sync_recv_buffer_size">zone_sync_recv_buffer_size</a> <br>     <a href="#zone_sync_server">zone_sync_server</a> <br>     <a href="#zone_sync_ssl">zone_sync_ssl</a> <br>     <a href="#zone_sync_ssl_certificate">zone_sync_ssl_certificate</a> <br>     <a href="#zone_sync_ssl_certificate_key">zone_sync_ssl_certificate_key</a> <br>     <a href="#zone_sync_ssl_ciphers">zone_sync_ssl_ciphers</a> <br>     <a href="#zone_sync_ssl_crl">zone_sync_ssl_crl</a> <br>     <a href="#zone_sync_ssl_name">zone_sync_ssl_name</a> <br>     <a href="#zone_sync_ssl_password_file">zone_sync_ssl_password_file</a> <br>     <a href="#zone_sync_ssl_protocols">zone_sync_ssl_protocols</a> <br>     <a href="#zone_sync_ssl_server_name">zone_sync_ssl_server_name</a> <br>     <a href="#zone_sync_ssl_trusted_certificate">zone_sync_ssl_trusted_certificate</a> <br>     <a href="#zone_sync_ssl_verify">zone_sync_ssl_verify</a> <br>     <a href="#zone_sync_ssl_verify_depth">zone_sync_ssl_verify_depth</a> <br>     <a href="#zone_sync_timeout">zone_sync_timeout</a> <br> <a href="#stream_zone_sync_status">API endpoints</a> <br> <a href="#controlling_cluster_node">Starting, stopping, removing a cluster node</a> <br></td>
-
-<p>   <code>ngx_stream_zone_sync_module</code>模块（1.13.8）为在集群节点之间同步<a href="ngx_stream_upstream_module.html#zone">共享内存区域的</a>内容提供必要的支持。  要为特定区域启用同步，相应的模块必须支持此功能。  目前，可以在<a href="http/ngx_http_keyval_module.html">http</a>和<a href="stream/ngx_stream_keyval_module.html">流中</a>同步HTTP <a href="http/ngx_http_upstream_module.html#sticky">粘性</a>会话，有关<a href="http/ngx_http_limit_req_module.html">过多HTTP请求的</a>信息和键值对。 </p>
-<blockquote>
-<p>  该模块作为我们<a href="http://nginx.com/products/" target="_blank" rel="noopener">商业订阅的</a>一部分提供。 </p>
-</blockquote>
-<h4 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a>示例配置</h4><p>  最小配置： </p>
-<pre class="notranslate">http {
+        <p>stream,ngx_stream_zone_sync_module<br><a id="more"></a><br>
+  </p><h2 class="notranslate">Module ngx_stream_zone_sync_module</h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a href="#example">Example Configuration</a> <br> <a href="#directives">Directives</a> <br>     <a href="#zone_sync">zone_sync</a> <br>     <a href="#zone_sync_buffers">zone_sync_buffers</a> <br>     <a href="#zone_sync_connect_retry_interval">zone_sync_connect_retry_interval</a> <br>     <a href="#zone_sync_connect_timeout">zone_sync_connect_timeout</a> <br>     <a href="#zone_sync_interval">zone_sync_interval</a> <br>     <a href="#zone_sync_recv_buffer_size">zone_sync_recv_buffer_size</a> <br>     <a href="#zone_sync_server">zone_sync_server</a> <br>     <a href="#zone_sync_ssl">zone_sync_ssl</a> <br>     <a href="#zone_sync_ssl_certificate">zone_sync_ssl_certificate</a> <br>     <a href="#zone_sync_ssl_certificate_key">zone_sync_ssl_certificate_key</a> <br>     <a href="#zone_sync_ssl_ciphers">zone_sync_ssl_ciphers</a> <br>     <a href="#zone_sync_ssl_crl">zone_sync_ssl_crl</a> <br>     <a href="#zone_sync_ssl_name">zone_sync_ssl_name</a> <br>     <a href="#zone_sync_ssl_password_file">zone_sync_ssl_password_file</a> <br>     <a href="#zone_sync_ssl_protocols">zone_sync_ssl_protocols</a> <br>     <a href="#zone_sync_ssl_server_name">zone_sync_ssl_server_name</a> <br>     <a href="#zone_sync_ssl_trusted_certificate">zone_sync_ssl_trusted_certificate</a> <br>     <a href="#zone_sync_ssl_verify">zone_sync_ssl_verify</a> <br>     <a href="#zone_sync_ssl_verify_depth">zone_sync_ssl_verify_depth</a> <br>     <a href="#zone_sync_timeout">zone_sync_timeout</a> <br> <a href="#stream_zone_sync_status">API endpoints</a> <br> <a href="#controlling_cluster_node">Starting, stopping, removing a cluster node</a> <br></td></tr></tbody></table><a name="summary"></a><p>   <code class="notranslate">ngx_stream_zone_sync_module</code>模块（1.13.8）为在集群节点之间同步<a href="ngx_stream_upstream_module.html#zone">共享内存区域的</a>内容提供必要的支持。  要为特定区域启用同步，相应的模块必须支持此功能。  目前，可以在<a href="http/ngx_http_keyval_module.html">http</a>和<a href="stream/ngx_stream_keyval_module.html">流中</a>同步HTTP <a href="http/ngx_http_upstream_module.html#sticky">粘性</a>会话，有关<a href="http/ngx_http_limit_req_module.html">过多HTTP请求的</a>信息和键值对。 </p><p></p><blockquote class="note">  该模块作为我们<a href="http://nginx.com/products/" target="_blank" rel="noopener">商业订阅的</a>一部分提供。 </blockquote><p></p><a name="example"></a><center><h4>  示例配置 </h4></center><p>  最小配置： </p><blockquote class="example"><pre class="notranslate">http {
     ...
 
     upstream backend {
@@ -404,7 +397,7 @@
        sticky learn
               create=$upstream_cookie_examplecookie
               lookup=$cookie_examplecookie
-              zone=client_sessions:1m **sync** ;
+              zone=client_sessions:1m <strong>sync</strong> ;
     }
 
     ...
@@ -424,10 +417,7 @@ stream {
         zone_sync_server b.example.com;
 
     }
-</pre>
-
-<p>  启用了SSL并且由DNS定义的集群成员的更复杂配置： </p>
-<pre class="notranslate">...
+</pre></blockquote><p>  启用了SSL并且由DNS定义的集群成员的更复杂配置： </p><blockquote class="example"><pre class="notranslate">...
 
 stream {
     ...
@@ -451,46 +441,95 @@ stream {
         zone_sync_ssl_certificate_key localhost.key;
     }
 }
-</pre>
-
-
-
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**zone_sync** ;</code> <br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>server</code> <br>                </td></p>
-<p>  启用集群节点之间的共享内存区域同步。  使用<a href="#zone_sync_server">zone_sync_server</a>指令定义集群节点。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**zone_sync_buffers*number*</code> <code>*size*</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">zone_sync_buffers 256 4k|8k;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  设置用于推送区域内容的每个区域缓冲区的<code>*number*</code>和<code>*size*</code> 。  默认情况下，缓冲区大小等于一个内存页面。  这是4K或8K，具体取决于平台。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**zone_sync_connect_retry_interval*time*</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">zone_sync_connect_retry_interval 1s;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  定义到另一个群集节点的连接尝试之间的间隔。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**zone_sync_connect_timeout*time*</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">zone_sync_connect_timeout 5s;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  定义与另一个群集节点建立连接的超时。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**zone_sync_interval*time*</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">zone_sync_interval 1s;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  定义在共享内存区域中轮询更新的时间间隔。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**zone_sync_recv_buffer_size*size*</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">zone_sync_recv_buffer_size 4k|8k;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  设置用于解析传入的同步消息流的每连接接收缓冲区的<code>*size*</code> 。  默认情况下，缓冲区大小等于一个内存页面。  这是4K或8K，具体取决于平台。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**zone_sync_server*address*</code> [ <code>resolve</code> ];<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>server</code> <br>                </td></p>
-<p>  定义群集节点的<code>*address*</code> 。  可以将地址指定为具有强制端口的域名或IP地址，或者指定为“ <code>unix:</code> ”前缀后指定的UNIX域套接字路径。  解析为多个IP地址的域名一次定义多个节点。 </p>
-<p>   <code>resolve</code>参数指示nginx监视与节点域名对应的IP地址的更改，并自动修改配置，而无需重新启动nginx。 </p>
-<p>  群集节点可以动态指定为带有<code>resolve</code>参数的单个<code>zone_sync_server</code>指令，也可以静态指定为一系列不带参数的指令。 </p>
-<blockquote>
-<p>  每个群集节点只应指定一次。 </p>
-<p>  所有群集节点都应使用相同的配置。 </p>
-</blockquote>
-<p>  为了使<code>resolve</code>参数起作用，必须在<a href="ngx_stream_core_module.html#stream">流</a>块中指定<a href="ngx_stream_core_module.html#resolver">解析器</a>指令。  例： </p>
-<pre class="notranslate">stream {
+</pre></blockquote><p></p><a name="directives"></a><center><h4>  指令 </h4></center><a name="zone_sync"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>zone_sync</strong> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table></div><p>  启用集群节点之间的共享内存区域同步。  使用<a href="#zone_sync_server">zone_sync_server</a>指令定义集群节点。 </p><a name="zone_sync_buffers"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>zone_sync_buffers</strong> <code class="notranslate"><i>number</i></code> <code class="notranslate"><i>size</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">zone_sync_buffers 256 4k|8k;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table></div><p>  设置用于推送区域内容的每个区域缓冲区的<code class="notranslate"><i>number</i></code>和<code class="notranslate"><i>size</i></code> 。  默认情况下，缓冲区大小等于一个内存页面。  这是4K或8K，具体取决于平台。 </p><a name="zone_sync_connect_retry_interval"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>zone_sync_connect_retry_interval</strong> <code class="notranslate"><i>time</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">zone_sync_connect_retry_interval 1s;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table></div><p>  定义到另一个群集节点的连接尝试之间的间隔。 </p><a name="zone_sync_connect_timeout"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>zone_sync_connect_timeout</strong> <code class="notranslate"><i>time</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">zone_sync_connect_timeout 5s;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table></div><p>  定义与另一个群集节点建立连接的超时。 </p><a name="zone_sync_interval"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>zone_sync_interval</strong> <code class="notranslate"><i>time</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">zone_sync_interval 1s;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table></div><p>  定义在共享内存区域中轮询更新的时间间隔。 </p><a name="zone_sync_recv_buffer_size"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>zone_sync_recv_buffer_size</strong> <code class="notranslate"><i>size</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">zone_sync_recv_buffer_size 4k|8k;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table></div><p>  设置用于解析传入的同步消息流的每连接接收缓冲区的<code class="notranslate"><i>size</i></code> 。  默认情况下，缓冲区大小等于一个内存页面。  这是4K或8K，具体取决于平台。 </p><a name="zone_sync_server"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>zone_sync_server</strong> <code class="notranslate"><i>address</i></code> [ <code class="notranslate">resolve</code> ];</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table></div><p>  定义群集节点的<code class="notranslate"><i>address</i></code> 。  可以将地址指定为具有强制端口的域名或IP地址，或者指定为“ <code class="notranslate">unix:</code> ”前缀后指定的UNIX域套接字路径。  解析为多个IP地址的域名一次定义多个节点。 </p><a name="resolve"></a><p>   <code class="notranslate">resolve</code>参数指示nginx监视与节点域名对应的IP地址的更改，并自动修改配置，而无需重新启动nginx。 </p><p>  群集节点可以动态指定为带有<code class="notranslate">resolve</code>参数的单个<code class="notranslate">zone_sync_server</code>指令，也可以静态指定为一系列不带参数的指令。 </p><blockquote class="note">  每个群集节点只应指定一次。 </blockquote><p></p><blockquote class="note">  所有群集节点都应使用相同的配置。 </blockquote><p></p><p>  为了使<code class="notranslate">resolve</code>参数起作用，必须在<a href="ngx_stream_core_module.html#stream">流</a>块中指定<a href="ngx_stream_core_module.html#resolver">解析器</a>指令。  例： </p><blockquote class="example"><pre class="notranslate">stream {
     resolver 10.0.0.1;
 
     server {
@@ -499,69 +538,181 @@ stream {
         ...
     }
 }
-</pre>
+</pre></blockquote><p></p><a name="zone_sync_ssl"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>zone_sync_ssl</strong> <code class="notranslate">on</code> | <code class="notranslate">off</code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">zone_sync_ssl off;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table></div><p>  启用S​​SL / TLS协议以连接到另一个群集服务器。 </p><a name="zone_sync_ssl_certificate"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>zone_sync_ssl_certificate</strong> <code class="notranslate"><i>file</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table></div><p>  指定具有PEM格式的证书的<code class="notranslate"><i>file</i></code> ，该证书用于对另一个群集服务器进行身份验证。 </p><a name="zone_sync_ssl_certificate_key"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>zone_sync_ssl_certificate_key</strong> <code class="notranslate"><i>file</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table></div><p>  指定具有PEM格式的密钥的<code class="notranslate"><i>file</i></code> ，用于对另一个群集服务器进行身份验证。 </p><a name="zone_sync_ssl_ciphers"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>zone_sync_ssl_ciphers</strong> <code class="notranslate"><i>ciphers</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">zone_sync_ssl_ciphers DEFAULT;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table></div><p>  指定用于连接到另一个群集服务器的已启用密码。  密码以OpenSSL库理解的格式指定。 </p><p>  可以使用“ <code class="notranslate">openssl ciphers</code> ”命令查看完整列表。 </p><a name="zone_sync_ssl_crl"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>zone_sync_ssl_crl</strong> <code class="notranslate"><i>file</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table></div><p>  指定具有PEM格式的已吊销证书（CRL）的<code class="notranslate"><i>file</i></code> ，用于<a href="#zone_sync_ssl_verify">验证</a>另一个群集服务器的证书。 </p><a name="zone_sync_ssl_name"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>zone_sync_ssl_name</strong> <code class="notranslate"><i>name</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">zone_sync_ssl_name host from zone_sync_server;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table><p>  该指令出现在1.15.7版中。 </p></div><p>  允许覆盖用于<a href="#zone_sync_ssl_verify">验证</a>群集服务器证书的服务器名称，并在与群集服务器建立连接时<a href="#zone_sync_ssl_server_name">通过SNI传递</a> 。 </p><p>  默认情况下，使用<a href="#zone_sync_server">zone_sync_server</a>地址的主机部分，如果指定了<a href="#resolve">resolve</a>参数，则使用已解析的IP地址。 </p><a name="zone_sync_ssl_password_file"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>zone_sync_ssl_password_file</strong> <code class="notranslate"><i>file</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table></div><p>  指定具有密钥密码的<code class="notranslate"><i>file</i></code> ，其中每个密码在单独的行上指定。  在加载密钥时依次尝试密码短语。 </p><a name="zone_sync_ssl_protocols"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>zone_sync_ssl_protocols</strong> 
+    [ <code class="notranslate">SSLv2</code> ]
+    [ <code class="notranslate">SSLv3</code> ]
+    [ <code class="notranslate">TLSv1</code> ]
+    [ <code class="notranslate">TLSv1.1</code> ]
+    [ <code class="notranslate">TLSv1.2</code> ]
+    [ <code class="notranslate">TLSv1.3</code> ];</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">zone_sync_ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table></div><p>  启用指定的协议以连接到另一个群集服务器。 </p><a name="zone_sync_ssl_server_name"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>zone_sync_ssl_server_name</strong> <code class="notranslate">on</code> | <code class="notranslate">off</code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">zone_sync_ssl_server_name off;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table><p>  该指令出现在1.15.7版中。 </p></div><p>  在与另一个群集服务器建立连接时，启用或禁用通过<a href="http://en.wikipedia.org/wiki/Server_Name_Indication" target="_blank" rel="noopener">TLS服务器名称指示扩展</a> （SNI，RFC 6066）传递服务器名称。 </p><a name="zone_sync_ssl_trusted_certificate"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>zone_sync_ssl_trusted_certificate</strong> <code class="notranslate"><i>file</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            
+            —
+        
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table></div><p>  指定具有PEM格式的可信CA证书的<code class="notranslate"><i>file</i></code> ，该证书用于<a href="#zone_sync_ssl_verify">验证</a>另一个群集服务器的证书。 </p><a name="zone_sync_ssl_verify"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>zone_sync_ssl_verify</strong> <code class="notranslate">on</code> | <code class="notranslate">off</code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">zone_sync_ssl_verify off;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table></div><p>  启用或禁用其他群集服务器证书的验证。 </p><a name="zone_sync_ssl_verify_depth"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>zone_sync_ssl_verify_depth</strong> <code class="notranslate"><i>number</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">zone_sync_ssl_verify_depth 1;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table></div><p>  在另一个群集服务器证书链中设置验证深度。 </p><a name="zone_sync_timeout"></a><div class="directive"><table cellspacing="0"><tbody><tr><th class="notranslate">
+            Syntax:
+                </th><td class="notranslate">
+            <code class="notranslate"><strong>zone_sync_timeout</strong> <code class="notranslate"><i>timeout</i></code> ;</code> <br>
+                </td></tr><tr><th class="notranslate">
+            Default:
+                </th><td class="notranslate">
+            <pre class="notranslate">zone_sync_timeout 5s;</pre>
+                </td></tr><tr><th class="notranslate">
+            Context:
+                </th><td class="notranslate">
+            <code class="notranslate">stream</code> , <code class="notranslate">server</code> <br>
+                </td></tr></tbody></table></div><p>  设置与另一个群集节点连接时两次连续读取或写入操作之间的<code class="notranslate"><i>timeout</i></code> 。  如果在此时间内没有传输数据，则关闭连接。 </p><a name="stream_zone_sync_status"></a><center><h4>   API端点 </h4></center><p>  节点的同步状态可通过API的<a href="http/ngx_http_api_module.html#stream_zone_sync_">/ stream / zone_sync /</a> endpoint获得，它返回<a href="http/ngx_http_api_module.html#def_nginx_stream_zone_sync">以下</a>度量标准。 </p><a name="controlling_cluster_node"></a><center><h4>  启动，停止，删除群集节点 </h4></center><p>  要启动新节点，请使用新节点的IP地址更新群集主机名的DNS记录并启动实例。  新节点将从DNS或静态配置中发现其他节点，并将开始向它们发送更新。  其他节点最终将使用DNS发现新节点并开始向其推送更新。  在静态配置的情况下，需要重新加载其他节点以便将更新发送到新节点。 </p><p>  要停止节点，请将<code class="notranslate">QUIT</code>信号发送到实例。  该节点将完成区域同步并正常关闭打开的连接。 </p><p>  要删除节点，请更新群集主机名的DNS记录，并删除该节点的IP地址。  所有其他节点最终将发现节点已被删除，关闭与节点的连接，并且将不再尝试连接到节点。  移除节点后，可以如上所述停止节点。  在静态配置的情况下，需要重新加载其他节点以便停止向已删除节点发送更新。 </p> 
 
-
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**zone_sync_sslon</code> | <code>off</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">zone_sync_ssl off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  启用S​​SL / TLS协议以连接到另一个群集服务器。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**zone_sync_ssl_certificate*file*</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  指定具有PEM格式的证书的<code>*file*</code> ，该证书用于对另一个群集服务器进行身份验证。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**zone_sync_ssl_certificate_key*file*</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  指定具有PEM格式的密钥的<code>*file*</code> ，用于对另一个群集服务器进行身份验证。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**zone_sync_ssl_ciphers*ciphers*</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">zone_sync_ssl_ciphers DEFAULT;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  指定用于连接到另一个群集服务器的已启用密码。  密码以OpenSSL库理解的格式指定。 </p>
-<p>  可以使用“ <code>openssl ciphers</code> ”命令查看完整列表。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**zone_sync_ssl_crl*file*</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  指定具有PEM格式的已吊销证书（CRL）的<code>*file*</code> ，用于<a href="#zone_sync_ssl_verify">验证</a>另一个群集服务器的证书。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**zone_sync_ssl_name*name*</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">zone_sync_ssl_name host from zone_sync_server;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  该指令出现在1.15.7版中。 </p>
-<p>  允许覆盖用于<a href="#zone_sync_ssl_verify">验证</a>群集服务器证书的服务器名称，并在与群集服务器建立连接时<a href="#zone_sync_ssl_server_name">通过SNI传递</a> 。 </p>
-<p>  默认情况下，使用<a href="#zone_sync_server">zone_sync_server</a>地址的主机部分，如果指定了<a href="#resolve">resolve</a>参数，则使用已解析的IP地址。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**zone_sync_ssl_password_file*file*</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  指定具有密钥密码的<code>*file*</code> ，其中每个密码在单独的行上指定。  在加载密钥时依次尝试密码短语。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**zone_sync_ssl_protocols** [ SSLv2</code> ]    [ <code>SSLv3</code> ]    [ <code>TLSv1</code> ]    [ <code>TLSv1.1</code> ]    [ <code>TLSv1.2</code> ]    [ <code>TLSv1.3</code> ];<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">zone_sync_ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  启用指定的协议以连接到另一个群集服务器。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**zone_sync_ssl_server_nameon</code> | <code>off</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">zone_sync_ssl_server_name off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  该指令出现在1.15.7版中。 </p>
-<p>  在与另一个群集服务器建立连接时，启用或禁用通过<a href="http://en.wikipedia.org/wiki/Server_Name_Indication" target="_blank" rel="noopener">TLS服务器名称指示扩展</a> （SNI，RFC 6066）传递服务器名称。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**zone_sync_ssl_trusted_certificate*file*</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">                        —                        </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  指定具有PEM格式的可信CA证书的<code>*file*</code> ，该证书用于<a href="#zone_sync_ssl_verify">验证</a>另一个群集服务器的证书。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**zone_sync_ssl_verifyon</code> | <code>off</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">zone_sync_ssl_verify off;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  启用或禁用其他群集服务器证书的验证。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**zone_sync_ssl_verify_depth*number*</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">zone_sync_ssl_verify_depth 1;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  在另一个群集服务器证书链中设置验证深度。 </p>
-<p><th class="notranslate">            Syntax:                </th><td class="notranslate">            <code>**zone_sync_timeout*timeout*</code> ;<br>                </td></p>
-<p><th class="notranslate">            Default:                </th><td class="notranslate">            <pre class="notranslate">zone_sync_timeout 5s;</pre>                </td></p>
-<p><th class="notranslate">            Context:                </th><td class="notranslate">            <code>stream</code> , <code>server</code> <br>                </td></p>
-<p>  设置与另一个群集节点连接时两次连续读取或写入操作之间的<code>*timeout*</code> 。  如果在此时间内没有传输数据，则关闭连接。 </p>
-<h4 id="API端点"><a href="#API端点" class="headerlink" title="API端点"></a>API端点</h4><p>  节点的同步状态可通过API的<a href="http/ngx_http_api_module.html#stream_zone_sync_">/ stream / zone_sync /</a> endpoint获得，它返回<a href="http/ngx_http_api_module.html#def_nginx_stream_zone_sync">以下</a>度量标准。 </p>
-<h4 id="启动，停止，删除群集节点"><a href="#启动，停止，删除群集节点" class="headerlink" title="启动，停止，删除群集节点"></a>启动，停止，删除群集节点</h4><p>  要启动新节点，请使用新节点的IP地址更新群集主机名的DNS记录并启动实例。  新节点将从DNS或静态配置中发现其他节点，并将开始向它们发送更新。  其他节点最终将使用DNS发现新节点并开始向其推送更新。  在静态配置的情况下，需要重新加载其他节点以便将更新发送到新节点。 </p>
-<p>  要停止节点，请将<code>QUIT</code>信号发送到实例。  该节点将完成区域同步并正常关闭打开的连接。 </p>
-<p>  要删除节点，请更新群集主机名的DNS记录，并删除该节点的IP地址。  所有其他节点最终将发现节点已被删除，关闭与节点的连接，并且将不再尝试连接到节点。  移除节点后，可以如上所述停止节点。  在静态配置的情况下，需要重新加载其他节点以便停止向已删除节点发送更新。 </p>
+<p></p>
 
       
     </div>
@@ -611,7 +762,7 @@ stream {
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nginx.im/ngx/stream/ngx_stream_zone_sync_module.html" title="stream/ngx_stream_zone_sync_module-nginx中文手册">http://nginx.im/ngx/stream/ngx_stream_zone_sync_module.html</a>
+    <a href="http://nginx.im/ngx/stream/ngx_stream_zone_sync_module.html" title="stream/ngx_stream_zone_sync_module-nginx中文参考手册">http://nginx.im/ngx/stream/ngx_stream_zone_sync_module.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -639,8 +790,8 @@ stream {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ngx/stream/ngx_stream_upstream_module.html" rel="next" title="stream/ngx_stream_upstream_module-nginx中文手册">
-                <i class="fa fa-chevron-left"></i> stream/ngx_stream_upstream_module-nginx中文手册
+              <a href="/ngx/stream/ngx_stream_upstream_module.html" rel="next" title="stream/ngx_stream_upstream_module-nginx中文参考手册">
+                <i class="fa fa-chevron-left"></i> stream/ngx_stream_upstream_module-nginx中文参考手册
               </a>
             
           </div>
@@ -649,8 +800,8 @@ stream {
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ngx/stream/stream_processing.html" rel="prev" title="stream/stream_processing-nginx中文手册">
-                stream/stream_processing-nginx中文手册 <i class="fa fa-chevron-right"></i>
+              <a href="/ngx/stream/stream_processing.html" rel="prev" title="stream/stream_processing-nginx中文参考手册">
+                stream/stream_processing-nginx中文参考手册 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -737,7 +888,7 @@ stream {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">236</span>
+                  <span class="site-state-item-count">239</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -748,7 +899,7 @@ stream {
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -794,7 +945,7 @@ stream {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-ngx-stream-zone-sync-module"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_stream_zone_sync_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#API端点"><span class="nav-number">1.0.3.</span> <span class="nav-text">API端点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动，停止，删除群集节点"><span class="nav-number">1.0.4.</span> <span class="nav-text">启动，停止，删除群集节点</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Module ngx_stream_zone_sync_module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">  示例配置 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">  指令 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.3.</span> <span class="nav-text">   API端点 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.4.</span> <span class="nav-text">  启动，停止，删除群集节点 </span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

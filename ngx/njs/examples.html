@@ -82,14 +82,14 @@
 <meta name="description" content="njs,examples">
 <meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
-<meta property="og:title" content="njs&#x2F;examples-nginx中文手册">
+<meta property="og:title" content="njs&#x2F;examples-nginx中文参考手册">
 <meta property="og:url" content="http://nginx.im/ngx/njs/examples.html">
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="njs,examples">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T02:28:10.645Z">
+<meta property="og:updated_time" content="2018-12-24T03:47:03.529Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="njs&#x2F;examples-nginx中文手册">
+<meta name="twitter:title" content="njs&#x2F;examples-nginx中文参考手册">
 <meta name="twitter:description" content="njs,examples">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>njs/examples-nginx中文手册 | IM.NGINX</title>
+  <title>njs/examples-nginx中文参考手册 | IM.NGINX</title>
   
 
 
@@ -314,7 +314,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">njs/examples-nginx中文手册</h2>
+          <h2 class="post-title" itemprop="name headline">njs/examples-nginx中文参考手册</h2>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T10:27:47+08:00">
-                2018年12月22日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T11:49:01+08:00">
+                2018年12月24日
               </time>
             
 
@@ -349,8 +349,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx中文手册/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx中文手册</span>
+                  <a href="/categories/nginx案例/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx案例</span>
                   </a>
                 </span>
 
@@ -386,11 +386,8 @@
       
 
       
-        <p>njs,examples<br><a id="more"></a></p>
-<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><td align="left" class="notranslate"> <a href="#helloword">Hello World</a> <br> <a href="#urldecode">URL Decoding</a> <br> <a href="#urlencode">URL Encoding</a> <br> <a href="#redirect">Internal Redirect</a> <br> <a href="#fast_response">Returning Fastest Response from Proxy</a> <br> <a href="#jwt">Creating HS JWT</a> <br> <a href="#subrequest">Accessing API from a Subrequest</a> <br> <a href="#secure_link">Creating secure_link Hash</a> <br> <a href="#legacy">Legacy Examples</a> <br>     <a href="#legacy_stream">Injecting HTTP header using stream proxy</a> <br></td>
-
-<h4 id="你好，世界"><a href="#你好，世界" class="headerlink" title="你好，世界"></a>你好，世界</h4><p>   <code>nginx.conf</code> ： </p>
-<pre class="notranslate">load_module modules/ngx_http_js_module.so;
+        <p>njs,examples<br><a id="more"></a><br>
+  </p><h2>  例子 </h2><table width="100%"><tbody><tr><td align="left" class="notranslate"> <a href="#helloword">Hello World</a> <br> <a href="#urldecode">URL Decoding</a> <br> <a href="#urlencode">URL Encoding</a> <br> <a href="#redirect">Internal Redirect</a> <br> <a href="#fast_response">Returning Fastest Response from Proxy</a> <br> <a href="#jwt">Creating HS JWT</a> <br> <a href="#subrequest">Accessing API from a Subrequest</a> <br> <a href="#secure_link">Creating secure_link Hash</a> <br> <a href="#legacy">Legacy Examples</a> <br>     <a href="#legacy_stream">Injecting HTTP header using stream proxy</a> <br></td></tr></tbody></table><a name="helloword"></a><center><h4>  你好，世界 </h4></center><p>   <code class="notranslate">nginx.conf</code> ： </p><blockquote class="example"><pre class="notranslate">load_module modules/ngx_http_js_module.so;
 
 events {}
 
@@ -406,36 +403,16 @@ http {
     }
 }
 
-</pre>
-
-
-
-<p>   <code>hello_world.js</code> ： </p>
-<pre class="notranslate">function hello(r) {
+</pre></blockquote><p></p><p>   <code class="notranslate">hello_world.js</code> ： </p><blockquote class="example"><pre class="notranslate">function hello(r) {
     r.return(200, "Hello world!");
 }
-</pre>
-
-
-
-<h4 id="网址解码"><a href="#网址解码" class="headerlink" title="网址解码"></a>网址解码</h4><p>   <code>nginx.conf</code> ： </p>
-<pre class="notranslate">js_include urldecode.js;
+</pre></blockquote><p></p><a name="urldecode"></a><center><h4>  网址解码 </h4></center><p>   <code class="notranslate">nginx.conf</code> ： </p><blockquote class="example"><pre class="notranslate">js_include urldecode.js;
 
 js_set $decoded_foo decoded_foo;
-</pre>
-
-
-
-<p>   <code>urldecode.js</code> ： </p>
-<pre class="notranslate">function decoded_foo(r) {
+</pre></blockquote><p></p><p>   <code class="notranslate">urldecode.js</code> ： </p><blockquote class="example"><pre class="notranslate">function decoded_foo(r) {
     return decodeURIComponent(r.args.foo);
 }
-</pre>
-
-
-
-<h4 id="网址编码"><a href="#网址编码" class="headerlink" title="网址编码"></a>网址编码</h4><p>   <code>nginx.conf</code> ： </p>
-<pre class="notranslate">js_include urlencode.js;
+</pre></blockquote><p></p><a name="urlencode"></a><center><h4>  网址编码 </h4></center><p>   <code class="notranslate">nginx.conf</code> ： </p><blockquote class="example"><pre class="notranslate">js_include urlencode.js;
 
 js_set $encoded_foo encoded_foo;
 ...
@@ -443,20 +420,10 @@ js_set $encoded_foo encoded_foo;
 location / {
     proxy_pass http://example.com?foo=$encoded_foo;
 }
-</pre>
-
-
-
-<p>   <code>urlencode.js</code> ： </p>
-<pre class="notranslate">function encoded_foo(r) {
+</pre></blockquote><p></p><p>   <code class="notranslate">urlencode.js</code> ： </p><blockquote class="example"><pre class="notranslate">function encoded_foo(r) {
     return encodeURIComponent('foo &amp; bar?');
 }
-</pre>
-
-
-
-<h4 id="内部重定向"><a href="#内部重定向" class="headerlink" title="内部重定向"></a>内部重定向</h4><p>   <code>nginx.conf</code> ： </p>
-<pre class="notranslate">js_include redirect.js;
+</pre></blockquote><p></p><a name="redirect"></a><center><h4>  内部重定向 </h4></center><p>   <code class="notranslate">nginx.conf</code> ： </p><blockquote class="example"><pre class="notranslate">js_include redirect.js;
 
 location /redirect {
     js_content redirect;
@@ -465,20 +432,10 @@ location /redirect {
 location @named {
     return 200 named;
 }
-</pre>
-
-
-
-<p>   <code>redirect.js</code> ： </p>
-<pre class="notranslate">function redirect(r) {
+</pre></blockquote><p></p><p>   <code class="notranslate">redirect.js</code> ： </p><blockquote class="example"><pre class="notranslate">function redirect(r) {
     r.internalRedirect('@named');
 }
-</pre>
-
-
-
-<h4 id="从代理返回最快的响应"><a href="#从代理返回最快的响应" class="headerlink" title="从代理返回最快的响应"></a>从代理返回最快的响应</h4><p>   <code>nginx.conf</code> ： </p>
-<pre class="notranslate">js_include fastresponse.js;
+</pre></blockquote><p></p><a name="fast_response"></a><center><h4>  从代理返回最快的响应 </h4></center><p>   <code class="notranslate">nginx.conf</code> ： </p><blockquote class="example"><pre class="notranslate">js_include fastresponse.js;
 
 location /start {
     js_content content;
@@ -491,12 +448,7 @@ location /foo {
 location /bar {
     proxy_pass http://backend2;
 }
-</pre>
-
-
-
-<p>   <code>fastresponse.js</code> ： </p>
-<pre class="notranslate">function content(r) {
+</pre></blockquote><p></p><p>   <code class="notranslate">fastresponse.js</code> ： </p><blockquote class="example"><pre class="notranslate">function content(r) {
     var n = 0;
 
     function done(res) {
@@ -508,20 +460,10 @@ location /bar {
     r.subrequest('/foo', r.variables.args, done);
     r.subrequest('/bar', r.variables.args, done);
 }
-</pre>
-
-
-
-<h4 id="创建HS-JWT"><a href="#创建HS-JWT" class="headerlink" title="创建HS JWT"></a>创建HS JWT</h4><p>   <code>nginx.conf</code> ： </p>
-<pre class="notranslate">js_include hs_jwt.js;
+</pre></blockquote><p></p><a name="jwt"></a><center><h4>  创建HS JWT </h4></center><p>   <code class="notranslate">nginx.conf</code> ： </p><blockquote class="example"><pre class="notranslate">js_include hs_jwt.js;
 
 js_set $jwt jwt;
-</pre>
-
-
-
-<p>   <code>hs_jwt.js</code> ： </p>
-<pre class="notranslate">function create_hs256_jwt(claims, key, valid) {
+</pre></blockquote><p></p><p>   <code class="notranslate">hs_jwt.js</code> ： </p><blockquote class="example"><pre class="notranslate">function create_hs256_jwt(claims, key, valid) {
     var header = { "typ" : "JWT", "alg" : "HS256", "exp" : Date.now() + valid };
 
     var s = JSON.stringify(header).toBytes().toString('base64url') + '.'
@@ -543,12 +485,7 @@ function jwt(r) {
 
     return create_hs256_jwt(claims, 'foo', 600);
 }
-</pre>
-
-
-
-<h4 id="从子请求访问API"><a href="#从子请求访问API" class="headerlink" title="从子请求访问API"></a>从子请求访问API</h4><p>   <code>nginx.conf</code> ： </p>
-<pre class="notranslate">js_include subrequest.js;
+</pre></blockquote><p></p><a name="subrequest"></a><center><h4>  从子请求访问API </h4></center><p>   <code class="notranslate">nginx.conf</code> ： </p><blockquote class="example"><pre class="notranslate">js_include subrequest.js;
 
 keyval_zone zone=foo:10m;
 ...
@@ -564,12 +501,7 @@ location /version {
 location /api {
     api write=on;
 }
-</pre>
-
-
-
-<p>   <code>subrequest.js</code> ： </p>
-<pre class="notranslate">function set_keyval(r) {
+</pre></blockquote><p></p><p>   <code class="notranslate">subrequest.js</code> ： </p><blockquote class="example"><pre class="notranslate">function set_keyval(r) {
     r.subrequest('/api/3/http/keyvals/foo',
         { method: 'POST',
           body: JSON.stringify({ foo: 789, bar: "ss dd 00" })},
@@ -594,12 +526,7 @@ function version(r) {
         r.return(200, json.version);
     });
 }
-</pre>
-
-
-
-<h4 id="创建secure-link哈希"><a href="#创建secure-link哈希" class="headerlink" title="创建secure_link哈希"></a>创建secure_link哈希</h4><p>   <code>nginx.conf</code> ： </p>
-<pre class="notranslate">js_include hash.js;
+</pre></blockquote><p></p><a name="secure_link"></a><center><h4>  创建secure_link哈希 </h4></center><p>   <code class="notranslate">nginx.conf</code> ： </p><blockquote class="example"><pre class="notranslate">js_include hash.js;
 
 js_set $new_foo create_secure_link;
 ...
@@ -614,22 +541,12 @@ location @login {
     add_header Set-Cookie "foo=$new_foo; Max-Age=60";
     return 302 /;
 }
-</pre>
-
-
-
-<p>   <code>hash.js</code> ： </p>
-<pre class="notranslate">function create_secure_link(r) {
+</pre></blockquote><p></p><p>   <code class="notranslate">hash.js</code> ： </p><blockquote class="example"><pre class="notranslate">function create_secure_link(r) {
     return require('crypto').createHash('md5')
                             .update(r.uri).update(" mykey")
                             .digest('base64url');
 }
-</pre>
-
-
-
-<h4 id="遗留的例子"><a href="#遗留的例子" class="headerlink" title="遗留的例子"></a>遗留的例子</h4><h4 id="使用流代理注入HTTP标头"><a href="#使用流代理注入HTTP标头" class="headerlink" title="使用流代理注入HTTP标头"></a>使用流代理注入HTTP标头</h4><p>  从njs <a href="njs/changes.html#njs0.2.4">0.2.4</a>开始，流配置<a href="stream/ngx_stream_js_module.html#example">示例</a>已更改。  对于njs 0.2.3及更早版本，请使用此配置示例： </p>
-<pre class="notranslate">load_module modules/ngx_stream_js_module.so;
+</pre></blockquote><p></p><a name="legacy"></a><center><h4>  遗留的例子 </h4></center><a name="legacy_stream"></a><center><h4>  使用流代理注入HTTP标头 </h4></center><p>  从njs <a href="njs/changes.html#njs0.2.4">0.2.4</a>开始，流配置<a href="stream/ngx_stream_js_module.html#example">示例</a>已更改。  对于njs 0.2.3及更早版本，请使用此配置示例： </p><blockquote class="example"><pre class="notranslate">load_module modules/ngx_stream_js_module.so;
 ...
 
 stream {
@@ -662,12 +579,7 @@ http {
         }
     }
 }
-</pre>
-
-
-
-<p>   <code>stream.js</code>文件： </p>
-<pre class="notranslate">var req = '';
+</pre></blockquote><p></p><p>   <code class="notranslate">stream.js</code>文件： </p><blockquote class="example"><pre class="notranslate">var req = '';
 var matched = 0;
 var line = '';
 
@@ -738,12 +650,9 @@ function xyz(s) {
         return s.ABORT;
     }
 }
-</pre>
+</pre></blockquote><p></p> 
 
-
-
-
-
+<p></p>
 
       
     </div>
@@ -793,7 +702,7 @@ function xyz(s) {
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nginx.im/ngx/njs/examples.html" title="njs/examples-nginx中文手册">http://nginx.im/ngx/njs/examples.html</a>
+    <a href="http://nginx.im/ngx/njs/examples.html" title="njs/examples-nginx中文参考手册">http://nginx.im/ngx/njs/examples.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -821,8 +730,8 @@ function xyz(s) {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ngx/mail/ngx_mail_ssl_module.html" rel="next" title="mail/ngx_mail_ssl_module-nginx中文手册">
-                <i class="fa fa-chevron-left"></i> mail/ngx_mail_ssl_module-nginx中文手册
+              <a href="/ngx/njs/cli.html" rel="next" title="njs/cli-nginx中文参考手册">
+                <i class="fa fa-chevron-left"></i> njs/cli-nginx中文参考手册
               </a>
             
           </div>
@@ -831,8 +740,8 @@ function xyz(s) {
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ngx/njs/index.html" rel="prev" title="njs/index-nginx中文手册">
-                njs/index-nginx中文手册 <i class="fa fa-chevron-right"></i>
+              <a href="/ngx/njs/index.html" rel="prev" title="njs/index-nginx中文参考手册">
+                njs/index-nginx中文参考手册 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -919,7 +828,7 @@ function xyz(s) {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">236</span>
+                  <span class="site-state-item-count">239</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -930,7 +839,7 @@ function xyz(s) {
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -976,7 +885,7 @@ function xyz(s) {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#例子"><span class="nav-number">1.</span> <span class="nav-text">例子</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#你好，世界"><span class="nav-number">1.0.1.</span> <span class="nav-text">你好，世界</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网址解码"><span class="nav-number">1.0.2.</span> <span class="nav-text">网址解码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网址编码"><span class="nav-number">1.0.3.</span> <span class="nav-text">网址编码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内部重定向"><span class="nav-number">1.0.4.</span> <span class="nav-text">内部重定向</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从代理返回最快的响应"><span class="nav-number">1.0.5.</span> <span class="nav-text">从代理返回最快的响应</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建HS-JWT"><span class="nav-number">1.0.6.</span> <span class="nav-text">创建HS JWT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从子请求访问API"><span class="nav-number">1.0.7.</span> <span class="nav-text">从子请求访问API</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建secure-link哈希"><span class="nav-number">1.0.8.</span> <span class="nav-text">创建secure_link哈希</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#遗留的例子"><span class="nav-number">1.0.9.</span> <span class="nav-text">遗留的例子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用流代理注入HTTP标头"><span class="nav-number">1.0.10.</span> <span class="nav-text">使用流代理注入HTTP标头</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">  例子 </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">  你好，世界 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">  网址解码 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.3.</span> <span class="nav-text">  网址编码 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.4.</span> <span class="nav-text">  内部重定向 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.5.</span> <span class="nav-text">  从代理返回最快的响应 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.6.</span> <span class="nav-text">  创建HS JWT </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.7.</span> <span class="nav-text">  从子请求访问API </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.8.</span> <span class="nav-text">  创建secure_link哈希 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.9.</span> <span class="nav-text">  遗留的例子 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.10.</span> <span class="nav-text">  使用流代理注入HTTP标头 </span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
