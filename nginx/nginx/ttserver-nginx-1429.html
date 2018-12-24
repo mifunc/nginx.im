@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="nginx,ttserver-nginx-1429,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T10:07:20.366Z">
+<meta property="og:updated_time" content="2018-12-24T08:18:44.486Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ttserver+nginx构建高并发高可用性应用-nginx案例">
 <meta name="twitter:description" content="nginx,ttserver-nginx-1429,">
@@ -387,10 +387,7 @@
 
       
         <p>nginx,ttserver-nginx-1429,<br><a id="more"></a><br>
-  <div> 
-<!-- GG-Mobi-ad -->
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-0956732394986573" data-ad-slot="4502371869" data-ad-format="auto"></ins>
-</div>
+
 	
 				</p><p>ttserver+nginx构建高并发高可用性应用</p>
 <p>ttserver一款兼容memcached协议，也可以通过HTTP协议进行数据交换，支持故障转移，高可用性，高并发的分布式key-value持久存储系统。key-value分布式存储系统的特点是查询快，存储数量大，高并发，非常适合通过主键进行查询的操作。</p>
@@ -398,115 +395,120 @@
 <p>一.配置nginx</p>
 <p>nginx_upstream_check_module模块地址： https://github.com/yaoweibin/nginx_upstream_check_module</p>
 <p>nginx需要添加nginx_upstream_check_module模块，用于对后端服务器的健康情况检测，如果后端服务器不可用，则把这台服务器移除负载均衡轮循集群，所有的请求不往这台服务器上转发，待这台服务器恢复正常后，再把这台加入到负载均衡集群。这是LB的基本功能。</p>
-<p># vi nginx.conf</p>
-<p>user www-data;</p>
-<p>worker_processes 8;</p>
-<p>worker_cpu_affinity 00000001 00000010 00000100 00001000 00010000 00100000 01000000 10000000;</p>
-<p>error_log /var/log/nginx/error.log crit;</p>
-<p>pid /var/run/nginx.pid;</p>
-<p>worker_rlimit_nofile 65535;</p>
-<p>events {</p>
-<p>use epoll;</p>
-<p>worker_connections 65535;</p>
-<p>}</p>
-<p>http {</p>
-<p>include /etc/nginx/mime.types;</p>
-<p>default_type application/octet-stream;</p>
-<p>server_tokens off;</p>
-<p>access_log off;</p>
-<p>sendfile on;</p>
-<p>tcp_nopush on;</p>
-<p>keepalive_timeout 0;</p>
-<p>tcp_nodelay on;</p>
-<p>client_max_body_size 200m;</p>
-<p>gzip on;</p>
-<p>gzip_min_length 1k;</p>
-<p>gzip_buffers 4 16k;</p>
-<p>gzip_http_version 1.1;</p>
-<p>gzip_comp_level 5;</p>
-<p>gzip_disable "MSIE [1-6]\.(?!.*SV1)";</p>
-<p>gzip_types text/plain application/x-javascript text/css application/xml text/javascript;</p>
-<p>include /etc/nginx/conf.d/*.conf;</p>
-<p>include /etc/nginx/sites-enabled/*;</p>
-<p>}</p>
-<p># vi default</p>
-<p>server {</p>
-<p>listen 80;</p>
-<p>server_name 192.168.1.213;</p>
-<p>memcached_connect_timeout 1s;</p>
-<p>location / {</p>
-<p>root /www/web/tmp;</p>
-<p>error_page 404 = @fallback;</p>
-<p>}</p>
-<p>location ~ ^/ttlsa/ttlsa_([0-9a-zA-Z]\.+)$ {</p>
-<p>set $memcached_key $1; //memcached键值</p>
-<p>add_header X-ttserver-key $memcached_key; //添加一个header信息</p>
-<p>memcached_pass ttserver;</p>
-<p>memcached_next_upstream error timeout; //当发生错误或超时时，将请求转发到upstream下一个服务器</p>
-<p>default_type text/html;</p>
-<p>error_page 404 = @fallback;</p>
-<p>}</p>
-<p>location @fallback {</p>
-<p>rewrite ^ http://www.ttlsa.com redirect;</p>
-<p>}</p>
-<p>}</p>
-<p># vi upstream.conf</p>
-<p>upstream ttserver {</p>
-<p>server 192.168.1.60:1978;</p>
-<p>server 192.168.1.60:1979;</p>
-<p>check interval=3000 rise=2 fall=2 timeout=1000; //interval检测周期3s一次，fall宕机标记2次失败后标记不可用</p>
-<p>}</p>
+<pre>
+# vi nginx.conf
+user www-data;
+worker_processes 8;
+worker_cpu_affinity 00000001 00000010 00000100 00001000 00010000 00100000 01000000 10000000;
+error_log /var/log/nginx/error.log crit;
+pid /var/run/nginx.pid;
+worker_rlimit_nofile 65535;
+events {
+use epoll;
+worker_connections 65535;
+}
+http {
+include /etc/nginx/mime.types;
+default_type application/octet-stream;
+server_tokens off;
+access_log off;
+sendfile on;
+tcp_nopush on;
+keepalive_timeout 0;
+tcp_nodelay on;
+client_max_body_size 200m;
+gzip on;
+gzip_min_length 1k;
+gzip_buffers 4 16k;
+gzip_http_version 1.1;
+gzip_comp_level 5;
+gzip_disable "MSIE [1-6]\.(?!.*SV1)";
+gzip_types text/plain application/x-javascript text/css application/xml text/javascript;
+include /etc/nginx/conf.d/*.conf;
+include /etc/nginx/sites-enabled/*;
+}
+</pre>
+
+<pre>
+# vi default
+server {
+listen 80;
+server_name 192.168.1.213;
+memcached_connect_timeout 1s;
+location / {
+root /www/web/tmp;
+error_page 404 = @fallback;
+}
+location ~ ^/ttlsa/ttlsa_([0-9a-zA-Z]\.+)$ {
+set $memcached_key $1; //memcached键值
+add_header X-ttserver-key $memcached_key; //添加一个header信息
+memcached_pass ttserver;
+memcached_next_upstream error timeout; //当发生错误或超时时，将请求转发到upstream下一个服务器
+default_type text/html;
+error_page 404 = @fallback;
+}
+location @fallback {
+rewrite ^ http://www.ttlsa.com redirect;
+}
+}
+</pre>
+
+<pre>
+# vi upstream.conf
+upstream ttserver {
+server 192.168.1.60:1978;
+server 192.168.1.60:1979;
+check interval=3000 rise=2 fall=2 timeout=1000; //interval检测周期3s一次，fall宕机标记2次失败后标记不可用
+}
+</pre>
+
 <p>二.配置ttserver</p>
 <p>需要将ttserver配置成主主结构。</p>
 <p>ttserver的介绍，安装，配置参见： http://www.ttlsa.com/html/1220.html</p>
 <p>三.测试</p>
 <p>1.上传界面</p>
-<p># vi upload.php</p>
-<p>&lt;html&gt;</p>
-<p>&lt;head&gt;</p>
-<p>&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"/&gt;</p>
-<p>&lt;title&gt;Upload Files&lt;/title&gt;</p>
-<p>&lt;/head&gt;</p>
-<p>&lt;body&gt;</p>
-<p>&lt;h2&gt;Select files to upload&lt;/h2&gt;</p>
-<p>&lt;form enctype="multipart/form-data" action="/store.php" method="post"&gt;</p>
-<p>&lt;input type="file" name="file"&gt;&lt;br&gt;</p>
-<p>&lt;input type="submit" name="submit" value="Upload"&gt;</p>
-<p>&lt;/form&gt;</p>
-<p>&lt;/body&gt;</p>
-<p>&lt;/html&gt;</p>
+<pre>
+# vi upload.php
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"/&gt;
+&lt;title&gt;Upload Files&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h2&gt;Select files to upload&lt;/h2&gt;
+&lt;form enctype="multipart/form-data" action="/store.php" method="post"&gt;
+&lt;input type="file" name="file"&gt;&lt;br&gt;
+&lt;input type="submit" name="submit" value="Upload"&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
 <p>2.存入ttserver</p>
-<p># vi store.php</p>
-<p>[codesyntax lang="php"]</p>
-<p>&lt;?php</p>
-<p>/*</p>
-<p>###################################</p>
-<p>### author: www.ttlsa.com ###</p>
-<p>### QQ群: 39514058 ###</p>
-<p>### E-mail: service@ttlsa.com ###</p>
-<p>###################################</p>
-<p>*/</p>
-<p>print_r($_FILES);</p>
-<p>echo "&lt;br&gt;";</p>
-<p>if($_FILES['file']['error'] !== 0){</p>
-<p>die('Error upload file. Error code '.$_FILES['file']['error']);</p>
-<p>}</p>
-<p>$filename=$_FILES['file']['name'];</p>
-<p>$tmpfilepath=$_FILES['file']['tmp_name'];</p>
-<p>$content=file_get_contents($tmpfilepath);</p>
-<p>echo '&lt;img src="data:image/jpeg;base64,', base64_encode($content), '"/&gt;';</p>
-<p>echo "&lt;br&gt;";</p>
-<p>$ttserver=new Memcache;</p>
-<p>$ttserver-&gt;addServer('192.168.1.60',1978);</p>
-<p>$ttserver-&gt;addServer('192.168.1.60',1979);</p>
-<p>$rt=$ttserver-&gt;set($filename,$content,0,0);</p>
-<p>if($rt){</p>
-<p>echo "存储成功!\n";</p>
-<p>}else{</p>
-<p>echo "存储失败!\n";</p>
-<p>}</p>
-<p>?&gt;</p>
-<p>[/codesyntax]</p>
+<pre>
+# vi store.php
+&lt;?php
+print_r($_FILES);
+echo "&lt;br&gt;";
+if($_FILES['file']['error'] !== 0){
+die('Error upload file. Error code '.$_FILES['file']['error']);
+}
+$filename=$_FILES['file']['name'];
+$tmpfilepath=$_FILES['file']['tmp_name'];
+$content=file_get_contents($tmpfilepath);
+echo '&lt;img src="data:image/jpeg;base64,', base64_encode($content), '"/&gt;';
+echo "&lt;br&gt;";
+$ttserver=new Memcache;
+$ttserver-&gt;addServer('192.168.1.60',1978);
+$ttserver-&gt;addServer('192.168.1.60',1979);
+$rt=$ttserver-&gt;set($filename,$content,0,0);
+if($rt){
+echo "存储成功!\n";
+}else{
+echo "存储失败!\n";
+}
+?&gt;
+</pre>
 <p>3.结果截图</p>
 <p>上传图片：</p>
 <p></p>

@@ -20384,10 +20384,7 @@ access_log logs/access.log access;</pre></div>
       <title><![CDATA[ttserver+nginx构建高并发高可用性应用-nginx案例]]></title>
       <url>/nginx/nginx/ttserver-nginx-1429.html</url>
       <content type="html"><![CDATA[<p>nginx,ttserver-nginx-1429,<br><a id="more"></a><br>
-  <div> 
-<!-- GG-Mobi-ad -->
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-0956732394986573" data-ad-slot="4502371869" data-ad-format="auto"></ins>
-</div>
+
 	
 				</p><p>ttserver+nginx构建高并发高可用性应用</p>
 <p>ttserver一款兼容memcached协议，也可以通过HTTP协议进行数据交换，支持故障转移，高可用性，高并发的分布式key-value持久存储系统。key-value分布式存储系统的特点是查询快，存储数量大，高并发，非常适合通过主键进行查询的操作。</p>
@@ -20395,115 +20392,120 @@ access_log logs/access.log access;</pre></div>
 <p>一.配置nginx</p>
 <p>nginx_upstream_check_module模块地址： https://github.com/yaoweibin/nginx_upstream_check_module</p>
 <p>nginx需要添加nginx_upstream_check_module模块，用于对后端服务器的健康情况检测，如果后端服务器不可用，则把这台服务器移除负载均衡轮循集群，所有的请求不往这台服务器上转发，待这台服务器恢复正常后，再把这台加入到负载均衡集群。这是LB的基本功能。</p>
-<p># vi nginx.conf</p>
-<p>user www-data;</p>
-<p>worker_processes 8;</p>
-<p>worker_cpu_affinity 00000001 00000010 00000100 00001000 00010000 00100000 01000000 10000000;</p>
-<p>error_log /var/log/nginx/error.log crit;</p>
-<p>pid /var/run/nginx.pid;</p>
-<p>worker_rlimit_nofile 65535;</p>
-<p>events {</p>
-<p>use epoll;</p>
-<p>worker_connections 65535;</p>
-<p>}</p>
-<p>http {</p>
-<p>include /etc/nginx/mime.types;</p>
-<p>default_type application/octet-stream;</p>
-<p>server_tokens off;</p>
-<p>access_log off;</p>
-<p>sendfile on;</p>
-<p>tcp_nopush on;</p>
-<p>keepalive_timeout 0;</p>
-<p>tcp_nodelay on;</p>
-<p>client_max_body_size 200m;</p>
-<p>gzip on;</p>
-<p>gzip_min_length 1k;</p>
-<p>gzip_buffers 4 16k;</p>
-<p>gzip_http_version 1.1;</p>
-<p>gzip_comp_level 5;</p>
-<p>gzip_disable "MSIE [1-6]\.(?!.*SV1)";</p>
-<p>gzip_types text/plain application/x-javascript text/css application/xml text/javascript;</p>
-<p>include /etc/nginx/conf.d/*.conf;</p>
-<p>include /etc/nginx/sites-enabled/*;</p>
-<p>}</p>
-<p># vi default</p>
-<p>server {</p>
-<p>listen 80;</p>
-<p>server_name 192.168.1.213;</p>
-<p>memcached_connect_timeout 1s;</p>
-<p>location / {</p>
-<p>root /www/web/tmp;</p>
-<p>error_page 404 = @fallback;</p>
-<p>}</p>
-<p>location ~ ^/ttlsa/ttlsa_([0-9a-zA-Z]\.+)$ {</p>
-<p>set $memcached_key $1; //memcached键值</p>
-<p>add_header X-ttserver-key $memcached_key; //添加一个header信息</p>
-<p>memcached_pass ttserver;</p>
-<p>memcached_next_upstream error timeout; //当发生错误或超时时，将请求转发到upstream下一个服务器</p>
-<p>default_type text/html;</p>
-<p>error_page 404 = @fallback;</p>
-<p>}</p>
-<p>location @fallback {</p>
-<p>rewrite ^ http://www.ttlsa.com redirect;</p>
-<p>}</p>
-<p>}</p>
-<p># vi upstream.conf</p>
-<p>upstream ttserver {</p>
-<p>server 192.168.1.60:1978;</p>
-<p>server 192.168.1.60:1979;</p>
-<p>check interval=3000 rise=2 fall=2 timeout=1000; //interval检测周期3s一次，fall宕机标记2次失败后标记不可用</p>
-<p>}</p>
+<pre>
+# vi nginx.conf
+user www-data;
+worker_processes 8;
+worker_cpu_affinity 00000001 00000010 00000100 00001000 00010000 00100000 01000000 10000000;
+error_log /var/log/nginx/error.log crit;
+pid /var/run/nginx.pid;
+worker_rlimit_nofile 65535;
+events {
+use epoll;
+worker_connections 65535;
+}
+http {
+include /etc/nginx/mime.types;
+default_type application/octet-stream;
+server_tokens off;
+access_log off;
+sendfile on;
+tcp_nopush on;
+keepalive_timeout 0;
+tcp_nodelay on;
+client_max_body_size 200m;
+gzip on;
+gzip_min_length 1k;
+gzip_buffers 4 16k;
+gzip_http_version 1.1;
+gzip_comp_level 5;
+gzip_disable "MSIE [1-6]\.(?!.*SV1)";
+gzip_types text/plain application/x-javascript text/css application/xml text/javascript;
+include /etc/nginx/conf.d/*.conf;
+include /etc/nginx/sites-enabled/*;
+}
+</pre>
+
+<pre>
+# vi default
+server {
+listen 80;
+server_name 192.168.1.213;
+memcached_connect_timeout 1s;
+location / {
+root /www/web/tmp;
+error_page 404 = @fallback;
+}
+location ~ ^/ttlsa/ttlsa_([0-9a-zA-Z]\.+)$ {
+set $memcached_key $1; //memcached键值
+add_header X-ttserver-key $memcached_key; //添加一个header信息
+memcached_pass ttserver;
+memcached_next_upstream error timeout; //当发生错误或超时时，将请求转发到upstream下一个服务器
+default_type text/html;
+error_page 404 = @fallback;
+}
+location @fallback {
+rewrite ^ http://www.ttlsa.com redirect;
+}
+}
+</pre>
+
+<pre>
+# vi upstream.conf
+upstream ttserver {
+server 192.168.1.60:1978;
+server 192.168.1.60:1979;
+check interval=3000 rise=2 fall=2 timeout=1000; //interval检测周期3s一次，fall宕机标记2次失败后标记不可用
+}
+</pre>
+
 <p>二.配置ttserver</p>
 <p>需要将ttserver配置成主主结构。</p>
 <p>ttserver的介绍，安装，配置参见： http://www.ttlsa.com/html/1220.html</p>
 <p>三.测试</p>
 <p>1.上传界面</p>
-<p># vi upload.php</p>
-<p>&lt;html&gt;</p>
-<p>&lt;head&gt;</p>
-<p>&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"/&gt;</p>
-<p>&lt;title&gt;Upload Files&lt;/title&gt;</p>
-<p>&lt;/head&gt;</p>
-<p>&lt;body&gt;</p>
-<p>&lt;h2&gt;Select files to upload&lt;/h2&gt;</p>
-<p>&lt;form enctype="multipart/form-data" action="/store.php" method="post"&gt;</p>
-<p>&lt;input type="file" name="file"&gt;&lt;br&gt;</p>
-<p>&lt;input type="submit" name="submit" value="Upload"&gt;</p>
-<p>&lt;/form&gt;</p>
-<p>&lt;/body&gt;</p>
-<p>&lt;/html&gt;</p>
+<pre>
+# vi upload.php
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"/&gt;
+&lt;title&gt;Upload Files&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h2&gt;Select files to upload&lt;/h2&gt;
+&lt;form enctype="multipart/form-data" action="/store.php" method="post"&gt;
+&lt;input type="file" name="file"&gt;&lt;br&gt;
+&lt;input type="submit" name="submit" value="Upload"&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
 <p>2.存入ttserver</p>
-<p># vi store.php</p>
-<p>[codesyntax lang="php"]</p>
-<p>&lt;?php</p>
-<p>/*</p>
-<p>###################################</p>
-<p>### author: www.ttlsa.com ###</p>
-<p>### QQ群: 39514058 ###</p>
-<p>### E-mail: service@ttlsa.com ###</p>
-<p>###################################</p>
-<p>*/</p>
-<p>print_r($_FILES);</p>
-<p>echo "&lt;br&gt;";</p>
-<p>if($_FILES['file']['error'] !== 0){</p>
-<p>die('Error upload file. Error code '.$_FILES['file']['error']);</p>
-<p>}</p>
-<p>$filename=$_FILES['file']['name'];</p>
-<p>$tmpfilepath=$_FILES['file']['tmp_name'];</p>
-<p>$content=file_get_contents($tmpfilepath);</p>
-<p>echo '&lt;img src="data:image/jpeg;base64,', base64_encode($content), '"/&gt;';</p>
-<p>echo "&lt;br&gt;";</p>
-<p>$ttserver=new Memcache;</p>
-<p>$ttserver-&gt;addServer('192.168.1.60',1978);</p>
-<p>$ttserver-&gt;addServer('192.168.1.60',1979);</p>
-<p>$rt=$ttserver-&gt;set($filename,$content,0,0);</p>
-<p>if($rt){</p>
-<p>echo "存储成功!\n";</p>
-<p>}else{</p>
-<p>echo "存储失败!\n";</p>
-<p>}</p>
-<p>?&gt;</p>
-<p>[/codesyntax]</p>
+<pre>
+# vi store.php
+&lt;?php
+print_r($_FILES);
+echo "&lt;br&gt;";
+if($_FILES['file']['error'] !== 0){
+die('Error upload file. Error code '.$_FILES['file']['error']);
+}
+$filename=$_FILES['file']['name'];
+$tmpfilepath=$_FILES['file']['tmp_name'];
+$content=file_get_contents($tmpfilepath);
+echo '&lt;img src="data:image/jpeg;base64,', base64_encode($content), '"/&gt;';
+echo "&lt;br&gt;";
+$ttserver=new Memcache;
+$ttserver-&gt;addServer('192.168.1.60',1978);
+$ttserver-&gt;addServer('192.168.1.60',1979);
+$rt=$ttserver-&gt;set($filename,$content,0,0);
+if($rt){
+echo "存储成功!\n";
+}else{
+echo "存储失败!\n";
+}
+?&gt;
+</pre>
 <p>3.结果截图</p>
 <p>上传图片：</p>
 <p></p>
@@ -32207,6 +32209,18 @@ deny  all;<br>
     </entry>
     
     <entry>
+      <title></title>
+      <url>/nginx%E5%B8%B8%E7%94%A8%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F%E5%8F%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html</url>
+      <content type="html"><![CDATA[<p>title: nginx常用基本变量及数据结构<br>tags: [nginx]<br>categories: nginx</p>
+<a id="more"></a>
+<h1 id="nginx-常用基本变量"><a href="#nginx-常用基本变量" class="headerlink" title="nginx 常用基本变量"></a>nginx 常用基本变量</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">typedef int  ngx_fd_t;</span><br><span class="line">typedef intptr_t        ngx_int_t;</span><br><span class="line">typedef uintptr_t       ngx_uint_t;</span><br><span class="line">typedef intptr_t        ngx_flag_t;</span><br><span class="line">typedef void *          ngx_buf_tag_t;</span><br></pre></td></tr></table></figure>
+<h1 id="nginx常用数据结构"><a href="#nginx常用数据结构" class="headerlink" title="nginx常用数据结构"></a>nginx常用数据结构</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> typedef struct &#123;</span><br><span class="line">     size_t      len;</span><br><span class="line">     u_char     *data;</span><br><span class="line">&#125; ngx_str_t;</span><br><span class="line"></span><br><span class="line">typedef struct stat  ngx_file_info_t;</span><br></pre></td></tr></table></figure>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[ngx_http_conf_get_module_loc_conf 分析]]></title>
       <url>/ngx_http_conf_get_module_loc_conf.html</url>
       <content type="html"><![CDATA[<p>自定义参数处理函数中会用到ngx_http_conf_get_module_loc_conf(cf, ngx_http_core_module);<br>获取配置块</p>
@@ -32231,26 +32245,16 @@ deny  all;<br>
     </entry>
     
     <entry>
-      <title></title>
-      <url>/nginx%E5%B8%B8%E7%94%A8%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F%E5%8F%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html</url>
-      <content type="html"><![CDATA[<p>title: nginx常用基本变量及数据结构<br>tags: [nginx]<br>categories: nginx</p>
+      <title><![CDATA[nginx-if指令与全局变量]]></title>
+      <url>/nginx-if%E6%8C%87%E4%BB%A4%E4%B8%8E%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F.html</url>
+      <content type="html"><![CDATA[<p>if判断指令<br>语法为if(condition){…}，对给定的条件condition进行判断。如果为真，大括号内的rewrite指令将被执行，if条件(conditon)可以是如下任何内容：</p>
+<blockquote>
+<p>当表达式只是一个变量时，如果值为空或任何以0开头的字符串都会当做false<br>直接比较变量和内容时，使用=或!=<br>~正则表达式匹配，~*不区分大小写的匹配，!~区分大小写的不匹配</p>
+</blockquote>
 <a id="more"></a>
-<h1 id="nginx-常用基本变量"><a href="#nginx-常用基本变量" class="headerlink" title="nginx 常用基本变量"></a>nginx 常用基本变量</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">typedef int  ngx_fd_t;</span><br><span class="line">typedef intptr_t        ngx_int_t;</span><br><span class="line">typedef uintptr_t       ngx_uint_t;</span><br><span class="line">typedef intptr_t        ngx_flag_t;</span><br><span class="line">typedef void *          ngx_buf_tag_t;</span><br></pre></td></tr></table></figure>
-<h1 id="nginx常用数据结构"><a href="#nginx常用数据结构" class="headerlink" title="nginx常用数据结构"></a>nginx常用数据结构</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> typedef struct &#123;</span><br><span class="line">     size_t      len;</span><br><span class="line">     u_char     *data;</span><br><span class="line">&#125; ngx_str_t;</span><br><span class="line"></span><br><span class="line">typedef struct stat  ngx_file_info_t;</span><br></pre></td></tr></table></figure>
-]]></content>
-      
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[nginx-location正则表达式匹配规则及动静分离]]></title>
-      <url>/nginx-location%E5%A5%87%E6%B7%AB%E6%8A%80%E5%B7%A7.html</url>
-      <content type="html"><![CDATA[<p>nginx，location常用正则表达式，及nginx动静分离<br><a id="more"></a></p>
-<h1 id="nginx匹配规则"><a href="#nginx匹配规则" class="headerlink" title="nginx匹配规则"></a>nginx匹配规则</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">~      波浪线表示执行一个正则匹配，区分大小写</span><br><span class="line">~*    表示执行一个正则匹配，不区分大小写</span><br><span class="line">^~     ^~表示普通字符匹配，如果该选项匹配，只匹配该选项，不匹配别的选项，一般用来匹配目录</span><br><span class="line">=      进行普通字符精确匹配</span><br><span class="line">@      &quot;@&quot; 定义一个命名的 location，使用在内部定向时，例如 error_page, try_files</span><br><span class="line">!~（!~*） 表示区分大小写不正则匹配和不区分大小写不正则匹配</span><br></pre></td></tr></table></figure>
-<h1 id="nginx正则表达式"><a href="#nginx正则表达式" class="headerlink" title="nginx正则表达式"></a>nginx正则表达式</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">. ： 匹配除换行符以外的任意字符</span><br><span class="line">? ： 重复0次或1次</span><br><span class="line">+ ： 重复1次或更多次</span><br><span class="line">* ： 重复0次或更多次</span><br><span class="line">\d ：匹配数字</span><br><span class="line">^ ： 匹配字符串的开始</span><br><span class="line">$ ： 匹配字符串的介绍</span><br><span class="line">&#123;n&#125; ： 重复n次</span><br><span class="line">&#123;n,&#125; ： 重复n次或更多次</span><br><span class="line">[c] ： 匹配单个字符c</span><br><span class="line">[a-z] ： 匹配a-z小写字母的任意一个</span><br></pre></td></tr></table></figure>
-<p><strong>注意</strong> 当正则表达式中含有 {} 是,必须将 正则表达式用 “” 引起来否则会报错<br>nginx: [emerg] pcre_compile() failed: missing ) in “/one/(\d” in /usr/local/nginx/conf/nginx.conf:56</p>
-<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#rewrite ^/test/([\d]&#123;3&#125;)/$ /index.php?id=$1 break;  #报错</span><br><span class="line">#修改为</span><br><span class="line">rewrite &quot;^/test/([\d]&#123;3&#125;)/$&quot; /index.php?id=$1 break;</span><br><span class="line"></span><br><span class="line">#本条可以不用引号</span><br><span class="line">rewrite ^/(\d+)/$ /index.php?id=$1 break;</span><br></pre></td></tr></table></figure></p>
-<h1 id="动静分离清单"><a href="#动静分离清单" class="headerlink" title="动静分离清单"></a>动静分离清单</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># 第一个必选规则</span><br><span class="line">location = / &#123;</span><br><span class="line">    proxy_pass http://127.0.0.1:9000/index</span><br><span class="line">&#125;</span><br><span class="line"># 第二个必选规则是处理静态文件请求，这是nginx作为http服务器的强项</span><br><span class="line"># 有两种配置模式，目录匹配或后缀匹配,任选其一或搭配使用</span><br><span class="line">location ^~ /static/ &#123;</span><br><span class="line">    root /web/static/;</span><br><span class="line">&#125;</span><br><span class="line">location ~* \.(gif|jpg|jpeg|png|css|js|ico)$ &#123;</span><br><span class="line">    root /web/res/;</span><br><span class="line">&#125;</span><br><span class="line">#第三个规则就是通用规则，用来转发动态请求到后端应用服务器</span><br><span class="line">#非静态文件请求就默认是动态请求，自己根据实际把握</span><br><span class="line">#毕竟目前的一些框架的流行，带.php,.jsp后缀的情况很少了</span><br><span class="line">location / &#123;</span><br><span class="line">    proxy_pass http://127.0.0.1:9000/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="if-常用判断"><a href="#if-常用判断" class="headerlink" title="if 常用判断"></a>if 常用判断</h1><p>-f和!-f用来判断是否存在文件<br>-d和!-d用来判断是否存在目录<br>-e和!-e用来判断是否存在文件或目录<br>-x和!-x用来判断文件是否可执行</p>
+<h2 id="if应用"><a href="#if应用" class="headerlink" title="if应用"></a>if应用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">if ($http_user_agent ~ MSIE) &#123;</span><br><span class="line">    rewrite ^(.*)$ /msie/$1 break;</span><br><span class="line">&#125; //如果UA包含&quot;MSIE&quot;，rewrite请求到/msid/目录下</span><br><span class="line">if ($http_cookie ~* &quot;id=([^;]+)(?:;|$)&quot;) &#123;</span><br><span class="line">    set $id $1;</span><br><span class="line"> &#125; //如果cookie匹配正则，设置变量$id等于正则引用部分</span><br><span class="line">if ($request_method = POST) &#123;</span><br><span class="line">    return 405;</span><br><span class="line">&#125; //如果提交方法为POST，则返回状态405（Method not allowed）。return不能返回301,302</span><br><span class="line">if ($slow) &#123;</span><br><span class="line">    limit_rate 10k;</span><br><span class="line">&#125; //限速，$slow可以通过 set 指令设置</span><br><span class="line">if (!-f $request_filename)&#123;</span><br><span class="line">    break;</span><br><span class="line">    proxy_pass  http://127.0.0.1;</span><br><span class="line">&#125; //如果请求的文件名不存在，则反向代理到localhost 。这里的break也是停止rewrite检查</span><br><span class="line">if ($args ~ post=140)&#123;</span><br><span class="line">    rewrite ^ http://example.com/ permanent;</span><br><span class="line">&#125; //如果query string中包含&quot;post=140&quot;，永久重定向到example.com</span><br><span class="line">location ~* \.(gif|jpg|png|swf|flv)$ &#123;</span><br><span class="line">    valid_referers none blocked www.jefflei.com www.leizhenfang.com;</span><br><span class="line">    if ($invalid_referer) &#123;</span><br><span class="line">        return 404;</span><br><span class="line">    &#125; //防盗链</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="nginx-常用全局变量"><a href="#nginx-常用全局变量" class="headerlink" title="nginx 常用全局变量"></a>nginx 常用全局变量</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">$args ： #这个变量等于请求行中的参数，同$query_string</span><br><span class="line">$is_args : 如果请求带有参数, 值为 ? 否则为空字符串</span><br><span class="line">$content_length ： 请求头中的Content-length字段。</span><br><span class="line">$content_type ： 请求头中的Content-Type字段。</span><br><span class="line">$document_root ： 当前请求在root指令中指定的值。</span><br><span class="line">$host ： 请求主机头字段，否则为服务器名称。</span><br><span class="line">$http_user_agent ： 客户端agent信息</span><br><span class="line">$http_cookie ： 客户端cookie信息</span><br><span class="line">$limit_rate ： 这个变量可以限制连接速率。</span><br><span class="line">$request_method ： 客户端请求的动作，通常为GET或POST。</span><br><span class="line">$remote_addr ： 客户端的IP地址。</span><br><span class="line">$remote_port ： 客户端的端口。</span><br><span class="line">$remote_user ： 已经经过Auth Basic Module验证的用户名。</span><br><span class="line">$request_filename ： 当前请求的文件路径，由root或alias指令与URI请求生成。</span><br><span class="line">$scheme ： HTTP方法（如http，https）。</span><br><span class="line">$server_protocol ： 请求使用的协议，通常是HTTP/1.0或HTTP/1.1。</span><br><span class="line">$server_addr ： 服务器地址，在完成一次系统调用后可以确定这个值。</span><br><span class="line">$server_name ： 服务器名称。</span><br><span class="line">$server_port ： 请求到达服务器的端口号。</span><br><span class="line">$request_uri ： 包含请求参数的原始URI，不包含主机名，如：”/foo/bar.php?arg=baz”。</span><br><span class="line">$uri ： 不带请求参数的当前URI，$uri不包含主机名，如”/foo/bar.html”。</span><br><span class="line">$document_uri ： 与$uri相同。</span><br><span class="line">$nginx_version： 当前nginx版本</span><br><span class="line">$request: 原始请求 GET /one/2222 HTTP/1.1</span><br><span class="line">$status:  响应状态码</span><br><span class="line">$http_referer: url跳转来源</span><br><span class="line">$request_body : 客户端请求主体</span><br></pre></td></tr></table></figure>
 ]]></content>
       
         <categories>
@@ -32264,7 +32268,7 @@ deny  all;<br>
             
             <tag> nginx </tag>
             
-            <tag> location </tag>
+            <tag> if </tag>
             
         </tags>
         
@@ -32306,16 +32310,14 @@ deny  all;<br>
     </entry>
     
     <entry>
-      <title><![CDATA[nginx-if指令与全局变量]]></title>
-      <url>/nginx-if%E6%8C%87%E4%BB%A4%E4%B8%8E%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F.html</url>
-      <content type="html"><![CDATA[<p>if判断指令<br>语法为if(condition){…}，对给定的条件condition进行判断。如果为真，大括号内的rewrite指令将被执行，if条件(conditon)可以是如下任何内容：</p>
-<blockquote>
-<p>当表达式只是一个变量时，如果值为空或任何以0开头的字符串都会当做false<br>直接比较变量和内容时，使用=或!=<br>~正则表达式匹配，~*不区分大小写的匹配，!~区分大小写的不匹配</p>
-</blockquote>
-<a id="more"></a>
-<h1 id="if-常用判断"><a href="#if-常用判断" class="headerlink" title="if 常用判断"></a>if 常用判断</h1><p>-f和!-f用来判断是否存在文件<br>-d和!-d用来判断是否存在目录<br>-e和!-e用来判断是否存在文件或目录<br>-x和!-x用来判断文件是否可执行</p>
-<h2 id="if应用"><a href="#if应用" class="headerlink" title="if应用"></a>if应用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">if ($http_user_agent ~ MSIE) &#123;</span><br><span class="line">    rewrite ^(.*)$ /msie/$1 break;</span><br><span class="line">&#125; //如果UA包含&quot;MSIE&quot;，rewrite请求到/msid/目录下</span><br><span class="line">if ($http_cookie ~* &quot;id=([^;]+)(?:;|$)&quot;) &#123;</span><br><span class="line">    set $id $1;</span><br><span class="line"> &#125; //如果cookie匹配正则，设置变量$id等于正则引用部分</span><br><span class="line">if ($request_method = POST) &#123;</span><br><span class="line">    return 405;</span><br><span class="line">&#125; //如果提交方法为POST，则返回状态405（Method not allowed）。return不能返回301,302</span><br><span class="line">if ($slow) &#123;</span><br><span class="line">    limit_rate 10k;</span><br><span class="line">&#125; //限速，$slow可以通过 set 指令设置</span><br><span class="line">if (!-f $request_filename)&#123;</span><br><span class="line">    break;</span><br><span class="line">    proxy_pass  http://127.0.0.1;</span><br><span class="line">&#125; //如果请求的文件名不存在，则反向代理到localhost 。这里的break也是停止rewrite检查</span><br><span class="line">if ($args ~ post=140)&#123;</span><br><span class="line">    rewrite ^ http://example.com/ permanent;</span><br><span class="line">&#125; //如果query string中包含&quot;post=140&quot;，永久重定向到example.com</span><br><span class="line">location ~* \.(gif|jpg|png|swf|flv)$ &#123;</span><br><span class="line">    valid_referers none blocked www.jefflei.com www.leizhenfang.com;</span><br><span class="line">    if ($invalid_referer) &#123;</span><br><span class="line">        return 404;</span><br><span class="line">    &#125; //防盗链</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="nginx-常用全局变量"><a href="#nginx-常用全局变量" class="headerlink" title="nginx 常用全局变量"></a>nginx 常用全局变量</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">$args ： #这个变量等于请求行中的参数，同$query_string</span><br><span class="line">$is_args : 如果请求带有参数, 值为 ? 否则为空字符串</span><br><span class="line">$content_length ： 请求头中的Content-length字段。</span><br><span class="line">$content_type ： 请求头中的Content-Type字段。</span><br><span class="line">$document_root ： 当前请求在root指令中指定的值。</span><br><span class="line">$host ： 请求主机头字段，否则为服务器名称。</span><br><span class="line">$http_user_agent ： 客户端agent信息</span><br><span class="line">$http_cookie ： 客户端cookie信息</span><br><span class="line">$limit_rate ： 这个变量可以限制连接速率。</span><br><span class="line">$request_method ： 客户端请求的动作，通常为GET或POST。</span><br><span class="line">$remote_addr ： 客户端的IP地址。</span><br><span class="line">$remote_port ： 客户端的端口。</span><br><span class="line">$remote_user ： 已经经过Auth Basic Module验证的用户名。</span><br><span class="line">$request_filename ： 当前请求的文件路径，由root或alias指令与URI请求生成。</span><br><span class="line">$scheme ： HTTP方法（如http，https）。</span><br><span class="line">$server_protocol ： 请求使用的协议，通常是HTTP/1.0或HTTP/1.1。</span><br><span class="line">$server_addr ： 服务器地址，在完成一次系统调用后可以确定这个值。</span><br><span class="line">$server_name ： 服务器名称。</span><br><span class="line">$server_port ： 请求到达服务器的端口号。</span><br><span class="line">$request_uri ： 包含请求参数的原始URI，不包含主机名，如：”/foo/bar.php?arg=baz”。</span><br><span class="line">$uri ： 不带请求参数的当前URI，$uri不包含主机名，如”/foo/bar.html”。</span><br><span class="line">$document_uri ： 与$uri相同。</span><br><span class="line">$nginx_version： 当前nginx版本</span><br><span class="line">$request: 原始请求 GET /one/2222 HTTP/1.1</span><br><span class="line">$status:  响应状态码</span><br><span class="line">$http_referer: url跳转来源</span><br><span class="line">$request_body : 客户端请求主体</span><br></pre></td></tr></table></figure>
+      <title><![CDATA[nginx-location正则表达式匹配规则及动静分离]]></title>
+      <url>/nginx-location%E5%A5%87%E6%B7%AB%E6%8A%80%E5%B7%A7.html</url>
+      <content type="html"><![CDATA[<p>nginx，location常用正则表达式，及nginx动静分离<br><a id="more"></a></p>
+<h1 id="nginx匹配规则"><a href="#nginx匹配规则" class="headerlink" title="nginx匹配规则"></a>nginx匹配规则</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">~      波浪线表示执行一个正则匹配，区分大小写</span><br><span class="line">~*    表示执行一个正则匹配，不区分大小写</span><br><span class="line">^~     ^~表示普通字符匹配，如果该选项匹配，只匹配该选项，不匹配别的选项，一般用来匹配目录</span><br><span class="line">=      进行普通字符精确匹配</span><br><span class="line">@      &quot;@&quot; 定义一个命名的 location，使用在内部定向时，例如 error_page, try_files</span><br><span class="line">!~（!~*） 表示区分大小写不正则匹配和不区分大小写不正则匹配</span><br></pre></td></tr></table></figure>
+<h1 id="nginx正则表达式"><a href="#nginx正则表达式" class="headerlink" title="nginx正则表达式"></a>nginx正则表达式</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">. ： 匹配除换行符以外的任意字符</span><br><span class="line">? ： 重复0次或1次</span><br><span class="line">+ ： 重复1次或更多次</span><br><span class="line">* ： 重复0次或更多次</span><br><span class="line">\d ：匹配数字</span><br><span class="line">^ ： 匹配字符串的开始</span><br><span class="line">$ ： 匹配字符串的介绍</span><br><span class="line">&#123;n&#125; ： 重复n次</span><br><span class="line">&#123;n,&#125; ： 重复n次或更多次</span><br><span class="line">[c] ： 匹配单个字符c</span><br><span class="line">[a-z] ： 匹配a-z小写字母的任意一个</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong> 当正则表达式中含有 {} 是,必须将 正则表达式用 “” 引起来否则会报错<br>nginx: [emerg] pcre_compile() failed: missing ) in “/one/(\d” in /usr/local/nginx/conf/nginx.conf:56</p>
+<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#rewrite ^/test/([\d]&#123;3&#125;)/$ /index.php?id=$1 break;  #报错</span><br><span class="line">#修改为</span><br><span class="line">rewrite &quot;^/test/([\d]&#123;3&#125;)/$&quot; /index.php?id=$1 break;</span><br><span class="line"></span><br><span class="line">#本条可以不用引号</span><br><span class="line">rewrite ^/(\d+)/$ /index.php?id=$1 break;</span><br></pre></td></tr></table></figure></p>
+<h1 id="动静分离清单"><a href="#动静分离清单" class="headerlink" title="动静分离清单"></a>动静分离清单</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># 第一个必选规则</span><br><span class="line">location = / &#123;</span><br><span class="line">    proxy_pass http://127.0.0.1:9000/index</span><br><span class="line">&#125;</span><br><span class="line"># 第二个必选规则是处理静态文件请求，这是nginx作为http服务器的强项</span><br><span class="line"># 有两种配置模式，目录匹配或后缀匹配,任选其一或搭配使用</span><br><span class="line">location ^~ /static/ &#123;</span><br><span class="line">    root /web/static/;</span><br><span class="line">&#125;</span><br><span class="line">location ~* \.(gif|jpg|jpeg|png|css|js|ico)$ &#123;</span><br><span class="line">    root /web/res/;</span><br><span class="line">&#125;</span><br><span class="line">#第三个规则就是通用规则，用来转发动态请求到后端应用服务器</span><br><span class="line">#非静态文件请求就默认是动态请求，自己根据实际把握</span><br><span class="line">#毕竟目前的一些框架的流行，带.php,.jsp后缀的情况很少了</span><br><span class="line">location / &#123;</span><br><span class="line">    proxy_pass http://127.0.0.1:9000/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       
         <categories>
@@ -32329,7 +32331,7 @@ deny  all;<br>
             
             <tag> nginx </tag>
             
-            <tag> if </tag>
+            <tag> location </tag>
             
         </tags>
         
@@ -32387,38 +32389,6 @@ deny  all;<br>
     </entry>
     
     <entry>
-      <title><![CDATA[java常用的一些代码片段]]></title>
-      <url>/java%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81.html</url>
-      <content type="html"><![CDATA[<p>收集整理java开放中常用的一些代码片段（长期更新）</p>
-<a id="more"></a>
-<blockquote>
-<p>字符串翻转</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public static String reverse(String str)&#123;  </span><br><span class="line">        return new StringBuilder(str).reverse().toString();  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>spring 中读取 src/main/resource 下的文件</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public void testClassPathResource() throws IOException &#123;</span><br><span class="line">    Resource res = new      ClassPathResource(&quot;resource/ApplicationContext.xml&quot;);</span><br><span class="line">   InputStream input = res.getInputStream();</span><br><span class="line">   Assert.assertNotNull(input);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">File file = ResourceUtils.getFile(&quot;classpath:doc&quot;);</span><br><span class="line">str = FileUtils.readFileToString(file, &quot;utf-8&quot;);</span><br></pre></td></tr></table></figure>
-]]></content>
-      
-        <categories>
-            
-            <category> java </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> java </tag>
-            
-            <tag> java常用代码 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[java-zip压缩单文件]]></title>
       <url>/java-zip%E5%8E%8B%E7%BC%A9%E5%8D%95%E6%96%87%E4%BB%B6.html</url>
       <content type="html"><![CDATA[<p>java开发中经常用到压缩文件,在JDK中自带zip 压缩相关的类</p>
@@ -32447,6 +32417,38 @@ deny  all;<br>
             <tag> ZipInputStream </tag>
             
             <tag> ZipFile </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[java常用的一些代码片段]]></title>
+      <url>/java%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81.html</url>
+      <content type="html"><![CDATA[<p>收集整理java开放中常用的一些代码片段（长期更新）</p>
+<a id="more"></a>
+<blockquote>
+<p>字符串翻转</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public static String reverse(String str)&#123;  </span><br><span class="line">        return new StringBuilder(str).reverse().toString();  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>spring 中读取 src/main/resource 下的文件</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public void testClassPathResource() throws IOException &#123;</span><br><span class="line">    Resource res = new      ClassPathResource(&quot;resource/ApplicationContext.xml&quot;);</span><br><span class="line">   InputStream input = res.getInputStream();</span><br><span class="line">   Assert.assertNotNull(input);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">File file = ResourceUtils.getFile(&quot;classpath:doc&quot;);</span><br><span class="line">str = FileUtils.readFileToString(file, &quot;utf-8&quot;);</span><br></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> java </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> java </tag>
+            
+            <tag> java常用代码 </tag>
             
         </tags>
         
@@ -32502,11 +32504,34 @@ deny  all;<br>
         
         <tags>
             
-            <tag> c </tag>
-            
             <tag> struct </tag>
             
+            <tag> c </tag>
+            
             <tag> 结构体 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[nginx启动流程]]></title>
+      <url>/Nginx%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B.html</url>
+      <content type="html"><![CDATA[<p>nginx启动流程，从main函数开始,一个重要的结构体ngx_cycle_s</p>
+<a id="more"></a>
+<h1 id="ngx-cycle-s"><a href="#ngx-cycle-s" class="headerlink" title="ngx_cycle_s"></a>ngx_cycle_s</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">0038 struct ngx_cycle_s &#123;</span><br><span class="line">0039     void                  ****conf_ctx;</span><br><span class="line">0040     ngx_pool_t               *pool;</span><br><span class="line">0041 </span><br><span class="line">0042     ngx_log_t                *log;</span><br><span class="line">0043     ngx_log_t                 new_log;</span><br><span class="line">0044 </span><br><span class="line">0045     ngx_uint_t                log_use_stderr;  /* unsigned  log_use_stderr:1; */</span><br><span class="line">0046 </span><br><span class="line">0047     ngx_connection_t        **files;</span><br><span class="line">0048     ngx_connection_t         *free_connections;</span><br><span class="line">0049     ngx_uint_t                free_connection_n;</span><br><span class="line">0050 </span><br><span class="line">0051     ngx_module_t            **modules;</span><br><span class="line">0052     ngx_uint_t                modules_n;</span><br><span class="line">0053     ngx_uint_t                modules_used;    /* unsigned  modules_used:1; */</span><br><span class="line">0054 </span><br><span class="line">0055     ngx_queue_t               reusable_connections_queue;</span><br><span class="line">0056     ngx_uint_t                reusable_connections_n;</span><br><span class="line">0057 </span><br><span class="line">0058     ngx_array_t               listening;</span><br><span class="line">0059     ngx_array_t               paths;</span><br><span class="line">0060 </span><br><span class="line">0061     ngx_array_t               config_dump;</span><br><span class="line">0062     ngx_rbtree_t              config_dump_rbtree;</span><br><span class="line">0063     ngx_rbtree_node_t         config_dump_sentinel;</span><br><span class="line">0064 </span><br><span class="line">0065     ngx_list_t                open_files;</span><br><span class="line">0066     ngx_list_t                shared_memory;</span><br><span class="line">0067 </span><br><span class="line">0068     ngx_uint_t                connection_n;</span><br><span class="line">0069     ngx_uint_t                files_n;</span><br><span class="line">0070 </span><br><span class="line">0071     ngx_connection_t         *connections;</span><br><span class="line">0072     ngx_event_t              *read_events;</span><br><span class="line">0073     ngx_event_t              *write_events;</span><br><span class="line">0074 </span><br><span class="line">0075     ngx_cycle_t              *old_cycle;</span><br><span class="line">0076 </span><br><span class="line">0077     ngx_str_t                 conf_file;</span><br><span class="line">0078     ngx_str_t                 conf_param;</span><br><span class="line">0079     ngx_str_t                 conf_prefix;</span><br><span class="line">0080     ngx_str_t                 prefix;</span><br><span class="line">0081     ngx_str_t                 lock_file;</span><br><span class="line">0082     ngx_str_t                 hostname;</span><br><span class="line">0083 &#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="填充ngx-cycle-t数据"><a href="#填充ngx-cycle-t数据" class="headerlink" title="填充ngx_cycle_t数据"></a>填充ngx_cycle_t数据</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br></pre></td><td class="code"><pre><span class="line">int ngx_cdecl</span><br><span class="line">main(int argc, char *const *argv)</span><br><span class="line">&#123;</span><br><span class="line">    ngx_int_t         i;</span><br><span class="line">    ngx_log_t        *log;</span><br><span class="line">    ngx_cycle_t      *cycle, init_cycle;</span><br><span class="line">    ngx_core_conf_t  *ccf;</span><br><span class="line"></span><br><span class="line">    ngx_debug_init();</span><br><span class="line"></span><br><span class="line">    if (ngx_strerror_init() != NGX_OK) &#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* 解析命令行参数 */</span><br><span class="line">    if (ngx_get_options(argc, argv) != NGX_OK) &#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* 显示版本号与帮助信息 */</span><br><span class="line">    if (ngx_show_version) &#123;</span><br><span class="line">        ngx_write_stderr(&quot;nginx version: &quot; NGINX_VER NGX_LINEFEED);</span><br><span class="line"></span><br><span class="line">        if (ngx_show_help) &#123;</span><br><span class="line">            ngx_write_stderr(</span><br><span class="line">                &quot;Usage: nginx [-?hvVtq] [-s signal] [-c filename] &quot;</span><br><span class="line">                             &quot;[-p prefix] [-g directives]&quot; NGX_LINEFEED</span><br><span class="line">                             NGX_LINEFEED</span><br><span class="line">                &quot;Options:&quot; NGX_LINEFEED</span><br><span class="line">                &quot;  -?,-h         : this help&quot; NGX_LINEFEED</span><br><span class="line">                &quot;  -v            : show version and exit&quot; NGX_LINEFEED</span><br><span class="line">                &quot;  -V            : show version and configure options then exit&quot;</span><br><span class="line">                                   NGX_LINEFEED</span><br><span class="line">                &quot;  -t            : test configuration and exit&quot; NGX_LINEFEED</span><br><span class="line">                &quot;  -q            : suppress non-error messages &quot;</span><br><span class="line">                                   &quot;during configuration testing&quot; NGX_LINEFEED</span><br><span class="line">                &quot;  -s signal     : send signal to a master process: &quot;</span><br><span class="line">                                   &quot;stop, quit, reopen, reload&quot; NGX_LINEFEED</span><br><span class="line">#ifdef NGX_PREFIX</span><br><span class="line">                &quot;  -p prefix     : set prefix path (default: &quot;</span><br><span class="line">                                   NGX_PREFIX &quot;)&quot; NGX_LINEFEED</span><br><span class="line">#else</span><br><span class="line">                &quot;  -p prefix     : set prefix path (default: NONE)&quot; NGX_LINEFEED</span><br><span class="line">#endif</span><br><span class="line">                &quot;  -c filename   : set configuration file (default: &quot;</span><br><span class="line">                                   NGX_CONF_PATH &quot;)&quot; NGX_LINEFEED</span><br><span class="line">                &quot;  -g directives : set global directives out of configuration &quot;</span><br><span class="line">                                   &quot;file&quot; NGX_LINEFEED NGX_LINEFEED</span><br><span class="line">                );</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (ngx_show_configure) &#123;</span><br><span class="line">            ngx_write_stderr(</span><br><span class="line">#ifdef NGX_COMPILER</span><br><span class="line">                &quot;built by &quot; NGX_COMPILER NGX_LINEFEED</span><br><span class="line">#endif</span><br><span class="line">#if (NGX_SSL)</span><br><span class="line">#ifdef SSL_CTRL_SET_TLSEXT_HOSTNAME</span><br><span class="line">                &quot;TLS SNI support enabled&quot; NGX_LINEFEED</span><br><span class="line">#else</span><br><span class="line">                &quot;TLS SNI support disabled&quot; NGX_LINEFEED</span><br><span class="line">#endif</span><br><span class="line">#endif</span><br><span class="line">                &quot;configure arguments:&quot; NGX_CONFIGURE NGX_LINEFEED);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (!ngx_test_config) &#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* TODO */ ngx_max_sockets = -1;</span><br><span class="line"></span><br><span class="line">    /* 初始化并更新时间 */</span><br><span class="line">    ngx_time_init();</span><br><span class="line"></span><br><span class="line">#if (NGX_PCRE)</span><br><span class="line">    ngx_regex_init();</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">    ngx_pid = ngx_getpid();</span><br><span class="line"></span><br><span class="line">    /* 初始化日志信息 */</span><br><span class="line">    log = ngx_log_init(ngx_prefix);</span><br><span class="line">    if (log == NULL) &#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* STUB */</span><br><span class="line">#if (NGX_OPENSSL)</span><br><span class="line">    ngx_ssl_init(log);</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">    /*</span><br><span class="line">     * init_cycle-&gt;log is required for signal handlers and</span><br><span class="line">     * ngx_process_options()</span><br><span class="line">     */</span><br><span class="line"></span><br><span class="line">    /* 全局变量init_cycle清零，并创建改变量的内存池pool */</span><br><span class="line">    ngx_memzero(&amp;init_cycle, sizeof(ngx_cycle_t));</span><br><span class="line">    init_cycle.log = log;</span><br><span class="line">    ngx_cycle = &amp;init_cycle;</span><br><span class="line"></span><br><span class="line">    init_cycle.pool = ngx_create_pool(1024, log);</span><br><span class="line">    if (init_cycle.pool == NULL) &#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* 保存命令行参数至全局变量ngx_os_argv、ngx_argc、ngx_argv */</span><br><span class="line">    if (ngx_save_argv(&amp;init_cycle, argc, argv) != NGX_OK) &#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* 初始化全局变量init_cycle中的成员：prefix、conf_prefix、conf_file、conf_param 等字段 */</span><br><span class="line">    if (ngx_process_options(&amp;init_cycle) != NGX_OK) &#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* 初始化系统相关变量，如：内存页面大小ngx_pagesize、最大连接数ngx_max_sockets等 */</span><br><span class="line">    if (ngx_os_init(log) != NGX_OK) &#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /*</span><br><span class="line">     * ngx_crc32_table_init() requires ngx_cacheline_size set in ngx_os_init()</span><br><span class="line">     */</span><br><span class="line"></span><br><span class="line">    /* 初始化 CRC 表（循环冗余校验表） */</span><br><span class="line">    if (ngx_crc32_table_init() != NGX_OK) &#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* 通过环境变量NGINX完成socket的继承，将其保存在全局变量init_cycle的listening数组中 */</span><br><span class="line">    if (ngx_add_inherited_sockets(&amp;init_cycle) != NGX_OK) &#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* 初始化每个模块module的index，并计算ngx_max_module */</span><br><span class="line">    ngx_max_module = 0;</span><br><span class="line">    for (i = 0; ngx_modules[i]; i++) &#123;</span><br><span class="line">        ngx_modules[i]-&gt;index = ngx_max_module++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* 初始化全局变量init_cycle ，这里很重要 */</span><br><span class="line">    cycle = ngx_init_cycle(&amp;init_cycle);</span><br><span class="line">    if (cycle == NULL) &#123;</span><br><span class="line">        if (ngx_test_config) &#123;</span><br><span class="line">            ngx_log_stderr(0, &quot;configuration file %s test failed&quot;,</span><br><span class="line">                           init_cycle.conf_file.data);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (ngx_test_config) &#123;</span><br><span class="line">        if (!ngx_quiet_mode) &#123;</span><br><span class="line">            ngx_log_stderr(0, &quot;configuration file %s test is successful&quot;,</span><br><span class="line">                           cycle-&gt;conf_file.data);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* 信号处理 */</span><br><span class="line">    if (ngx_signal) &#123;</span><br><span class="line">        return ngx_signal_process(cycle, ngx_signal);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ngx_os_status(cycle-&gt;log);</span><br><span class="line"></span><br><span class="line">    ngx_cycle = cycle;</span><br><span class="line"></span><br><span class="line">    ccf = (ngx_core_conf_t *) ngx_get_conf(cycle-&gt;conf_ctx, ngx_core_module);</span><br><span class="line"></span><br><span class="line">    if (ccf-&gt;master &amp;&amp; ngx_process == NGX_PROCESS_SINGLE) &#123;</span><br><span class="line">        ngx_process = NGX_PROCESS_MASTER;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">#if !(NGX_WIN32)</span><br><span class="line"></span><br><span class="line">    /* 初始化信号，注册相关信号 */</span><br><span class="line">    if (ngx_init_signals(cycle-&gt;log) != NGX_OK) &#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* 若无socket继承，则创建守护进程，并设置守护进程标志 */</span><br><span class="line">    if (!ngx_inherited &amp;&amp; ccf-&gt;daemon) &#123;</span><br><span class="line">        if (ngx_daemon(cycle-&gt;log) != NGX_OK) &#123;</span><br><span class="line">            return 1;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ngx_daemonized = 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (ngx_inherited) &#123;</span><br><span class="line">        ngx_daemonized = 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">    /* 记录进程ID */</span><br><span class="line">    if (ngx_create_pidfile(&amp;ccf-&gt;pid, cycle-&gt;log) != NGX_OK) &#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (ngx_log_redirect_stderr(cycle) != NGX_OK) &#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (log-&gt;file-&gt;fd != ngx_stderr) &#123;</span><br><span class="line">        if (ngx_close_file(log-&gt;file-&gt;fd) == NGX_FILE_ERROR) &#123;</span><br><span class="line">            ngx_log_error(NGX_LOG_ALERT, cycle-&gt;log, ngx_errno,</span><br><span class="line">                          ngx_close_file_n &quot; built-in log failed&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ngx_use_stderr = 0;</span><br><span class="line"></span><br><span class="line">    /* 进入进程处理 */</span><br><span class="line">    if (ngx_process == NGX_PROCESS_SINGLE) &#123;</span><br><span class="line">        /* 单进程工作模式 */</span><br><span class="line">        ngx_single_process_cycle(cycle);</span><br><span class="line"></span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        /* master-worker 多进程模式工作 */</span><br><span class="line">        ngx_master_process_cycle(cycle);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+        <categories>
+            
+            <category> nginx </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> nginx </tag>
             
         </tags>
         
@@ -32532,29 +32557,6 @@ deny  all;<br>
             <tag> host </tag>
             
             <tag> http_host </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[nginx启动流程]]></title>
-      <url>/Nginx%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B.html</url>
-      <content type="html"><![CDATA[<p>nginx启动流程，从main函数开始,一个重要的结构体ngx_cycle_s</p>
-<a id="more"></a>
-<h1 id="ngx-cycle-s"><a href="#ngx-cycle-s" class="headerlink" title="ngx_cycle_s"></a>ngx_cycle_s</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">0038 struct ngx_cycle_s &#123;</span><br><span class="line">0039     void                  ****conf_ctx;</span><br><span class="line">0040     ngx_pool_t               *pool;</span><br><span class="line">0041 </span><br><span class="line">0042     ngx_log_t                *log;</span><br><span class="line">0043     ngx_log_t                 new_log;</span><br><span class="line">0044 </span><br><span class="line">0045     ngx_uint_t                log_use_stderr;  /* unsigned  log_use_stderr:1; */</span><br><span class="line">0046 </span><br><span class="line">0047     ngx_connection_t        **files;</span><br><span class="line">0048     ngx_connection_t         *free_connections;</span><br><span class="line">0049     ngx_uint_t                free_connection_n;</span><br><span class="line">0050 </span><br><span class="line">0051     ngx_module_t            **modules;</span><br><span class="line">0052     ngx_uint_t                modules_n;</span><br><span class="line">0053     ngx_uint_t                modules_used;    /* unsigned  modules_used:1; */</span><br><span class="line">0054 </span><br><span class="line">0055     ngx_queue_t               reusable_connections_queue;</span><br><span class="line">0056     ngx_uint_t                reusable_connections_n;</span><br><span class="line">0057 </span><br><span class="line">0058     ngx_array_t               listening;</span><br><span class="line">0059     ngx_array_t               paths;</span><br><span class="line">0060 </span><br><span class="line">0061     ngx_array_t               config_dump;</span><br><span class="line">0062     ngx_rbtree_t              config_dump_rbtree;</span><br><span class="line">0063     ngx_rbtree_node_t         config_dump_sentinel;</span><br><span class="line">0064 </span><br><span class="line">0065     ngx_list_t                open_files;</span><br><span class="line">0066     ngx_list_t                shared_memory;</span><br><span class="line">0067 </span><br><span class="line">0068     ngx_uint_t                connection_n;</span><br><span class="line">0069     ngx_uint_t                files_n;</span><br><span class="line">0070 </span><br><span class="line">0071     ngx_connection_t         *connections;</span><br><span class="line">0072     ngx_event_t              *read_events;</span><br><span class="line">0073     ngx_event_t              *write_events;</span><br><span class="line">0074 </span><br><span class="line">0075     ngx_cycle_t              *old_cycle;</span><br><span class="line">0076 </span><br><span class="line">0077     ngx_str_t                 conf_file;</span><br><span class="line">0078     ngx_str_t                 conf_param;</span><br><span class="line">0079     ngx_str_t                 conf_prefix;</span><br><span class="line">0080     ngx_str_t                 prefix;</span><br><span class="line">0081     ngx_str_t                 lock_file;</span><br><span class="line">0082     ngx_str_t                 hostname;</span><br><span class="line">0083 &#125;;</span><br></pre></td></tr></table></figure>
-<h1 id="填充ngx-cycle-t数据"><a href="#填充ngx-cycle-t数据" class="headerlink" title="填充ngx_cycle_t数据"></a>填充ngx_cycle_t数据</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br></pre></td><td class="code"><pre><span class="line">int ngx_cdecl</span><br><span class="line">main(int argc, char *const *argv)</span><br><span class="line">&#123;</span><br><span class="line">    ngx_int_t         i;</span><br><span class="line">    ngx_log_t        *log;</span><br><span class="line">    ngx_cycle_t      *cycle, init_cycle;</span><br><span class="line">    ngx_core_conf_t  *ccf;</span><br><span class="line"></span><br><span class="line">    ngx_debug_init();</span><br><span class="line"></span><br><span class="line">    if (ngx_strerror_init() != NGX_OK) &#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* 解析命令行参数 */</span><br><span class="line">    if (ngx_get_options(argc, argv) != NGX_OK) &#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* 显示版本号与帮助信息 */</span><br><span class="line">    if (ngx_show_version) &#123;</span><br><span class="line">        ngx_write_stderr(&quot;nginx version: &quot; NGINX_VER NGX_LINEFEED);</span><br><span class="line"></span><br><span class="line">        if (ngx_show_help) &#123;</span><br><span class="line">            ngx_write_stderr(</span><br><span class="line">                &quot;Usage: nginx [-?hvVtq] [-s signal] [-c filename] &quot;</span><br><span class="line">                             &quot;[-p prefix] [-g directives]&quot; NGX_LINEFEED</span><br><span class="line">                             NGX_LINEFEED</span><br><span class="line">                &quot;Options:&quot; NGX_LINEFEED</span><br><span class="line">                &quot;  -?,-h         : this help&quot; NGX_LINEFEED</span><br><span class="line">                &quot;  -v            : show version and exit&quot; NGX_LINEFEED</span><br><span class="line">                &quot;  -V            : show version and configure options then exit&quot;</span><br><span class="line">                                   NGX_LINEFEED</span><br><span class="line">                &quot;  -t            : test configuration and exit&quot; NGX_LINEFEED</span><br><span class="line">                &quot;  -q            : suppress non-error messages &quot;</span><br><span class="line">                                   &quot;during configuration testing&quot; NGX_LINEFEED</span><br><span class="line">                &quot;  -s signal     : send signal to a master process: &quot;</span><br><span class="line">                                   &quot;stop, quit, reopen, reload&quot; NGX_LINEFEED</span><br><span class="line">#ifdef NGX_PREFIX</span><br><span class="line">                &quot;  -p prefix     : set prefix path (default: &quot;</span><br><span class="line">                                   NGX_PREFIX &quot;)&quot; NGX_LINEFEED</span><br><span class="line">#else</span><br><span class="line">                &quot;  -p prefix     : set prefix path (default: NONE)&quot; NGX_LINEFEED</span><br><span class="line">#endif</span><br><span class="line">                &quot;  -c filename   : set configuration file (default: &quot;</span><br><span class="line">                                   NGX_CONF_PATH &quot;)&quot; NGX_LINEFEED</span><br><span class="line">                &quot;  -g directives : set global directives out of configuration &quot;</span><br><span class="line">                                   &quot;file&quot; NGX_LINEFEED NGX_LINEFEED</span><br><span class="line">                );</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (ngx_show_configure) &#123;</span><br><span class="line">            ngx_write_stderr(</span><br><span class="line">#ifdef NGX_COMPILER</span><br><span class="line">                &quot;built by &quot; NGX_COMPILER NGX_LINEFEED</span><br><span class="line">#endif</span><br><span class="line">#if (NGX_SSL)</span><br><span class="line">#ifdef SSL_CTRL_SET_TLSEXT_HOSTNAME</span><br><span class="line">                &quot;TLS SNI support enabled&quot; NGX_LINEFEED</span><br><span class="line">#else</span><br><span class="line">                &quot;TLS SNI support disabled&quot; NGX_LINEFEED</span><br><span class="line">#endif</span><br><span class="line">#endif</span><br><span class="line">                &quot;configure arguments:&quot; NGX_CONFIGURE NGX_LINEFEED);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (!ngx_test_config) &#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* TODO */ ngx_max_sockets = -1;</span><br><span class="line"></span><br><span class="line">    /* 初始化并更新时间 */</span><br><span class="line">    ngx_time_init();</span><br><span class="line"></span><br><span class="line">#if (NGX_PCRE)</span><br><span class="line">    ngx_regex_init();</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">    ngx_pid = ngx_getpid();</span><br><span class="line"></span><br><span class="line">    /* 初始化日志信息 */</span><br><span class="line">    log = ngx_log_init(ngx_prefix);</span><br><span class="line">    if (log == NULL) &#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* STUB */</span><br><span class="line">#if (NGX_OPENSSL)</span><br><span class="line">    ngx_ssl_init(log);</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">    /*</span><br><span class="line">     * init_cycle-&gt;log is required for signal handlers and</span><br><span class="line">     * ngx_process_options()</span><br><span class="line">     */</span><br><span class="line"></span><br><span class="line">    /* 全局变量init_cycle清零，并创建改变量的内存池pool */</span><br><span class="line">    ngx_memzero(&amp;init_cycle, sizeof(ngx_cycle_t));</span><br><span class="line">    init_cycle.log = log;</span><br><span class="line">    ngx_cycle = &amp;init_cycle;</span><br><span class="line"></span><br><span class="line">    init_cycle.pool = ngx_create_pool(1024, log);</span><br><span class="line">    if (init_cycle.pool == NULL) &#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* 保存命令行参数至全局变量ngx_os_argv、ngx_argc、ngx_argv */</span><br><span class="line">    if (ngx_save_argv(&amp;init_cycle, argc, argv) != NGX_OK) &#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* 初始化全局变量init_cycle中的成员：prefix、conf_prefix、conf_file、conf_param 等字段 */</span><br><span class="line">    if (ngx_process_options(&amp;init_cycle) != NGX_OK) &#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* 初始化系统相关变量，如：内存页面大小ngx_pagesize、最大连接数ngx_max_sockets等 */</span><br><span class="line">    if (ngx_os_init(log) != NGX_OK) &#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /*</span><br><span class="line">     * ngx_crc32_table_init() requires ngx_cacheline_size set in ngx_os_init()</span><br><span class="line">     */</span><br><span class="line"></span><br><span class="line">    /* 初始化 CRC 表（循环冗余校验表） */</span><br><span class="line">    if (ngx_crc32_table_init() != NGX_OK) &#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* 通过环境变量NGINX完成socket的继承，将其保存在全局变量init_cycle的listening数组中 */</span><br><span class="line">    if (ngx_add_inherited_sockets(&amp;init_cycle) != NGX_OK) &#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* 初始化每个模块module的index，并计算ngx_max_module */</span><br><span class="line">    ngx_max_module = 0;</span><br><span class="line">    for (i = 0; ngx_modules[i]; i++) &#123;</span><br><span class="line">        ngx_modules[i]-&gt;index = ngx_max_module++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* 初始化全局变量init_cycle ，这里很重要 */</span><br><span class="line">    cycle = ngx_init_cycle(&amp;init_cycle);</span><br><span class="line">    if (cycle == NULL) &#123;</span><br><span class="line">        if (ngx_test_config) &#123;</span><br><span class="line">            ngx_log_stderr(0, &quot;configuration file %s test failed&quot;,</span><br><span class="line">                           init_cycle.conf_file.data);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (ngx_test_config) &#123;</span><br><span class="line">        if (!ngx_quiet_mode) &#123;</span><br><span class="line">            ngx_log_stderr(0, &quot;configuration file %s test is successful&quot;,</span><br><span class="line">                           cycle-&gt;conf_file.data);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* 信号处理 */</span><br><span class="line">    if (ngx_signal) &#123;</span><br><span class="line">        return ngx_signal_process(cycle, ngx_signal);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ngx_os_status(cycle-&gt;log);</span><br><span class="line"></span><br><span class="line">    ngx_cycle = cycle;</span><br><span class="line"></span><br><span class="line">    ccf = (ngx_core_conf_t *) ngx_get_conf(cycle-&gt;conf_ctx, ngx_core_module);</span><br><span class="line"></span><br><span class="line">    if (ccf-&gt;master &amp;&amp; ngx_process == NGX_PROCESS_SINGLE) &#123;</span><br><span class="line">        ngx_process = NGX_PROCESS_MASTER;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">#if !(NGX_WIN32)</span><br><span class="line"></span><br><span class="line">    /* 初始化信号，注册相关信号 */</span><br><span class="line">    if (ngx_init_signals(cycle-&gt;log) != NGX_OK) &#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* 若无socket继承，则创建守护进程，并设置守护进程标志 */</span><br><span class="line">    if (!ngx_inherited &amp;&amp; ccf-&gt;daemon) &#123;</span><br><span class="line">        if (ngx_daemon(cycle-&gt;log) != NGX_OK) &#123;</span><br><span class="line">            return 1;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ngx_daemonized = 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (ngx_inherited) &#123;</span><br><span class="line">        ngx_daemonized = 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">    /* 记录进程ID */</span><br><span class="line">    if (ngx_create_pidfile(&amp;ccf-&gt;pid, cycle-&gt;log) != NGX_OK) &#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (ngx_log_redirect_stderr(cycle) != NGX_OK) &#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (log-&gt;file-&gt;fd != ngx_stderr) &#123;</span><br><span class="line">        if (ngx_close_file(log-&gt;file-&gt;fd) == NGX_FILE_ERROR) &#123;</span><br><span class="line">            ngx_log_error(NGX_LOG_ALERT, cycle-&gt;log, ngx_errno,</span><br><span class="line">                          ngx_close_file_n &quot; built-in log failed&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ngx_use_stderr = 0;</span><br><span class="line"></span><br><span class="line">    /* 进入进程处理 */</span><br><span class="line">    if (ngx_process == NGX_PROCESS_SINGLE) &#123;</span><br><span class="line">        /* 单进程工作模式 */</span><br><span class="line">        ngx_single_process_cycle(cycle);</span><br><span class="line"></span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        /* master-worker 多进程模式工作 */</span><br><span class="line">        ngx_master_process_cycle(cycle);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-        <categories>
-            
-            <category> nginx </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> nginx </tag>
             
         </tags>
         
@@ -32590,37 +32592,6 @@ deny  all;<br>
     </entry>
     
     <entry>
-      <title><![CDATA[C语言结构体研究]]></title>
-      <url>/C%E8%AF%AD%E8%A8%80%E7%BB%93%E6%9E%84%E4%BD%93%E7%A0%94%E7%A9%B6.html</url>
-      <content type="html"><![CDATA[<p>总结一些C语言结构体中常用的知识点</p>
-<a id="more"></a>
-<h1 id="C-语言结构体之点运算符-和箭头运算符-gt-的区别"><a href="#C-语言结构体之点运算符-和箭头运算符-gt-的区别" class="headerlink" title="C 语言结构体之点运算符( . )和箭头运算符( -&gt; )的区别"></a>C 语言结构体之点运算符( . )和箭头运算符( -&gt; )的区别</h1><blockquote>
-<p>相同点：两者都是二元操作符，而且右边的操作数都是成员的名称。<br>不通点：点运算符( . )的左边操作数是一个结果为结构的表达式；</p>
-<blockquote>
-<p>箭头运算符( -&gt; )的左边的操作数是一个指向结构体的指针。</p>
-</blockquote>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">typedef struct          // 定义一个结构体类型：TEST</span><br><span class="line">&#123;</span><br><span class="line">    int age;            // 结构体成员：age</span><br><span class="line">&#125;TEST;</span><br><span class="line">TEST data;              // 声明一个结构体变量</span><br><span class="line">TEST *pdata;            // 声明一个指向结构体的指针</span><br><span class="line">// 访问数据操作如下：</span><br><span class="line">data.age = 24;          // 结构体变量通过点运算符( . )访问</span><br><span class="line">pdata-&gt;age = 24;        // 指向结构体的指针通过箭头运算符( -&gt; )访问</span><br></pre></td></tr></table></figure>
-]]></content>
-      
-        <categories>
-            
-            <category> c </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> c </tag>
-            
-            <tag> struct </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[Faile- to-star- component-Unable-to-register-MBean]]></title>
       <url>/Failed%20to%20start%20component.html</url>
       <content type="html"><![CDATA[<p>部署springboot war包到 tomcat出现以下错误<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">org.apache.catalina.LifecycleException: Failed to start component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[]]</span><br><span class="line">Caused by: org.springframework.jmx.export.UnableToRegisterMBeanException: Unable to register MBean</span><br></pre></td></tr></table></figure></p>
@@ -32645,6 +32616,37 @@ deny  all;<br>
             <tag> tomcat </tag>
             
             <tag> springboot </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[C语言结构体研究]]></title>
+      <url>/C%E8%AF%AD%E8%A8%80%E7%BB%93%E6%9E%84%E4%BD%93%E7%A0%94%E7%A9%B6.html</url>
+      <content type="html"><![CDATA[<p>总结一些C语言结构体中常用的知识点</p>
+<a id="more"></a>
+<h1 id="C-语言结构体之点运算符-和箭头运算符-gt-的区别"><a href="#C-语言结构体之点运算符-和箭头运算符-gt-的区别" class="headerlink" title="C 语言结构体之点运算符( . )和箭头运算符( -&gt; )的区别"></a>C 语言结构体之点运算符( . )和箭头运算符( -&gt; )的区别</h1><blockquote>
+<p>相同点：两者都是二元操作符，而且右边的操作数都是成员的名称。<br>不通点：点运算符( . )的左边操作数是一个结果为结构的表达式；</p>
+<blockquote>
+<p>箭头运算符( -&gt; )的左边的操作数是一个指向结构体的指针。</p>
+</blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">typedef struct          // 定义一个结构体类型：TEST</span><br><span class="line">&#123;</span><br><span class="line">    int age;            // 结构体成员：age</span><br><span class="line">&#125;TEST;</span><br><span class="line">TEST data;              // 声明一个结构体变量</span><br><span class="line">TEST *pdata;            // 声明一个指向结构体的指针</span><br><span class="line">// 访问数据操作如下：</span><br><span class="line">data.age = 24;          // 结构体变量通过点运算符( . )访问</span><br><span class="line">pdata-&gt;age = 24;        // 指向结构体的指针通过箭头运算符( -&gt; )访问</span><br></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> c </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> struct </tag>
+            
+            <tag> c </tag>
             
         </tags>
         
