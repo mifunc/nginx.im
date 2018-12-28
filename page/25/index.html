@@ -293,7 +293,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nginx.im/centos7-rc-local不起作用修复.html">
+    <link itemprop="mainEntityOfPage" href="http://nginx.im/Nginx启动流程.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="IM.NGINX">
@@ -312,7 +312,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/centos7-rc-local不起作用修复.html" itemprop="url">centos7-rc-local不起作用修复</a></h2>
+                <a class="post-title-link" href="/Nginx启动流程.html" itemprop="url">nginx启动流程</a></h2>
         
 
         <div class="post-meta">
@@ -347,8 +347,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/centos7/" itemprop="url" rel="index">
-                    <span itemprop="name">centos7</span>
+                  <a href="/categories/nginx/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx</span>
                   </a>
                 </span>
 
@@ -359,6 +359,16 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Nginx启动流程.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/Nginx启动流程.html" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -385,10 +395,10 @@
 
       
         
-          <p>在centos7版本以下的系统中, 尝尝用rc.local 自动启动一些软件. 但是在centos7 中 默认rc.local 是不起作用的, centos7 中把 SysV 替换成  system 。centos7保留了rc.local ,只需要简单的设置就可以开启.</p>
+          <p>nginx启动流程，从main函数开始,一个重要的结构体ngx_cycle_s</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/centos7-rc-local不起作用修复.html#post.more" rel="contents">
+            <a class="btn" href="/Nginx启动流程.html#post.more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -505,6 +515,16 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/The-real-difference-between-$host-and-$http_host.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/The-real-difference-between-$host-and-$http_host.html" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -652,6 +672,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Failed to start component.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/Failed to start component.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -797,6 +827,16 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/C语言结构体研究.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/C语言结构体研究.html" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -1150,6 +1190,28 @@
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'aPQIbNPVt6EhSmuG1kva1oME-gzGzoHsz# your leancloud application appid',
+        appKey: 'wPv8gze3GncW6AbicVHm8W3y',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 

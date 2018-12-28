@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="nginx,nginx-modules-ngx_image_thumb,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-24T09:25:56.476Z">
+<meta property="og:updated_time" content="2018-12-24T09:31:52.633Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx国人开发缩略图模块(ngx_image_thumb)-nginx案例">
 <meta name="twitter:description" content="nginx,nginx-modules-ngx_image_thumb,">
@@ -362,6 +362,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/nginx/nginx/nginx-modules-ngx_image_thumb.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/nginx/nginx/nginx-modules-ngx_image_thumb.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -580,8 +590,8 @@ image_water_color 水印文字颜色,默认 #000000</p>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/nginx/nginx/nginx-modules-ngx_http_lower_upper_case.html" rel="next" title="nginx实现大小写字母转换（ngx_http_lower_upper_case模块）-nginx案例">
-                <i class="fa fa-chevron-left"></i> nginx实现大小写字母转换（ngx_http_lower_upper_case模块）-nginx案例
+              <a href="/nginx/nginx/nginx-modules-ngx_lua.html" rel="next" title="nginx + ngx_lua安装测试-nginx案例">
+                <i class="fa fa-chevron-left"></i> nginx + ngx_lua安装测试-nginx案例
               </a>
             
           </div>
@@ -590,8 +600,8 @@ image_water_color 水印文字颜色,默认 #000000</p>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/nginx/nginx/nginx-modules-ngx_lua.html" rel="prev" title="nginx + ngx_lua安装测试-nginx案例">
-                nginx + ngx_lua安装测试-nginx案例 <i class="fa fa-chevron-right"></i>
+              <a href="/nginx/nginx/nginx-modules-ngx_realtime_request_module.html" rel="prev" title="nginx实时记录请求状态信息( ngx_realtime_request_module)-nginx案例">
+                nginx实时记录请求状态信息( ngx_realtime_request_module)-nginx案例 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -623,9 +633,7 @@ image_water_color 水印文字颜色,默认 #000000</p>
 
   
     <div class="comments" id="comments">
-      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTg1NS84NDE5"></div>
     </div>
-
   
 
 
@@ -896,27 +904,37 @@ image_water_color 水印文字颜色,默认 #000000</p>
 
 
   
-    <script type="text/javascript">
-      (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-        if (typeof LivereTower === 'function') { return; }
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-        e.parentNode.insertBefore(j, e);
-		
-      })(document, 'script');
-    </script>
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
   
-
-
-
-
-
-
-
-
-
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'aPQIbNPVt6EhSmuG1kva1oME-gzGzoHsz# your leancloud application appid',
+        appKey: 'wPv8gze3GncW6AbicVHm8W3y',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 

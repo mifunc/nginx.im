@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="web,the-cdn-scheduler-nginx-haproxy-varnish,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-24T09:25:34.929Z">
+<meta property="og:updated_time" content="2018-12-24T09:31:52.653Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CDN调度器HAProxy、Nginx、Varnish-nginx案例">
 <meta name="twitter:description" content="web,the-cdn-scheduler-nginx-haproxy-varnish,">
@@ -361,6 +361,16 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/nginx/web/the-cdn-scheduler-nginx-haproxy-varnish.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/nginx/web/the-cdn-scheduler-nginx-haproxy-varnish.html" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -702,9 +712,7 @@ HAProxy和Varnish都是目前的最新版本。<br>
 
   
     <div class="comments" id="comments">
-      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTg1NS84NDE5"></div>
     </div>
-
   
 
 
@@ -975,27 +983,37 @@ HAProxy和Varnish都是目前的最新版本。<br>
 
 
   
-    <script type="text/javascript">
-      (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-        if (typeof LivereTower === 'function') { return; }
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-        e.parentNode.insertBefore(j, e);
-		
-      })(document, 'script');
-    </script>
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
   
-
-
-
-
-
-
-
-
-
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'aPQIbNPVt6EhSmuG1kva1oME-gzGzoHsz# your leancloud application appid',
+        appKey: 'wPv8gze3GncW6AbicVHm8W3y',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 

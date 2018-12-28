@@ -362,6 +362,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/spring-boot/spring-boot-Access-Control-Allow-Origin.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/spring-boot/spring-boot-Access-Control-Allow-Origin.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -470,8 +480,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/spring-boot-mybatis-druid整合.html" rel="next" title="spring-boot-mybatis-druid整合">
-                <i class="fa fa-chevron-left"></i> spring-boot-mybatis-druid整合
+              <a href="/spring-boot/spring-token.html" rel="next" title="springboot过滤器验证token">
+                <i class="fa fa-chevron-left"></i> springboot过滤器验证token
               </a>
             
           </div>
@@ -480,8 +490,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/spring-boot/spring-token.html" rel="prev" title="springboot过滤器验证token">
-                springboot过滤器验证token <i class="fa fa-chevron-right"></i>
+              <a href="/spring-boot自义定错误返回页面和json格式.html" rel="prev" title="spring-boot自义定错误返回页面和json格式">
+                spring-boot自义定错误返回页面和json格式 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -513,9 +523,7 @@
 
   
     <div class="comments" id="comments">
-      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTg1NS84NDE5"></div>
     </div>
-
   
 
 
@@ -811,27 +819,37 @@
 
 
   
-    <script type="text/javascript">
-      (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-        if (typeof LivereTower === 'function') { return; }
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-        e.parentNode.insertBefore(j, e);
-		
-      })(document, 'script');
-    </script>
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
   
-
-
-
-
-
-
-
-
-
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'aPQIbNPVt6EhSmuG1kva1oME-gzGzoHsz# your leancloud application appid',
+        appKey: 'wPv8gze3GncW6AbicVHm8W3y',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 

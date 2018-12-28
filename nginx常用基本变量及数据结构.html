@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="title: nginx常用基本变量及数据结构tags: [nginx]categories: nginx">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-24T08:19:42.859Z">
+<meta property="og:updated_time" content="2018-12-24T09:31:52.601Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IM.NGINX">
 <meta name="twitter:description" content="title: nginx常用基本变量及数据结构tags: [nginx]categories: nginx">
@@ -339,6 +339,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/nginx常用基本变量及数据结构.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/nginx常用基本变量及数据结构.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -438,8 +448,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/nginx-args-query-string-uri详解.html" rel="next" title="nginx-args-query-string-uri详解">
-                <i class="fa fa-chevron-left"></i> nginx-args-query-string-uri详解
+              <a href="/nginx-if指令与全局变量.html" rel="next" title="nginx-if指令与全局变量">
+                <i class="fa fa-chevron-left"></i> nginx-if指令与全局变量
               </a>
             
           </div>
@@ -481,9 +491,7 @@
 
   
     <div class="comments" id="comments">
-      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTg1NS84NDE5"></div>
     </div>
-
   
 
 
@@ -779,27 +787,37 @@
 
 
   
-    <script type="text/javascript">
-      (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-        if (typeof LivereTower === 'function') { return; }
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-        e.parentNode.insertBefore(j, e);
-		
-      })(document, 'script');
-    </script>
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
   
-
-
-
-
-
-
-
-
-
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'aPQIbNPVt6EhSmuG1kva1oME-gzGzoHsz# your leancloud application appid',
+        appKey: 'wPv8gze3GncW6AbicVHm8W3y',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
