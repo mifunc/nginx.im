@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://nginx.im/nginx%E5%B8%B8%E7%94%A8%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F%E5%8F%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html</loc>
-    <lastmod>2019-10-30T01:45:13.516Z</lastmod>
+    <lastmod>2019-10-30T01:57:27.191Z</lastmod>
     <data>
         <display>
         <title></title>
@@ -359,12 +359,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/web/multiple-https-host-nginx-with-a-ip-configuration.html</loc>
+    <loc>http://nginx.im/nginx/web/srcache_nginx-redis-purge-cache.html</loc>
     <lastmod>2018-12-24T09:31:52.653Z</lastmod>
     <data>
         <display>
-        <title>nginx 同一个IP上配置多个HTTPS主机-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.354Z</pubTime>
+        <title>srcache_nginx redis 清除缓存-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.355Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -399,12 +399,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/web/srcache_nginx-redis-purge-cache.html</loc>
+    <loc>http://nginx.im/nginx/web/multiple-https-host-nginx-with-a-ip-configuration.html</loc>
     <lastmod>2018-12-24T09:31:52.653Z</lastmod>
     <data>
         <display>
-        <title>srcache_nginx redis 清除缓存-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.355Z</pubTime>
+        <title>nginx 同一个IP上配置多个HTTPS主机-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.354Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -819,12 +819,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-modules-random-index.html</loc>
+    <loc>http://nginx.im/nginx/nginx/nginx-modules-perl_module.html</loc>
     <lastmod>2018-12-24T09:31:52.637Z</lastmod>
     <data>
         <display>
-        <title>nginx显示随机首页模块(Random Index)-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.308Z</pubTime>
+        <title>nginx+perl模块的使用-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.307Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -839,12 +839,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-modules-perl_module.html</loc>
+    <loc>http://nginx.im/nginx/nginx/nginx-modules-random-index.html</loc>
     <lastmod>2018-12-24T09:31:52.637Z</lastmod>
     <data>
         <display>
-        <title>nginx+perl模块的使用-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.307Z</pubTime>
+        <title>nginx显示随机首页模块(Random Index)-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.308Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -1399,12 +1399,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-install-on-linux.html</loc>
+    <loc>http://nginx.im/nginx/nginx/nginx-get-user-real-ip.html</loc>
     <lastmod>2018-12-24T09:31:52.613Z</lastmod>
     <data>
         <display>
-        <title>nginx安装-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.258Z</pubTime>
+        <title>CDN下nginx获取用户真实IP地址-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.257Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -1419,12 +1419,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-get-user-real-ip.html</loc>
+    <loc>http://nginx.im/nginx/nginx/nginx-install-on-linux.html</loc>
     <lastmod>2018-12-24T09:31:52.613Z</lastmod>
     <data>
         <display>
-        <title>CDN下nginx获取用户真实IP地址-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.257Z</pubTime>
+        <title>nginx安装-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.258Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -1539,12 +1539,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/nginx/memc_nginx_srcache_nginx_memcached-problems.html</loc>
+    <loc>http://nginx.im/nginx/nginx/how-to-install-nginx-third-modules.html</loc>
     <lastmod>2018-12-24T09:31:52.608Z</lastmod>
     <data>
         <display>
-        <title>memc_nginx+srcache_nginx+memcached遇到的问题-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.245Z</pubTime>
+        <title>如何安装nginx第三方模块-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.240Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -1559,12 +1559,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/nginx/how-to-install-nginx-third-modules.html</loc>
+    <loc>http://nginx.im/nginx/nginx/memc_nginx_srcache_nginx_memcached-problems.html</loc>
     <lastmod>2018-12-24T09:31:52.608Z</lastmod>
     <data>
         <display>
-        <title>如何安装nginx第三方模块-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.240Z</pubTime>
+        <title>memc_nginx+srcache_nginx+memcached遇到的问题-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.245Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -1599,12 +1599,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/nginx/application-of-nginx_memcached-to-construct-the-page-cache.html</loc>
+    <loc>http://nginx.im/nginx/nginx/construction-of-srcache_nginx_redis-caching-system.html</loc>
     <lastmod>2018-12-24T09:31:52.606Z</lastmod>
     <data>
         <display>
-        <title>nginx+memcached构建页面缓存应用-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.235Z</pubTime>
+        <title>srcache_nginx+redis构建缓存系统-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.237Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -1619,12 +1619,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/nginx/construction-of-srcache_nginx_redis-caching-system.html</loc>
+    <loc>http://nginx.im/nginx/nginx/application-of-nginx_memcached-to-construct-the-page-cache.html</loc>
     <lastmod>2018-12-24T09:31:52.606Z</lastmod>
     <data>
         <display>
-        <title>srcache_nginx+redis构建缓存系统-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.237Z</pubTime>
+        <title>nginx+memcached构建页面缓存应用-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.235Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -1659,12 +1659,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/linux/the-nginx-log-configuration.html</loc>
+    <loc>http://nginx.im/nginx/linux/nginx-modules-ngx_http_access_module.html</loc>
     <lastmod>2018-12-24T09:31:52.604Z</lastmod>
     <data>
         <display>
-        <title>nginx日志配置-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.227Z</pubTime>
+        <title>nginx访问控制allow、deny（ngx_http_access_module）-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.219Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -1679,12 +1679,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/linux/nginx-modules-ngx_http_access_module.html</loc>
+    <loc>http://nginx.im/nginx/linux/the-nginx-log-configuration.html</loc>
     <lastmod>2018-12-24T09:31:52.604Z</lastmod>
     <data>
         <display>
-        <title>nginx访问控制allow、deny（ngx_http_access_module）-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.219Z</pubTime>
+        <title>nginx日志配置-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.227Z</pubTime>
         
         <tag>nginx</tag>
          

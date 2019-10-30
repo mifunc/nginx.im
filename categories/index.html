@@ -596,28 +596,6 @@
 
 
 
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-  
-  <script type="text/javascript">
-    var GUEST = ['nick','mail','link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(item=>{
-      return GUEST.indexOf(item)>-1;
-    });
-    new Valine({
-        el: '#comments' ,
-        verify: false,
-        notify: false,
-        appId: 'aPQIbNPVt6EhSmuG1kva1oME-gzGzoHsz# your leancloud application appid',
-        appKey: 'wPv8gze3GncW6AbicVHm8W3y',
-        placeholder: '您的评论可以一针见血',
-        avatar:'mm',
-        guest_info:guest,
-        pageSize:'10' || 10,
-    });
-  </script>
-
 
 
   
