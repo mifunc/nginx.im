@@ -2,10 +2,8 @@
 
 
 
-  
 
-
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next mist" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -74,6 +72,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="IM.NGINX" type="application/atom+xml" />
+
 
 
 
@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="IM.NGINX">
 <meta property="og:description" content="title: nginx常用基本变量及数据结构tags: [nginx]categories: nginx">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-28T02:19:20.788Z">
+<meta property="og:updated_time" content="2019-10-30T01:45:13.516Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IM.NGINX">
 <meta name="twitter:description" content="title: nginx常用基本变量及数据结构tags: [nginx]categories: nginx">
@@ -97,12 +97,12 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Gemini',
+    scheme: 'Mist',
     version: '5.1.3',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -448,8 +448,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ngx_http_conf_get_module_loc_conf.html" rel="next" title="ngx_http_conf_get_module_loc_conf 分析">
-                <i class="fa fa-chevron-left"></i> ngx_http_conf_get_module_loc_conf 分析
+              <a href="/nginx-if指令与全局变量.html" rel="next" title="nginx-if指令与全局变量">
+                <i class="fa fa-chevron-left"></i> nginx-if指令与全局变量
               </a>
             
           </div>
@@ -458,8 +458,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/spring-boot-feign伪rpc集成.html" rel="prev" title="spring-boot-feign伪rpc集成">
-                spring-boot-feign伪rpc集成 <i class="fa fa-chevron-right"></i>
+              <a href="/ngx_http_conf_get_module_loc_conf.html" rel="prev" title="ngx_http_conf_get_module_loc_conf 分析">
+                ngx_http_conf_get_module_loc_conf 分析 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -575,6 +575,13 @@
           </nav>
 
           
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
 
           <div class="links-of-author motion-element">
             
@@ -621,7 +628,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -684,9 +691,6 @@
 
 
 
-  
-  
-
 
 
 
@@ -723,16 +727,6 @@
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
   
 
-  
-  
-    <script type="text/javascript" src="/lib/three/three.min.js"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
-  
-
 
   
 
@@ -745,13 +739,6 @@
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
-
-
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>

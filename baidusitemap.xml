@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://nginx.im/nginx%E5%B8%B8%E7%94%A8%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F%E5%8F%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html</loc>
-    <lastmod>2018-12-28T02:19:20.788Z</lastmod>
+    <lastmod>2019-10-30T01:45:13.516Z</lastmod>
     <data>
         <display>
         <title></title>
@@ -359,6 +359,26 @@
 
     
   <url>
+    <loc>http://nginx.im/nginx/web/multiple-https-host-nginx-with-a-ip-configuration.html</loc>
+    <lastmod>2018-12-24T09:31:52.653Z</lastmod>
+    <data>
+        <display>
+        <title>nginx 同一个IP上配置多个HTTPS主机-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.354Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://nginx.im/nginx/web/the-cdn-scheduler-nginx-haproxy-varnish.html</loc>
     <lastmod>2018-12-24T09:31:52.653Z</lastmod>
     <data>
@@ -385,26 +405,6 @@
         <display>
         <title>srcache_nginx redis 清除缓存-nginx案例</title>
         <pubTime>2018-12-24T09:31:16.355Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/nginx/web/multiple-https-host-nginx-with-a-ip-configuration.html</loc>
-    <lastmod>2018-12-24T09:31:52.653Z</lastmod>
-    <data>
-        <display>
-        <title>nginx 同一个IP上配置多个HTTPS主机-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.354Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -659,12 +659,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-purge-404-error.html</loc>
+    <loc>http://nginx.im/nginx/nginx/nginx-referer.html</loc>
     <lastmod>2018-12-24T09:31:52.643Z</lastmod>
     <data>
         <display>
-        <title>nginx purge更新缓存404错误-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.321Z</pubTime>
+        <title>nginx实现图片防盗链(referer指令)-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.322Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -679,12 +679,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-referer.html</loc>
+    <loc>http://nginx.im/nginx/nginx/nginx-purge-404-error.html</loc>
     <lastmod>2018-12-24T09:31:52.643Z</lastmod>
     <data>
         <display>
-        <title>nginx实现图片防盗链(referer指令)-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.322Z</pubTime>
+        <title>nginx purge更新缓存404错误-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.321Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -719,12 +719,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-php-5_5.html</loc>
+    <loc>http://nginx.im/nginx/nginx/nginx-proxy_set_header.html</loc>
     <lastmod>2018-12-24T09:31:52.641Z</lastmod>
     <data>
         <display>
-        <title>nginx+PHP 5.5-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.316Z</pubTime>
+        <title>nginx反向代理proxy_set_header自定义header头无效-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.320Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -739,12 +739,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-proxy_set_header.html</loc>
+    <loc>http://nginx.im/nginx/nginx/nginx-php-5_5.html</loc>
     <lastmod>2018-12-24T09:31:52.641Z</lastmod>
     <data>
         <display>
-        <title>nginx反向代理proxy_set_header自定义header头无效-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.320Z</pubTime>
+        <title>nginx+PHP 5.5-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.316Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -779,12 +779,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-modules-secure_link.html</loc>
+    <loc>http://nginx.im/nginx/nginx/nginx-modules-sysgurad.html</loc>
     <lastmod>2018-12-24T09:31:52.638Z</lastmod>
     <data>
         <display>
-        <title>nginx secure_link下载防盗链-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.309Z</pubTime>
+        <title>nginx防止高负载的解决方案(sysgurad模块)-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.312Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -799,12 +799,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-modules-sysgurad.html</loc>
+    <loc>http://nginx.im/nginx/nginx/nginx-modules-secure_link.html</loc>
     <lastmod>2018-12-24T09:31:52.638Z</lastmod>
     <data>
         <display>
-        <title>nginx防止高负载的解决方案(sysgurad模块)-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.312Z</pubTime>
+        <title>nginx secure_link下载防盗链-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.309Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -979,12 +979,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-modules-ngx_http_dyups_module.html</loc>
+    <loc>http://nginx.im/nginx/nginx/nginx-modules-ngx_http_log_request_speed.html</loc>
     <lastmod>2018-12-24T09:31:52.631Z</lastmod>
     <data>
         <display>
-        <title>nginx修改upstream不重启的方法(ngx_http_dyups_module模块)-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.298Z</pubTime>
+        <title>nginx记录分析网站响应慢的请求(ngx_http_log_request_speed)-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.299Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -999,12 +999,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-modules-ngx_http_log_request_speed.html</loc>
+    <loc>http://nginx.im/nginx/nginx/nginx-modules-ngx_http_dyups_module.html</loc>
     <lastmod>2018-12-24T09:31:52.631Z</lastmod>
     <data>
         <display>
-        <title>nginx记录分析网站响应慢的请求(ngx_http_log_request_speed)-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.299Z</pubTime>
+        <title>nginx修改upstream不重启的方法(ngx_http_dyups_module模块)-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.298Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -1339,12 +1339,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-limited-connection-number-ngx_http_limit_conn_module-module.html</loc>
+    <loc>http://nginx.im/nginx/nginx/nginx-log-cutting.html</loc>
     <lastmod>2018-12-24T09:31:52.615Z</lastmod>
     <data>
         <display>
-        <title>nginx限制连接数ngx_http_limit_conn_module模块-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.261Z</pubTime>
+        <title>nginx日志切割-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.266Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -1359,12 +1359,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-log-cutting.html</loc>
+    <loc>http://nginx.im/nginx/nginx/nginx-limited-connection-number-ngx_http_limit_conn_module-module.html</loc>
     <lastmod>2018-12-24T09:31:52.615Z</lastmod>
     <data>
         <display>
-        <title>nginx日志切割-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.266Z</pubTime>
+        <title>nginx限制连接数ngx_http_limit_conn_module模块-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.261Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -1459,12 +1459,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-configure-vhosts.html</loc>
+    <loc>http://nginx.im/nginx/nginx/nginx-create-image-on-disk.html</loc>
     <lastmod>2018-12-24T09:31:52.611Z</lastmod>
     <data>
         <display>
-        <title>nginx配置虚拟主机-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.253Z</pubTime>
+        <title>nginx实时生成缩略图到硬盘上-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.254Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -1479,12 +1479,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-create-image-on-disk.html</loc>
+    <loc>http://nginx.im/nginx/nginx/nginx-configure-vhosts.html</loc>
     <lastmod>2018-12-24T09:31:52.611Z</lastmod>
     <data>
         <display>
-        <title>nginx实时生成缩略图到硬盘上-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.254Z</pubTime>
+        <title>nginx配置虚拟主机-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.253Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -3759,12 +3759,12 @@
 
     
   <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_auth_basic_module.html</loc>
+    <loc>http://nginx.im/ngx/http/ngx_http_access_module.html</loc>
     <lastmod>2018-12-24T03:54:08.184Z</lastmod>
     <data>
         <display>
-        <title>http/ngx_http_auth_basic_module-nginx中文参考手册</title>
-        <pubTime>2018-12-24T03:54:01.261Z</pubTime>
+        <title>http/ngx_http_access_module-nginx中文参考手册</title>
+        <pubTime>2018-12-24T03:54:01.257Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -3779,12 +3779,12 @@
 
     
   <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_access_module.html</loc>
+    <loc>http://nginx.im/ngx/http/ngx_http_auth_basic_module.html</loc>
     <lastmod>2018-12-24T03:54:08.184Z</lastmod>
     <data>
         <display>
-        <title>http/ngx_http_access_module-nginx中文参考手册</title>
-        <pubTime>2018-12-24T03:54:01.257Z</pubTime>
+        <title>http/ngx_http_auth_basic_module-nginx中文参考手册</title>
+        <pubTime>2018-12-24T03:54:01.261Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -4827,26 +4827,6 @@
 
     
   <url>
-    <loc>http://nginx.im/Nginx%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B.html</loc>
-    <lastmod>2018-03-05T04:58:45.346Z</lastmod>
-    <data>
-        <display>
-        <title>nginx启动流程</title>
-        <pubTime>2018-03-05T04:58:45.346Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx" url="http://nginx.im/categories/nginx/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://nginx.im/The-real-difference-between-$host-and-$http_host.html</loc>
     <lastmod>2018-03-05T04:58:45.346Z</lastmod>
     <data>
@@ -4864,6 +4844,28 @@
            
              
               <breadCrumb title="nginx" url="http://nginx.im/categories/nginx/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/centos7-rc-local%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E4%BF%AE%E5%A4%8D.html</loc>
+    <lastmod>2018-03-05T04:58:45.346Z</lastmod>
+    <data>
+        <display>
+        <title>centos7-rc-local不起作用修复</title>
+        <pubTime>2018-03-05T04:58:45.346Z</pubTime>
+        
+        <tag>centos7</tag>
+         
+        <tag>rc.local</tag>
+         
+         
+           
+             
+              <breadCrumb title="centos7" url="http://nginx.im/categories/centos7/"/>
           
         </display>
     </data>
@@ -4893,21 +4895,19 @@
 
     
   <url>
-    <loc>http://nginx.im/centos7-rc-local%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E4%BF%AE%E5%A4%8D.html</loc>
+    <loc>http://nginx.im/Nginx%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B.html</loc>
     <lastmod>2018-03-05T04:58:45.346Z</lastmod>
     <data>
         <display>
-        <title>centos7-rc-local不起作用修复</title>
+        <title>nginx启动流程</title>
         <pubTime>2018-03-05T04:58:45.346Z</pubTime>
         
-        <tag>centos7</tag>
-         
-        <tag>rc.local</tag>
+        <tag>nginx</tag>
          
          
            
              
-              <breadCrumb title="centos7" url="http://nginx.im/categories/centos7/"/>
+              <breadCrumb title="nginx" url="http://nginx.im/categories/nginx/"/>
           
         </display>
     </data>
