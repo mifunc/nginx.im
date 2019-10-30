@@ -379,26 +379,6 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/web/the-cdn-scheduler-nginx-haproxy-varnish.html</loc>
-    <lastmod>2018-12-24T09:31:52.653Z</lastmod>
-    <data>
-        <display>
-        <title>CDN调度器HAProxy、Nginx、Varnish-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.357Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://nginx.im/nginx/web/multiple-https-host-nginx-with-a-ip-configuration.html</loc>
     <lastmod>2018-12-24T09:31:52.653Z</lastmod>
     <data>
@@ -419,12 +399,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/web/apache-and-nginx-support-ssi-configuration.html</loc>
-    <lastmod>2018-12-24T09:31:52.652Z</lastmod>
+    <loc>http://nginx.im/nginx/web/the-cdn-scheduler-nginx-haproxy-varnish.html</loc>
+    <lastmod>2018-12-24T09:31:52.653Z</lastmod>
     <data>
         <display>
-        <title>apache和nginx支持SSI配置-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.353Z</pubTime>
+        <title>CDN调度器HAProxy、Nginx、Varnish-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.357Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -445,6 +425,26 @@
         <display>
         <title>nginx map使用方法-nginx案例</title>
         <pubTime>2018-12-24T09:31:16.349Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/web/apache-and-nginx-support-ssi-configuration.html</loc>
+    <lastmod>2018-12-24T09:31:52.652Z</lastmod>
+    <data>
+        <display>
+        <title>apache和nginx支持SSI配置-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.353Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -619,12 +619,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-speed-white-list-configuration.html</loc>
+    <loc>http://nginx.im/nginx/nginx/nginx-root_alias-file-path-configuration.html</loc>
     <lastmod>2018-12-24T09:31:52.644Z</lastmod>
     <data>
         <display>
-        <title>nginx限速白名单配置-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.325Z</pubTime>
+        <title>nginx root&alias文件路径配置-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.324Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -639,12 +639,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-root_alias-file-path-configuration.html</loc>
+    <loc>http://nginx.im/nginx/nginx/nginx-speed-white-list-configuration.html</loc>
     <lastmod>2018-12-24T09:31:52.644Z</lastmod>
     <data>
         <display>
-        <title>nginx root&alias文件路径配置-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.324Z</pubTime>
+        <title>nginx限速白名单配置-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.325Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -719,12 +719,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-proxy_set_header.html</loc>
+    <loc>http://nginx.im/nginx/nginx/nginx-php-5_5.html</loc>
     <lastmod>2018-12-24T09:31:52.641Z</lastmod>
     <data>
         <display>
-        <title>nginx反向代理proxy_set_header自定义header头无效-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.320Z</pubTime>
+        <title>nginx+PHP 5.5-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.316Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -739,12 +739,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-php-5_5.html</loc>
+    <loc>http://nginx.im/nginx/nginx/nginx-proxy_set_header.html</loc>
     <lastmod>2018-12-24T09:31:52.641Z</lastmod>
     <data>
         <display>
-        <title>nginx+PHP 5.5-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.316Z</pubTime>
+        <title>nginx反向代理proxy_set_header自定义header头无效-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.320Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -779,26 +779,6 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-modules-sysgurad.html</loc>
-    <lastmod>2018-12-24T09:31:52.638Z</lastmod>
-    <data>
-        <display>
-        <title>nginx防止高负载的解决方案(sysgurad模块)-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.312Z</pubTime>
-        
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://nginx.im/nginx/nginx/nginx-modules-secure_link.html</loc>
     <lastmod>2018-12-24T09:31:52.638Z</lastmod>
     <data>
@@ -819,12 +799,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-modules-perl_module.html</loc>
-    <lastmod>2018-12-24T09:31:52.637Z</lastmod>
+    <loc>http://nginx.im/nginx/nginx/nginx-modules-sysgurad.html</loc>
+    <lastmod>2018-12-24T09:31:52.638Z</lastmod>
     <data>
         <display>
-        <title>nginx+perl模块的使用-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.307Z</pubTime>
+        <title>nginx防止高负载的解决方案(sysgurad模块)-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.312Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -845,6 +825,26 @@
         <display>
         <title>nginx显示随机首页模块(Random Index)-nginx案例</title>
         <pubTime>2018-12-24T09:31:16.308Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="nginx案例" url="http://nginx.im/categories/nginx%E6%A1%88%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/nginx/nginx/nginx-modules-perl_module.html</loc>
+    <lastmod>2018-12-24T09:31:52.637Z</lastmod>
+    <data>
+        <display>
+        <title>nginx+perl模块的使用-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.307Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -1339,12 +1339,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-log-cutting.html</loc>
+    <loc>http://nginx.im/nginx/nginx/nginx-limited-connection-number-ngx_http_limit_conn_module-module.html</loc>
     <lastmod>2018-12-24T09:31:52.615Z</lastmod>
     <data>
         <display>
-        <title>nginx日志切割-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.266Z</pubTime>
+        <title>nginx限制连接数ngx_http_limit_conn_module模块-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.261Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -1359,12 +1359,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-limited-connection-number-ngx_http_limit_conn_module-module.html</loc>
+    <loc>http://nginx.im/nginx/nginx/nginx-log-cutting.html</loc>
     <lastmod>2018-12-24T09:31:52.615Z</lastmod>
     <data>
         <display>
-        <title>nginx限制连接数ngx_http_limit_conn_module模块-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.261Z</pubTime>
+        <title>nginx日志切割-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.266Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -1399,12 +1399,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-get-user-real-ip.html</loc>
+    <loc>http://nginx.im/nginx/nginx/nginx-install-on-linux.html</loc>
     <lastmod>2018-12-24T09:31:52.613Z</lastmod>
     <data>
         <display>
-        <title>CDN下nginx获取用户真实IP地址-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.257Z</pubTime>
+        <title>nginx安装-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.258Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -1419,12 +1419,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/nginx/nginx-install-on-linux.html</loc>
+    <loc>http://nginx.im/nginx/nginx/nginx-get-user-real-ip.html</loc>
     <lastmod>2018-12-24T09:31:52.613Z</lastmod>
     <data>
         <display>
-        <title>nginx安装-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.258Z</pubTime>
+        <title>CDN下nginx获取用户真实IP地址-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.257Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -1539,12 +1539,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/nginx/how-to-install-nginx-third-modules.html</loc>
+    <loc>http://nginx.im/nginx/nginx/memc_nginx_srcache_nginx_memcached-problems.html</loc>
     <lastmod>2018-12-24T09:31:52.608Z</lastmod>
     <data>
         <display>
-        <title>如何安装nginx第三方模块-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.240Z</pubTime>
+        <title>memc_nginx+srcache_nginx+memcached遇到的问题-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.245Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -1559,12 +1559,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/nginx/memc_nginx_srcache_nginx_memcached-problems.html</loc>
+    <loc>http://nginx.im/nginx/nginx/how-to-install-nginx-third-modules.html</loc>
     <lastmod>2018-12-24T09:31:52.608Z</lastmod>
     <data>
         <display>
-        <title>memc_nginx+srcache_nginx+memcached遇到的问题-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.245Z</pubTime>
+        <title>如何安装nginx第三方模块-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.240Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -1659,12 +1659,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/linux/nginx-modules-ngx_http_access_module.html</loc>
+    <loc>http://nginx.im/nginx/linux/the-nginx-log-configuration.html</loc>
     <lastmod>2018-12-24T09:31:52.604Z</lastmod>
     <data>
         <display>
-        <title>nginx访问控制allow、deny（ngx_http_access_module）-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.219Z</pubTime>
+        <title>nginx日志配置-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.227Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -1679,12 +1679,12 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx/linux/the-nginx-log-configuration.html</loc>
+    <loc>http://nginx.im/nginx/linux/nginx-modules-ngx_http_access_module.html</loc>
     <lastmod>2018-12-24T09:31:52.604Z</lastmod>
     <data>
         <display>
-        <title>nginx日志配置-nginx案例</title>
-        <pubTime>2018-12-24T09:31:16.227Z</pubTime>
+        <title>nginx访问控制allow、deny（ngx_http_access_module）-nginx案例</title>
+        <pubTime>2018-12-24T09:31:16.219Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -2459,12 +2459,12 @@
 
     
   <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_xslt_module.html</loc>
+    <loc>http://nginx.im/ngx/http/request_processing.html</loc>
     <lastmod>2018-12-24T03:54:08.261Z</lastmod>
     <data>
         <display>
-        <title>http/ngx_http_xslt_module-nginx中文参考手册</title>
-        <pubTime>2018-12-24T03:54:01.343Z</pubTime>
+        <title>http/request_processing-nginx中文参考手册</title>
+        <pubTime>2018-12-24T03:54:01.345Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -2479,12 +2479,12 @@
 
     
   <url>
-    <loc>http://nginx.im/ngx/http/request_processing.html</loc>
+    <loc>http://nginx.im/ngx/http/ngx_http_xslt_module.html</loc>
     <lastmod>2018-12-24T03:54:08.261Z</lastmod>
     <data>
         <display>
-        <title>http/request_processing-nginx中文参考手册</title>
-        <pubTime>2018-12-24T03:54:01.345Z</pubTime>
+        <title>http/ngx_http_xslt_module-nginx中文参考手册</title>
+        <pubTime>2018-12-24T03:54:01.343Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -3579,12 +3579,12 @@
 
     
   <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_gunzip_module.html</loc>
+    <loc>http://nginx.im/ngx/http/ngx_http_geo_module.html</loc>
     <lastmod>2018-12-24T03:54:08.191Z</lastmod>
     <data>
         <display>
-        <title>http/ngx_http_gunzip_module-nginx中文参考手册</title>
-        <pubTime>2018-12-24T03:54:01.282Z</pubTime>
+        <title>http/ngx_http_geo_module-nginx中文参考手册</title>
+        <pubTime>2018-12-24T03:54:01.278Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -3599,12 +3599,12 @@
 
     
   <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_geo_module.html</loc>
+    <loc>http://nginx.im/ngx/http/ngx_http_gunzip_module.html</loc>
     <lastmod>2018-12-24T03:54:08.191Z</lastmod>
     <data>
         <display>
-        <title>http/ngx_http_geo_module-nginx中文参考手册</title>
-        <pubTime>2018-12-24T03:54:01.278Z</pubTime>
+        <title>http/ngx_http_gunzip_module-nginx中文参考手册</title>
+        <pubTime>2018-12-24T03:54:01.282Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -3759,12 +3759,12 @@
 
     
   <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_access_module.html</loc>
+    <loc>http://nginx.im/ngx/http/ngx_http_auth_basic_module.html</loc>
     <lastmod>2018-12-24T03:54:08.184Z</lastmod>
     <data>
         <display>
-        <title>http/ngx_http_access_module-nginx中文参考手册</title>
-        <pubTime>2018-12-24T03:54:01.257Z</pubTime>
+        <title>http/ngx_http_auth_basic_module-nginx中文参考手册</title>
+        <pubTime>2018-12-24T03:54:01.261Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -3779,12 +3779,12 @@
 
     
   <url>
-    <loc>http://nginx.im/ngx/http/ngx_http_auth_basic_module.html</loc>
+    <loc>http://nginx.im/ngx/http/ngx_http_access_module.html</loc>
     <lastmod>2018-12-24T03:54:08.184Z</lastmod>
     <data>
         <display>
-        <title>http/ngx_http_auth_basic_module-nginx中文参考手册</title>
-        <pubTime>2018-12-24T03:54:01.261Z</pubTime>
+        <title>http/ngx_http_access_module-nginx中文参考手册</title>
+        <pubTime>2018-12-24T03:54:01.257Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -4511,6 +4511,26 @@
 
     
   <url>
+    <loc>http://nginx.im/spring-boot/spring-boot-Access-Control-Allow-Origin.html</loc>
+    <lastmod>2018-03-05T04:58:45.369Z</lastmod>
+    <data>
+        <display>
+        <title>springboot-Access-Control-Allow-Origin</title>
+        <pubTime>2018-03-05T04:58:45.369Z</pubTime>
+        
+        <tag>springboot</tag>
+         
+         
+           
+             
+              <breadCrumb title="springboot" url="http://nginx.im/categories/springboot/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://nginx.im/spring-boot-mybatis-druid%E6%95%B4%E5%90%88.html</loc>
     <lastmod>2018-03-05T04:58:45.369Z</lastmod>
     <data>
@@ -4550,26 +4570,6 @@
            
              
               <breadCrumb title="token" url="http://nginx.im/categories/token/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/spring-boot/spring-boot-Access-Control-Allow-Origin.html</loc>
-    <lastmod>2018-03-05T04:58:45.369Z</lastmod>
-    <data>
-        <display>
-        <title>springboot-Access-Control-Allow-Origin</title>
-        <pubTime>2018-03-05T04:58:45.369Z</pubTime>
-        
-        <tag>springboot</tag>
-         
-         
-           
-             
-              <breadCrumb title="springboot" url="http://nginx.im/categories/springboot/"/>
           
         </display>
     </data>
@@ -4619,16 +4619,22 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx-if%E6%8C%87%E4%BB%A4%E4%B8%8E%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F.html</loc>
+    <loc>http://nginx.im/nginx-args-query-string-uri%E8%AF%A6%E8%A7%A3.html</loc>
     <lastmod>2018-03-05T04:58:45.363Z</lastmod>
     <data>
         <display>
-        <title>nginx-if指令与全局变量</title>
+        <title>nginx-args-query-string-uri详解</title>
         <pubTime>2018-03-05T04:58:45.363Z</pubTime>
         
         <tag>nginx</tag>
          
-        <tag>if</tag>
+        <tag>uri</tag>
+         
+        <tag>query_string</tag>
+         
+        <tag>request_uri</tag>
+         
+        <tag>document_uri</tag>
          
          
            
@@ -4663,49 +4669,21 @@
 
     
   <url>
-    <loc>http://nginx.im/nginx-args-query-string-uri%E8%AF%A6%E8%A7%A3.html</loc>
+    <loc>http://nginx.im/nginx-if%E6%8C%87%E4%BB%A4%E4%B8%8E%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F.html</loc>
     <lastmod>2018-03-05T04:58:45.363Z</lastmod>
     <data>
         <display>
-        <title>nginx-args-query-string-uri详解</title>
+        <title>nginx-if指令与全局变量</title>
         <pubTime>2018-03-05T04:58:45.363Z</pubTime>
         
         <tag>nginx</tag>
          
-        <tag>uri</tag>
-         
-        <tag>query_string</tag>
-         
-        <tag>request_uri</tag>
-         
-        <tag>document_uri</tag>
+        <tag>if</tag>
          
          
            
              
               <breadCrumb title="nginx" url="http://nginx.im/categories/nginx/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://nginx.im/java%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88%E5%BA%94%E7%94%A8.html</loc>
-    <lastmod>2018-03-05T04:58:45.362Z</lastmod>
-    <data>
-        <display>
-        <title>java排列组合随机字符串应用</title>
-        <pubTime>2018-03-05T04:58:45.361Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>随机字符串</tag>
-         
-         
-           
-             
-              <breadCrumb title="java" url="http://nginx.im/categories/java/"/>
           
         </display>
     </data>
@@ -4728,6 +4706,28 @@
            
              
               <breadCrumb title="json" url="http://nginx.im/categories/json/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://nginx.im/java%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88%E5%BA%94%E7%94%A8.html</loc>
+    <lastmod>2018-03-05T04:58:45.362Z</lastmod>
+    <data>
+        <display>
+        <title>java排列组合随机字符串应用</title>
+        <pubTime>2018-03-05T04:58:45.361Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>随机字符串</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://nginx.im/categories/java/"/>
           
         </display>
     </data>
@@ -4827,23 +4827,21 @@
 
     
   <url>
-    <loc>http://nginx.im/The-real-difference-between-$host-and-$http_host.html</loc>
+    <loc>http://nginx.im/Failed%20to%20start%20component.html</loc>
     <lastmod>2018-03-05T04:58:45.346Z</lastmod>
     <data>
         <display>
-        <title>The real difference between $host and $http_host</title>
-        <pubTime>2018-03-05T04:58:45.346Z</pubTime>
+        <title>Faile- to-star- component-Unable-to-register-MBean</title>
+        <pubTime>2018-03-05T04:58:45.345Z</pubTime>
         
-        <tag>nginx</tag>
+        <tag>tomcat</tag>
          
-        <tag>host</tag>
-         
-        <tag>http_host</tag>
+        <tag>springboot</tag>
          
          
            
              
-              <breadCrumb title="nginx" url="http://nginx.im/categories/nginx/"/>
+              <breadCrumb title="springboot" url="http://nginx.im/categories/springboot/"/>
           
         </display>
     </data>
@@ -4873,21 +4871,23 @@
 
     
   <url>
-    <loc>http://nginx.im/Failed%20to%20start%20component.html</loc>
+    <loc>http://nginx.im/The-real-difference-between-$host-and-$http_host.html</loc>
     <lastmod>2018-03-05T04:58:45.346Z</lastmod>
     <data>
         <display>
-        <title>Faile- to-star- component-Unable-to-register-MBean</title>
-        <pubTime>2018-03-05T04:58:45.345Z</pubTime>
+        <title>The real difference between $host and $http_host</title>
+        <pubTime>2018-03-05T04:58:45.346Z</pubTime>
         
-        <tag>tomcat</tag>
+        <tag>nginx</tag>
          
-        <tag>springboot</tag>
+        <tag>host</tag>
+         
+        <tag>http_host</tag>
          
          
            
              
-              <breadCrumb title="springboot" url="http://nginx.im/categories/springboot/"/>
+              <breadCrumb title="nginx" url="http://nginx.im/categories/nginx/"/>
           
         </display>
     </data>
